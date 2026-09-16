@@ -10,6 +10,7 @@ on:
       - 'docs/**'
       - 'database/schema.sql'
       - 'database/content/**'
+      - 'database/audio/**'
       - '.github/workflows/project-contracts.yml'
   pull_request:
     paths:
@@ -20,6 +21,7 @@ on:
       - 'docs/**'
       - 'database/schema.sql'
       - 'database/content/**'
+      - 'database/audio/**'
       - '.github/workflows/project-contracts.yml'
 
 jobs:
@@ -49,3 +51,6 @@ jobs:
 
       - name: Validate shared cross-language contracts
         run: python scripts/validate_project_contracts.py
+
+      - name: Validate audio contracts
+        run: python scripts/validate_audio_contracts.py
