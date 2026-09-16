@@ -5,9 +5,9 @@
   "level": "Pre-A1",
   "unitRef": "de-pre-a1-unit-first-steps",
   "titleFa": "پیتزا دوست دارم",
-  "sourceTitle": "Magst du Pizza? / Ich mag Pizza sehr.",
+  "sourceTitle": "Magst du Pizza? / Ich mag Pizza.",
   "learningTargets": ["understand a simple question about liking pizza", "state a simple positive preference about pizza", "notice mag and magst as forms of mögen"],
-  "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-tatoeba-de-662061", "src-wiktionary-de-moegen", "src-wiktionary-de-pizza"],
+  "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-libra-de-ich-mag-pizza", "src-wiktionary-de-moegen", "src-wiktionary-de-pizza"],
   "lexemeRefs": ["lex-de-moegen", "lex-de-pizza"],
   "grammarNoteRefs": [],
   "activityDesign": {
@@ -21,7 +21,7 @@
       "type": "conversation_speaking",
       "instructionFa": "به سؤال میا دربارهٔ پیتزا جواب بده.",
       "selectionReason": "A familiar food preference creates an immediately understandable first use of mögen.",
-      "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-tatoeba-de-662061"],
+      "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-libra-de-ich-mag-pizza"],
       "learningTargets": ["understand a simple question about liking pizza", "state a simple positive preference about pizza"],
       "lexemeRefs": ["lex-de-moegen", "lex-de-pizza"],
       "dialogueRef": "dlg-de-pre-a1-pizza-like",
@@ -34,17 +34,17 @@
       "type": "word_order",
       "instructionFa": "جمله‌ای را که همین الان گفتی دوباره بساز.",
       "selectionReason": "Reconstructing the exact source sentence reinforces the new preference pattern without introducing new target-language content.",
-      "sourceRefs": ["src-tatoeba-de-662061"],
-      "learningTargets": ["reconstruct the source-backed statement Ich mag Pizza sehr."],
+      "sourceRefs": ["src-libra-de-ich-mag-pizza"],
+      "learningTargets": ["reconstruct the source-backed statement Ich mag Pizza."],
       "lexemeRefs": ["lex-de-moegen", "lex-de-pizza"],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Ich mag Pizza sehr.",
-        "tokens": ["Ich", "mag", "Pizza", "sehr."],
-        "answer": ["Ich", "mag", "Pizza", "sehr."],
+        "sourceText": "Ich mag Pizza.",
+        "tokens": ["Ich", "mag", "Pizza."],
+        "answer": ["Ich", "mag", "Pizza."],
         "tokenLexemeMappings": [
           {"token": "mag", "lexemeId": "lex-de-moegen", "lexemeFormId": "lexform-de-moegen-mag"},
-          {"token": "Pizza", "lexemeId": "lex-de-pizza", "lexemeFormId": null}
+          {"token": "Pizza.", "lexemeId": "lex-de-pizza", "lexemeFormId": null}
         ]
       },
       "transformations": ["sentence_tokenized_for_word_order"],
