@@ -9,6 +9,7 @@ What is preserved here is only the finalized project framework:
 - editorial/content rules;
 - source and provenance policy;
 - CEFR planning rules;
+- fully dynamic content-generation rules;
 - activity and conversation rules;
 - character and future audio rules;
 - lexeme and inflected/variant-form architecture;
@@ -16,7 +17,7 @@ What is preserved here is only the finalized project framework:
 - database architecture decisions;
 - JSON content contracts.
 
-Start with [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md), then read [`docs/CONTENT_RULES.md`](docs/CONTENT_RULES.md) and [`docs/SOURCE_POLICY.md`](docs/SOURCE_POLICY.md).
+Start with [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md), [`docs/DYNAMIC_CONTENT_MODEL.md`](docs/DYNAMIC_CONTENT_MODEL.md), [`docs/CONTENT_RULES.md`](docs/CONTENT_RULES.md) and [`docs/SOURCE_POLICY.md`](docs/SOURCE_POLICY.md).
 
 ## Canonical technical direction
 
@@ -25,9 +26,10 @@ Start with [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md), then read [
 - Final language deliverables must be exportable as complete MySQL `.sql` files.
 - Persian is the support/UI language.
 - CEFR levels: `Pre-A1`, `A1`, `A2`, `B1`, `B2`, `C1`, `C2`.
-- Lesson counts are dynamic per language and level.
-- Activity counts and post-opening activity order are dynamic per lesson.
-- Every lesson begins with `conversation_speaking`.
+- **No fixed or preferred numeric count is used to design units, lessons, activities, opening-conversation turns, learner turns, or review cadence.**
+- Counts are derived outputs of source-backed coverage and QA, never authoring quotas.
+- Every finalized lesson begins with `conversation_speaking`; everything after that is dynamically selected.
+- Opening-conversation length is determined by the scene, source material and learning need, not by a turn threshold.
 - Target-language instructional content must be source-backed and provenance-preserving.
 - `lexemes` represent lexical identity; approved inflected/variant surfaces resolve through `lexeme_forms` rather than becoming duplicate lexemes.
 - Surface-form lookup must support ambiguity and must not assume one written form uniquely identifies one lexeme.
