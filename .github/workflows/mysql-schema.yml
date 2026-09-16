@@ -33,7 +33,6 @@ jobs:
         run: |
           python - <<'PY'
           import json, pathlib, re, sys
-
           fa = re.compile(r'[\u0600-\u06FF]')
           authored = {
               'structureRationale','groupingRationale','activitySelectionRationale',
@@ -43,10 +42,8 @@ jobs:
           }
           image_keys = {'image','imageurl','imageref','picture','photo','illustration','thumbnail','thumbnailurl','thumbnailref'}
           errors=[]
-
           def image_key(k):
               return re.sub(r'[_\-\s]','',str(k)).lower() in image_keys
-
           for path in pathlib.Path('content').rglob('*.json'):
               data=json.loads(path.read_text(encoding='utf-8'))
               is_source='sources' in path.parts
@@ -54,8 +51,7 @@ jobs:
                   if isinstance(v,dict):
                       for k,ch in v.items():
                           here=f'{loc}.{k}'
-                          if image_key(k):
-                              errors.append(f'{path}:{here}: image-bearing field is forbidden')
+                          if image_key(k): errors.append(f'{path}:{here}: image-bearing field is forbidden')
                           if not is_source and k in authored and isinstance(ch,str) and ch.strip() and not fa.search(ch):
                               errors.append(f'{path}:{here}: authored prose must be Persian: {ch!r}')
                           if not is_source and k=='learningTargets' and isinstance(ch,list):
@@ -72,63 +68,44 @@ jobs:
                   elif isinstance(v,list):
                       for i,ch in enumerate(v): walk(ch,f'{loc}[{i}]')
               walk(data)
-
           dialogues={}
           for path in pathlib.Path('content').glob('*/*/dialogues/*.json'):
-              d=json.loads(path.read_text(encoding='utf-8'))
-              dialogues[d['id']]=d
+              d=json.loads(path.read_text(encoding='utf-8')); dialogues[d['id']]=d
               turns=d.get('turns',[])
-              if not 4 <= len(turns) <= 12:
-                  errors.append(f'{path}: expected 4–12 turns, got {len(turns)}')
+              if not 4 <= len(turns) <= 12: errors.append(f'{path}: expected 4–12 turns, got {len(turns)}')
               init=d.get('openingInitiator')
-              if init not in {'app','learner'}:
-                  errors.append(f'{path}: invalid openingInitiator')
+              if init not in {'app','learner'}: errors.append(f'{path}: invalid openingInitiator')
               elif turns and bool(turns[0].get('learnerTurn')) != (init=='learner'):
                   errors.append(f'{path}: openingInitiator conflicts with turn 1')
-
           lessons={}
           for path in pathlib.Path('content').glob('*/*/lessons/*.json'):
-              lesson=json.loads(path.read_text(encoding='utf-8'))
-              lessons[lesson['id']]=(path,lesson)
+              lesson=json.loads(path.read_text(encoding='utf-8')); lessons[lesson['id']]=(path,lesson)
               acts=lesson.get('activities',[])
-              if acts and acts[0].get('type')!='conversation_speaking':
-                  errors.append(f'{path}: first activity must be conversation_speaking')
+              if acts and acts[0].get('type')!='conversation_speaking': errors.append(f'{path}: first activity must be conversation_speaking')
               for a in acts:
                   ref=a.get('dialogueRef')
                   if ref in dialogues:
                       init=dialogues[ref]['openingInitiator']
-                      if a.get('data',{}).get('openingInitiator')!=init:
-                          errors.append(f"{path}: {a.get('id')} initiator mismatch")
-                      if init=='learner' and 'شروع' not in a.get('instructionFa',''):
-                          errors.append(f"{path}: {a.get('id')} must explicitly ask learner to start")
-
-          # Product rule: the first ten lessons of each language's beginner path
-          # use exactly four opening turns. Pre-A1 is the beginner path when it exists.
+                      if a.get('data',{}).get('openingInitiator')!=init: errors.append(f"{path}: {a.get('id')} initiator mismatch")
+                      if init=='learner' and 'شروع' not in a.get('instructionFa',''): errors.append(f"{path}: {a.get('id')} must explicitly ask learner to start")
           cefr_order={'Pre-A1':0,'A1':1,'A2':2,'B1':3,'B2':4,'C1':5,'C2':6}
           manifests_by_language={}
           for path in pathlib.Path('content').glob('*/*/level.json'):
               level=json.loads(path.read_text(encoding='utf-8'))
               manifests_by_language.setdefault(level['languageId'],[]).append((path,level))
-
           for language_id, manifests in manifests_by_language.items():
               beginner_path, beginner=min(manifests,key=lambda item:cefr_order[item[1]['level']])
               for lesson_id in beginner.get('lessonRefs',[])[:10]:
                   if lesson_id not in lessons:
-                      errors.append(f'{beginner_path}: missing beginner lesson {lesson_id}')
-                      continue
-                  lesson_path, lesson=lessons[lesson_id]
-                  acts=lesson.get('activities',[])
+                      errors.append(f'{beginner_path}: missing beginner lesson {lesson_id}'); continue
+                  lesson_path, lesson=lessons[lesson_id]; acts=lesson.get('activities',[])
                   if not acts or not acts[0].get('dialogueRef'):
-                      errors.append(f'{lesson_path}: beginner lesson has no opening dialogue')
-                      continue
+                      errors.append(f'{lesson_path}: beginner lesson has no opening dialogue'); continue
                   ref=acts[0]['dialogueRef']
                   if ref not in dialogues:
-                      errors.append(f'{lesson_path}: opening dialogue {ref} not found')
-                      continue
-                  count=len(dialogues[ref].get('turns',[]))
-                  if count != 4:
-                      errors.append(f'{lesson_path}: first ten beginner lessons require exactly 4 turns; got {count}')
-
+                      errors.append(f'{lesson_path}: opening dialogue {ref} not found'); continue
+                  if len(dialogues[ref].get('turns',[])) != 4:
+                      errors.append(f'{lesson_path}: first ten beginner lessons require exactly 4 turns')
           if errors:
               print('\n'.join(errors)); sys.exit(1)
           print('Authoring checks passed.')
@@ -151,24 +128,33 @@ jobs:
           echo "After:  $after"
           test "$before" = "$after"
 
-      - name: Verify dialogue/source/form rules in MySQL
+      - name: Verify authoring and MySQL content stay in sync
+        run: |
+          expected_lessons="$(python - <<'PY'
+          import json
+          with open('content/de/pre-a1/level.json',encoding='utf-8') as f:
+              print(len(json.load(f)['lessonRefs']))
+          PY
+          )"
+          db_lessons="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM lessons l JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1';" | tr -d '\r[:space:]')"
+          echo "Manifest lessons: $expected_lessons; MySQL lessons: $db_lessons"
+          test "$db_lessons" = "$expected_lessons"
+
+      - name: Verify dialogue, source and lexeme-form rules in MySQL
         run: |
           invalid_turns="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM (SELECT a.dialogue_id,COUNT(t.id)c FROM activities a JOIN lessons l ON l.id=a.lesson_id JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id JOIN dialogue_turns t ON t.dialogue_id=a.dialogue_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND a.position_index=1 AND a.activity_type='conversation_speaking' GROUP BY a.dialogue_id HAVING c<4 OR c>12)x;" | tr -d '\r[:space:]')"
           invalid_first_ten="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM (SELECT l.id,COUNT(t.id)c FROM lessons l JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id JOIN activities a ON a.lesson_id=l.id AND a.position_index=1 AND a.activity_type='conversation_speaking' JOIN dialogue_turns t ON t.dialogue_id=a.dialogue_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND l.sequence_index<=10 GROUP BY l.id HAVING c<>4)x;" | tr -d '\r[:space:]')"
           starters="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT SUM(t.learner_turn=1),SUM(t.learner_turn=0) FROM dialogue_turns t JOIN activities a ON a.dialogue_id=t.dialogue_id JOIN lessons l ON l.id=a.lesson_id JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND a.position_index=1 AND a.activity_type='conversation_speaking' AND t.position_index=1;" | tr -d '\r')"
-          learner_starts="$(echo "$starters"|awk '{print $1}')"
-          app_starts="$(echo "$starters"|awk '{print $2}')"
+          learner_starts="$(echo "$starters"|awk '{print $1}')"; app_starts="$(echo "$starters"|awk '{print $2}')"
           invalid_sources="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM v_invalid_learner_facing_source_links;" | tr -d '\r[:space:]')"
-          forms="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM lexeme_forms lf JOIN lexemes l ON l.id=lf.lexeme_id WHERE l.lexeme_key='lex-de-moegen' AND lf.lexeme_form_key IN ('lexform-de-moegen-mag','lexform-de-moegen-magst') AND lf.review_status='approved';" | tr -d '\r[:space:]')"
+          moegen_forms="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM lexeme_forms lf JOIN lexemes l ON l.id=lf.lexeme_id WHERE l.lexeme_key='lex-de-moegen' AND lf.lexeme_form_key IN ('lexform-de-moegen-mag','lexform-de-moegen-magst') AND lf.review_status='approved';" | tr -d '\r[:space:]')"
+          heissen_forms="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM lexeme_forms lf JOIN lexemes l ON l.id=lf.lexeme_id WHERE l.lexeme_key='lex-de-heissen' AND lf.lexeme_form_key IN ('lexform-de-heissen-heisse','lexform-de-heissen-heisst') AND lf.review_status='approved';" | tr -d '\r[:space:]')"
           wellbeing="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT status FROM curriculum_targets WHERE target_key='de.pre_a1.basic_wellbeing';" | tr -d '\r[:space:]')"
-          echo "Invalid overall lengths: $invalid_turns; invalid first-ten lengths: $invalid_first_ten; learner starts: $learner_starts; app starts: $app_starts"
-          test "$invalid_turns" = "0"
-          test "$invalid_first_ten" = "0"
-          test "$learner_starts" -gt 0
-          test "$app_starts" -gt 0
-          test "$invalid_sources" = "0"
-          test "$forms" = "2"
-          test "$wellbeing" = "uncovered"
+          echo "Invalid lengths: $invalid_turns; first-ten: $invalid_first_ten; learner starts: $learner_starts; app starts: $app_starts"
+          test "$invalid_turns" = "0"; test "$invalid_first_ten" = "0"
+          test "$learner_starts" -gt 0; test "$app_starts" -gt 0
+          test "$invalid_sources" = "0"; test "$moegen_forms" = "2"; test "$heissen_forms" = "2"
+          test "$wellbeing" = "partial"
 
       - name: Verify Persian editorial columns after MySQL import
         run: |
@@ -196,8 +182,6 @@ jobs:
           lines=[bytes.fromhex(x).decode('utf-8') for x in hex_lines]
           bad=[x for x in lines if not fa.search(x)]
           if bad:
-              print('Non-Persian editorial rows:')
-              print('\n'.join(bad))
-              sys.exit(1)
+              print('Non-Persian editorial rows:'); print('\n'.join(bad)); sys.exit(1)
           print(f'Persian editorial DB check passed for {len(lines)} rows.')
           PY
