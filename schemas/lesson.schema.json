@@ -10,7 +10,10 @@
     "id": {"type": "string", "minLength": 1},
     "languageId": {"type": "string", "minLength": 1},
     "level": {"enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2"]},
-    "unitOrTopic": {"type": ["string", "null"]},
+    "unitRef": {
+      "type": ["string", "null"],
+      "description": "Optional while planning. Unit assignment is based on pedagogical grouping, never target unit capacity."
+    },
     "titleFa": {"type": "string", "minLength": 1},
     "sourceTitle": {"type": ["string", "null"]},
     "learningTargets": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
@@ -21,7 +24,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "activityCountRationale": {"type": "string"},
+        "activitySelectionRationale": {
+          "type": "string",
+          "description": "Why the selected activities are pedagogically needed. Numeric target counts are not valid rationale."
+        },
         "sequenceRationale": {"type": "string"},
         "templateSignature": {"type": "string", "description": "Optional derived signature used by QA to detect repetitive neighboring lesson patterns."}
       }
@@ -29,7 +35,7 @@
     "activities": {
       "type": "array",
       "minItems": 1,
-      "description": "Dynamic-length sequence. Only the first activity type is fixed.",
+      "description": "Dynamic-length sequence. The only structural invariant is that a finalized lesson opens with conversation_speaking; there is no target/min/max/preferred activity count for sizing.",
       "prefixItems": [
         {
           "allOf": [
