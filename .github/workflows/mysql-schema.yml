@@ -29,6 +29,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Verify MySQL server version
+        run: |
+          version="$(docker run --rm --network host mysql:9.0.1 \
+            mysql -N -s -h127.0.0.1 -uroot -proot \
+            -e "SELECT VERSION();" | tr -d '\r[:space:]')"
+          echo "MySQL version: $version"
+          test "$version" = "9.0.1"
+
       - name: Apply schema on MySQL 9.0.1
         run: |
           docker run --rm --network host mysql:9.0.1 \
@@ -41,9 +49,34 @@ jobs:
             mysql -h127.0.0.1 -uroot -proot language_content_test \
             < database/schema.sql
 
-      - name: Verify core objects
+      - name: Verify core tables and views
         run: |
           docker run --rm --network host mysql:9.0.1 \
-            mysql -N -h127.0.0.1 -uroot -proot language_content_test \
-            -e "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='language_content_test' AND table_name IN ('languages','lessons','activities','lexemes','lexeme_forms','lexeme_occurrences','sources');" \
-            | grep -qx '7'
+            mysql -h127.0.0.1 -uroot -proot language_content_test \
+            -e "
+              SELECT 1 FROM languages LIMIT 0;
+              SELECT 1 FROM language_levels LIMIT 0;
+              SELECT 1 FROM units LIMIT 0;
+              SELECT 1 FROM lessons LIMIT 0;
+              SELECT 1 FROM activities LIMIT 0;
+              SELECT 1 FROM dialogues LIMIT 0;
+              SELECT 1 FROM dialogue_turns LIMIT 0;
+              SELECT 1 FROM sources LIMIT 0;
+              SELECT 1 FROM source_items LIMIT 0;
+              SELECT 1 FROM lexemes LIMIT 0;
+              SELECT 1 FROM lexeme_forms LIMIT 0;
+              SELECT 1 FROM lexeme_occurrences LIMIT 0;
+              SELECT 1 FROM v_learner_facing_source_items LIMIT 0;
+              SELECT 1 FROM v_lexeme_surface_candidates LIMIT 0;
+              SELECT 1 FROM v_language_level_structure_counts LIMIT 0;
+              SELECT 1 FROM v_invalid_learner_facing_source_links LIMIT 0;
+            "
+
+      - name: Verify required triggers
+        run: |
+          trigger_count="$(docker run --rm --network host mysql:9.0.1 \
+            mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
+            -e "SELECT COUNT(*) FROM information_schema.triggers WHERE trigger_schema='language_content_test' AND trigger_name IN ('trg_lexeme_occurrences_bi','trg_lexeme_occurrences_bu','trg_lessons_bi_final_guard','trg_lessons_bu_final_guard','trg_activities_bi_final_guard','trg_activities_bd_final_guard','trg_activities_bu_final_guard');" \
+            | tr -d '\r[:space:]')"
+          echo "Required trigger count: $trigger_count"
+          test "$trigger_count" = "7"
