@@ -1,8 +1,8 @@
-# Language Learning Project — Content-Free Baseline
+# Language Learning Project — Rules-Only Baseline
 
-This repository is the clean foundation for the language-learning project.
+This repository is the clean rules/contracts foundation for the language-learning project.
 
-**It intentionally contains no educational course content.** There are no lessons, dialogues, vocabulary lists, grammar items, curriculum plans, source excerpts, language manifests, or language-specific content batches in this repository yet.
+**It intentionally contains no educational course content.** There are no lessons, dialogues, vocabulary lists, grammar items, curriculum plans, source excerpts, language manifests, seed data, or language-specific content batches.
 
 What is preserved here is only the finalized project framework:
 
@@ -12,9 +12,8 @@ What is preserved here is only the finalized project framework:
 - activity and conversation rules;
 - character and future audio rules;
 - QA rules;
-- JSON content contracts;
-- the canonical MySQL 9.0.1 schema and generic QA queries;
-- a CI check that verifies the schema and confirms the baseline remains content-free.
+- database architecture decisions;
+- JSON content contracts.
 
 Start with [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md), then read [`docs/CONTENT_RULES.md`](docs/CONTENT_RULES.md) and [`docs/SOURCE_POLICY.md`](docs/SOURCE_POLICY.md).
 
@@ -34,11 +33,8 @@ Start with [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md), then read [
 ## Repository layout
 
 ```text
-/docs/                  Finalized project and editorial rules
-/schemas/               Content contracts only; no content instances
-/database/schema.sql    Canonical empty MySQL content schema
-/database/qa_queries.sql Generic QA checks
-/.github/workflows/     Content-free baseline CI
+/docs/      Finalized project, editorial, QA and architecture rules
+/schemas/   Formal content contracts only; no content instances
 ```
 
-No `/content`, `/database/content`, or language-specific curriculum-plan directory is included by design.
+The old repository's educational content, curriculum plans, source maps, SQL content batches, language manifests and German Pre-A1 implementation are deliberately excluded. Database implementation and CI can be rebuilt later from these finalized rules when content production begins.
