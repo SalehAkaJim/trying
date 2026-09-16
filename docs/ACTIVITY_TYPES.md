@@ -1,22 +1,22 @@
 # Activity Types
 
-The activity engine is intentionally composable. Only the first activity is fixed: every lesson begins with `conversation_speaking`. Everything after that is selected from the lesson's actual source material and learning targets.
+The activity engine is intentionally composable. Every finalized lesson opens with `conversation_speaking`. Everything after that is selected from the lesson's actual source material, learning targets, progression role and practice needs.
 
 ## Sequencing rules
 
-1. `conversation_speaking` must be activity #1.
-2. There is no fixed minimum beyond what the lesson needs to teach its targets coherently.
-3. There is no fixed universal maximum at the content layer.
-4. A short lesson may have 2 activities; a dense lesson may have 10 or more.
-5. Do not force every lesson through the same pattern.
-6. Avoid predictable neighboring-lesson patterns.
-7. Repetition is allowed when pedagogically useful, but not because a template requires it.
-8. Activity selection must be explainable through `learningTargets`, `sourceRefs`, and optional `selectionReason`.
+- `conversation_speaking` is the opening activity.
+- There is no target, minimum, maximum or preferred activity count used for lesson sizing.
+- There is no universal post-opening sequence.
+- Do not force lessons through the same pattern.
+- Avoid predictable neighboring-lesson patterns unless target-driven repetition is pedagogically justified.
+- Repetition is allowed when pedagogically useful, never because a template requires it.
+- Activity selection must be explainable through `learningTargets`, `sourceRefs`, and optional `selectionReason`.
+- Stop adding activities when the lesson has the practice it needs in the wider curriculum; do not stop because a numeric limit was reached.
 
-## Initial activity catalog
+## Activity catalog
 
 ### `conversation_speaking`
-Required opening activity. Two or more turns form a context. App-played character lines may use future TTS. Learner turns display the exact source-backed sentence/word/phrase the learner is expected to read aloud.
+Required opening activity for a finalized lesson. It establishes a real source-backed communicative context. Its turn count, speaker count and learner-turn count are fully scene-driven and have no target or preferred range. App-played character lines may use future TTS. Learner turns display the exact source-backed sentence/word/phrase expected for that step.
 
 ### `listen_choose`
 Learner hears source-backed target-language material and chooses the correct interpretation/continuation from options.
@@ -56,32 +56,12 @@ Reuses content already encountered in the course to consolidate learning. It mus
 
 ## Variety guidance
 
-Variety is measured across several dimensions:
+Variety is evaluated across dimensions such as:
 - modality: speaking, listening, reading, recognition, reconstruction;
 - response form: voice, choice, ordering, matching, completion;
 - cognitive demand: recognition, recall, reconstruction, contextual choice;
 - content granularity: word, phrase, sentence, dialogue turn, short passage.
 
-The authoring system should prefer a varied sequence when several activity types can teach the same objective, but it must not randomize blindly. Pedagogical fit wins over novelty.
+The authoring system should prefer varied practice when several activity types fit the same objective, but it must not randomize blindly. Pedagogical fit wins over novelty.
 
-## Example valid lesson shapes
-
-These are examples, not templates:
-
-```text
-conversation_speaking -> pronunciation_read
-```
-
-```text
-conversation_speaking -> matching -> word_order -> listen_choose
-```
-
-```text
-conversation_speaking -> fill_blank -> grammar_focus -> choose_response -> pronunciation_read -> review
-```
-
-```text
-conversation_speaking -> listen_repeat -> comprehension -> multiple_choice -> word_order -> matching -> fill_blank -> pronunciation_read -> choose_response -> review
-```
-
-A future authoring/QA tool should flag excessive template similarity across adjacent lessons.
+There is deliberately no catalog of canonical lesson shapes. Any example sequence can become an accidental template, so lesson shape must be generated from the actual lesson targets and source material each time.
