@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "activity.schema.json",
+  "title": "Lesson Activity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "sourceRefs", "learningTargets", "data", "audioStatus"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "type": {
+      "enum": [
+        "conversation_speaking",
+        "listen_choose",
+        "multiple_choice",
+        "choose_response",
+        "word_order",
+        "fill_blank",
+        "matching",
+        "listen_repeat",
+        "pronunciation_read",
+        "grammar_focus",
+        "comprehension",
+        "true_false",
+        "review"
+      ]
+    },
+    "instructionFa": {"type": "string"},
+    "selectionReason": {"type": "string"},
+    "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "learningTargets": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "lexemeRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "dialogueRef": {"type": ["string", "null"]},
+    "data": {
+      "type": "object",
+      "description": "Activity-specific payload. Target-language instructional text inside this object must remain source-backed.",
+      "additionalProperties": true
+    },
+    "transformations": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "verbatim_dialogue",
+          "persian_translation_added",
+          "sentence_tokenized_for_word_order",
+          "source_sentence_blank_created",
+          "source_items_grouped_for_matching",
+          "options_selected_from_source_material",
+          "character_metadata_added",
+          "cefr_level_assigned_by_app",
+          "other"
+        ]
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "audioStatus": {"enum": ["not_planned_yet", "pending_final_language", "ready"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"type": {"const": "conversation_speaking"}}, "required": ["type"]},
+      "then": {"required": ["dialogueRef"]}
+    }
+  ]
+}
