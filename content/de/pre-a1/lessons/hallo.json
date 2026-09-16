@@ -5,12 +5,12 @@
   "level": "Pre-A1",
   "unitRef": "de-pre-a1-unit-first-steps",
   "titleFa": "سلام!",
-  "sourceTitle": "hallo / Wie geht's? / Gut. / Tschüss!",
-  "learningTargets": ["در یک برخورد ساده با «Hallo!» سلام کند.","پرسش کوتاه «Wie geht's?» را بفهمد و با «Gut.» پاسخ دهد.","با «Tschüss!» خداحافظی کند."],
+  "sourceTitle": "hallo / Tschüss!",
+  "learningTargets": ["در یک برخورد ساده با «Hallo!» سلام کند.","با «Tschüss!» خداحافظی کند."],
   "sourceRefs": ["src-wiktionary-de-hallo","src-wikibooks-de-basic-greetings"],
-  "lexemeRefs": ["lex-de-hallo","lex-de-wie-gehts","lex-de-gut","lex-de-tschuess"],
+  "lexemeRefs": ["lex-de-hallo","lex-de-tschuess"],
   "grammarNoteRefs": [],
-  "activityDesign": {"activitySelectionRationale":"گفت‌وگوی آغازین خودش چرخهٔ کامل سلام، احوال‌پرسی بسیار کوتاه و خداحافظی را تمرین می‌کند؛ در این مرحله فعالیت اضافه‌ای لازم نیست.","sequenceRationale":"زبان‌آموز از همان ابتدا در یک گفت‌وگوی خیلی ساده شرکت می‌کند و عبارت‌ها را در بافت می‌بیند.","templateSignature":"conversation_speaking"},
-  "activities": [{"id":"act-de-hallo-conversation","type":"conversation_speaking","instructionFa":"با میا یک گفت‌وگوی خیلی ساده را از سلام تا خداحافظی انجام بده.","selectionReason":"هدف درس یک تعامل گفتاری پایه است و خود مکالمه تمرین اصلی و کافی این مرحله را فراهم می‌کند.","sourceRefs":["src-wiktionary-de-hallo","src-wikibooks-de-basic-greetings"],"learningTargets":["سلام‌کردن، پاسخ کوتاه به احوال‌پرسی و خداحافظی در یک گفت‌وگوی بسیار ساده."],"lexemeRefs":["lex-de-hallo","lex-de-wie-gehts","lex-de-gut","lex-de-tschuess"],"dialogueRef":"dlg-de-pre-a1-hallo","data":{"interaction":"read_aloud_exchange","openingInitiator":"app"},"transformations":["persian_translation_added","character_metadata_added"],"audioStatus":"pending_final_language"}],
+  "activityDesign": {"activitySelectionRationale":"برای درس اول، یک گفت‌وگوی چهار turn از سلام تا خداحافظی کافی است و بار زبانی بیشتری اضافه نمی‌شود.","sequenceRationale":"زبان‌آموز فقط دو عبارت بسیار پایه را در یک رفت‌وبرگشت کوتاه استفاده می‌کند.","templateSignature":"conversation_speaking"},
+  "activities": [{"id":"act-de-hallo-conversation","type":"conversation_speaking","instructionFa":"با میا یک گفت‌وگوی خیلی کوتاه از سلام تا خداحافظی انجام بده.","selectionReason":"برای شروع دوره همین تعامل چهار turn هدف اصلی را پوشش می‌دهد و تمرین اضافه لازم نیست.","sourceRefs":["src-wiktionary-de-hallo","src-wikibooks-de-basic-greetings"],"learningTargets":["سلام‌کردن و خداحافظی در یک گفت‌وگوی بسیار ساده."],"lexemeRefs":["lex-de-hallo","lex-de-tschuess"],"dialogueRef":"dlg-de-pre-a1-hallo","data":{"interaction":"read_aloud_exchange","openingInitiator":"app"},"transformations":["persian_translation_added","character_metadata_added"],"audioStatus":"pending_final_language"}],
   "status":"draft","audioStatus":"blocked_until_language_final"
 }
