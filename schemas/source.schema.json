@@ -8,31 +8,32 @@
   "properties": {
     "schemaVersion": {"type": "string"},
     "id": {"type": "string", "minLength": 1},
-    "title": {"type": "string", "minLength": 1},
-    "organizationOrAuthor": {"type": ["string", "null"]},
+    "title": {"type": "string", "minLength": 1, "description": "Exact or bibliographically useful source title; may remain in its original language."},
+    "organizationOrAuthor": {"type": ["string", "null"], "description": "Official source/author metadata; may remain in its original language."},
     "language": {"type": "string", "minLength": 2},
-    "sourceType": {"enum": ["course", "book", "website", "corpus", "dictionary", "grammar_reference", "audio_course", "other"]},
+    "sourceType": {"enum": ["course", "book", "website", "corpus", "dictionary", "grammar_reference", "audio_course", "other"], "description": "Stable code; Persian label is resolved through config/fa-taxonomy.json."},
     "url": {"type": ["string", "null"], "format": "uri"},
-    "locator": {"type": ["string", "null"], "description": "Unit, lesson, page, section or item locator."},
+    "locator": {"type": ["string", "null"], "description": "Exact unit, lesson, page, section or item locator; may remain in the source language when useful for traceability."},
     "publishedOrUpdatedAt": {
       "type": ["string", "null"],
       "description": "Publication/revision date or year when known. This is evidence, not a universal age cutoff."
     },
     "modernityStatus": {
       "enum": ["contemporary_verified", "maintained_current", "historical_or_legacy", "needs_currency_review"],
-      "description": "Learner-facing content may rely only on contemporary_verified or maintained_current sources."
+      "description": "Stable code; Persian label is resolved through config/fa-taxonomy.json. Learner-facing content may rely only on contemporary_verified or maintained_current sources."
     },
     "currencyEvidence": {
       "type": "string",
       "minLength": 1,
-      "description": "Why this source is considered current or why it is restricted as legacy/uncertain."
+      "pattern": "[\\u0600-\\u06FF]",
+      "description": "Assistant-authored explanation of source currency/modernity. It must be written in Persian."
     },
     "licenseName": {"type": ["string", "null"]},
     "licenseUrl": {"type": ["string", "null"], "format": "uri"},
-    "attributionText": {"type": ["string", "null"]},
-    "reuseStatus": {"enum": ["direct_reuse_allowed", "reuse_with_attribution", "analysis_only", "needs_review"]},
+    "attributionText": {"type": ["string", "null"], "description": "Exact attribution/bibliographic text may remain in its official form."},
+    "reuseStatus": {"enum": ["direct_reuse_allowed", "reuse_with_attribution", "analysis_only", "needs_review"], "description": "Stable code; Persian label is resolved through config/fa-taxonomy.json."},
     "retrievedAt": {"type": ["string", "null"], "format": "date"},
-    "notes": {"type": "string"}
+    "notes": {"type": "string", "minLength": 1, "pattern": "[\\u0600-\\u06FF]", "description": "Assistant-authored source note; must be Persian."}
   },
   "allOf": [
     {
