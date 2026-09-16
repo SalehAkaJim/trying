@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "level.schema.json",
+  "title": "CEFR Level Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "languageId", "level", "status", "plannedLessonCount", "lessonCountStatus", "coverage"],
+  "properties": {
+    "schemaVersion": {"type": "string"},
+    "id": {"type": "string", "minLength": 1},
+    "languageId": {"type": "string", "minLength": 1},
+    "level": {"enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2"]},
+    "status": {"enum": ["unassessed", "planning", "building", "review", "final"]},
+    "plannedLessonCount": {"type": ["integer", "null"], "minimum": 1},
+    "lessonCountStatus": {"enum": ["unassessed", "provisional", "final"]},
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["communicativeTargets", "linguisticTargets", "situations", "gaps"],
+      "properties": {
+        "communicativeTargets": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "linguisticTargets": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "situations": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "gaps": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "sourceRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "lessonRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "notes": {"type": "string"}
+  }
+}
