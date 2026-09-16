@@ -1,0 +1,223 @@
+{
+  "schemaVersion": "1.0.0",
+  "locale": "fa",
+  "descriptionFa": "مرجع مرکزی معادل فارسی همهٔ کدهای معنایی و طبقه‌بندی پروژه. کدهای فنی برای پایداری API و دیتابیس حفظ می‌شوند اما هر کد قابل‌تفسیر باید معادل فارسی ذخیره‌شده داشته باشد.",
+  "domains": {
+    "language_status": {
+      "planned": "برنامه‌ریزی‌شده",
+      "building": "در حال ساخت",
+      "review": "در حال بازبینی",
+      "final": "نهایی",
+      "audio_ready": "صوت آماده"
+    },
+    "cefr_level": {
+      "Pre-A1": "پیش از A1",
+      "A1": "A1",
+      "A2": "A2",
+      "B1": "B1",
+      "B2": "B2",
+      "C1": "C1",
+      "C2": "C2"
+    },
+    "level_status": {
+      "unassessed": "ارزیابی‌نشده",
+      "planning": "در حال برنامه‌ریزی",
+      "building": "در حال ساخت",
+      "review": "در حال بازبینی",
+      "final": "نهایی"
+    },
+    "curriculum_target_type": {
+      "communicative": "ارتباطی",
+      "linguistic": "زبانی",
+      "situation": "موقعیتی",
+      "pronunciation": "تلفظ",
+      "grammar": "دستور زبان",
+      "lexical": "واژگانی",
+      "review": "مرور",
+      "other": "سایر"
+    },
+    "curriculum_target_status": {
+      "uncovered": "پوشش‌داده‌نشده",
+      "partial": "پوشش جزئی",
+      "covered": "پوشش کامل",
+      "review": "نیازمند مرور"
+    },
+    "source_type": {
+      "course": "دورهٔ آموزشی",
+      "book": "کتاب",
+      "website": "وب‌سایت",
+      "corpus": "پیکرهٔ زبانی",
+      "dictionary": "واژه‌نامه",
+      "grammar_reference": "مرجع دستور زبان",
+      "audio_course": "دورهٔ صوتی",
+      "other": "سایر"
+    },
+    "modernity_status": {
+      "contemporary_verified": "معاصر و تأییدشده",
+      "maintained_current": "فعال و به‌روز",
+      "historical_or_legacy": "قدیمی یا تاریخی",
+      "needs_currency_review": "نیازمند بررسی به‌روز بودن"
+    },
+    "reuse_status": {
+      "direct_reuse_allowed": "استفادهٔ مستقیم مجاز",
+      "reuse_with_attribution": "استفاده با ذکر منبع",
+      "analysis_only": "فقط برای تحلیل",
+      "needs_review": "نیازمند بررسی"
+    },
+    "character_origin": {
+      "source": "برگرفته از منبع",
+      "app_created": "ساختهٔ اپلیکیشن"
+    },
+    "gender": {
+      "female": "زن",
+      "male": "مرد",
+      "unspecified": "نامشخص",
+      "not_applicable": "قابل اعمال نیست"
+    },
+    "age_band": {
+      "child": "کودک",
+      "teen": "نوجوان",
+      "young_adult": "جوان",
+      "adult": "بزرگسال",
+      "middle_aged": "میانسال",
+      "older_adult": "سالمند",
+      "unspecified": "نامشخص"
+    },
+    "unit_status": {
+      "draft": "پیش‌نویس",
+      "review": "در حال بازبینی",
+      "final": "نهایی"
+    },
+    "lesson_status": {
+      "draft": "پیش‌نویس",
+      "source_checked": "منبع بررسی‌شده",
+      "cefr_checked": "سطح CEFR بررسی‌شده",
+      "qa": "در کنترل کیفیت",
+      "final": "نهایی"
+    },
+    "coverage_role": {
+      "introduce": "معرفی",
+      "practice": "تمرین",
+      "review": "مرور",
+      "assess": "ارزیابی",
+      "support": "پشتیبان"
+    },
+    "speaker_identity_origin": {
+      "source": "برگرفته از منبع",
+      "app_assigned": "تخصیص‌داده‌شده توسط اپلیکیشن"
+    },
+    "activity_type": {
+      "conversation_speaking": "مکالمهٔ گفتاری",
+      "listen_choose": "گوش‌دادن و انتخاب",
+      "multiple_choice": "چندگزینه‌ای",
+      "choose_response": "انتخاب پاسخ",
+      "word_order": "مرتب‌کردن کلمات",
+      "fill_blank": "پرکردن جای خالی",
+      "matching": "وصل‌کردن موارد مرتبط",
+      "listen_repeat": "گوش‌دادن و تکرار",
+      "pronunciation_read": "خواندن و تلفظ",
+      "grammar_focus": "تمرکز بر دستور زبان",
+      "comprehension": "درک مطلب",
+      "true_false": "درست یا غلط",
+      "review": "مرور"
+    },
+    "opening_initiator": {
+      "app": "اپلیکیشن",
+      "learner": "زبان‌آموز"
+    },
+    "audio_status": {
+      "not_started": "شروع‌نشده",
+      "blocked_until_language_final": "متوقف تا نهایی‌شدن زبان",
+      "not_planned_yet": "هنوز برنامه‌ریزی نشده",
+      "pending_final_language": "منتظر نهایی‌شدن زبان",
+      "pending": "در انتظار",
+      "ready": "آماده"
+    },
+    "lexeme_type": {
+      "word": "واژه",
+      "phrase": "عبارت"
+    },
+    "part_of_speech": {
+      "noun": "اسم",
+      "verb": "فعل",
+      "adjective": "صفت",
+      "adverb": "قید",
+      "pronoun": "ضمیر",
+      "preposition": "حرف اضافه",
+      "conjunction": "حرف ربط",
+      "article": "حرف تعریف",
+      "determiner": "تعیین‌کننده",
+      "numeral": "عدد",
+      "interjection": "حرف ندا / عبارت واکنشی",
+      "greeting_formula": "عبارت سلام و احوال‌پرسی",
+      "farewell_formula": "عبارت خداحافظی",
+      "response_formula": "عبارت پاسخ",
+      "response_particle": "واژهٔ پاسخ",
+      "interjection_response_particle": "عبارت واکنشی / واژهٔ پاسخ",
+      "adverb_response_particle": "قید / واژهٔ پاسخ",
+      "adjective_response": "صفت / پاسخ کوتاه",
+      "question_formula": "عبارت پرسشی",
+      "name_formula": "عبارت معرفی نام",
+      "politeness_formula": "عبارت مؤدبانه",
+      "proper_noun": "اسم خاص",
+      "other": "سایر"
+    },
+    "lexeme_form_type": {
+      "inflected": "صرف‌شده",
+      "orthographic_variant": "گونهٔ املایی",
+      "contraction": "شکل کوتاه‌شده",
+      "cliticized": "شکل پی‌بستی",
+      "abbreviation": "مخفف",
+      "other": "سایر"
+    },
+    "lexeme_form_origin": {
+      "source_attested": "ثبت‌شده در منبع",
+      "reference_attested": "ثبت‌شده در مرجع",
+      "generated": "تولیدشده"
+    },
+    "review_status": {
+      "pending_review": "منتظر بازبینی",
+      "approved": "تأییدشده"
+    },
+    "lexeme_role": {
+      "introduce": "معرفی",
+      "practice": "تمرین",
+      "review": "مرور",
+      "support": "پشتیبان"
+    },
+    "occurrence_owner_type": {
+      "dialogue_turn": "نوبت مکالمه",
+      "activity": "فعالیت",
+      "example_sentence": "جملهٔ نمونه"
+    },
+    "resolution_status": {
+      "pending": "در انتظار",
+      "approved": "تأییدشده",
+      "rejected": "ردشده"
+    },
+    "provenance_entity_type": {
+      "language_level": "سطح زبان",
+      "unit": "واحد",
+      "lesson": "درس",
+      "activity": "فعالیت",
+      "dialogue": "مکالمه",
+      "dialogue_turn": "نوبت مکالمه",
+      "character": "شخصیت",
+      "lexeme": "واژه یا عبارت",
+      "lexeme_form": "صورت واژه",
+      "grammar_note": "نکتهٔ دستوری",
+      "example_sentence": "جملهٔ نمونه"
+    },
+    "provenance_transformation": {
+      "verbatim": "عیناً از منبع",
+      "persian_translation_added": "ترجمهٔ فارسی افزوده شده",
+      "sentence_tokenized_for_word_order": "جمله برای مرتب‌سازی کلمات بخش‌بندی شده",
+      "source_sentence_blank_created": "از جملهٔ منبع جای خالی ساخته شده",
+      "source_items_grouped_for_matching": "موارد منبع برای تطبیق گروه‌بندی شده",
+      "options_selected_from_source_material": "گزینه‌ها از محتوای منبع انتخاب شده‌اند",
+      "character_metadata_added": "فرادادهٔ شخصیت افزوده شده",
+      "cefr_level_assigned_by_app": "سطح CEFR توسط اپلیکیشن تعیین شده",
+      "other": "سایر"
+    }
+  }
+}
