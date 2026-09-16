@@ -73,3 +73,8 @@ When a new language or level is needed:
 4. let the shared Project Contracts and MySQL 9.0.1 workflows validate it automatically.
 
 This order is mandatory.
+
+## Audio automation
+- After a CEFR level becomes final, generate audio only from `v_audio_generation_manifest`.
+- Write deterministic assets and a separate stable-key mapping SQL file under `database/audio/<language>/<level>.sql`.
+- Re-run MySQL CI after linking; ready audio must match the current text hash and expected voice.

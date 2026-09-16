@@ -19,7 +19,7 @@
     "lexform-de-moegen-magst"
   ],
   "flashcardEligible": true,
-  "audioStatus": "blocked_until_language_final",
+  "audioStatus": "blocked_until_level_final",
   "audioRef": null,
   "audioVoice": null,
   "partOfSpeechFa": "فعل"

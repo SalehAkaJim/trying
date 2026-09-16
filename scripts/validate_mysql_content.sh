@@ -30,10 +30,28 @@ mapfile -t content_files < <(find database/content -type f -name '*.sql' | sort)
 test "${#content_files[@]}" -gt 0
 printf 'Content SQL files:\n%s\n' "${content_files[@]}"
 
+mapfile -t audio_sql_files < <(find database/audio -type f -name '*.sql' 2>/dev/null | sort || true)
+
 for file in "${content_files[@]}"; do
   echo "Applying $file"
   mysql_file "$file"
 done
+
+# Base content re-import must preserve stable IDs and generated audio metadata.
+mysql_cmd -e "SELECT turn_key,id FROM dialogue_turns ORDER BY turn_key;" > /tmp/turn_ids_before.tsv
+mysql_cmd -e "SELECT lexeme_key,id FROM lexemes ORDER BY lexeme_key;" > /tmp/lexeme_ids_before.tsv
+mysql_cmd -e "UPDATE dialogue_turns SET audio_status='stale',audio_url='https://example.invalid/__ci_audio_preserve__.mp3',audio_storage_path='__ci_audio_preserve__',audio_source_hash=SHA2(text_target,256) ORDER BY id LIMIT 1;"
+mysql_cmd -e "UPDATE lexemes SET audio_status='stale',audio_url='https://example.invalid/__ci_audio_preserve__.mp3',audio_storage_path='__ci_audio_preserve__',audio_source_hash=SHA2(surface,256) ORDER BY id LIMIT 1;"
+for file in "${content_files[@]}"; do mysql_file "$file"; done
+mysql_cmd -e "SELECT turn_key,id FROM dialogue_turns ORDER BY turn_key;" > /tmp/turn_ids_after.tsv
+mysql_cmd -e "SELECT lexeme_key,id FROM lexemes ORDER BY lexeme_key;" > /tmp/lexeme_ids_after.tsv
+cmp /tmp/turn_ids_before.tsv /tmp/turn_ids_after.tsv
+cmp /tmp/lexeme_ids_before.tsv /tmp/lexeme_ids_after.tsv
+test "$(compact_query "SELECT COUNT(*) FROM dialogue_turns WHERE audio_storage_path='__ci_audio_preserve__';")" = "1"
+test "$(compact_query "SELECT COUNT(*) FROM lexemes WHERE audio_storage_path='__ci_audio_preserve__';")" = "1"
+mysql_cmd -e "UPDATE dialogue_turns SET audio_status='blocked_until_level_final',audio_url=NULL,audio_storage_path=NULL,audio_source_hash=NULL WHERE audio_storage_path='__ci_audio_preserve__';"
+mysql_cmd -e "UPDATE lexemes SET audio_status='blocked_until_level_final',audio_url=NULL,audio_storage_path=NULL,audio_source_hash=NULL WHERE audio_storage_path='__ci_audio_preserve__';"
+for file in "${audio_sql_files[@]}"; do echo "Applying audio mapping $file"; mysql_file "$file"; done
 
 count_signature="SELECT CONCAT_WS(':',
  (SELECT COUNT(*) FROM languages),
@@ -58,6 +76,7 @@ for file in "${content_files[@]}"; do
   echo "Reapplying $file"
   mysql_file "$file"
 done
+for file in "${audio_sql_files[@]}"; do echo "Reapplying audio mapping $file"; mysql_file "$file"; done
 after="$(compact_query "$count_signature")"
 echo "Before: $before"
 echo "After:  $after"
@@ -152,6 +171,14 @@ test "$invalid_starters" = "0"
 test "$invalid_payload_starters" = "0"
 test "$invalid_sources" = "0"
 test "$invalid_pos" = "0"
+
+invalid_ready_audio="$(compact_query "SELECT COUNT(*) FROM v_audio_generation_manifest WHERE audio_status='ready' AND audio_is_current<>1;")"
+premature_ready_audio="$(compact_query "SELECT COUNT(*) FROM v_audio_generation_manifest WHERE audio_status='ready' AND level_status<>'final';")"
+invalid_level_audio_ready="$(compact_query "SELECT COUNT(*) FROM language_levels ll JOIN languages lang ON lang.id=ll.language_id WHERE ll.audio_status='ready' AND EXISTS (SELECT 1 FROM v_audio_generation_manifest m WHERE m.language_code=lang.code AND m.cefr_level=ll.cefr_level AND m.audio_is_current<>1);")"
+echo "audio invalid-ready=$invalid_ready_audio premature-ready=$premature_ready_audio invalid-level-ready=$invalid_level_audio_ready"
+test "$invalid_ready_audio" = "0"
+test "$premature_ready_audio" = "0"
+test "$invalid_level_audio_ready" = "0"
 
 expected_taxonomy="$(python - <<'PY'
 import json

@@ -4,22 +4,89 @@
   "title": "Lesson",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "id", "languageId", "level", "titleFa", "learningTargets", "sourceRefs", "activities", "status"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "languageId",
+    "level",
+    "titleFa",
+    "learningTargets",
+    "sourceRefs",
+    "activities",
+    "status"
+  ],
   "properties": {
-    "schemaVersion": {"type": "string"},
-    "id": {"type": "string", "minLength": 1},
-    "languageId": {"type": "string", "minLength": 1},
-    "level": {"enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2"]},
+    "schemaVersion": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "languageId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "level": {
+      "enum": [
+        "Pre-A1",
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ]
+    },
     "unitRef": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "Optional while planning. Unit assignment is based on pedagogical grouping, never target unit capacity."
     },
-    "titleFa": {"type": "string", "minLength": 1},
-    "sourceTitle": {"type": ["string", "null"]},
-    "learningTargets": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
-    "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
-    "lexemeRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
-    "grammarNoteRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "titleFa": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceTitle": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "learningTargets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "lexemeRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "grammarNoteRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
     "activityDesign": {
       "type": "object",
       "additionalProperties": false,
@@ -28,8 +95,13 @@
           "type": "string",
           "description": "Why the selected activities are pedagogically needed. Numeric target counts are not valid rationale."
         },
-        "sequenceRationale": {"type": "string"},
-        "templateSignature": {"type": "string", "description": "Optional derived signature used by QA to detect repetitive neighboring lesson patterns."}
+        "sequenceRationale": {
+          "type": "string"
+        },
+        "templateSignature": {
+          "type": "string",
+          "description": "Optional derived signature used by QA to detect repetitive neighboring lesson patterns."
+        }
       }
     },
     "activities": {
@@ -39,14 +111,45 @@
       "prefixItems": [
         {
           "allOf": [
-            {"$ref": "activity.schema.json"},
-            {"properties": {"type": {"const": "conversation_speaking"}}, "required": ["type"]}
+            {
+              "$ref": "activity.schema.json"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "conversation_speaking"
+                }
+              },
+              "required": [
+                "type"
+              ]
+            }
           ]
         }
       ],
-      "items": {"$ref": "activity.schema.json"}
+      "items": {
+        "$ref": "activity.schema.json"
+      }
     },
-    "status": {"enum": ["draft", "source_checked", "cefr_checked", "qa", "final"]},
-    "audioStatus": {"enum": ["not_started", "blocked_until_language_final", "ready"], "default": "blocked_until_language_final"}
+    "status": {
+      "enum": [
+        "draft",
+        "source_checked",
+        "cefr_checked",
+        "qa",
+        "final"
+      ]
+    },
+    "audioStatus": {
+      "enum": [
+        "not_required",
+        "blocked_until_level_final",
+        "pending",
+        "ready",
+        "stale",
+        "failed"
+      ],
+      "default": "blocked_until_level_final"
+    }
   }
 }

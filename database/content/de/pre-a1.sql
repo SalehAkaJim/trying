@@ -216,32 +216,32 @@ INSERT INTO lessons
 (lesson_key,language_level_id,unit_id,sequence_index,position_in_unit,title_fa,source_title,status,activity_selection_rationale,sequence_rationale,template_signature,audio_status,notes) VALUES
 ('de-pre-a1-lesson-hallo',@level,@unit,1,1,'سلام!','hallo / Tschüss!','draft',
  'برای درس اول، یک گفت‌وگوی چهار turn از سلام تا خداحافظی کافی است و بار زبانی بیشتری اضافه نمی‌شود.',
- 'زبان‌آموز فقط دو عبارت بسیار پایه را در یک رفت‌وبرگشت کوتاه استفاده می‌کند.','conversation_speaking','blocked_until_language_final',NULL),
+ 'زبان‌آموز فقط دو عبارت بسیار پایه را در یک رفت‌وبرگشت کوتاه استفاده می‌کند.','conversation_speaking','blocked_until_level_final',NULL),
 ('de-pre-a1-lesson-guten-morgen',@level,@unit,2,2,'صبح بخیر!','guten Morgen / Tschüss!','draft',
  'گفت‌وگوی چهار turn فقط سلام صبحگاهی و خداحافظی را تمرین می‌کند؛ بعد یک فعالیت تشخیصی تفاوت آن را با سلام عمومی تثبیت می‌کند.',
- 'اول زبان‌آموز خودش مکالمه را با عبارت صبحگاهی آغاز می‌کند و بعد زمان مناسب استفاده از آن را تشخیص می‌دهد.','conversation_speaking>multiple_choice','blocked_until_language_final',NULL),
+ 'اول زبان‌آموز خودش مکالمه را با عبارت صبحگاهی آغاز می‌کند و بعد زمان مناسب استفاده از آن را تشخیص می‌دهد.','conversation_speaking>multiple_choice','blocked_until_level_final',NULL),
 ('de-pre-a1-lesson-pizza-like',@level,@unit,3,3,'پیتزا دوست دارم','Magst du Pizza? / Ich mag Pizza.','draft',
  'گفت‌وگوی چهار turn پرسش و پاسخ دربارهٔ علاقه به پیتزا را در بافت قرار می‌دهد و سپس بازسازی همان جمله یک بازیابی متمرکز ایجاد می‌کند.',
- 'اول زبان‌آموز در مکالمهٔ کوتاه به پرسش واقعی پاسخ می‌دهد و بعد همان جملهٔ منبع‌دار را دوباره می‌سازد.','conversation_speaking>word_order','blocked_until_language_final',NULL),
+ 'اول زبان‌آموز در مکالمهٔ کوتاه به پرسش واقعی پاسخ می‌دهد و بعد همان جملهٔ منبع‌دار را دوباره می‌سازد.','conversation_speaking>word_order','blocked_until_level_final',NULL),
 ('de-pre-a1-lesson-ja-nein',@level,@unit,4,4,'بله یا نه؟','Magst du Pizza? / ja / nein','draft',
  'مکالمهٔ چهار turn این بار با زبان‌آموز شروع می‌شود تا سؤال آشنا را فعالانه بپرسد؛ سپس انتخاب پاسخ تفاوت «ja» و «nein» را تمرین می‌کند.',
- 'اول زبان‌آموز نقش آغازکننده و پرسشگر را می‌گیرد، سپس پاسخ مثبت و منفی را در همان بافت تشخیص می‌دهد.','conversation_speaking>choose_response','blocked_until_language_final',NULL),
+ 'اول زبان‌آموز نقش آغازکننده و پرسشگر را می‌گیرد، سپس پاسخ مثبت و منفی را در همان بافت تشخیص می‌دهد.','conversation_speaking>choose_response','blocked_until_level_final',NULL),
 ('de-pre-a1-lesson-danke-bitte',@level,@unit,5,5,'ممنون! خواهش می‌کنم','danke / bitte','draft',
  'گفت‌وگوی چهار turn عبارت تشکر و پاسخ مؤدبانه را داخل یک تعامل کوتاه و روشن قرار می‌دهد و برای این هدف تمرین اضافه لازم نیست.',
- 'زبان‌آموز سلام می‌کند، تشکر را در بافت می‌شنود و پاسخ مؤدبانه می‌دهد؛ مکالمه عمداً طولانی‌تر نمی‌شود.','conversation_speaking','blocked_until_language_final',NULL),
+ 'زبان‌آموز سلام می‌کند، تشکر را در بافت می‌شنود و پاسخ مؤدبانه می‌دهد؛ مکالمه عمداً طولانی‌تر نمی‌شود.','conversation_speaking','blocked_until_level_final',NULL),
 ('de-pre-a1-lesson-entschuldigung',@level,@unit,6,6,'ببخشید!','Entschuldigung. / Kein Problem. / Danke! / Bitte!','draft',
  'بعد از گفت‌وگوی کوتاه، matching فقط رابطهٔ دو جفت اجتماعی نزدیک را تثبیت می‌کند و زبان تازه‌ای وارد نمی‌کند.',
- 'زبان‌آموز ابتدا خودش عذرخواهی را آغاز می‌کند و بعد پاسخ‌های مناسب را به عبارت‌های آشنا وصل می‌کند.','conversation_speaking>matching','blocked_until_language_final',NULL),
+ 'زبان‌آموز ابتدا خودش عذرخواهی را آغاز می‌کند و بعد پاسخ‌های مناسب را به عبارت‌های آشنا وصل می‌کند.','conversation_speaking>matching','blocked_until_level_final',NULL),
 ('de-pre-a1-lesson-name-exchange',@level,@unit,7,7,'اسمت چیه؟','Wie heißt du? / Ich heiße Iris.','draft',
  'گفت‌وگو نام‌پرسیدن را در بافت قرار می‌دهد و word order همان پاسخ منبع‌دار را برای بازیابی الگوی «Ich heiße ...» تمرین می‌کند.',
- 'اول زبان‌آموز سؤال نام را در مکالمه استفاده می‌کند و بعد پاسخ منبع‌دار را بدون معرفی جملهٔ تازه بازسازی می‌کند.','conversation_speaking>word_order','blocked_until_language_final',NULL),
+ 'اول زبان‌آموز سؤال نام را در مکالمه استفاده می‌کند و بعد پاسخ منبع‌دار را بدون معرفی جملهٔ تازه بازسازی می‌کند.','conversation_speaking>word_order','blocked_until_level_final',NULL),
 ('de-pre-a1-lesson-wellbeing',@level,@unit,8,8,'حالت چطوره؟','Wie geht''s? / Gut.','draft',
  'بعد از گفت‌وگو، fill blank فقط عبارت تازهٔ «Wie geht''s?» را با حذف یک بخش کوچک بازیابی می‌کند و بار شناختی را پایین نگه می‌دارد.',
- 'اول معنی و پاسخ در مکالمه دیده می‌شود و بعد همان عبارت منبع‌دار با یک جای‌خالی ساده بازیابی می‌شود.','conversation_speaking>fill_blank','blocked_until_language_final',NULL)
+ 'اول معنی و پاسخ در مکالمه دیده می‌شود و بعد همان عبارت منبع‌دار با یک جای‌خالی ساده بازیابی می‌شود.','conversation_speaking>fill_blank','blocked_until_level_final',NULL)
 ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),unit_id=VALUES(unit_id),sequence_index=VALUES(sequence_index),
  position_in_unit=VALUES(position_in_unit),title_fa=VALUES(title_fa),source_title=VALUES(source_title),status=VALUES(status),
  activity_selection_rationale=VALUES(activity_selection_rationale),sequence_rationale=VALUES(sequence_rationale),
- template_signature=VALUES(template_signature),audio_status=VALUES(audio_status),notes=VALUES(notes);
+ template_signature=VALUES(template_signature),notes=VALUES(notes);
 
 SET @l1 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-hallo');
 SET @l2 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-guten-morgen');
@@ -293,49 +293,50 @@ SET @d8 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-wellbeing
 
 DELETE FROM lexeme_occurrences WHERE owner_type='dialogue_turn' AND owner_key LIKE 'turn-de-%';
 DELETE FROM provenance_links WHERE entity_type='dialogue_turn' AND entity_key LIKE 'turn-de-%';
-DELETE FROM dialogue_turns WHERE dialogue_id IN (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8);
 
 INSERT INTO dialogue_turns
-(turn_key,dialogue_id,position_index,speaker_character_id,speaker_identity_origin,speaker_gender_evidence,text_target,translation_fa,learner_turn,audio_status,audio_url,elevenlabs_voice_id) VALUES
-('turn-de-hallo-1',@d1,1,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-hallo-2',@d1,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-hallo-3',@d1,3,@mia,'app_assigned','unspecified','Tschüss!','خداحافظ!',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-hallo-4',@d1,4,@learner,'app_assigned','unspecified','Tschüss!','خداحافظ!',TRUE,'blocked_until_language_final',NULL,NULL),
+(turn_key,dialogue_id,position_index,speaker_character_id,speaker_identity_origin,speaker_gender_evidence,text_target,translation_fa,learner_turn,audio_status,audio_url,audio_voice_id) VALUES
+('turn-de-hallo-1',@d1,1,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-hallo-2',@d1,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-hallo-3',@d1,3,@mia,'app_assigned','unspecified','Tschüss!','خداحافظ!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-hallo-4',@d1,4,@learner,'app_assigned','unspecified','Tschüss!','خداحافظ!',TRUE,'blocked_until_level_final',NULL,NULL),
 
-('turn-de-gm-1',@d2,1,@learner,'app_assigned','unspecified','Guten Morgen!','صبح بخیر!',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-gm-2',@d2,2,@mia,'app_assigned','unspecified','Guten Morgen!','صبح بخیر!',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-gm-3',@d2,3,@mia,'app_assigned','unspecified','Tschüss!','خداحافظ!',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-gm-4',@d2,4,@learner,'app_assigned','unspecified','Tschüss!','خداحافظ!',TRUE,'blocked_until_language_final',NULL,NULL),
+('turn-de-gm-1',@d2,1,@learner,'app_assigned','unspecified','Guten Morgen!','صبح بخیر!',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-gm-2',@d2,2,@mia,'app_assigned','unspecified','Guten Morgen!','صبح بخیر!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-gm-3',@d2,3,@mia,'app_assigned','unspecified','Tschüss!','خداحافظ!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-gm-4',@d2,4,@learner,'app_assigned','unspecified','Tschüss!','خداحافظ!',TRUE,'blocked_until_level_final',NULL,NULL),
 
-('turn-de-pizza-1',@d3,1,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-pizza-2',@d3,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-pizza-3',@d3,3,@mia,'app_assigned','unspecified','Magst du Pizza?','پیتزا دوست داری؟',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-pizza-4',@d3,4,@learner,'app_assigned','unspecified','Ich mag Pizza.','من پیتزا دوست دارم.',TRUE,'blocked_until_language_final',NULL,NULL),
+('turn-de-pizza-1',@d3,1,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-pizza-2',@d3,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-pizza-3',@d3,3,@mia,'app_assigned','unspecified','Magst du Pizza?','پیتزا دوست داری؟',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-pizza-4',@d3,4,@learner,'app_assigned','unspecified','Ich mag Pizza.','من پیتزا دوست دارم.',TRUE,'blocked_until_level_final',NULL,NULL),
 
-('turn-de-ja-1',@d4,1,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-ja-2',@d4,2,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-ja-3',@d4,3,@learner,'app_assigned','unspecified','Magst du Pizza?','پیتزا دوست داری؟',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-ja-4',@d4,4,@mia,'app_assigned','unspecified','Ja!','بله!',FALSE,'blocked_until_language_final',NULL,NULL),
+('turn-de-ja-1',@d4,1,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-ja-2',@d4,2,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-ja-3',@d4,3,@learner,'app_assigned','unspecified','Magst du Pizza?','پیتزا دوست داری؟',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-ja-4',@d4,4,@mia,'app_assigned','unspecified','Ja!','بله!',FALSE,'blocked_until_level_final',NULL,NULL),
 
-('turn-de-danke-bitte-1',@d5,1,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-danke-bitte-2',@d5,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-danke-bitte-3',@d5,3,@mia,'app_assigned','unspecified','Danke!','ممنون!',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-danke-bitte-4',@d5,4,@learner,'app_assigned','unspecified','Bitte!','خواهش می‌کنم!',TRUE,'blocked_until_language_final',NULL,NULL),
+('turn-de-danke-bitte-1',@d5,1,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-danke-bitte-2',@d5,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-danke-bitte-3',@d5,3,@mia,'app_assigned','unspecified','Danke!','ممنون!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-danke-bitte-4',@d5,4,@learner,'app_assigned','unspecified','Bitte!','خواهش می‌کنم!',TRUE,'blocked_until_level_final',NULL,NULL),
 
-('turn-de-entschuldigung-1',@d6,1,@learner,'app_assigned','unspecified','Entschuldigung.','ببخشید.',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-entschuldigung-2',@d6,2,@mia,'app_assigned','unspecified','Kein Problem.','مشکلی نیست.',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-entschuldigung-3',@d6,3,@learner,'app_assigned','unspecified','Danke!','ممنون!',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-entschuldigung-4',@d6,4,@mia,'app_assigned','unspecified','Bitte!','خواهش می‌کنم!',FALSE,'blocked_until_language_final',NULL,NULL),
+('turn-de-entschuldigung-1',@d6,1,@learner,'app_assigned','unspecified','Entschuldigung.','ببخشید.',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-entschuldigung-2',@d6,2,@mia,'app_assigned','unspecified','Kein Problem.','مشکلی نیست.',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-entschuldigung-3',@d6,3,@learner,'app_assigned','unspecified','Danke!','ممنون!',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-entschuldigung-4',@d6,4,@mia,'app_assigned','unspecified','Bitte!','خواهش می‌کنم!',FALSE,'blocked_until_level_final',NULL,NULL),
 
-('turn-de-name-1',@d7,1,@iris,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-name-2',@d7,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-name-3',@d7,3,@learner,'app_assigned','unspecified','Wie heißt du?','اسمت چیه؟',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-name-4',@d7,4,@iris,'app_assigned','unspecified','Ich heiße Iris.','اسم من آیریس است.',FALSE,'blocked_until_language_final',NULL,NULL),
+('turn-de-name-1',@d7,1,@iris,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-name-2',@d7,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-name-3',@d7,3,@learner,'app_assigned','unspecified','Wie heißt du?','اسمت چیه؟',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-name-4',@d7,4,@iris,'app_assigned','unspecified','Ich heiße Iris.','اسم من آیریس است.',FALSE,'blocked_until_level_final',NULL,NULL),
 
-('turn-de-wellbeing-1',@d8,1,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-wellbeing-2',@d8,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_language_final',NULL,NULL),
-('turn-de-wellbeing-3',@d8,3,@mia,'app_assigned','unspecified','Wie geht''s?','حالت چطوره؟',FALSE,'blocked_until_language_final',NULL,NULL),
-('turn-de-wellbeing-4',@d8,4,@learner,'app_assigned','unspecified','Gut.','خوبم.',TRUE,'blocked_until_language_final',NULL,NULL);
+('turn-de-wellbeing-1',@d8,1,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-wellbeing-2',@d8,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-wellbeing-3',@d8,3,@mia,'app_assigned','unspecified','Wie geht''s?','حالت چطوره؟',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-wellbeing-4',@d8,4,@learner,'app_assigned','unspecified','Gut.','خوبم.',TRUE,'blocked_until_level_final',NULL,NULL)
+ON DUPLICATE KEY UPDATE dialogue_id=VALUES(dialogue_id),position_index=VALUES(position_index),speaker_character_id=VALUES(speaker_character_id),speaker_identity_origin=VALUES(speaker_identity_origin),speaker_gender_evidence=VALUES(speaker_gender_evidence),text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn);
+DELETE FROM dialogue_turns WHERE dialogue_id IN (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8) AND turn_key NOT IN ('turn-de-hallo-1','turn-de-hallo-2','turn-de-hallo-3','turn-de-hallo-4','turn-de-gm-1','turn-de-gm-2','turn-de-gm-3','turn-de-gm-4','turn-de-pizza-1','turn-de-pizza-2','turn-de-pizza-3','turn-de-pizza-4','turn-de-ja-1','turn-de-ja-2','turn-de-ja-3','turn-de-ja-4','turn-de-danke-bitte-1','turn-de-danke-bitte-2','turn-de-danke-bitte-3','turn-de-danke-bitte-4','turn-de-entschuldigung-1','turn-de-entschuldigung-2','turn-de-entschuldigung-3','turn-de-entschuldigung-4','turn-de-name-1','turn-de-name-2','turn-de-name-3','turn-de-name-4','turn-de-wellbeing-1','turn-de-wellbeing-2','turn-de-wellbeing-3','turn-de-wellbeing-4');
 
 -- Activities ------------------------------------------------------------------
 INSERT INTO activities
@@ -344,13 +345,13 @@ INSERT INTO activities
  'با میا یک گفت‌وگوی خیلی کوتاه از سلام تا خداحافظی انجام بده.',
  'برای شروع دوره همین تعامل چهار turn هدف اصلی را پوشش می‌دهد و تمرین اضافه لازم نیست.',@d1,
  JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),
- JSON_ARRAY('persian_translation_added','character_metadata_added'),'pending_final_language'),
+ JSON_ARRAY('persian_translation_added','character_metadata_added'),'blocked_until_level_final'),
 
 ('act-de-gm-conversation',@l2,1,'conversation_speaking',
  'این بار تو گفت‌وگو را شروع کن؛ صبح است، به میا «Guten Morgen!» بگو و مکالمهٔ کوتاه را ادامه بده.',
  'شروع‌کردن مکالمه توسط زبان‌آموز باعث می‌شود سلام صبحگاهی را فعالانه تولید کند، بدون اینکه مکالمهٔ شروع دوره طولانی شود.',@d2,
  JSON_OBJECT('interaction','read_aloud_exchange','contextFa','صبح است.','openingInitiator','learner'),
- JSON_ARRAY('persian_translation_added','character_metadata_added'),'pending_final_language'),
+ JSON_ARRAY('persian_translation_added','character_metadata_added'),'blocked_until_level_final'),
 ('act-de-gm-choice',@l2,2,'multiple_choice',
  'برای سلام کردن در صبح کدام عبارت مناسب‌تر است؟',
  'این فعالیت فقط تفاوت جدید درس را می‌سنجد: سلام مخصوص صبح در برابر سلام عمومی.',NULL,
@@ -358,13 +359,13 @@ INSERT INTO activities
   JSON_OBJECT('textTarget','Guten Morgen!','correct',TRUE,'sourceRefs',JSON_ARRAY('src-wiktionary-de-guten-morgen')),
   JSON_OBJECT('textTarget','Hallo!','correct',FALSE,'sourceRefs',JSON_ARRAY('src-wiktionary-de-hallo'))
  )),
- JSON_ARRAY('options_selected_from_source_material'),'pending_final_language'),
+ JSON_ARRAY('options_selected_from_source_material'),'blocked_until_level_final'),
 
 ('act-de-pizza-conversation',@l3,1,'conversation_speaking',
  'با میا دربارهٔ پیتزا یک گفت‌وگوی چهار turn داشته باش و به سؤالش جواب بده.',
  'موضوع آشنای پیتزا امکان استفادهٔ فوری و قابل‌فهم از «mögen» را در یک مکالمهٔ کوتاه فراهم می‌کند.',@d3,
  JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),
- JSON_ARRAY('persian_translation_added','character_metadata_added'),'pending_final_language'),
+ JSON_ARRAY('persian_translation_added','character_metadata_added'),'blocked_until_level_final'),
 ('act-de-pizza-word-order',@l3,2,'word_order',
  'جمله‌ای را که همین الان گفتی دوباره بساز.',
  'بازسازی همان جملهٔ منبع‌دار، الگوی جدید را بدون واردکردن زبان تازه تقویت می‌کند.',NULL,
@@ -373,13 +374,13 @@ INSERT INTO activities
    JSON_OBJECT('token','mag','lexemeId','lex-de-moegen','lexemeFormId','lexform-de-moegen-mag'),
    JSON_OBJECT('token','Pizza.','lexemeId','lex-de-pizza','lexemeFormId',NULL)
   )),
- JSON_ARRAY('sentence_tokenized_for_word_order'),'pending_final_language'),
+ JSON_ARRAY('sentence_tokenized_for_word_order'),'blocked_until_level_final'),
 
 ('act-de-ja-conversation',@l4,1,'conversation_speaking',
  'این بار تو مکالمه را شروع کن؛ سلام کن و سؤال آشنای پیتزا را از میا بپرس.',
  'شروع مکالمه توسط زبان‌آموز، زبان آشنای قبلی را از حالت پاسخ‌دادن به تولید فعال تبدیل می‌کند و در چهار turn تمام می‌شود.',@d4,
  JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','learner'),
- JSON_ARRAY('persian_translation_added','character_metadata_added'),'pending_final_language'),
+ JSON_ARRAY('persian_translation_added','character_metadata_added'),'blocked_until_level_final'),
 ('act-de-ja-nein-choice',@l4,2,'choose_response',
  'فرض کن پیتزا دوست نداری. کدام جواب مناسب است؟',
  'چون پرسش از قبل آشناست، تمرکز فعالیت فقط روی تشخیص پاسخ مثبت و منفی می‌ماند.',NULL,
@@ -387,19 +388,19 @@ INSERT INTO activities
   JSON_OBJECT('textTarget','Ja!','correct',FALSE,'sourceRefs',JSON_ARRAY('src-wiktionary-de-ja')),
   JSON_OBJECT('textTarget','Nein!','correct',TRUE,'sourceRefs',JSON_ARRAY('src-wiktionary-de-nein'))
  )),
- JSON_ARRAY('options_selected_from_source_material'),'pending_final_language'),
+ JSON_ARRAY('options_selected_from_source_material'),'blocked_until_level_final'),
 
 ('act-de-danke-bitte-conversation',@l5,1,'conversation_speaking',
  'میا بعد از یک کمک کوچک تشکر می‌کند؛ پاسخ مؤدبانه بده.',
  '«Danke!» و «Bitte!» در یک تعامل چهار turn روزمره بهتر از دو کارت جداگانه یاد گرفته می‌شوند.',@d5,
  JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),
- JSON_ARRAY('persian_translation_added','character_metadata_added'),'pending_final_language'),
+ JSON_ARRAY('persian_translation_added','character_metadata_added'),'blocked_until_level_final'),
 
 ('act-de-entschuldigung-conversation',@l6,1,'conversation_speaking',
  'این بار تو گفت‌وگو را شروع کن؛ برای یک اشتباه کوچک با «Entschuldigung.» عذرخواهی کن.',
  'هدف اصلی این درس استفادهٔ فعال از یک عذرخواهی کوتاه در یک تعامل واقعی و کم‌فشار است.',@d6,
  JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','learner'),
- JSON_ARRAY('persian_translation_added','character_metadata_added'),'pending_final_language'),
+ JSON_ARRAY('persian_translation_added','character_metadata_added'),'blocked_until_level_final'),
 ('act-de-entschuldigung-matching',@l6,2,'matching',
  'هر عبارت را به پاسخ مناسبش وصل کن.',
  'دو جفت اجتماعی کوتاه ممکن است در شروع دوره با هم قاطی شوند؛ matching بدون افزودن متن تازه رابطهٔ درست را تمرین می‌کند.',NULL,
@@ -407,33 +408,33 @@ INSERT INTO activities
   JSON_OBJECT('left','Entschuldigung.','right','Kein Problem.','sourceRefs',JSON_ARRAY('src-wiktionary-de-entschuldigung','src-wiktionary-de-kein-problem')),
   JSON_OBJECT('left','Danke!','right','Bitte!','sourceRefs',JSON_ARRAY('src-wiktionary-de-danke','src-wiktionary-de-bitte'))
  )),
- JSON_ARRAY('source_backed_pairs_grouped'),'pending_final_language'),
+ JSON_ARRAY('source_backed_pairs_grouped'),'blocked_until_level_final'),
 
 ('act-de-name-conversation',@l7,1,'conversation_speaking',
  'بعد از سلام، نام آیریس را با «Wie heißt du?» بپرس.',
  'پرسیدن نام یکی از اولین کنش‌های ارتباطی مفید است و در چهار turn ساده قابل تمرین است.',@d7,
  JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),
- JSON_ARRAY('persian_translation_added','character_metadata_added'),'pending_final_language'),
+ JSON_ARRAY('persian_translation_added','character_metadata_added'),'blocked_until_level_final'),
 ('act-de-name-word-order',@l7,2,'word_order',
  'پاسخ آیریس را دوباره بساز.',
  'بازسازی جملهٔ دقیق منبع، الگوی «Ich heiße ...» و فرم «heiße» را بدون توضیح دستوری سنگین تقویت می‌کند.',NULL,
  JSON_OBJECT('sourceText','Ich heiße Iris.','tokens',JSON_ARRAY('Ich','heiße','Iris.'),'answer',JSON_ARRAY('Ich','heiße','Iris.'),
   'tokenLexemeMappings',JSON_ARRAY(JSON_OBJECT('token','heiße','lexemeId','lex-de-heissen','lexemeFormId','lexform-de-heissen-heisse'))),
- JSON_ARRAY('sentence_tokenized_for_word_order'),'pending_final_language'),
+ JSON_ARRAY('sentence_tokenized_for_word_order'),'blocked_until_level_final'),
 
 ('act-de-wellbeing-conversation',@l8,1,'conversation_speaking',
  'با میا سلام کن و وقتی می‌پرسد «Wie geht''s?» با «Gut.» جواب بده.',
  'احوال‌پرسی پایه باید اول در یک تعامل کوتاه و روشن دیده و گفته شود.',@d8,
  JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),
- JSON_ARRAY('persian_translation_added','character_metadata_added'),'pending_final_language'),
+ JSON_ARRAY('persian_translation_added','character_metadata_added'),'blocked_until_level_final'),
 ('act-de-wellbeing-fill',@l8,2,'fill_blank',
  'عبارت احوال‌پرسی را کامل کن.',
  'جای‌خالی از همان عبارت منبع‌دار ساخته شده و بدون معرفی واژهٔ تازه یک بازیابی سبک ایجاد می‌کند.',NULL,
  JSON_OBJECT('sourceText','Wie geht''s?','blankedText','Wie ___?','choices',JSON_ARRAY('geht''s','gut'),'answer','geht''s'),
- JSON_ARRAY('source_sentence_blanked'),'pending_final_language')
+ JSON_ARRAY('source_sentence_blanked'),'blocked_until_level_final')
 ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
  instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
- payload=VALUES(payload),transformations=VALUES(transformations),audio_status=VALUES(audio_status);
+ payload=VALUES(payload),transformations=VALUES(transformations);
 
 SET @a1 := (SELECT id FROM activities WHERE activity_key='act-de-hallo-conversation');
 SET @a2 := (SELECT id FROM activities WHERE activity_key='act-de-gm-conversation');
@@ -454,23 +455,23 @@ SET @a14 := (SELECT id FROM activities WHERE activity_key='act-de-wellbeing-fill
 -- Lexemes / forms -------------------------------------------------------------
 INSERT INTO lexemes
 (lexeme_key,language_id,lexeme_type,surface,normalized_surface,lemma,part_of_speech,part_of_speech_fa,cefr_level,translation_fa,usage_note_fa,flashcard_eligible,audio_status,audio_url,audio_voice_name,audio_voice_id) VALUES
-('lex-de-hallo',@de,'word','hallo','hallo','hallo','interjection','حرف ندا / عبارت واکنشی','Pre-A1','سلام','برای سلام‌کردن دوستانه و عمومی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-guten-morgen',@de,'phrase','guten Morgen','guten morgen',NULL,'greeting_formula','عبارت سلام و احوال‌پرسی','Pre-A1','صبح بخیر','برای سلام‌کردن در صبح.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-moegen',@de,'word','mögen','mögen','mögen','verb','فعل','Pre-A1','دوست داشتن / خوش آمدن',NULL,TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-pizza',@de,'word','Pizza','pizza','Pizza','noun','اسم','Pre-A1','پیتزا',NULL,TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-ja',@de,'word','ja','ja','ja','response_particle','واژهٔ پاسخ','Pre-A1','بله','برای پاسخ مثبت و موافقت.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-nein',@de,'word','nein','nein','nein','response_particle','واژهٔ پاسخ','Pre-A1','نه','برای پاسخ منفی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-danke',@de,'word','danke','danke','danke','interjection_response_particle','عبارت واکنشی / واژهٔ پاسخ','Pre-A1','ممنون / متشکرم','برای تشکر کوتاه و روزمره.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-bitte',@de,'word','bitte','bitte','bitte','adverb_response_particle','قید / واژهٔ پاسخ','Pre-A1','خواهش می‌کنم / لطفاً','در این مرحله فقط به معنی «خواهش می‌کنم» در پاسخ به تشکر استفاده می‌شود.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-wie-gehts',@de,'phrase','wie geht''s','wie geht''s',NULL,'greeting_formula','عبارت سلام و احوال‌پرسی','Pre-A1','حالت چطوره؟','برای احوال‌پرسی دوستانه و خیلی کوتاه.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-gut',@de,'word','gut','gut','gut','adjective_response','صفت / پاسخ کوتاه','Pre-A1','خوب','در این مرحله «Gut.» به‌عنوان پاسخ کوتاه به احوال‌پرسی استفاده می‌شود.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-tschuess',@de,'word','tschüss','tschüss','tschüss','farewell_formula','عبارت خداحافظی','Pre-A1','خداحافظ / فعلاً','برای خداحافظی دوستانه و غیررسمی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-entschuldigung',@de,'word','Entschuldigung','entschuldigung','Entschuldigung','interjection','حرف ندا / عبارت واکنشی','Pre-A1','ببخشید / معذرت می‌خواهم','برای عذرخواهی کوتاه یا شروع مؤدبانهٔ خطاب به کسی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-kein-problem',@de,'phrase','kein Problem','kein problem',NULL,'response_formula','عبارت پاسخ','Pre-A1','مشکلی نیست','برای پاسخ کوتاه و دوستانه به یک عذرخواهی ساده.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-heissen',@de,'word','heißen','heißen','heißen','verb','فعل','Pre-A1','نام داشتن / نامیده شدن','در این مرحله فقط برای پرسیدن نام و گفتن نام استفاده می‌شود.',TRUE,'blocked_until_language_final',NULL,NULL,NULL)
+('lex-de-hallo',@de,'word','hallo','hallo','hallo','interjection','حرف ندا / عبارت واکنشی','Pre-A1','سلام','برای سلام‌کردن دوستانه و عمومی.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-guten-morgen',@de,'phrase','guten Morgen','guten morgen',NULL,'greeting_formula','عبارت سلام و احوال‌پرسی','Pre-A1','صبح بخیر','برای سلام‌کردن در صبح.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-moegen',@de,'word','mögen','mögen','mögen','verb','فعل','Pre-A1','دوست داشتن / خوش آمدن',NULL,TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-pizza',@de,'word','Pizza','pizza','Pizza','noun','اسم','Pre-A1','پیتزا',NULL,TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-ja',@de,'word','ja','ja','ja','response_particle','واژهٔ پاسخ','Pre-A1','بله','برای پاسخ مثبت و موافقت.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-nein',@de,'word','nein','nein','nein','response_particle','واژهٔ پاسخ','Pre-A1','نه','برای پاسخ منفی.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-danke',@de,'word','danke','danke','danke','interjection_response_particle','عبارت واکنشی / واژهٔ پاسخ','Pre-A1','ممنون / متشکرم','برای تشکر کوتاه و روزمره.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-bitte',@de,'word','bitte','bitte','bitte','adverb_response_particle','قید / واژهٔ پاسخ','Pre-A1','خواهش می‌کنم / لطفاً','در این مرحله فقط به معنی «خواهش می‌کنم» در پاسخ به تشکر استفاده می‌شود.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-wie-gehts',@de,'phrase','wie geht''s','wie geht''s',NULL,'greeting_formula','عبارت سلام و احوال‌پرسی','Pre-A1','حالت چطوره؟','برای احوال‌پرسی دوستانه و خیلی کوتاه.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-gut',@de,'word','gut','gut','gut','adjective_response','صفت / پاسخ کوتاه','Pre-A1','خوب','در این مرحله «Gut.» به‌عنوان پاسخ کوتاه به احوال‌پرسی استفاده می‌شود.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-tschuess',@de,'word','tschüss','tschüss','tschüss','farewell_formula','عبارت خداحافظی','Pre-A1','خداحافظ / فعلاً','برای خداحافظی دوستانه و غیررسمی.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-entschuldigung',@de,'word','Entschuldigung','entschuldigung','Entschuldigung','interjection','حرف ندا / عبارت واکنشی','Pre-A1','ببخشید / معذرت می‌خواهم','برای عذرخواهی کوتاه یا شروع مؤدبانهٔ خطاب به کسی.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-kein-problem',@de,'phrase','kein Problem','kein problem',NULL,'response_formula','عبارت پاسخ','Pre-A1','مشکلی نیست','برای پاسخ کوتاه و دوستانه به یک عذرخواهی ساده.',TRUE,'blocked_until_level_final',NULL,NULL,NULL),
+('lex-de-heissen',@de,'word','heißen','heißen','heißen','verb','فعل','Pre-A1','نام داشتن / نامیده شدن','در این مرحله فقط برای پرسیدن نام و گفتن نام استفاده می‌شود.',TRUE,'blocked_until_level_final',NULL,NULL,NULL)
 ON DUPLICATE KEY UPDATE language_id=VALUES(language_id),lexeme_type=VALUES(lexeme_type),surface=VALUES(surface),
  normalized_surface=VALUES(normalized_surface),lemma=VALUES(lemma),part_of_speech=VALUES(part_of_speech),part_of_speech_fa=VALUES(part_of_speech_fa),cefr_level=VALUES(cefr_level),
- translation_fa=VALUES(translation_fa),usage_note_fa=VALUES(usage_note_fa),flashcard_eligible=VALUES(flashcard_eligible),audio_status=VALUES(audio_status);
+ translation_fa=VALUES(translation_fa),usage_note_fa=VALUES(usage_note_fa),flashcard_eligible=VALUES(flashcard_eligible);
 
 SET @x_hallo := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-hallo');
 SET @x_gm := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-guten-morgen');

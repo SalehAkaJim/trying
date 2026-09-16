@@ -4,9 +4,19 @@
   "title": "Lesson Activity",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "type", "sourceRefs", "learningTargets", "data", "audioStatus"],
+  "required": [
+    "id",
+    "type",
+    "sourceRefs",
+    "learningTargets",
+    "data",
+    "audioStatus"
+  ],
   "properties": {
-    "id": {"type": "string", "minLength": 1},
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
     "type": {
       "enum": [
         "conversation_speaking",
@@ -24,12 +34,42 @@
         "review"
       ]
     },
-    "instructionFa": {"type": "string"},
-    "selectionReason": {"type": "string"},
-    "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
-    "learningTargets": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
-    "lexemeRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
-    "dialogueRef": {"type": ["string", "null"]},
+    "instructionFa": {
+      "type": "string"
+    },
+    "selectionReason": {
+      "type": "string"
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "learningTargets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "lexemeRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "dialogueRef": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "data": {
       "$ref": "#/$defs/imageFreeObject",
       "description": "Activity-specific payload. Target-language instructional text inside this object must remain source-backed. The current product baseline forbids instructional image fields at any nesting depth."
@@ -52,7 +92,25 @@
       "uniqueItems": true,
       "default": []
     },
-    "audioStatus": {"enum": ["not_planned_yet", "pending_final_language", "ready"]}
+    "audioStatus": {
+      "enum": [
+        "not_required",
+        "blocked_until_level_final",
+        "pending",
+        "ready",
+        "stale",
+        "failed"
+      ]
+    },
+    "audioTextTarget": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "default": null,
+      "description": "متن دقیق زبان هدف برای فایل صوتی مستقل این فعالیت. برای فعالیت‌هایی که صوت مستقل ندارند null است."
+    }
   },
   "$defs": {
     "imageFreeObject": {
@@ -62,23 +120,49 @@
           "pattern": "^(image|imageUrl|imageURL|imageRef|image_url|image_ref|picture|photo|illustration|thumbnail|thumbnailUrl|thumbnailURL|thumbnailRef|thumbnail_url|thumbnail_ref)$"
         }
       },
-      "additionalProperties": {"$ref": "#/$defs/imageFreeValue"}
+      "additionalProperties": {
+        "$ref": "#/$defs/imageFreeValue"
+      }
     },
     "imageFreeValue": {
       "oneOf": [
-        {"$ref": "#/$defs/imageFreeObject"},
+        {
+          "$ref": "#/$defs/imageFreeObject"
+        },
         {
           "type": "array",
-          "items": {"$ref": "#/$defs/imageFreeValue"}
+          "items": {
+            "$ref": "#/$defs/imageFreeValue"
+          }
         },
-        {"type": ["string", "number", "boolean", "null"]}
+        {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
       ]
     }
   },
   "allOf": [
     {
-      "if": {"properties": {"type": {"const": "conversation_speaking"}}, "required": ["type"]},
-      "then": {"required": ["dialogueRef"]}
+      "if": {
+        "properties": {
+          "type": {
+            "const": "conversation_speaking"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "required": [
+          "dialogueRef"
+        ]
+      }
     }
   ]
 }

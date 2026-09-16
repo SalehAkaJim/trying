@@ -102,12 +102,12 @@ INSERT INTO taxonomy_labels (domain_code,value_code,label_fa) VALUES
   ('activity_type','review','مرور'),
   ('opening_initiator','app','اپلیکیشن'),
   ('opening_initiator','learner','زبان‌آموز'),
-  ('audio_status','not_started','شروع‌نشده'),
-  ('audio_status','blocked_until_language_final','متوقف تا نهایی‌شدن زبان'),
-  ('audio_status','not_planned_yet','هنوز برنامه‌ریزی نشده'),
-  ('audio_status','pending_final_language','منتظر نهایی‌شدن زبان'),
-  ('audio_status','pending','در انتظار'),
-  ('audio_status','ready','آماده'),
+  ('audio_status','not_required','نیازی به صوت ندارد'),
+  ('audio_status','blocked_until_level_final','متوقف تا نهایی‌شدن سطح'),
+  ('audio_status','pending','در انتظار تولید صوت'),
+  ('audio_status','ready','صوت آماده'),
+  ('audio_status','stale','صوت نیازمند بازتولید'),
+  ('audio_status','failed','تولید صوت ناموفق'),
   ('lexeme_type','word','واژه'),
   ('lexeme_type','phrase','عبارت'),
   ('part_of_speech','noun','اسم'),
@@ -202,6 +202,7 @@ CREATE TABLE IF NOT EXISTS language_levels (
   language_id BIGINT UNSIGNED NOT NULL,
   cefr_level ENUM('Pre-A1','A1','A2','B1','B2','C1','C2') NOT NULL,
   status ENUM('unassessed','planning','building','review','final') NOT NULL DEFAULT 'unassessed',
+  audio_status ENUM('not_required','blocked_until_level_final','pending','ready','stale','failed') NOT NULL DEFAULT 'blocked_until_level_final',
   structure_rationale TEXT NULL,
   coverage JSON NOT NULL,
   notes TEXT NULL,
@@ -318,7 +319,7 @@ CREATE TABLE IF NOT EXISTS lessons (
   activity_selection_rationale TEXT NULL,
   sequence_rationale TEXT NULL,
   template_signature VARCHAR(500) NULL,
-  audio_status ENUM('not_started','blocked_until_language_final','ready') NOT NULL DEFAULT 'blocked_until_language_final',
+  audio_status ENUM('not_required','blocked_until_level_final','pending','ready','stale','failed') NOT NULL DEFAULT 'blocked_until_level_final',
   notes TEXT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY uq_lessons_key (lesson_key),
@@ -369,9 +370,15 @@ CREATE TABLE IF NOT EXISTS dialogue_turns (
   text_target TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL,
   translation_fa TEXT NOT NULL,
   learner_turn BOOLEAN NOT NULL DEFAULT FALSE,
-  audio_status ENUM('not_started','blocked_until_language_final','pending','ready') NOT NULL DEFAULT 'blocked_until_language_final',
+  audio_status ENUM('not_required','blocked_until_level_final','pending','ready','stale','failed') NOT NULL DEFAULT 'blocked_until_level_final',
   audio_url TEXT NULL,
-  elevenlabs_voice_id VARCHAR(191) NULL,
+  audio_storage_path VARCHAR(1024) NULL,
+  audio_source_hash CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_provider VARCHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_model_id VARCHAR(191) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_voice_name VARCHAR(191) NULL,
+  audio_voice_id VARCHAR(191) NULL,
+  audio_generated_at DATETIME(6) NULL,
   PRIMARY KEY (id),
   UNIQUE KEY uq_dialogue_turns_key (turn_key),
   UNIQUE KEY uq_dialogue_turns_position (dialogue_id,position_index),
@@ -391,7 +398,16 @@ CREATE TABLE IF NOT EXISTS activities (
   dialogue_id BIGINT UNSIGNED NULL,
   payload JSON NOT NULL,
   transformations JSON NULL,
-  audio_status ENUM('not_planned_yet','pending_final_language','ready') NOT NULL DEFAULT 'pending_final_language',
+  audio_text_target TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NULL,
+  audio_status ENUM('not_required','blocked_until_level_final','pending','ready','stale','failed') NOT NULL DEFAULT 'not_required',
+  audio_url TEXT NULL,
+  audio_storage_path VARCHAR(1024) NULL,
+  audio_source_hash CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_provider VARCHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_model_id VARCHAR(191) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_voice_name VARCHAR(191) NULL,
+  audio_voice_id VARCHAR(191) NULL,
+  audio_generated_at DATETIME(6) NULL,
   PRIMARY KEY (id),
   UNIQUE KEY uq_activities_key (activity_key),
   UNIQUE KEY uq_activities_lesson_position (lesson_id,position_index),
@@ -423,10 +439,15 @@ CREATE TABLE IF NOT EXISTS lexemes (
   translation_fa TEXT NOT NULL,
   usage_note_fa TEXT NULL,
   flashcard_eligible BOOLEAN NOT NULL DEFAULT TRUE,
-  audio_status ENUM('blocked_until_language_final','pending','ready') NOT NULL DEFAULT 'blocked_until_language_final',
+  audio_status ENUM('not_required','blocked_until_level_final','pending','ready','stale','failed') NOT NULL DEFAULT 'blocked_until_level_final',
   audio_url TEXT NULL,
+  audio_storage_path VARCHAR(1024) NULL,
+  audio_source_hash CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_provider VARCHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_model_id VARCHAR(191) CHARACTER SET ascii COLLATE ascii_bin NULL,
   audio_voice_name VARCHAR(191) NULL,
   audio_voice_id VARCHAR(191) NULL,
+  audio_generated_at DATETIME(6) NULL,
   PRIMARY KEY (id),
   UNIQUE KEY uq_lexemes_key (lexeme_key),
   KEY idx_lexemes_language_surface (language_id,surface(191)),
@@ -497,6 +518,16 @@ CREATE TABLE IF NOT EXISTS example_sentences (
   language_level_id BIGINT UNSIGNED NOT NULL,
   text_target TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL,
   translation_fa TEXT NOT NULL,
+  audio_required BOOLEAN NOT NULL DEFAULT FALSE,
+  audio_status ENUM('not_required','blocked_until_level_final','pending','ready','stale','failed') NOT NULL DEFAULT 'not_required',
+  audio_url TEXT NULL,
+  audio_storage_path VARCHAR(1024) NULL,
+  audio_source_hash CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_provider VARCHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_model_id VARCHAR(191) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  audio_voice_name VARCHAR(191) NULL,
+  audio_voice_id VARCHAR(191) NULL,
+  audio_generated_at DATETIME(6) NULL,
   notes TEXT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY uq_example_sentences_key (example_key),
@@ -594,6 +625,49 @@ BEGIN
       SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='part_of_speech_fa must match canonical Persian taxonomy label';
     END IF;
   END IF;
+  IF NOT (NEW.surface <=> OLD.surface) THEN
+    SET NEW.audio_status='blocked_until_level_final';
+    SET NEW.audio_url=NULL;
+    SET NEW.audio_storage_path=NULL;
+    SET NEW.audio_source_hash=NULL;
+    SET NEW.audio_provider=NULL;
+    SET NEW.audio_model_id=NULL;
+    SET NEW.audio_voice_name=NULL;
+    SET NEW.audio_voice_id=NULL;
+    SET NEW.audio_generated_at=NULL;
+  END IF;
+END$$
+
+DROP TRIGGER IF EXISTS trg_dialogue_turns_bu_audio_invalidate$$
+CREATE TRIGGER trg_dialogue_turns_bu_audio_invalidate BEFORE UPDATE ON dialogue_turns FOR EACH ROW
+BEGIN
+  IF NOT (NEW.text_target <=> OLD.text_target) OR NEW.speaker_character_id<>OLD.speaker_character_id THEN
+    SET NEW.audio_status='blocked_until_level_final';
+    SET NEW.audio_url=NULL;
+    SET NEW.audio_storage_path=NULL;
+    SET NEW.audio_source_hash=NULL;
+    SET NEW.audio_provider=NULL;
+    SET NEW.audio_model_id=NULL;
+    SET NEW.audio_voice_name=NULL;
+    SET NEW.audio_voice_id=NULL;
+    SET NEW.audio_generated_at=NULL;
+  END IF;
+END$$
+
+DROP TRIGGER IF EXISTS trg_example_sentences_bu_audio_invalidate$$
+CREATE TRIGGER trg_example_sentences_bu_audio_invalidate BEFORE UPDATE ON example_sentences FOR EACH ROW
+BEGIN
+  IF NOT (NEW.text_target <=> OLD.text_target) OR NEW.audio_required<>OLD.audio_required THEN
+    SET NEW.audio_status=IF(NEW.audio_required,'blocked_until_level_final','not_required');
+    SET NEW.audio_url=NULL;
+    SET NEW.audio_storage_path=NULL;
+    SET NEW.audio_source_hash=NULL;
+    SET NEW.audio_provider=NULL;
+    SET NEW.audio_model_id=NULL;
+    SET NEW.audio_voice_name=NULL;
+    SET NEW.audio_voice_id=NULL;
+    SET NEW.audio_generated_at=NULL;
+  END IF;
 END$$
 
 DROP TRIGGER IF EXISTS trg_lexeme_occurrences_bi$$
@@ -679,6 +753,17 @@ BEGIN
   IF NEW.activity_type='conversation_speaking' AND NEW.dialogue_id IS NULL THEN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='conversation_speaking requires dialogue_id';
   END IF;
+  IF NOT (NEW.audio_text_target <=> OLD.audio_text_target) THEN
+    SET NEW.audio_status=IF(NEW.audio_text_target IS NULL,'not_required','blocked_until_level_final');
+    SET NEW.audio_url=NULL;
+    SET NEW.audio_storage_path=NULL;
+    SET NEW.audio_source_hash=NULL;
+    SET NEW.audio_provider=NULL;
+    SET NEW.audio_model_id=NULL;
+    SET NEW.audio_voice_name=NULL;
+    SET NEW.audio_voice_id=NULL;
+    SET NEW.audio_generated_at=NULL;
+  END IF;
   SET lesson_status=(SELECT status FROM lessons WHERE id=OLD.lesson_id LIMIT 1);
   IF lesson_status='final' THEN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Reopen a final lesson before changing its activities';
@@ -717,6 +802,29 @@ LEFT JOIN (SELECT language_level_id,COUNT(*) c FROM units GROUP BY language_leve
 LEFT JOIN (SELECT language_level_id,COUNT(*) c FROM lessons GROUP BY language_level_id) le ON le.language_level_id=ll.id
 LEFT JOIN (SELECT l.language_level_id,COUNT(*) c FROM activities a JOIN lessons l ON l.id=a.lesson_id GROUP BY l.language_level_id) a ON a.language_level_id=ll.id
 LEFT JOIN (SELECT d.language_level_id,COUNT(*) c FROM dialogue_turns t JOIN dialogues d ON d.id=t.dialogue_id GROUP BY d.language_level_id) dt ON dt.language_level_id=ll.id;
+
+CREATE OR REPLACE VIEW v_audio_generation_manifest AS
+SELECT 'dialogue_turn' AS owner_type,t.turn_key AS owner_key,lang.code AS language_code,ll.cefr_level,ll.status AS level_status,ll.audio_status AS level_audio_status,
+       t.text_target AS audio_text,SHA2(t.text_target,256) AS expected_source_hash,c.voice_name AS expected_voice_name,c.elevenlabs_voice_id AS expected_voice_id,
+       t.audio_status,t.audio_url,t.audio_storage_path,t.audio_source_hash,t.audio_provider,t.audio_model_id,t.audio_voice_name,t.audio_voice_id,t.audio_generated_at,
+       (t.audio_status='ready' AND t.audio_url IS NOT NULL AND t.audio_storage_path IS NOT NULL AND t.audio_source_hash=SHA2(t.text_target,256)
+        AND (c.elevenlabs_voice_id IS NULL OR t.audio_voice_id=c.elevenlabs_voice_id)) AS audio_is_current
+FROM dialogue_turns t JOIN dialogues d ON d.id=t.dialogue_id JOIN language_levels ll ON ll.id=d.language_level_id JOIN languages lang ON lang.id=ll.language_id JOIN characters c ON c.id=t.speaker_character_id
+UNION ALL
+SELECT 'lexeme',l.lexeme_key,lang.code,ll.cefr_level,ll.status,ll.audio_status,l.surface,SHA2(l.surface,256),lang.standalone_audio_voice_name,lang.standalone_audio_voice_id,
+       l.audio_status,l.audio_url,l.audio_storage_path,l.audio_source_hash,l.audio_provider,l.audio_model_id,l.audio_voice_name,l.audio_voice_id,l.audio_generated_at,
+       (l.audio_status='ready' AND l.audio_url IS NOT NULL AND l.audio_storage_path IS NOT NULL AND l.audio_source_hash=SHA2(l.surface,256) AND (lang.standalone_audio_voice_id IS NULL OR l.audio_voice_id=lang.standalone_audio_voice_id))
+FROM lexemes l JOIN languages lang ON lang.id=l.language_id JOIN language_levels ll ON ll.language_id=l.language_id AND ll.cefr_level=l.cefr_level WHERE l.flashcard_eligible=TRUE
+UNION ALL
+SELECT 'activity',a.activity_key,lang.code,ll.cefr_level,ll.status,ll.audio_status,a.audio_text_target,SHA2(a.audio_text_target,256),lang.standalone_audio_voice_name,lang.standalone_audio_voice_id,
+       a.audio_status,a.audio_url,a.audio_storage_path,a.audio_source_hash,a.audio_provider,a.audio_model_id,a.audio_voice_name,a.audio_voice_id,a.audio_generated_at,
+       (a.audio_status='ready' AND a.audio_url IS NOT NULL AND a.audio_storage_path IS NOT NULL AND a.audio_source_hash=SHA2(a.audio_text_target,256) AND (lang.standalone_audio_voice_id IS NULL OR a.audio_voice_id=lang.standalone_audio_voice_id))
+FROM activities a JOIN lessons le ON le.id=a.lesson_id JOIN language_levels ll ON ll.id=le.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE a.audio_text_target IS NOT NULL
+UNION ALL
+SELECT 'example_sentence',e.example_key,lang.code,ll.cefr_level,ll.status,ll.audio_status,e.text_target,SHA2(e.text_target,256),lang.standalone_audio_voice_name,lang.standalone_audio_voice_id,
+       e.audio_status,e.audio_url,e.audio_storage_path,e.audio_source_hash,e.audio_provider,e.audio_model_id,e.audio_voice_name,e.audio_voice_id,e.audio_generated_at,
+       (e.audio_status='ready' AND e.audio_url IS NOT NULL AND e.audio_storage_path IS NOT NULL AND e.audio_source_hash=SHA2(e.text_target,256) AND (lang.standalone_audio_voice_id IS NULL OR e.audio_voice_id=lang.standalone_audio_voice_id))
+FROM example_sentences e JOIN language_levels ll ON ll.id=e.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE e.audio_required=TRUE;
 
 CREATE OR REPLACE VIEW v_invalid_learner_facing_source_links AS
 SELECT p.id AS provenance_link_id,p.entity_type,p.entity_key,p.source_item_id,

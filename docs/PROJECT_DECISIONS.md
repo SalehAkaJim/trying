@@ -63,7 +63,11 @@
 - The full automation sequence is defined in `docs/AUTOMATION_CONTRACT.md`.
 
 ## Audio
-- Audio is generated only after the whole target-language curriculum/text/speaker assignments are final.
+- Audio is generated **per CEFR level**, only after that level is `final` and its target-language text plus speaker/voice assignments are frozen.
+- Audio/database linkage uses stable semantic keys (`turn_key`, `lexeme_key`, `activity_key`, `example_key`), never environment-specific auto-increment IDs.
+- Every generated asset stores URL, repository/storage path, provider, model, voice metadata, generation time and SHA-256 of the exact spoken text.
+- Re-importing base content must preserve valid audio metadata and stable row IDs. If canonical spoken text changes, linked audio is invalidated and must be regenerated.
+- Generated audio mappings live separately from base content SQL under `database/audio/<language>/<level>.sql`; base content SQL must never own or overwrite generated audio URLs.
 
 ## Relational semantic invariants
 - Semantic values that drive cross-language QA or runtime invariants must be first-class relational fields, not hidden only inside generic JSON payloads.

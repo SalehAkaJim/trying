@@ -4,36 +4,198 @@
   "title": "Word or Phrase",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "id", "languageId", "type", "surface", "partOfSpeech", "partOfSpeechFa", "translationFa", "sourceRefs", "flashcardEligible", "audioStatus"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "languageId",
+    "type",
+    "surface",
+    "partOfSpeech",
+    "partOfSpeechFa",
+    "translationFa",
+    "sourceRefs",
+    "flashcardEligible",
+    "audioStatus"
+  ],
   "properties": {
-    "schemaVersion": {"type": "string"},
-    "id": {"type": "string", "minLength": 1},
-    "languageId": {"type": "string", "minLength": 1},
-    "type": {"enum": ["word", "phrase"]},
-    "surface": {"type": "string", "minLength": 1, "description": "Canonical/headword display form for this lexeme. Inflected and alternate forms belong in lexeme_forms rather than becoming separate lexemes merely because their surface differs."},
-    "lemma": {"type": ["string", "null"], "description": "Linguistic lemma when applicable. It may equal surface for canonical word lexemes; phrases may leave it null."},
-    "partOfSpeech": {"type": ["string", "null"], "description": "Stable technical code. Every non-null code must exist in config/fa-taxonomy.json under part_of_speech."},
-    "partOfSpeechFa": {"type": ["string", "null"], "minLength": 1, "description": "Persian human-readable label for partOfSpeech. When partOfSpeech is non-null this must equal the canonical part_of_speech label in config/fa-taxonomy.json."},
-    "level": {"type": ["string", "null"], "enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2", null]},
-    "translationFa": {"type": "string", "minLength": 1},
-    "usageNoteFa": {"type": ["string", "null"], "description": "Must be translated from or traceable to a source-backed usage note."},
-    "grammarNoteRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
-    "exampleRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
-    "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
-    "formRefs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true, "default": [], "description": "Optional references to approved or candidate lexeme_form records belonging to this lexeme. The child form record remains authoritative for the parent relationship."},
-    "flashcardEligible": {"type": "boolean", "default": true},
-    "audioStatus": {"enum": ["blocked_until_language_final", "pending", "ready"]},
-    "audioRef": {"type": ["string", "null"], "default": null},
-    "audioVoice": {"type": ["string", "null"], "enum": ["Hope", "Lori", null]}
+    "schemaVersion": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "languageId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "enum": [
+        "word",
+        "phrase"
+      ]
+    },
+    "surface": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Canonical/headword display form for this lexeme. Inflected and alternate forms belong in lexeme_forms rather than becoming separate lexemes merely because their surface differs."
+    },
+    "lemma": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Linguistic lemma when applicable. It may equal surface for canonical word lexemes; phrases may leave it null."
+    },
+    "partOfSpeech": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Stable technical code. Every non-null code must exist in config/fa-taxonomy.json under part_of_speech."
+    },
+    "partOfSpeechFa": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "Persian human-readable label for partOfSpeech. When partOfSpeech is non-null this must equal the canonical part_of_speech label in config/fa-taxonomy.json."
+    },
+    "level": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Pre-A1",
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2",
+        null
+      ]
+    },
+    "translationFa": {
+      "type": "string",
+      "minLength": 1
+    },
+    "usageNoteFa": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Must be translated from or traceable to a source-backed usage note."
+    },
+    "grammarNoteRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "exampleRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "formRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "default": [],
+      "description": "Optional references to approved or candidate lexeme_form records belonging to this lexeme. The child form record remains authoritative for the parent relationship."
+    },
+    "flashcardEligible": {
+      "type": "boolean",
+      "default": true
+    },
+    "audioStatus": {
+      "enum": [
+        "not_required",
+        "blocked_until_level_final",
+        "pending",
+        "ready",
+        "stale",
+        "failed"
+      ]
+    },
+    "audioRef": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "audioVoice": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Hope",
+        "Lori",
+        null
+      ]
+    }
   },
   "allOf": [
     {
-      "if": {"properties": {"partOfSpeech": {"type": "string"}}, "required": ["partOfSpeech"]},
-      "then": {"properties": {"partOfSpeechFa": {"type": "string", "minLength": 1, "pattern": "[\\u0600-\\u06FF]"}}}
+      "if": {
+        "properties": {
+          "partOfSpeech": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "partOfSpeech"
+        ]
+      },
+      "then": {
+        "properties": {
+          "partOfSpeechFa": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "[\\u0600-\\u06FF]"
+          }
+        }
+      }
     },
     {
-      "if": {"properties": {"partOfSpeech": {"type": "null"}}, "required": ["partOfSpeech"]},
-      "then": {"properties": {"partOfSpeechFa": {"type": "null"}}}
+      "if": {
+        "properties": {
+          "partOfSpeech": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "partOfSpeech"
+        ]
+      },
+      "then": {
+        "properties": {
+          "partOfSpeechFa": {
+            "type": "null"
+          }
+        }
+      }
     }
   ]
 }

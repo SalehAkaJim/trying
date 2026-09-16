@@ -39,3 +39,4 @@ Language-specific exceptions must be explicit, documented, scoped, and tested. T
 
 ## Conflict handling
 If two documents appear to conflict, apply the more specific newer explicit decision and immediately reconcile the docs so the repository returns to a single unambiguous rule set.
+- `docs/AUDIO_PIPELINE.md` — قرارداد تولید، اتصال، اعتبارسنجی و بازتولید فایل‌های صوتی پس از نهایی‌شدن هر سطح.
