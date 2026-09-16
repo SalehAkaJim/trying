@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "grammar_note.schema.json",
+  "title": "Grammar Note",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "languageId", "level", "titleFa", "sourceText", "translationFa", "sourceRefs"],
+  "properties": {
+    "schemaVersion": {"type": "string"},
+    "id": {"type": "string", "minLength": 1},
+    "languageId": {"type": "string", "minLength": 1},
+    "level": {"enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2"]},
+    "titleFa": {"type": "string", "minLength": 1},
+    "sourceText": {"type": "string", "minLength": 1},
+    "translationFa": {"type": "string", "minLength": 1},
+    "exampleRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "lexemeRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true}
+  }
+}
