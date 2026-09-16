@@ -41,7 +41,11 @@
       "data": {
         "sourceText": "Ich mag Pizza sehr.",
         "tokens": ["Ich", "mag", "Pizza", "sehr."],
-        "answer": ["Ich", "mag", "Pizza", "sehr."]
+        "answer": ["Ich", "mag", "Pizza", "sehr."],
+        "tokenLexemeMappings": [
+          {"token": "mag", "lexemeId": "lex-de-moegen", "lexemeFormId": "lexform-de-moegen-mag"},
+          {"token": "Pizza", "lexemeId": "lex-de-pizza", "lexemeFormId": null}
+        ]
       },
       "transformations": ["sentence_tokenized_for_word_order"],
       "audioStatus": "pending_final_language"
