@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-heissen",
+  "languageId": "de",
+  "type": "word",
+  "surface": "heißen",
+  "lemma": "heißen",
+  "partOfSpeech": "verb",
+  "level": "Pre-A1",
+  "translationFa": "نام داشتن / نامیده شدن",
+  "usageNoteFa": "در این مرحله فقط برای پرسیدن نام و گفتن نام استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wiktionary-de-heissen", "src-wikibooks-de-wie-heisst-du"],
+  "formRefs": ["lexform-de-heissen-heisse", "lexform-de-heissen-heisst"],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}
