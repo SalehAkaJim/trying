@@ -4,13 +4,35 @@
 
 The course should be built from identifiable external language-learning sources rather than newly authored target-language teaching content.
 
+## Modern-source requirement
+
+Learner-facing instructional content must come from **modern, contemporary sources**.
+
+A source is eligible for learner-facing reuse only when it is either:
+- a contemporary publication/document whose currency has been verified; or
+- an actively maintained modern reference, corpus, dictionary, educational website or similar living source whose current state is reviewed at retrieval time.
+
+Old or legacy books, historical textbooks, outdated course documents, archived editions, vintage grammar references, old scans/OCR editions and other materially dated instructional sources must **not** feed learner-facing lessons, dialogues, examples, lexemes or grammar guidance, even when their copyright/license would otherwise allow reuse.
+
+Such older sources may be retained only as `analysis_only` material for historical comparison, research or coverage analysis. They must not be used as authoritative evidence of current learner-facing usage.
+
+There is no arbitrary global publication-year cutoff. Currency is evaluated from evidence such as:
+- publication or revision date;
+- whether the source is actively maintained;
+- whether it represents contemporary standard usage;
+- whether its pedagogy, terminology, spelling, register and real-world contexts are still current;
+- whether a newer authoritative edition or replacement exists.
+
+For static books and documents, prefer current/recent editions and current official educational materials. If source currency cannot be established, mark it `needs_currency_review` and do not use it in active learner-facing content until reviewed.
+
 ## Source priority
 
-Prefer sources that allow reliable reuse of the actual instructional material, especially:
-- public-domain sources;
-- openly licensed sources;
-- sources with explicit reuse permission;
-- source corpora whose license permits the intended use.
+Among modern sources, prefer sources that allow reliable reuse of the actual instructional material, especially:
+- current official educational resources;
+- current openly licensed teaching materials;
+- actively maintained dictionaries and language references;
+- modern corpora with suitable licensing;
+- sources with explicit reuse permission.
 
 Restricted copyrighted sources may still be useful for curriculum analysis, topic mapping and coverage comparison, but they must not be bulk-copied into the repository when direct reuse is not permitted.
 
@@ -25,12 +47,26 @@ A source record should capture, when available:
 - URL or other locator;
 - language;
 - source type;
+- publication/update date or other currency evidence;
+- modernity/currency status;
 - license name and URL;
 - attribution text if required;
 - section / unit / lesson / page / item locator;
 - retrieval date;
 - reuse status;
 - notes.
+
+## Modernity status
+
+Use one of:
+- `contemporary_verified` — a contemporary static publication/document whose current suitability has been verified;
+- `maintained_current` — a living/actively maintained modern source reviewed in its current state;
+- `historical_or_legacy` — old/legacy material; never learner-facing;
+- `needs_currency_review` — current suitability has not yet been established.
+
+Only `contemporary_verified` and `maintained_current` sources may directly support active learner-facing instructional content.
+
+`historical_or_legacy` sources must be `analysis_only`. `needs_currency_review` sources must remain `analysis_only` or `needs_review` until cleared.
 
 ## Reuse status
 
@@ -40,7 +76,7 @@ Use one of:
 - `analysis_only`
 - `needs_review`
 
-Only the first two should feed large-scale reusable lesson text directly.
+Modernity approval and copyright/reuse approval are separate gates. A source must pass **both** before it can feed reusable learner-facing content.
 
 ## Transformation logging
 
@@ -57,7 +93,7 @@ The transformation log exists to distinguish original source text from app struc
 
 ## Multiple sources per lesson
 
-A lesson may combine several sources. For example, one source may provide a dialogue, another vocabulary support and another grammar explanation. Each item retains its own source references.
+A lesson may combine several sources. For example, one source may provide a dialogue, another vocabulary support and another grammar explanation. Each item retains its own source references, and every learner-facing source must independently satisfy the modern-source rule.
 
 ## Source list in the app
 
