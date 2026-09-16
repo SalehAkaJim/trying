@@ -146,10 +146,6 @@ CREATE TABLE IF NOT EXISTS lessons (
   UNIQUE KEY uq_lessons_level_sequence (language_level_id, sequence_index),
   UNIQUE KEY uq_lessons_unit_position (unit_id, position_in_unit),
   CONSTRAINT chk_lessons_sequence CHECK (sequence_index>=1),
-  CONSTRAINT chk_lessons_unit_position CHECK (
-    (unit_id IS NULL AND position_in_unit IS NULL) OR
-    (unit_id IS NOT NULL AND position_in_unit IS NOT NULL AND position_in_unit>=1)
-  ),
   CONSTRAINT fk_lessons_level FOREIGN KEY (language_level_id) REFERENCES language_levels(id) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT fk_lessons_unit_level FOREIGN KEY (unit_id,language_level_id) REFERENCES units(id,language_level_id) ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -409,6 +405,10 @@ END$$
 DROP TRIGGER IF EXISTS trg_lessons_bi_final_guard$$
 CREATE TRIGGER trg_lessons_bi_final_guard BEFORE INSERT ON lessons FOR EACH ROW
 BEGIN
+  IF (NEW.unit_id IS NULL AND NEW.position_in_unit IS NOT NULL)
+     OR (NEW.unit_id IS NOT NULL AND (NEW.position_in_unit IS NULL OR NEW.position_in_unit<1)) THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='unit_id and position_in_unit must be set together';
+  END IF;
   IF NEW.status='final' THEN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Insert lesson before finalizing; final requires an existing opening activity';
   END IF;
@@ -418,6 +418,10 @@ DROP TRIGGER IF EXISTS trg_lessons_bu_final_guard$$
 CREATE TRIGGER trg_lessons_bu_final_guard BEFORE UPDATE ON lessons FOR EACH ROW
 BEGIN
   DECLARE opening_count INT DEFAULT 0;
+  IF (NEW.unit_id IS NULL AND NEW.position_in_unit IS NOT NULL)
+     OR (NEW.unit_id IS NOT NULL AND (NEW.position_in_unit IS NULL OR NEW.position_in_unit<1)) THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='unit_id and position_in_unit must be set together';
+  END IF;
   IF NEW.status='final' AND OLD.status<>'final' THEN
     SELECT COUNT(*) INTO opening_count FROM activities
     WHERE lesson_id=NEW.id AND position_index=1 AND activity_type='conversation_speaking';
