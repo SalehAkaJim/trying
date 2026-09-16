@@ -11,10 +11,13 @@
   "usageNoteFa": "برای عذرخواهی کوتاه یا شروع مؤدبانهٔ خطاب به کسی.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wiktionary-de-entschuldigung"],
+  "sourceRefs": [
+    "src-wiktionary-de-entschuldigung"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "حرف ندا / عبارت واکنشی"
 }

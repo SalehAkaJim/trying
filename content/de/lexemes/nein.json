@@ -11,10 +11,13 @@
   "usageNoteFa": "برای پاسخ منفی و رد کردن.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wiktionary-de-nein"],
+  "sourceRefs": [
+    "src-wiktionary-de-nein"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "واژهٔ پاسخ"
 }

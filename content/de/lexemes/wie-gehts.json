@@ -18,5 +18,6 @@
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "عبارت سلام و احوال‌پرسی"
 }

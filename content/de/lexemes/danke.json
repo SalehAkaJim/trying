@@ -11,10 +11,13 @@
   "usageNoteFa": "برای تشکر کوتاه و روزمره.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wiktionary-de-danke"],
+  "sourceRefs": [
+    "src-wiktionary-de-danke"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "عبارت واکنشی / واژهٔ پاسخ"
 }

@@ -11,10 +11,13 @@
   "usageNoteFa": null,
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wiktionary-de-pizza"],
+  "sourceRefs": [
+    "src-wiktionary-de-pizza"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "اسم"
 }

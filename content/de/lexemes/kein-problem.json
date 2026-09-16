@@ -11,10 +11,13 @@
   "usageNoteFa": "برای پاسخ کوتاه و دوستانه به یک عذرخواهی ساده.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wiktionary-de-kein-problem"],
+  "sourceRefs": [
+    "src-wiktionary-de-kein-problem"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "عبارت پاسخ"
 }

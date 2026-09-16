@@ -11,10 +11,13 @@
   "usageNoteFa": "برای سلام‌کردن دوستانه و عمومی.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wiktionary-de-hallo"],
+  "sourceRefs": [
+    "src-wiktionary-de-hallo"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "حرف ندا / عبارت واکنشی"
 }

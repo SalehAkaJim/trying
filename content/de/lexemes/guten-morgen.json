@@ -11,10 +11,13 @@
   "usageNoteFa": "سلامی برای آغاز روز و صبح.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wiktionary-de-guten-morgen"],
+  "sourceRefs": [
+    "src-wiktionary-de-guten-morgen"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "عبارت سلام و احوال‌پرسی"
 }

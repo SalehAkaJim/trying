@@ -11,10 +11,13 @@
   "usageNoteFa": "در این درس به معنی «خواهش می‌کنم» در پاسخ به تشکر استفاده می‌شود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wiktionary-de-bitte"],
+  "sourceRefs": [
+    "src-wiktionary-de-bitte"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "قید / واژهٔ پاسخ"
 }

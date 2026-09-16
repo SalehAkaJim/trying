@@ -11,10 +11,17 @@
   "usageNoteFa": "در این مرحله فقط برای پرسیدن نام و گفتن نام استفاده می‌شود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wiktionary-de-heissen", "src-wikibooks-de-wie-heisst-du"],
-  "formRefs": ["lexform-de-heissen-heisse", "lexform-de-heissen-heisst"],
+  "sourceRefs": [
+    "src-wiktionary-de-heissen",
+    "src-wikibooks-de-wie-heisst-du"
+  ],
+  "formRefs": [
+    "lexform-de-heissen-heisse",
+    "lexform-de-heissen-heisst"
+  ],
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "فعل"
 }

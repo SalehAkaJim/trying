@@ -11,10 +11,16 @@
   "usageNoteFa": null,
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wiktionary-de-moegen"],
-  "formRefs": ["lexform-de-moegen-mag", "lexform-de-moegen-magst"],
+  "sourceRefs": [
+    "src-wiktionary-de-moegen"
+  ],
+  "formRefs": [
+    "lexform-de-moegen-mag",
+    "lexform-de-moegen-magst"
+  ],
   "flashcardEligible": true,
   "audioStatus": "blocked_until_language_final",
   "audioRef": null,
-  "audioVoice": null
+  "audioVoice": null,
+  "partOfSpeechFa": "فعل"
 }
