@@ -19,6 +19,18 @@ jobs:
       - name: Apply migration
         run: |
           python scripts/migrate_audio_contract_temp.py
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('scripts/validate_project_contracts.py')
+          s=p.read_text(encoding='utf-8')
+          a='    ("language_levels", "status"): "level_status",\n'
+          if '("language_levels", "audio_status")' not in s:
+              s=s.replace(a,a+'    ("language_levels", "audio_status"): "audio_status",\n',1)
+          b='    ("lexemes", "audio_status"): "audio_status",\n'
+          if '("example_sentences", "audio_status")' not in s:
+              s=s.replace(b,b+'    ("example_sentences", "audio_status"): "audio_status",\n',1)
+          p.write_text(s,encoding='utf-8')
+          PY
           python scripts/apply_mysql_localization.py
           python scripts/sync_fa_labels.py
           python scripts/validate_source_localization.py
