@@ -1,17 +1,19 @@
-name: MySQL 9.0.1 Schema
+name: MySQL 9.0.1 Database
 
 on:
   push:
     paths:
       - 'database/schema.sql'
+      - 'database/content/de/pre-a1.sql'
       - '.github/workflows/mysql-schema.yml'
   pull_request:
     paths:
       - 'database/schema.sql'
+      - 'database/content/de/pre-a1.sql'
       - '.github/workflows/mysql-schema.yml'
 
 jobs:
-  validate-schema:
+  validate-database:
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -80,3 +82,84 @@ jobs:
             | tr -d '\r[:space:]')"
           echo "Required trigger count: $trigger_count"
           test "$trigger_count" = "7"
+
+      - name: Apply German Pre-A1 content
+        run: |
+          docker run --rm -i --network host mysql:9.0.1 \
+            mysql -h127.0.0.1 -uroot -proot language_content_test \
+            < database/content/de/pre-a1.sql
+
+      - name: Reapply German Pre-A1 content and verify idempotency
+        run: |
+          before="$(docker run --rm --network host mysql:9.0.1 \
+            mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
+            -e "SELECT CONCAT_WS(':',
+              (SELECT COUNT(*) FROM languages),
+              (SELECT COUNT(*) FROM language_levels),
+              (SELECT COUNT(*) FROM curriculum_targets),
+              (SELECT COUNT(*) FROM sources),
+              (SELECT COUNT(*) FROM source_items),
+              (SELECT COUNT(*) FROM characters),
+              (SELECT COUNT(*) FROM units),
+              (SELECT COUNT(*) FROM lessons),
+              (SELECT COUNT(*) FROM dialogues),
+              (SELECT COUNT(*) FROM dialogue_turns),
+              (SELECT COUNT(*) FROM activities),
+              (SELECT COUNT(*) FROM lexemes),
+              (SELECT COUNT(*) FROM lexeme_forms),
+              (SELECT COUNT(*) FROM lexeme_occurrences),
+              (SELECT COUNT(*) FROM provenance_links)
+            );" | tr -d '\r[:space:]')"
+
+          docker run --rm -i --network host mysql:9.0.1 \
+            mysql -h127.0.0.1 -uroot -proot language_content_test \
+            < database/content/de/pre-a1.sql
+
+          after="$(docker run --rm --network host mysql:9.0.1 \
+            mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
+            -e "SELECT CONCAT_WS(':',
+              (SELECT COUNT(*) FROM languages),
+              (SELECT COUNT(*) FROM language_levels),
+              (SELECT COUNT(*) FROM curriculum_targets),
+              (SELECT COUNT(*) FROM sources),
+              (SELECT COUNT(*) FROM source_items),
+              (SELECT COUNT(*) FROM characters),
+              (SELECT COUNT(*) FROM units),
+              (SELECT COUNT(*) FROM lessons),
+              (SELECT COUNT(*) FROM dialogues),
+              (SELECT COUNT(*) FROM dialogue_turns),
+              (SELECT COUNT(*) FROM activities),
+              (SELECT COUNT(*) FROM lexemes),
+              (SELECT COUNT(*) FROM lexeme_forms),
+              (SELECT COUNT(*) FROM lexeme_occurrences),
+              (SELECT COUNT(*) FROM provenance_links)
+            );" | tr -d '\r[:space:]')"
+
+          echo "Before second import: $before"
+          echo "After second import:  $after"
+          test "$before" = "$after"
+
+      - name: Verify German Pre-A1 baseline
+        run: |
+          lesson_count="$(docker run --rm --network host mysql:9.0.1 \
+            mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
+            -e "SELECT COUNT(*) FROM lessons WHERE lesson_key IN ('de-pre-a1-lesson-hallo','de-pre-a1-lesson-guten-morgen','de-pre-a1-lesson-pizza-like');" | tr -d '\r[:space:]')"
+          opening_count="$(docker run --rm --network host mysql:9.0.1 \
+            mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
+            -e "SELECT COUNT(*) FROM activities a JOIN lessons l ON l.id=a.lesson_id WHERE l.lesson_key IN ('de-pre-a1-lesson-hallo','de-pre-a1-lesson-guten-morgen','de-pre-a1-lesson-pizza-like') AND a.position_index=1 AND a.activity_type='conversation_speaking';" | tr -d '\r[:space:]')"
+          form_count="$(docker run --rm --network host mysql:9.0.1 \
+            mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
+            -e "SELECT COUNT(*) FROM lexeme_forms lf JOIN lexemes l ON l.id=lf.lexeme_id WHERE l.lexeme_key='lex-de-moegen' AND lf.lexeme_form_key IN ('lexform-de-moegen-mag','lexform-de-moegen-magst') AND lf.review_status='approved';" | tr -d '\r[:space:]')"
+          invalid_source_count="$(docker run --rm --network host mysql:9.0.1 \
+            mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
+            -e "SELECT COUNT(*) FROM v_invalid_learner_facing_source_links;" | tr -d '\r[:space:]')"
+
+          echo "German baseline lessons: $lesson_count"
+          echo "Opening conversations: $opening_count"
+          echo "Approved mögen forms: $form_count"
+          echo "Invalid learner-facing source links: $invalid_source_count"
+
+          test "$lesson_count" = "3"
+          test "$opening_count" = "3"
+          test "$form_count" = "2"
+          test "$invalid_source_count" = "0"
