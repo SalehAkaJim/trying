@@ -1,0 +1,49 @@
+name: One-time finalization sync repair
+
+on:
+  push:
+    paths:
+      - 'scripts/fix_finalization_sync_temp.py'
+      - '.github/workflows/finalization-sync-temp.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair-and-validate:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:9.0.1
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: language_content_test
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
+          --health-interval=10s --health-timeout=5s --health-retries=12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repair localization finalization order
+        run: python scripts/fix_finalization_sync_temp.py
+      - name: Validate contracts
+        run: |
+          python scripts/sync_fa_labels.py
+          python scripts/validate_source_localization.py
+          python scripts/validate_persian_coverage.py
+          python scripts/apply_mysql_localization.py --check
+          python scripts/validate_project_contracts.py
+          python scripts/validate_audio_contracts.py
+      - name: Validate MySQL 9.0.1
+        run: bash scripts/validate_mysql_content.sh
+      - name: Commit canonical SQL repair
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add database/content
+          if git diff --cached --quiet; then
+            echo 'No SQL changes.'
+          else
+            git commit -m 'Persist localization sync finalization order'
+            git push
+          fi
