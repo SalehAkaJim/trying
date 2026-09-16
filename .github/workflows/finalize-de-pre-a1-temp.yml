@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'scripts/finalize_de_pre_a1_temp.py'
+      - 'scripts/normalize_activity_transformations_temp.py'
       - '.github/workflows/finalize-de-pre-a1-temp.yml'
 
 permissions:
@@ -18,6 +19,8 @@ jobs:
           fetch-depth: 0
       - name: Generate final Pre-A1 snapshot
         run: python scripts/finalize_de_pre_a1_temp.py
+      - name: Normalize legacy activity transformations
+        run: python scripts/normalize_activity_transformations_temp.py
       - name: Install validator
         run: python -m pip install --disable-pip-version-check jsonschema
       - name: Validate JSON schemas
