@@ -47,7 +47,7 @@ Character metadata may include:
 
 ## Future ElevenLabs voice rules
 
-Audio is generated only after the entire language curriculum is finalized.
+Audio is generated per CEFR level only after that level is finalized and its target-language text plus speaker/voice assignments are frozen.
 
 Conversation character voices should be:
 - very clear and intelligible;

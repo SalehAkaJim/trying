@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-dienstag",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Dienstag",
+  "lemma": "Dienstag",
+  "partOfSpeech": "noun",
+  "level": "Pre-A1",
+  "translationFa": "سه‌شنبه",
+  "usageNoteFa": null,
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-age-time"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null,
+  "partOfSpeechFa": "اسم"
+}

@@ -1,0 +1,151 @@
+{
+  "id": "dlg-de-pre-a1-personal-review",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": [
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-age-time",
+    "src-wikibooks-de-birthday",
+    "src-wikibooks-de-phone"
+  ],
+  "scenario": "یک آشنایی مؤدبانهٔ کوتاه چند بخش اصلی اطلاعات شخصی را در هشت turn مرور می‌کند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-learner"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-review-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Guten Tag!",
+      "translationFa": "سلام / روز بخیر!",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-review-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Guten Tag!",
+      "translationFa": "سلام / روز بخیر!",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-review-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie heißen Sie?",
+      "translationFa": "اسمتان چیست؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-review-4",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich heiße Paul Müller.",
+      "translationFa": "اسم من پاول مولر است.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-review-5",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wo wohnen Sie?",
+      "translationFa": "کجا زندگی می‌کنید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-wohnen"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-review-6",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich wohne in Österreich.",
+      "translationFa": "من در اتریش زندگی می‌کنم.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-oesterreich"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-review-7",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie alt sind Sie?",
+      "translationFa": "چند سالتان است؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-alt"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-review-8",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich bin 20 Jahre alt.",
+      "translationFa": "من بیست ساله‌ام.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-zwanzig",
+        "lex-de-jahr",
+        "lex-de-alt"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "هشت turn فقط مطالب اصلی قبلی را در یک تعامل واحد بازیابی می‌کند؛ هیچ زبان تازه‌ای برای طولانی‌کردن صحنه اضافه نشده است."
+}

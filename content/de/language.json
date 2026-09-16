@@ -17,11 +17,11 @@
     "char-de-iris"
   ],
   "audioPolicy": {
-    "generateOnlyAfterLanguageFinal": true,
     "standaloneVoicePreference": [
       "Lori",
       "Hope"
     ],
-    "conversationVoiceStyle": "شفاف، آرام، کم‌فشار و مناسب زبان‌آموز"
+    "conversationVoiceStyle": "شفاف، آرام، کم‌فشار و مناسب زبان‌آموز",
+    "generateAfterEachLevelFinal": true
   }
 }

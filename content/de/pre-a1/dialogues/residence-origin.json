@@ -1,0 +1,87 @@
+{
+  "id": "dlg-de-pre-a1-residence-origin",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": [
+    "src-wikibooks-de-residence-origin"
+  ],
+  "scenario": "آیریس و زبان‌آموز در یک آشنایی مؤدبانه دربارهٔ محل زندگی و مبدأ سؤال و جواب می‌کنند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-learner"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-residence-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wo wohnen Sie?",
+      "translationFa": "کجا زندگی می‌کنید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-wohnen"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-residence-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich wohne in Österreich.",
+      "translationFa": "من در اتریش زندگی می‌کنم.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-oesterreich"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-residence-3",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Woher kommen Sie?",
+      "translationFa": "اهل کجا هستید؟",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-kommen"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-residence-4",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich komme aus Deutschland, und Sie?",
+      "translationFa": "من اهل آلمان هستم، شما چطور؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-kommen",
+        "lex-de-deutschland"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "این چهار turn دو تبادل بسیار کوتاه و منبع‌دار دربارهٔ محل زندگی و مبدأ را کامل می‌کنند و درس دهم را مطابق قانون شروع دوره سبک نگه می‌دارند."
+}

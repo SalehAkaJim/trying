@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-jahr",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Jahr",
+  "lemma": "Jahr",
+  "partOfSpeech": "noun",
+  "level": "Pre-A1",
+  "translationFa": "سال",
+  "usageNoteFa": null,
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-age-time"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null,
+  "partOfSpeechFa": "اسم"
+}

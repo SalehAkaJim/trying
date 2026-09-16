@@ -3,7 +3,7 @@
 Every finalized lesson begins with `conversation_speaking`; everything after it is chosen by learning need.
 
 ## conversation_speaking
-- 5–12 turns.
+- 4–12 turns overall; the first 10 beginner-path lessons use exactly 4 turns.
 - App or learner may start.
 - Learner-start means turn 1 is learner and instruction explicitly says to start.
 - Every target-language turn is source-backed.

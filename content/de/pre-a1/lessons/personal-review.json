@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-personal-review",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-personal-info",
+  "titleFa": "مرور اطلاعات شخصی",
+  "sourceTitle": "مرور نام، محل، سن، فرم کوتاه و قیمت شنیداری",
+  "learningTargets": [
+    "نام، محل زندگی و سن را در یک گفت‌وگوی کوتاه بازیابی کند.",
+    "اطلاعات شخصی بسیار کوتاه را در یک فرم متنی وارد کند.",
+    "نام واقعی خودش را با جایگزینی در الگوی منبع‌دار «Ich heiße ...» بنویسد.",
+    "یک قیمت ساده را از راه شنیدن تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-age-time",
+    "src-wikibooks-de-birthday",
+    "src-wikibooks-de-phone"
+  ],
+  "lexemeRefs": [
+    "lex-de-wohnen",
+    "lex-de-oesterreich",
+    "lex-de-alt",
+    "lex-de-jahr",
+    "lex-de-zwanzig",
+    "lex-de-telefonnummer",
+    "lex-de-geburtstag",
+    "lex-de-adresse"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "مرور نهایی باید interaction، writing و listening را کنار هم جمع کند؛ هر سه activity gap متفاوتی را می‌بندند و هیچ‌کدام برای رسیدن به تعداد اضافه نشده‌اند.",
+    "sequenceRationale": "اول retrieval گفتاری، سپس فرم متنی شخصی و در پایان یک تشخیص شنیداری قیمت انجام می‌شود.",
+    "templateSignature": "conversation_speaking>review>listen_choose"
+  },
+  "activities": [
+    {
+      "id": "act-de-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "در یک آشنایی مؤدبانه، نام، محل زندگی و سن را دوباره مرور کن.",
+      "selectionReason": "این مکالمه retrieval چند هدف اصلی را بدون معرفی زبان تازه انجام می‌دهد.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin",
+        "src-wikibooks-de-age-time",
+        "src-wikibooks-de-birthday",
+        "src-wikibooks-de-phone"
+      ],
+      "learningTargets": [
+        "بازیابی یکپارچهٔ نام، محل زندگی و سن."
+      ],
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-oesterreich",
+        "lex-de-alt",
+        "lex-de-jahr",
+        "lex-de-zwanzig"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-personal-review",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-personal-form",
+      "type": "review",
+      "instructionFa": "فرم متنی خیلی کوتاه را با اطلاعات خودت کامل کن.",
+      "selectionReason": "CEFR در Pre-A1 نوشتن/تکمیل اطلاعات شخصی بسیار پایه را پوشش می‌دهد؛ این فرم بدون تصویر و فقط با الگوهای منبع‌دار همان توانایی را تمرین می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin",
+        "src-wikibooks-de-age-time",
+        "src-wikibooks-de-birthday",
+        "src-wikibooks-de-phone"
+      ],
+      "learningTargets": [
+        "نوشتن اطلاعات شخصی بسیار کوتاه با الگوهای منبع‌دار.",
+        "حل gap نام واقعی زبان‌آموز با جایگزینی مقدار شخصی داخل الگوی منبع‌دار."
+      ],
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-alt",
+        "lex-de-jahr",
+        "lex-de-telefonnummer",
+        "lex-de-geburtstag",
+        "lex-de-adresse"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "contextFa": "این یک فرم متنی است و هیچ تصویر یا اطلاعات حساس اجباری ندارد. می‌توانی برای تمرین از دادهٔ ساختگی استفاده کنی.",
+        "fields": [
+          {
+            "labelFa": "نام",
+            "patternTarget": "Ich heiße ___.",
+            "exampleSourceText": "Ich heiße Paul Müller.",
+            "sourceRefs": [
+              "src-wikibooks-de-residence-origin"
+            ],
+            "instructionFa": "نام واقعی خودت را در جای خالی بنویس."
+          },
+          {
+            "labelFa": "محل زندگی",
+            "patternTarget": "Ich wohne in ___.",
+            "exampleSourceText": "Ich wohne in Österreich.",
+            "sourceRefs": [
+              "src-wikibooks-de-residence-origin"
+            ],
+            "instructionFa": "محل زندگی خودت را بنویس."
+          },
+          {
+            "labelFa": "سن",
+            "patternTarget": "Ich bin ___ Jahre alt.",
+            "exampleSourceText": "Ich bin 20 Jahre alt.",
+            "sourceRefs": [
+              "src-wikibooks-de-age-time"
+            ],
+            "instructionFa": "سن خودت را بنویس."
+          },
+          {
+            "labelFa": "شماره تلفن",
+            "patternTarget": "Meine Telefonnummer lautet ___.",
+            "exampleSourceText": "Meine Telefonnummer lautet 789.",
+            "sourceRefs": [
+              "src-wikibooks-de-phone"
+            ],
+            "instructionFa": "یک شمارهٔ تمرینی یا شمارهٔ خودت را وارد کن."
+          },
+          {
+            "labelFa": "تاریخ تولد",
+            "patternTarget": "Ich habe am ___ Geburtstag.",
+            "exampleSourceText": "Ich habe am dreizehnten November Geburtstag.",
+            "sourceRefs": [
+              "src-wikibooks-de-birthday"
+            ],
+            "instructionFa": "تاریخ تولد خودت را در الگوی منبع‌دار وارد کن."
+          },
+          {
+            "labelFa": "نشانی",
+            "patternTarget": "Adresse: ___",
+            "exampleSourceText": "Adresse",
+            "sourceRefs": [
+              "src-wikibooks-de-age-time"
+            ],
+            "instructionFa": "اگر می‌خواهی، یک نشانی تمرینی بنویس؛ این فیلد برای تمرین فرم متنی است."
+          }
+        ]
+      },
+      "transformations": [
+        "source_sentence_blank_created"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-price-listen",
+      "type": "listen_choose",
+      "instructionFa": "قیمت را گوش کن و عدد درست را انتخاب کن.",
+      "selectionReason": "توصیفگر reception در Pre-A1 تشخیص عدد و قیمت آشنا را پوشش می‌دهد؛ یک نمونهٔ منبع‌دار برای این gap کافی است.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "تشخیص شنیداری قیمت ساده."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "text": "7,60 €",
+            "correct": true
+          },
+          {
+            "text": "6,70 €",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "other"
+      ],
+      "audioStatus": "pending",
+      "audioTextTarget": "Die Zeitschrift kostet 7,60 Euro."
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

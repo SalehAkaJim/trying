@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-birthday-date",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-personal-info",
+  "titleFa": "تولدت کیه؟",
+  "sourceTitle": "Wann hast du Geburtstag? / Ich habe am ... Geburtstag.",
+  "learningTargets": [
+    "پرسش تاریخ تولد را بفهمد و بپرسد.",
+    "یک تاریخ تولد کوتاه را بفهمد و بیان کند.",
+    "ساختار تاریخ تولد را در نوشتن بازیابی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-birthday-question",
+    "src-wikibooks-de-birthday"
+  ],
+  "lexemeRefs": [
+    "lex-de-geburtstag",
+    "lex-de-juli",
+    "lex-de-november"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "بعد از مکالمه فقط یک بازیابی نوشتاری منبع‌دار لازم است.",
+    "sequenceRationale": "اول تاریخ در تعامل معنا پیدا می‌کند و سپس همان ساختار با جای خالی تثبیت می‌شود.",
+    "templateSignature": "conversation_speaking>fill_blank"
+  },
+  "activities": [
+    {
+      "id": "act-de-birthday-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "تاریخ تولد را بپرس و پاسخ نمونهٔ کوتاه را بگو.",
+      "selectionReason": "پرسش و پاسخ تاریخ تولد مستقیماً descriptor Pre-A1 را پوشش می‌دهد.",
+      "sourceRefs": [
+        "src-wikibooks-de-birthday-question",
+        "src-wikibooks-de-birthday"
+      ],
+      "learningTargets": [
+        "پرسیدن و گفتن تاریخ تولد."
+      ],
+      "lexemeRefs": [
+        "lex-de-geburtstag",
+        "lex-de-juli",
+        "lex-de-november"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-birthday-date",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-birthday-fill",
+      "type": "fill_blank",
+      "instructionFa": "جملهٔ تاریخ تولد را با بخش منبع‌دار کامل کن.",
+      "selectionReason": "یک بازیابی نوشتاری سبک از همان جملهٔ منبع‌دار، تاریخ را بدون ساخت جملهٔ تازه تمرین می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-birthday"
+      ],
+      "learningTargets": [
+        "بازیابی ساختار تاریخ تولد."
+      ],
+      "lexemeRefs": [
+        "lex-de-geburtstag",
+        "lex-de-november"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich habe am dreizehnten November Geburtstag.",
+        "blankedText": "Ich habe am ___ November Geburtstag.",
+        "choices": [
+          "dreizehnten"
+        ],
+        "answer": "dreizehnten"
+      },
+      "transformations": [
+        "source_sentence_blank_created"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

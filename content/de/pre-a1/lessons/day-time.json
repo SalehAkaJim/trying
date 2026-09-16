@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-day-time",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-personal-info",
+  "titleFa": "امروز چه روزیه؟ ساعت چنده؟",
+  "sourceTitle": "Welcher Tag ist heute? / Wie spät ist es?",
+  "learningTargets": [
+    "روز را بپرسد و یک پاسخ ساده را بفهمد.",
+    "ساعت را بپرسد و یک زمان ساده را بفهمد.",
+    "زمان روز را در یک عبارت بسیار کوتاه تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-age-time"
+  ],
+  "lexemeRefs": [
+    "lex-de-heute",
+    "lex-de-dienstag",
+    "lex-de-uhr"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "مکالمه تولید سؤال را می‌گیرد؛ شنیدن ساعت و تشخیص زمان روز دو mode جدا و لازم برای descriptor هستند.",
+    "sequenceRationale": "روز و ساعت در یک صحنه می‌آیند؛ سپس reception شنیداری و خواندنی بدون افزودن ساختار تازه تثبیت می‌شود.",
+    "templateSignature": "conversation_speaking>listen_choose>multiple_choice"
+  },
+  "activities": [
+    {
+      "id": "act-de-time-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "این بار تو شروع کن؛ روز و ساعت را از میا بپرس.",
+      "selectionReason": "پرسیدن فعال روز و ساعت مستقیماً descriptor اطلاعات روزمره را تمرین می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "پرسیدن و فهم روز و ساعت."
+      ],
+      "lexemeRefs": [
+        "lex-de-heute",
+        "lex-de-dienstag",
+        "lex-de-uhr"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-day-time",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-time-listen",
+      "type": "listen_choose",
+      "instructionFa": "زمان را گوش کن و ساعت درست را انتخاب کن.",
+      "selectionReason": "برای پوشش reception، زمان دقیق به‌صورت شنیداری تشخیص داده می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "تشخیص شنیداری «Es ist 6.30 Uhr.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-uhr"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "text": "6:30",
+            "correct": true
+          },
+          {
+            "text": "8:30",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "other"
+      ],
+      "audioStatus": "pending",
+      "audioTextTarget": "Es ist 6.30 Uhr."
+    },
+    {
+      "id": "act-de-time-of-day",
+      "type": "multiple_choice",
+      "instructionFa": "اگر صبح باشد، کدام جملهٔ منبع‌دار زمان روز را بیان می‌کند؟",
+      "selectionReason": "CEFR علاوه بر ساعت، زمان روز را هم در Pre-A1 می‌آورد؛ تشخیص متنی کافی است و زبان تازهٔ اضافی لازم ندارد.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "تشخیص زمان روز «Morgen»."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Es ist Morgen.",
+            "correct": true,
+            "sourceRefs": [
+              "src-wikibooks-de-age-time"
+            ]
+          },
+          {
+            "textTarget": "Es ist Abend.",
+            "correct": false,
+            "sourceRefs": [
+              "src-wikibooks-de-age-time"
+            ]
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

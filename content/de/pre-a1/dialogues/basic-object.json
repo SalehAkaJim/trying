@@ -1,0 +1,81 @@
+{
+  "id": "dlg-de-pre-a1-basic-object",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": [
+    "src-wikibooks-de-basic-object"
+  ],
+  "scenario": "در یک موقعیت متنی، میا و زبان‌آموز دربارهٔ دو شیء نام‌برده‌شده سؤال بسیار ساده می‌پرسند؛ حل فعالیت به تصویر وابسته نیست.",
+  "openingInitiator": "learner",
+  "characterRefs": [
+    "char-de-mia",
+    "char-de-learner"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-object-1",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was ist das?",
+      "translationFa": "این چیه؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-basic-object"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-object-2",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Das ist ein Buch.",
+      "translationFa": "این یک کتاب است.",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-buch"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-basic-object"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-object-3",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was ist das?",
+      "translationFa": "این چیه؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-basic-object"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-object-4",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Das ist eine Karte.",
+      "translationFa": "این یک کارت/نقشه است.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-karte"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-basic-object"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "سؤال اطلاعاتی بسیار ساده و پاسخ کوتاه از متن منبع گرفته شده‌اند؛ context فارسی شیء را مشخص می‌کند تا هیچ تصویر آموزشی لازم نباشد."
+}

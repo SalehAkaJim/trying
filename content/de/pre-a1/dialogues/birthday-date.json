@@ -1,0 +1,87 @@
+{
+  "id": "dlg-de-pre-a1-birthday-date",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": [
+    "src-wikibooks-de-birthday-question",
+    "src-wikibooks-de-birthday"
+  ],
+  "scenario": "میا و زبان‌آموز تاریخ تولد را می‌پرسند و با دو تاریخ منبع‌دار پاسخ می‌دهند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-mia",
+    "char-de-learner"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-birthday-1",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wann hast du Geburtstag?",
+      "translationFa": "کی تولدته؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-geburtstag"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-birthday-question"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-birthday-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Am 16. Juli.",
+      "translationFa": "شانزدهم ژوئیه.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-juli"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-birthday-question"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-birthday-3",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wann hast du Geburtstag?",
+      "translationFa": "کی تولدته؟",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-geburtstag"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-birthday-question"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-birthday-4",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich habe am dreizehnten November Geburtstag.",
+      "translationFa": "تولد من سیزدهم نوامبر است.",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-november",
+        "lex-de-geburtstag"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-birthday"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "چهار turn دو شکل رایج پاسخ به تاریخ تولد را نشان می‌دهد و برای Pre-A1 کافی است."
+}

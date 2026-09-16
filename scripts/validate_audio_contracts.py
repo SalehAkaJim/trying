@@ -40,6 +40,28 @@ for required in ["v_audio_generation_manifest","audio_storage_path","audio_sourc
     if required not in schema:
         errors.append(f"database/schema.sql missing {required}")
 
+# Final levels transition from blocked to pending/ready/stale/failed; they never remain level-blocked.
+levels={}
+for pth in Path("content").glob("*/*/level.json"):
+    d=json.loads(pth.read_text(encoding="utf-8")); levels[(d.get("languageId"),d.get("level"))]=d
+for pth in Path("content").glob("*/language.json"):
+    d=json.loads(pth.read_text(encoding="utf-8")); policy=d.get("audioPolicy") or {}
+    if policy.get("generateAfterEachLevelFinal") is not True:
+        errors.append(f"{pth}: generateAfterEachLevelFinal must be true")
+    if "generateOnlyAfterLanguageFinal" in policy:
+        errors.append(f"{pth}: legacy generateOnlyAfterLanguageFinal is forbidden")
+for pth in Path("content").glob("*/*/lessons/*.json"):
+    d=json.loads(pth.read_text(encoding="utf-8"))
+    if (levels.get((d.get("languageId"),d.get("level"))) or {}).get("status")=="final":
+        if d.get("audioStatus")=="blocked_until_level_final": errors.append(f"{pth}: final-level lesson audio remains blocked")
+        for a in d.get("activities",[]):
+            if a.get("audioTextTarget") and a.get("audioStatus")=="blocked_until_level_final":
+                errors.append(f"{pth}:{a.get('id')}: final-level activity audio remains blocked")
+for pth in Path("content").glob("*/lexemes/*.json"):
+    d=json.loads(pth.read_text(encoding="utf-8"))
+    if (levels.get((d.get("languageId"),d.get("level"))) or {}).get("status")=="final" and d.get("audioStatus")=="blocked_until_level_final":
+        errors.append(f"{pth}: final-level lexeme audio remains blocked")
+
 if errors:
     print("Audio contract validation failed:")
     print("\n".join(errors))

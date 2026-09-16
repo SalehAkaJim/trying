@@ -40,8 +40,10 @@ done
 # Base content re-import must preserve stable IDs and generated audio metadata.
 mysql_cmd -e "SELECT turn_key,id FROM dialogue_turns ORDER BY turn_key;" > /tmp/turn_ids_before.tsv
 mysql_cmd -e "SELECT lexeme_key,id FROM lexemes ORDER BY lexeme_key;" > /tmp/lexeme_ids_before.tsv
-mysql_cmd -e "UPDATE dialogue_turns SET audio_status='stale',audio_url='https://example.invalid/__ci_audio_preserve__.mp3',audio_storage_path='__ci_audio_preserve__',audio_source_hash=SHA2(text_target,256) ORDER BY id LIMIT 1;"
-mysql_cmd -e "UPDATE lexemes SET audio_status='stale',audio_url='https://example.invalid/__ci_audio_preserve__.mp3',audio_storage_path='__ci_audio_preserve__',audio_source_hash=SHA2(surface,256) ORDER BY id LIMIT 1;"
+mysql_cmd -e "DROP TABLE IF EXISTS __ci_turn_audio_backup; CREATE TABLE __ci_turn_audio_backup AS SELECT * FROM dialogue_turns ORDER BY id LIMIT 1;"
+mysql_cmd -e "DROP TABLE IF EXISTS __ci_lexeme_audio_backup; CREATE TABLE __ci_lexeme_audio_backup AS SELECT * FROM lexemes ORDER BY id LIMIT 1;"
+mysql_cmd -e "UPDATE dialogue_turns SET audio_status='stale',audio_url='https://example.invalid/__ci_audio_preserve__.mp3',audio_storage_path='__ci_audio_preserve__',audio_source_hash=SHA2(text_target,256) WHERE id=(SELECT id FROM __ci_turn_audio_backup LIMIT 1);"
+mysql_cmd -e "UPDATE lexemes SET audio_status='stale',audio_url='https://example.invalid/__ci_audio_preserve__.mp3',audio_storage_path='__ci_audio_preserve__',audio_source_hash=SHA2(surface,256) WHERE id=(SELECT id FROM __ci_lexeme_audio_backup LIMIT 1);"
 for file in "${content_files[@]}"; do mysql_file "$file"; done
 mysql_cmd -e "SELECT turn_key,id FROM dialogue_turns ORDER BY turn_key;" > /tmp/turn_ids_after.tsv
 mysql_cmd -e "SELECT lexeme_key,id FROM lexemes ORDER BY lexeme_key;" > /tmp/lexeme_ids_after.tsv
@@ -49,8 +51,8 @@ cmp /tmp/turn_ids_before.tsv /tmp/turn_ids_after.tsv
 cmp /tmp/lexeme_ids_before.tsv /tmp/lexeme_ids_after.tsv
 test "$(compact_query "SELECT COUNT(*) FROM dialogue_turns WHERE audio_storage_path='__ci_audio_preserve__';")" = "1"
 test "$(compact_query "SELECT COUNT(*) FROM lexemes WHERE audio_storage_path='__ci_audio_preserve__';")" = "1"
-mysql_cmd -e "UPDATE dialogue_turns SET audio_status='blocked_until_level_final',audio_url=NULL,audio_storage_path=NULL,audio_source_hash=NULL WHERE audio_storage_path='__ci_audio_preserve__';"
-mysql_cmd -e "UPDATE lexemes SET audio_status='blocked_until_level_final',audio_url=NULL,audio_storage_path=NULL,audio_source_hash=NULL WHERE audio_storage_path='__ci_audio_preserve__';"
+mysql_cmd -e "UPDATE dialogue_turns t JOIN __ci_turn_audio_backup b ON b.id=t.id SET t.audio_status=b.audio_status,t.audio_url=b.audio_url,t.audio_storage_path=b.audio_storage_path,t.audio_source_hash=b.audio_source_hash,t.audio_provider=b.audio_provider,t.audio_model_id=b.audio_model_id,t.audio_voice_name=b.audio_voice_name,t.audio_voice_id=b.audio_voice_id,t.audio_generated_at=b.audio_generated_at; DROP TABLE __ci_turn_audio_backup;"
+mysql_cmd -e "UPDATE lexemes l JOIN __ci_lexeme_audio_backup b ON b.id=l.id SET l.audio_status=b.audio_status,l.audio_url=b.audio_url,l.audio_storage_path=b.audio_storage_path,l.audio_source_hash=b.audio_source_hash,l.audio_provider=b.audio_provider,l.audio_model_id=b.audio_model_id,l.audio_voice_name=b.audio_voice_name,l.audio_voice_id=b.audio_voice_id,l.audio_generated_at=b.audio_generated_at; DROP TABLE __ci_lexeme_audio_backup;"
 for file in "${audio_sql_files[@]}"; do echo "Applying audio mapping $file"; mysql_file "$file"; done
 
 count_signature="SELECT CONCAT_WS(':',
@@ -181,6 +183,11 @@ test "$invalid_activity_audio_state" = "0"
 test "$invalid_ready_audio" = "0"
 test "$premature_ready_audio" = "0"
 test "$invalid_level_audio_ready" = "0"
+final_blocked_audio="$(compact_query "SELECT COUNT(*) FROM v_audio_generation_manifest WHERE level_status='final' AND audio_status='blocked_until_level_final';")"
+final_missing_audit="$(compact_query "SELECT COUNT(*) FROM language_levels WHERE status='final' AND completion_assessment IS NULL;")"
+echo "final-level blocked-audio=$final_blocked_audio missing-audit=$final_missing_audit"
+test "$final_blocked_audio" = "0"
+test "$final_missing_audit" = "0"
 
 expected_taxonomy="$(python - <<'PY'
 import json

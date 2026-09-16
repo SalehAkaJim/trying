@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-oesterreich",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Österreich",
+  "lemma": "Österreich",
+  "partOfSpeech": "proper_noun",
+  "level": "Pre-A1",
+  "translationFa": "اتریش",
+  "usageNoteFa": null,
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-residence-origin"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null,
+  "partOfSpeechFa": "اسم خاص"
+}

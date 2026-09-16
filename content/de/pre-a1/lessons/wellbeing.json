@@ -81,11 +81,11 @@
         "answer": "geht's"
       },
       "transformations": [
-        "source_sentence_blanked"
+        "source_sentence_blank_created"
       ],
       "audioStatus": "not_required"
     }
   ],
-  "status": "draft",
-  "audioStatus": "blocked_until_level_final"
+  "status": "final",
+  "audioStatus": "pending"
 }

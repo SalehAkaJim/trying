@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-basic-object",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-personal-info",
+  "titleFa": "این چیه؟",
+  "sourceTitle": "Was ist das? / Das ist ...",
+  "learningTargets": [
+    "«Was ist das?» را بپرسد و پاسخ بسیار ساده را بفهمد.",
+    "همان توانایی را بدون وابستگی به تصویر و با context متنی انجام دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-basic-object"
+  ],
+  "lexemeRefs": [
+    "lex-de-buch",
+    "lex-de-karte"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "خود مکالمه descriptor را کامل پوشش می‌دهد؛ فعالیت تصویری عمداً وارد نمی‌شود.",
+    "sequenceRationale": "زبان‌آموز یک بار سؤال را شروع می‌کند و یک بار پاسخ می‌دهد تا هر دو نقش تمرین شوند.",
+    "templateSignature": "conversation_speaking"
+  },
+  "activities": [
+    {
+      "id": "act-de-object-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "این بار تو شروع کن؛ در context متنی بپرس «Was ist das?» و پاسخ‌های کوتاه را تمرین کن.",
+      "selectionReason": "این فعالیت descriptor سؤال اطلاعاتی بسیار ساده را به شکل text-only و بدون تصویر پوشش می‌دهد.",
+      "sourceRefs": [
+        "src-wikibooks-de-basic-object"
+      ],
+      "learningTargets": [
+        "پرسیدن و فهم پاسخ یک سؤال اطلاعاتی بسیار ساده."
+      ],
+      "lexemeRefs": [
+        "lex-de-buch",
+        "lex-de-karte"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-basic-object",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

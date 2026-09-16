@@ -4,35 +4,103 @@
   "title": "Language Manifest",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "id", "code", "nameFa", "nameNative", "supportedLevels", "status", "audioPolicy"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "code",
+    "nameFa",
+    "nameNative",
+    "supportedLevels",
+    "status",
+    "audioPolicy"
+  ],
   "properties": {
-    "schemaVersion": {"type": "string"},
-    "id": {"type": "string", "minLength": 1},
-    "code": {"type": "string", "minLength": 2},
-    "nameFa": {"type": "string", "minLength": 1},
-    "nameNative": {"type": "string", "minLength": 1},
+    "schemaVersion": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "code": {
+      "type": "string",
+      "minLength": 2
+    },
+    "nameFa": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nameNative": {
+      "type": "string",
+      "minLength": 1
+    },
     "supportedLevels": {
       "type": "array",
-      "items": {"enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2"]},
+      "items": {
+        "enum": [
+          "Pre-A1",
+          "A1",
+          "A2",
+          "B1",
+          "B2",
+          "C1",
+          "C2"
+        ]
+      },
       "uniqueItems": true,
       "minItems": 1
     },
-    "status": {"enum": ["planned", "building", "review", "final", "audio_ready"]},
-    "levelManifestRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
-    "characterRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "status": {
+      "enum": [
+        "planned",
+        "building",
+        "review",
+        "final",
+        "audio_ready"
+      ]
+    },
+    "levelManifestRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "characterRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
     "audioPolicy": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["generateOnlyAfterLanguageFinal", "standaloneVoicePreference"],
+      "required": [
+        "generateAfterEachLevelFinal",
+        "standaloneVoicePreference"
+      ],
       "properties": {
-        "generateOnlyAfterLanguageFinal": {"const": true},
         "standaloneVoicePreference": {
           "type": "array",
-          "items": {"enum": ["Hope", "Lori"]},
+          "items": {
+            "enum": [
+              "Hope",
+              "Lori"
+            ]
+          },
           "minItems": 1,
           "uniqueItems": true
         },
-        "conversationVoiceStyle": {"type": "string"}
+        "conversationVoiceStyle": {
+          "type": "string"
+        },
+        "generateAfterEachLevelFinal": {
+          "const": true,
+          "description": "Audio is generated independently after each CEFR level becomes final."
+        }
       }
     }
   }

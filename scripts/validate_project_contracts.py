@@ -14,8 +14,9 @@ EDITORIAL_KEYS = {
     "structureRationale", "groupingRationale", "activitySelectionRationale",
     "sequenceRationale", "selectionReason", "scenario", "sceneQualityRationale",
     "contextNotes", "notes", "instructionFa", "translationFa", "usageNoteFa",
-    "titleFa", "contextFa", "promptFa", "descriptionFa", "partOfSpeechFa"
+    "titleFa", "contextFa", "promptFa", "descriptionFa", "partOfSpeechFa", "rationale"
 }
+EDITORIAL_LIST_KEYS = {"scopeExclusions", "requiredGaps", "strengths", "remainingWeaknesses"}
 SCHEMA_ENUM_DOMAINS = {
     ("languages", "status"): "language_status",
     ("language_levels", "cefr_level"): "cefr_level",
@@ -120,6 +121,10 @@ def walk_editorial(path, value, is_source=False, loc="$."):
                 for i, item in enumerate(child):
                     if isinstance(item, str) and item.strip() and not FA.search(item):
                         errors.append(f"{path}:{here}[{i}]: learning target must contain Persian text")
+            if not is_source and key in EDITORIAL_LIST_KEYS and isinstance(child, list):
+                for i, item in enumerate(child):
+                    if isinstance(item, str) and item.strip() and not FA.search(item):
+                        errors.append(f"{path}:{here}[{i}]: audit/editorial text must contain Persian text")
             if not is_source and key == "coverage" and isinstance(child, dict):
                 for group, items in child.items():
                     if isinstance(items, list):
@@ -161,6 +166,11 @@ for path, data in all_json:
     parts = path.parts
     if path.name == "language.json":
         require_label("language_status", data.get("status"), path)
+        policy=data.get("audioPolicy") or {}
+        if policy.get("generateAfterEachLevelFinal") is not True:
+            errors.append(f"{path}: audioPolicy.generateAfterEachLevelFinal must be true")
+        if "generateOnlyAfterLanguageFinal" in policy:
+            errors.append(f"{path}: legacy generateOnlyAfterLanguageFinal is forbidden")
         for level in data.get("supportedLevels", []) or []:
             require_label("cefr_level", level, path)
     if path.name == "level.json":
@@ -238,6 +248,41 @@ for language_id, (path, manifest) in language_manifests.items():
         errors.append(f"{path}: level manifest {missing!r} exists but is missing from levelManifestRefs")
     for unknown in sorted(declared_levels - actual_levels):
         errors.append(f"{path}: levelManifestRefs contains unknown level {unknown!r}")
+
+# Final-level contract: explicit audit, no hidden gaps, final child lessons/units, and audio unblocked.
+units_by_id={}
+for path,data in all_json:
+    if "units" in path.parts:
+        units_by_id[data.get("id")]=(path,data)
+for language_id, manifests in levels_by_language.items():
+    for level_path, level in manifests:
+        if level.get("status") != "final":
+            continue
+        if (level.get("coverage") or {}).get("gaps"):
+            errors.append(f"{level_path}: final level coverage.gaps must be empty")
+        assessment=level.get("completionAssessment") or {}
+        if assessment.get("requiredGaps"):
+            errors.append(f"{level_path}: final level requiredGaps must be empty")
+        if "scopeExclusions" not in assessment:
+            errors.append(f"{level_path}: final level must explicitly record scopeExclusions (empty is allowed)")
+        if level.get("audioStatus") == "blocked_until_level_final":
+            errors.append(f"{level_path}: final level audio must no longer be blocked")
+        for lesson_id in level.get("lessonRefs") or []:
+            entry=lessons.get(lesson_id)
+            if not entry:
+                errors.append(f"{level_path}: missing lesson {lesson_id!r}")
+                continue
+            lesson_path,lesson=entry
+            if lesson.get("status") != "final":
+                errors.append(f"{lesson_path}: lesson referenced by final level must be final")
+            if lesson.get("audioStatus") == "blocked_until_level_final":
+                errors.append(f"{lesson_path}: final lesson audio must no longer be blocked")
+        for unit_id in level.get("unitRefs") or []:
+            entry=units_by_id.get(unit_id)
+            if not entry:
+                errors.append(f"{level_path}: missing unit {unit_id!r}")
+            elif entry[1].get("status") != "final":
+                errors.append(f"{entry[0]}: unit referenced by final level must be final")
 
 # Beginner-path exact four-turn rule derives lesson order from level manifests.
 for language_id, manifests in levels_by_language.items():

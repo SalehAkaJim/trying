@@ -220,13 +220,15 @@
       "other": "سایر"
     },
     "activity_transformation": {
+      "verbatim_dialogue": "گفت‌وگو عیناً از منبع استفاده شده",
       "persian_translation_added": "ترجمهٔ فارسی افزوده شده",
-      "character_metadata_added": "فرادادهٔ شخصیت افزوده شده",
-      "options_selected_from_source_material": "گزینه‌ها از محتوای منبع انتخاب شده‌اند",
       "sentence_tokenized_for_word_order": "جمله برای مرتب‌سازی کلمات بخش‌بندی شده",
+      "source_sentence_blank_created": "از جملهٔ منبع جای خالی ساخته شده",
       "source_items_grouped_for_matching": "موارد منبع برای تطبیق گروه‌بندی شده",
-      "source_backed_pairs_grouped": "جفت‌های منبع‌دار برای تطبیق گروه‌بندی شده‌اند",
-      "source_sentence_blanked": "از جملهٔ منبع جای خالی ساخته شده"
+      "options_selected_from_source_material": "گزینه‌ها از محتوای منبع انتخاب شده‌اند",
+      "character_metadata_added": "فرادادهٔ شخصیت افزوده شده",
+      "cefr_level_assigned_by_app": "سطح CEFR توسط اپلیکیشن تعیین شده",
+      "other": "سایر"
     }
   }
 }

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-residence-origin",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-personal-info",
+  "titleFa": "کجا زندگی می‌کنی؟",
+  "sourceTitle": "Wo wohnen Sie? / Woher kommen Sie?",
+  "learningTargets": [
+    "محل زندگی را در یک جملهٔ کوتاه بفهمد و بیان کند.",
+    "مبدأ/کشور را در یک پرسش و پاسخ کوتاه بفهمد و بیان کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-residence-origin"
+  ],
+  "lexemeRefs": [
+    "lex-de-wohnen",
+    "lex-de-oesterreich",
+    "lex-de-kommen",
+    "lex-de-deutschland"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "همان مکالمهٔ کوتاه هدف این درس را پوشش می‌دهد و تمرین اضافه فقط تکرار ایجاد می‌کند.",
+    "sequenceRationale": "ابتدا محل زندگی و سپس مبدأ در یک آشنایی مؤدبانه مطرح می‌شود.",
+    "templateSignature": "conversation_speaking"
+  },
+  "activities": [
+    {
+      "id": "act-de-residence-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "در یک گفت‌وگوی مؤدبانه دربارهٔ محل زندگی و مبدأ جواب بده و یک سؤال هم بپرس.",
+      "selectionReason": "دو descriptor نزدیکِ اطلاعات شخصی در یک تبادل چهار turn طبیعی کنار هم تمرین می‌شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "learningTargets": [
+        "فهم و استفاده از پرسش و پاسخ بسیار ساده دربارهٔ محل زندگی و مبدأ."
+      ],
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-oesterreich",
+        "lex-de-kommen",
+        "lex-de-deutschland"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-residence-origin",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

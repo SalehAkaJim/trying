@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-geburtstag",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Geburtstag",
+  "lemma": "Geburtstag",
+  "partOfSpeech": "noun",
+  "level": "Pre-A1",
+  "translationFa": "تولد / روز تولد",
+  "usageNoteFa": null,
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-birthday"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null,
+  "partOfSpeechFa": "اسم"
+}

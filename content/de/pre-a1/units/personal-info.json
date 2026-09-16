@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-unit-personal-info",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "titleFa": "اطلاعات شخصی خیلی ساده",
+  "learningTargets": [
+    "گفتن محل زندگی و مبدأ",
+    "پرسیدن و گفتن سن و فهم عددهای ساده",
+    "پرسیدن و گفتن روز و ساعت",
+    "پرسیدن و گفتن تاریخ تولد",
+    "پرسیدن و گفتن شماره تلفن",
+    "پرسیدن یک سؤال اطلاعاتی بسیار ساده",
+    "تکمیل یک فرم متنی کوتاه با اطلاعات شخصی"
+  ],
+  "lessonRefs": [
+    "de-pre-a1-lesson-residence-origin",
+    "de-pre-a1-lesson-age-numbers",
+    "de-pre-a1-lesson-day-time",
+    "de-pre-a1-lesson-birthday-date",
+    "de-pre-a1-lesson-phone-number",
+    "de-pre-a1-lesson-basic-object",
+    "de-pre-a1-lesson-personal-review"
+  ],
+  "groupingRationale": "این درس‌ها یک خوشهٔ منسجم از اطلاعات شخصی و اطلاعات روزمرهٔ بسیار پایه می‌سازند و بعد با یک مرور نوشتاری/گفتاری جمع‌بندی می‌شوند؛ مرز واحد از تغییر هدف ارتباطی ایجاد شده است، نه از ظرفیت عددی.",
+  "sourceRefs": [
+    "src-coe-cefr-pre-a1",
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-age-time",
+    "src-wikibooks-de-birthday",
+    "src-wikibooks-de-birthday-question",
+    "src-wikibooks-de-phone",
+    "src-wikibooks-de-phone-example",
+    "src-wikibooks-de-basic-object"
+  ],
+  "status": "final",
+  "notes": "این واحد descriptorهای غیرتصویری باقیماندهٔ Pre-A1 را می‌بندد و سپس سطح وارد audit نهایی می‌شود."
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-age-numbers",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-personal-info",
+  "titleFa": "چند سالته؟",
+  "sourceTitle": "Wie alt bist du? / Ich bin ... Jahre alt.",
+  "learningTargets": [
+    "پرسش «Wie alt bist du?» را بفهمد و استفاده کند.",
+    "سن را با یک عدد ساده بیان کند.",
+    "عددهای ساده را در شنیدن تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-age-time"
+  ],
+  "lexemeRefs": [
+    "lex-de-alt",
+    "lex-de-jahr",
+    "lex-de-achtzehn",
+    "lex-de-zwanzig"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "بعد از تعامل، یک تشخیص شنیداری عدد لازم است چون CEFR روی فهم عددهای ساده تأکید دارد.",
+    "sequenceRationale": "اول سن در مکالمه معنا پیدا می‌کند و سپس عدد به‌تنهایی از راه شنیدن بازیابی می‌شود.",
+    "templateSignature": "conversation_speaking>listen_choose"
+  },
+  "activities": [
+    {
+      "id": "act-de-age-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "سن میا را بپرس و وقتی او از سن تو می‌پرسد، پاسخ نمونه را بگو.",
+      "selectionReason": "سن و عدد باید اول در تعامل واقعی دیده شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "پرسیدن و گفتن سن با عدد ساده."
+      ],
+      "lexemeRefs": [
+        "lex-de-alt",
+        "lex-de-jahr",
+        "lex-de-achtzehn",
+        "lex-de-zwanzig"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-age-numbers",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-age-listen",
+      "type": "listen_choose",
+      "instructionFa": "عدد «achtzehn» را گوش کن و عدد درست را انتخاب کن.",
+      "selectionReason": "توصیفگر Pre-A1 فهم عددهای ساده را می‌خواهد؛ این تمرین تشخیص شنیداری را بدون افزودن زبان تازه می‌سنجد.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "تشخیص شنیداری عدد «achtzehn»."
+      ],
+      "lexemeRefs": [
+        "lex-de-achtzehn"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "text": "18",
+            "correct": true
+          },
+          {
+            "text": "20",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "other"
+      ],
+      "audioStatus": "pending",
+      "audioTextTarget": "achtzehn"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

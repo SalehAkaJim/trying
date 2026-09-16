@@ -1,0 +1,89 @@
+{
+  "id": "dlg-de-pre-a1-age-numbers",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": [
+    "src-wikibooks-de-age-time"
+  ],
+  "scenario": "میا و زبان‌آموز سن هم را می‌پرسند و با عددهای ساده جواب می‌دهند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-mia",
+    "char-de-learner"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-age-1",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie alt bist du?",
+      "translationFa": "چند سالته؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-alt"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-age-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich bin achtzehn Jahre alt.",
+      "translationFa": "من هجده ساله‌ام.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-achtzehn",
+        "lex-de-jahr",
+        "lex-de-alt"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-age-3",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie alt bist du?",
+      "translationFa": "چند سالته؟",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-alt"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-age-4",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich bin 20 Jahre alt.",
+      "translationFa": "من بیست ساله‌ام.",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-zwanzig",
+        "lex-de-jahr",
+        "lex-de-alt"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "چهار turn برای رفت‌وبرگشت سن کافی است؛ فعالیت شنیداری بعدی عدد را جداگانه بازیابی می‌کند."
+}

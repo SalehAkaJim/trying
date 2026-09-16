@@ -97,6 +97,6 @@
       "audioStatus": "not_required"
     }
   ],
-  "status": "draft",
-  "audioStatus": "blocked_until_level_final"
+  "status": "final",
+  "audioStatus": "pending"
 }

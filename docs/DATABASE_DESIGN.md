@@ -17,7 +17,7 @@ The database remains the canonical target for the language-learning content pipe
 - Persian is the support/translation language and must remain faithful to source meaning.
 - Dialogues are modeled independently from activities so turns, characters, translations, provenance and future audio remain structured.
 - Character compatibility is enforceable data. Non-person speakers use `not_applicable` rather than overloading `unspecified`.
-- Audio is deliberately deferred until a whole target-language curriculum is finalized.
+- Audio is deliberately deferred per CEFR level until that level is finalized; later levels do not block audio generation for an already-final level.
 - Words and phrases are reusable lexeme entities with stable IDs.
 - Inflected and alternate written forms are child records of a lexeme rather than independent lexemes when lexical identity is unchanged.
 - The lesson-to-lexeme relationship needs an `is_primary` marker for core tappable lexemes/phrases.
@@ -54,7 +54,7 @@ A finalized lesson must have an opening `conversation_speaking` activity. This i
 
 ### Dialogues
 
-Dialogue turn count and learner-turn count are not modeled as required targets or min/max thresholds. A dialogue stores the turns it actually needs. QA judges semantic completeness, communicative progression, learner participation and source integrity.
+Dialogue sizing is generally content-driven, with one explicit product interaction envelope: opening conversations must stay within 4–12 turns, and the first 10 beginner-path lessons use exactly 4 turns. Inside that rule, there is no preferred count and learner-turn count has no quota. QA judges semantic completeness, communicative progression, learner participation and source integrity.
 
 ## Hybrid relational + JSON model
 

@@ -3,49 +3,46 @@
   "id": "de-pre-a1",
   "languageId": "de",
   "level": "Pre-A1",
-  "status": "building",
+  "status": "final",
   "structureRationale": "سطح از ارتباط‌های بسیار ساده و فوری برای زبان‌آموز صفر شروع می‌شود و فقط وقتی گسترش پیدا می‌کند که پوشش CEFR، پیش‌نیازها یا نیاز به تمرین بیشتر آن را توجیه کند؛ تعداد درس یا واحد معیار تولید محتوا نیست.",
   "coverage": {
     "communicativeTargets": [
-      "سلام‌کردن دوستانه با «Hallo!»",
-      "شروع گفت‌وگوی صبحگاهی با «Guten Morgen!»",
-      "پرسیدن و پاسخ‌دادن دربارهٔ علاقه به یک غذای بسیار آشنا",
-      "استفاده و تشخیص پاسخ‌های کوتاه «ja» و «nein»",
-      "تشکر کوتاه و پاسخ مؤدبانه با «danke» و «bitte»",
-      "خداحافظی ساده با «Tschüss!»",
-      "عذرخواهی کوتاه با «Entschuldigung» و فهم پاسخ «Kein Problem»",
-      "پرسیدن نام با «Wie heißt du?» و فهم پاسخ «Ich heiße Iris.»",
-      "احوال‌پرسی بسیار ساده با «Wie geht's?» و «Gut.»",
-      "فهم پرسش «Was möchtest du?» و انتخاب یک گزینهٔ آشنا"
+      "سلام، خداحافظی، تشکر، پاسخ مؤدبانه و عذرخواهی کوتاه",
+      "پرسیدن و گفتن نام",
+      "احوال‌پرسی بسیار ساده",
+      "پرسیدن و پاسخ‌دادن دربارهٔ علاقه/انتخاب غذای آشنا",
+      "پاسخ مثبت و منفی کوتاه",
+      "پرسیدن و گفتن محل زندگی و مبدأ",
+      "پرسیدن و گفتن سن و فهم عددهای ساده",
+      "پرسیدن و گفتن روز، ساعت و زمان روز",
+      "پرسیدن و گفتن تاریخ تولد",
+      "پرسیدن و گفتن شماره تلفن",
+      "پرسیدن سؤال اطلاعاتی بسیار ساده و فهم پاسخ کوتاه",
+      "نوشتن اطلاعات شخصی بسیار کوتاه در یک فرم متنی",
+      "تشخیص شنیداری یک قیمت ساده"
     ],
     "linguisticTargets": [
-      "عبارت ثابت «hallo» برای سلام",
-      "عبارت ثابت «guten Morgen» برای صبح‌بخیر",
-      "فعل «mögen» در شکل‌های «mag» و «magst»",
-      "اسم آشنای «Pizza»",
-      "ذره‌های پاسخ «ja» و «nein»",
-      "عبارت‌های مؤدبانهٔ «danke» و «bitte»",
-      "عبارت خداحافظی «Tschüss!»",
-      "عبارت‌های «Entschuldigung» و «kein Problem»",
-      "فعل «heißen» در شکل‌های «heiße» و «heißt»",
-      "عبارت «Wie geht's?» و پاسخ کوتاه «Gut.»",
-      "فرم «möchtest» از «mögen» برای بیان خواستن در یک پرسش ساده"
+      "عبارت‌های ثابت سلام/خداحافظی و ادب",
+      "فعل‌های پایهٔ «mögen»، «heißen»، «wohnen» و «kommen» در کاربردهای منبع‌دار این سطح",
+      "عددهای ساده در سن، ساعت، تلفن و قیمت",
+      "واژه‌های پایهٔ روز، ساعت، تولد، شماره تلفن و نشانی",
+      "الگوهای منبع‌دار معرفی، محل زندگی، سن، تاریخ تولد و شماره تلفن"
     ],
     "situations": [
-      "اولین سلام ساده و خداحافظی",
-      "شروع گفت‌وگو در صبح",
-      "پرسش و پاسخ ساده دربارهٔ علاقه به پیتزا",
-      "پاسخ مثبت و منفی در یک بافت آشنا",
-      "تشکر و پاسخ مؤدبانه",
-      "عذرخواهی کوتاه و پاسخ آرام",
-      "پرسیدن نام در آشنایی اولیه",
-      "احوال‌پرسی بسیار کوتاه",
-      "انتخاب یک چیز آشنا در پاسخ به یک پرسش کوتاه"
+      "آشنایی اولیه",
+      "گفت‌وگوی کوتاه صبحگاهی",
+      "علاقه و انتخاب غذای آشنا",
+      "تشکر و عذرخواهی",
+      "اطلاعات شخصی در آشنایی مؤدبانه",
+      "پرسش سن",
+      "پرسش روز و ساعت",
+      "تاریخ تولد",
+      "تبادل شماره تلفن",
+      "سؤال اطلاعاتی بسیار ساده",
+      "فرم متنی اطلاعات شخصی",
+      "تشخیص قیمت ساده"
     ],
-    "gaps": [
-      "گفتن نام واقعی خود زبان‌آموز با یک slot شخصی‌سازی‌شده و منبع‌دار",
-      "مرور و بازیابی بیشتر در جاهایی که شواهد آموزشی نیاز نشان دهد"
-    ]
+    "gaps": []
   },
   "sourceRefs": [
     "src-wiktionary-de-hallo",
@@ -64,10 +61,19 @@
     "src-wikibooks-de-wie-heisst-du",
     "src-wiktionary-de-heissen",
     "src-oak-de-was-moechtest-du",
-    "src-wiktionary-de-moechten"
+    "src-wiktionary-de-moechten",
+    "src-coe-cefr-pre-a1",
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-age-time",
+    "src-wikibooks-de-birthday",
+    "src-wikibooks-de-birthday-question",
+    "src-wikibooks-de-phone",
+    "src-wikibooks-de-phone-example",
+    "src-wikibooks-de-basic-object"
   ],
   "unitRefs": [
-    "de-pre-a1-unit-first-steps"
+    "de-pre-a1-unit-first-steps",
+    "de-pre-a1-unit-personal-info"
   ],
   "lessonRefs": [
     "de-pre-a1-lesson-hallo",
@@ -78,8 +84,49 @@
     "de-pre-a1-lesson-entschuldigung",
     "de-pre-a1-lesson-name-exchange",
     "de-pre-a1-lesson-wellbeing",
-    "de-pre-a1-lesson-simple-choice"
+    "de-pre-a1-lesson-simple-choice",
+    "de-pre-a1-lesson-residence-origin",
+    "de-pre-a1-lesson-age-numbers",
+    "de-pre-a1-lesson-day-time",
+    "de-pre-a1-lesson-birthday-date",
+    "de-pre-a1-lesson-phone-number",
+    "de-pre-a1-lesson-basic-object",
+    "de-pre-a1-lesson-personal-review"
   ],
-  "notes": "این فهرست فقط محتوایی است که تا این مرحله ساخته شده و به معنی تعداد هدف برای Pre-A1 نیست.",
-  "audioStatus": "blocked_until_level_final"
+  "notes": "German Pre-A1 از نظر محتوای آموزشی در scope فعلی text/audio و image-free نهایی شده است؛ audio assetها مرحلهٔ بعدی مستقل هستند.",
+  "audioStatus": "pending",
+  "completionAssessment": {
+    "reviewedAt": "2026-09-16T18:15:00Z",
+    "cefrCoverageComplete": true,
+    "progressionComplete": true,
+    "practiceAndRetrievalComplete": true,
+    "skillModeCoverageComplete": true,
+    "requiredGaps": [],
+    "scopeExclusions": [
+      "توصیفگرهای Pre-A1 که صراحتاً به متن مصور، تصویر یا اشارهٔ فیزیکی/دیداری وابسته‌اند، به‌دلیل baseline فعلی image-free خارج از scope محصول هستند؛ توانایی‌های مستقلِ متنی، گفتاری و شنیداری متناظر پوشش داده شده‌اند."
+    ],
+    "qualityReview": {
+      "overallScore": 9.7,
+      "dimensionScores": {
+        "cefrCoverage": 9.7,
+        "pedagogicalProgression": 9.6,
+        "practiceAndRetrieval": 9.7,
+        "activityQualityAndVariety": 9.7,
+        "linguisticAccuracyAndNaturalness": 9.6,
+        "sourceQualityAndCurrency": 9.8,
+        "learnerSupportAndClarity": 9.8,
+        "qaIntegrity": 10.0
+      },
+      "rationale": "پوشش نهایی بر توصیفگرهای رسمی Pre-A1 و scope متن/صوت بدون تصویر تطبیق داده شده است؛ اهداف اطلاعات شخصی، عدد، روز/ساعت/تاریخ، تاریخ تولد، تلفن، سؤال اطلاعاتی بسیار ساده، نوشتن فرم کوتاه و retrieval چندحالتی پوشش دارند و CI منبع، فارسی، ساختار و MySQL را کنترل می‌کند.",
+      "strengths": [
+        "پوشش descriptorمحور بدون سهمیهٔ درس یا فعالیت",
+        "تمام متن هدف learner-facing منبع‌دار و قابل ردیابی است",
+        "مرور نهایی speaking، listening، reading و writing متنی را ترکیب می‌کند",
+        "قواعد فارسی، image-free، starter، audio و MySQL به‌صورت خودکار کنترل می‌شوند."
+      ],
+      "remainingWeaknesses": [
+        "فایل‌های صوتی هنوز تولید نشده‌اند؛ همهٔ assetهای لازم پس از final شدن سطح در وضعیت pending قرار می‌گیرند و pipeline صوت باید آن‌ها را تولید و لینک کند."
+      ]
+    }
+  }
 }

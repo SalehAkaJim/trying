@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-phone-number",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-personal-info",
+  "titleFa": "شماره تلفنت چیه؟",
+  "sourceTitle": "Wie lautet deine Telefonnummer? / Meine Telefonnummer ...",
+  "learningTargets": [
+    "پرسش شماره تلفن را بفهمد و استفاده کند.",
+    "یک شماره تلفن ساده را بیان و از راه شنیدن تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-phone",
+    "src-wikibooks-de-phone-example"
+  ],
+  "lexemeRefs": [
+    "lex-de-telefonnummer"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "بعد از مکالمه، تشخیص شنیداری شماره برای پوشش reception لازم است.",
+    "sequenceRationale": "اول تبادل شماره تمرین می‌شود و بعد یک شمارهٔ همان منبع از راه شنیدن بازیابی می‌شود.",
+    "templateSignature": "conversation_speaking>listen_choose"
+  },
+  "activities": [
+    {
+      "id": "act-de-phone-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "شماره تلفن را بپرس و پاسخ نمونه را بگو.",
+      "selectionReason": "پرسش و پاسخ مستقیم شماره تلفن descriptor صریح Pre-A1 است.",
+      "sourceRefs": [
+        "src-wikibooks-de-phone",
+        "src-wikibooks-de-phone-example"
+      ],
+      "learningTargets": [
+        "پرسیدن و گفتن شماره تلفن."
+      ],
+      "lexemeRefs": [
+        "lex-de-telefonnummer"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-phone-number",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-phone-listen",
+      "type": "listen_choose",
+      "instructionFa": "شماره را گوش کن و عدد درست را انتخاب کن.",
+      "selectionReason": "شماره تلفن باید در reception شنیداری هم قابل تشخیص باشد.",
+      "sourceRefs": [
+        "src-wikibooks-de-phone"
+      ],
+      "learningTargets": [
+        "تشخیص شنیداری شمارهٔ «789»."
+      ],
+      "lexemeRefs": [
+        "lex-de-telefonnummer"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "text": "789",
+            "correct": true
+          },
+          {
+            "text": "798",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "other"
+      ],
+      "audioStatus": "pending",
+      "audioTextTarget": "Meine Telefonnummer lautet 789."
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

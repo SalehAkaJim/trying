@@ -103,11 +103,11 @@
         ]
       },
       "transformations": [
-        "source_backed_pairs_grouped"
+        "source_items_grouped_for_matching"
       ],
       "audioStatus": "not_required"
     }
   ],
-  "status": "draft",
-  "audioStatus": "blocked_until_level_final"
+  "status": "final",
+  "audioStatus": "pending"
 }

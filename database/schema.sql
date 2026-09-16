@@ -174,13 +174,15 @@ INSERT INTO taxonomy_labels (domain_code,value_code,label_fa) VALUES
   ('provenance_transformation','character_metadata_added','فرادادهٔ شخصیت افزوده شده'),
   ('provenance_transformation','cefr_level_assigned_by_app','سطح CEFR توسط اپلیکیشن تعیین شده'),
   ('provenance_transformation','other','سایر'),
+  ('activity_transformation','verbatim_dialogue','گفت‌وگو عیناً از منبع استفاده شده'),
   ('activity_transformation','persian_translation_added','ترجمهٔ فارسی افزوده شده'),
-  ('activity_transformation','character_metadata_added','فرادادهٔ شخصیت افزوده شده'),
-  ('activity_transformation','options_selected_from_source_material','گزینه‌ها از محتوای منبع انتخاب شده‌اند'),
   ('activity_transformation','sentence_tokenized_for_word_order','جمله برای مرتب‌سازی کلمات بخش‌بندی شده'),
+  ('activity_transformation','source_sentence_blank_created','از جملهٔ منبع جای خالی ساخته شده'),
   ('activity_transformation','source_items_grouped_for_matching','موارد منبع برای تطبیق گروه‌بندی شده'),
-  ('activity_transformation','source_backed_pairs_grouped','جفت‌های منبع‌دار برای تطبیق گروه‌بندی شده‌اند'),
-  ('activity_transformation','source_sentence_blanked','از جملهٔ منبع جای خالی ساخته شده')
+  ('activity_transformation','options_selected_from_source_material','گزینه‌ها از محتوای منبع انتخاب شده‌اند'),
+  ('activity_transformation','character_metadata_added','فرادادهٔ شخصیت افزوده شده'),
+  ('activity_transformation','cefr_level_assigned_by_app','سطح CEFR توسط اپلیکیشن تعیین شده'),
+  ('activity_transformation','other','سایر')
 ON DUPLICATE KEY UPDATE label_fa=VALUES(label_fa);
 -- END GENERATED FA TAXONOMY
 
@@ -205,6 +207,7 @@ CREATE TABLE IF NOT EXISTS language_levels (
   audio_status ENUM('not_required','blocked_until_level_final','pending','ready','stale','failed') NOT NULL DEFAULT 'blocked_until_level_final',
   structure_rationale TEXT NULL,
   coverage JSON NOT NULL,
+  completion_assessment JSON NULL,
   notes TEXT NULL,
   created_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   updated_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
@@ -588,6 +591,48 @@ CREATE TABLE IF NOT EXISTS provenance_links (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DELIMITER $$
+
+
+DROP TRIGGER IF EXISTS trg_language_levels_bi_final_guard$$
+CREATE TRIGGER trg_language_levels_bi_final_guard BEFORE INSERT ON language_levels FOR EACH ROW
+BEGIN
+  IF NEW.status='final' THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Insert level before finalizing; final requires targets, lessons and completion audit';
+  END IF;
+END$$
+
+DROP TRIGGER IF EXISTS trg_language_levels_bu_final_guard$$
+CREATE TRIGGER trg_language_levels_bu_final_guard BEFORE UPDATE ON language_levels FOR EACH ROW
+BEGIN
+  DECLARE missing_targets INT DEFAULT 0;
+  DECLARE invalid_lessons INT DEFAULT 0;
+  DECLARE lesson_count INT DEFAULT 0;
+  IF NEW.status='final' AND OLD.status<>'final' THEN
+    IF NEW.completion_assessment IS NULL
+       OR JSON_UNQUOTE(JSON_EXTRACT(NEW.completion_assessment,'$.cefrCoverageComplete'))<>'true'
+       OR JSON_UNQUOTE(JSON_EXTRACT(NEW.completion_assessment,'$.progressionComplete'))<>'true'
+       OR JSON_UNQUOTE(JSON_EXTRACT(NEW.completion_assessment,'$.practiceAndRetrievalComplete'))<>'true'
+       OR JSON_UNQUOTE(JSON_EXTRACT(NEW.completion_assessment,'$.skillModeCoverageComplete'))<>'true'
+       OR COALESCE(JSON_LENGTH(JSON_EXTRACT(NEW.completion_assessment,'$.requiredGaps')),1)<>0 THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Final level requires a passing completion assessment with zero required gaps';
+    END IF;
+    IF COALESCE(JSON_LENGTH(JSON_EXTRACT(NEW.coverage,'$.gaps')),1)<>0 THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Final level coverage.gaps must be empty';
+    END IF;
+    SELECT COUNT(*) INTO missing_targets FROM curriculum_targets
+      WHERE language_level_id=NEW.id AND required_for_completion=TRUE AND status<>'covered';
+    IF missing_targets<>0 THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Final level has required curriculum targets that are not covered';
+    END IF;
+    SELECT COUNT(*),SUM(status<>'final') INTO lesson_count,invalid_lessons FROM lessons WHERE language_level_id=NEW.id;
+    IF lesson_count=0 OR COALESCE(invalid_lessons,0)<>0 THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='All lessons must be final before the level can become final';
+    END IF;
+    IF NEW.audio_status NOT IN ('pending','ready','stale','failed') THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Final level audio must transition out of blocked state';
+    END IF;
+  END IF;
+END$$
 
 DROP TRIGGER IF EXISTS trg_lexemes_bi_fa_taxonomy$$
 CREATE TRIGGER trg_lexemes_bi_fa_taxonomy BEFORE INSERT ON lexemes FOR EACH ROW

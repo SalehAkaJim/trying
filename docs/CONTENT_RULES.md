@@ -10,7 +10,7 @@ Project-authored learner support and curriculum/editorial prose must be Persian.
 No target/preferred unit, lesson or activity count exists. Every finalized lesson starts with `conversation_speaking`; post-opening activities are dynamic.
 
 ## Opening conversation
-Opening conversations must contain **5–12 turns**. Exact length inside the range is chosen by scene/source/learning need; do not pad toward 12 or compress toward 5.
+Opening conversations must contain **4–12 turns**. The first 10 lessons of a language's beginner path use exactly 4 turns; when Pre-A1 exists these are the first 10 Pre-A1 lessons. From lesson 11 onward, exact length inside 4–12 is chosen by scene/source/learning need; do not pad toward either boundary.
 
 Starter is dynamic:
 - `openingInitiator = app` → turn 1 has `learnerTurn=false`.

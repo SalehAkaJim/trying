@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-zwanzig",
+  "languageId": "de",
+  "type": "word",
+  "surface": "zwanzig",
+  "lemma": "zwanzig",
+  "partOfSpeech": "numeral",
+  "level": "Pre-A1",
+  "translationFa": "بیست",
+  "usageNoteFa": null,
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-age-time"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null,
+  "partOfSpeechFa": "عدد"
+}
