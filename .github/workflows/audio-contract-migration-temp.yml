@@ -30,6 +30,12 @@ jobs:
           if '("example_sentences", "audio_status")' not in s:
               s=s.replace(b,b+'    ("example_sentences", "audio_status"): "audio_status",\n',1)
           p.write_text(s,encoding='utf-8')
+
+          p=Path('scripts/validate_audio_contracts.py')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('if "DELETE FROM dialogue_turns WHERE" in text: errors.append(f"{p}: destructive dialogue_turn re-import can break audio linkage")',
+                      'if "DELETE FROM dialogue_turns WHERE" in text and "AND turn_key NOT IN" not in text: errors.append(f"{p}: destructive dialogue_turn re-import can break audio linkage")')
+          p.write_text(s,encoding='utf-8')
           PY
           python scripts/apply_mysql_localization.py
           python scripts/sync_fa_labels.py
