@@ -11,6 +11,7 @@ What is preserved here is only the finalized project framework:
 - CEFR planning rules;
 - activity and conversation rules;
 - character and future audio rules;
+- lexeme and inflected/variant-form architecture;
 - QA rules;
 - database architecture decisions;
 - JSON content contracts.
@@ -28,6 +29,8 @@ Start with [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md), then read [
 - Activity counts and post-opening activity order are dynamic per lesson.
 - Every lesson begins with `conversation_speaking`.
 - Target-language instructional content must be source-backed and provenance-preserving.
+- `lexemes` represent lexical identity; approved inflected/variant surfaces resolve through `lexeme_forms` rather than becoming duplicate lexemes.
+- Surface-form lookup must support ambiguity and must not assume one written form uniquely identifies one lexeme.
 - Audio generation is deferred until the full target-language curriculum is finalized.
 
 ## Repository layout
