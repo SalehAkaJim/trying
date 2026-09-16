@@ -89,7 +89,18 @@ These transformations must not create unsupported target-language instructional 
 - Progression is principle-driven and coverage-driven, not a globally fixed lesson sequence.
 - No fixed number of early lessons receives special structural rules; QA evaluates the actual progression that exists.
 
-## 10. Words, phrases, and surface forms as first-class entities
+## 10. Initial image-free content policy
+
+- The current product baseline is **text/audio-only** for learner-facing instructional content.
+- Until this rule is explicitly changed, lessons, units, activities, dialogue turns, prompts, questions, answers, options, hints, examples and review items must not contain, reference, request or depend on images.
+- Authoring payloads must not include image-bearing fields such as `image`, `imageUrl`, `imageURL`, `imageRef`, `picture`, `photo`, `illustration`, thumbnails or equivalent aliases.
+- Instructions must not say or imply things such as “look at the picture”, “choose the image”, “what is shown here”, or otherwise require visual artwork to solve the task.
+- Correctness and solvability must come from text, Persian support/context, previously learned material and, when the audio phase begins, audio—not from an image.
+- This restriction applies even when a source contains useful illustrations; the reusable learner-facing activity must remain independently solvable without them.
+- Decorative app chrome that carries no instructional meaning is outside this content rule; educational meaning must never depend on it.
+- Image-based activity types may be introduced later only after an explicit product decision changes this baseline.
+
+## 11. Words, phrases, and surface forms as first-class entities
 
 - Reusable words and phrases have stable lexeme IDs.
 - `lexemes.surface` is the canonical/headword display form for a lexeme, not every spelling or inflected form that may appear in content.
@@ -104,7 +115,7 @@ These transformations must not create unsupported target-language instructional 
 - Ambiguous mappings must be resolved during QA before dependent learner-facing lexeme features are enabled.
 - `lesson_lexemes.is_primary` marks core tappable lexemes/phrases without changing the many-to-many relationship.
 
-## 11. Characters
+## 12. Characters
 
 - Source-defined speaker identity should be preserved when practical.
 - App-assigned characters must never contradict source evidence about gender, age, relationship, role, setting, or register.
@@ -112,7 +123,7 @@ These transformations must not create unsupported target-language instructional 
 - Non-person speaker entities may use `gender = not_applicable`; this must not be overloaded into `unspecified`.
 - Prefer a manageable recurring character library for consistency.
 
-## 12. Audio
+## 13. Audio
 
 - Audio is not generated during initial curriculum assembly.
 - Audio generation begins only after the whole target-language curriculum is finalized and speaker assignments/text are stable.
@@ -120,7 +131,7 @@ These transformations must not create unsupported target-language instructional 
 - Standalone words/phrases use one consistent voice per language; Hope/Lori are the retained preferred options unless later testing changes that decision.
 - Learner clarity and intelligibility outrank dramatic performance.
 
-## 13. QA and readiness
+## 14. QA and readiness
 
 Before content can be final, QA must verify at minimum:
 
@@ -128,6 +139,8 @@ Before content can be final, QA must verify at minimum:
 - the opening scene is communicatively and pedagogically complete without relying on turn-count thresholds;
 - learner participation is appropriate to the scene and learning goal without relying on a learner-turn quota;
 - no unit, lesson, activity or conversation structure was padded, split, merged or truncated to satisfy a numeric quota or preferred range;
+- no learner-facing educational item contains, references or depends on an image;
+- no activity payload contains an image-bearing field or visual-answer dependency;
 - provenance resolves for reusable teaching items;
 - every learner-facing source passes the modernity/currency gate as `contemporary_verified` or `maintained_current`;
 - no `historical_or_legacy` or `needs_currency_review` source is used as active learner-facing evidence;
@@ -141,6 +154,6 @@ Before content can be final, QA must verify at minimum:
 - ambiguous lexeme-form occurrence mappings are resolved before dependent learner-facing features are enabled;
 - audio remains blocked until the language-level completion gate is satisfied.
 
-## 14. Clean-baseline rule
+## 15. Clean-baseline rule
 
 This repository intentionally starts with **zero educational content**. New course content must be added only after these rules and database contracts are accepted as the baseline.
