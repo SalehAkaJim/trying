@@ -9,6 +9,9 @@ A lesson fails QA when any of the following is true:
 - the opening activity is not `conversation_speaking`;
 - the opening scene is not a meaningful communicative scene for the lesson purpose;
 - learner participation is absent or clearly inadequate for a lesson that requires learner interaction;
+- any learner-facing educational item includes, references, requests or depends on an image, illustration, photograph, picture, thumbnail or equivalent visual artwork;
+- an activity payload contains image-bearing fields such as `image`, `imageUrl`, `imageURL`, `imageRef`, `picture`, `photo`, `illustration`, thumbnail fields or equivalent aliases;
+- a prompt, option, dialogue, answer, hint or instruction is not independently understandable/solvable without visual artwork;
 - a reusable target-language teaching item has no source reference;
 - any active learner-facing teaching item relies on a source whose modernity status is not `contemporary_verified` or `maintained_current`;
 - a `historical_or_legacy` source is used as learner-facing evidence;
@@ -22,6 +25,20 @@ A lesson fails QA when any of the following is true:
 - audio is generated before the full language reaches final content status;
 - an activity introduces unrelated target-language material only to satisfy a template;
 - content is padded, split, merged, truncated or grouped primarily to satisfy a numeric unit/lesson/activity/dialogue quota.
+
+## Image-free content checks
+
+The current learner-facing baseline is text/audio-only and must remain image-independent until an explicit future decision changes it.
+
+For every lesson, activity and dialogue:
+- reject image fields or media aliases in structured payloads, including nested option objects;
+- reject prompts that ask the learner to inspect, identify, compare or choose a visual object;
+- reject answer correctness that depends on artwork, icons, screenshots, photographs or illustrations;
+- verify material sourced from illustrated documents remains independently valid after the illustration is removed;
+- verify Persian context is sufficient when visual context would otherwise have been needed;
+- do not treat decorative non-instructional app chrome as educational evidence.
+
+This rule applies to all activity types, including `multiple_choice`, `choose_response`, `matching`, `listen_choose`, `conversation_speaking`, `review` and any future activity type.
 
 ## Source currency / modernity checks
 
@@ -68,7 +85,8 @@ For every opening dialogue, review:
 - whether repeated phrases are pedagogically useful rather than filler;
 - whether cognitive/productive load fits the learner's actual progression;
 - whether every target-language turn remains source-backed;
-- whether a composite dialogue combines compatible utterances without changing their target-language text.
+- whether a composite dialogue combines compatible utterances without changing their target-language text;
+- whether the dialogue is fully understandable without an instructional image.
 
 Never fail or pass a conversation solely because of total-turn or learner-turn count. Never expand a conversation to reach a number and never cut useful source-backed turns to stay below a number.
 
@@ -127,6 +145,7 @@ Do not define "early" as a fixed number of lessons. Apply these checks for as lo
 - `matching`: mappings must be semantically correct and traceable.
 - `grammar_focus`: explanation and examples must be source-backed.
 - speaking activities: learner text must be the exact expected source-backed target utterance for that step.
+- every activity must remain solvable without instructional imagery.
 
 ## Lexeme-form checks
 
