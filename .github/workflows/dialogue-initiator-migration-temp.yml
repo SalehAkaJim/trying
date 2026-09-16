@@ -16,104 +16,65 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Promote opening initiator to relational contract
+      - name: Fix dialogue insert value order
         run: |
           python - <<'PY'
-          import json
           import pathlib
-          import re
 
-          root = pathlib.Path('.')
+          def split_fields(inner):
+              fields=[]; buf=[]; in_quote=False; i=0
+              while i < len(inner):
+                  ch=inner[i]
+                  if ch=="'":
+                      buf.append(ch)
+                      if in_quote and i+1 < len(inner) and inner[i+1]=="'":
+                          buf.append("'"); i += 2; continue
+                      in_quote = not in_quote
+                      i += 1; continue
+                  if ch==',' and not in_quote:
+                      fields.append(''.join(buf).strip()); buf=[]; i += 1; continue
+                  buf.append(ch); i += 1
+              fields.append(''.join(buf).strip())
+              return fields
 
-          schema_path = root / 'database/schema.sql'
-          schema = schema_path.read_text(encoding='utf-8')
-          old = "  scenario TEXT NOT NULL,\n  scene_quality_rationale TEXT NULL,\n"
-          new = "  scenario TEXT NOT NULL,\n  opening_initiator ENUM('app','learner') NOT NULL,\n  scene_quality_rationale TEXT NULL,\n"
-          if 'opening_initiator ENUM' not in schema:
-              if old not in schema:
-                  raise SystemExit('schema dialogue insertion anchor not found')
-              schema = schema.replace(old, new, 1)
-          schema_path.write_text(schema, encoding='utf-8')
-
-          validator_path = root / 'scripts/validate_project_contracts.py'
-          validator = validator_path.read_text(encoding='utf-8')
-          anchor = '    ("lesson_targets", "coverage_role"): "coverage_role",\n'
-          addition = anchor + '    ("dialogues", "opening_initiator"): "opening_initiator",\n'
-          if '("dialogues", "opening_initiator")' not in validator:
-              if anchor not in validator:
-                  raise SystemExit('validator enum anchor not found')
-              validator = validator.replace(anchor, addition, 1)
-          validator_path.write_text(validator, encoding='utf-8')
-
-          for sql_path in (root / 'database/content').rglob('*.sql'):
-              parts = sql_path.parts
-              if len(parts) < 4:
+          changed=[]
+          for path in pathlib.Path('database/content').rglob('*.sql'):
+              text=path.read_text(encoding='utf-8')
+              header='INSERT INTO dialogues (dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES'
+              if header not in text:
                   continue
-              lang = parts[-2]
-              level_slug = sql_path.stem
-              dialogue_dir = root / 'content' / lang / level_slug / 'dialogues'
-              if not dialogue_dir.exists():
-                  continue
-              starters = {}
-              for p in dialogue_dir.glob('*.json'):
-                  data = json.loads(p.read_text(encoding='utf-8'))
-                  starters[data['id']] = data['openingInitiator']
-
-              text = sql_path.read_text(encoding='utf-8')
-              old_header = 'INSERT INTO dialogues (dialogue_key,language_level_id,scenario,scene_quality_rationale) VALUES'
-              new_header = 'INSERT INTO dialogues (dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES'
-              if old_header in text:
-                  text = text.replace(old_header, new_header, 1)
-              elif new_header not in text:
-                  continue
-
-              lines = text.splitlines()
-              in_dialogues = False
-              out = []
+              lines=text.splitlines(); in_block=False; out=[]; touched=False
               for line in lines:
-                  if line.strip() == new_header:
-                      in_dialogues = True
-                      out.append(line)
-                      continue
-                  if in_dialogues and line.startswith('ON DUPLICATE KEY UPDATE'):
-                      in_dialogues = False
-                  if in_dialogues and line.startswith("('dlg-"):
-                      m = re.match(r"^\('([^']+)'", line)
-                      if not m:
-                          raise SystemExit(f'{sql_path}: cannot parse dialogue row: {line}')
-                      key = m.group(1)
-                      starter = starters.get(key)
-                      if starter not in {'app','learner'}:
-                          raise SystemExit(f'{sql_path}: missing/invalid starter for {key}')
-                      comma = ',' if line.endswith('),') else ''
-                      body = line[:-2] if comma else line[:-1]
-                      line = f"{body},'{starter}')" + comma
+                  if line.strip()==header:
+                      in_block=True; out.append(line); continue
+                  if in_block and line.startswith('ON DUPLICATE KEY UPDATE'):
+                      in_block=False
+                  if in_block and line.startswith("('dlg-"):
+                      comma=line.endswith('),')
+                      raw=line[:-1] if comma else line
+                      if raw.endswith(')'):
+                          inner=raw[1:-1]
+                          fields=split_fields(inner)
+                          if len(fields)==5:
+                              f3=fields[3].strip("'")
+                              f4=fields[4].strip("'")
+                              if f3 not in {'app','learner'} and f4 in {'app','learner'}:
+                                  fields=[fields[0],fields[1],fields[2],fields[4],fields[3]]
+                                  line='(' + ','.join(fields) + ')' + (',' if comma else '')
+                                  touched=True
                   out.append(line)
-              text = '\n'.join(out) + ('\n' if text.endswith('\n') else '')
-              old_upsert = 'ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),scenario=VALUES(scenario),scene_quality_rationale=VALUES(scene_quality_rationale);'
-              new_upsert = 'ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),scenario=VALUES(scenario),opening_initiator=VALUES(opening_initiator),scene_quality_rationale=VALUES(scene_quality_rationale);'
-              text = text.replace(old_upsert, new_upsert, 1)
-              sql_path.write_text(text, encoding='utf-8')
-
-          decisions_path = root / 'docs/PROJECT_DECISIONS.md'
-          decisions = decisions_path.read_text(encoding='utf-8')
-          section = "\n## Relational semantic invariants\n- Semantic values that drive cross-language QA or runtime invariants must be first-class relational fields, not hidden only inside generic JSON payloads.\n- Dialogue starter is canonical in MySQL as `dialogues.opening_initiator` (`app` / `learner`); activity payload copies, when present, must agree with it.\n- Every such semantic code must have a canonical Persian label in `config/fa-taxonomy.json`.\n"
-          if '## Relational semantic invariants' not in decisions:
-              decisions = decisions.rstrip() + '\n' + section
-          decisions_path.write_text(decisions, encoding='utf-8')
+              if touched:
+                  path.write_text('\n'.join(out)+('\n' if text.endswith('\n') else ''),encoding='utf-8')
+                  changed.append(str(path))
+          if not changed:
+              raise SystemExit('No dialogue rows required correction')
+          print('Corrected:', *changed, sep='\n- ')
           PY
 
-      - name: Validate patched contracts before commit
-        run: |
-          python scripts/sync_fa_labels.py
-          python scripts/validate_source_localization.py
-          python scripts/apply_mysql_localization.py --check
-          python scripts/validate_project_contracts.py
-
-      - name: Commit migration
+      - name: Commit correction
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add database/schema.sql database/content scripts/validate_project_contracts.py docs/PROJECT_DECISIONS.md
-          git commit -m "Promote dialogue starter to relational contract"
+          git add database/content
+          git commit -m "Fix relational dialogue starter SQL order"
           git push
