@@ -10,6 +10,9 @@ A lesson fails QA when any of the following is true:
 - the opening scene is not a meaningful communicative scene for the lesson purpose;
 - learner participation is absent or clearly inadequate for a lesson that requires learner interaction;
 - a reusable target-language teaching item has no source reference;
+- any active learner-facing teaching item relies on a source whose modernity status is not `contemporary_verified` or `maintained_current`;
+- a `historical_or_legacy` source is used as learner-facing evidence;
+- a `needs_currency_review` source is used before current suitability is approved;
 - a grammar explanation has no source-backed origin;
 - a required Persian translation is missing;
 - a dialogue line is assigned to a character whose known gender conflicts with the speaker evidence;
@@ -19,6 +22,23 @@ A lesson fails QA when any of the following is true:
 - audio is generated before the full language reaches final content status;
 - an activity introduces unrelated target-language material only to satisfy a template;
 - content is padded, split, merged, truncated or grouped primarily to satisfy a numeric unit/lesson/activity/dialogue quota.
+
+## Source currency / modernity checks
+
+Learner-facing sources must represent contemporary language and current instructional usage.
+
+For every source used by a lesson, lexeme, dialogue, grammar note, example or activity:
+- verify `modernityStatus` is present;
+- allow learner-facing use only for `contemporary_verified` or `maintained_current`;
+- require publication/update information or a clear `currencyEvidence` explanation;
+- verify static books/documents are current/recent editions rather than legacy editions;
+- verify living references/corpora/dictionaries are actively maintained and reviewed in their current state;
+- verify spelling, register, terminology, examples and real-world contexts are not materially outdated;
+- check whether a newer authoritative edition/replacement exists when using a static document;
+- treat old textbooks, historical grammars, archived course documents, vintage instructional books and old scans/OCR editions as `historical_or_legacy` and `analysis_only`;
+- treat uncertain-age/currentness sources as `needs_currency_review` until cleared.
+
+There is no arbitrary universal publication-year cutoff. The question is whether the source is valid evidence of **current learner-facing usage**. Copyright/reuse eligibility does not override the modernity gate.
 
 ## Anti-quota checks
 
