@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-entschuldigung",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Entschuldigung",
+  "lemma": "Entschuldigung",
+  "partOfSpeech": "interjection",
+  "level": "Pre-A1",
+  "translationFa": "ببخشید / معذرت می‌خواهم",
+  "usageNoteFa": "برای عذرخواهی کوتاه یا شروع مؤدبانهٔ خطاب به کسی.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wiktionary-de-entschuldigung"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}
