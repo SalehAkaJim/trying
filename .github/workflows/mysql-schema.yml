@@ -123,17 +123,20 @@ jobs:
 
           invalid_first_ten="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "WITH ranked_levels AS (SELECT ll.id,ll.language_id,CASE ll.cefr_level WHEN 'Pre-A1' THEN 0 WHEN 'A1' THEN 1 WHEN 'A2' THEN 2 WHEN 'B1' THEN 3 WHEN 'B2' THEN 4 WHEN 'C1' THEN 5 WHEN 'C2' THEN 6 END AS level_rank FROM language_levels ll), beginner_rank AS (SELECT language_id,MIN(level_rank) AS level_rank FROM ranked_levels GROUP BY language_id), beginner_levels AS (SELECT r.id FROM ranked_levels r JOIN beginner_rank b ON b.language_id=r.language_id AND b.level_rank=r.level_rank) SELECT COUNT(*) FROM (SELECT l.id,COUNT(t.id)c FROM lessons l JOIN beginner_levels bl ON bl.id=l.language_level_id JOIN activities a ON a.lesson_id=l.id AND a.position_index=1 AND a.activity_type='conversation_speaking' JOIN dialogue_turns t ON t.dialogue_id=a.dialogue_id WHERE l.sequence_index<=10 GROUP BY l.id HAVING c<>4)x;" | tr -d '\r[:space:]')"
 
-          invalid_starters="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM (SELECT JSON_UNQUOTE(JSON_EXTRACT(a.payload,'$.openingInitiator')) initiator,t.learner_turn,a.instruction_fa FROM activities a JOIN dialogue_turns t ON t.dialogue_id=a.dialogue_id AND t.position_index=1 WHERE a.position_index=1 AND a.activity_type='conversation_speaking')x WHERE initiator IS NULL OR initiator NOT IN ('app','learner') OR (initiator='learner' AND learner_turn<>1) OR (initiator='app' AND learner_turn<>0) OR (initiator='learner' AND (instruction_fa IS NULL OR instruction_fa NOT LIKE '%شروع%'));" | tr -d '\r[:space:]')"
+          invalid_starters="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM (SELECT d.opening_initiator initiator,t.learner_turn,a.instruction_fa FROM activities a JOIN dialogues d ON d.id=a.dialogue_id JOIN dialogue_turns t ON t.dialogue_id=a.dialogue_id AND t.position_index=1 WHERE a.position_index=1 AND a.activity_type='conversation_speaking')x WHERE initiator NOT IN ('app','learner') OR (initiator='learner' AND learner_turn<>1) OR (initiator='app' AND learner_turn<>0) OR (initiator='learner' AND (instruction_fa IS NULL OR instruction_fa NOT LIKE '%شروع%'));" | tr -d '\r[:space:]')"
+
+          invalid_payload_starters="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM activities a JOIN dialogues d ON d.id=a.dialogue_id WHERE a.position_index=1 AND a.activity_type='conversation_speaking' AND JSON_EXTRACT(a.payload,'$.openingInitiator') IS NOT NULL AND JSON_UNQUOTE(JSON_EXTRACT(a.payload,'$.openingInitiator'))<>d.opening_initiator;" | tr -d '\r[:space:]')"
 
           invalid_sources="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM v_invalid_learner_facing_source_links;" | tr -d '\r[:space:]')"
 
           invalid_pos="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM lexemes l LEFT JOIN taxonomy_labels t ON t.domain_code='part_of_speech' AND t.value_code=l.part_of_speech WHERE l.part_of_speech IS NOT NULL AND (t.label_fa IS NULL OR l.part_of_speech_fa IS NULL OR l.part_of_speech_fa<>t.label_fa);" | tr -d '\r[:space:]')"
 
-          echo "missing openings=$missing_openings invalid lengths=$invalid_turns invalid first-ten=$invalid_first_ten invalid starters=$invalid_starters invalid sources=$invalid_sources invalid POS labels=$invalid_pos"
+          echo "missing openings=$missing_openings invalid lengths=$invalid_turns invalid first-ten=$invalid_first_ten invalid starters=$invalid_starters payload starter drift=$invalid_payload_starters invalid sources=$invalid_sources invalid POS labels=$invalid_pos"
           test "$missing_openings" = "0"
           test "$invalid_turns" = "0"
           test "$invalid_first_ten" = "0"
           test "$invalid_starters" = "0"
+          test "$invalid_payload_starters" = "0"
           test "$invalid_sources" = "0"
           test "$invalid_pos" = "0"
 
