@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lexeme.schema.json",
+  "title": "Word or Phrase",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "languageId", "type", "surface", "translationFa", "sourceRefs", "flashcardEligible", "audioStatus"],
+  "properties": {
+    "schemaVersion": {"type": "string"},
+    "id": {"type": "string", "minLength": 1},
+    "languageId": {"type": "string", "minLength": 1},
+    "type": {"enum": ["word", "phrase"]},
+    "surface": {"type": "string", "minLength": 1, "description": "Exact target-language form used by the source/content item."},
+    "lemma": {"type": ["string", "null"]},
+    "partOfSpeech": {"type": ["string", "null"]},
+    "level": {"type": ["string", "null"], "enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2", null]},
+    "translationFa": {"type": "string", "minLength": 1},
+    "usageNoteFa": {"type": ["string", "null"], "description": "Must be translated from or traceable to a source-backed usage note."},
+    "grammarNoteRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "exampleRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "flashcardEligible": {"type": "boolean", "default": true},
+    "audioStatus": {"enum": ["blocked_until_language_final", "pending", "ready"]},
+    "audioRef": {"type": ["string", "null"], "default": null},
+    "audioVoice": {"type": ["string", "null"], "enum": ["Hope", "Lori", null]}
+  }
+}
