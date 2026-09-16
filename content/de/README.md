@@ -1,5 +1,5 @@
-# German content
+# محتوای آلمانی
 
-German content is built dynamically from coverage needs. No unit count, lesson count, activity count, dialogue-turn count, or review cadence is planned in advance.
+محتوای آلمانی به‌صورت پویا و بر اساس نیازهای پوشش آموزشی ساخته می‌شود. هیچ تعداد از پیش تعیین‌شده‌ای برای واحد، درس، فعالیت، نوبت مکالمه یا مرور وجود ندارد.
 
-Current production starts at `Pre-A1` with zero-beginner communication. All learner-facing German text must remain traceable to reusable/open source records under `content/de/sources/`.
+تولید محتوا از سطح `Pre-A1` و ارتباط‌های مناسب زبان‌آموز کاملاً مبتدی شروع می‌شود. تمام متن آلمانیِ نمایش‌داده‌شده به زبان‌آموز باید به منبع قابل استفاده و قابل ردیابی در `content/de/sources/` متصل باشد.

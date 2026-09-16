@@ -4,10 +4,14 @@
   "languageId": "de",
   "name": "Iris",
   "origin": "app_created",
-  "sourceRefs": ["src-wikibooks-de-wie-heisst-du"],
+  "sourceRefs": [
+    "src-wikibooks-de-wie-heisst-du"
+  ],
   "gender": "unspecified",
   "ageBand": "young_adult",
-  "roles": ["conversation_partner"],
+  "roles": [
+    "conversation_partner"
+  ],
   "relationshipTags": [],
   "contextNotes": "شخصیت گفت‌وگویی برای تمرین نام‌پرسیدن؛ دربارهٔ جنسیت یا ویژگی‌های دیگری که منبع مشخص نکرده چیزی فرض نشده است.",
   "voiceProfile": {
@@ -15,7 +19,7 @@
     "stressLevel": "very_low",
     "aggressiveness": "none",
     "toneConsistency": "high",
-    "ageImpression": "young adult",
+    "ageImpression": "young_adult",
     "genderImpression": "neutral",
     "elevenLabsVoiceId": null,
     "voiceName": null

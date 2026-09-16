@@ -30,8 +30,8 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "مرور نهایی باید interaction، writing و listening را کنار هم جمع کند؛ هر سه activity gap متفاوتی را می‌بندند و هیچ‌کدام برای رسیدن به تعداد اضافه نشده‌اند.",
-    "sequenceRationale": "اول retrieval گفتاری، سپس فرم متنی شخصی و در پایان یک تشخیص شنیداری قیمت انجام می‌شود.",
+    "activitySelectionRationale": "مرور نهایی باید تعامل، نوشتن و شنیدن را کنار هم جمع کند؛ هر سه فعالیت خلأ متفاوتی را می‌بندند و هیچ‌کدام برای رسیدن به تعداد اضافه نشده‌اند.",
+    "sequenceRationale": "اول بازیابی گفتاری، سپس فرم متنی شخصی و در پایان یک تشخیص شنیداری قیمت انجام می‌شود.",
     "templateSignature": "conversation_speaking>review>listen_choose"
   },
   "activities": [
@@ -39,7 +39,7 @@
       "id": "act-de-review-conversation",
       "type": "conversation_speaking",
       "instructionFa": "در یک آشنایی مؤدبانه، نام، محل زندگی و سن را دوباره مرور کن.",
-      "selectionReason": "این مکالمه retrieval چند هدف اصلی را بدون معرفی زبان تازه انجام می‌دهد.",
+      "selectionReason": "این مکالمه بازیابی چند هدف اصلی را بدون معرفی زبان تازه انجام می‌دهد.",
       "sourceRefs": [
         "src-wikibooks-de-residence-origin",
         "src-wikibooks-de-age-time",
@@ -71,7 +71,7 @@
       "id": "act-de-personal-form",
       "type": "review",
       "instructionFa": "فرم متنی خیلی کوتاه را با اطلاعات خودت کامل کن.",
-      "selectionReason": "CEFR در Pre-A1 نوشتن/تکمیل اطلاعات شخصی بسیار پایه را پوشش می‌دهد؛ این فرم بدون تصویر و فقط با الگوهای منبع‌دار همان توانایی را تمرین می‌کند.",
+      "selectionReason": "CEFR در پیش از A1 نوشتن/تکمیل اطلاعات شخصی بسیار پایه را پوشش می‌دهد؛ این فرم بدون تصویر و فقط با الگوهای منبع‌دار همان توانایی را تمرین می‌کند.",
       "sourceRefs": [
         "src-wikibooks-de-residence-origin",
         "src-wikibooks-de-age-time",
@@ -80,7 +80,7 @@
       ],
       "learningTargets": [
         "نوشتن اطلاعات شخصی بسیار کوتاه با الگوهای منبع‌دار.",
-        "حل gap نام واقعی زبان‌آموز با جایگزینی مقدار شخصی داخل الگوی منبع‌دار."
+        "حل خلأ نام واقعی زبان‌آموز با جایگزینی مقدار شخصی داخل الگوی منبع‌دار."
       ],
       "lexemeRefs": [
         "lex-de-wohnen",
@@ -159,7 +159,7 @@
       "id": "act-de-price-listen",
       "type": "listen_choose",
       "instructionFa": "قیمت را گوش کن و عدد درست را انتخاب کن.",
-      "selectionReason": "توصیفگر reception در Pre-A1 تشخیص عدد و قیمت آشنا را پوشش می‌دهد؛ یک نمونهٔ منبع‌دار برای این gap کافی است.",
+      "selectionReason": "توصیفگر دریافت در پیش از A1 تشخیص عدد و قیمت آشنا را پوشش می‌دهد؛ یک نمونهٔ منبع‌دار برای این خلأ کافی است.",
       "sourceRefs": [
         "src-wikibooks-de-age-time"
       ],
@@ -188,5 +188,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "مرور اطلاعات شخصی"
 }

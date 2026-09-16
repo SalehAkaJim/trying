@@ -2,15 +2,116 @@
   "id": "dlg-de-pre-a1-ja",
   "languageId": "de",
   "level": "Pre-A1",
-  "sourceRefs": ["src-wiktionary-de-hallo", "src-wikibooks-de-magst-du-pizza", "src-wiktionary-de-ja"],
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-wikibooks-de-magst-du-pizza",
+    "src-wiktionary-de-ja"
+  ],
   "scenario": "این بار زبان‌آموز خودش سلام می‌کند و سؤال آشنای پیتزا را می‌پرسد؛ میا با یک پاسخ مثبت کوتاه جواب می‌دهد.",
   "openingInitiator": "learner",
-  "characterRefs": ["char-de-mia", "char-de-learner"],
-  "turns": [
-    {"id":"turn-de-ja-1","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":true,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
-    {"id":"turn-de-ja-2","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":false,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
-    {"id":"turn-de-ja-3","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Magst du Pizza?","translationFa":"پیتزا دوست داری؟","learnerTurn":true,"lexemeRefs":["lex-de-moegen","lex-de-pizza"],"lexemeOccurrences":[{"surface":"Magst","lexemeId":"lex-de-moegen","lexemeFormId":"lexform-de-moegen-magst"},{"surface":"Pizza","lexemeId":"lex-de-pizza","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-magst-du-pizza"],"audioRef":null},
-    {"id":"turn-de-ja-4","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ja!","translationFa":"بله!","learnerTurn":false,"lexemeRefs":["lex-de-ja"],"lexemeOccurrences":[{"surface":"Ja","lexemeId":"lex-de-ja","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-ja"],"audioRef":null}
+  "characterRefs": [
+    "char-de-mia",
+    "char-de-learner"
   ],
-  "sceneQualityRationale": "زبان‌آموز در چهار turn کوتاه هم مکالمه را شروع می‌کند و هم سؤال آشنا را فعالانه می‌پرسد؛ ادامهٔ غیرضروری حذف شده است."
+  "turns": [
+    {
+      "id": "turn-de-ja-1",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-hallo"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Hallo",
+          "lexemeId": "lex-de-hallo",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-hallo"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-ja-2",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-hallo"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Hallo",
+          "lexemeId": "lex-de-hallo",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-hallo"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-ja-3",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Magst du Pizza?",
+      "translationFa": "پیتزا دوست داری؟",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-moegen",
+        "lex-de-pizza"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Magst",
+          "lexemeId": "lex-de-moegen",
+          "lexemeFormId": "lexform-de-moegen-magst"
+        },
+        {
+          "surface": "Pizza",
+          "lexemeId": "lex-de-pizza",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-magst-du-pizza"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-ja-4",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ja!",
+      "translationFa": "بله!",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-ja"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Ja",
+          "lexemeId": "lex-de-ja",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-ja"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "زبان‌آموز در چهار نوبت کوتاه هم مکالمه را شروع می‌کند و هم سؤال آشنا را فعالانه می‌پرسد؛ ادامهٔ غیرضروری حذف شده است."
 }

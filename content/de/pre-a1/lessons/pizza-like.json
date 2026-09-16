@@ -25,7 +25,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی چهار turn پرسش و پاسخ دربارهٔ علاقه به پیتزا را در بافت قرار می‌دهد و سپس بازسازی همان جمله یک بازیابی متمرکز ایجاد می‌کند.",
+    "activitySelectionRationale": "گفت‌وگوی چهار نوبت پرسش و پاسخ دربارهٔ علاقه به پیتزا را در بافت قرار می‌دهد و سپس بازسازی همان جمله یک بازیابی متمرکز ایجاد می‌کند.",
     "sequenceRationale": "اول زبان‌آموز در مکالمهٔ کوتاه به پرسش واقعی پاسخ می‌دهد و بعد همان جملهٔ منبع‌دار را دوباره می‌سازد.",
     "templateSignature": "conversation_speaking>word_order"
   },
@@ -33,7 +33,7 @@
     {
       "id": "act-de-pizza-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "با میا دربارهٔ پیتزا یک گفت‌وگوی چهار turn داشته باش و به سؤالش جواب بده.",
+      "instructionFa": "با میا دربارهٔ پیتزا یک گفت‌وگوی چهار نوبت داشته باش و به سؤالش جواب بده.",
       "selectionReason": "موضوع آشنای پیتزا امکان استفادهٔ فوری و قابل‌فهم از «mögen» را در یک مکالمهٔ کوتاه فراهم می‌کند.",
       "sourceRefs": [
         "src-wiktionary-de-hallo",
@@ -107,5 +107,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "پیتزا دوست دارم"
 }

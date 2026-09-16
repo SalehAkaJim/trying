@@ -30,7 +30,7 @@
       "id": "act-de-residence-conversation",
       "type": "conversation_speaking",
       "instructionFa": "در یک گفت‌وگوی مؤدبانه دربارهٔ محل زندگی و مبدأ جواب بده و یک سؤال هم بپرس.",
-      "selectionReason": "دو descriptor نزدیکِ اطلاعات شخصی در یک تبادل چهار turn طبیعی کنار هم تمرین می‌شوند.",
+      "selectionReason": "دو توصیفگر نزدیکِ اطلاعات شخصی در یک تبادل چهار نوبت طبیعی کنار هم تمرین می‌شوند.",
       "sourceRefs": [
         "src-wikibooks-de-residence-origin"
       ],
@@ -56,5 +56,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "کجا زندگی می‌کنی؟"
 }

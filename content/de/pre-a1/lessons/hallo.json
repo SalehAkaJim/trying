@@ -20,7 +20,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "برای درس اول، یک گفت‌وگوی چهار turn از سلام تا خداحافظی کافی است و بار زبانی بیشتری اضافه نمی‌شود.",
+    "activitySelectionRationale": "برای درس اول، یک گفت‌وگوی چهار نوبت از سلام تا خداحافظی کافی است و بار زبانی بیشتری اضافه نمی‌شود.",
     "sequenceRationale": "زبان‌آموز فقط دو عبارت بسیار پایه را در یک رفت‌وبرگشت کوتاه استفاده می‌کند.",
     "templateSignature": "conversation_speaking"
   },
@@ -29,7 +29,7 @@
       "id": "act-de-hallo-conversation",
       "type": "conversation_speaking",
       "instructionFa": "با میا یک گفت‌وگوی خیلی کوتاه از سلام تا خداحافظی انجام بده.",
-      "selectionReason": "برای شروع دوره همین تعامل چهار turn هدف اصلی را پوشش می‌دهد و تمرین اضافه لازم نیست.",
+      "selectionReason": "برای شروع دوره همین تعامل چهار نوبت هدف اصلی را پوشش می‌دهد و تمرین اضافه لازم نیست.",
       "sourceRefs": [
         "src-wiktionary-de-hallo",
         "src-wikibooks-de-basic-greetings"
@@ -54,5 +54,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "سلام!"
 }

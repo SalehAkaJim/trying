@@ -26,7 +26,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "مکالمهٔ چهار turn این بار با زبان‌آموز شروع می‌شود تا سؤال آشنا را فعالانه بپرسد؛ سپس انتخاب پاسخ تفاوت «ja» و «nein» را تمرین می‌کند.",
+    "activitySelectionRationale": "مکالمهٔ چهار نوبت این بار با زبان‌آموز شروع می‌شود تا سؤال آشنا را فعالانه بپرسد؛ سپس انتخاب پاسخ تفاوت «ja» و «nein» را تمرین می‌کند.",
     "sequenceRationale": "اول زبان‌آموز نقش آغازکننده و پرسشگر را می‌گیرد، سپس پاسخ مثبت و منفی را در همان بافت تشخیص می‌دهد.",
     "templateSignature": "conversation_speaking>choose_response"
   },
@@ -35,7 +35,7 @@
       "id": "act-de-ja-conversation",
       "type": "conversation_speaking",
       "instructionFa": "این بار تو مکالمه را شروع کن؛ سلام کن و سؤال آشنای پیتزا را از میا بپرس.",
-      "selectionReason": "شروع مکالمه توسط زبان‌آموز، زبان آشنای قبلی را از حالت پاسخ‌دادن به تولید فعال تبدیل می‌کند و در چهار turn تمام می‌شود.",
+      "selectionReason": "شروع مکالمه توسط زبان‌آموز، زبان آشنای قبلی را از حالت پاسخ‌دادن به تولید فعال تبدیل می‌کند و در چهار نوبت تمام می‌شود.",
       "sourceRefs": [
         "src-wiktionary-de-hallo",
         "src-wikibooks-de-magst-du-pizza",
@@ -106,5 +106,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "بله یا نه؟"
 }

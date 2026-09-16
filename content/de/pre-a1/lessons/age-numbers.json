@@ -59,7 +59,7 @@
       "id": "act-de-age-listen",
       "type": "listen_choose",
       "instructionFa": "عدد «achtzehn» را گوش کن و عدد درست را انتخاب کن.",
-      "selectionReason": "توصیفگر Pre-A1 فهم عددهای ساده را می‌خواهد؛ این تمرین تشخیص شنیداری را بدون افزودن زبان تازه می‌سنجد.",
+      "selectionReason": "توصیفگر پیش از A1 فهم عددهای ساده را می‌خواهد؛ این تمرین تشخیص شنیداری را بدون افزودن زبان تازه می‌سنجد.",
       "sourceRefs": [
         "src-wikibooks-de-age-time"
       ],
@@ -90,5 +90,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "چند سالته؟"
 }

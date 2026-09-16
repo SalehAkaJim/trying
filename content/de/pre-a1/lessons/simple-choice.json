@@ -9,7 +9,7 @@
   "learningTargets": [
     "پرسش کوتاه «Was möchtest du?» را بفهمد.",
     "با یک گزینهٔ کاملاً آشنا مثل «Pizza.» انتخاب ساده انجام دهد.",
-    "فرم «möchtest» را به lexeme پایهٔ «mögen» مرتبط کند."
+    "فرم «möchtest» را به مدخل واژگانی پایهٔ «mögen» مرتبط کند."
   ],
   "sourceRefs": [
     "src-wiktionary-de-hallo",
@@ -24,7 +24,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "هدف این مرحله فقط فهم یک پرسش سادهٔ خواستن و انتخاب یک گزینهٔ آشناست؛ همان گفت‌وگوی چهار turn هدف را کامل پوشش می‌دهد و تمرین اضافه در این لحظه فقط تکرار مکانیکی ایجاد می‌کند.",
+    "activitySelectionRationale": "هدف این مرحله فقط فهم یک پرسش سادهٔ خواستن و انتخاب یک گزینهٔ آشناست؛ همان گفت‌وگوی چهار نوبت هدف را کامل پوشش می‌دهد و تمرین اضافه در این لحظه فقط تکرار مکانیکی ایجاد می‌کند.",
     "sequenceRationale": "زبان‌آموز ابتدا زبان آشنای سلام را بازیابی می‌کند، سپس پرسش تازهٔ «Was möchtest du?» را می‌شنود و بدون واژهٔ جدید با «Pizza.» پاسخ می‌دهد.",
     "templateSignature": "conversation_speaking"
   },
@@ -61,5 +61,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "چی می‌خوای؟"
 }

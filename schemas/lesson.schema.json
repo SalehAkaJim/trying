@@ -150,6 +150,34 @@
         "failed"
       ],
       "default": "blocked_until_level_final"
+    },
+    "sourceTitleFa": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "pattern": "[\\u0600-\\u06FF]",
+      "description": "معادل یا برچسب فارسی برای sourceTitle."
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "sourceTitle": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "sourceTitle"
+        ]
+      },
+      "then": {
+        "required": [
+          "sourceTitleFa"
+        ]
+      }
+    }
+  ]
 }

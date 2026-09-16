@@ -4,32 +4,155 @@
   "title": "Dialogue Character",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "id", "languageId", "name", "origin", "gender", "ageBand", "voiceProfile"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "languageId",
+    "name",
+    "origin",
+    "gender",
+    "ageBand",
+    "voiceProfile"
+  ],
   "properties": {
-    "schemaVersion": {"type": "string"},
-    "id": {"type": "string", "minLength": 1},
-    "languageId": {"type": "string", "minLength": 1},
-    "name": {"type": "string", "minLength": 1},
-    "origin": {"enum": ["source", "app_created"]},
-    "sourceRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
-    "gender": {"enum": ["female", "male", "unspecified", "not_applicable"]},
-    "ageBand": {"enum": ["child", "teen", "young_adult", "adult", "middle_aged", "older_adult", "unspecified"]},
-    "roles": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
-    "relationshipTags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
-    "contextNotes": {"type": "string"},
+    "schemaVersion": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "languageId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "origin": {
+      "enum": [
+        "source",
+        "app_created"
+      ]
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "gender": {
+      "enum": [
+        "female",
+        "male",
+        "unspecified",
+        "not_applicable"
+      ]
+    },
+    "ageBand": {
+      "enum": [
+        "child",
+        "teen",
+        "young_adult",
+        "adult",
+        "middle_aged",
+        "older_adult",
+        "unspecified"
+      ]
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "relationshipTags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "contextNotes": {
+      "type": "string"
+    },
     "voiceProfile": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["clarity", "stressLevel", "aggressiveness", "toneConsistency", "elevenLabsVoiceId"],
+      "required": [
+        "clarity",
+        "stressLevel",
+        "aggressiveness",
+        "toneConsistency",
+        "elevenLabsVoiceId"
+      ],
       "properties": {
-        "clarity": {"const": "high"},
-        "stressLevel": {"enum": ["low", "very_low"]},
-        "aggressiveness": {"const": "none"},
-        "toneConsistency": {"enum": ["high", "medium_high"]},
-        "ageImpression": {"type": ["string", "null"]},
-        "genderImpression": {"type": ["string", "null"], "enum": ["female", "male", "neutral", null]},
-        "elevenLabsVoiceId": {"type": ["string", "null"], "default": null},
-        "voiceName": {"type": ["string", "null"], "default": null}
+        "clarity": {
+          "const": "high"
+        },
+        "stressLevel": {
+          "enum": [
+            "low",
+            "very_low"
+          ]
+        },
+        "aggressiveness": {
+          "const": "none"
+        },
+        "toneConsistency": {
+          "enum": [
+            "high",
+            "medium_high"
+          ]
+        },
+        "ageImpression": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "child",
+            "teen",
+            "young_adult",
+            "adult",
+            "middle_aged",
+            "older_adult",
+            "neutral",
+            null
+          ]
+        },
+        "genderImpression": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "female",
+            "male",
+            "neutral",
+            null
+          ]
+        },
+        "elevenLabsVoiceId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "voiceName": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        }
       }
     }
   }

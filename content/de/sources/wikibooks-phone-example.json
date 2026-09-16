@@ -9,11 +9,13 @@
   "locator": "منبع دارای attribution برای «Meine Telefonnummer ist: 692-267-752.».",
   "publishedOrUpdatedAt": null,
   "modernityStatus": "maintained_current",
-  "currencyEvidence": "صفحهٔ زندهٔ Wikibooks و attribution جملهٔ تعبیه‌شده در وضعیت فعلی بررسی شده است.",
+  "currencyEvidence": "صفحهٔ زندهٔ Wikibooks و ذکر منبع جملهٔ تعبیه‌شده در وضعیت فعلی بررسی شده است.",
   "licenseName": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "attributionText": "Wikibooks contributors — https://de.wikibooks.org/wiki/Vokabeltexte_Chinesisch/_Vokabellektionen/_Lektion_220",
   "reuseStatus": "reuse_with_attribution",
   "retrievedAt": "2026-09-16",
-  "notes": "منبع دارای attribution برای «Meine Telefonnummer ist: 692-267-752.»."
+  "notes": "منبع دارای ذکر منبع برای «Meine Telefonnummer ist: 692-267-752.».",
+  "titleFa": "منبع دارای ذکر منبع برای «Meine Telefonnummer ist: 692-267-752.».",
+  "locatorFa": "منبع دارای ذکر منبع برای «Meine Telefonnummer ist: 692-267-752.»."
 }

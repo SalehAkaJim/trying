@@ -1,7 +1,7 @@
-# German Pre-A1
+# سطح Pre-A1 آلمانی
 
-This level is being built for a true zero beginner.
+این سطح برای زبان‌آموزی طراحی شده که از صفر شروع می‌کند.
 
-The first content begins with immediately understandable communication: `Hallo!`, `Guten Morgen!`, then a familiar preference around pizza. This is a starting point, not a fixed lesson plan.
+محتوا با ارتباط‌های فوری و قابل‌فهم مانند `Hallo!` و `Guten Morgen!` شروع می‌شود و سپس بر اساس پوشش CEFR، پیشرفت آموزشی، منبع قابل استفاده و کنترل کیفیت گسترش پیدا می‌کند.
 
-No final lesson count or unit count exists. The next lesson is chosen only after re-checking coverage, progression, source availability and QA.
+هیچ تعداد ثابتی برای درس یا واحد وجود ندارد. این سطح فقط زمانی نهایی می‌شود که ارزیابی پایان سطح نشان دهد خلأ آموزشی مهمی در دامنهٔ فعلی محصول باقی نمانده است.

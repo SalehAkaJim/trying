@@ -2,15 +2,109 @@
   "id": "dlg-de-pre-a1-wellbeing",
   "languageId": "de",
   "level": "Pre-A1",
-  "sourceRefs": ["src-wiktionary-de-hallo", "src-wikibooks-de-basic-greetings"],
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-wikibooks-de-basic-greetings"
+  ],
   "scenario": "میا و زبان‌آموز سلام می‌کنند و میا یک احوال‌پرسی خیلی کوتاه می‌پرسد که زبان‌آموز با یک پاسخ ساده جواب می‌دهد.",
   "openingInitiator": "app",
-  "characterRefs": ["char-de-mia", "char-de-learner"],
-  "turns": [
-    {"id":"turn-de-wellbeing-1","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":false,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
-    {"id":"turn-de-wellbeing-2","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":true,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
-    {"id":"turn-de-wellbeing-3","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Wie geht's?","translationFa":"حالت چطوره؟","learnerTurn":false,"lexemeRefs":["lex-de-wie-gehts"],"lexemeOccurrences":[{"surface":"Wie geht's","lexemeId":"lex-de-wie-gehts","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null},
-    {"id":"turn-de-wellbeing-4","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Gut.","translationFa":"خوبم.","learnerTurn":true,"lexemeRefs":["lex-de-gut"],"lexemeOccurrences":[{"surface":"Gut","lexemeId":"lex-de-gut","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null}
+  "characterRefs": [
+    "char-de-mia",
+    "char-de-learner"
   ],
-  "sceneQualityRationale": "فقط چهار turn لازم برای سلام و یک احوال‌پرسی پایه نگه داشته شده و هیچ عبارت اضافی برای طولانی‌کردن صحنه وارد نشده است."
+  "turns": [
+    {
+      "id": "turn-de-wellbeing-1",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-hallo"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Hallo",
+          "lexemeId": "lex-de-hallo",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-hallo"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-wellbeing-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-hallo"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Hallo",
+          "lexemeId": "lex-de-hallo",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-hallo"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-wellbeing-3",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie geht's?",
+      "translationFa": "حالت چطوره؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-wie-gehts"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Wie geht's",
+          "lexemeId": "lex-de-wie-gehts",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-wellbeing-4",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Gut.",
+      "translationFa": "خوبم.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-gut"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Gut",
+          "lexemeId": "lex-de-gut",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "فقط چهار نوبت لازم برای سلام و یک احوال‌پرسی پایه نگه داشته شده و هیچ عبارت اضافی برای طولانی‌کردن صحنه وارد نشده است."
 }

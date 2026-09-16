@@ -22,7 +22,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی چهار turn عبارت تشکر و پاسخ مؤدبانه را داخل یک تعامل کوتاه و روشن قرار می‌دهد و برای این هدف تمرین اضافه لازم نیست.",
+    "activitySelectionRationale": "گفت‌وگوی چهار نوبت عبارت تشکر و پاسخ مؤدبانه را داخل یک تعامل کوتاه و روشن قرار می‌دهد و برای این هدف تمرین اضافه لازم نیست.",
     "sequenceRationale": "زبان‌آموز سلام می‌کند، تشکر را در بافت می‌شنود و پاسخ مؤدبانه می‌دهد؛ مکالمه عمداً طولانی‌تر نمی‌شود.",
     "templateSignature": "conversation_speaking"
   },
@@ -31,7 +31,7 @@
       "id": "act-de-danke-bitte-conversation",
       "type": "conversation_speaking",
       "instructionFa": "میا بعد از یک کمک کوچک تشکر می‌کند؛ پاسخ مؤدبانه بده.",
-      "selectionReason": "«Danke!» و «Bitte!» در یک تعامل چهار turn روزمره بهتر از دو کارت جداگانه یاد گرفته می‌شوند.",
+      "selectionReason": "«Danke!» و «Bitte!» در یک تعامل چهار نوبت روزمره بهتر از دو کارت جداگانه یاد گرفته می‌شوند.",
       "sourceRefs": [
         "src-wiktionary-de-hallo",
         "src-wiktionary-de-danke",
@@ -58,5 +58,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "ممنون! خواهش می‌کنم"
 }

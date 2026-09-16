@@ -19,7 +19,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "بعد از مکالمه، تشخیص شنیداری شماره برای پوشش reception لازم است.",
+    "activitySelectionRationale": "بعد از مکالمه، تشخیص شنیداری شماره برای پوشش دریافت لازم است.",
     "sequenceRationale": "اول تبادل شماره تمرین می‌شود و بعد یک شمارهٔ همان منبع از راه شنیدن بازیابی می‌شود.",
     "templateSignature": "conversation_speaking>listen_choose"
   },
@@ -28,7 +28,7 @@
       "id": "act-de-phone-conversation",
       "type": "conversation_speaking",
       "instructionFa": "شماره تلفن را بپرس و پاسخ نمونه را بگو.",
-      "selectionReason": "پرسش و پاسخ مستقیم شماره تلفن descriptor صریح Pre-A1 است.",
+      "selectionReason": "پرسش و پاسخ مستقیم شماره تلفن توصیفگر صریح پیش از A1 است.",
       "sourceRefs": [
         "src-wikibooks-de-phone",
         "src-wikibooks-de-phone-example"
@@ -54,7 +54,7 @@
       "id": "act-de-phone-listen",
       "type": "listen_choose",
       "instructionFa": "شماره را گوش کن و عدد درست را انتخاب کن.",
-      "selectionReason": "شماره تلفن باید در reception شنیداری هم قابل تشخیص باشد.",
+      "selectionReason": "شماره تلفن باید در دریافت شنیداری هم قابل تشخیص باشد.",
       "sourceRefs": [
         "src-wikibooks-de-phone"
       ],
@@ -85,5 +85,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "شماره تلفنت چیه؟"
 }

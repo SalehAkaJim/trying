@@ -2,15 +2,122 @@
   "id": "dlg-de-pre-a1-pizza-like",
   "languageId": "de",
   "level": "Pre-A1",
-  "sourceRefs": ["src-wiktionary-de-hallo", "src-wikibooks-de-magst-du-pizza", "src-libra-de-ich-mag-pizza"],
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-wikibooks-de-magst-du-pizza",
+    "src-libra-de-ich-mag-pizza"
+  ],
   "scenario": "میا و زبان‌آموز سلام می‌کنند و بعد یک پرسش و پاسخ کوتاه دربارهٔ دوست‌داشتن پیتزا دارند.",
   "openingInitiator": "app",
-  "characterRefs": ["char-de-mia", "char-de-learner"],
-  "turns": [
-    {"id":"turn-de-pizza-1","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":false,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
-    {"id":"turn-de-pizza-2","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":true,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
-    {"id":"turn-de-pizza-3","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Magst du Pizza?","translationFa":"پیتزا دوست داری؟","learnerTurn":false,"lexemeRefs":["lex-de-moegen","lex-de-pizza"],"lexemeOccurrences":[{"surface":"Magst","lexemeId":"lex-de-moegen","lexemeFormId":"lexform-de-moegen-magst"},{"surface":"Pizza","lexemeId":"lex-de-pizza","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-magst-du-pizza"],"audioRef":null},
-    {"id":"turn-de-pizza-4","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ich mag Pizza.","translationFa":"من پیتزا دوست دارم.","learnerTurn":true,"lexemeRefs":["lex-de-moegen","lex-de-pizza"],"lexemeOccurrences":[{"surface":"mag","lexemeId":"lex-de-moegen","lexemeFormId":"lexform-de-moegen-mag"},{"surface":"Pizza","lexemeId":"lex-de-pizza","lexemeFormId":null}],"sourceRefs":["src-libra-de-ich-mag-pizza"],"audioRef":null}
+  "characterRefs": [
+    "char-de-mia",
+    "char-de-learner"
   ],
-  "sceneQualityRationale": "پرسش و پاسخ اصلی دربارهٔ پیتزا در چهار turn کامل می‌شود و برای درس‌های ابتدایی هیچ ادامهٔ غیرضروری به مکالمه اضافه نشده است."
+  "turns": [
+    {
+      "id": "turn-de-pizza-1",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-hallo"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Hallo",
+          "lexemeId": "lex-de-hallo",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-hallo"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-pizza-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-hallo"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Hallo",
+          "lexemeId": "lex-de-hallo",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-hallo"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-pizza-3",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Magst du Pizza?",
+      "translationFa": "پیتزا دوست داری؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-moegen",
+        "lex-de-pizza"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Magst",
+          "lexemeId": "lex-de-moegen",
+          "lexemeFormId": "lexform-de-moegen-magst"
+        },
+        {
+          "surface": "Pizza",
+          "lexemeId": "lex-de-pizza",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-magst-du-pizza"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-pizza-4",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich mag Pizza.",
+      "translationFa": "من پیتزا دوست دارم.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-moegen",
+        "lex-de-pizza"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "mag",
+          "lexemeId": "lex-de-moegen",
+          "lexemeFormId": "lexform-de-moegen-mag"
+        },
+        {
+          "surface": "Pizza",
+          "lexemeId": "lex-de-pizza",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-libra-de-ich-mag-pizza"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "پرسش و پاسخ اصلی دربارهٔ پیتزا در چهار نوبت کامل می‌شود و برای درس‌های ابتدایی هیچ ادامهٔ غیرضروری به مکالمه اضافه نشده است."
 }

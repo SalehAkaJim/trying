@@ -22,7 +22,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "بعد از گفت‌وگو، fill blank فقط عبارت تازهٔ «Wie geht's?» را با حذف یک بخش کوچک بازیابی می‌کند و بار شناختی را پایین نگه می‌دارد.",
+    "activitySelectionRationale": "بعد از گفت‌وگو، جای‌خالی فقط عبارت تازهٔ «Wie geht's?» را با حذف یک بخش کوچک بازیابی می‌کند و بار شناختی را پایین نگه می‌دارد.",
     "sequenceRationale": "اول معنی و پاسخ در مکالمه دیده می‌شود و بعد همان عبارت منبع‌دار با یک جای‌خالی ساده بازیابی می‌شود.",
     "templateSignature": "conversation_speaking>fill_blank"
   },
@@ -87,5 +87,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "حالت چطوره؟"
 }

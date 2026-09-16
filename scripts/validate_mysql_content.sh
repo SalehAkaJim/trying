@@ -210,11 +210,13 @@ mysql_cmd -e "
     UNION ALL SELECT currency_evidence FROM sources
     UNION ALL SELECT notes FROM sources WHERE notes IS NOT NULL
     UNION ALL SELECT notes FROM source_items WHERE notes IS NOT NULL
+    UNION ALL SELECT locator_fa FROM source_items WHERE locator_fa IS NOT NULL
     UNION ALL SELECT context_notes FROM characters WHERE context_notes IS NOT NULL
     UNION ALL SELECT title_fa FROM units
     UNION ALL SELECT grouping_rationale FROM units
     UNION ALL SELECT notes FROM units WHERE notes IS NOT NULL
     UNION ALL SELECT title_fa FROM lessons
+    UNION ALL SELECT source_title_fa FROM lessons WHERE source_title_fa IS NOT NULL
     UNION ALL SELECT activity_selection_rationale FROM lessons WHERE activity_selection_rationale IS NOT NULL
     UNION ALL SELECT sequence_rationale FROM lessons WHERE sequence_rationale IS NOT NULL
     UNION ALL SELECT notes FROM lessons WHERE notes IS NOT NULL
@@ -250,6 +252,25 @@ if bad:
     print('\n'.join(bad))
     sys.exit(1)
 print(f'Persian MySQL prose check passed for {len(rows)} rows.')
+PY
+
+
+invalid_persian_companions="$(compact_query "SELECT (SELECT COUNT(*) FROM sources WHERE title_fa IS NULL OR title_fa='') + (SELECT COUNT(*) FROM sources WHERE locator IS NOT NULL AND (locator_fa IS NULL OR locator_fa='')) + (SELECT COUNT(*) FROM source_items WHERE locator IS NOT NULL AND (locator_fa IS NULL OR locator_fa='')) + (SELECT COUNT(*) FROM lessons WHERE source_title IS NOT NULL AND (source_title_fa IS NULL OR source_title_fa=''));")"
+echo "invalid Persian companion fields=$invalid_persian_companions"
+test "$invalid_persian_companions" = "0"
+mysql_cmd -e "SELECT HEX(txt) FROM (SELECT title_fa txt FROM sources UNION ALL SELECT locator_fa FROM sources WHERE locator_fa IS NOT NULL UNION ALL SELECT locator_fa FROM source_items WHERE locator_fa IS NOT NULL UNION ALL SELECT source_title_fa FROM lessons WHERE source_title_fa IS NOT NULL) x;" > /tmp/persian_companion_hex.tsv
+python - <<'PY'
+import pathlib,re,sys
+fa=re.compile(r'[\u0600-\u06FF]')
+bad=[]
+for raw in pathlib.Path('/tmp/persian_companion_hex.tsv').read_text(encoding='ascii').splitlines():
+    raw=raw.strip()
+    if raw:
+        text=bytes.fromhex(raw).decode('utf-8')
+        if not fa.search(text): bad.append(text)
+if bad:
+    print('Non-Persian companion fields in MySQL:'); print('\n'.join(bad)); sys.exit(1)
+print('MySQL Persian companion-field check passed.')
 PY
 
 echo "Cross-language MySQL validation passed."

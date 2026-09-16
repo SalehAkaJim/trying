@@ -2,15 +2,112 @@
   "id": "dlg-de-pre-a1-name-exchange",
   "languageId": "de",
   "level": "Pre-A1",
-  "sourceRefs": ["src-wiktionary-de-hallo", "src-wikibooks-de-wie-heisst-du", "src-wiktionary-de-heissen"],
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-wikibooks-de-wie-heisst-du",
+    "src-wiktionary-de-heissen"
+  ],
   "scenario": "آیریس سلام می‌کند و زبان‌آموز پس از پاسخ، نام او را می‌پرسد و یک پاسخ ساده با «heißen» می‌شنود.",
   "openingInitiator": "app",
-  "characterRefs": ["char-de-iris", "char-de-learner"],
-  "turns": [
-    {"id":"turn-de-name-1","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":false,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
-    {"id":"turn-de-name-2","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":true,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
-    {"id":"turn-de-name-3","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Wie heißt du?","translationFa":"اسمت چیه؟","learnerTurn":true,"lexemeRefs":["lex-de-heissen"],"lexemeOccurrences":[{"surface":"heißt","lexemeId":"lex-de-heissen","lexemeFormId":"lexform-de-heissen-heisst"}],"sourceRefs":["src-wikibooks-de-wie-heisst-du","src-wiktionary-de-heissen"],"audioRef":null},
-    {"id":"turn-de-name-4","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ich heiße Iris.","translationFa":"اسم من آیریس است.","learnerTurn":false,"lexemeRefs":["lex-de-heissen"],"lexemeOccurrences":[{"surface":"heiße","lexemeId":"lex-de-heissen","lexemeFormId":"lexform-de-heissen-heisse"}],"sourceRefs":["src-wikibooks-de-wie-heisst-du","src-wiktionary-de-heissen"],"audioRef":null}
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-learner"
   ],
-  "sceneQualityRationale": "مکالمه فقط یک سلام و یک پرسش‌وپاسخ نام دارد؛ برای شروع از صفر کوتاه است و فرم‌های «heißt / heiße» مستقیماً به lexeme پایه متصل‌اند."
+  "turns": [
+    {
+      "id": "turn-de-name-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-hallo"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Hallo",
+          "lexemeId": "lex-de-hallo",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-hallo"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-name-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-hallo"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Hallo",
+          "lexemeId": "lex-de-hallo",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-hallo"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-name-3",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie heißt du?",
+      "translationFa": "اسمت چیه؟",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-heissen"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "heißt",
+          "lexemeId": "lex-de-heissen",
+          "lexemeFormId": "lexform-de-heissen-heisst"
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-wie-heisst-du",
+        "src-wiktionary-de-heissen"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-name-4",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich heiße Iris.",
+      "translationFa": "اسم من آیریس است.",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-heissen"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "heiße",
+          "lexemeId": "lex-de-heissen",
+          "lexemeFormId": "lexform-de-heissen-heisse"
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-wie-heisst-du",
+        "src-wiktionary-de-heissen"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "مکالمه فقط یک سلام و یک پرسش‌وپاسخ نام دارد؛ برای شروع از صفر کوتاه است و فرم‌های «heißt / heiße» مستقیماً به مدخل واژگانی پایه متصل‌اند."
 }

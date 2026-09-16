@@ -9,6 +9,8 @@
 - target-language content lacks provenance;
 - learner-facing source is not modern/current and reusable;
 - authored learner/curriculum/editorial prose that should be Persian is English-only;
+- mixed untranslated English jargon remains inside assistant-authored Persian prose;
+- source/lesson human-readable original-language fields lack their required Persian companion;
 - required Persian translation is missing;
 - semantic code has no Persian label in `config/fa-taxonomy.json`;
 - `partOfSpeech` is present but `partOfSpeechFa` is missing or differs from the canonical taxonomy label;

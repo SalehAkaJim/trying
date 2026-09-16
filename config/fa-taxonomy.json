@@ -229,6 +229,64 @@
       "character_metadata_added": "فرادادهٔ شخصیت افزوده شده",
       "cefr_level_assigned_by_app": "سطح CEFR توسط اپلیکیشن تعیین شده",
       "other": "سایر"
+    },
+    "character_role": {
+      "learner": "زبان‌آموز",
+      "conversation_partner": "شریک مکالمه"
+    },
+    "relationship_tag": {
+      "friend": "دوست",
+      "coworker": "همکار",
+      "family": "عضو خانواده",
+      "stranger": "ناآشنا",
+      "classmate": "هم‌کلاسی"
+    },
+    "voice_clarity": {
+      "high": "شفافیت بالا"
+    },
+    "voice_stress_level": {
+      "low": "کم",
+      "very_low": "بسیار کم"
+    },
+    "voice_aggressiveness": {
+      "none": "بدون لحن تهاجمی"
+    },
+    "voice_tone_consistency": {
+      "high": "بالا",
+      "medium_high": "نسبتاً بالا"
+    },
+    "voice_age_impression": {
+      "child": "کودک",
+      "teen": "نوجوان",
+      "young_adult": "جوان",
+      "adult": "بزرگسال",
+      "middle_aged": "میانسال",
+      "older_adult": "سالمند",
+      "neutral": "خنثی"
+    },
+    "voice_gender_impression": {
+      "female": "زنانه",
+      "male": "مردانه",
+      "neutral": "خنثی"
+    },
+    "activity_interaction": {
+      "read_aloud_exchange": "گفت‌وگوی نوبتیِ خواندن و گفتن"
+    },
+    "grammar_feature_tense": {
+      "present": "حال"
+    },
+    "grammar_feature_mood": {
+      "indicative": "اخباری",
+      "subjunctive_II": "وجه شرطی دوم"
+    },
+    "grammar_feature_number": {
+      "singular": "مفرد",
+      "plural": "جمع"
+    },
+    "grammar_feature_person": {
+      "1": "اول‌شخص",
+      "2": "دوم‌شخص",
+      "3": "سوم‌شخص"
     }
   }
 }

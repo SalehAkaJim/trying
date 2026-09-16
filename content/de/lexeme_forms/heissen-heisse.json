@@ -4,9 +4,17 @@
   "lexemeId": "lex-de-heissen",
   "surface": "heiße",
   "formType": "inflected",
-  "features": {"tense":"present","mood":"indicative","person":"1","number":"singular"},
+  "features": {
+    "tense": "present",
+    "mood": "indicative",
+    "person": "1",
+    "number": "singular"
+  },
   "origin": "reference_attested",
   "reviewStatus": "approved",
-  "sourceRefs": ["src-wiktionary-de-heissen", "src-wikibooks-de-wie-heisst-du"],
+  "sourceRefs": [
+    "src-wiktionary-de-heissen",
+    "src-wikibooks-de-wie-heisst-du"
+  ],
   "notes": "در جملهٔ منبع‌دار «Ich heiße Iris.» به‌صورت اول‌شخص مفرد استفاده شده است."
 }

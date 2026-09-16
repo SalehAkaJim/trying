@@ -22,7 +22,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو نام‌پرسیدن را در بافت قرار می‌دهد و word order همان پاسخ منبع‌دار را برای بازیابی الگوی «Ich heiße ...» تمرین می‌کند.",
+    "activitySelectionRationale": "گفت‌وگو نام‌پرسیدن را در بافت قرار می‌دهد و مرتب‌کردن واژه‌ها همان پاسخ منبع‌دار را برای بازیابی الگوی «Ich heiße ...» تمرین می‌کند.",
     "sequenceRationale": "اول زبان‌آموز سؤال نام را در مکالمه استفاده می‌کند و بعد پاسخ منبع‌دار را بدون معرفی جملهٔ تازه بازسازی می‌کند.",
     "templateSignature": "conversation_speaking>word_order"
   },
@@ -31,7 +31,7 @@
       "id": "act-de-name-conversation",
       "type": "conversation_speaking",
       "instructionFa": "بعد از سلام، نام آیریس را با «Wie heißt du?» بپرس.",
-      "selectionReason": "پرسیدن نام یکی از اولین کنش‌های ارتباطی مفید است و در چهار turn ساده قابل تمرین است.",
+      "selectionReason": "پرسیدن نام یکی از اولین کنش‌های ارتباطی مفید است و در چهار نوبت ساده قابل تمرین است.",
       "sourceRefs": [
         "src-wiktionary-de-hallo",
         "src-wikibooks-de-wie-heisst-du",
@@ -98,5 +98,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "اسمت چیه؟"
 }

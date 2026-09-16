@@ -8,7 +8,7 @@
   "sourceTitle": "Was ist das? / Das ist ...",
   "learningTargets": [
     "«Was ist das?» را بپرسد و پاسخ بسیار ساده را بفهمد.",
-    "همان توانایی را بدون وابستگی به تصویر و با context متنی انجام دهد."
+    "همان توانایی را بدون وابستگی به تصویر و با بافت متنی انجام دهد."
   ],
   "sourceRefs": [
     "src-wikibooks-de-basic-object"
@@ -19,7 +19,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "خود مکالمه descriptor را کامل پوشش می‌دهد؛ فعالیت تصویری عمداً وارد نمی‌شود.",
+    "activitySelectionRationale": "خود مکالمه توصیفگر را کامل پوشش می‌دهد؛ فعالیت تصویری عمداً وارد نمی‌شود.",
     "sequenceRationale": "زبان‌آموز یک بار سؤال را شروع می‌کند و یک بار پاسخ می‌دهد تا هر دو نقش تمرین شوند.",
     "templateSignature": "conversation_speaking"
   },
@@ -27,8 +27,8 @@
     {
       "id": "act-de-object-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "این بار تو شروع کن؛ در context متنی بپرس «Was ist das?» و پاسخ‌های کوتاه را تمرین کن.",
-      "selectionReason": "این فعالیت descriptor سؤال اطلاعاتی بسیار ساده را به شکل text-only و بدون تصویر پوشش می‌دهد.",
+      "instructionFa": "این بار تو شروع کن؛ در بافت متنی بپرس «Was ist das?» و پاسخ‌های کوتاه را تمرین کن.",
+      "selectionReason": "این فعالیت توصیفگر سؤال اطلاعاتی بسیار ساده را به شکل فقط متنی و بدون تصویر پوشش می‌دهد.",
       "sourceRefs": [
         "src-wikibooks-de-basic-object"
       ],
@@ -52,5 +52,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "این چیه؟"
 }

@@ -4,22 +4,82 @@
   "title": "Source Record",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "id", "title", "language", "sourceType", "reuseStatus", "modernityStatus", "currencyEvidence"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "title",
+    "language",
+    "sourceType",
+    "reuseStatus",
+    "modernityStatus",
+    "currencyEvidence",
+    "titleFa"
+  ],
   "properties": {
-    "schemaVersion": {"type": "string"},
-    "id": {"type": "string", "minLength": 1},
-    "title": {"type": "string", "minLength": 1, "description": "Exact or bibliographically useful source title; may remain in its original language."},
-    "organizationOrAuthor": {"type": ["string", "null"], "description": "Official source/author metadata; may remain in its original language."},
-    "language": {"type": "string", "minLength": 2},
-    "sourceType": {"enum": ["course", "book", "website", "corpus", "dictionary", "grammar_reference", "audio_course", "other"], "description": "Stable code; Persian label is resolved through config/fa-taxonomy.json."},
-    "url": {"type": ["string", "null"], "format": "uri"},
-    "locator": {"type": ["string", "null"], "description": "Exact unit, lesson, page, section or item locator; may remain in the source language when useful for traceability."},
+    "schemaVersion": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Exact or bibliographically useful source title; may remain in its original language."
+    },
+    "organizationOrAuthor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Official source/author metadata; may remain in its original language."
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2
+    },
+    "sourceType": {
+      "enum": [
+        "course",
+        "book",
+        "website",
+        "corpus",
+        "dictionary",
+        "grammar_reference",
+        "audio_course",
+        "other"
+      ],
+      "description": "Stable code; Persian label is resolved through config/fa-taxonomy.json."
+    },
+    "url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "locator": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Exact unit, lesson, page, section or item locator; may remain in the source language when useful for traceability."
+    },
     "publishedOrUpdatedAt": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "Publication/revision date or year when known. This is evidence, not a universal age cutoff."
     },
     "modernityStatus": {
-      "enum": ["contemporary_verified", "maintained_current", "historical_or_legacy", "needs_currency_review"],
+      "enum": [
+        "contemporary_verified",
+        "maintained_current",
+        "historical_or_legacy",
+        "needs_currency_review"
+      ],
       "description": "Stable code; Persian label is resolved through config/fa-taxonomy.json. Learner-facing content may rely only on contemporary_verified or maintained_current sources."
     },
     "currencyEvidence": {
@@ -28,21 +88,122 @@
       "pattern": "[\\u0600-\\u06FF]",
       "description": "Assistant-authored explanation of source currency/modernity. It must be written in Persian."
     },
-    "licenseName": {"type": ["string", "null"]},
-    "licenseUrl": {"type": ["string", "null"], "format": "uri"},
-    "attributionText": {"type": ["string", "null"], "description": "Exact attribution/bibliographic text may remain in its official form."},
-    "reuseStatus": {"enum": ["direct_reuse_allowed", "reuse_with_attribution", "analysis_only", "needs_review"], "description": "Stable code; Persian label is resolved through config/fa-taxonomy.json."},
-    "retrievedAt": {"type": ["string", "null"], "format": "date"},
-    "notes": {"type": "string", "minLength": 1, "pattern": "[\\u0600-\\u06FF]", "description": "Assistant-authored source note; must be Persian."}
+    "licenseName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "licenseUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "attributionText": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Exact attribution/bibliographic text may remain in its official form."
+    },
+    "reuseStatus": {
+      "enum": [
+        "direct_reuse_allowed",
+        "reuse_with_attribution",
+        "analysis_only",
+        "needs_review"
+      ],
+      "description": "Stable code; Persian label is resolved through config/fa-taxonomy.json."
+    },
+    "retrievedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[\\u0600-\\u06FF]",
+      "description": "Assistant-authored source note; must be Persian."
+    },
+    "titleFa": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[\\u0600-\\u06FF]",
+      "description": "عنوان/برچسب فارسی برای نمایش انسانی منبع."
+    },
+    "locatorFa": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "pattern": "[\\u0600-\\u06FF]",
+      "description": "توضیح فارسی محل دقیق یا بخش استفاده‌شده از منبع."
+    }
   },
   "allOf": [
     {
-      "if": {"properties": {"modernityStatus": {"const": "historical_or_legacy"}}, "required": ["modernityStatus"]},
-      "then": {"properties": {"reuseStatus": {"const": "analysis_only"}}}
+      "if": {
+        "properties": {
+          "modernityStatus": {
+            "const": "historical_or_legacy"
+          }
+        },
+        "required": [
+          "modernityStatus"
+        ]
+      },
+      "then": {
+        "properties": {
+          "reuseStatus": {
+            "const": "analysis_only"
+          }
+        }
+      }
     },
     {
-      "if": {"properties": {"modernityStatus": {"const": "needs_currency_review"}}, "required": ["modernityStatus"]},
-      "then": {"properties": {"reuseStatus": {"enum": ["analysis_only", "needs_review"]}}}
+      "if": {
+        "properties": {
+          "modernityStatus": {
+            "const": "needs_currency_review"
+          }
+        },
+        "required": [
+          "modernityStatus"
+        ]
+      },
+      "then": {
+        "properties": {
+          "reuseStatus": {
+            "enum": [
+              "analysis_only",
+              "needs_review"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "locator": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "locator"
+        ]
+      },
+      "then": {
+        "required": [
+          "locatorFa"
+        ]
+      }
     }
   ]
 }

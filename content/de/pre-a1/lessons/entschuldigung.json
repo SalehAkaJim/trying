@@ -25,7 +25,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "بعد از گفت‌وگوی کوتاه، matching فقط رابطهٔ دو جفت اجتماعی نزدیک را تثبیت می‌کند و زبان تازه‌ای وارد نمی‌کند.",
+    "activitySelectionRationale": "بعد از گفت‌وگوی کوتاه، تطبیق فقط رابطهٔ دو جفت اجتماعی نزدیک را تثبیت می‌کند و زبان تازه‌ای وارد نمی‌کند.",
     "sequenceRationale": "زبان‌آموز ابتدا خودش عذرخواهی را آغاز می‌کند و بعد پاسخ‌های مناسب را به عبارت‌های آشنا وصل می‌کند.",
     "templateSignature": "conversation_speaking>matching"
   },
@@ -65,7 +65,7 @@
       "id": "act-de-entschuldigung-matching",
       "type": "matching",
       "instructionFa": "هر عبارت را به پاسخ مناسبش وصل کن.",
-      "selectionReason": "دو جفت اجتماعی کوتاه ممکن است در شروع دوره با هم قاطی شوند؛ matching بدون افزودن متن تازه رابطهٔ درست را تمرین می‌کند.",
+      "selectionReason": "دو جفت اجتماعی کوتاه ممکن است در شروع دوره با هم قاطی شوند؛ تطبیق بدون افزودن متن تازه رابطهٔ درست را تمرین می‌کند.",
       "sourceRefs": [
         "src-wiktionary-de-entschuldigung",
         "src-wiktionary-de-kein-problem",
@@ -109,5 +109,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "ببخشید!"
 }

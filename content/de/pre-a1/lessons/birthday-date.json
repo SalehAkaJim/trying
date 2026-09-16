@@ -31,7 +31,7 @@
       "id": "act-de-birthday-conversation",
       "type": "conversation_speaking",
       "instructionFa": "تاریخ تولد را بپرس و پاسخ نمونهٔ کوتاه را بگو.",
-      "selectionReason": "پرسش و پاسخ تاریخ تولد مستقیماً descriptor Pre-A1 را پوشش می‌دهد.",
+      "selectionReason": "پرسش و پاسخ تاریخ تولد مستقیماً توصیفگر پیش از A1 را پوشش می‌دهد.",
       "sourceRefs": [
         "src-wikibooks-de-birthday-question",
         "src-wikibooks-de-birthday"
@@ -86,5 +86,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "pending",
+  "sourceTitleFa": "تولدت کیه؟"
 }

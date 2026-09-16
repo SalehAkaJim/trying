@@ -2,15 +2,109 @@
   "id": "dlg-de-pre-a1-guten-morgen",
   "languageId": "de",
   "level": "Pre-A1",
-  "sourceRefs": ["src-wiktionary-de-guten-morgen", "src-wikibooks-de-basic-greetings"],
+  "sourceRefs": [
+    "src-wiktionary-de-guten-morgen",
+    "src-wikibooks-de-basic-greetings"
+  ],
   "scenario": "صبح است و این بار زبان‌آموز گفت‌وگو را با سلام صبحگاهی شروع می‌کند و مکالمه با یک خداحافظی کوتاه تمام می‌شود.",
   "openingInitiator": "learner",
-  "characterRefs": ["char-de-mia", "char-de-learner"],
-  "turns": [
-    {"id":"turn-de-gm-1","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Guten Morgen!","translationFa":"صبح بخیر!","learnerTurn":true,"lexemeRefs":["lex-de-guten-morgen"],"lexemeOccurrences":[{"surface":"Guten Morgen","lexemeId":"lex-de-guten-morgen","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-guten-morgen"],"audioRef":null},
-    {"id":"turn-de-gm-2","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Guten Morgen!","translationFa":"صبح بخیر!","learnerTurn":false,"lexemeRefs":["lex-de-guten-morgen"],"lexemeOccurrences":[{"surface":"Guten Morgen","lexemeId":"lex-de-guten-morgen","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-guten-morgen"],"audioRef":null},
-    {"id":"turn-de-gm-3","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Tschüss!","translationFa":"خداحافظ!","learnerTurn":false,"lexemeRefs":["lex-de-tschuess"],"lexemeOccurrences":[{"surface":"Tschüss","lexemeId":"lex-de-tschuess","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null},
-    {"id":"turn-de-gm-4","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Tschüss!","translationFa":"خداحافظ!","learnerTurn":true,"lexemeRefs":["lex-de-tschuess"],"lexemeOccurrences":[{"surface":"Tschüss","lexemeId":"lex-de-tschuess","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null}
+  "characterRefs": [
+    "char-de-mia",
+    "char-de-learner"
   ],
-  "sceneQualityRationale": "زبان‌آموز نقش آغازکننده را می‌گیرد و مکالمه برای شروع دوره عمداً در چهار turn و با دو عبارت بسیار ساده نگه داشته شده است."
+  "turns": [
+    {
+      "id": "turn-de-gm-1",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Guten Morgen!",
+      "translationFa": "صبح بخیر!",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-guten-morgen"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Guten Morgen",
+          "lexemeId": "lex-de-guten-morgen",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-guten-morgen"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-gm-2",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Guten Morgen!",
+      "translationFa": "صبح بخیر!",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-guten-morgen"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Guten Morgen",
+          "lexemeId": "lex-de-guten-morgen",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-guten-morgen"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-gm-3",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Tschüss!",
+      "translationFa": "خداحافظ!",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-tschuess"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Tschüss",
+          "lexemeId": "lex-de-tschuess",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-gm-4",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Tschüss!",
+      "translationFa": "خداحافظ!",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-tschuess"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Tschüss",
+          "lexemeId": "lex-de-tschuess",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "زبان‌آموز نقش آغازکننده را می‌گیرد و مکالمه برای شروع دوره عمداً در چهار نوبت و با دو عبارت بسیار ساده نگه داشته شده است."
 }
