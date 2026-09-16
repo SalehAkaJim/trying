@@ -84,12 +84,26 @@ For early progression:
 - assume no unexplained target-language vocabulary;
 - keep new productive load appropriate to what has already been established;
 - recycle high-value phrases when pedagogically useful;
-- prioritize concrete familiar words and visually supportable meanings;
+- prioritize concrete familiar meanings that can be understood through text, Persian support, context and previously learned material;
 - avoid unnecessarily complex administrative or travel contexts when simpler communication is a better prerequisite.
 
 There is no fixed number of "early lessons" to which these rules apply. Apply them for as long as the learner's actual progression requires them.
 
-## 7. Activity integrity
+## 7. Initial image-free learner-content policy
+
+The current learner-facing curriculum is intentionally **image-free**.
+
+Until an explicit future product decision changes this rule:
+- lessons, units, activities, conversations, questions, prompts, answers, options, hints, examples and review items must not include instructional images;
+- no learner-facing content may depend on seeing a picture, illustration, photograph, icon, thumbnail or other artwork to understand the prompt or select the answer;
+- do not author instructions such as “look at the picture”, “choose the image”, “which picture is correct?”, “what do you see?” or equivalent visual tasks;
+- activity payloads must not contain `image`, `imageUrl`, `imageURL`, `imageRef`, `picture`, `photo`, `illustration`, thumbnail fields or equivalent aliases;
+- source material that contains illustrations may still be used only when the reused target-language item remains fully understandable and solvable without the illustration;
+- educational meaning must come from text, Persian support/context, prior learning and later audio—not from visual artwork.
+
+Decorative product UI that carries no instructional meaning is outside this authoring restriction. Image-based educational activities can be added only after this baseline is explicitly changed.
+
+## 8. Activity integrity
 
 Activities should reinforce material introduced by the lesson rather than introduce unrelated target-language content.
 
@@ -102,7 +116,7 @@ For transformed activities:
 
 Activity quantity is determined only by what practice the lesson requires in the wider curriculum.
 
-## 8. Words and phrases
+## 9. Words and phrases
 
 Every reusable word or phrase should have a stable ID. This enables:
 - tap-for-help inside lessons;
@@ -114,7 +128,7 @@ Every reusable word or phrase should have a stable ID. This enables:
 
 A lesson references lexeme IDs rather than duplicating educational metadata wherever possible. Inflected and alternate forms resolve through `lexeme_forms` when lexical identity is unchanged.
 
-## 9. Audio policy
+## 10. Audio policy
 
 Audio is not produced during initial content assembly.
 
@@ -126,7 +140,7 @@ Future audio rules:
 - voices should be clear, calm, low-stress, non-aggressive and relatively consistent in overall tone;
 - speech should remain easy for learners to understand.
 
-## 10. Source provenance
+## 11. Source provenance
 
 Every reusable teaching item must be traceable to one or more source records. Store, when available:
 - source ID;
@@ -137,13 +151,14 @@ Every reusable teaching item must be traceable to one or more source records. St
 - retrieval date;
 - transformation notes.
 
-## 11. QA invariants
+## 12. QA invariants
 
 Before a lesson is final:
 - first activity is conversation speaking;
 - opening conversation is a meaningful scene judged semantically, not by turn count;
 - learner participation is meaningful for the scene, not checked against a numeric quota;
 - no structural decision was made primarily to hit a unit, lesson, activity or dialogue count;
+- no learner-facing instructional content includes, references or depends on an image;
 - source references resolve;
 - CEFR assignment is justified;
 - Persian translations preserve meaning;
