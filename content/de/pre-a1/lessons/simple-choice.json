@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-simple-choice",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-first-steps",
+  "titleFa": "چی می‌خوای؟",
+  "sourceTitle": "Was möchtest du? / Pizza",
+  "learningTargets": [
+    "پرسش کوتاه «Was möchtest du?» را بفهمد.",
+    "با یک گزینهٔ کاملاً آشنا مثل «Pizza.» انتخاب ساده انجام دهد.",
+    "فرم «möchtest» را به lexeme پایهٔ «mögen» مرتبط کند."
+  ],
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-oak-de-was-moechtest-du",
+    "src-wiktionary-de-moechten",
+    "src-wiktionary-de-pizza"
+  ],
+  "lexemeRefs": [
+    "lex-de-hallo",
+    "lex-de-moegen",
+    "lex-de-pizza"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "هدف این مرحله فقط فهم یک پرسش سادهٔ خواستن و انتخاب یک گزینهٔ آشناست؛ همان گفت‌وگوی چهار turn هدف را کامل پوشش می‌دهد و تمرین اضافه در این لحظه فقط تکرار مکانیکی ایجاد می‌کند.",
+    "sequenceRationale": "زبان‌آموز ابتدا زبان آشنای سلام را بازیابی می‌کند، سپس پرسش تازهٔ «Was möchtest du?» را می‌شنود و بدون واژهٔ جدید با «Pizza.» پاسخ می‌دهد.",
+    "templateSignature": "conversation_speaking"
+  },
+  "activities": [
+    {
+      "id": "act-de-simple-choice-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "با میا سلام کن؛ وقتی می‌پرسد «Was möchtest du?» گزینهٔ آشنای «Pizza.» را انتخاب کن.",
+      "selectionReason": "پرسش تازه با یک پاسخ از قبل آشنا تمرین می‌شود تا بار شناختی فقط روی «möchtest» و مفهوم انتخاب بماند.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-oak-de-was-moechtest-du",
+        "src-wiktionary-de-moechten",
+        "src-wiktionary-de-pizza"
+      ],
+      "learningTargets": [
+        "فهم «Was möchtest du?» و انتخاب یک گزینهٔ آشنا."
+      ],
+      "lexemeRefs": [
+        "lex-de-hallo",
+        "lex-de-moegen",
+        "lex-de-pizza"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-simple-choice",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_level_final"
+}

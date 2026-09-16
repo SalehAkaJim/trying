@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lexform-de-moegen-moechtest",
+  "lexemeId": "lex-de-moegen",
+  "surface": "möchtest",
+  "formType": "inflected",
+  "features": {
+    "mood": "subjunctive_II",
+    "person": "2",
+    "number": "singular"
+  },
+  "origin": "reference_attested",
+  "reviewStatus": "approved",
+  "sourceRefs": [
+    "src-wiktionary-de-moechten",
+    "src-oak-de-was-moechtest-du"
+  ],
+  "notes": "در پرسش منبع‌دار «Was möchtest du?» به‌صورت دوم‌شخص مفرد به lexeme پایهٔ «mögen» متصل است."
+}

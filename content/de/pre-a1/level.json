@@ -15,7 +15,8 @@
       "خداحافظی ساده با «Tschüss!»",
       "عذرخواهی کوتاه با «Entschuldigung» و فهم پاسخ «Kein Problem»",
       "پرسیدن نام با «Wie heißt du?» و فهم پاسخ «Ich heiße Iris.»",
-      "احوال‌پرسی بسیار ساده با «Wie geht's?» و «Gut.»"
+      "احوال‌پرسی بسیار ساده با «Wie geht's?» و «Gut.»",
+      "فهم پرسش «Was möchtest du?» و انتخاب یک گزینهٔ آشنا"
     ],
     "linguisticTargets": [
       "عبارت ثابت «hallo» برای سلام",
@@ -27,7 +28,8 @@
       "عبارت خداحافظی «Tschüss!»",
       "عبارت‌های «Entschuldigung» و «kein Problem»",
       "فعل «heißen» در شکل‌های «heiße» و «heißt»",
-      "عبارت «Wie geht's?» و پاسخ کوتاه «Gut.»"
+      "عبارت «Wie geht's?» و پاسخ کوتاه «Gut.»",
+      "فرم «möchtest» از «mögen» برای بیان خواستن در یک پرسش ساده"
     ],
     "situations": [
       "اولین سلام ساده و خداحافظی",
@@ -37,11 +39,11 @@
       "تشکر و پاسخ مؤدبانه",
       "عذرخواهی کوتاه و پاسخ آرام",
       "پرسیدن نام در آشنایی اولیه",
-      "احوال‌پرسی بسیار کوتاه"
+      "احوال‌پرسی بسیار کوتاه",
+      "انتخاب یک چیز آشنا در پاسخ به یک پرسش کوتاه"
     ],
     "gaps": [
       "گفتن نام واقعی خود زبان‌آموز با یک slot شخصی‌سازی‌شده و منبع‌دار",
-      "خواستن و انتخاب‌کردن چیزهای ساده",
       "مرور و بازیابی بیشتر در جاهایی که شواهد آموزشی نیاز نشان دهد"
     ]
   },
@@ -60,7 +62,9 @@
     "src-wiktionary-de-entschuldigung",
     "src-wiktionary-de-kein-problem",
     "src-wikibooks-de-wie-heisst-du",
-    "src-wiktionary-de-heissen"
+    "src-wiktionary-de-heissen",
+    "src-oak-de-was-moechtest-du",
+    "src-wiktionary-de-moechten"
   ],
   "unitRefs": [
     "de-pre-a1-unit-first-steps"
@@ -73,7 +77,8 @@
     "de-pre-a1-lesson-danke-bitte",
     "de-pre-a1-lesson-entschuldigung",
     "de-pre-a1-lesson-name-exchange",
-    "de-pre-a1-lesson-wellbeing"
+    "de-pre-a1-lesson-wellbeing",
+    "de-pre-a1-lesson-simple-choice"
   ],
   "notes": "این فهرست فقط محتوایی است که تا این مرحله ساخته شده و به معنی تعداد هدف برای Pre-A1 نیست.",
   "audioStatus": "blocked_until_level_final"

@@ -2,7 +2,7 @@
 -- German Pre-A1
 -- Canonical runtime: MySQL 9.0.1
 -- Requires database/schema.sql first.
--- Current snapshot: 8 source-backed beginner lessons.
+-- Current snapshot: 9 source-backed beginner lessons.
 -- Product rule: beginner lessons 1-10 use exactly 4 opening turns.
 
 SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
@@ -28,7 +28,8 @@ JSON_OBJECT(
   'خداحافظی ساده با «Tschüss!»',
   'عذرخواهی کوتاه با «Entschuldigung» و فهم پاسخ «Kein Problem»',
   'پرسیدن نام با «Wie heißt du?» و فهم پاسخ «Ich heiße Iris.»',
-  'احوال‌پرسی بسیار ساده با «Wie geht''s?» و «Gut.»'
+  'احوال‌پرسی بسیار ساده با «Wie geht''s?» و «Gut.»',
+  'فهم پرسش «Was möchtest du?» و انتخاب یک گزینهٔ آشنا'
  ),
  'linguisticTargets',JSON_ARRAY(
   'عبارت ثابت «hallo» برای سلام',
@@ -40,17 +41,18 @@ JSON_OBJECT(
   'عبارت خداحافظی «Tschüss!»',
   'عبارت‌های «Entschuldigung» و «kein Problem»',
   'فعل «heißen» در شکل‌های «heiße» و «heißt»',
-  'عبارت «Wie geht''s?» و پاسخ کوتاه «Gut.»'
+  'عبارت «Wie geht''s?» و پاسخ کوتاه «Gut.»',
+  'فرم «möchtest» از «mögen» برای بیان خواستن در یک پرسش ساده'
  ),
  'situations',JSON_ARRAY(
   'اولین سلام ساده و خداحافظی','شروع گفت‌وگو در صبح',
   'پرسش و پاسخ ساده دربارهٔ علاقه به پیتزا','پاسخ مثبت و منفی در یک بافت آشنا',
   'تشکر و پاسخ مؤدبانه','عذرخواهی کوتاه و پاسخ آرام',
-  'پرسیدن نام در آشنایی اولیه','احوال‌پرسی بسیار کوتاه'
+  'پرسیدن نام در آشنایی اولیه','احوال‌پرسی بسیار کوتاه',
+  'انتخاب یک چیز آشنا در پاسخ به یک پرسش کوتاه'
  ),
  'gaps',JSON_ARRAY(
   'گفتن نام واقعی خود زبان‌آموز با یک slot شخصی‌سازی‌شده و منبع‌دار',
-  'خواستن و انتخاب‌کردن چیزهای ساده',
   'مرور و بازیابی بیشتر در جاهایی که شواهد آموزشی نیاز نشان دهد'
  )
 ),
@@ -75,7 +77,9 @@ INSERT INTO curriculum_targets
 (@level,'de.pre_a1.farewell_tschuess','communicative','خداحافظی ساده با «Tschüss!»','در پایان گفت‌وگوی دوستانه از «Tschüss!» استفاده کند.',TRUE,'partial',JSON_OBJECT('zeroBeginner',TRUE)),
 (@level,'de.pre_a1.apologize_basic','communicative','عذرخواهی کوتاه و پاسخ به آن','با «Entschuldigung.» عذرخواهی کند و «Kein Problem.» را به‌عنوان پاسخ بفهمد.',TRUE,'partial',JSON_OBJECT('zeroBeginner',TRUE)),
 (@level,'de.pre_a1.ask_name_basic','communicative','پرسیدن نام و فهم پاسخ','با «Wie heißt du?» نام را بپرسد و «Ich heiße Iris.» را بفهمد.',TRUE,'partial',JSON_OBJECT('zeroBeginner',TRUE)),
-(@level,'de.pre_a1.notice_heissen_forms','linguistic','ارتباط «heiße» و «heißt» با «heißen»','شکل‌های «heiße» و «heißt» را به lexeme پایهٔ «heißen» مرتبط کند.',FALSE,'partial',JSON_OBJECT('lexemeFormAware',TRUE))
+(@level,'de.pre_a1.notice_heissen_forms','linguistic','ارتباط «heiße» و «heißt» با «heißen»','شکل‌های «heiße» و «heißt» را به lexeme پایهٔ «heißen» مرتبط کند.',FALSE,'partial',JSON_OBJECT('lexemeFormAware',TRUE)),
+(@level,'de.pre_a1.choose_simple_item','communicative','فهم «Was möchtest du?» و انتخاب ساده','پرسش «Was möchtest du?» را بفهمد و با یک گزینهٔ آشنا پاسخ دهد.',TRUE,'partial',JSON_OBJECT('zeroBeginner',TRUE)),
+(@level,'de.pre_a1.notice_moegen_moechtest','linguistic','ارتباط «möchtest» با «mögen»','فرم «möchtest» را به lexeme پایهٔ «mögen» مرتبط کند.',FALSE,'partial',JSON_OBJECT('lexemeFormAware',TRUE))
 ON DUPLICATE KEY UPDATE target_type=VALUES(target_type),title=VALUES(title),description=VALUES(description),
  required_for_completion=VALUES(required_for_completion),status=VALUES(status),metadata=VALUES(metadata);
 
@@ -94,6 +98,8 @@ SET @t_bye := (SELECT id FROM curriculum_targets WHERE language_level_id=@level 
 SET @t_apology := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.apologize_basic');
 SET @t_name := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.ask_name_basic');
 SET @t_heissen := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.notice_heissen_forms');
+SET @t_choice := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.choose_simple_item');
+SET @t_moechtest := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.notice_moegen_moechtest');
 
 -- Modern reusable sources -----------------------------------------------------
 INSERT INTO sources
@@ -112,7 +118,9 @@ INSERT INTO sources
 ('src-wiktionary-de-entschuldigung','Wiktionary: Entschuldigung','Wiktionary contributors','de','dictionary','https://de.wiktionary.org/wiki/Entschuldigung',NULL,'maintained_current','مدخل زنده و نگهداری‌شدهٔ Wiktionary آلمانی در وضعیت فعلی بررسی شده است.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wiktionary contributors — https://de.wiktionary.org/wiki/Entschuldigung','reuse_with_attribution','2026-09-16','منبع «Entschuldigung».'),
 ('src-wiktionary-de-kein-problem','Wiktionary: kein Problem','Wiktionary contributors','de','dictionary','https://en.wiktionary.org/wiki/kein_Problem','2026-06-04','contemporary_verified','مدخل در سال ۲۰۲۶ به‌روز شده و عبارت امروزی «kein Problem» را مستقیم ثبت می‌کند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wiktionary contributors — https://en.wiktionary.org/wiki/kein_Problem','reuse_with_attribution','2026-09-16','منبع «kein Problem».'),
 ('src-wikibooks-de-wie-heisst-du','Wikibooks: German/Level I/Wie heißt du? (2. Teil)','Wikibooks contributors','de','course','https://en.wikibooks.org/wiki/German/Level_I/Wie_hei%C3%9Ft_du_2',NULL,'maintained_current','صفحهٔ زنده و نگهداری‌شدهٔ Wikibooks در وضعیت فعلی بررسی شده است.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wikibooks contributors — name lesson page','reuse_with_attribution','2026-09-16','منبع «Wie heißt du?» و «Ich heiße Iris.».'),
-('src-wiktionary-de-heissen','Wiktionary: heißen','Wiktionary contributors','de','dictionary','https://de.wiktionary.org/wiki/hei%C3%9Fen',NULL,'maintained_current','مدخل زنده و نگهداری‌شدهٔ Wiktionary آلمانی و شکل‌های حال آن بررسی شده است.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wiktionary contributors — https://de.wiktionary.org/wiki/hei%C3%9Fen','reuse_with_attribution','2026-09-16','منبع «heißen» و «heiße / heißt».')
+('src-wiktionary-de-heissen','Wiktionary: heißen','Wiktionary contributors','de','dictionary','https://de.wiktionary.org/wiki/hei%C3%9Fen',NULL,'maintained_current','مدخل زنده و نگهداری‌شدهٔ Wiktionary آلمانی و شکل‌های حال آن بررسی شده است.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wiktionary contributors — https://de.wiktionary.org/wiki/hei%C3%9Fen','reuse_with_attribution','2026-09-16','منبع «heißen» و «heiße / heißt».'),
+('src-oak-de-was-moechtest-du','Oak National Academy: Was möchtest du? Present and conditional ''mögen''','Oak National Academy','de','course','https://www.thenational.academy/teachers/programmes/german-secondary-ks4-edexcel/units/people-and-lifestyle-positive-lebensentscheidungen/lessons/was-mochtest-du-present-and-conditional-mogen',NULL,'contemporary_verified','صفحهٔ آموزشی زندهٔ Oak National Academy در سپتامبر ۲۰۲۶ بررسی شده است؛ خود درس کاربرد معاصر «Was möchtest du?» و «möcht-» را آموزش می‌دهد و محتوای جدید Oak تحت OGL v3.0 منتشر می‌شود مگر خلاف آن ذکر شده باشد.','Open Government Licence v3.0 (OGL)','https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/','A German lesson by Oak National Academy licensed under Open Government Licence v3.0 (OGL)','reuse_with_attribution','2026-09-16','منبع دقیق پرسش «Was möchtest du?».'),
+('src-wiktionary-de-moechten','Wiktionary: möchten','Wiktionary contributors','de','dictionary','https://de.wiktionary.org/wiki/m%C3%B6chten',NULL,'maintained_current','مدخل زنده و نگهداری‌شدهٔ Wiktionary در سپتامبر ۲۰۲۶ بررسی شده و «möchten» را به‌عنوان صورت صرف‌شدهٔ «mögen» ثبت می‌کند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wiktionary contributors — https://de.wiktionary.org/wiki/m%C3%B6chten','reuse_with_attribution','2026-09-16','مرجع شکل «möchtest» و پیوند آن با «mögen».')
 ON DUPLICATE KEY UPDATE title=VALUES(title),organization_or_author=VALUES(organization_or_author),language_code=VALUES(language_code),
  source_type=VALUES(source_type),url=VALUES(url),published_or_updated_at=VALUES(published_or_updated_at),
  modernity_status=VALUES(modernity_status),currency_evidence=VALUES(currency_evidence),license_name=VALUES(license_name),
@@ -135,6 +143,8 @@ SET @s_entsch := (SELECT id FROM sources WHERE source_key='src-wiktionary-de-ent
 SET @s_keinp := (SELECT id FROM sources WHERE source_key='src-wiktionary-de-kein-problem');
 SET @s_name := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-wie-heisst-du');
 SET @s_heissen := (SELECT id FROM sources WHERE source_key='src-wiktionary-de-heissen');
+SET @s_oak_choice := (SELECT id FROM sources WHERE source_key='src-oak-de-was-moechtest-du');
+SET @s_moechten := (SELECT id FROM sources WHERE source_key='src-wiktionary-de-moechten');
 
 INSERT INTO source_items (source_id,item_key,locator,source_text,source_text_hash,notes) VALUES
 (@s_hallo,'srcitem-de-hallo-headword','German greeting formula','hallo',UNHEX(SHA2('hallo',256)),'عبارت سلام معاصر.'),
@@ -158,7 +168,9 @@ INSERT INTO source_items (source_id,item_key,locator,source_text,source_text_has
 (@s_name,'srcitem-de-ich-heisse-iris','Exercise answer','Ich heiße Iris.',UNHEX(SHA2('Ich heiße Iris.',256)),'پاسخ نام.'),
 (@s_heissen,'srcitem-de-heissen-lemma','German verb lemma','heißen',UNHEX(SHA2('heißen',256)),'صورت پایهٔ فعل.'),
 (@s_heissen,'srcitem-de-heissen-heisse','Present form','heiße',UNHEX(SHA2('heiße',256)),'اول‌شخص مفرد حال.'),
-(@s_heissen,'srcitem-de-heissen-heisst','Present form','heißt',UNHEX(SHA2('heißt',256)),'دوم‌شخص مفرد حال.')
+(@s_heissen,'srcitem-de-heissen-heisst','Present form','heißt',UNHEX(SHA2('heißt',256)),'دوم‌شخص مفرد حال.'),
+(@s_oak_choice,'srcitem-de-was-moechtest-du','Lesson title / key learning point','Was möchtest du?',UNHEX(SHA2('Was möchtest du?',256)),'پرسش دقیق منبع.'),
+(@s_moechten,'srcitem-de-moegen-moechtest','Second-person singular form','möchtest',UNHEX(SHA2('möchtest',256)),'فرم دوم‌شخص مفرد «mögen» در Konjunktiv II.')
 ON DUPLICATE KEY UPDATE locator=VALUES(locator),source_text=VALUES(source_text),source_text_hash=VALUES(source_text_hash),notes=VALUES(notes);
 
 SET @si_hallo := (SELECT id FROM source_items WHERE source_id=@s_hallo AND item_key='srcitem-de-hallo-headword');
@@ -183,6 +195,8 @@ SET @si_name_a := (SELECT id FROM source_items WHERE source_id=@s_name AND item_
 SET @si_heissen := (SELECT id FROM source_items WHERE source_id=@s_heissen AND item_key='srcitem-de-heissen-lemma');
 SET @si_heisse := (SELECT id FROM source_items WHERE source_id=@s_heissen AND item_key='srcitem-de-heissen-heisse');
 SET @si_heisst := (SELECT id FROM source_items WHERE source_id=@s_heissen AND item_key='srcitem-de-heissen-heisst');
+SET @si_choice_q := (SELECT id FROM source_items WHERE source_id=@s_oak_choice AND item_key='srcitem-de-was-moechtest-du');
+SET @si_moechtest := (SELECT id FROM source_items WHERE source_id=@s_moechten AND item_key='srcitem-de-moegen-moechtest');
 
 -- Characters ------------------------------------------------------------------
 INSERT INTO characters
@@ -237,7 +251,10 @@ INSERT INTO lessons
  'اول زبان‌آموز سؤال نام را در مکالمه استفاده می‌کند و بعد پاسخ منبع‌دار را بدون معرفی جملهٔ تازه بازسازی می‌کند.','conversation_speaking>word_order','blocked_until_level_final',NULL),
 ('de-pre-a1-lesson-wellbeing',@level,@unit,8,8,'حالت چطوره؟','Wie geht''s? / Gut.','draft',
  'بعد از گفت‌وگو، fill blank فقط عبارت تازهٔ «Wie geht''s?» را با حذف یک بخش کوچک بازیابی می‌کند و بار شناختی را پایین نگه می‌دارد.',
- 'اول معنی و پاسخ در مکالمه دیده می‌شود و بعد همان عبارت منبع‌دار با یک جای‌خالی ساده بازیابی می‌شود.','conversation_speaking>fill_blank','blocked_until_level_final',NULL)
+ 'اول معنی و پاسخ در مکالمه دیده می‌شود و بعد همان عبارت منبع‌دار با یک جای‌خالی ساده بازیابی می‌شود.','conversation_speaking>fill_blank','blocked_until_level_final',NULL),
+('de-pre-a1-lesson-simple-choice',@level,@unit,9,9,'چی می‌خوای؟','Was möchtest du? / Pizza','draft',
+ 'هدف این مرحله فقط فهم یک پرسش سادهٔ خواستن و انتخاب یک گزینهٔ آشناست؛ همان گفت‌وگوی چهار turn هدف را کامل پوشش می‌دهد و تمرین اضافه لازم نیست.',
+ 'زبان‌آموز ابتدا سلام آشنا را بازیابی می‌کند، سپس پرسش تازه را می‌شنود و بدون واژهٔ جدید با «Pizza.» پاسخ می‌دهد.','conversation_speaking','blocked_until_level_final',NULL)
 ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),unit_id=VALUES(unit_id),sequence_index=VALUES(sequence_index),
  position_in_unit=VALUES(position_in_unit),title_fa=VALUES(title_fa),source_title=VALUES(source_title),status=VALUES(status),
  activity_selection_rationale=VALUES(activity_selection_rationale),sequence_rationale=VALUES(sequence_rationale),
@@ -251,13 +268,14 @@ SET @l5 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-danke-bitt
 SET @l6 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-entschuldigung');
 SET @l7 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-name-exchange');
 SET @l8 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-wellbeing');
+SET @l9 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-simple-choice');
 
 DELETE lt FROM lesson_targets lt JOIN lessons l ON l.id=lt.lesson_id WHERE l.language_level_id=@level;
 DELETE ut FROM unit_targets ut JOIN units u ON u.id=ut.unit_id WHERE u.language_level_id=@level;
 
 INSERT INTO unit_targets (unit_id,curriculum_target_id) VALUES
 (@unit,@t_hallo),(@unit,@t_bye),(@unit,@t_gm),(@unit,@t_gm_diff),(@unit,@t_pq),(@unit,@t_pa),(@unit,@t_forms),
-(@unit,@t_ja),(@unit,@t_nein),(@unit,@t_danke),(@unit,@t_bitte),(@unit,@t_apology),(@unit,@t_name),(@unit,@t_heissen),(@unit,@t_wellbeing);
+(@unit,@t_ja),(@unit,@t_nein),(@unit,@t_danke),(@unit,@t_bitte),(@unit,@t_apology),(@unit,@t_name),(@unit,@t_heissen),(@unit,@t_wellbeing),(@unit,@t_choice),(@unit,@t_moechtest);
 
 INSERT INTO lesson_targets (lesson_id,curriculum_target_id,coverage_role) VALUES
 (@l1,@t_hallo,'introduce'),(@l1,@t_bye,'introduce'),
@@ -267,7 +285,8 @@ INSERT INTO lesson_targets (lesson_id,curriculum_target_id,coverage_role) VALUES
 (@l5,@t_danke,'introduce'),(@l5,@t_bitte,'introduce'),
 (@l6,@t_apology,'introduce'),(@l6,@t_danke,'review'),(@l6,@t_bitte,'review'),
 (@l7,@t_name,'introduce'),(@l7,@t_heissen,'support'),(@l7,@t_hallo,'review'),
-(@l8,@t_wellbeing,'introduce'),(@l8,@t_hallo,'review');
+(@l8,@t_wellbeing,'introduce'),(@l8,@t_hallo,'review'),
+(@l9,@t_choice,'introduce'),(@l9,@t_moechtest,'support'),(@l9,@t_hallo,'review');
 
 
 -- Dialogues / turns -----------------------------------------------------------
@@ -279,7 +298,8 @@ INSERT INTO dialogues (dialogue_key,language_level_id,scenario,opening_initiator
 ('dlg-de-pre-a1-danke-bitte',@level,'میا و زبان‌آموز سلام می‌کنند؛ بعد از یک کمک کوچک میا تشکر می‌کند و زبان‌آموز پاسخ مؤدبانه می‌دهد.','app','تشکر و پاسخ مؤدبانه در چهار turn کوتاه و بدون وابستگی به تصویر یا جملهٔ ساختگی تمرین می‌شوند.'),
 ('dlg-de-pre-a1-entschuldigung',@level,'زبان‌آموز برای یک اشتباه کوچک عذرخواهی می‌کند، میا پاسخ آرام می‌دهد و تعامل با تشکر و پاسخ مؤدبانه تمام می‌شود.','learner','چهار turn یک تبادل اجتماعی کامل و کم‌فشار می‌سازند و هر چهار عبارت از منابع مدرن قابل‌ردیابی آمده‌اند.'),
 ('dlg-de-pre-a1-name-exchange',@level,'آیریس سلام می‌کند و زبان‌آموز پس از پاسخ، نام او را می‌پرسد و یک پاسخ ساده با «heißen» می‌شنود.','app','مکالمه فقط یک سلام و یک پرسش‌وپاسخ نام دارد؛ برای شروع از صفر کوتاه است و فرم‌های «heißt / heiße» مستقیماً به lexeme پایه متصل‌اند.'),
-('dlg-de-pre-a1-wellbeing',@level,'میا و زبان‌آموز سلام می‌کنند و میا یک احوال‌پرسی خیلی کوتاه می‌پرسد که زبان‌آموز با یک پاسخ ساده جواب می‌دهد.','app','فقط چهار turn لازم برای سلام و یک احوال‌پرسی پایه نگه داشته شده و هیچ عبارت اضافی برای طولانی‌کردن صحنه وارد نشده است.')
+('dlg-de-pre-a1-wellbeing',@level,'میا و زبان‌آموز سلام می‌کنند و میا یک احوال‌پرسی خیلی کوتاه می‌پرسد که زبان‌آموز با یک پاسخ ساده جواب می‌دهد.','app','فقط چهار turn لازم برای سلام و یک احوال‌پرسی پایه نگه داشته شده و هیچ عبارت اضافی برای طولانی‌کردن صحنه وارد نشده است.'),
+('dlg-de-pre-a1-simple-choice',@level,'میا و زبان‌آموز سلام می‌کنند؛ میا می‌پرسد زبان‌آموز چه می‌خواهد و زبان‌آموز یک گزینهٔ کاملاً آشنا را انتخاب می‌کند.','app','درس نهم هنوز در بازهٔ ده درس اول است؛ مکالمه دقیقاً چهار turn دارد و فقط یک پرسش تازه را با یک پاسخ آشنا ترکیب می‌کند.')
 ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),scenario=VALUES(scenario),opening_initiator=VALUES(opening_initiator),scene_quality_rationale=VALUES(scene_quality_rationale);
 
 SET @d1 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-hallo');
@@ -290,6 +310,7 @@ SET @d5 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-danke-bit
 SET @d6 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-entschuldigung');
 SET @d7 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-name-exchange');
 SET @d8 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-wellbeing');
+SET @d9 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-simple-choice');
 
 DELETE FROM lexeme_occurrences WHERE owner_type='dialogue_turn' AND owner_key LIKE 'turn-de-%';
 DELETE FROM provenance_links WHERE entity_type='dialogue_turn' AND entity_key LIKE 'turn-de-%';
@@ -334,9 +355,14 @@ INSERT INTO dialogue_turns
 ('turn-de-wellbeing-1',@d8,1,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_level_final',NULL,NULL),
 ('turn-de-wellbeing-2',@d8,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_level_final',NULL,NULL),
 ('turn-de-wellbeing-3',@d8,3,@mia,'app_assigned','unspecified','Wie geht''s?','حالت چطوره؟',FALSE,'blocked_until_level_final',NULL,NULL),
-('turn-de-wellbeing-4',@d8,4,@learner,'app_assigned','unspecified','Gut.','خوبم.',TRUE,'blocked_until_level_final',NULL,NULL)
+('turn-de-wellbeing-4',@d8,4,@learner,'app_assigned','unspecified','Gut.','خوبم.',TRUE,'blocked_until_level_final',NULL,NULL),
+
+('turn-de-choice-1',@d9,1,@mia,'app_assigned','unspecified','Hallo!','سلام!',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-choice-2',@d9,2,@learner,'app_assigned','unspecified','Hallo!','سلام!',TRUE,'blocked_until_level_final',NULL,NULL),
+('turn-de-choice-3',@d9,3,@mia,'app_assigned','unspecified','Was möchtest du?','چی می‌خوای؟',FALSE,'blocked_until_level_final',NULL,NULL),
+('turn-de-choice-4',@d9,4,@learner,'app_assigned','unspecified','Pizza.','پیتزا.',TRUE,'blocked_until_level_final',NULL,NULL)
 ON DUPLICATE KEY UPDATE dialogue_id=VALUES(dialogue_id),position_index=VALUES(position_index),speaker_character_id=VALUES(speaker_character_id),speaker_identity_origin=VALUES(speaker_identity_origin),speaker_gender_evidence=VALUES(speaker_gender_evidence),text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn);
-DELETE FROM dialogue_turns WHERE dialogue_id IN (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8) AND turn_key NOT IN ('turn-de-hallo-1','turn-de-hallo-2','turn-de-hallo-3','turn-de-hallo-4','turn-de-gm-1','turn-de-gm-2','turn-de-gm-3','turn-de-gm-4','turn-de-pizza-1','turn-de-pizza-2','turn-de-pizza-3','turn-de-pizza-4','turn-de-ja-1','turn-de-ja-2','turn-de-ja-3','turn-de-ja-4','turn-de-danke-bitte-1','turn-de-danke-bitte-2','turn-de-danke-bitte-3','turn-de-danke-bitte-4','turn-de-entschuldigung-1','turn-de-entschuldigung-2','turn-de-entschuldigung-3','turn-de-entschuldigung-4','turn-de-name-1','turn-de-name-2','turn-de-name-3','turn-de-name-4','turn-de-wellbeing-1','turn-de-wellbeing-2','turn-de-wellbeing-3','turn-de-wellbeing-4');
+DELETE FROM dialogue_turns WHERE dialogue_id IN (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9) AND turn_key NOT IN ('turn-de-hallo-1','turn-de-hallo-2','turn-de-hallo-3','turn-de-hallo-4','turn-de-gm-1','turn-de-gm-2','turn-de-gm-3','turn-de-gm-4','turn-de-pizza-1','turn-de-pizza-2','turn-de-pizza-3','turn-de-pizza-4','turn-de-ja-1','turn-de-ja-2','turn-de-ja-3','turn-de-ja-4','turn-de-danke-bitte-1','turn-de-danke-bitte-2','turn-de-danke-bitte-3','turn-de-danke-bitte-4','turn-de-entschuldigung-1','turn-de-entschuldigung-2','turn-de-entschuldigung-3','turn-de-entschuldigung-4','turn-de-name-1','turn-de-name-2','turn-de-name-3','turn-de-name-4','turn-de-wellbeing-1','turn-de-wellbeing-2','turn-de-wellbeing-3','turn-de-wellbeing-4','turn-de-choice-1','turn-de-choice-2','turn-de-choice-3','turn-de-choice-4');
 
 -- Activities ------------------------------------------------------------------
 INSERT INTO activities
@@ -431,7 +457,13 @@ INSERT INTO activities
  'عبارت احوال‌پرسی را کامل کن.',
  'جای‌خالی از همان عبارت منبع‌دار ساخته شده و بدون معرفی واژهٔ تازه یک بازیابی سبک ایجاد می‌کند.',NULL,
  JSON_OBJECT('sourceText','Wie geht''s?','blankedText','Wie ___?','choices',JSON_ARRAY('geht''s','gut'),'answer','geht''s'),
- JSON_ARRAY('source_sentence_blanked'),'not_required')
+ JSON_ARRAY('source_sentence_blanked'),'not_required'),
+
+('act-de-simple-choice-conversation',@l9,1,'conversation_speaking',
+ 'با میا سلام کن؛ وقتی می‌پرسد «Was möchtest du?» گزینهٔ آشنای «Pizza.» را انتخاب کن.',
+ 'پرسش تازه با پاسخ از قبل آشنا تمرین می‌شود تا بار شناختی فقط روی «möchtest» و مفهوم انتخاب بماند.',@d9,
+ JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),
+ JSON_ARRAY('persian_translation_added','character_metadata_added'),'not_required')
 ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
  instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
  payload=VALUES(payload),transformations=VALUES(transformations);
@@ -450,6 +482,7 @@ SET @a11 := (SELECT id FROM activities WHERE activity_key='act-de-name-conversat
 SET @a12 := (SELECT id FROM activities WHERE activity_key='act-de-name-word-order');
 SET @a13 := (SELECT id FROM activities WHERE activity_key='act-de-wellbeing-conversation');
 SET @a14 := (SELECT id FROM activities WHERE activity_key='act-de-wellbeing-fill');
+SET @a15 := (SELECT id FROM activities WHERE activity_key='act-de-simple-choice-conversation');
 
 
 -- Lexemes / forms -------------------------------------------------------------
@@ -491,6 +524,7 @@ SET @x_heissen := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-heissen');
 INSERT INTO lexeme_forms (lexeme_form_key,lexeme_id,surface,normalized_surface,form_type,features,origin,review_status,notes) VALUES
 ('lexform-de-moegen-mag',@x_moegen,'mag','mag','inflected',JSON_OBJECT('tense','present','mood','indicative','person',JSON_ARRAY('1','3'),'number','singular'),'reference_attested','approved','در جملهٔ منبع‌دار «Ich mag Pizza.» به‌صورت اول‌شخص مفرد استفاده شده است.'),
 ('lexform-de-moegen-magst',@x_moegen,'magst','magst','inflected',JSON_OBJECT('tense','present','mood','indicative','person','2','number','singular'),'reference_attested','approved','در پرسش منبع‌دار «Magst du Pizza?» به‌صورت دوم‌شخص مفرد استفاده شده است.'),
+('lexform-de-moegen-moechtest',@x_moegen,'möchtest','möchtest','inflected',JSON_OBJECT('mood','subjunctive_II','person','2','number','singular'),'reference_attested','approved','در پرسش منبع‌دار «Was möchtest du?» به lexeme پایهٔ «mögen» متصل است.'),
 ('lexform-de-heissen-heisse',@x_heissen,'heiße','heiße','inflected',JSON_OBJECT('tense','present','mood','indicative','person','1','number','singular'),'reference_attested','approved','در جملهٔ منبع‌دار «Ich heiße Iris.» به‌صورت اول‌شخص مفرد استفاده شده است.'),
 ('lexform-de-heissen-heisst',@x_heissen,'heißt','heißt','inflected',JSON_OBJECT('tense','present','mood','indicative','person','2','number','singular'),'reference_attested','approved','در پرسش منبع‌دار «Wie heißt du?» به‌صورت دوم‌شخص مفرد استفاده شده است.')
 ON DUPLICATE KEY UPDATE lexeme_id=VALUES(lexeme_id),surface=VALUES(surface),normalized_surface=VALUES(normalized_surface),
@@ -498,6 +532,7 @@ ON DUPLICATE KEY UPDATE lexeme_id=VALUES(lexeme_id),surface=VALUES(surface),norm
 
 SET @f_mag := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-moegen-mag');
 SET @f_magst := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-moegen-magst');
+SET @f_moechtest := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-moegen-moechtest');
 SET @f_heisse := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-heissen-heisse');
 SET @f_heisst := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-heissen-heisst');
 
@@ -510,7 +545,8 @@ INSERT INTO lesson_lexemes (lesson_id,lexeme_id,is_primary,role) VALUES
 (@l5,@x_hallo,FALSE,'review'),(@l5,@x_danke,TRUE,'introduce'),(@l5,@x_bitte,TRUE,'introduce'),
 (@l6,@x_entsch,TRUE,'introduce'),(@l6,@x_keinp,TRUE,'introduce'),(@l6,@x_danke,FALSE,'review'),(@l6,@x_bitte,FALSE,'review'),
 (@l7,@x_hallo,FALSE,'review'),(@l7,@x_heissen,TRUE,'introduce'),
-(@l8,@x_hallo,FALSE,'review'),(@l8,@x_wiegehts,TRUE,'introduce'),(@l8,@x_gut,TRUE,'introduce');
+(@l8,@x_hallo,FALSE,'review'),(@l8,@x_wiegehts,TRUE,'introduce'),(@l8,@x_gut,TRUE,'introduce'),
+(@l9,@x_hallo,FALSE,'review'),(@l9,@x_moegen,TRUE,'practice'),(@l9,@x_pizza,FALSE,'review');
 
 DELETE al FROM activity_lexemes al JOIN activities a ON a.id=al.activity_id JOIN lessons l ON l.id=a.lesson_id WHERE l.language_level_id=@level;
 INSERT INTO activity_lexemes (activity_id,lexeme_id) VALUES
@@ -522,7 +558,8 @@ INSERT INTO activity_lexemes (activity_id,lexeme_id) VALUES
 (@a9,@x_entsch),(@a9,@x_keinp),(@a9,@x_danke),(@a9,@x_bitte),
 (@a10,@x_entsch),(@a10,@x_keinp),(@a10,@x_danke),(@a10,@x_bitte),
 (@a11,@x_hallo),(@a11,@x_heissen),(@a12,@x_heissen),
-(@a13,@x_hallo),(@a13,@x_wiegehts),(@a13,@x_gut),(@a14,@x_wiegehts),(@a14,@x_gut);
+(@a13,@x_hallo),(@a13,@x_wiegehts),(@a13,@x_gut),(@a14,@x_wiegehts),(@a14,@x_gut),
+(@a15,@x_hallo),(@a15,@x_moegen),(@a15,@x_pizza);
 
 DELETE atg FROM activity_targets atg JOIN activities a ON a.id=atg.activity_id JOIN lessons l ON l.id=a.lesson_id WHERE l.language_level_id=@level;
 INSERT INTO activity_targets (activity_id,curriculum_target_id) VALUES
@@ -533,7 +570,8 @@ INSERT INTO activity_targets (activity_id,curriculum_target_id) VALUES
 (@a8,@t_danke),(@a8,@t_bitte),
 (@a9,@t_apology),(@a10,@t_apology),(@a10,@t_danke),(@a10,@t_bitte),
 (@a11,@t_name),(@a11,@t_heissen),(@a12,@t_heissen),
-(@a13,@t_wellbeing),(@a14,@t_wellbeing);
+(@a13,@t_wellbeing),(@a14,@t_wellbeing),
+(@a15,@t_choice),(@a15,@t_moechtest);
 
 -- Occurrence resolution -------------------------------------------------------
 DELETE FROM lexeme_occurrences
@@ -589,7 +627,11 @@ INSERT INTO lexeme_occurrences
 ('occ-act-de-pizza-order-pizza','activity','act-de-pizza-word-order','Pizza.',NULL,NULL,@x_pizza,NULL,'approved','توکن با نشانه‌گذاری به «Pizza» متصل است.'),
 ('occ-act-de-ja-nein-ja','activity','act-de-ja-nein-choice','Ja!',NULL,NULL,@x_ja,NULL,'approved','گزینه به «ja» متصل است.'),
 ('occ-act-de-ja-nein-nein','activity','act-de-ja-nein-choice','Nein!',NULL,NULL,@x_nein,NULL,'approved','گزینه به «nein» متصل است.'),
-('occ-act-de-name-order-heisse','activity','act-de-name-word-order','heiße',NULL,NULL,@x_heissen,@f_heisse,'approved','توکن «heiße» به «heißen» متصل است.');
+('occ-act-de-name-order-heisse','activity','act-de-name-word-order','heiße',NULL,NULL,@x_heissen,@f_heisse,'approved','توکن «heiße» به «heißen» متصل است.'),
+('occ-turn-de-choice-1-1','dialogue_turn','turn-de-choice-1','Hallo',NULL,NULL,@x_hallo,NULL,'approved','اتصال «Hallo» تأیید شده است.'),
+('occ-turn-de-choice-2-1','dialogue_turn','turn-de-choice-2','Hallo',NULL,NULL,@x_hallo,NULL,'approved','اتصال «Hallo» تأیید شده است.'),
+('occ-turn-de-choice-3-1','dialogue_turn','turn-de-choice-3','möchtest',NULL,NULL,@x_moegen,@f_moechtest,'approved','فرم «möchtest» به «mögen» متصل است.'),
+('occ-turn-de-choice-4-1','dialogue_turn','turn-de-choice-4','Pizza',NULL,NULL,@x_pizza,NULL,'approved','اتصال «Pizza» تأیید شده است.');
 
 
 -- Provenance ------------------------------------------------------------------
@@ -616,6 +658,8 @@ INSERT INTO provenance_links (entity_type,entity_key,source_item_id,transformati
 ('lesson','de-pre-a1-lesson-name-exchange',@si_name_a,'other','منبع پشتیبان این درس.'),
 ('lesson','de-pre-a1-lesson-wellbeing',@si_wiegehts,'other','منبع پشتیبان این درس.'),
 ('lesson','de-pre-a1-lesson-wellbeing',@si_gut,'other','منبع پشتیبان این درس.'),
+('lesson','de-pre-a1-lesson-simple-choice',@si_choice_q,'other','منبع اصلی پرسش این درس.'),
+('lesson','de-pre-a1-lesson-simple-choice',@si_pizza,'other','پاسخ واژگانی آشنا از منبع آمده است.'),
 
 ('dialogue_turn','turn-de-hallo-1',@si_hallo,'persian_translation_added','متن هدف منبع‌دار است و ترجمهٔ فارسی افزوده شده است.'),
 ('dialogue_turn','turn-de-hallo-2',@si_hallo,'persian_translation_added','متن هدف منبع‌دار است و ترجمهٔ فارسی افزوده شده است.'),
@@ -656,6 +700,10 @@ INSERT INTO provenance_links (entity_type,entity_key,source_item_id,transformati
 ('dialogue_turn','turn-de-wellbeing-2',@si_hallo,'persian_translation_added','متن هدف منبع‌دار است و ترجمهٔ فارسی افزوده شده است.'),
 ('dialogue_turn','turn-de-wellbeing-3',@si_wiegehts,'persian_translation_added','متن هدف منبع‌دار است و ترجمهٔ فارسی افزوده شده است.'),
 ('dialogue_turn','turn-de-wellbeing-4',@si_gut,'persian_translation_added','متن هدف منبع‌دار است و ترجمهٔ فارسی افزوده شده است.'),
+('dialogue_turn','turn-de-choice-1',@si_hallo,'persian_translation_added','متن هدف منبع‌دار است و ترجمهٔ فارسی افزوده شده است.'),
+('dialogue_turn','turn-de-choice-2',@si_hallo,'persian_translation_added','متن هدف منبع‌دار است و ترجمهٔ فارسی افزوده شده است.'),
+('dialogue_turn','turn-de-choice-3',@si_choice_q,'persian_translation_added','پرسش دقیق منبع‌دار است و ترجمهٔ فارسی افزوده شده است.'),
+('dialogue_turn','turn-de-choice-4',@si_pizza,'persian_translation_added','واژهٔ هدف منبع‌دار است و ترجمهٔ فارسی افزوده شده است.'),
 
 ('activity','act-de-gm-choice',@si_gm,'other','گزینهٔ درست از منبع آمده است.'),
 ('activity','act-de-gm-choice',@si_hallo,'other','گزینهٔ مقایسه‌ای از منبع آمده است.'),
@@ -687,6 +735,7 @@ INSERT INTO provenance_links (entity_type,entity_key,source_item_id,transformati
 
 ('lexeme_form','lexform-de-moegen-mag',@si_mag,'verbatim','شکل تأییدشدهٔ «mögen».'),
 ('lexeme_form','lexform-de-moegen-magst',@si_magst,'verbatim','شکل تأییدشدهٔ «mögen».'),
+('lexeme_form','lexform-de-moegen-moechtest',@si_moechtest,'verbatim','شکل تأییدشدهٔ «mögen» برای پرسش خواستن.'),
 ('lexeme_form','lexform-de-heissen-heisse',@si_heisse,'verbatim','شکل تأییدشدهٔ «heißen».'),
 ('lexeme_form','lexform-de-heissen-heisst',@si_heisst,'verbatim','شکل تأییدشدهٔ «heißen».')
 ON DUPLICATE KEY UPDATE notes=VALUES(notes);

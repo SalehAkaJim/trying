@@ -1,0 +1,113 @@
+{
+  "id": "dlg-de-pre-a1-simple-choice",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-oak-de-was-moechtest-du",
+    "src-wiktionary-de-moechten",
+    "src-wiktionary-de-pizza"
+  ],
+  "scenario": "میا و زبان‌آموز سلام می‌کنند؛ میا با یک پرسش بسیار کوتاه می‌پرسد زبان‌آموز چه می‌خواهد و زبان‌آموز یک گزینهٔ کاملاً آشنا را انتخاب می‌کند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-mia",
+    "char-de-learner"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-choice-1",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-hallo"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Hallo",
+          "lexemeId": "lex-de-hallo",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-hallo"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-choice-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-hallo"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Hallo",
+          "lexemeId": "lex-de-hallo",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-hallo"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-choice-3",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was möchtest du?",
+      "translationFa": "چی می‌خوای؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-moegen"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "möchtest",
+          "lexemeId": "lex-de-moegen",
+          "lexemeFormId": "lexform-de-moegen-moechtest"
+        }
+      ],
+      "sourceRefs": [
+        "src-oak-de-was-moechtest-du",
+        "src-wiktionary-de-moechten"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-choice-4",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Pizza.",
+      "translationFa": "پیتزا.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-pizza"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Pizza",
+          "lexemeId": "lex-de-pizza",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wiktionary-de-pizza"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "درس نهم هنوز در بازهٔ ده درس اول است؛ مکالمه دقیقاً چهار turn دارد و فقط یک پرسش تازه را با یک پاسخ واژگانی از قبل آشنا ترکیب می‌کند."
+}
