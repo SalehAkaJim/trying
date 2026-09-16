@@ -273,6 +273,8 @@ CREATE TABLE IF NOT EXISTS sources (
   language_code VARCHAR(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
   source_type ENUM('course','book','website','corpus','dictionary','grammar_reference','audio_course','other') NOT NULL,
   url TEXT NULL,
+  locator VARCHAR(500) NULL,
+  locator_fa VARCHAR(500) NULL,
   published_or_updated_at VARCHAR(64) NULL,
   modernity_status ENUM('contemporary_verified','maintained_current','historical_or_legacy','needs_currency_review') NOT NULL,
   currency_evidence TEXT NOT NULL,
