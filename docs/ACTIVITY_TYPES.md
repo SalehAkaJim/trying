@@ -2,6 +2,10 @@
 
 The activity engine is intentionally composable. Every finalized lesson opens with `conversation_speaking`. Everything after that is selected from the lesson's actual source material, learning targets, progression role and practice needs.
 
+## Current media baseline
+
+Learner-facing activities are currently **image-free**. Every activity must be fully understandable and solvable without an instructional image, photo, illustration, screenshot, thumbnail or picture-selection task. Activity prompts, answers, options and nested payloads must not reference or carry image assets. Text/Persian context is used during curriculum assembly; audio may be added only in the later audio phase. Image-based activity variants may be introduced only after an explicit product decision changes this rule.
+
 ## Sequencing rules
 
 - `conversation_speaking` is the opening activity.
@@ -19,13 +23,13 @@ The activity engine is intentionally composable. Every finalized lesson opens wi
 Required opening activity for a finalized lesson. It establishes a real source-backed communicative context. Its turn count, speaker count and learner-turn count are fully scene-driven and have no target or preferred range. App-played character lines may use future TTS. Learner turns display the exact source-backed sentence/word/phrase expected for that step.
 
 ### `listen_choose`
-Learner hears source-backed target-language material and chooses the correct interpretation/continuation from options.
+Learner hears source-backed target-language material and chooses the correct interpretation/continuation from text-based options.
 
 ### `multiple_choice`
-General source-backed multiple-choice comprehension, vocabulary, grammar or contextual question.
+General source-backed multiple-choice comprehension, vocabulary, grammar or contextual question using text-based options.
 
 ### `choose_response`
-Learner selects the contextually correct response to a source-backed conversation prompt.
+Learner selects the contextually correct text response to a source-backed conversation prompt.
 
 ### `word_order`
 Words/tokens from a source-backed sentence are shuffled; learner restores the original sequence.
@@ -34,7 +38,7 @@ Words/tokens from a source-backed sentence are shuffled; learner restores the or
 A word or phrase is removed from a source-backed sentence and the learner restores it.
 
 ### `matching`
-Learner matches words/phrases to Persian meanings, equivalents, roles or other source-supported pairs.
+Learner matches text-based words/phrases to Persian meanings, equivalents, roles or other source-supported pairs.
 
 ### `listen_repeat`
 Learner hears a source-backed utterance and repeats it.
