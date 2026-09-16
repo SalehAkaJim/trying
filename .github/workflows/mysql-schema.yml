@@ -7,6 +7,7 @@ on:
       - 'database/content/**'
       - 'content/**'
       - 'schemas/activity.schema.json'
+      - 'schemas/level.schema.json'
       - '.github/workflows/mysql-schema.yml'
   pull_request:
     paths:
@@ -14,6 +15,7 @@ on:
       - 'database/content/**'
       - 'content/**'
       - 'schemas/activity.schema.json'
+      - 'schemas/level.schema.json'
       - '.github/workflows/mysql-schema.yml'
 
 jobs:
@@ -85,8 +87,10 @@ jobs:
           print('Image-free learner-content structural check passed.')
           PY
 
-      - name: Verify activity schema JSON
-        run: python -m json.tool schemas/activity.schema.json > /dev/null
+      - name: Verify authoring schema JSON
+        run: |
+          python -m json.tool schemas/activity.schema.json > /dev/null
+          python -m json.tool schemas/level.schema.json > /dev/null
 
       - name: Verify MySQL server version
         run: |
