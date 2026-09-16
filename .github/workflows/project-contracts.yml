@@ -1,0 +1,43 @@
+name: Project Contracts
+
+on:
+  push:
+    paths:
+      - 'content/**'
+      - 'config/**'
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'docs/**'
+      - 'database/schema.sql'
+      - '.github/workflows/project-contracts.yml'
+  pull_request:
+    paths:
+      - 'content/**'
+      - 'config/**'
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'docs/**'
+      - 'database/schema.sql'
+      - '.github/workflows/project-contracts.yml'
+
+jobs:
+  validate-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate machine-readable files
+        run: |
+          python -m json.tool config/fa-taxonomy.json >/dev/null
+          python -m json.tool schemas/fa-taxonomy.schema.json >/dev/null
+          python -m json.tool schemas/lexeme.schema.json >/dev/null
+          python -m json.tool schemas/source.schema.json >/dev/null
+          python -m json.tool schemas/activity.schema.json >/dev/null
+          python -m json.tool schemas/dialogue.schema.json >/dev/null
+          python -m json.tool schemas/level.schema.json >/dev/null
+
+      - name: Verify Persian companion labels are synchronized
+        run: python scripts/sync_fa_labels.py
+
+      - name: Validate shared cross-language contracts
+        run: python scripts/validate_project_contracts.py
