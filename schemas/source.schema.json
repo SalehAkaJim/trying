@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source.schema.json",
+  "title": "Source Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "title", "language", "sourceType", "reuseStatus"],
+  "properties": {
+    "schemaVersion": {"type": "string"},
+    "id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "organizationOrAuthor": {"type": ["string", "null"]},
+    "language": {"type": "string", "minLength": 2},
+    "sourceType": {"enum": ["course", "book", "website", "corpus", "dictionary", "grammar_reference", "audio_course", "other"]},
+    "url": {"type": ["string", "null"], "format": "uri"},
+    "locator": {"type": ["string", "null"], "description": "Unit, lesson, page, section or item locator."},
+    "licenseName": {"type": ["string", "null"]},
+    "licenseUrl": {"type": ["string", "null"], "format": "uri"},
+    "attributionText": {"type": ["string", "null"]},
+    "reuseStatus": {"enum": ["direct_reuse_allowed", "reuse_with_attribution", "analysis_only", "needs_review"]},
+    "retrievedAt": {"type": ["string", "null"], "format": "date"},
+    "notes": {"type": "string"}
+  }
+}
