@@ -2,7 +2,7 @@
   "id": "dlg-de-pre-a1-pizza-like",
   "languageId": "de",
   "level": "Pre-A1",
-  "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-tatoeba-de-662061"],
+  "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-libra-de-ich-mag-pizza"],
   "scenario": "Mia asks about a familiar food and the learner states a simple positive preference.",
   "characterRefs": ["char-de-mia", "char-de-learner"],
   "turns": [
@@ -27,15 +27,15 @@
       "speakerCharacterId": "char-de-learner",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Ich mag Pizza sehr.",
-      "translationFa": "من پیتزا را خیلی دوست دارم.",
+      "textTarget": "Ich mag Pizza.",
+      "translationFa": "من پیتزا دوست دارم.",
       "learnerTurn": true,
       "lexemeRefs": ["lex-de-moegen", "lex-de-pizza"],
       "lexemeOccurrences": [
         {"surface": "mag", "lexemeId": "lex-de-moegen", "lexemeFormId": "lexform-de-moegen-mag"},
         {"surface": "Pizza", "lexemeId": "lex-de-pizza", "lexemeFormId": null}
       ],
-      "sourceRefs": ["src-tatoeba-de-662061"],
+      "sourceRefs": ["src-libra-de-ich-mag-pizza"],
       "audioRef": null
     }
   ],
