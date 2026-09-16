@@ -43,6 +43,7 @@ jobs:
           python scripts/validate_source_localization.py
           python scripts/apply_mysql_localization.py --check
           python scripts/validate_project_contracts.py
+          python scripts/validate_audio_contracts.py
 
       - name: Validate every language and level on MySQL 9.0.1
         run: bash scripts/validate_mysql_content.sh
