@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fa-taxonomy.schema.json",
+  "title": "Canonical Persian Taxonomy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "locale", "descriptionFa", "domains"],
+  "properties": {
+    "schemaVersion": {"type": "string", "minLength": 1},
+    "locale": {"const": "fa"},
+    "descriptionFa": {"type": "string", "minLength": 1, "pattern": "[\\u0600-\\u06FF]"},
+    "domains": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "minProperties": 1,
+        "additionalProperties": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}
