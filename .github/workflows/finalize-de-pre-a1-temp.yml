@@ -21,6 +21,8 @@ jobs:
         run: python scripts/finalize_de_pre_a1_temp.py
       - name: Normalize legacy activity transformations
         run: python scripts/normalize_activity_transformations_temp.py
+      - name: Synchronize taxonomy into MySQL schema
+        run: python scripts/apply_mysql_localization.py
       - name: Install validator
         run: python -m pip install --disable-pip-version-check jsonschema
       - name: Validate JSON schemas
@@ -36,7 +38,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add content docs schemas scripts database .github/workflows/project-contracts.yml
+          git add content config docs schemas scripts database .github/workflows/project-contracts.yml
           if git diff --cached --quiet; then
             echo 'No generated changes.'
           else
