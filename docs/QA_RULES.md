@@ -26,6 +26,51 @@ A lesson fails QA when any of the following is true:
 - an activity introduces unrelated target-language material only to satisfy a template;
 - content is padded, split, merged, truncated or grouped primarily to satisfy a numeric unit/lesson/activity/dialogue quota.
 
+A CEFR level fails final-readiness QA when any of the following is true:
+
+- a material required CEFR capability is uncovered or under-supported;
+- a language-specific prerequisite needed for the intended level outcomes is missing;
+- practice, retrieval or reinforcement is materially insufficient for an important target;
+- progression contains an unresolved prerequisite/load gap;
+- relevant skill/mode coverage is materially imbalanced for the intended level/product scope without justification;
+- the final quality review is missing, unsupported by evidence, or hides a known material weakness;
+- the level is being finalized because of course size, schedule pressure or a structural count rather than educational completeness.
+
+## Level-completion and quality review
+
+Every level must have an explicit end-of-level audit before `final` status.
+
+The audit must verify:
+- CEFR descriptors/capabilities intended for that level and product scope are adequately covered;
+- communicative functions and situations are sufficiently represented;
+- language-specific vocabulary, grammar, pronunciation/formulaic support and prerequisites are sufficient for those capabilities;
+- reception, interaction, production and other relevant modes are appropriately supported;
+- important learning targets receive enough practice, retrieval and reinforcement;
+- lesson-to-lesson progression is coherent and cognitive/productive load is appropriate;
+- known required gaps are resolved rather than deferred simply because the level already contains substantial content;
+- source, linguistic, translation, character, activity and structural QA checks pass.
+
+After the completion audit, perform a holistic **0–10 quality review**. The intended release state is **close to 10/10**.
+
+At minimum, review these dimensions:
+- CEFR coverage/completeness;
+- pedagogical progression and prerequisite handling;
+- practice, retrieval and reinforcement quality;
+- activity quality, fit and variety;
+- linguistic accuracy, naturalness and contemporary usage;
+- source quality, provenance and modernity;
+- learner clarity/support, including Persian support where appropriate;
+- overall QA integrity.
+
+For each review:
+- record the overall score and the evidence/rationale behind it;
+- record strengths and remaining weaknesses;
+- treat any material unresolved weakness as a blocker even if the numeric score is high;
+- revise, add or remove content based on a specific educational deficiency, not to manipulate the score;
+- never infer that more lessons/activities/turns automatically mean higher quality.
+
+The quality score is a diagnostic summary. It is not a structural quota and cannot override CEFR completeness.
+
 ## Image-free content checks
 
 The current learner-facing baseline is text/audio-only and must remain image-independent until an explicit future decision changes it.
@@ -72,6 +117,8 @@ QA must flag rationales or automation rules such as:
 - marking a level complete because it reached a count.
 
 Counts may be measured for analytics and QA observation, but must not become pass/fail targets or authoring quotas.
+
+The 0–10 level-quality review is allowed because it evaluates educational quality, but it must not become a disguised lesson/activity-count target.
 
 ## Conversation-quality checks
 
