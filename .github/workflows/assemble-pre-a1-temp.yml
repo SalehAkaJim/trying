@@ -1,0 +1,27 @@
+name: Assemble German Pre-A1 SQL snapshot
+
+on:
+  push:
+    paths:
+      - 'database/content/de/.pre-a1.sql.gz.b64'
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Assemble snapshot
+        run: |
+          base64 -d database/content/de/.pre-a1.sql.gz.b64 | gzip -dc > database/content/de/pre-a1.sql
+          rm database/content/de/.pre-a1.sql.gz.b64
+          rm .github/workflows/assemble-pre-a1-temp.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add database/content/de/pre-a1.sql database/content/de/.pre-a1.sql.gz.b64 .github/workflows/assemble-pre-a1-temp.yml
+          git commit -m 'Sync German Pre-A1 SQL through lesson 8'
+          git push origin HEAD:main
