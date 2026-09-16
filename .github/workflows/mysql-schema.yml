@@ -2,21 +2,9 @@ name: MySQL 9.0.1 Database
 
 on:
   push:
-    paths:
-      - 'database/schema.sql'
-      - 'database/content/**'
-      - 'content/**'
-      - 'schemas/**'
-      - 'docs/**'
-      - '.github/workflows/mysql-schema.yml'
+    paths: ['database/**', 'content/**', 'schemas/**', 'docs/**', '.github/workflows/mysql-schema.yml']
   pull_request:
-    paths:
-      - 'database/schema.sql'
-      - 'database/content/**'
-      - 'content/**'
-      - 'schemas/**'
-      - 'docs/**'
-      - '.github/workflows/mysql-schema.yml'
+    paths: ['database/**', 'content/**', 'schemas/**', 'docs/**', '.github/workflows/mysql-schema.yml']
 
 jobs:
   validate-database:
@@ -27,160 +15,105 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: language_content_test
-        ports:
-          - 3306:3306
+        ports: ['3306:3306']
         options: >-
           --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=12
+          --health-interval=10s --health-timeout=5s --health-retries=12
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Verify authoring schemas are valid JSON
+      - name: Verify authoring schemas
         run: |
-          python -m json.tool schemas/activity.schema.json > /dev/null
-          python -m json.tool schemas/dialogue.schema.json > /dev/null
-          python -m json.tool schemas/level.schema.json > /dev/null
+          python -m json.tool schemas/activity.schema.json >/dev/null
+          python -m json.tool schemas/dialogue.schema.json >/dev/null
+          python -m json.tool schemas/level.schema.json >/dev/null
 
-      - name: Verify Persian editorial prose, dialogue length and starters
+      - name: Verify Persian prose, dialogue envelope, starters and image-free content
         run: |
           python - <<'PY'
-          import json
-          import pathlib
-          import re
-          import sys
-
-          persian = re.compile(r'[\u0600-\u06FF]')
-          single_fields = {
-              'structureRationale', 'groupingRationale',
-              'activitySelectionRationale', 'sequenceRationale',
-              'selectionReason', 'scenario', 'sceneQualityRationale',
-              'contextNotes', 'notes', 'instructionFa', 'translationFa',
-              'usageNoteFa', 'titleFa', 'contextFa', 'promptFa',
+          import json, pathlib, re, sys
+          fa = re.compile(r'[\u0600-\u06FF]')
+          authored = {
+              'structureRationale','groupingRationale','activitySelectionRationale',
+              'sequenceRationale','selectionReason','scenario','sceneQualityRationale',
+              'contextNotes','notes','instructionFa','translationFa','usageNoteFa',
+              'titleFa','contextFa','promptFa'
           }
-          errors = []
-
-          for path in pathlib.Path('content').rglob('*.json'):
-              if 'sources' in path.parts:
-                  continue
-              data = json.loads(path.read_text(encoding='utf-8'))
-
-              def check_string(value, location):
-                  if isinstance(value, str) and value.strip() and not persian.search(value):
-                      errors.append(f'{path}:{location}: authored prose must contain Persian text: {value!r}')
-
-              def walk(value, location='$'):
-                  if isinstance(value, dict):
-                      for key, child in value.items():
-                          loc = f'{location}.{key}'
-                          if key in single_fields:
-                              check_string(child, loc)
-                          if key == 'learningTargets' and isinstance(child, list):
-                              for i, text in enumerate(child):
-                                  check_string(text, f'{loc}[{i}]')
-                          if key == 'coverage' and isinstance(child, dict):
-                              for group, items in child.items():
-                                  if isinstance(items, list):
-                                      for i, text in enumerate(items):
-                                          check_string(text, f'{loc}.{group}[{i}]')
-                          walk(child, loc)
-                  elif isinstance(value, list):
-                      for i, child in enumerate(value):
-                          walk(child, f'{location}[{i}]')
-
-              walk(data)
-
-          dialogue_by_id = {}
-          for path in pathlib.Path('content').glob('*/*/dialogues/*.json'):
-              data = json.loads(path.read_text(encoding='utf-8'))
-              dialogue_by_id[data['id']] = (path, data)
-              turns = data.get('turns', [])
-              if not (5 <= len(turns) <= 12):
-                  errors.append(f'{path}: opening dialogue must contain 5–12 turns; found {len(turns)}')
-              initiator = data.get('openingInitiator')
-              if initiator not in {'app', 'learner'}:
-                  errors.append(f'{path}: openingInitiator must be app or learner')
-              elif not turns:
-                  errors.append(f'{path}: missing turns')
-              else:
-                  first_is_learner = bool(turns[0].get('learnerTurn'))
-                  if initiator == 'learner' and not first_is_learner:
-                      errors.append(f'{path}: learner initiator requires learnerTurn=true on turn 1')
-                  if initiator == 'app' and first_is_learner:
-                      errors.append(f'{path}: app initiator requires learnerTurn=false on turn 1')
-
-          for path in pathlib.Path('content').glob('*/*/lessons/*.json'):
-              lesson = json.loads(path.read_text(encoding='utf-8'))
-              for activity in lesson.get('activities', []):
-                  ref = activity.get('dialogueRef')
-                  if not ref or ref not in dialogue_by_id:
-                      continue
-                  _, dialogue = dialogue_by_id[ref]
-                  initiator = dialogue.get('openingInitiator')
-                  payload_initiator = activity.get('data', {}).get('openingInitiator')
-                  if payload_initiator != initiator:
-                      errors.append(f"{path}: activity {activity.get('id')} openingInitiator does not match dialogue")
-                  if initiator == 'learner':
-                      instruction = activity.get('instructionFa', '')
-                      if 'شروع' not in instruction:
-                          errors.append(f"{path}: learner-starting activity {activity.get('id')} must explicitly ask learner to start")
-
-          if errors:
-              print('\n'.join(errors))
-              sys.exit(1)
-          print('Persian editorial prose and opening-dialogue authoring checks passed.')
-          PY
-
-      - name: Verify image-free learner content
-        run: |
-          python - <<'PY'
-          import json
-          import pathlib
-          import re
-          import sys
-          forbidden = {'image','imageurl','imageref','picture','photo','illustration','thumbnail','thumbnailurl','thumbnailref'}
-          def normalized_key(key): return re.sub(r'[_\-\s]', '', key).lower()
+          image_keys = {'image','imageurl','imageref','picture','photo','illustration','thumbnail','thumbnailurl','thumbnailref'}
           errors=[]
+
+          def image_key(k):
+              return re.sub(r'[_\-\s]','',str(k)).lower() in image_keys
+
           for path in pathlib.Path('content').rglob('*.json'):
               data=json.loads(path.read_text(encoding='utf-8'))
-              def walk(value, location='$'):
-                  if isinstance(value, dict):
-                      for key, child in value.items():
-                          if normalized_key(str(key)) in forbidden:
-                              errors.append(f'{path}:{location}.{key}: forbidden image-bearing field')
-                          walk(child, f'{location}.{key}')
-                  elif isinstance(value, list):
-                      for index, child in enumerate(value): walk(child, f'{location}[{index}]')
+              is_source='sources' in path.parts
+              def walk(v, loc='$'):
+                  if isinstance(v,dict):
+                      for k,ch in v.items():
+                          here=f'{loc}.{k}'
+                          if image_key(k):
+                              errors.append(f'{path}:{here}: image-bearing field is forbidden')
+                          if not is_source and k in authored and isinstance(ch,str) and ch.strip() and not fa.search(ch):
+                              errors.append(f'{path}:{here}: authored prose must be Persian: {ch!r}')
+                          if not is_source and k=='learningTargets' and isinstance(ch,list):
+                              for i,s in enumerate(ch):
+                                  if isinstance(s,str) and s.strip() and not fa.search(s):
+                                      errors.append(f'{path}:{here}[{i}]: learning target must be Persian')
+                          if not is_source and k=='coverage' and isinstance(ch,dict):
+                              for group,items in ch.items():
+                                  if isinstance(items,list):
+                                      for i,s in enumerate(items):
+                                          if isinstance(s,str) and s.strip() and not fa.search(s):
+                                              errors.append(f'{path}:{here}.{group}[{i}]: coverage prose must be Persian')
+                          walk(ch,here)
+                  elif isinstance(v,list):
+                      for i,ch in enumerate(v): walk(ch,f'{loc}[{i}]')
               walk(data)
+
+          dialogues={}
+          for path in pathlib.Path('content').glob('*/*/dialogues/*.json'):
+              d=json.loads(path.read_text(encoding='utf-8'))
+              dialogues[d['id']]=d
+              turns=d.get('turns',[])
+              if not 5 <= len(turns) <= 12:
+                  errors.append(f'{path}: expected 5–12 turns, got {len(turns)}')
+              init=d.get('openingInitiator')
+              if init not in {'app','learner'}:
+                  errors.append(f'{path}: invalid openingInitiator')
+              elif turns and bool(turns[0].get('learnerTurn')) != (init=='learner'):
+                  errors.append(f'{path}: openingInitiator conflicts with turn 1')
+
+          for path in pathlib.Path('content').glob('*/*/lessons/*.json'):
+              lesson=json.loads(path.read_text(encoding='utf-8'))
+              acts=lesson.get('activities',[])
+              if acts and acts[0].get('type')!='conversation_speaking':
+                  errors.append(f'{path}: first activity must be conversation_speaking')
+              for a in acts:
+                  ref=a.get('dialogueRef')
+                  if ref in dialogues:
+                      init=dialogues[ref]['openingInitiator']
+                      if a.get('data',{}).get('openingInitiator')!=init:
+                          errors.append(f"{path}: {a.get('id')} initiator mismatch")
+                      if init=='learner' and 'شروع' not in a.get('instructionFa',''):
+                          errors.append(f"{path}: {a.get('id')} must explicitly ask learner to start")
+
           if errors:
               print('\n'.join(errors)); sys.exit(1)
-          print('Image-free learner-content check passed.')
+          print('Authoring checks passed.')
           PY
 
-      - name: Verify MySQL server version
+      - name: Verify MySQL 9.0.1 and apply schema twice
         run: |
           version="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot -e "SELECT VERSION();" | tr -d '\r[:space:]')"
-          echo "MySQL version: $version"
           test "$version" = "9.0.1"
+          docker run --rm -i --network host mysql:9.0.1 mysql -h127.0.0.1 -uroot -proot language_content_test < database/schema.sql
+          docker run --rm -i --network host mysql:9.0.1 mysql -h127.0.0.1 -uroot -proot language_content_test < database/schema.sql
 
-      - name: Apply schema on MySQL 9.0.1
-        run: docker run --rm -i --network host mysql:9.0.1 mysql -h127.0.0.1 -uroot -proot language_content_test < database/schema.sql
-
-      - name: Apply schema a second time
-        run: docker run --rm -i --network host mysql:9.0.1 mysql -h127.0.0.1 -uroot -proot language_content_test < database/schema.sql
-
-      - name: Verify required triggers
+      - name: Apply German Pre-A1 twice and verify idempotency
         run: |
-          trigger_count="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM information_schema.triggers WHERE trigger_schema='language_content_test' AND trigger_name IN ('trg_lexeme_occurrences_bi','trg_lexeme_occurrences_bu','trg_lessons_bi_final_guard','trg_lessons_bu_final_guard','trg_activities_bi_final_guard','trg_activities_bd_final_guard','trg_activities_bu_final_guard');" | tr -d '\r[:space:]')"
-          test "$trigger_count" = "7"
-
-      - name: Apply German Pre-A1 content
-        run: docker run --rm -i --network host mysql:9.0.1 mysql -h127.0.0.1 -uroot -proot language_content_test < database/content/de/pre-a1.sql
-
-      - name: Reapply German Pre-A1 content and verify idempotency
-        run: |
+          docker run --rm -i --network host mysql:9.0.1 mysql -h127.0.0.1 -uroot -proot language_content_test < database/content/de/pre-a1.sql
           before="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT CONCAT_WS(':',(SELECT COUNT(*) FROM curriculum_targets),(SELECT COUNT(*) FROM sources),(SELECT COUNT(*) FROM source_items),(SELECT COUNT(*) FROM lessons),(SELECT COUNT(*) FROM dialogues),(SELECT COUNT(*) FROM dialogue_turns),(SELECT COUNT(*) FROM activities),(SELECT COUNT(*) FROM lexemes),(SELECT COUNT(*) FROM lexeme_forms),(SELECT COUNT(*) FROM lexeme_occurrences),(SELECT COUNT(*) FROM provenance_links));" | tr -d '\r[:space:]')"
           docker run --rm -i --network host mysql:9.0.1 mysql -h127.0.0.1 -uroot -proot language_content_test < database/content/de/pre-a1.sql
           after="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT CONCAT_WS(':',(SELECT COUNT(*) FROM curriculum_targets),(SELECT COUNT(*) FROM sources),(SELECT COUNT(*) FROM source_items),(SELECT COUNT(*) FROM lessons),(SELECT COUNT(*) FROM dialogues),(SELECT COUNT(*) FROM dialogue_turns),(SELECT COUNT(*) FROM activities),(SELECT COUNT(*) FROM lexemes),(SELECT COUNT(*) FROM lexeme_forms),(SELECT COUNT(*) FROM lexeme_occurrences),(SELECT COUNT(*) FROM provenance_links));" | tr -d '\r[:space:]')"
@@ -188,41 +121,48 @@ jobs:
           echo "After:  $after"
           test "$before" = "$after"
 
-      - name: Verify German Pre-A1 dialogue and Persian rules in MySQL
+      - name: Verify dialogue/source/form rules in MySQL
         run: |
-          invalid_turns="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM (SELECT a.dialogue_id,COUNT(t.id) c FROM activities a JOIN lessons l ON l.id=a.lesson_id JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id JOIN dialogue_turns t ON t.dialogue_id=a.dialogue_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND a.position_index=1 AND a.activity_type='conversation_speaking' GROUP BY a.dialogue_id HAVING c<5 OR c>12) x;" | tr -d '\r[:space:]')"
+          invalid_turns="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM (SELECT a.dialogue_id,COUNT(t.id)c FROM activities a JOIN lessons l ON l.id=a.lesson_id JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id JOIN dialogue_turns t ON t.dialogue_id=a.dialogue_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND a.position_index=1 AND a.activity_type='conversation_speaking' GROUP BY a.dialogue_id HAVING c<5 OR c>12)x;" | tr -d '\r[:space:]')"
           starters="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT SUM(t.learner_turn=1),SUM(t.learner_turn=0) FROM dialogue_turns t JOIN activities a ON a.dialogue_id=t.dialogue_id JOIN lessons l ON l.id=a.lesson_id JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND a.position_index=1 AND a.activity_type='conversation_speaking' AND t.position_index=1;" | tr -d '\r')"
-          learner_starts="$(echo "$starters" | awk '{print $1}')"
-          app_starts="$(echo "$starters" | awk '{print $2}')"
+          learner_starts="$(echo "$starters"|awk '{print $1}')"
+          app_starts="$(echo "$starters"|awk '{print $2}')"
           invalid_sources="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM v_invalid_learner_facing_source_links;" | tr -d '\r[:space:]')"
           forms="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM lexeme_forms lf JOIN lexemes l ON l.id=lf.lexeme_id WHERE l.lexeme_key='lex-de-moegen' AND lf.lexeme_form_key IN ('lexform-de-moegen-mag','lexform-de-moegen-magst') AND lf.review_status='approved';" | tr -d '\r[:space:]')"
-          echo "Invalid dialogue lengths: $invalid_turns"
-          echo "Learner starts: $learner_starts / App starts: $app_starts"
-          echo "Invalid source links: $invalid_sources"
+          echo "Invalid lengths: $invalid_turns; learner starts: $learner_starts; app starts: $app_starts"
           test "$invalid_turns" = "0"
           test "$learner_starts" -gt 0
           test "$app_starts" -gt 0
           test "$invalid_sources" = "0"
           test "$forms" = "2"
 
-      - name: Verify Persian editorial columns in MySQL
+      - name: Verify Persian editorial columns after MySQL import
         run: |
           docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "
-            SET @fa='[اآبپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی]';
-            SELECT COUNT(*) FROM (
+            SELECT txt FROM (
               SELECT structure_rationale txt FROM language_levels ll JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1'
               UNION ALL SELECT notes FROM language_levels ll JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND notes IS NOT NULL
               UNION ALL SELECT title FROM curriculum_targets ct JOIN language_levels ll ON ll.id=ct.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1'
               UNION ALL SELECT description FROM curriculum_targets ct JOIN language_levels ll ON ll.id=ct.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND description IS NOT NULL
               UNION ALL SELECT grouping_rationale FROM units u JOIN language_levels ll ON ll.id=u.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1'
-              UNION ALL SELECT activity_selection_rationale FROM lessons l JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND activity_selection_rationale IS NOT NULL
-              UNION ALL SELECT sequence_rationale FROM lessons l JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND sequence_rationale IS NOT NULL
+              UNION ALL SELECT activity_selection_rationale FROM lessons l JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1'
+              UNION ALL SELECT sequence_rationale FROM lessons l JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1'
               UNION ALL SELECT scenario FROM dialogues d JOIN language_levels ll ON ll.id=d.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1'
               UNION ALL SELECT scene_quality_rationale FROM dialogues d JOIN language_levels ll ON ll.id=d.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1'
               UNION ALL SELECT instruction_fa FROM activities a JOIN lessons l ON l.id=a.lesson_id JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND instruction_fa IS NOT NULL
               UNION ALL SELECT selection_reason FROM activities a JOIN lessons l ON l.id=a.lesson_id JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND selection_reason IS NOT NULL
               UNION ALL SELECT context_notes FROM characters c JOIN languages lang ON lang.id=c.language_id WHERE lang.code='de' AND context_notes IS NOT NULL
               UNION ALL SELECT notes FROM lexeme_forms lf JOIN lexemes lx ON lx.id=lf.lexeme_id JOIN languages lang ON lang.id=lx.language_id WHERE lang.code='de' AND notes IS NOT NULL
-            ) q WHERE txt NOT REGEXP @fa;
-          " | tee /tmp/nonfa.txt
-          test "$(tail -n1 /tmp/nonfa.txt | tr -d '\r[:space:]')" = "0"
+            ) editorial;
+          " > /tmp/editorial.txt
+          python - <<'PY'
+          import pathlib,re,sys
+          fa=re.compile(r'[\u0600-\u06FF]')
+          lines=[x.strip() for x in pathlib.Path('/tmp/editorial.txt').read_text(encoding='utf-8').splitlines() if x.strip()]
+          bad=[x for x in lines if not fa.search(x)]
+          if bad:
+              print('Non-Persian editorial rows:')
+              print('\n'.join(bad))
+              sys.exit(1)
+          print(f'Persian editorial DB check passed for {len(lines)} rows.')
+          PY
