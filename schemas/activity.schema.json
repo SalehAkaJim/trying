@@ -31,9 +31,8 @@
     "lexemeRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
     "dialogueRef": {"type": ["string", "null"]},
     "data": {
-      "type": "object",
-      "description": "Activity-specific payload. Target-language instructional text inside this object must remain source-backed.",
-      "additionalProperties": true
+      "$ref": "#/$defs/imageFreeObject",
+      "description": "Activity-specific payload. Target-language instructional text inside this object must remain source-backed. The current product baseline forbids instructional image fields at any nesting depth."
     },
     "transformations": {
       "type": "array",
@@ -54,6 +53,27 @@
       "default": []
     },
     "audioStatus": {"enum": ["not_planned_yet", "pending_final_language", "ready"]}
+  },
+  "$defs": {
+    "imageFreeObject": {
+      "type": "object",
+      "propertyNames": {
+        "not": {
+          "pattern": "^(image|imageUrl|imageURL|imageRef|image_url|image_ref|picture|photo|illustration|thumbnail|thumbnailUrl|thumbnailURL|thumbnailRef|thumbnail_url|thumbnail_ref)$"
+        }
+      },
+      "additionalProperties": {"$ref": "#/$defs/imageFreeValue"}
+    },
+    "imageFreeValue": {
+      "oneOf": [
+        {"$ref": "#/$defs/imageFreeObject"},
+        {
+          "type": "array",
+          "items": {"$ref": "#/$defs/imageFreeValue"}
+        },
+        {"type": ["string", "number", "boolean", "null"]}
+      ]
+    }
   },
   "allOf": [
     {
