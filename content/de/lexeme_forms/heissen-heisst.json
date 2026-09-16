@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lexform-de-heissen-heisst",
+  "lexemeId": "lex-de-heissen",
+  "surface": "heißt",
+  "formType": "inflected",
+  "features": {"tense":"present","mood":"indicative","person":"2","number":"singular"},
+  "origin": "reference_attested",
+  "reviewStatus": "approved",
+  "sourceRefs": ["src-wiktionary-de-heissen", "src-wikibooks-de-wie-heisst-du"],
+  "notes": "در پرسش منبع‌دار «Wie heißt du?» به‌صورت دوم‌شخص مفرد استفاده شده است."
+}
