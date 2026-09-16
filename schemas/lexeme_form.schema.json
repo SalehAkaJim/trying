@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lexeme_form.schema.json",
+  "title": "Lexeme Form",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "lexemeId", "surface", "formType", "origin", "reviewStatus", "sourceRefs"],
+  "properties": {
+    "schemaVersion": {"type": "string"},
+    "id": {"type": "string", "minLength": 1},
+    "lexemeId": {"type": "string", "minLength": 1},
+    "surface": {"type": "string", "minLength": 1, "description": "Exact inflected or alternate surface form that resolves to the parent lexeme."},
+    "formType": {
+      "enum": ["inflected", "orthographic_variant", "contraction", "cliticized", "abbreviation", "other"],
+      "description": "Coarse cross-language classification. Language-specific grammatical detail belongs in features."
+    },
+    "features": {
+      "type": "object",
+      "description": "Language-specific morphological or grammatical features such as person, number, tense, mood, case, gender or degree. Multiple rows may share the same surface when the same written form has multiple valid analyses.",
+      "additionalProperties": {
+        "type": ["string", "number", "boolean", "null", "array"],
+        "items": {"type": ["string", "number", "boolean", "null"]}
+      },
+      "default": {}
+    },
+    "origin": {
+      "enum": ["source_attested", "reference_attested", "generated"],
+      "description": "How the form entered the system. Generated forms are candidates until reviewed."
+    },
+    "reviewStatus": {
+      "enum": ["pending_review", "approved"],
+      "description": "Only approved forms may be relied on for learner-facing resolution or grammar behavior."
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true,
+      "default": [],
+      "description": "Attestation/provenance references when available. Source-attested forms should retain the relevant source references."
+    },
+    "notes": {"type": ["string", "null"], "default": null}
+  }
+}
