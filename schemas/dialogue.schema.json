@@ -33,6 +33,21 @@
           "translationFa": {"type": "string", "minLength": 1},
           "learnerTurn": {"type": "boolean"},
           "lexemeRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+          "lexemeOccurrences": {
+            "type": "array",
+            "default": [],
+            "description": "Persisted resolution of exact text occurrences to canonical lexemes and, when applicable, lexeme forms. Exact occurrence surface is preserved even when lookup normalization differs by case or punctuation.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["surface", "lexemeId", "lexemeFormId"],
+              "properties": {
+                "surface": {"type": "string", "minLength": 1},
+                "lexemeId": {"type": "string", "minLength": 1},
+                "lexemeFormId": {"type": ["string", "null"]}
+              }
+            }
+          },
           "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
           "audioRef": {"type": ["string", "null"], "default": null}
         }
