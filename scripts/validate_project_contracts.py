@@ -92,7 +92,7 @@ for domain, values in domains.items():
 # even before a content row uses that code.
 schema_text = SCHEMA_PATH.read_text(encoding="utf-8")
 for table, body in re.findall(r"CREATE TABLE IF NOT EXISTS\s+(\w+)\s*\((.*?)\) ENGINE=", schema_text, flags=re.S):
-    for column, enum_body in re.findall(r"^\s*(\w+)\s+ENUM\(([^)]]+)\)", body, flags=re.M):
+    for column, enum_body in re.findall(r"^\s*(\w+)\s+ENUM\(([^)]+)\)", body, flags=re.M):
         domain = SCHEMA_ENUM_DOMAINS.get((table, column))
         if domain is None:
             errors.append(f"{SCHEMA_PATH}: enum {table}.{column} has no taxonomy-domain mapping in validator")
