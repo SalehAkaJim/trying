@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'scripts/fix_persian_coverage_temp.py'
+      - '.github/workflows/persian-coverage-temp.yml'
 
 permissions:
   contents: write
