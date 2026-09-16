@@ -1,172 +1,48 @@
 # Finalized Project Decisions
 
-This file is the compact source of truth for the decisions carried forward into the clean repository.
+## Database and deliverable
+- MySQL-first; canonical runtime is **MySQL 9.0.1**.
+- JSON schemas are authoring contracts; MySQL is canonical finalized storage.
+- Each language × CEFR level may be one SQL content file.
 
-## 1. Database and deliverable
+## Coverage-driven curriculum
+- No fixed/preferred unit, lesson or activity count exists.
+- Counts are outputs, not authoring quotas.
+- Do not pad/split/merge curriculum to resemble neighboring content.
 
-- The project is **MySQL-first**.
-- Canonical runtime/version: **MySQL 9.0.1**.
-- The final output for each completed language must be exportable as a complete MySQL `.sql` deliverable.
-- JSON schemas are authoring/validation contracts; MySQL remains the canonical finalized storage model.
+## CEFR completion
+- A level ends only when CEFR abilities, prerequisites, progression, practice/retrieval, skill modes and QA are sufficiently complete.
+- Before `final`, run the documented 0–10 review; intended release quality is close to 10/10.
+- A high score never overrides a material gap.
 
-## 2. Fully dynamic curriculum structure
+## Opening conversation
+- Every finalized lesson starts with `conversation_speaking`.
+- Opening conversations must contain **5–12 turns**. This is an explicit product exception to the anti-quota rule.
+- Inside 5–12 there is no preferred count; choose the natural scene length and never invent filler.
+- Learner-turn count has no quota.
+- The app or learner may initiate. For learner initiation, turn 1 is a learner turn and the Persian instruction explicitly asks the learner to start.
+- Do not hard-code the app as starter across the course.
 
-- The project follows a strict **coverage-driven, source-driven and QA-driven** generation model.
-- No language or CEFR level has a fixed or preferred unit count.
-- No language, level or unit has a fixed or preferred lesson count.
-- No lesson has a fixed or preferred activity count.
-- No opening conversation has a fixed or preferred total-turn count or learner-turn count.
-- Preferred numeric ranges are prohibited for these structural decisions just as fixed numbers are prohibited.
-- Counts are derived from approved content after it exists; they are not authoring inputs, quotas, completion gates or QA targets.
-- Content must never be padded, split, merged or truncated merely to satisfy a numeric structure.
-- See `docs/DYNAMIC_CONTENT_MODEL.md` for the full generation loop and anti-quota rules.
+## Persian editorial/support prose
+- Assistant-authored learner/curriculum/editorial prose is Persian: targets, instructions, reasons, scenarios, rationales, coverage/gaps and editorial notes.
+- Exceptions: target-language text, exact quotations, proper names, IDs/keys/enums, URLs, licenses and official source/bibliographic metadata.
+- English-only authored prose in these fields is a QA failure.
 
-## 3. Units and lessons
+## Sources
+- Reusable target-language content is source-backed.
+- Only modern/current `contemporary_verified` or `maintained_current` sources feed learner-facing content.
+- Legacy/old books and archived instructional documents are analysis-only.
 
-- Units are optional organizational clusters that emerge from coherent themes, progression, prerequisites, review logic or learner-facing navigation needs.
-- A new unit is created because a pedagogical boundary exists, never because another unit reached a lesson count.
-- Lessons are created because a coherent set of learning targets and source-backed material belong together.
-- A level becomes final because required coverage and progression are sufficient and QA passes, not because a unit or lesson count was reached.
-- Actual unit/lesson counts should be derived from stored relationships rather than used as authoritative planning fields.
+## Image-free baseline
+- Current learner-facing content is text/audio-only and must not contain/reference/depend on instructional images.
 
-## 4. Dynamic lesson/activity design
+## Dynamic lesson/activity design
+- Post-opening activity type/order/count are dynamic and selected by learning need.
+- Avoid mechanically cloned neighboring lesson patterns.
 
-- Every finalized lesson begins with `conversation_speaking` as its opening activity. This is a structural invariant, not a sizing quota.
-- After the opening conversation, activity type, order and count are fully dynamic.
-- Activities exist only because they support introduction, practice, discrimination, retrieval or review of lesson targets.
-- Repetitive templates across neighboring lessons must be avoided and flagged by QA unless pedagogically justified.
-- No activity is added to reach a count and no useful activity is removed to stay below a count.
+## Lexemes/forms
+- Canonical lexical identity is stored in `lexemes`; inflections/variants in `lexeme_forms`.
+- Persist resolved occurrences to lexeme/form IDs; do not rely on runtime string guessing.
 
-## 5. Opening conversations
-
-- The opening activity is a real mini-scene, not a token prompt/answer wrapper.
-- Conversation length is fully dynamic and source-driven.
-- There is no minimum, maximum, target or preferred range for total turns or learner turns.
-- QA judges whether the scene has sufficient communicative progression, learner participation and pedagogical completeness for its purpose.
-- Dialogue must not be lengthened with target-language filler or shortened to fit a numeric expectation.
-- Composite scenes are allowed only when every target-language turn is independently source-backed and the combined utterances are contextually compatible.
-
-## 6. Source-backed instructional content
-
-- Target-language dialogues, sentences, words, phrases, grammar explanations, and reusable teaching examples are not invented merely to fill curriculum or activity gaps.
-- Every reusable teaching item must be traceable to identifiable source records/source items.
-- **Only modern/contemporary sources may feed learner-facing instructional content.**
-- Eligible learner-facing sources must be either `contemporary_verified` static/current material or `maintained_current` living references/corpora/web resources.
-- Old or legacy books, historical textbooks, outdated course documents, archived editions, old scans/OCR sources and similarly dated instructional materials are not allowed as learner-facing evidence, even if their license permits reuse.
-- `historical_or_legacy` material may be used only for `analysis_only` research/comparison.
-- Sources whose current suitability is unclear must be `needs_currency_review` and cannot feed active learner-facing content until reviewed.
-- There is no arbitrary global year cutoff; modernity is determined from publication/revision evidence, active maintenance, contemporary standard usage, pedagogy, spelling/register and whether a newer authoritative replacement exists.
-- Restricted sources may inform curriculum analysis, but reusable lesson text must obey reuse/license status.
-- Modernity approval and copyright/reuse approval are independent gates; both must pass.
-- `analysis_only` and `needs_review` sources must not feed active learner-facing teaching content.
-- Attribution-required sources must carry the required attribution metadata.
-
-## 7. Transformations that are allowed
-
-Allowed editorial/app transformations include:
-
-- faithful Persian translation;
-- CEFR placement after review;
-- grouping compatible sourced material into a lesson;
-- tokenizing a sourced utterance for word-order practice;
-- removing part of a sourced utterance for fill-in-the-blank practice;
-- selecting sourced options for recognition activities;
-- grouping sourced items for matching;
-- adding app metadata, stable IDs, character assignments, and UI-only instructions.
-
-These transformations must not create unsupported target-language instructional claims.
-
-## 8. Persian support layer
-
-- Persian text should be natural and readable, not mechanical word-for-word translation.
-- It must remain faithful to the source meaning and teaching intent.
-- Unsupported explanations must not be silently added.
-
-## 9. Zero-beginner design
-
-- Pre-A1 must work for a learner starting with zero knowledge of the target language.
-- Early progression should keep productive load appropriate, recycle high-value language, and prefer immediately understandable communication before unnecessarily complex situations.
-- Progression is principle-driven and coverage-driven, not a globally fixed lesson sequence.
-- No fixed number of early lessons receives special structural rules; QA evaluates the actual progression that exists.
-
-## 10. CEFR level completion and quality bar
-
-- Every CEFR level has a **dynamic educational end point**. The level ends only when its intended CEFR abilities and the language-specific knowledge/practice needed to support them are genuinely complete for the product scope.
-- Completion must be based on CEFR descriptors, accepted language-teaching standards, coherent progression, sufficient practice/retrieval, appropriate skill/mode coverage, reinforcement of important material, and resolved required gaps.
-- A level must not be marked `final` while a material CEFR, progression, practice or QA gap is known merely because the course already feels long enough.
-- Conversely, content must not be added after educational completeness merely to increase lesson/unit/activity counts.
-- Before a level becomes `final`, run a holistic quality review on a **0–10 scale**. The intended release state is a score **close to 10/10**, representing a highly complete, coherent and polished learning experience rather than a merely acceptable one.
-- The quality review must consider at minimum: CEFR coverage/completeness, pedagogical progression, adequacy of practice and retrieval, activity quality/variety, linguistic accuracy and naturalness, source quality/currentness, learner support/clarity, and QA integrity.
-- The overall quality score is a diagnostic summary, not a substitute for the underlying checks. A high numeric score cannot override an unresolved material gap.
-- Do not game the score by padding content. More lessons, activities, turns or repetitions do not automatically improve quality.
-- Record the evidence/rationale behind the assessment, including remaining weaknesses. Known material weaknesses should trigger revision or additional justified content before finalization.
-
-## 11. Initial image-free content policy
-
-- The current product baseline is **text/audio-only** for learner-facing instructional content.
-- Until this rule is explicitly changed, lessons, units, activities, dialogue turns, prompts, questions, answers, options, hints, examples and review items must not contain, reference, request or depend on images.
-- Authoring payloads must not include image-bearing fields such as `image`, `imageUrl`, `imageURL`, `imageRef`, `picture`, `photo`, `illustration`, thumbnails or equivalent aliases.
-- Instructions must not say or imply things such as “look at the picture”, “choose the image”, “what is shown here”, or otherwise require visual artwork to solve the task.
-- Correctness and solvability must come from text, Persian support/context, previously learned material and, when the audio phase begins, audio—not from an image.
-- This restriction applies even when a source contains useful illustrations; the reusable learner-facing activity must remain independently solvable without them.
-- Decorative app chrome that carries no instructional meaning is outside this content rule; educational meaning must never depend on it.
-- Image-based activity types may be introduced later only after an explicit product decision changes this baseline.
-
-## 12. Words, phrases, and surface forms as first-class entities
-
-- Reusable words and phrases have stable lexeme IDs.
-- `lexemes.surface` is the canonical/headword display form for a lexeme, not every spelling or inflected form that may appear in content.
-- `lexemes.lemma` stores the linguistic lemma when applicable; for a canonical word it may equal `surface`.
-- Inflected forms and meaningful surface variants belong to `lexeme_forms` and point back to the parent lexeme.
-- A lexeme form stores at minimum a stable ID, `lexeme_id`, exact `surface`, and coarse `form_type`; language-specific morphology belongs in flexible feature metadata.
-- Form provenance/origin and review state must be retained so generated candidates cannot silently become trusted learner-facing data.
-- Form `surface` is not globally unique; the same surface may have multiple analyses and may map to multiple lexemes.
-- Canonical matching considers both `lexemes.surface` and approved `lexeme_forms.surface` records.
-- Surface-string lookup discovers candidates during ingestion/authoring; it is not the permanent runtime identity mechanism.
-- Once an occurrence is resolved, future storage should persist `lexeme_id` and, when applicable, `lexeme_form_id` or equivalent referential mapping.
-- Ambiguous mappings must be resolved during QA before dependent learner-facing lexeme features are enabled.
-- `lesson_lexemes.is_primary` marks core tappable lexemes/phrases without changing the many-to-many relationship.
-
-## 13. Characters
-
-- Source-defined speaker identity should be preserved when practical.
-- App-assigned characters must never contradict source evidence about gender, age, relationship, role, setting, or register.
-- Gender conflict is a hard QA issue.
-- Non-person speaker entities may use `gender = not_applicable`; this must not be overloaded into `unspecified`.
-- Prefer a manageable recurring character library for consistency.
-
-## 14. Audio
-
-- Audio is not generated during initial curriculum assembly.
-- Audio generation begins only after the whole target-language curriculum is finalized and speaker assignments/text are stable.
-- Conversation audio uses character-specific voices.
-- Standalone words/phrases use one consistent voice per language; Hope/Lori are the retained preferred options unless later testing changes that decision.
-- Learner clarity and intelligibility outrank dramatic performance.
-
-## 15. QA and readiness
-
-Before content can be final, QA must verify at minimum:
-
-- the opening activity is `conversation_speaking`;
-- the opening scene is communicatively and pedagogically complete without relying on turn-count thresholds;
-- learner participation is appropriate to the scene and learning goal without relying on a learner-turn quota;
-- no unit, lesson, activity or conversation structure was padded, split, merged or truncated to satisfy a numeric quota or preferred range;
-- no learner-facing educational item contains, references or depends on an image;
-- no activity payload contains an image-bearing field or visual-answer dependency;
-- provenance resolves for reusable teaching items;
-- every learner-facing source passes the modernity/currency gate as `contemporary_verified` or `maintained_current`;
-- no `historical_or_legacy` or `needs_currency_review` source is used as active learner-facing evidence;
-- CEFR placement is justified;
-- Persian translation preserves meaning;
-- character assignment is compatible with source/context evidence;
-- no unsupported grammar explanation has been authored;
-- neighboring activity patterns are not mechanically cloned;
-- referenced IDs resolve;
-- lexeme-form references resolve to valid parent lexemes and unreviewed generated forms are not treated as trusted learner-facing mappings;
-- ambiguous lexeme-form occurrence mappings are resolved before dependent learner-facing features are enabled;
-- level completion has passed the holistic CEFR/practice/progression assessment and the quality review is close to the 10/10 target with no material unresolved gap;
-- audio remains blocked until the language-level completion gate is satisfied.
-
-## 16. Clean-baseline rule
-
-This repository intentionally starts with **zero educational content**. New course content must be added only after these rules and database contracts are accepted as the baseline.
+## Audio
+- Audio is generated only after the whole target-language curriculum/text/speaker assignments are final.

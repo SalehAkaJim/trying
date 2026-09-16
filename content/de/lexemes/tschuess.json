@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-tschuess",
+  "languageId": "de",
+  "type": "word",
+  "surface": "tschüss",
+  "lemma": "tschüss",
+  "partOfSpeech": "farewell_formula",
+  "level": "Pre-A1",
+  "translationFa": "خداحافظ / فعلاً",
+  "usageNoteFa": "برای خداحافظی دوستانه و غیررسمی.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-basic-greetings"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}

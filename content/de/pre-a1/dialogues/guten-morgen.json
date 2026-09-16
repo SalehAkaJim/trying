@@ -2,34 +2,17 @@
   "id": "dlg-de-pre-a1-guten-morgen",
   "languageId": "de",
   "level": "Pre-A1",
-  "sourceRefs": ["src-wiktionary-de-guten-morgen"],
-  "scenario": "Two people meet in the morning and exchange a morning greeting.",
+  "sourceRefs": ["src-wiktionary-de-guten-morgen", "src-wikibooks-de-basic-greetings"],
+  "scenario": "صبح است و این بار زبان‌آموز گفت‌وگو را شروع می‌کند؛ بعد یک احوال‌پرسی کوتاه و خداحافظی انجام می‌شود.",
+  "openingInitiator": "learner",
   "characterRefs": ["char-de-mia", "char-de-learner"],
   "turns": [
-    {
-      "id": "turn-de-gm-1",
-      "speakerCharacterId": "char-de-mia",
-      "speakerIdentityOrigin": "app_assigned",
-      "speakerGenderEvidence": "unspecified",
-      "textTarget": "Guten Morgen!",
-      "translationFa": "صبح بخیر!",
-      "learnerTurn": false,
-      "lexemeRefs": ["lex-de-guten-morgen"],
-      "sourceRefs": ["src-wiktionary-de-guten-morgen"],
-      "audioRef": null
-    },
-    {
-      "id": "turn-de-gm-2",
-      "speakerCharacterId": "char-de-learner",
-      "speakerIdentityOrigin": "app_assigned",
-      "speakerGenderEvidence": "unspecified",
-      "textTarget": "Guten Morgen!",
-      "translationFa": "صبح بخیر!",
-      "learnerTurn": true,
-      "lexemeRefs": ["lex-de-guten-morgen"],
-      "sourceRefs": ["src-wiktionary-de-guten-morgen"],
-      "audioRef": null
-    }
+    {"id":"turn-de-gm-1","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Guten Morgen!","translationFa":"صبح بخیر!","learnerTurn":true,"lexemeRefs":["lex-de-guten-morgen"],"lexemeOccurrences":[{"surface":"Guten Morgen","lexemeId":"lex-de-guten-morgen","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-guten-morgen"],"audioRef":null},
+    {"id":"turn-de-gm-2","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Guten Morgen!","translationFa":"صبح بخیر!","learnerTurn":false,"lexemeRefs":["lex-de-guten-morgen"],"lexemeOccurrences":[{"surface":"Guten Morgen","lexemeId":"lex-de-guten-morgen","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-guten-morgen"],"audioRef":null},
+    {"id":"turn-de-gm-3","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Wie geht's?","translationFa":"حالت چطوره؟","learnerTurn":false,"lexemeRefs":["lex-de-wie-gehts"],"lexemeOccurrences":[{"surface":"Wie geht's","lexemeId":"lex-de-wie-gehts","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null},
+    {"id":"turn-de-gm-4","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Gut.","translationFa":"خوبم.","learnerTurn":true,"lexemeRefs":["lex-de-gut"],"lexemeOccurrences":[{"surface":"Gut","lexemeId":"lex-de-gut","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null},
+    {"id":"turn-de-gm-5","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Tschüss!","translationFa":"خداحافظ!","learnerTurn":false,"lexemeRefs":["lex-de-tschuess"],"lexemeOccurrences":[{"surface":"Tschüss","lexemeId":"lex-de-tschuess","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null},
+    {"id":"turn-de-gm-6","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Tschüss!","translationFa":"خداحافظ!","learnerTurn":true,"lexemeRefs":["lex-de-tschuess"],"lexemeOccurrences":[{"surface":"Tschüss","lexemeId":"lex-de-tschuess","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null}
   ],
-  "sceneQualityRationale": "The scene teaches one time-specific greeting and ends naturally after the greeting is returned."
+  "sceneQualityRationale": "زبان‌آموز نقش آغازکننده را می‌گیرد تا سلام صبحگاهی را فعالانه تولید کند و صحنه با احوال‌پرسی و خداحافظی ساده کامل می‌شود."
 }

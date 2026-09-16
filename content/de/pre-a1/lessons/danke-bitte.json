@@ -1,38 +1,7 @@
 {
-  "schemaVersion": "1.0.0",
-  "id": "de-pre-a1-lesson-danke-bitte",
-  "languageId": "de",
-  "level": "Pre-A1",
-  "unitRef": "de-pre-a1-unit-first-steps",
-  "titleFa": "ممنون! خواهش می‌کنم",
-  "sourceTitle": "danke / bitte",
-  "learningTargets": [
-    "understand danke as a basic expression of thanks",
-    "respond to thanks with bitte"
-  ],
-  "sourceRefs": ["src-wiktionary-de-danke", "src-wiktionary-de-bitte"],
-  "lexemeRefs": ["lex-de-danke", "lex-de-bitte"],
-  "grammarNoteRefs": [],
-  "activityDesign": {
-    "activitySelectionRationale": "The two-turn exchange already performs the complete courtesy target, so no extra activity is added just to make the lesson longer.",
-    "sequenceRationale": "Hear the thanks and immediately give the conventional response.",
-    "templateSignature": "conversation_speaking"
-  },
-  "activities": [
-    {
-      "id": "act-de-danke-bitte-conversation",
-      "type": "conversation_speaking",
-      "instructionFa": "میا تشکر می‌کند؛ جواب بده.",
-      "selectionReason": "Danke and bitte are best introduced as a complete everyday exchange rather than as isolated flashcards.",
-      "sourceRefs": ["src-wiktionary-de-danke", "src-wiktionary-de-bitte"],
-      "learningTargets": ["understand danke as a basic expression of thanks", "respond to thanks with bitte"],
-      "lexemeRefs": ["lex-de-danke", "lex-de-bitte"],
-      "dialogueRef": "dlg-de-pre-a1-danke-bitte",
-      "data": {"interaction": "read_aloud_exchange"},
-      "transformations": ["persian_translation_added", "character_metadata_added"],
-      "audioStatus": "pending_final_language"
-    }
-  ],
-  "status": "draft",
-  "audioStatus": "blocked_until_language_final"
+  "schemaVersion":"1.0.0","id":"de-pre-a1-lesson-danke-bitte","languageId":"de","level":"Pre-A1","unitRef":"de-pre-a1-unit-first-steps","titleFa":"ممنون! خواهش می‌کنم","sourceTitle":"danke / bitte",
+  "learningTargets":["«Danke!» را به‌عنوان تشکر کوتاه و روزمره بفهمد.","در پاسخ به تشکر با «Bitte!» جواب دهد."],
+  "sourceRefs":["src-wiktionary-de-hallo","src-wiktionary-de-danke","src-wiktionary-de-bitte","src-wikibooks-de-basic-greetings"],"lexemeRefs":["lex-de-hallo","lex-de-danke","lex-de-bitte","lex-de-tschuess"],"grammarNoteRefs":[],
+  "activityDesign":{"activitySelectionRationale":"گفت‌وگو عبارت تشکر و پاسخ مؤدبانه را داخل یک تعامل کامل از سلام تا خداحافظی قرار می‌دهد و برای این هدف تمرین اضافه لازم نیست.","sequenceRationale":"زبان‌آموز تشکر را در بافت می‌شنود، پاسخ مؤدبانه می‌دهد و مکالمه را طبیعی تمام می‌کند.","templateSignature":"conversation_speaking"},
+  "activities":[{"id":"act-de-danke-bitte-conversation","type":"conversation_speaking","instructionFa":"میا بعد از یک کمک کوچک تشکر می‌کند؛ پاسخ مؤدبانه بده و گفت‌وگو را تا خداحافظی ادامه بده.","selectionReason":"«Danke!» و «Bitte!» در یک تعامل روزمره و کامل بهتر از دو کارت جداگانه یاد گرفته می‌شوند.","sourceRefs":["src-wiktionary-de-hallo","src-wiktionary-de-danke","src-wiktionary-de-bitte","src-wikibooks-de-basic-greetings"],"learningTargets":["فهم تشکر و پاسخ مؤدبانه به آن در گفت‌وگو."],"lexemeRefs":["lex-de-hallo","lex-de-danke","lex-de-bitte","lex-de-tschuess"],"dialogueRef":"dlg-de-pre-a1-danke-bitte","data":{"interaction":"read_aloud_exchange","openingInitiator":"app"},"transformations":["persian_translation_added","character_metadata_added"],"audioStatus":"pending_final_language"}],"status":"draft","audioStatus":"blocked_until_language_final"
 }

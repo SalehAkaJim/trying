@@ -7,11 +7,16 @@
   "features": {
     "tense": "present",
     "mood": "indicative",
-    "person": ["1", "3"],
+    "person": [
+      "1",
+      "3"
+    ],
     "number": "singular"
   },
   "origin": "reference_attested",
   "reviewStatus": "approved",
-  "sourceRefs": ["src-wiktionary-de-moegen"],
-  "notes": "Used as first-person singular in the source-backed statement Ich mag Pizza."
+  "sourceRefs": [
+    "src-wiktionary-de-moegen"
+  ],
+  "notes": "در جملهٔ منبع‌دار «Ich mag Pizza.» به‌صورت اول‌شخص مفرد استفاده شده است."
 }

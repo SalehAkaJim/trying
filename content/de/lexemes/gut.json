@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-gut",
+  "languageId": "de",
+  "type": "word",
+  "surface": "gut",
+  "lemma": "gut",
+  "partOfSpeech": "adjective_response",
+  "level": "Pre-A1",
+  "translationFa": "خوب",
+  "usageNoteFa": "در این مرحله «Gut.» به‌عنوان پاسخ کوتاه به احوال‌پرسی استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-basic-greetings"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}

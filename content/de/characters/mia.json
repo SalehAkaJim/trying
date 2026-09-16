@@ -7,9 +7,11 @@
   "sourceRefs": [],
   "gender": "female",
   "ageBand": "young_adult",
-  "roles": ["conversation_partner"],
+  "roles": [
+    "conversation_partner"
+  ],
   "relationshipTags": [],
-  "contextNotes": "Recurring friendly conversation partner. Current source utterances contain no evidence that conflicts with this app-assigned identity.",
+  "contextNotes": "شخصیت گفت‌وگویی دوستانه و تکرارشونده؛ جمله‌های منبع فعلی با این هویت اختصاص‌داده‌شده تعارض ندارند.",
   "voiceProfile": {
     "clarity": "high",
     "stressLevel": "very_low",

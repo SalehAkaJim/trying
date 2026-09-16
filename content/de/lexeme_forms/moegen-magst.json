@@ -12,6 +12,8 @@
   },
   "origin": "reference_attested",
   "reviewStatus": "approved",
-  "sourceRefs": ["src-wiktionary-de-moegen"],
-  "notes": "Used in the source-backed question Magst du Pizza?"
+  "sourceRefs": [
+    "src-wiktionary-de-moegen"
+  ],
+  "notes": "در پرسش منبع‌دار «Magst du Pizza?» به‌صورت دوم‌شخص مفرد استفاده شده است."
 }

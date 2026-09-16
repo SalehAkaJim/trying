@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-wie-gehts",
+  "languageId": "de",
+  "type": "phrase",
+  "surface": "wie geht's",
+  "lemma": null,
+  "partOfSpeech": "greeting_formula",
+  "level": "Pre-A1",
+  "translationFa": "حالت چطوره؟",
+  "usageNoteFa": "برای احوال‌پرسی دوستانه و خیلی کوتاه.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-basic-greetings"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}

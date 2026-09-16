@@ -2,40 +2,17 @@
   "id": "dlg-de-pre-a1-danke-bitte",
   "languageId": "de",
   "level": "Pre-A1",
-  "sourceRefs": ["src-wiktionary-de-danke", "src-wiktionary-de-bitte"],
-  "scenario": "Mia thanks the learner and the learner gives the basic polite response.",
+  "sourceRefs": ["src-wiktionary-de-hallo", "src-wiktionary-de-danke", "src-wiktionary-de-bitte", "src-wikibooks-de-basic-greetings"],
+  "scenario": "میا و زبان‌آموز سلام می‌کنند؛ بعد از یک کمک کوچک میا تشکر می‌کند، زبان‌آموز پاسخ مؤدبانه می‌دهد و در پایان خداحافظی می‌کنند.",
+  "openingInitiator": "app",
   "characterRefs": ["char-de-mia", "char-de-learner"],
   "turns": [
-    {
-      "id": "turn-de-danke-bitte-1",
-      "speakerCharacterId": "char-de-mia",
-      "speakerIdentityOrigin": "app_assigned",
-      "speakerGenderEvidence": "unspecified",
-      "textTarget": "Danke!",
-      "translationFa": "ممنون!",
-      "learnerTurn": false,
-      "lexemeRefs": ["lex-de-danke"],
-      "lexemeOccurrences": [
-        {"surface": "Danke", "lexemeId": "lex-de-danke", "lexemeFormId": null}
-      ],
-      "sourceRefs": ["src-wiktionary-de-danke"],
-      "audioRef": null
-    },
-    {
-      "id": "turn-de-danke-bitte-2",
-      "speakerCharacterId": "char-de-learner",
-      "speakerIdentityOrigin": "app_assigned",
-      "speakerGenderEvidence": "unspecified",
-      "textTarget": "Bitte!",
-      "translationFa": "خواهش می‌کنم!",
-      "learnerTurn": true,
-      "lexemeRefs": ["lex-de-bitte"],
-      "lexemeOccurrences": [
-        {"surface": "Bitte", "lexemeId": "lex-de-bitte", "lexemeFormId": null}
-      ],
-      "sourceRefs": ["src-wiktionary-de-bitte"],
-      "audioRef": null
-    }
+    {"id":"turn-de-danke-bitte-1","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":false,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
+    {"id":"turn-de-danke-bitte-2","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":true,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
+    {"id":"turn-de-danke-bitte-3","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Danke!","translationFa":"ممنون!","learnerTurn":false,"lexemeRefs":["lex-de-danke"],"lexemeOccurrences":[{"surface":"Danke","lexemeId":"lex-de-danke","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-danke"],"audioRef":null},
+    {"id":"turn-de-danke-bitte-4","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Bitte!","translationFa":"خواهش می‌کنم!","learnerTurn":true,"lexemeRefs":["lex-de-bitte"],"lexemeOccurrences":[{"surface":"Bitte","lexemeId":"lex-de-bitte","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-bitte"],"audioRef":null},
+    {"id":"turn-de-danke-bitte-5","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Tschüss!","translationFa":"خداحافظ!","learnerTurn":false,"lexemeRefs":["lex-de-tschuess"],"lexemeOccurrences":[{"surface":"Tschüss","lexemeId":"lex-de-tschuess","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null},
+    {"id":"turn-de-danke-bitte-6","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Tschüss!","translationFa":"خداحافظ!","learnerTurn":true,"lexemeRefs":["lex-de-tschuess"],"lexemeOccurrences":[{"surface":"Tschüss","lexemeId":"lex-de-tschuess","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null}
   ],
-  "sceneQualityRationale": "Danke and bitte form a complete minimal courtesy exchange. Extending the scene would add language that is not needed for this target."
+  "sceneQualityRationale": "تشکر و پاسخ مؤدبانه داخل یک تعامل کامل و کوتاه قرار گرفته‌اند و صحنه بدون وابستگی به تصویر یا جملهٔ ساختگی قابل اجراست."
 }

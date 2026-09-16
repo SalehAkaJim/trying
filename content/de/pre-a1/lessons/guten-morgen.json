@@ -1,54 +1,7 @@
 {
-  "schemaVersion": "1.0.0",
-  "id": "de-pre-a1-lesson-guten-morgen",
-  "languageId": "de",
-  "level": "Pre-A1",
-  "unitRef": "de-pre-a1-unit-first-steps",
-  "titleFa": "صبح بخیر!",
-  "sourceTitle": "guten Morgen",
-  "learningTargets": ["use guten Morgen as a morning greeting", "distinguish the morning greeting from the general greeting hallo"],
-  "sourceRefs": ["src-wiktionary-de-guten-morgen", "src-wiktionary-de-hallo"],
-  "lexemeRefs": ["lex-de-guten-morgen", "lex-de-hallo"],
-  "grammarNoteRefs": [],
-  "activityDesign": {
-    "activitySelectionRationale": "After saying the morning greeting, one recognition activity distinguishes its time-specific use from the already-known general greeting.",
-    "sequenceRationale": "Use the phrase first in context, then recognize when it fits.",
-    "templateSignature": "conversation_speaking>multiple_choice"
-  },
-  "activities": [
-    {
-      "id": "act-de-gm-conversation",
-      "type": "conversation_speaking",
-      "instructionFa": "صبح است؛ به میا صبح بخیر بگو.",
-      "selectionReason": "The learner should use the greeting in its natural time context before doing recognition practice.",
-      "sourceRefs": ["src-wiktionary-de-guten-morgen"],
-      "learningTargets": ["use guten Morgen as a morning greeting"],
-      "lexemeRefs": ["lex-de-guten-morgen"],
-      "dialogueRef": "dlg-de-pre-a1-guten-morgen",
-      "data": {"interaction": "read_aloud_exchange", "contextFa": "صبح است."},
-      "transformations": ["persian_translation_added", "character_metadata_added"],
-      "audioStatus": "pending_final_language"
-    },
-    {
-      "id": "act-de-gm-choice",
-      "type": "multiple_choice",
-      "instructionFa": "برای سلام کردن در صبح کدام عبارت مناسب‌تر است؟",
-      "selectionReason": "This checks the only new distinction introduced by the lesson: a morning-specific greeting versus the already-known general greeting.",
-      "sourceRefs": ["src-wiktionary-de-guten-morgen", "src-wiktionary-de-hallo"],
-      "learningTargets": ["distinguish the morning greeting from the general greeting hallo"],
-      "lexemeRefs": ["lex-de-guten-morgen", "lex-de-hallo"],
-      "dialogueRef": null,
-      "data": {
-        "promptFa": "صبح است.",
-        "options": [
-          {"textTarget": "Guten Morgen!", "correct": true, "sourceRefs": ["src-wiktionary-de-guten-morgen"]},
-          {"textTarget": "Hallo!", "correct": false, "sourceRefs": ["src-wiktionary-de-hallo"]}
-        ]
-      },
-      "transformations": ["options_selected_from_source_material"],
-      "audioStatus": "pending_final_language"
-    }
-  ],
-  "status": "draft",
-  "audioStatus": "blocked_until_language_final"
+  "schemaVersion":"1.0.0","id":"de-pre-a1-lesson-guten-morgen","languageId":"de","level":"Pre-A1","unitRef":"de-pre-a1-unit-first-steps","titleFa":"صبح بخیر!","sourceTitle":"guten Morgen",
+  "learningTargets":["در صبح با «Guten Morgen!» گفت‌وگو را شروع کند.","تفاوت کاربرد «Guten Morgen!» با سلام عمومی «Hallo!» را تشخیص دهد."],
+  "sourceRefs":["src-wiktionary-de-guten-morgen","src-wiktionary-de-hallo","src-wikibooks-de-basic-greetings"],"lexemeRefs":["lex-de-guten-morgen","lex-de-hallo","lex-de-wie-gehts","lex-de-gut","lex-de-tschuess"],"grammarNoteRefs":[],
+  "activityDesign":{"activitySelectionRationale":"پس از شروع‌کردن گفت‌وگو با سلام صبحگاهی، یک فعالیت تشخیصی تفاوت آن را با سلام عمومی تثبیت می‌کند.","sequenceRationale":"اول زبان‌آموز خودش مکالمه را با عبارت صبحگاهی آغاز می‌کند و بعد زمان مناسب استفاده از آن را تشخیص می‌دهد.","templateSignature":"conversation_speaking>multiple_choice"},
+  "activities":[{"id":"act-de-gm-conversation","type":"conversation_speaking","instructionFa":"این بار تو گفت‌وگو را شروع کن؛ صبح است، به میا «Guten Morgen!» بگو.","selectionReason":"شروع‌کردن مکالمه توسط زبان‌آموز باعث می‌شود سلام صبحگاهی را فعالانه تولید کند، نه فقط به آن پاسخ بدهد.","sourceRefs":["src-wiktionary-de-guten-morgen","src-wikibooks-de-basic-greetings"],"learningTargets":["شروع یک گفت‌وگوی صبحگاهی با «Guten Morgen!»."],"lexemeRefs":["lex-de-guten-morgen","lex-de-wie-gehts","lex-de-gut","lex-de-tschuess"],"dialogueRef":"dlg-de-pre-a1-guten-morgen","data":{"interaction":"read_aloud_exchange","contextFa":"صبح است.","openingInitiator":"learner"},"transformations":["persian_translation_added","character_metadata_added"],"audioStatus":"pending_final_language"},{"id":"act-de-gm-choice","type":"multiple_choice","instructionFa":"برای سلام کردن در صبح کدام عبارت مناسب‌تر است؟","selectionReason":"این فعالیت فقط تفاوت جدید درس را می‌سنجد: سلام مخصوص صبح در برابر سلام عمومی.","sourceRefs":["src-wiktionary-de-guten-morgen","src-wiktionary-de-hallo"],"learningTargets":["تشخیص سلام مناسب برای صبح."],"lexemeRefs":["lex-de-guten-morgen","lex-de-hallo"],"dialogueRef":null,"data":{"promptFa":"صبح است.","options":[{"textTarget":"Guten Morgen!","correct":true,"sourceRefs":["src-wiktionary-de-guten-morgen"]},{"textTarget":"Hallo!","correct":false,"sourceRefs":["src-wiktionary-de-hallo"]}]},"transformations":["options_selected_from_source_material"],"audioStatus":"pending_final_language"}],"status":"draft","audioStatus":"blocked_until_language_final"
 }

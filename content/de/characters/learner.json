@@ -2,14 +2,16 @@
   "schemaVersion": "1.0.0",
   "id": "char-de-learner",
   "languageId": "de",
-  "name": "Learner",
+  "name": "زبان‌آموز",
   "origin": "app_created",
   "sourceRefs": [],
   "gender": "unspecified",
   "ageBand": "unspecified",
-  "roles": ["learner"],
+  "roles": [
+    "learner"
+  ],
   "relationshipTags": [],
-  "contextNotes": "Generic learner role. No demographic assumptions are required for the current scenes.",
+  "contextNotes": "نقش عمومی زبان‌آموز؛ برای صحنه‌های فعلی هیچ فرض جمعیت‌شناختی لازم نیست.",
   "voiceProfile": {
     "clarity": "high",
     "stressLevel": "very_low",
