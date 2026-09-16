@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "char-de-learner",
+  "languageId": "de",
+  "name": "Learner",
+  "origin": "app_created",
+  "sourceRefs": [],
+  "gender": "unspecified",
+  "ageBand": "unspecified",
+  "roles": ["learner"],
+  "relationshipTags": [],
+  "contextNotes": "Generic learner role. No demographic assumptions are required for the current scenes.",
+  "voiceProfile": {
+    "clarity": "high",
+    "stressLevel": "very_low",
+    "aggressiveness": "none",
+    "toneConsistency": "high",
+    "ageImpression": null,
+    "genderImpression": "neutral",
+    "elevenLabsVoiceId": null,
+    "voiceName": null
+  }
+}

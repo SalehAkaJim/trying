@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "status": "building",
+  "structureRationale": "The level starts with the smallest immediately usable communication for a zero beginner. Structure expands only when uncovered or under-supported targets justify more content; numeric quotas do not drive authoring.",
+  "coverage": {
+    "communicativeTargets": [
+      "greet someone informally",
+      "use a morning greeting",
+      "ask about a very familiar food preference",
+      "express a very simple positive food preference"
+    ],
+    "linguisticTargets": [
+      "formulaic greeting hallo",
+      "formulaic morning greeting guten Morgen",
+      "mögen in the present forms mag and magst",
+      "familiar noun Pizza"
+    ],
+    "situations": [
+      "simple first greeting",
+      "simple morning greeting",
+      "simple familiar-food preference exchange"
+    ],
+    "gaps": [
+      "basic yes/no and courtesy expressions",
+      "name exchange",
+      "simple wellbeing exchange",
+      "simple wants and choices",
+      "additional recycling and review as evidence shows it is needed"
+    ]
+  },
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-wiktionary-de-guten-morgen",
+    "src-wiktionary-de-moegen",
+    "src-wiktionary-de-pizza",
+    "src-tatoeba-de-662061",
+    "src-wikibooks-de-magst-du-pizza"
+  ],
+  "unitRefs": ["de-pre-a1-unit-first-steps"],
+  "lessonRefs": ["de-pre-a1-lesson-hallo", "de-pre-a1-lesson-guten-morgen", "de-pre-a1-lesson-pizza-like"],
+  "notes": "The listed lessons are only the content currently built, not a target count for Pre-A1."
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-tatoeba-de-662061",
+  "title": "Tatoeba sentence #662061 — Ich mag Pizza sehr.",
+  "organizationOrAuthor": "Tatoeba contributors",
+  "language": "de",
+  "sourceType": "corpus",
+  "url": "https://tatoeba.org/en/sentences/show/662061",
+  "locator": "Sentence #662061",
+  "licenseName": "CC BY 2.0 FR",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0/fr/",
+  "attributionText": "Tatoeba sentence #662061 — https://tatoeba.org/en/sentences/show/662061",
+  "reuseStatus": "reuse_with_attribution",
+  "retrievedAt": "2026-09-16",
+  "notes": "Reusable corpus sentence used verbatim in the first food-preference lesson."
+}

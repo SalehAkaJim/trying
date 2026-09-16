@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-moegen",
+  "languageId": "de",
+  "type": "word",
+  "surface": "mögen",
+  "lemma": "mögen",
+  "partOfSpeech": "verb",
+  "level": "Pre-A1",
+  "translationFa": "دوست داشتن / خوش آمدن",
+  "usageNoteFa": "در این مرحله فقط برای بیان یک علاقهٔ خیلی ساده استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wiktionary-de-moegen"],
+  "formRefs": ["lexform-de-moegen-mag", "lexform-de-moegen-magst"],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}

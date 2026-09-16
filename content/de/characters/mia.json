@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "char-de-mia",
+  "languageId": "de",
+  "name": "Mia",
+  "origin": "app_created",
+  "sourceRefs": [],
+  "gender": "female",
+  "ageBand": "young_adult",
+  "roles": ["conversation_partner"],
+  "relationshipTags": [],
+  "contextNotes": "Recurring friendly conversation partner. Current source utterances contain no evidence that conflicts with this app-assigned identity.",
+  "voiceProfile": {
+    "clarity": "high",
+    "stressLevel": "very_low",
+    "aggressiveness": "none",
+    "toneConsistency": "high",
+    "ageImpression": "young adult",
+    "genderImpression": "female",
+    "elevenLabsVoiceId": null,
+    "voiceName": null
+  }
+}

@@ -1,45 +1,30 @@
-# Language Learning Project — Rules-Only Baseline
+# Language Learning Project
 
-This repository is the clean rules/contracts foundation for the language-learning project.
+This repository contains the finalized rules/contracts foundation and the source-backed educational content built from those rules.
 
-**It intentionally contains no educational course content.** There are no lessons, dialogues, vocabulary lists, grammar items, curriculum plans, source excerpts, language manifests, seed data, or language-specific content batches.
+## Non-negotiable architecture
 
-What is preserved here is only the finalized project framework:
-
-- editorial/content rules;
-- source and provenance policy;
-- CEFR planning rules;
-- fully dynamic content-generation rules;
-- activity and conversation rules;
-- character and future audio rules;
-- lexeme and inflected/variant-form architecture;
-- QA rules;
-- database architecture decisions;
-- JSON content contracts.
-
-Start with [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md), [`docs/DYNAMIC_CONTENT_MODEL.md`](docs/DYNAMIC_CONTENT_MODEL.md), [`docs/CONTENT_RULES.md`](docs/CONTENT_RULES.md) and [`docs/SOURCE_POLICY.md`](docs/SOURCE_POLICY.md).
-
-## Canonical technical direction
-
-- MySQL-first architecture.
-- Canonical database runtime: **MySQL 9.0.1**.
+- MySQL-first architecture; canonical target runtime: **MySQL 9.0.1**.
 - Final language deliverables must be exportable as complete MySQL `.sql` files.
-- Persian is the support/UI language.
-- CEFR levels: `Pre-A1`, `A1`, `A2`, `B1`, `B2`, `C1`, `C2`.
-- **No fixed or preferred numeric count is used to design units, lessons, activities, opening-conversation turns, learner turns, or review cadence.**
-- Counts are derived outputs of source-backed coverage and QA, never authoring quotas.
-- Every finalized lesson begins with `conversation_speaking`; everything after that is dynamically selected.
-- Opening-conversation length is determined by the scene, source material and learning need, not by a turn threshold.
+- Course sizing is coverage-driven, source-driven and QA-driven — never quota-driven.
+- There is no fixed or preferred numeric count for units, lessons, activities, opening-conversation turns, learner turns, or review cadence.
+- Every finalized lesson begins with `conversation_speaking`; everything after that is selected dynamically.
 - Target-language instructional content must be source-backed and provenance-preserving.
-- `lexemes` represent lexical identity; approved inflected/variant surfaces resolve through `lexeme_forms` rather than becoming duplicate lexemes.
-- Surface-form lookup must support ambiguity and must not assume one written form uniquely identifies one lexeme.
+- `lexemes` represent lexical identity; inflected/variant forms resolve through `lexeme_forms`.
 - Audio generation is deferred until the full target-language curriculum is finalized.
+
+Start with [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md), [`docs/DYNAMIC_CONTENT_MODEL.md`](docs/DYNAMIC_CONTENT_MODEL.md), [`docs/CONTENT_RULES.md`](docs/CONTENT_RULES.md), and [`docs/SOURCE_POLICY.md`](docs/SOURCE_POLICY.md).
+
+## Current content status
+
+German `Pre-A1` production has started under `content/de/pre-a1/`.
+
+The initial seed deliberately starts with the smallest immediately useful communication requested for a zero beginner: informal greeting, morning greeting, and a familiar food preference. The current number of units/lessons/activities is only the result of the content built so far; it is **not** a target or forecast for the completed level.
 
 ## Repository layout
 
 ```text
-/docs/      Finalized project, editorial, QA and architecture rules
-/schemas/   Formal content contracts only; no content instances
+/docs/              Finalized project, editorial, QA and architecture rules
+/schemas/           Formal content contracts
+/content/           Source-backed language content produced under those contracts
 ```
-
-The old repository's educational content, curriculum plans, source maps, SQL content batches, language manifests and German Pre-A1 implementation are deliberately excluded. Database implementation and CI can be rebuilt later from these finalized rules when content production begins.

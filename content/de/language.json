@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de",
+  "code": "de",
+  "nameFa": "آلمانی",
+  "nameNative": "Deutsch",
+  "supportedLevels": ["Pre-A1"],
+  "status": "building",
+  "levelManifestRefs": ["de-pre-a1"],
+  "characterRefs": ["char-de-learner", "char-de-mia"],
+  "audioPolicy": {
+    "generateOnlyAfterLanguageFinal": true,
+    "standaloneVoicePreference": ["Lori", "Hope"],
+    "conversationVoiceStyle": "clear, calm, low-stress learner-friendly speech"
+  }
+}

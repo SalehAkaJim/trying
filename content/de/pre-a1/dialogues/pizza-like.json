@@ -1,0 +1,35 @@
+{
+  "id": "dlg-de-pre-a1-pizza-like",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-tatoeba-de-662061"],
+  "scenario": "Mia asks about a familiar food and the learner states a simple positive preference.",
+  "characterRefs": ["char-de-mia", "char-de-learner"],
+  "turns": [
+    {
+      "id": "turn-de-pizza-1",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Magst du Pizza?",
+      "translationFa": "پیتزا دوست داری؟",
+      "learnerTurn": false,
+      "lexemeRefs": ["lex-de-moegen", "lex-de-pizza"],
+      "sourceRefs": ["src-wikibooks-de-magst-du-pizza"],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-pizza-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich mag Pizza sehr.",
+      "translationFa": "من پیتزا را خیلی دوست دارم.",
+      "learnerTurn": true,
+      "lexemeRefs": ["lex-de-moegen", "lex-de-pizza"],
+      "sourceRefs": ["src-tatoeba-de-662061"],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "The question and answer form a complete familiar-preference exchange. Additional turns are not required for the current learning target."
+}

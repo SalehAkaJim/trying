@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-wiktionary-de-pizza",
+  "title": "Wiktionary: Pizza",
+  "organizationOrAuthor": "Wiktionary contributors",
+  "language": "de",
+  "sourceType": "dictionary",
+  "url": "https://de.wiktionary.org/wiki/Pizza",
+  "locator": "German noun",
+  "licenseName": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attributionText": "Wiktionary contributors — https://de.wiktionary.org/wiki/Pizza",
+  "reuseStatus": "reuse_with_attribution",
+  "retrievedAt": "2026-09-16",
+  "notes": "Used for the familiar food noun Pizza."
+}

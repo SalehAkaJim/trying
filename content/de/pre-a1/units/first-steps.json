@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-unit-first-steps",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "titleFa": "اولین قدم‌ها",
+  "learningTargets": [
+    "greet someone with hallo",
+    "greet someone in the morning",
+    "ask and state a simple familiar-food preference"
+  ],
+  "lessonRefs": ["de-pre-a1-lesson-hallo", "de-pre-a1-lesson-guten-morgen", "de-pre-a1-lesson-pizza-like"],
+  "groupingRationale": "These lessons belong together because they are immediately understandable, low-load first-contact communication for a zero beginner. The grouping is pedagogical; it has no target lesson capacity.",
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-wiktionary-de-guten-morgen",
+    "src-wiktionary-de-moegen",
+    "src-wiktionary-de-pizza",
+    "src-tatoeba-de-662061",
+    "src-wikibooks-de-magst-du-pizza"
+  ],
+  "status": "draft",
+  "notes": "The unit stays open or closes only when the next coverage decisions justify it, never after a lesson-count threshold."
+}

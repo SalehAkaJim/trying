@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-hallo",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-first-steps",
+  "titleFa": "سلام!",
+  "sourceTitle": "hallo",
+  "learningTargets": ["greet someone informally with hallo"],
+  "sourceRefs": ["src-wiktionary-de-hallo"],
+  "lexemeRefs": ["lex-de-hallo"],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "The learner already produces the complete target greeting inside the opening exchange, so no extra activity is added merely to increase lesson size.",
+    "sequenceRationale": "Directly perform the communicative target with no pre-teaching screen.",
+    "templateSignature": "conversation_speaking"
+  },
+  "activities": [
+    {
+      "id": "act-de-hallo-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "به میا سلام کن.",
+      "selectionReason": "The target itself is a spoken greeting, so the opening exchange is sufficient practice for this first lesson.",
+      "sourceRefs": ["src-wiktionary-de-hallo"],
+      "learningTargets": ["greet someone informally with hallo"],
+      "lexemeRefs": ["lex-de-hallo"],
+      "dialogueRef": "dlg-de-pre-a1-hallo",
+      "data": {"interaction": "read_aloud_exchange"},
+      "transformations": ["persian_translation_added", "character_metadata_added"],
+      "audioStatus": "pending_final_language"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_language_final"
+}

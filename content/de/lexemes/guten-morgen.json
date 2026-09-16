@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-guten-morgen",
+  "languageId": "de",
+  "type": "phrase",
+  "surface": "guten Morgen",
+  "lemma": null,
+  "partOfSpeech": "greeting_formula",
+  "level": "Pre-A1",
+  "translationFa": "صبح بخیر",
+  "usageNoteFa": "سلامی برای آغاز روز و صبح.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wiktionary-de-guten-morgen"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}

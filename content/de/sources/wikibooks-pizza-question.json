@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-wikibooks-de-magst-du-pizza",
+  "title": "Wikibooks example containing Magst du Pizza?",
+  "organizationOrAuthor": "Wikibooks contributors",
+  "language": "de",
+  "sourceType": "book",
+  "url": "https://de.wikibooks.org/wiki/Ungarisch/Ungarisch-Lesebuch-h%C3%A4ufigeW%C3%B6rter/012",
+  "locator": "German examples under igen, item 8: Magst du Pizza?",
+  "licenseName": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attributionText": "Wikibooks contributors — https://de.wikibooks.org/wiki/Ungarisch/Ungarisch-Lesebuch-h%C3%A4ufigeW%C3%B6rter/012",
+  "reuseStatus": "reuse_with_attribution",
+  "retrievedAt": "2026-09-16",
+  "notes": "Only the source-attested German question Magst du Pizza? is reused in the lesson."
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lexform-de-moegen-magst",
+  "lexemeId": "lex-de-moegen",
+  "surface": "magst",
+  "formType": "inflected",
+  "features": {
+    "tense": "present",
+    "mood": "indicative",
+    "person": "2",
+    "number": "singular"
+  },
+  "origin": "reference_attested",
+  "reviewStatus": "approved",
+  "sourceRefs": ["src-wiktionary-de-moegen"],
+  "notes": "Used in the source-backed question Magst du Pizza?"
+}

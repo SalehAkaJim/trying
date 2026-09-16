@@ -1,0 +1,35 @@
+{
+  "id": "dlg-de-pre-a1-hallo",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": ["src-wiktionary-de-hallo"],
+  "scenario": "Two people meet and exchange the simplest informal greeting.",
+  "characterRefs": ["char-de-mia", "char-de-learner"],
+  "turns": [
+    {
+      "id": "turn-de-hallo-1",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": false,
+      "lexemeRefs": ["lex-de-hallo"],
+      "sourceRefs": ["src-wiktionary-de-hallo"],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-hallo-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hallo!",
+      "translationFa": "سلام!",
+      "learnerTurn": true,
+      "lexemeRefs": ["lex-de-hallo"],
+      "sourceRefs": ["src-wiktionary-de-hallo"],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "A reciprocal greeting is a complete communicative act for this first zero-beginner target. Extending it would add material the lesson does not yet need."
+}
