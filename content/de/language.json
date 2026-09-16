@@ -13,7 +13,8 @@
   ],
   "characterRefs": [
     "char-de-learner",
-    "char-de-mia"
+    "char-de-mia",
+    "char-de-iris"
   ],
   "audioPolicy": {
     "generateOnlyAfterLanguageFinal": true,
