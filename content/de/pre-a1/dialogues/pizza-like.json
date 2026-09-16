@@ -15,6 +15,10 @@
       "translationFa": "پیتزا دوست داری؟",
       "learnerTurn": false,
       "lexemeRefs": ["lex-de-moegen", "lex-de-pizza"],
+      "lexemeOccurrences": [
+        {"surface": "Magst", "lexemeId": "lex-de-moegen", "lexemeFormId": "lexform-de-moegen-magst"},
+        {"surface": "Pizza", "lexemeId": "lex-de-pizza", "lexemeFormId": null}
+      ],
       "sourceRefs": ["src-wikibooks-de-magst-du-pizza"],
       "audioRef": null
     },
@@ -27,6 +31,10 @@
       "translationFa": "من پیتزا را خیلی دوست دارم.",
       "learnerTurn": true,
       "lexemeRefs": ["lex-de-moegen", "lex-de-pizza"],
+      "lexemeOccurrences": [
+        {"surface": "mag", "lexemeId": "lex-de-moegen", "lexemeFormId": "lexform-de-moegen-mag"},
+        {"surface": "Pizza", "lexemeId": "lex-de-pizza", "lexemeFormId": null}
+      ],
       "sourceRefs": ["src-tatoeba-de-662061"],
       "audioRef": null
     }
