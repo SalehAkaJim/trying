@@ -11,10 +11,15 @@
     "level": {"enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2"]},
     "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
     "scenario": {"type": "string", "minLength": 1},
-    "characterRefs": {"type": "array", "items": {"type": "string"}, "minItems": 2, "uniqueItems": true},
+    "characterRefs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true,
+      "description": "Actual participating characters. Speaker count is scene-driven and has no fixed target or preferred range."
+    },
     "turns": {
       "type": "array",
-      "minItems": 2,
+      "description": "Fully dynamic-length conversation. No min/max/target/preferred turn count or learner-turn count is encoded. QA evaluates semantic completeness and meaningful participation.",
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -32,6 +37,10 @@
           "audioRef": {"type": ["string", "null"], "default": null}
         }
       }
+    },
+    "sceneQualityRationale": {
+      "type": ["string", "null"],
+      "description": "Optional editorial explanation of why this scene is complete/appropriate. Numeric turn targets are not valid rationale."
     }
   }
 }
