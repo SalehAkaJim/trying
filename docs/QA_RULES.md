@@ -14,7 +14,8 @@ A lesson fails QA when any of the following is true:
 - a required Persian translation is missing;
 - a dialogue line is assigned to a character whose known gender conflicts with the speaker evidence;
 - a character assignment conflicts with explicit age, relationship or role evidence;
-- referenced lexeme, character, dialogue or source IDs do not resolve;
+- referenced lexeme, lexeme-form, character, dialogue or source IDs do not resolve;
+- an unreviewed generated lexeme form is treated as an authoritative learner-facing mapping;
 - audio is generated before the full language reaches final content status;
 - an activity introduces unrelated target-language material only to satisfy a template.
 
@@ -78,6 +79,28 @@ These are review flags, not automatic reasons to mutate source content.
 - `matching`: mappings must be semantically correct and traceable.
 - `grammar_focus`: explanation and examples must be source-backed.
 - speaking activities: learner text must be the exact expected source-backed target utterance for that step.
+
+## Lexeme-form checks
+
+Lexeme-form resolution is structural data and must be validated independently from lesson content.
+
+Hard/review rules:
+- every `lexeme_form.lexeme_id` resolves to an existing parent lexeme;
+- the exact form `surface` is preserved; normalized lookup values never replace display text;
+- generated forms remain `pending_review` until approved;
+- source-attested forms retain resolvable provenance references;
+- a form is not promoted into a separate lexeme merely because it is inflected or orthographically different;
+- global uniqueness of form `surface` must not be assumed;
+- collisions where one surface maps to multiple lexemes are valid ambiguity, not data corruption;
+- multiple morphological analyses for the same surface and parent lexeme are allowed when linguistically valid;
+- automatic lookup must return/disambiguate candidates rather than silently taking the first matching surface;
+- language-aware normalization must not erase distinctions that are meaningful in that language.
+
+Flag for editorial/linguistic review when:
+- a form's morphology metadata conflicts with the parent lexeme or source context;
+- an approved generated form has no documented review basis;
+- a high-frequency encountered surface repeatedly fails to resolve to a canonical lexeme;
+- normalization creates excessive collisions or merges forms that should remain distinct.
 
 ## CEFR checks
 
