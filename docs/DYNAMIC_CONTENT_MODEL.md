@@ -18,6 +18,8 @@ Examples such as "A1 should have 100 lessons", "each unit should contain 5 lesso
 
 Numeric counts may be **observed, reported and derived after content exists**. They must not become authoring quotas or completion criteria.
 
+The project's 0–10 quality review is different: it evaluates the quality/completeness of content that exists. It must never be converted into a structural count target or gamed by padding content.
+
 ## The generation loop
 
 For each `language x CEFR level`:
@@ -31,9 +33,27 @@ For each `language x CEFR level`:
 7. Re-run coverage and progression QA.
 8. Continue until unresolved required coverage no longer justifies additional content.
 9. Group lessons into units only where a coherent learner-facing grouping emerges.
-10. Finalize the level when coverage, progression, source integrity and QA are sufficient.
+10. Run the formal level-completion audit against CEFR abilities, language-specific prerequisites, skill/mode coverage, practice/retrieval, reinforcement, progression and remaining gaps.
+11. Run the holistic 0–10 quality review; revise or extend content where a concrete educational weakness prevents the level from being close to 10/10.
+12. Finalize the level only when material gaps are resolved, completion criteria are satisfied, source integrity passes and the quality review supports release.
 
 The resulting counts of units, lessons, activities and dialogue turns are outputs of this process.
+
+## Level endpoint and quality bar
+
+Every CEFR level has an educational end point, but not a predetermined structural size.
+
+The level should stop growing when:
+- the intended CEFR learner capabilities are adequately covered for the product scope;
+- required language-specific prerequisites are present;
+- relevant reception, interaction, production and other appropriate modes are sufficiently supported;
+- important targets have enough practice, retrieval and reinforcement;
+- progression is coherent from the learner's prior state to the intended end-of-level capabilities;
+- no material required coverage or QA gap remains.
+
+Before finalization, assess overall level quality from 0–10. The desired release condition is **close to 10/10**, backed by evidence across CEFR completeness, progression, practice quality, activity design, linguistic quality, source quality/currentness, learner clarity/support and QA integrity.
+
+A quality score is not a mathematical override. A level with a high score but a material missing CEFR capability is incomplete. Likewise, adding redundant content only to make the course longer must not raise the score.
 
 ## Units
 
@@ -118,6 +138,8 @@ Do not make fields such as these authoritative planning inputs:
 - `target_learner_turn_count`.
 
 If analytics needs counts, derive them from actual rows/relationships. If a temporary estimate is ever displayed operationally, it must be explicitly non-binding and must not participate in content-generation logic or QA pass/fail rules.
+
+A stored level-quality assessment is permitted because it evaluates educational quality; it must not be used as a hidden proxy for structural size.
 
 ## QA anti-quota rule
 
