@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-ja",
+  "languageId": "de",
+  "type": "word",
+  "surface": "ja",
+  "lemma": "ja",
+  "partOfSpeech": "response_particle",
+  "level": "Pre-A1",
+  "translationFa": "بله",
+  "usageNoteFa": "برای پاسخ مثبت و موافقت.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wiktionary-de-ja"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}

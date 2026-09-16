@@ -1,0 +1,42 @@
+{
+  "id": "dlg-de-pre-a1-ja",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-wiktionary-de-ja"],
+  "scenario": "Mia repeats a familiar pizza preference question and the learner gives a positive answer.",
+  "characterRefs": ["char-de-mia", "char-de-learner"],
+  "turns": [
+    {
+      "id": "turn-de-ja-1",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Magst du Pizza?",
+      "translationFa": "پیتزا دوست داری؟",
+      "learnerTurn": false,
+      "lexemeRefs": ["lex-de-moegen", "lex-de-pizza"],
+      "lexemeOccurrences": [
+        {"surface": "Magst", "lexemeId": "lex-de-moegen", "lexemeFormId": "lexform-de-moegen-magst"},
+        {"surface": "Pizza", "lexemeId": "lex-de-pizza", "lexemeFormId": null}
+      ],
+      "sourceRefs": ["src-wikibooks-de-magst-du-pizza"],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-ja-2",
+      "speakerCharacterId": "char-de-learner",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ja!",
+      "translationFa": "بله!",
+      "learnerTurn": true,
+      "lexemeRefs": ["lex-de-ja"],
+      "lexemeOccurrences": [
+        {"surface": "Ja", "lexemeId": "lex-de-ja", "lexemeFormId": null}
+      ],
+      "sourceRefs": ["src-wiktionary-de-ja"],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "The known pizza question removes unnecessary lexical load so the learner can focus on the new affirmative response ja."
+}

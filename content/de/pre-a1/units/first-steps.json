@@ -7,9 +7,17 @@
   "learningTargets": [
     "greet someone with hallo",
     "greet someone in the morning",
-    "ask and state a simple familiar-food preference"
+    "ask and state a simple familiar-food preference",
+    "respond yes or no in a familiar context",
+    "exchange a basic thank-you and polite response"
   ],
-  "lessonRefs": ["de-pre-a1-lesson-hallo", "de-pre-a1-lesson-guten-morgen", "de-pre-a1-lesson-pizza-like"],
+  "lessonRefs": [
+    "de-pre-a1-lesson-hallo",
+    "de-pre-a1-lesson-guten-morgen",
+    "de-pre-a1-lesson-pizza-like",
+    "de-pre-a1-lesson-ja-nein",
+    "de-pre-a1-lesson-danke-bitte"
+  ],
   "groupingRationale": "These lessons belong together because they are immediately understandable, low-load first-contact communication for a zero beginner. The grouping is pedagogical; it has no target lesson capacity.",
   "sourceRefs": [
     "src-wiktionary-de-hallo",
@@ -17,7 +25,11 @@
     "src-wiktionary-de-moegen",
     "src-wiktionary-de-pizza",
     "src-libra-de-ich-mag-pizza",
-    "src-wikibooks-de-magst-du-pizza"
+    "src-wikibooks-de-magst-du-pizza",
+    "src-wiktionary-de-ja",
+    "src-wiktionary-de-nein",
+    "src-wiktionary-de-danke",
+    "src-wiktionary-de-bitte"
   ],
   "status": "draft",
   "notes": "The unit stays open or closes only when the next coverage decisions justify it, never after a lesson-count threshold."

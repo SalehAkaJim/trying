@@ -10,21 +10,27 @@
       "greet someone informally",
       "use a morning greeting",
       "ask about a very familiar food preference",
-      "express a very simple positive food preference"
+      "express a very simple positive food preference",
+      "use ja and recognize nein in a familiar yes/no exchange",
+      "exchange a basic thank-you and polite response"
     ],
     "linguisticTargets": [
       "formulaic greeting hallo",
       "formulaic morning greeting guten Morgen",
       "mögen in the present forms mag and magst",
-      "familiar noun Pizza"
+      "familiar noun Pizza",
+      "response particles ja and nein",
+      "courtesy formulae danke and bitte"
     ],
     "situations": [
       "simple first greeting",
       "simple morning greeting",
-      "simple familiar-food preference exchange"
+      "simple familiar-food preference exchange",
+      "familiar yes/no response",
+      "simple thank-you exchange"
     ],
     "gaps": [
-      "basic yes/no and courtesy expressions",
+      "additional courtesy expressions such as Entschuldigung",
       "name exchange",
       "simple wellbeing exchange",
       "simple wants and choices",
@@ -37,9 +43,19 @@
     "src-wiktionary-de-moegen",
     "src-wiktionary-de-pizza",
     "src-libra-de-ich-mag-pizza",
-    "src-wikibooks-de-magst-du-pizza"
+    "src-wikibooks-de-magst-du-pizza",
+    "src-wiktionary-de-ja",
+    "src-wiktionary-de-nein",
+    "src-wiktionary-de-danke",
+    "src-wiktionary-de-bitte"
   ],
   "unitRefs": ["de-pre-a1-unit-first-steps"],
-  "lessonRefs": ["de-pre-a1-lesson-hallo", "de-pre-a1-lesson-guten-morgen", "de-pre-a1-lesson-pizza-like"],
+  "lessonRefs": [
+    "de-pre-a1-lesson-hallo",
+    "de-pre-a1-lesson-guten-morgen",
+    "de-pre-a1-lesson-pizza-like",
+    "de-pre-a1-lesson-ja-nein",
+    "de-pre-a1-lesson-danke-bitte"
+  ],
   "notes": "The listed lessons are only the content currently built, not a target count for Pre-A1."
 }

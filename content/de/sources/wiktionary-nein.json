@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-wiktionary-de-nein",
+  "title": "Wiktionary: nein",
+  "organizationOrAuthor": "Wiktionary contributors",
+  "language": "de",
+  "sourceType": "dictionary",
+  "url": "https://de.wiktionary.org/wiki/nein",
+  "locator": "German response particle expressing rejection / negation, commonly in answer to a question",
+  "publishedOrUpdatedAt": null,
+  "modernityStatus": "maintained_current",
+  "currencyEvidence": "Actively maintained German Wiktionary entry reviewed in its current state at retrieval; used for the contemporary negative response particle nein.",
+  "licenseName": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attributionText": "Wiktionary contributors — https://de.wiktionary.org/wiki/nein",
+  "reuseStatus": "reuse_with_attribution",
+  "retrievedAt": "2026-09-16",
+  "notes": "Used only for the ordinary negative-answer meaning of nein."
+}

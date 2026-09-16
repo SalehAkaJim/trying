@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-bitte",
+  "languageId": "de",
+  "type": "word",
+  "surface": "bitte",
+  "lemma": "bitte",
+  "partOfSpeech": "adverb_response_particle",
+  "level": "Pre-A1",
+  "translationFa": "خواهش می‌کنم / لطفاً",
+  "usageNoteFa": "در این درس به معنی «خواهش می‌کنم» در پاسخ به تشکر استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wiktionary-de-bitte"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}

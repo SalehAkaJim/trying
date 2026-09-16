@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-nein",
+  "languageId": "de",
+  "type": "word",
+  "surface": "nein",
+  "lemma": "nein",
+  "partOfSpeech": "response_particle",
+  "level": "Pre-A1",
+  "translationFa": "نه",
+  "usageNoteFa": "برای پاسخ منفی و رد کردن.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wiktionary-de-nein"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}

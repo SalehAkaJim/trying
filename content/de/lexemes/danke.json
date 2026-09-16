@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-danke",
+  "languageId": "de",
+  "type": "word",
+  "surface": "danke",
+  "lemma": "danke",
+  "partOfSpeech": "interjection_response_particle",
+  "level": "Pre-A1",
+  "translationFa": "ممنون / متشکرم",
+  "usageNoteFa": "برای تشکر کوتاه و روزمره.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wiktionary-de-danke"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}

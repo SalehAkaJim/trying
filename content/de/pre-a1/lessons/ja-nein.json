@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-ja-nein",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-first-steps",
+  "titleFa": "بله یا نه؟",
+  "sourceTitle": "Magst du Pizza? / ja / nein",
+  "learningTargets": [
+    "answer a familiar yes/no question positively with ja",
+    "recognize nein as the negative answer"
+  ],
+  "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-wiktionary-de-ja", "src-wiktionary-de-nein"],
+  "lexemeRefs": ["lex-de-moegen", "lex-de-pizza", "lex-de-ja", "lex-de-nein"],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "The opening reuses a known question so the only productive load is ja; one response-choice activity then introduces the contrast with nein without adding another sentence pattern.",
+    "sequenceRationale": "Give a positive answer first, then distinguish the positive and negative responses in the same familiar context.",
+    "templateSignature": "conversation_speaking>choose_response"
+  },
+  "activities": [
+    {
+      "id": "act-de-ja-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "این بار جواب مثبت بده.",
+      "selectionReason": "Reusing the known pizza question isolates the new response ja.",
+      "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-wiktionary-de-ja"],
+      "learningTargets": ["answer a familiar yes/no question positively with ja"],
+      "lexemeRefs": ["lex-de-moegen", "lex-de-pizza", "lex-de-ja"],
+      "dialogueRef": "dlg-de-pre-a1-ja",
+      "data": {"interaction": "read_aloud_exchange"},
+      "transformations": ["persian_translation_added", "character_metadata_added"],
+      "audioStatus": "pending_final_language"
+    },
+    {
+      "id": "act-de-ja-nein-choice",
+      "type": "choose_response",
+      "instructionFa": "فرض کن پیتزا دوست نداری. کدام جواب مناسب است؟",
+      "selectionReason": "The learner already understands the question, so the task can focus only on distinguishing ja from nein.",
+      "sourceRefs": ["src-wikibooks-de-magst-du-pizza", "src-wiktionary-de-ja", "src-wiktionary-de-nein"],
+      "learningTargets": ["recognize nein as the negative answer"],
+      "lexemeRefs": ["lex-de-ja", "lex-de-nein"],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Magst du Pizza?",
+        "contextFa": "پیتزا دوست نداری.",
+        "options": [
+          {"textTarget": "Ja!", "correct": false, "sourceRefs": ["src-wiktionary-de-ja"]},
+          {"textTarget": "Nein!", "correct": true, "sourceRefs": ["src-wiktionary-de-nein"]}
+        ]
+      },
+      "transformations": ["options_selected_from_source_material"],
+      "audioStatus": "pending_final_language"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_language_final"
+}
