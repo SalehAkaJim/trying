@@ -1,20 +1,113 @@
 {
-  "schemaVersion":"1.0.0",
-  "id":"de-pre-a1-lesson-entschuldigung",
-  "languageId":"de",
-  "level":"Pre-A1",
-  "unitRef":"de-pre-a1-unit-first-steps",
-  "titleFa":"ببخشید!",
-  "sourceTitle":"Entschuldigung. / Kein Problem. / Danke! / Bitte!",
-  "learningTargets":["با «Entschuldigung.» یک عذرخواهی کوتاه را شروع کند.","«Kein Problem.» را به‌عنوان پاسخ آرام به عذرخواهی بفهمد.","دو جفت اجتماعی «Entschuldigung / Kein Problem» و «Danke / Bitte» را از هم تشخیص دهد."],
-  "sourceRefs":["src-wiktionary-de-entschuldigung","src-wiktionary-de-kein-problem","src-wiktionary-de-danke","src-wiktionary-de-bitte"],
-  "lexemeRefs":["lex-de-entschuldigung","lex-de-kein-problem","lex-de-danke","lex-de-bitte"],
-  "grammarNoteRefs":[],
-  "activityDesign":{"activitySelectionRationale":"بعد از گفت‌وگوی کوتاه، matching فقط رابطهٔ دو جفت اجتماعی نزدیک را تثبیت می‌کند و زبان تازه‌ای وارد نمی‌کند.","sequenceRationale":"زبان‌آموز ابتدا خودش عذرخواهی را آغاز می‌کند و بعد پاسخ‌های مناسب را به عبارت‌های آشنا وصل می‌کند.","templateSignature":"conversation_speaking>matching"},
-  "activities":[
-    {"id":"act-de-entschuldigung-conversation","type":"conversation_speaking","instructionFa":"این بار تو گفت‌وگو را شروع کن؛ برای یک اشتباه کوچک با «Entschuldigung.» عذرخواهی کن.","selectionReason":"هدف اصلی این درس استفادهٔ فعال از یک عذرخواهی کوتاه در یک تعامل واقعی و کم‌فشار است.","sourceRefs":["src-wiktionary-de-entschuldigung","src-wiktionary-de-kein-problem","src-wiktionary-de-danke","src-wiktionary-de-bitte"],"learningTargets":["شروع عذرخواهی کوتاه و فهم پاسخ مناسب."],"lexemeRefs":["lex-de-entschuldigung","lex-de-kein-problem","lex-de-danke","lex-de-bitte"],"dialogueRef":"dlg-de-pre-a1-entschuldigung","data":{"interaction":"read_aloud_exchange","openingInitiator":"learner"},"transformations":["persian_translation_added","character_metadata_added"],"audioStatus":"blocked_until_level_final"},
-    {"id":"act-de-entschuldigung-matching","type":"matching","instructionFa":"هر عبارت را به پاسخ مناسبش وصل کن.","selectionReason":"دو جفت اجتماعی کوتاه ممکن است در شروع دوره با هم قاطی شوند؛ matching بدون افزودن متن تازه رابطهٔ درست را تمرین می‌کند.","sourceRefs":["src-wiktionary-de-entschuldigung","src-wiktionary-de-kein-problem","src-wiktionary-de-danke","src-wiktionary-de-bitte"],"learningTargets":["تشخیص پاسخ مناسب برای عذرخواهی و تشکر."],"lexemeRefs":["lex-de-entschuldigung","lex-de-kein-problem","lex-de-danke","lex-de-bitte"],"dialogueRef":null,"data":{"pairs":[{"left":"Entschuldigung.","right":"Kein Problem.","sourceRefs":["src-wiktionary-de-entschuldigung","src-wiktionary-de-kein-problem"]},{"left":"Danke!","right":"Bitte!","sourceRefs":["src-wiktionary-de-danke","src-wiktionary-de-bitte"]}]},"transformations":["source_backed_pairs_grouped"],"audioStatus":"blocked_until_level_final"}
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-entschuldigung",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-first-steps",
+  "titleFa": "ببخشید!",
+  "sourceTitle": "Entschuldigung. / Kein Problem. / Danke! / Bitte!",
+  "learningTargets": [
+    "با «Entschuldigung.» یک عذرخواهی کوتاه را شروع کند.",
+    "«Kein Problem.» را به‌عنوان پاسخ آرام به عذرخواهی بفهمد.",
+    "دو جفت اجتماعی «Entschuldigung / Kein Problem» و «Danke / Bitte» را از هم تشخیص دهد."
   ],
-  "status":"draft",
-  "audioStatus":"blocked_until_level_final"
+  "sourceRefs": [
+    "src-wiktionary-de-entschuldigung",
+    "src-wiktionary-de-kein-problem",
+    "src-wiktionary-de-danke",
+    "src-wiktionary-de-bitte"
+  ],
+  "lexemeRefs": [
+    "lex-de-entschuldigung",
+    "lex-de-kein-problem",
+    "lex-de-danke",
+    "lex-de-bitte"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "بعد از گفت‌وگوی کوتاه، matching فقط رابطهٔ دو جفت اجتماعی نزدیک را تثبیت می‌کند و زبان تازه‌ای وارد نمی‌کند.",
+    "sequenceRationale": "زبان‌آموز ابتدا خودش عذرخواهی را آغاز می‌کند و بعد پاسخ‌های مناسب را به عبارت‌های آشنا وصل می‌کند.",
+    "templateSignature": "conversation_speaking>matching"
+  },
+  "activities": [
+    {
+      "id": "act-de-entschuldigung-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "این بار تو گفت‌وگو را شروع کن؛ برای یک اشتباه کوچک با «Entschuldigung.» عذرخواهی کن.",
+      "selectionReason": "هدف اصلی این درس استفادهٔ فعال از یک عذرخواهی کوتاه در یک تعامل واقعی و کم‌فشار است.",
+      "sourceRefs": [
+        "src-wiktionary-de-entschuldigung",
+        "src-wiktionary-de-kein-problem",
+        "src-wiktionary-de-danke",
+        "src-wiktionary-de-bitte"
+      ],
+      "learningTargets": [
+        "شروع عذرخواهی کوتاه و فهم پاسخ مناسب."
+      ],
+      "lexemeRefs": [
+        "lex-de-entschuldigung",
+        "lex-de-kein-problem",
+        "lex-de-danke",
+        "lex-de-bitte"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-entschuldigung",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-entschuldigung-matching",
+      "type": "matching",
+      "instructionFa": "هر عبارت را به پاسخ مناسبش وصل کن.",
+      "selectionReason": "دو جفت اجتماعی کوتاه ممکن است در شروع دوره با هم قاطی شوند؛ matching بدون افزودن متن تازه رابطهٔ درست را تمرین می‌کند.",
+      "sourceRefs": [
+        "src-wiktionary-de-entschuldigung",
+        "src-wiktionary-de-kein-problem",
+        "src-wiktionary-de-danke",
+        "src-wiktionary-de-bitte"
+      ],
+      "learningTargets": [
+        "تشخیص پاسخ مناسب برای عذرخواهی و تشکر."
+      ],
+      "lexemeRefs": [
+        "lex-de-entschuldigung",
+        "lex-de-kein-problem",
+        "lex-de-danke",
+        "lex-de-bitte"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Entschuldigung.",
+            "right": "Kein Problem.",
+            "sourceRefs": [
+              "src-wiktionary-de-entschuldigung",
+              "src-wiktionary-de-kein-problem"
+            ]
+          },
+          {
+            "left": "Danke!",
+            "right": "Bitte!",
+            "sourceRefs": [
+              "src-wiktionary-de-danke",
+              "src-wiktionary-de-bitte"
+            ]
+          }
+        ]
+      },
+      "transformations": [
+        "source_backed_pairs_grouped"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_level_final"
 }

@@ -1,20 +1,91 @@
 {
-  "schemaVersion":"1.0.0",
-  "id":"de-pre-a1-lesson-wellbeing",
-  "languageId":"de",
-  "level":"Pre-A1",
-  "unitRef":"de-pre-a1-unit-first-steps",
-  "titleFa":"حالت چطوره؟",
-  "sourceTitle":"Wie geht's? / Gut.",
-  "learningTargets":["پرسش کوتاه «Wie geht's?» را بفهمد.","با «Gut.» یک پاسخ خیلی ساده به احوال‌پرسی بدهد.","عبارت «Wie geht's?» را از روی ساختار منبع‌دار بازیابی کند."],
-  "sourceRefs":["src-wiktionary-de-hallo","src-wikibooks-de-basic-greetings"],
-  "lexemeRefs":["lex-de-hallo","lex-de-wie-gehts","lex-de-gut"],
-  "grammarNoteRefs":[],
-  "activityDesign":{"activitySelectionRationale":"بعد از گفت‌وگو، fill blank فقط عبارت تازهٔ «Wie geht's?» را با حذف یک بخش کوچک بازیابی می‌کند و بار شناختی را پایین نگه می‌دارد.","sequenceRationale":"اول معنی و پاسخ در مکالمه دیده می‌شود و بعد همان عبارت منبع‌دار با یک جای‌خالی ساده بازیابی می‌شود.","templateSignature":"conversation_speaking>fill_blank"},
-  "activities":[
-    {"id":"act-de-wellbeing-conversation","type":"conversation_speaking","instructionFa":"با میا سلام کن و وقتی می‌پرسد «Wie geht's?» با «Gut.» جواب بده.","selectionReason":"احوال‌پرسی پایه باید اول در یک تعامل کوتاه و روشن دیده و گفته شود.","sourceRefs":["src-wiktionary-de-hallo","src-wikibooks-de-basic-greetings"],"learningTargets":["فهم «Wie geht's?» و پاسخ کوتاه با «Gut.»."],"lexemeRefs":["lex-de-hallo","lex-de-wie-gehts","lex-de-gut"],"dialogueRef":"dlg-de-pre-a1-wellbeing","data":{"interaction":"read_aloud_exchange","openingInitiator":"app"},"transformations":["persian_translation_added","character_metadata_added"],"audioStatus":"blocked_until_level_final"},
-    {"id":"act-de-wellbeing-fill","type":"fill_blank","instructionFa":"عبارت احوال‌پرسی را کامل کن.","selectionReason":"جای‌خالی از همان عبارت منبع‌دار ساخته شده و بدون معرفی واژهٔ تازه یک بازیابی سبک ایجاد می‌کند.","sourceRefs":["src-wikibooks-de-basic-greetings"],"learningTargets":["بازیابی عبارت «Wie geht's?»."],"lexemeRefs":["lex-de-wie-gehts","lex-de-gut"],"dialogueRef":null,"data":{"sourceText":"Wie geht's?","blankedText":"Wie ___?","choices":["geht's","gut"],"answer":"geht's"},"transformations":["source_sentence_blanked"],"audioStatus":"blocked_until_level_final"}
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-wellbeing",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-first-steps",
+  "titleFa": "حالت چطوره؟",
+  "sourceTitle": "Wie geht's? / Gut.",
+  "learningTargets": [
+    "پرسش کوتاه «Wie geht's?» را بفهمد.",
+    "با «Gut.» یک پاسخ خیلی ساده به احوال‌پرسی بدهد.",
+    "عبارت «Wie geht's?» را از روی ساختار منبع‌دار بازیابی کند."
   ],
-  "status":"draft",
-  "audioStatus":"blocked_until_level_final"
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-wikibooks-de-basic-greetings"
+  ],
+  "lexemeRefs": [
+    "lex-de-hallo",
+    "lex-de-wie-gehts",
+    "lex-de-gut"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "بعد از گفت‌وگو، fill blank فقط عبارت تازهٔ «Wie geht's?» را با حذف یک بخش کوچک بازیابی می‌کند و بار شناختی را پایین نگه می‌دارد.",
+    "sequenceRationale": "اول معنی و پاسخ در مکالمه دیده می‌شود و بعد همان عبارت منبع‌دار با یک جای‌خالی ساده بازیابی می‌شود.",
+    "templateSignature": "conversation_speaking>fill_blank"
+  },
+  "activities": [
+    {
+      "id": "act-de-wellbeing-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "با میا سلام کن و وقتی می‌پرسد «Wie geht's?» با «Gut.» جواب بده.",
+      "selectionReason": "احوال‌پرسی پایه باید اول در یک تعامل کوتاه و روشن دیده و گفته شود.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "learningTargets": [
+        "فهم «Wie geht's?» و پاسخ کوتاه با «Gut.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-hallo",
+        "lex-de-wie-gehts",
+        "lex-de-gut"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-wellbeing",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-wellbeing-fill",
+      "type": "fill_blank",
+      "instructionFa": "عبارت احوال‌پرسی را کامل کن.",
+      "selectionReason": "جای‌خالی از همان عبارت منبع‌دار ساخته شده و بدون معرفی واژهٔ تازه یک بازیابی سبک ایجاد می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "learningTargets": [
+        "بازیابی عبارت «Wie geht's?»."
+      ],
+      "lexemeRefs": [
+        "lex-de-wie-gehts",
+        "lex-de-gut"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wie geht's?",
+        "blankedText": "Wie ___?",
+        "choices": [
+          "geht's",
+          "gut"
+        ],
+        "answer": "geht's"
+      },
+      "transformations": [
+        "source_sentence_blanked"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_level_final"
 }
