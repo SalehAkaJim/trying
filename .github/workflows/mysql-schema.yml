@@ -115,6 +115,40 @@ jobs:
           print('Authoring/MySQL manifests are synchronized:',expected)
           PY
 
+      - name: Verify dialogue starters match authoring JSON
+        run: |
+          python - <<'PY' > /tmp/expected_dialogue_starters.tsv
+          import json, pathlib
+          rows=[]
+          for path in pathlib.Path('content').glob('*/*/dialogues/*.json'):
+              data=json.loads(path.read_text(encoding='utf-8'))
+              rows.append((data['id'],data['openingInitiator']))
+          for row in sorted(rows):
+              print('\t'.join(row))
+          PY
+
+          docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT dialogue_key,opening_initiator FROM dialogues ORDER BY dialogue_key;" > /tmp/actual_dialogue_starters.tsv
+
+          python - <<'PY'
+          import pathlib,sys
+          def read(path):
+              out={}
+              for line in pathlib.Path(path).read_text(encoding='utf-8').splitlines():
+                  if not line.strip():
+                      continue
+                  key,value=line.split('\t')
+                  out[key]=value
+              return out
+          expected=read('/tmp/expected_dialogue_starters.tsv')
+          actual=read('/tmp/actual_dialogue_starters.tsv')
+          if expected != actual:
+              print('Authoring/MySQL dialogue starter mismatch')
+              print('Expected:',expected)
+              print('Actual:  ',actual)
+              sys.exit(1)
+          print(f'Dialogue starter synchronization passed for {len(expected)} dialogues.')
+          PY
+
       - name: Verify generic dialogue and provenance rules in MySQL
         run: |
           missing_openings="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM lessons l LEFT JOIN activities a ON a.lesson_id=l.id AND a.position_index=1 WHERE a.id IS NULL OR a.activity_type<>'conversation_speaking' OR a.dialogue_id IS NULL;" | tr -d '\r[:space:]')"
