@@ -52,6 +52,9 @@ jobs:
       - name: Verify assistant-authored source prose is Persian
         run: python scripts/validate_source_localization.py
 
+      - name: Validate strict Persian coverage
+        run: python scripts/validate_persian_coverage.py
+
       - name: Verify MySQL localization matches canonical taxonomy
         run: python scripts/apply_mysql_localization.py --check
 
