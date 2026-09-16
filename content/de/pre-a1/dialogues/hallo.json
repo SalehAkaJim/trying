@@ -3,16 +3,14 @@
   "languageId": "de",
   "level": "Pre-A1",
   "sourceRefs": ["src-wiktionary-de-hallo", "src-wikibooks-de-basic-greetings"],
-  "scenario": "میا و زبان‌آموز با یک سلام ساده شروع می‌کنند، یک احوال‌پرسی خیلی کوتاه دارند و خداحافظی می‌کنند.",
+  "scenario": "میا و زبان‌آموز با یک سلام ساده شروع می‌کنند و با یک خداحافظی کوتاه مکالمه را تمام می‌کنند.",
   "openingInitiator": "app",
   "characterRefs": ["char-de-mia", "char-de-learner"],
   "turns": [
     {"id":"turn-de-hallo-1","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":false,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
     {"id":"turn-de-hallo-2","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Hallo!","translationFa":"سلام!","learnerTurn":true,"lexemeRefs":["lex-de-hallo"],"lexemeOccurrences":[{"surface":"Hallo","lexemeId":"lex-de-hallo","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-hallo"],"audioRef":null},
-    {"id":"turn-de-hallo-3","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Wie geht's?","translationFa":"حالت چطوره؟","learnerTurn":false,"lexemeRefs":["lex-de-wie-gehts"],"lexemeOccurrences":[{"surface":"Wie geht's","lexemeId":"lex-de-wie-gehts","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null},
-    {"id":"turn-de-hallo-4","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Gut.","translationFa":"خوبم.","learnerTurn":true,"lexemeRefs":["lex-de-gut"],"lexemeOccurrences":[{"surface":"Gut","lexemeId":"lex-de-gut","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null},
-    {"id":"turn-de-hallo-5","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Tschüss!","translationFa":"خداحافظ!","learnerTurn":false,"lexemeRefs":["lex-de-tschuess"],"lexemeOccurrences":[{"surface":"Tschüss","lexemeId":"lex-de-tschuess","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null},
-    {"id":"turn-de-hallo-6","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Tschüss!","translationFa":"خداحافظ!","learnerTurn":true,"lexemeRefs":["lex-de-tschuess"],"lexemeOccurrences":[{"surface":"Tschüss","lexemeId":"lex-de-tschuess","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null}
+    {"id":"turn-de-hallo-3","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Tschüss!","translationFa":"خداحافظ!","learnerTurn":false,"lexemeRefs":["lex-de-tschuess"],"lexemeOccurrences":[{"surface":"Tschüss","lexemeId":"lex-de-tschuess","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null},
+    {"id":"turn-de-hallo-4","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Tschüss!","translationFa":"خداحافظ!","learnerTurn":true,"lexemeRefs":["lex-de-tschuess"],"lexemeOccurrences":[{"surface":"Tschüss","lexemeId":"lex-de-tschuess","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-basic-greetings"],"audioRef":null}
   ],
-  "sceneQualityRationale": "صحنه یک تعامل کامل و بسیار ساده از سلام تا احوال‌پرسی و خداحافظی است و بدون اضافه‌کردن جملهٔ ساختگی، در بازهٔ تعیین‌شدهٔ مکالمه قرار می‌گیرد."
+  "sceneQualityRationale": "برای شروع دوره، مکالمه عمداً روی چهار turn نگه داشته شده و فقط سلام و خداحافظی بسیار ساده را تمرین می‌کند."
 }
