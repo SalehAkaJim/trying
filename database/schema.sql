@@ -5,6 +5,184 @@
 SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 SET time_zone = '+00:00';
 
+CREATE TABLE IF NOT EXISTS taxonomy_labels (
+  domain_code VARCHAR(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  value_code VARCHAR(128) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  label_fa VARCHAR(255) NOT NULL,
+  PRIMARY KEY (domain_code,value_code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- BEGIN GENERATED FA TAXONOMY
+INSERT INTO taxonomy_labels (domain_code,value_code,label_fa) VALUES
+  ('language_status','planned','برنامه‌ریزی‌شده'),
+  ('language_status','building','در حال ساخت'),
+  ('language_status','review','در حال بازبینی'),
+  ('language_status','final','نهایی'),
+  ('language_status','audio_ready','صوت آماده'),
+  ('cefr_level','Pre-A1','پیش از سطح A1'),
+  ('cefr_level','A1','سطح A1'),
+  ('cefr_level','A2','سطح A2'),
+  ('cefr_level','B1','سطح B1'),
+  ('cefr_level','B2','سطح B2'),
+  ('cefr_level','C1','سطح C1'),
+  ('cefr_level','C2','سطح C2'),
+  ('level_status','unassessed','ارزیابی‌نشده'),
+  ('level_status','planning','در حال برنامه‌ریزی'),
+  ('level_status','building','در حال ساخت'),
+  ('level_status','review','در حال بازبینی'),
+  ('level_status','final','نهایی'),
+  ('curriculum_target_type','communicative','ارتباطی'),
+  ('curriculum_target_type','linguistic','زبانی'),
+  ('curriculum_target_type','situation','موقعیتی'),
+  ('curriculum_target_type','pronunciation','تلفظ'),
+  ('curriculum_target_type','grammar','دستور زبان'),
+  ('curriculum_target_type','lexical','واژگانی'),
+  ('curriculum_target_type','review','مرور'),
+  ('curriculum_target_type','other','سایر'),
+  ('curriculum_target_status','uncovered','پوشش‌داده‌نشده'),
+  ('curriculum_target_status','partial','پوشش جزئی'),
+  ('curriculum_target_status','covered','پوشش کامل'),
+  ('curriculum_target_status','review','نیازمند مرور'),
+  ('source_type','course','دورهٔ آموزشی'),
+  ('source_type','book','کتاب'),
+  ('source_type','website','وب‌سایت'),
+  ('source_type','corpus','پیکرهٔ زبانی'),
+  ('source_type','dictionary','واژه‌نامه'),
+  ('source_type','grammar_reference','مرجع دستور زبان'),
+  ('source_type','audio_course','دورهٔ صوتی'),
+  ('source_type','other','سایر'),
+  ('modernity_status','contemporary_verified','معاصر و تأییدشده'),
+  ('modernity_status','maintained_current','فعال و به‌روز'),
+  ('modernity_status','historical_or_legacy','قدیمی یا تاریخی'),
+  ('modernity_status','needs_currency_review','نیازمند بررسی به‌روز بودن'),
+  ('reuse_status','direct_reuse_allowed','استفادهٔ مستقیم مجاز'),
+  ('reuse_status','reuse_with_attribution','استفاده با ذکر منبع'),
+  ('reuse_status','analysis_only','فقط برای تحلیل'),
+  ('reuse_status','needs_review','نیازمند بررسی'),
+  ('character_origin','source','برگرفته از منبع'),
+  ('character_origin','app_created','ساختهٔ اپلیکیشن'),
+  ('gender','female','زن'),
+  ('gender','male','مرد'),
+  ('gender','unspecified','نامشخص'),
+  ('gender','not_applicable','قابل اعمال نیست'),
+  ('age_band','child','کودک'),
+  ('age_band','teen','نوجوان'),
+  ('age_band','young_adult','جوان'),
+  ('age_band','adult','بزرگسال'),
+  ('age_band','middle_aged','میانسال'),
+  ('age_band','older_adult','سالمند'),
+  ('age_band','unspecified','نامشخص'),
+  ('unit_status','draft','پیش‌نویس'),
+  ('unit_status','review','در حال بازبینی'),
+  ('unit_status','final','نهایی'),
+  ('lesson_status','draft','پیش‌نویس'),
+  ('lesson_status','source_checked','منبع بررسی‌شده'),
+  ('lesson_status','cefr_checked','سطح CEFR بررسی‌شده'),
+  ('lesson_status','qa','در کنترل کیفیت'),
+  ('lesson_status','final','نهایی'),
+  ('coverage_role','introduce','معرفی'),
+  ('coverage_role','practice','تمرین'),
+  ('coverage_role','review','مرور'),
+  ('coverage_role','assess','ارزیابی'),
+  ('coverage_role','support','پشتیبان'),
+  ('speaker_identity_origin','source','برگرفته از منبع'),
+  ('speaker_identity_origin','app_assigned','تخصیص‌داده‌شده توسط اپلیکیشن'),
+  ('activity_type','conversation_speaking','مکالمهٔ گفتاری'),
+  ('activity_type','listen_choose','گوش‌دادن و انتخاب'),
+  ('activity_type','multiple_choice','چندگزینه‌ای'),
+  ('activity_type','choose_response','انتخاب پاسخ'),
+  ('activity_type','word_order','مرتب‌کردن کلمات'),
+  ('activity_type','fill_blank','پرکردن جای خالی'),
+  ('activity_type','matching','وصل‌کردن موارد مرتبط'),
+  ('activity_type','listen_repeat','گوش‌دادن و تکرار'),
+  ('activity_type','pronunciation_read','خواندن و تلفظ'),
+  ('activity_type','grammar_focus','تمرکز بر دستور زبان'),
+  ('activity_type','comprehension','درک مطلب'),
+  ('activity_type','true_false','درست یا غلط'),
+  ('activity_type','review','مرور'),
+  ('opening_initiator','app','اپلیکیشن'),
+  ('opening_initiator','learner','زبان‌آموز'),
+  ('audio_status','not_started','شروع‌نشده'),
+  ('audio_status','blocked_until_language_final','متوقف تا نهایی‌شدن زبان'),
+  ('audio_status','not_planned_yet','هنوز برنامه‌ریزی نشده'),
+  ('audio_status','pending_final_language','منتظر نهایی‌شدن زبان'),
+  ('audio_status','pending','در انتظار'),
+  ('audio_status','ready','آماده'),
+  ('lexeme_type','word','واژه'),
+  ('lexeme_type','phrase','عبارت'),
+  ('part_of_speech','noun','اسم'),
+  ('part_of_speech','verb','فعل'),
+  ('part_of_speech','adjective','صفت'),
+  ('part_of_speech','adverb','قید'),
+  ('part_of_speech','pronoun','ضمیر'),
+  ('part_of_speech','preposition','حرف اضافه'),
+  ('part_of_speech','conjunction','حرف ربط'),
+  ('part_of_speech','article','حرف تعریف'),
+  ('part_of_speech','determiner','تعیین‌کننده'),
+  ('part_of_speech','numeral','عدد'),
+  ('part_of_speech','interjection','حرف ندا / عبارت واکنشی'),
+  ('part_of_speech','greeting_formula','عبارت سلام و احوال‌پرسی'),
+  ('part_of_speech','farewell_formula','عبارت خداحافظی'),
+  ('part_of_speech','response_formula','عبارت پاسخ'),
+  ('part_of_speech','response_particle','واژهٔ پاسخ'),
+  ('part_of_speech','interjection_response_particle','عبارت واکنشی / واژهٔ پاسخ'),
+  ('part_of_speech','adverb_response_particle','قید / واژهٔ پاسخ'),
+  ('part_of_speech','adjective_response','صفت / پاسخ کوتاه'),
+  ('part_of_speech','question_formula','عبارت پرسشی'),
+  ('part_of_speech','name_formula','عبارت معرفی نام'),
+  ('part_of_speech','politeness_formula','عبارت مؤدبانه'),
+  ('part_of_speech','proper_noun','اسم خاص'),
+  ('part_of_speech','other','سایر'),
+  ('lexeme_form_type','inflected','صرف‌شده'),
+  ('lexeme_form_type','orthographic_variant','گونهٔ املایی'),
+  ('lexeme_form_type','contraction','شکل کوتاه‌شده'),
+  ('lexeme_form_type','cliticized','شکل پی‌بستی'),
+  ('lexeme_form_type','abbreviation','مخفف'),
+  ('lexeme_form_type','other','سایر'),
+  ('lexeme_form_origin','source_attested','ثبت‌شده در منبع'),
+  ('lexeme_form_origin','reference_attested','ثبت‌شده در مرجع'),
+  ('lexeme_form_origin','generated','تولیدشده'),
+  ('review_status','pending_review','منتظر بازبینی'),
+  ('review_status','approved','تأییدشده'),
+  ('lexeme_role','introduce','معرفی'),
+  ('lexeme_role','practice','تمرین'),
+  ('lexeme_role','review','مرور'),
+  ('lexeme_role','support','پشتیبان'),
+  ('occurrence_owner_type','dialogue_turn','نوبت مکالمه'),
+  ('occurrence_owner_type','activity','فعالیت'),
+  ('occurrence_owner_type','example_sentence','جملهٔ نمونه'),
+  ('resolution_status','pending','در انتظار'),
+  ('resolution_status','approved','تأییدشده'),
+  ('resolution_status','rejected','ردشده'),
+  ('provenance_entity_type','language_level','سطح زبان'),
+  ('provenance_entity_type','unit','واحد'),
+  ('provenance_entity_type','lesson','درس'),
+  ('provenance_entity_type','activity','فعالیت'),
+  ('provenance_entity_type','dialogue','مکالمه'),
+  ('provenance_entity_type','dialogue_turn','نوبت مکالمه'),
+  ('provenance_entity_type','character','شخصیت'),
+  ('provenance_entity_type','lexeme','واژه یا عبارت'),
+  ('provenance_entity_type','lexeme_form','صورت واژه'),
+  ('provenance_entity_type','grammar_note','نکتهٔ دستوری'),
+  ('provenance_entity_type','example_sentence','جملهٔ نمونه'),
+  ('provenance_transformation','verbatim','عیناً از منبع'),
+  ('provenance_transformation','persian_translation_added','ترجمهٔ فارسی افزوده شده'),
+  ('provenance_transformation','sentence_tokenized_for_word_order','جمله برای مرتب‌سازی کلمات بخش‌بندی شده'),
+  ('provenance_transformation','source_sentence_blank_created','از جملهٔ منبع جای خالی ساخته شده'),
+  ('provenance_transformation','source_items_grouped_for_matching','موارد منبع برای تطبیق گروه‌بندی شده'),
+  ('provenance_transformation','options_selected_from_source_material','گزینه‌ها از محتوای منبع انتخاب شده‌اند'),
+  ('provenance_transformation','character_metadata_added','فرادادهٔ شخصیت افزوده شده'),
+  ('provenance_transformation','cefr_level_assigned_by_app','سطح CEFR توسط اپلیکیشن تعیین شده'),
+  ('provenance_transformation','other','سایر'),
+  ('activity_transformation','persian_translation_added','ترجمهٔ فارسی افزوده شده'),
+  ('activity_transformation','character_metadata_added','فرادادهٔ شخصیت افزوده شده'),
+  ('activity_transformation','options_selected_from_source_material','گزینه‌ها از محتوای منبع انتخاب شده‌اند'),
+  ('activity_transformation','sentence_tokenized_for_word_order','جمله برای مرتب‌سازی کلمات بخش‌بندی شده'),
+  ('activity_transformation','source_items_grouped_for_matching','موارد منبع برای تطبیق گروه‌بندی شده'),
+  ('activity_transformation','source_sentence_blanked','از جملهٔ منبع جای خالی ساخته شده')
+ON DUPLICATE KEY UPDATE label_fa=VALUES(label_fa);
+-- END GENERATED FA TAXONOMY
+
 CREATE TABLE IF NOT EXISTS languages (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   code VARCHAR(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
@@ -238,6 +416,7 @@ CREATE TABLE IF NOT EXISTS lexemes (
   normalized_surface VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NULL,
   lemma VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NULL,
   part_of_speech VARCHAR(128) NULL,
+  part_of_speech_fa VARCHAR(191) NULL,
   cefr_level ENUM('Pre-A1','A1','A2','B1','B2','C1','C2') NULL,
   translation_fa TEXT NOT NULL,
   usage_note_fa TEXT NULL,
@@ -376,6 +555,44 @@ CREATE TABLE IF NOT EXISTS provenance_links (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DELIMITER $$
+
+DROP TRIGGER IF EXISTS trg_lexemes_bi_fa_taxonomy$$
+CREATE TRIGGER trg_lexemes_bi_fa_taxonomy BEFORE INSERT ON lexemes FOR EACH ROW
+BEGIN
+  DECLARE expected_label VARCHAR(255);
+  IF NEW.part_of_speech IS NULL THEN
+    IF NEW.part_of_speech_fa IS NOT NULL THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='part_of_speech_fa must be null when part_of_speech is null';
+    END IF;
+  ELSE
+    SET expected_label=(SELECT label_fa FROM taxonomy_labels WHERE domain_code='part_of_speech' AND value_code=NEW.part_of_speech LIMIT 1);
+    IF expected_label IS NULL THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='part_of_speech requires a Persian taxonomy label';
+    END IF;
+    IF NEW.part_of_speech_fa IS NULL OR NEW.part_of_speech_fa<>expected_label THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='part_of_speech_fa must match canonical Persian taxonomy label';
+    END IF;
+  END IF;
+END$$
+
+DROP TRIGGER IF EXISTS trg_lexemes_bu_fa_taxonomy$$
+CREATE TRIGGER trg_lexemes_bu_fa_taxonomy BEFORE UPDATE ON lexemes FOR EACH ROW
+BEGIN
+  DECLARE expected_label VARCHAR(255);
+  IF NEW.part_of_speech IS NULL THEN
+    IF NEW.part_of_speech_fa IS NOT NULL THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='part_of_speech_fa must be null when part_of_speech is null';
+    END IF;
+  ELSE
+    SET expected_label=(SELECT label_fa FROM taxonomy_labels WHERE domain_code='part_of_speech' AND value_code=NEW.part_of_speech LIMIT 1);
+    IF expected_label IS NULL THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='part_of_speech requires a Persian taxonomy label';
+    END IF;
+    IF NEW.part_of_speech_fa IS NULL OR NEW.part_of_speech_fa<>expected_label THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='part_of_speech_fa must match canonical Persian taxonomy label';
+    END IF;
+  END IF;
+END$$
 
 DROP TRIGGER IF EXISTS trg_lexeme_occurrences_bi$$
 CREATE TRIGGER trg_lexeme_occurrences_bi BEFORE INSERT ON lexeme_occurrences FOR EACH ROW

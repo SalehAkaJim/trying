@@ -453,23 +453,23 @@ SET @a14 := (SELECT id FROM activities WHERE activity_key='act-de-wellbeing-fill
 
 -- Lexemes / forms -------------------------------------------------------------
 INSERT INTO lexemes
-(lexeme_key,language_id,lexeme_type,surface,normalized_surface,lemma,part_of_speech,cefr_level,translation_fa,usage_note_fa,flashcard_eligible,audio_status,audio_url,audio_voice_name,audio_voice_id) VALUES
-('lex-de-hallo',@de,'word','hallo','hallo','hallo','interjection','Pre-A1','سلام','برای سلام‌کردن دوستانه و عمومی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-guten-morgen',@de,'phrase','guten Morgen','guten morgen',NULL,'greeting_formula','Pre-A1','صبح بخیر','برای سلام‌کردن در صبح.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-moegen',@de,'word','mögen','mögen','mögen','verb','Pre-A1','دوست داشتن / خوش آمدن',NULL,TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-pizza',@de,'word','Pizza','pizza','Pizza','noun','Pre-A1','پیتزا',NULL,TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-ja',@de,'word','ja','ja','ja','response_particle','Pre-A1','بله','برای پاسخ مثبت و موافقت.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-nein',@de,'word','nein','nein','nein','response_particle','Pre-A1','نه','برای پاسخ منفی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-danke',@de,'word','danke','danke','danke','interjection_response_particle','Pre-A1','ممنون / متشکرم','برای تشکر کوتاه و روزمره.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-bitte',@de,'word','bitte','bitte','bitte','adverb_response_particle','Pre-A1','خواهش می‌کنم / لطفاً','در این مرحله فقط به معنی «خواهش می‌کنم» در پاسخ به تشکر استفاده می‌شود.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-wie-gehts',@de,'phrase','wie geht''s','wie geht''s',NULL,'greeting_formula','Pre-A1','حالت چطوره؟','برای احوال‌پرسی دوستانه و خیلی کوتاه.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-gut',@de,'word','gut','gut','gut','adjective_response','Pre-A1','خوب','در این مرحله «Gut.» به‌عنوان پاسخ کوتاه به احوال‌پرسی استفاده می‌شود.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-tschuess',@de,'word','tschüss','tschüss','tschüss','farewell_formula','Pre-A1','خداحافظ / فعلاً','برای خداحافظی دوستانه و غیررسمی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-entschuldigung',@de,'word','Entschuldigung','entschuldigung','Entschuldigung','interjection','Pre-A1','ببخشید / معذرت می‌خواهم','برای عذرخواهی کوتاه یا شروع مؤدبانهٔ خطاب به کسی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-kein-problem',@de,'phrase','kein Problem','kein problem',NULL,'response_formula','Pre-A1','مشکلی نیست','برای پاسخ کوتاه و دوستانه به یک عذرخواهی ساده.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
-('lex-de-heissen',@de,'word','heißen','heißen','heißen','verb','Pre-A1','نام داشتن / نامیده شدن','در این مرحله فقط برای پرسیدن نام و گفتن نام استفاده می‌شود.',TRUE,'blocked_until_language_final',NULL,NULL,NULL)
+(lexeme_key,language_id,lexeme_type,surface,normalized_surface,lemma,part_of_speech,part_of_speech_fa,cefr_level,translation_fa,usage_note_fa,flashcard_eligible,audio_status,audio_url,audio_voice_name,audio_voice_id) VALUES
+('lex-de-hallo',@de,'word','hallo','hallo','hallo','interjection','حرف ندا / عبارت واکنشی','Pre-A1','سلام','برای سلام‌کردن دوستانه و عمومی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-guten-morgen',@de,'phrase','guten Morgen','guten morgen',NULL,'greeting_formula','عبارت سلام و احوال‌پرسی','Pre-A1','صبح بخیر','برای سلام‌کردن در صبح.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-moegen',@de,'word','mögen','mögen','mögen','verb','فعل','Pre-A1','دوست داشتن / خوش آمدن',NULL,TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-pizza',@de,'word','Pizza','pizza','Pizza','noun','اسم','Pre-A1','پیتزا',NULL,TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-ja',@de,'word','ja','ja','ja','response_particle','واژهٔ پاسخ','Pre-A1','بله','برای پاسخ مثبت و موافقت.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-nein',@de,'word','nein','nein','nein','response_particle','واژهٔ پاسخ','Pre-A1','نه','برای پاسخ منفی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-danke',@de,'word','danke','danke','danke','interjection_response_particle','عبارت واکنشی / واژهٔ پاسخ','Pre-A1','ممنون / متشکرم','برای تشکر کوتاه و روزمره.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-bitte',@de,'word','bitte','bitte','bitte','adverb_response_particle','قید / واژهٔ پاسخ','Pre-A1','خواهش می‌کنم / لطفاً','در این مرحله فقط به معنی «خواهش می‌کنم» در پاسخ به تشکر استفاده می‌شود.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-wie-gehts',@de,'phrase','wie geht''s','wie geht''s',NULL,'greeting_formula','عبارت سلام و احوال‌پرسی','Pre-A1','حالت چطوره؟','برای احوال‌پرسی دوستانه و خیلی کوتاه.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-gut',@de,'word','gut','gut','gut','adjective_response','صفت / پاسخ کوتاه','Pre-A1','خوب','در این مرحله «Gut.» به‌عنوان پاسخ کوتاه به احوال‌پرسی استفاده می‌شود.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-tschuess',@de,'word','tschüss','tschüss','tschüss','farewell_formula','عبارت خداحافظی','Pre-A1','خداحافظ / فعلاً','برای خداحافظی دوستانه و غیررسمی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-entschuldigung',@de,'word','Entschuldigung','entschuldigung','Entschuldigung','interjection','حرف ندا / عبارت واکنشی','Pre-A1','ببخشید / معذرت می‌خواهم','برای عذرخواهی کوتاه یا شروع مؤدبانهٔ خطاب به کسی.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-kein-problem',@de,'phrase','kein Problem','kein problem',NULL,'response_formula','عبارت پاسخ','Pre-A1','مشکلی نیست','برای پاسخ کوتاه و دوستانه به یک عذرخواهی ساده.',TRUE,'blocked_until_language_final',NULL,NULL,NULL),
+('lex-de-heissen',@de,'word','heißen','heißen','heißen','verb','فعل','Pre-A1','نام داشتن / نامیده شدن','در این مرحله فقط برای پرسیدن نام و گفتن نام استفاده می‌شود.',TRUE,'blocked_until_language_final',NULL,NULL,NULL)
 ON DUPLICATE KEY UPDATE language_id=VALUES(language_id),lexeme_type=VALUES(lexeme_type),surface=VALUES(surface),
- normalized_surface=VALUES(normalized_surface),lemma=VALUES(lemma),part_of_speech=VALUES(part_of_speech),cefr_level=VALUES(cefr_level),
+ normalized_surface=VALUES(normalized_surface),lemma=VALUES(lemma),part_of_speech=VALUES(part_of_speech),part_of_speech_fa=VALUES(part_of_speech_fa),cefr_level=VALUES(cefr_level),
  translation_fa=VALUES(translation_fa),usage_note_fa=VALUES(usage_note_fa),flashcard_eligible=VALUES(flashcard_eligible),audio_status=VALUES(audio_status);
 
 SET @x_hallo := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-hallo');
