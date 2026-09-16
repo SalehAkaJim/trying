@@ -50,7 +50,14 @@ This file is the compact source of truth for the decisions carried forward into 
 
 - Target-language dialogues, sentences, words, phrases, grammar explanations, and reusable teaching examples are not invented merely to fill curriculum or activity gaps.
 - Every reusable teaching item must be traceable to identifiable source records/source items.
+- **Only modern/contemporary sources may feed learner-facing instructional content.**
+- Eligible learner-facing sources must be either `contemporary_verified` static/current material or `maintained_current` living references/corpora/web resources.
+- Old or legacy books, historical textbooks, outdated course documents, archived editions, old scans/OCR sources and similarly dated instructional materials are not allowed as learner-facing evidence, even if their license permits reuse.
+- `historical_or_legacy` material may be used only for `analysis_only` research/comparison.
+- Sources whose current suitability is unclear must be `needs_currency_review` and cannot feed active learner-facing content until reviewed.
+- There is no arbitrary global year cutoff; modernity is determined from publication/revision evidence, active maintenance, contemporary standard usage, pedagogy, spelling/register and whether a newer authoritative replacement exists.
 - Restricted sources may inform curriculum analysis, but reusable lesson text must obey reuse/license status.
+- Modernity approval and copyright/reuse approval are independent gates; both must pass.
 - `analysis_only` and `needs_review` sources must not feed active learner-facing teaching content.
 - Attribution-required sources must carry the required attribution metadata.
 
@@ -122,6 +129,8 @@ Before content can be final, QA must verify at minimum:
 - learner participation is appropriate to the scene and learning goal without relying on a learner-turn quota;
 - no unit, lesson, activity or conversation structure was padded, split, merged or truncated to satisfy a numeric quota or preferred range;
 - provenance resolves for reusable teaching items;
+- every learner-facing source passes the modernity/currency gate as `contemporary_verified` or `maintained_current`;
+- no `historical_or_legacy` or `needs_currency_review` source is used as active learner-facing evidence;
 - CEFR placement is justified;
 - Persian translation preserves meaning;
 - character assignment is compatible with source/context evidence;
