@@ -25,7 +25,6 @@ jobs:
 
           root = pathlib.Path('.')
 
-          # 1) MySQL schema: opening initiator is a first-class semantic field.
           schema_path = root / 'database/schema.sql'
           schema = schema_path.read_text(encoding='utf-8')
           old = "  scenario TEXT NOT NULL,\n  scene_quality_rationale TEXT NULL,\n"
@@ -36,7 +35,6 @@ jobs:
               schema = schema.replace(old, new, 1)
           schema_path.write_text(schema, encoding='utf-8')
 
-          # 2) Contract validator: every new enum must have a Persian taxonomy mapping.
           validator_path = root / 'scripts/validate_project_contracts.py'
           validator = validator_path.read_text(encoding='utf-8')
           anchor = '    ("lesson_targets", "coverage_role"): "coverage_role",\n'
@@ -47,7 +45,6 @@ jobs:
               validator = validator.replace(anchor, addition, 1)
           validator_path.write_text(validator, encoding='utf-8')
 
-          # 3) Current SQL content: derive canonical values from authoring dialogue JSON.
           for sql_path in (root / 'database/content').rglob('*.sql'):
               parts = sql_path.parts
               if len(parts) < 4:
@@ -98,32 +95,6 @@ jobs:
               text = text.replace(old_upsert, new_upsert, 1)
               sql_path.write_text(text, encoding='utf-8')
 
-          # 4) Generic MySQL CI: validate the relational field, and also detect stale payload duplication.
-          workflow_path = root / '.github/workflows/mysql-schema.yml'
-          workflow = workflow_path.read_text(encoding='utf-8')
-          old_query = "SELECT COUNT(*) FROM (SELECT JSON_UNQUOTE(JSON_EXTRACT(a.payload,'$.openingInitiator')) initiator,t.learner_turn,a.instruction_fa FROM activities a JOIN dialogue_turns t ON t.dialogue_id=a.dialogue_id AND t.position_index=1 WHERE a.position_index=1 AND a.activity_type='conversation_speaking')x WHERE initiator IS NULL OR initiator NOT IN ('app','learner') OR (initiator='learner' AND learner_turn<>1) OR (initiator='app' AND learner_turn<>0) OR (initiator='learner' AND (instruction_fa IS NULL OR instruction_fa NOT LIKE '%شروع%'));"
-          new_query = "SELECT COUNT(*) FROM (SELECT d.opening_initiator initiator,t.learner_turn,a.instruction_fa FROM activities a JOIN dialogues d ON d.id=a.dialogue_id JOIN dialogue_turns t ON t.dialogue_id=a.dialogue_id AND t.position_index=1 WHERE a.position_index=1 AND a.activity_type='conversation_speaking')x WHERE initiator NOT IN ('app','learner') OR (initiator='learner' AND learner_turn<>1) OR (initiator='app' AND learner_turn<>0) OR (initiator='learner' AND (instruction_fa IS NULL OR instruction_fa NOT LIKE '%شروع%'));"
-          if old_query in workflow:
-              workflow = workflow.replace(old_query, new_query, 1)
-          elif new_query not in workflow:
-              raise SystemExit('MySQL starter query anchor not found')
-
-          echo_anchor = '          invalid_sources="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM v_invalid_learner_facing_source_links;" | tr -d \'\\r[:space:]\')"\n'
-          payload_line = '          invalid_payload_starters="$(docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "SELECT COUNT(*) FROM activities a JOIN dialogues d ON d.id=a.dialogue_id WHERE a.position_index=1 AND a.activity_type=\'conversation_speaking\' AND JSON_EXTRACT(a.payload,\'$.openingInitiator\') IS NOT NULL AND JSON_UNQUOTE(JSON_EXTRACT(a.payload,\'$.openingInitiator\'))<>d.opening_initiator;" | tr -d \'\\r[:space:]\')"\n'
-          if 'invalid_payload_starters=' not in workflow:
-              if echo_anchor not in workflow:
-                  raise SystemExit('MySQL provenance anchor not found')
-              workflow = workflow.replace(echo_anchor, payload_line + echo_anchor, 1)
-
-          old_echo = '          echo "missing openings=$missing_openings invalid lengths=$invalid_turns invalid first-ten=$invalid_first_ten invalid starters=$invalid_starters invalid sources=$invalid_sources invalid POS labels=$invalid_pos"\n'
-          new_echo = '          echo "missing openings=$missing_openings invalid lengths=$invalid_turns invalid first-ten=$invalid_first_ten invalid starters=$invalid_starters payload starter drift=$invalid_payload_starters invalid sources=$invalid_sources invalid POS labels=$invalid_pos"\n'
-          workflow = workflow.replace(old_echo, new_echo, 1)
-          test_anchor = '          test "$invalid_starters" = "0"\n'
-          if 'test "$invalid_payload_starters"' not in workflow:
-              workflow = workflow.replace(test_anchor, test_anchor + '          test "$invalid_payload_starters" = "0"\n', 1)
-          workflow_path.write_text(workflow, encoding='utf-8')
-
-          # 5) Persist the architectural decision so future languages inherit it.
           decisions_path = root / 'docs/PROJECT_DECISIONS.md'
           decisions = decisions_path.read_text(encoding='utf-8')
           section = "\n## Relational semantic invariants\n- Semantic values that drive cross-language QA or runtime invariants must be first-class relational fields, not hidden only inside generic JSON payloads.\n- Dialogue starter is canonical in MySQL as `dialogues.opening_initiator` (`app` / `learner`); activity payload copies, when present, must agree with it.\n- Every such semantic code must have a canonical Persian label in `config/fa-taxonomy.json`.\n"
@@ -143,6 +114,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add database/schema.sql database/content scripts/validate_project_contracts.py .github/workflows/mysql-schema.yml docs/PROJECT_DECISIONS.md
+          git add database/schema.sql database/content scripts/validate_project_contracts.py docs/PROJECT_DECISIONS.md
           git commit -m "Promote dialogue starter to relational contract"
           git push
