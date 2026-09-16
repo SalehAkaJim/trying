@@ -4,12 +4,16 @@ on:
   push:
     paths:
       - 'database/schema.sql'
-      - 'database/content/de/pre-a1.sql'
+      - 'database/content/**'
+      - 'content/**'
+      - 'schemas/activity.schema.json'
       - '.github/workflows/mysql-schema.yml'
   pull_request:
     paths:
       - 'database/schema.sql'
-      - 'database/content/de/pre-a1.sql'
+      - 'database/content/**'
+      - 'content/**'
+      - 'schemas/activity.schema.json'
       - '.github/workflows/mysql-schema.yml'
 
 jobs:
@@ -30,6 +34,59 @@ jobs:
           --health-retries=12
     steps:
       - uses: actions/checkout@v4
+
+      - name: Verify image-free learner content
+        run: |
+          python - <<'PY'
+          import json
+          import pathlib
+          import re
+          import sys
+
+          forbidden = {
+              'image', 'imageurl', 'imageref', 'picture', 'photo',
+              'illustration', 'thumbnail', 'thumbnailurl', 'thumbnailref'
+          }
+
+          def normalized_key(key: str) -> str:
+              return re.sub(r'[_\-\s]', '', key).lower()
+
+          errors = []
+
+          for path in pathlib.Path('content').rglob('*.json'):
+              data = json.loads(path.read_text(encoding='utf-8'))
+
+              def walk(value, location='$'):
+                  if isinstance(value, dict):
+                      for key, child in value.items():
+                          if normalized_key(str(key)) in forbidden:
+                              errors.append(f'{path}:{location}.{key}: forbidden image-bearing field')
+                          walk(child, f'{location}.{key}')
+                  elif isinstance(value, list):
+                      for index, child in enumerate(value):
+                          walk(child, f'{location}[{index}]')
+
+              walk(data)
+
+          sql_key_pattern = re.compile(
+              r"['\"`](?:image(?:_?url|_?ref)?|picture|photo|illustration|thumbnail(?:_?url|_?ref)?)['\"`]\s*(?:[,):=])",
+              re.IGNORECASE,
+          )
+          for path in pathlib.Path('database/content').rglob('*.sql'):
+              text = path.read_text(encoding='utf-8')
+              for match in sql_key_pattern.finditer(text):
+                  line = text.count('\n', 0, match.start()) + 1
+                  errors.append(f'{path}:{line}: forbidden image-bearing SQL/JSON field {match.group(0)!r}')
+
+          if errors:
+              print('\n'.join(errors))
+              sys.exit(1)
+
+          print('Image-free learner-content structural check passed.')
+          PY
+
+      - name: Verify activity schema JSON
+        run: python -m json.tool schemas/activity.schema.json > /dev/null
 
       - name: Verify MySQL server version
         run: |
@@ -143,10 +200,10 @@ jobs:
         run: |
           lesson_count="$(docker run --rm --network host mysql:9.0.1 \
             mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
-            -e "SELECT COUNT(*) FROM lessons WHERE lesson_key IN ('de-pre-a1-lesson-hallo','de-pre-a1-lesson-guten-morgen','de-pre-a1-lesson-pizza-like');" | tr -d '\r[:space:]')"
+            -e "SELECT COUNT(*) FROM lessons l JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1';" | tr -d '\r[:space:]')"
           opening_count="$(docker run --rm --network host mysql:9.0.1 \
             mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
-            -e "SELECT COUNT(*) FROM activities a JOIN lessons l ON l.id=a.lesson_id WHERE l.lesson_key IN ('de-pre-a1-lesson-hallo','de-pre-a1-lesson-guten-morgen','de-pre-a1-lesson-pizza-like') AND a.position_index=1 AND a.activity_type='conversation_speaking';" | tr -d '\r[:space:]')"
+            -e "SELECT COUNT(DISTINCT l.id) FROM lessons l JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id JOIN activities a ON a.lesson_id=l.id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND a.position_index=1 AND a.activity_type='conversation_speaking';" | tr -d '\r[:space:]')"
           form_count="$(docker run --rm --network host mysql:9.0.1 \
             mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
             -e "SELECT COUNT(*) FROM lexeme_forms lf JOIN lexemes l ON l.id=lf.lexeme_id WHERE l.lexeme_key='lex-de-moegen' AND lf.lexeme_form_key IN ('lexform-de-moegen-mag','lexform-de-moegen-magst') AND lf.review_status='approved';" | tr -d '\r[:space:]')"
@@ -154,12 +211,12 @@ jobs:
             mysql -N -s -h127.0.0.1 -uroot -proot language_content_test \
             -e "SELECT COUNT(*) FROM v_invalid_learner_facing_source_links;" | tr -d '\r[:space:]')"
 
-          echo "German baseline lessons: $lesson_count"
-          echo "Opening conversations: $opening_count"
+          echo "German Pre-A1 lessons: $lesson_count"
+          echo "Lessons with required opening conversation: $opening_count"
           echo "Approved mögen forms: $form_count"
           echo "Invalid learner-facing source links: $invalid_source_count"
 
-          test "$lesson_count" = "3"
-          test "$opening_count" = "3"
+          test "$lesson_count" -gt 0
+          test "$opening_count" = "$lesson_count"
           test "$form_count" = "2"
           test "$invalid_source_count" = "0"
