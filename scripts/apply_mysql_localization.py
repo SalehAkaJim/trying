@@ -1,43 +1,54 @@
 #!/usr/bin/env python3
+import argparse
 import json
 import pathlib
+import re
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 TAXONOMY = json.loads((ROOT / 'config' / 'fa-taxonomy.json').read_text(encoding='utf-8'))['domains']
+BEGIN = '-- BEGIN GENERATED FA TAXONOMY'
+END = '-- END GENERATED FA TAXONOMY'
 
 
 def sql_quote(value):
     return str(value).replace("'", "''")
 
 
-def sync_schema():
-    path = ROOT / 'database' / 'schema.sql'
-    text = path.read_text(encoding='utf-8')
-
+def taxonomy_insert_block():
     rows = []
     for domain, values in TAXONOMY.items():
         for code, label in values.items():
             rows.append(f"('{sql_quote(domain)}','{sql_quote(code)}','{sql_quote(label)}')")
+    return (
+        f"{BEGIN}\n"
+        "INSERT INTO taxonomy_labels (domain_code,value_code,label_fa) VALUES\n  "
+        + ",\n  ".join(rows)
+        + "\nON DUPLICATE KEY UPDATE label_fa=VALUES(label_fa);\n"
+        f"{END}"
+    )
 
-    seed = (
-        "\nCREATE TABLE IF NOT EXISTS taxonomy_labels (\n"
+
+def transformed_schema(text):
+    table_ddl = (
+        "CREATE TABLE IF NOT EXISTS taxonomy_labels (\n"
         "  domain_code VARCHAR(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,\n"
         "  value_code VARCHAR(128) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,\n"
         "  label_fa VARCHAR(255) NOT NULL,\n"
         "  PRIMARY KEY (domain_code,value_code)\n"
         ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;\n\n"
-        "-- BEGIN GENERATED FA TAXONOMY\n"
-        "INSERT INTO taxonomy_labels (domain_code,value_code,label_fa) VALUES\n  "
-        + ",\n  ".join(rows)
-        + "\nON DUPLICATE KEY UPDATE label_fa=VALUES(label_fa);\n"
-        "-- END GENERATED FA TAXONOMY\n"
     )
+    generated = taxonomy_insert_block()
 
     if 'CREATE TABLE IF NOT EXISTS taxonomy_labels' not in text:
         anchor = "SET time_zone = '+00:00';\n"
         if anchor not in text:
             raise SystemExit('schema.sql: insertion anchor not found')
-        text = text.replace(anchor, anchor + seed, 1)
+        text = text.replace(anchor, anchor + '\n' + table_ddl + generated + '\n', 1)
+    else:
+        pattern = re.escape(BEGIN) + r'.*?' + re.escape(END)
+        if not re.search(pattern, text, flags=re.S):
+            raise SystemExit('schema.sql: generated taxonomy markers not found')
+        text = re.sub(pattern, generated, text, count=1, flags=re.S)
 
     old = "  part_of_speech VARCHAR(128) NULL,\n  cefr_level ENUM"
     new = "  part_of_speech VARCHAR(128) NULL,\n  part_of_speech_fa VARCHAR(191) NULL,\n  cefr_level ENUM"
@@ -90,34 +101,61 @@ END$$
         if marker not in text:
             raise SystemExit('schema.sql: trigger insertion anchor not found')
         text = text.replace(marker, trigger + marker, 1)
+    return text
 
-    path.write_text(text, encoding='utf-8')
 
-
-def sync_content_sql():
+def transformed_content_sql(text):
+    if 'INSERT INTO lexemes' not in text:
+        return text
     labels = TAXONOMY['part_of_speech']
+    text = text.replace(
+        'lemma,part_of_speech,cefr_level,translation_fa',
+        'lemma,part_of_speech,part_of_speech_fa,cefr_level,translation_fa'
+    )
+    for code, label in sorted(labels.items(), key=lambda item: -len(item[0])):
+        for level in ('Pre-A1','A1','A2','B1','B2','C1','C2'):
+            text = text.replace(
+                f",'{code}','{level}'",
+                f",'{code}','{sql_quote(label)}','{level}'"
+            )
+    text = text.replace(
+        'part_of_speech=VALUES(part_of_speech),cefr_level=VALUES(cefr_level)',
+        'part_of_speech=VALUES(part_of_speech),part_of_speech_fa=VALUES(part_of_speech_fa),cefr_level=VALUES(cefr_level)'
+    )
+    return text
+
+
+def sync(check=False):
+    changed = []
+    schema_path = ROOT / 'database' / 'schema.sql'
+    before = schema_path.read_text(encoding='utf-8')
+    after = transformed_schema(before)
+    if after != before:
+        changed.append(schema_path)
+        if not check:
+            schema_path.write_text(after, encoding='utf-8')
+
     for path in (ROOT / 'database' / 'content').rglob('*.sql'):
-        text = path.read_text(encoding='utf-8')
-        if 'INSERT INTO lexemes' not in text:
-            continue
-        text = text.replace(
-            'lemma,part_of_speech,cefr_level,translation_fa',
-            'lemma,part_of_speech,part_of_speech_fa,cefr_level,translation_fa'
-        )
-        for code, label in sorted(labels.items(), key=lambda item: -len(item[0])):
-            for level in ('Pre-A1','A1','A2','B1','B2','C1','C2'):
-                text = text.replace(
-                    f",'{code}','{level}'",
-                    f",'{code}','{sql_quote(label)}','{level}'"
-                )
-        text = text.replace(
-            'part_of_speech=VALUES(part_of_speech),cefr_level=VALUES(cefr_level)',
-            'part_of_speech=VALUES(part_of_speech),part_of_speech_fa=VALUES(part_of_speech_fa),cefr_level=VALUES(cefr_level)'
-        )
-        path.write_text(text, encoding='utf-8')
+        before = path.read_text(encoding='utf-8')
+        after = transformed_content_sql(before)
+        if after != before:
+            changed.append(path)
+            if not check:
+                path.write_text(after, encoding='utf-8')
+    return changed
 
 
 if __name__ == '__main__':
-    sync_schema()
-    sync_content_sql()
-    print('MySQL Persian taxonomy migration applied.')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--check', action='store_true', help='Fail if MySQL localization files are not synchronized with the canonical taxonomy.')
+    args = parser.parse_args()
+    changed = sync(check=args.check)
+    if args.check and changed:
+        print('MySQL localization is out of sync:')
+        for path in changed:
+            print(path.relative_to(ROOT))
+        raise SystemExit(1)
+    if changed:
+        print(f'Synchronized {len(changed)} MySQL file(s).')
+    else:
+        print('MySQL localization is already synchronized.')
