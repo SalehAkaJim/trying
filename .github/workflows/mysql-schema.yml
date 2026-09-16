@@ -39,13 +39,13 @@ jobs:
 
       - name: Apply schema on MySQL 9.0.1
         run: |
-          docker run --rm --network host mysql:9.0.1 \
+          docker run --rm -i --network host mysql:9.0.1 \
             mysql -h127.0.0.1 -uroot -proot language_content_test \
             < database/schema.sql
 
       - name: Apply schema a second time
         run: |
-          docker run --rm --network host mysql:9.0.1 \
+          docker run --rm -i --network host mysql:9.0.1 \
             mysql -h127.0.0.1 -uroot -proot language_content_test \
             < database/schema.sql
 
