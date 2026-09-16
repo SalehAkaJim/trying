@@ -4,7 +4,7 @@
   "title": "Source Record",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "id", "title", "language", "sourceType", "reuseStatus"],
+  "required": ["schemaVersion", "id", "title", "language", "sourceType", "reuseStatus", "modernityStatus", "currencyEvidence"],
   "properties": {
     "schemaVersion": {"type": "string"},
     "id": {"type": "string", "minLength": 1},
@@ -14,11 +14,34 @@
     "sourceType": {"enum": ["course", "book", "website", "corpus", "dictionary", "grammar_reference", "audio_course", "other"]},
     "url": {"type": ["string", "null"], "format": "uri"},
     "locator": {"type": ["string", "null"], "description": "Unit, lesson, page, section or item locator."},
+    "publishedOrUpdatedAt": {
+      "type": ["string", "null"],
+      "description": "Publication/revision date or year when known. This is evidence, not a universal age cutoff."
+    },
+    "modernityStatus": {
+      "enum": ["contemporary_verified", "maintained_current", "historical_or_legacy", "needs_currency_review"],
+      "description": "Learner-facing content may rely only on contemporary_verified or maintained_current sources."
+    },
+    "currencyEvidence": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Why this source is considered current or why it is restricted as legacy/uncertain."
+    },
     "licenseName": {"type": ["string", "null"]},
     "licenseUrl": {"type": ["string", "null"], "format": "uri"},
     "attributionText": {"type": ["string", "null"]},
     "reuseStatus": {"enum": ["direct_reuse_allowed", "reuse_with_attribution", "analysis_only", "needs_review"]},
     "retrievedAt": {"type": ["string", "null"], "format": "date"},
     "notes": {"type": "string"}
-  }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"modernityStatus": {"const": "historical_or_legacy"}}, "required": ["modernityStatus"]},
+      "then": {"properties": {"reuseStatus": {"const": "analysis_only"}}}
+    },
+    {
+      "if": {"properties": {"modernityStatus": {"const": "needs_currency_review"}}, "required": ["modernityStatus"]},
+      "then": {"properties": {"reuseStatus": {"enum": ["analysis_only", "needs_review"]}}}
+    }
+  ]
 }
