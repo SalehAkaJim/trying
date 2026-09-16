@@ -1,8 +1,8 @@
 {
   "schemaVersion":"1.0.0","id":"de-pre-a1-unit-first-steps","languageId":"de","level":"Pre-A1","titleFa":"اولین قدم‌ها",
-  "learningTargets":["سلام و خداحافظی خیلی ساده","شروع گفت‌وگو در صبح","احوال‌پرسی بسیار کوتاه","پرسیدن و گفتن علاقه به یک غذای آشنا","پاسخ مثبت و منفی در یک بافت آشنا","تشکر و پاسخ مؤدبانه"],
-  "lessonRefs":["de-pre-a1-lesson-hallo","de-pre-a1-lesson-guten-morgen","de-pre-a1-lesson-pizza-like","de-pre-a1-lesson-ja-nein","de-pre-a1-lesson-danke-bitte"],
+  "learningTargets":["سلام و خداحافظی خیلی ساده","شروع گفت‌وگو در صبح","پرسیدن و گفتن علاقه به یک غذای آشنا","پاسخ مثبت و منفی در یک بافت آشنا","تشکر و پاسخ مؤدبانه","عذرخواهی کوتاه و پاسخ به آن","پرسیدن نام و فهم پاسخ ساده","احوال‌پرسی بسیار کوتاه"],
+  "lessonRefs":["de-pre-a1-lesson-hallo","de-pre-a1-lesson-guten-morgen","de-pre-a1-lesson-pizza-like","de-pre-a1-lesson-ja-nein","de-pre-a1-lesson-danke-bitte","de-pre-a1-lesson-entschuldigung","de-pre-a1-lesson-name-exchange","de-pre-a1-lesson-wellbeing"],
   "groupingRationale":"این درس‌ها کنار هم قرار گرفته‌اند چون همگی ارتباط‌های بسیار ساده، فوری و کم‌فشار برای شروع از صفر هستند. این گروه‌بندی دلیل آموزشی دارد و ظرفیت عددی برای تعداد درس ندارد.",
-  "sourceRefs":["src-wiktionary-de-hallo","src-wiktionary-de-guten-morgen","src-wiktionary-de-moegen","src-wiktionary-de-pizza","src-libra-de-ich-mag-pizza","src-wikibooks-de-magst-du-pizza","src-wiktionary-de-ja","src-wiktionary-de-nein","src-wiktionary-de-danke","src-wiktionary-de-bitte","src-wikibooks-de-basic-greetings"],
+  "sourceRefs":["src-wiktionary-de-hallo","src-wiktionary-de-guten-morgen","src-wiktionary-de-moegen","src-wiktionary-de-pizza","src-libra-de-ich-mag-pizza","src-wikibooks-de-magst-du-pizza","src-wiktionary-de-ja","src-wiktionary-de-nein","src-wiktionary-de-danke","src-wiktionary-de-bitte","src-wikibooks-de-basic-greetings","src-wiktionary-de-entschuldigung","src-wiktionary-de-kein-problem","src-wikibooks-de-wie-heisst-du","src-wiktionary-de-heissen"],
   "status":"draft","notes":"باز یا بسته‌ماندن این واحد فقط به تصمیم‌های پوشش آموزشی بعدی بستگی دارد، نه به رسیدن به تعداد مشخصی درس."
 }
