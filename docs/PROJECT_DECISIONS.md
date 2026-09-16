@@ -89,7 +89,19 @@ These transformations must not create unsupported target-language instructional 
 - Progression is principle-driven and coverage-driven, not a globally fixed lesson sequence.
 - No fixed number of early lessons receives special structural rules; QA evaluates the actual progression that exists.
 
-## 10. Initial image-free content policy
+## 10. CEFR level completion and quality bar
+
+- Every CEFR level has a **dynamic educational end point**. The level ends only when its intended CEFR abilities and the language-specific knowledge/practice needed to support them are genuinely complete for the product scope.
+- Completion must be based on CEFR descriptors, accepted language-teaching standards, coherent progression, sufficient practice/retrieval, appropriate skill/mode coverage, reinforcement of important material, and resolved required gaps.
+- A level must not be marked `final` while a material CEFR, progression, practice or QA gap is known merely because the course already feels long enough.
+- Conversely, content must not be added after educational completeness merely to increase lesson/unit/activity counts.
+- Before a level becomes `final`, run a holistic quality review on a **0–10 scale**. The intended release state is a score **close to 10/10**, representing a highly complete, coherent and polished learning experience rather than a merely acceptable one.
+- The quality review must consider at minimum: CEFR coverage/completeness, pedagogical progression, adequacy of practice and retrieval, activity quality/variety, linguistic accuracy and naturalness, source quality/currentness, learner support/clarity, and QA integrity.
+- The overall quality score is a diagnostic summary, not a substitute for the underlying checks. A high numeric score cannot override an unresolved material gap.
+- Do not game the score by padding content. More lessons, activities, turns or repetitions do not automatically improve quality.
+- Record the evidence/rationale behind the assessment, including remaining weaknesses. Known material weaknesses should trigger revision or additional justified content before finalization.
+
+## 11. Initial image-free content policy
 
 - The current product baseline is **text/audio-only** for learner-facing instructional content.
 - Until this rule is explicitly changed, lessons, units, activities, dialogue turns, prompts, questions, answers, options, hints, examples and review items must not contain, reference, request or depend on images.
@@ -100,7 +112,7 @@ These transformations must not create unsupported target-language instructional 
 - Decorative app chrome that carries no instructional meaning is outside this content rule; educational meaning must never depend on it.
 - Image-based activity types may be introduced later only after an explicit product decision changes this baseline.
 
-## 11. Words, phrases, and surface forms as first-class entities
+## 12. Words, phrases, and surface forms as first-class entities
 
 - Reusable words and phrases have stable lexeme IDs.
 - `lexemes.surface` is the canonical/headword display form for a lexeme, not every spelling or inflected form that may appear in content.
@@ -115,7 +127,7 @@ These transformations must not create unsupported target-language instructional 
 - Ambiguous mappings must be resolved during QA before dependent learner-facing lexeme features are enabled.
 - `lesson_lexemes.is_primary` marks core tappable lexemes/phrases without changing the many-to-many relationship.
 
-## 12. Characters
+## 13. Characters
 
 - Source-defined speaker identity should be preserved when practical.
 - App-assigned characters must never contradict source evidence about gender, age, relationship, role, setting, or register.
@@ -123,7 +135,7 @@ These transformations must not create unsupported target-language instructional 
 - Non-person speaker entities may use `gender = not_applicable`; this must not be overloaded into `unspecified`.
 - Prefer a manageable recurring character library for consistency.
 
-## 13. Audio
+## 14. Audio
 
 - Audio is not generated during initial curriculum assembly.
 - Audio generation begins only after the whole target-language curriculum is finalized and speaker assignments/text are stable.
@@ -131,7 +143,7 @@ These transformations must not create unsupported target-language instructional 
 - Standalone words/phrases use one consistent voice per language; Hope/Lori are the retained preferred options unless later testing changes that decision.
 - Learner clarity and intelligibility outrank dramatic performance.
 
-## 14. QA and readiness
+## 15. QA and readiness
 
 Before content can be final, QA must verify at minimum:
 
@@ -152,8 +164,9 @@ Before content can be final, QA must verify at minimum:
 - referenced IDs resolve;
 - lexeme-form references resolve to valid parent lexemes and unreviewed generated forms are not treated as trusted learner-facing mappings;
 - ambiguous lexeme-form occurrence mappings are resolved before dependent learner-facing features are enabled;
+- level completion has passed the holistic CEFR/practice/progression assessment and the quality review is close to the 10/10 target with no material unresolved gap;
 - audio remains blocked until the language-level completion gate is satisfied.
 
-## 15. Clean-baseline rule
+## 16. Clean-baseline rule
 
 This repository intentionally starts with **zero educational content**. New course content must be added only after these rules and database contracts are accepted as the baseline.
