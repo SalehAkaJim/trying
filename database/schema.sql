@@ -217,7 +217,6 @@ CREATE TABLE IF NOT EXISTS activities (
   UNIQUE KEY uq_activities_lesson_position (lesson_id,position_index),
   CONSTRAINT chk_activities_position CHECK (position_index>=1),
   CONSTRAINT chk_activities_opening CHECK (position_index<>1 OR activity_type='conversation_speaking'),
-  CONSTRAINT chk_activities_dialogue CHECK (activity_type<>'conversation_speaking' OR dialogue_id IS NOT NULL),
   CONSTRAINT fk_activities_lesson FOREIGN KEY (lesson_id) REFERENCES lessons(id) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT fk_activities_dialogue FOREIGN KEY (dialogue_id) REFERENCES dialogues(id) ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -435,6 +434,9 @@ DROP TRIGGER IF EXISTS trg_activities_bi_final_guard$$
 CREATE TRIGGER trg_activities_bi_final_guard BEFORE INSERT ON activities FOR EACH ROW
 BEGIN
   DECLARE lesson_status VARCHAR(32);
+  IF NEW.activity_type='conversation_speaking' AND NEW.dialogue_id IS NULL THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='conversation_speaking requires dialogue_id';
+  END IF;
   SET lesson_status=(SELECT status FROM lessons WHERE id=NEW.lesson_id LIMIT 1);
   IF lesson_status='final' THEN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Reopen a final lesson before changing its activities';
@@ -455,6 +457,9 @@ DROP TRIGGER IF EXISTS trg_activities_bu_final_guard$$
 CREATE TRIGGER trg_activities_bu_final_guard BEFORE UPDATE ON activities FOR EACH ROW
 BEGIN
   DECLARE lesson_status VARCHAR(32);
+  IF NEW.activity_type='conversation_speaking' AND NEW.dialogue_id IS NULL THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='conversation_speaking requires dialogue_id';
+  END IF;
   SET lesson_status=(SELECT status FROM lessons WHERE id=OLD.lesson_id LIMIT 1);
   IF lesson_status='final' THEN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Reopen a final lesson before changing its activities';
