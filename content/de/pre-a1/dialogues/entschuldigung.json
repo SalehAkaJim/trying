@@ -1,0 +1,16 @@
+{
+  "id": "dlg-de-pre-a1-entschuldigung",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": ["src-wiktionary-de-entschuldigung", "src-wiktionary-de-kein-problem", "src-wiktionary-de-danke", "src-wiktionary-de-bitte"],
+  "scenario": "زبان‌آموز برای یک اشتباه کوچک عذرخواهی می‌کند، میا پاسخ آرام می‌دهد و تعامل با تشکر و پاسخ مؤدبانه تمام می‌شود.",
+  "openingInitiator": "learner",
+  "characterRefs": ["char-de-mia", "char-de-learner"],
+  "turns": [
+    {"id":"turn-de-entschuldigung-1","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Entschuldigung.","translationFa":"ببخشید.","learnerTurn":true,"lexemeRefs":["lex-de-entschuldigung"],"lexemeOccurrences":[{"surface":"Entschuldigung","lexemeId":"lex-de-entschuldigung","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-entschuldigung"],"audioRef":null},
+    {"id":"turn-de-entschuldigung-2","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Kein Problem.","translationFa":"مشکلی نیست.","learnerTurn":false,"lexemeRefs":["lex-de-kein-problem"],"lexemeOccurrences":[{"surface":"Kein Problem","lexemeId":"lex-de-kein-problem","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-kein-problem"],"audioRef":null},
+    {"id":"turn-de-entschuldigung-3","speakerCharacterId":"char-de-learner","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Danke!","translationFa":"ممنون!","learnerTurn":true,"lexemeRefs":["lex-de-danke"],"lexemeOccurrences":[{"surface":"Danke","lexemeId":"lex-de-danke","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-danke"],"audioRef":null},
+    {"id":"turn-de-entschuldigung-4","speakerCharacterId":"char-de-mia","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Bitte!","translationFa":"خواهش می‌کنم!","learnerTurn":false,"lexemeRefs":["lex-de-bitte"],"lexemeOccurrences":[{"surface":"Bitte","lexemeId":"lex-de-bitte","lexemeFormId":null}],"sourceRefs":["src-wiktionary-de-bitte"],"audioRef":null}
+  ],
+  "sceneQualityRationale": "چهار turn یک تبادل اجتماعی کامل و کم‌فشار می‌سازند و هر چهار عبارت از منابع مدرن قابل‌ردیابی آمده‌اند."
+}
