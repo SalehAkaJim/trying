@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "unit.schema.json",
+  "title": "Curriculum Unit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "languageId", "level", "titleFa", "learningTargets", "lessonRefs", "groupingRationale", "status"],
+  "properties": {
+    "schemaVersion": {"type": "string"},
+    "id": {"type": "string", "minLength": 1},
+    "languageId": {"type": "string", "minLength": 1},
+    "level": {"enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2"]},
+    "titleFa": {"type": "string", "minLength": 1},
+    "learningTargets": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "lessonRefs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true,
+      "description": "Dynamic-length lesson grouping. No target, minimum, maximum or preferred lesson count is encoded here."
+    },
+    "groupingRationale": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Pedagogical/navigation reason these lessons belong together. Numeric capacity is not a valid rationale."
+    },
+    "sourceRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "status": {"enum": ["draft", "review", "final"]},
+    "notes": {"type": ["string", "null"], "default": null}
+  }
+}
