@@ -351,6 +351,7 @@ CREATE TABLE IF NOT EXISTS dialogues (
   dialogue_key VARCHAR(191) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
   language_level_id BIGINT UNSIGNED NOT NULL,
   scenario TEXT NOT NULL,
+  opening_initiator ENUM('app','learner') NOT NULL,
   scene_quality_rationale TEXT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY uq_dialogues_key (dialogue_key),

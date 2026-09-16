@@ -32,6 +32,7 @@ SCHEMA_ENUM_DOMAINS = {
     ("lessons", "status"): "lesson_status",
     ("lessons", "audio_status"): "audio_status",
     ("lesson_targets", "coverage_role"): "coverage_role",
+    ("dialogues", "opening_initiator"): "opening_initiator",
     ("dialogue_turns", "speaker_identity_origin"): "speaker_identity_origin",
     ("dialogue_turns", "speaker_gender_evidence"): "gender",
     ("dialogue_turns", "audio_status"): "audio_status",

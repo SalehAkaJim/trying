@@ -64,3 +64,8 @@
 
 ## Audio
 - Audio is generated only after the whole target-language curriculum/text/speaker assignments are final.
+
+## Relational semantic invariants
+- Semantic values that drive cross-language QA or runtime invariants must be first-class relational fields, not hidden only inside generic JSON payloads.
+- Dialogue starter is canonical in MySQL as `dialogues.opening_initiator` (`app` / `learner`); activity payload copies, when present, must agree with it.
+- Every such semantic code must have a canonical Persian label in `config/fa-taxonomy.json`.
