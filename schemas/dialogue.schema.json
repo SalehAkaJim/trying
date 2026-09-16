@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dialogue.schema.json",
+  "title": "Dialogue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "languageId", "level", "sourceRefs", "scenario", "turns"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "languageId": {"type": "string", "minLength": 1},
+    "level": {"enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2"]},
+    "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "scenario": {"type": "string", "minLength": 1},
+    "characterRefs": {"type": "array", "items": {"type": "string"}, "minItems": 2, "uniqueItems": true},
+    "turns": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "speakerCharacterId", "speakerIdentityOrigin", "textTarget", "translationFa", "learnerTurn", "sourceRefs"],
+        "properties": {
+          "id": {"type": "string"},
+          "speakerCharacterId": {"type": "string"},
+          "speakerIdentityOrigin": {"enum": ["source", "app_assigned"]},
+          "speakerGenderEvidence": {"enum": ["female", "male", "unspecified", "not_applicable"]},
+          "textTarget": {"type": "string", "minLength": 1},
+          "translationFa": {"type": "string", "minLength": 1},
+          "learnerTurn": {"type": "boolean"},
+          "lexemeRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+          "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+          "audioRef": {"type": ["string", "null"], "default": null}
+        }
+      }
+    }
+  }
+}
