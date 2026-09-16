@@ -54,6 +54,21 @@ The SQL implementation may also maintain a derived/indexed `normalized_surface` 
 
 For indexing, the relational implementation should favor lookup indexes such as the normalized form key and parent-lexeme indexes, while avoiding a global unique constraint on `surface`.
 
+### Content occurrence resolution
+
+Surface lookup is an ingestion/authoring aid, not the final runtime identity mechanism.
+
+When a token or tappable text occurrence in dialogue/activity/example content is resolved, the future relational model should persist the resolution on an occurrence/token mapping record:
+
+- the exact occurrence `surface` (or text offsets into the parent string);
+- resolved `lexeme_id`;
+- optional `lexeme_form_id` when the occurrence is represented by a non-canonical/variant form;
+- resolution/review state when ambiguity remains.
+
+`lexeme_form_id` may be null when the occurrence directly uses the canonical `lexemes.surface` and no separate form row is needed. Because the parent lexeme is derivable from a form, implementations may choose to store only `lexeme_form_id` plus a canonical-form path, or store both IDs for simpler querying; whichever design is chosen must enforce consistency.
+
+Once a content occurrence is approved and mapped, clients should use the persisted mapping instead of repeatedly guessing identity from raw string matching. Ambiguous matches must be resolved during content QA before that occurrence is used for tappable vocabulary, grammar behavior, review scheduling, or other learner-facing lexeme features.
+
 ## Curriculum coverage
 
 Curriculum targets are the planning mechanism for dynamic course sizing. Lessons connect to one or more targets. A level becomes final because mandatory targets have adequate source-backed coverage and pass QA, not because it reached an arbitrary lesson count.
@@ -69,7 +84,7 @@ The future relational implementation should support:
 - conversations and turns;
 - lessons and dynamic activity sequencing;
 - activity items/options/tokens;
-- reusable words and phrases plus inflected/variant form resolution;
+- reusable words and phrases plus inflected/variant form resolution and persisted occurrence mappings;
 - grammar notes and example sentences;
 - future ElevenLabs audio references.
 
