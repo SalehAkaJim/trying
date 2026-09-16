@@ -34,11 +34,11 @@ jobs:
           python scripts/apply_mysql_localization.py --check
           python scripts/validate_project_contracts.py
           python scripts/validate_audio_contracts.py
-      - name: Commit final German Pre-A1 content
+      - name: Commit validated German Pre-A1 content
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add content config docs schemas scripts database .github/workflows/project-contracts.yml
+          git add content config docs schemas scripts database
           if git diff --cached --quiet; then
             echo 'No generated changes.'
           else
