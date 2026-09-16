@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lesson.schema.json",
+  "title": "Lesson",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "languageId", "level", "titleFa", "learningTargets", "sourceRefs", "activities", "status"],
+  "properties": {
+    "schemaVersion": {"type": "string"},
+    "id": {"type": "string", "minLength": 1},
+    "languageId": {"type": "string", "minLength": 1},
+    "level": {"enum": ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2"]},
+    "unitOrTopic": {"type": ["string", "null"]},
+    "titleFa": {"type": "string", "minLength": 1},
+    "sourceTitle": {"type": ["string", "null"]},
+    "learningTargets": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "lexemeRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "grammarNoteRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
+    "activityDesign": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "activityCountRationale": {"type": "string"},
+        "sequenceRationale": {"type": "string"},
+        "templateSignature": {"type": "string", "description": "Optional derived signature used by QA to detect repetitive neighboring lesson patterns."}
+      }
+    },
+    "activities": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Dynamic-length sequence. Only the first activity type is fixed.",
+      "prefixItems": [
+        {
+          "allOf": [
+            {"$ref": "activity.schema.json"},
+            {"properties": {"type": {"const": "conversation_speaking"}}, "required": ["type"]}
+          ]
+        }
+      ],
+      "items": {"$ref": "activity.schema.json"}
+    },
+    "status": {"enum": ["draft", "source_checked", "cefr_checked", "qa", "final"]},
+    "audioStatus": {"enum": ["not_started", "blocked_until_language_final", "ready"], "default": "blocked_until_language_final"}
+  }
+}
