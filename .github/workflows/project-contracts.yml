@@ -9,6 +9,7 @@ on:
       - 'scripts/**'
       - 'docs/**'
       - 'database/schema.sql'
+      - 'database/content/**'
       - '.github/workflows/project-contracts.yml'
   pull_request:
     paths:
@@ -18,6 +19,7 @@ on:
       - 'scripts/**'
       - 'docs/**'
       - 'database/schema.sql'
+      - 'database/content/**'
       - '.github/workflows/project-contracts.yml'
 
 jobs:
@@ -41,6 +43,9 @@ jobs:
 
       - name: Verify assistant-authored source prose is Persian
         run: python scripts/validate_source_localization.py
+
+      - name: Verify MySQL localization matches canonical taxonomy
+        run: python scripts/apply_mysql_localization.py --check
 
       - name: Validate shared cross-language contracts
         run: python scripts/validate_project_contracts.py
