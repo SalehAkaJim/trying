@@ -7,16 +7,47 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
 TAXONOMY_PATH = ROOT / "config" / "fa-taxonomy.json"
+SCHEMA_PATH = ROOT / "database" / "schema.sql"
 FA = re.compile(r"[\u0600-\u06FF]")
-IMAGE_KEYS = {
-    "image", "imageurl", "imageref", "picture", "photo", "illustration",
-    "thumbnail", "thumbnailurl", "thumbnailref"
-}
+IMAGE_KEYS = {"image", "imageurl", "imageref", "picture", "photo", "illustration", "thumbnail", "thumbnailurl", "thumbnailref"}
 EDITORIAL_KEYS = {
     "structureRationale", "groupingRationale", "activitySelectionRationale",
     "sequenceRationale", "selectionReason", "scenario", "sceneQualityRationale",
     "contextNotes", "notes", "instructionFa", "translationFa", "usageNoteFa",
     "titleFa", "contextFa", "promptFa", "descriptionFa", "partOfSpeechFa"
+}
+SCHEMA_ENUM_DOMAINS = {
+    ("languages", "status"): "language_status",
+    ("language_levels", "cefr_level"): "cefr_level",
+    ("language_levels", "status"): "level_status",
+    ("curriculum_targets", "target_type"): "curriculum_target_type",
+    ("curriculum_targets", "status"): "curriculum_target_status",
+    ("sources", "source_type"): "source_type",
+    ("sources", "modernity_status"): "modernity_status",
+    ("sources", "reuse_status"): "reuse_status",
+    ("characters", "origin"): "character_origin",
+    ("characters", "gender"): "gender",
+    ("characters", "age_band"): "age_band",
+    ("units", "status"): "unit_status",
+    ("lessons", "status"): "lesson_status",
+    ("lessons", "audio_status"): "audio_status",
+    ("lesson_targets", "coverage_role"): "coverage_role",
+    ("dialogue_turns", "speaker_identity_origin"): "speaker_identity_origin",
+    ("dialogue_turns", "speaker_gender_evidence"): "gender",
+    ("dialogue_turns", "audio_status"): "audio_status",
+    ("activities", "activity_type"): "activity_type",
+    ("activities", "audio_status"): "audio_status",
+    ("lexemes", "lexeme_type"): "lexeme_type",
+    ("lexemes", "cefr_level"): "cefr_level",
+    ("lexemes", "audio_status"): "audio_status",
+    ("lexeme_forms", "form_type"): "lexeme_form_type",
+    ("lexeme_forms", "origin"): "lexeme_form_origin",
+    ("lexeme_forms", "review_status"): "review_status",
+    ("lesson_lexemes", "role"): "lexeme_role",
+    ("lexeme_occurrences", "owner_type"): "occurrence_owner_type",
+    ("lexeme_occurrences", "resolution_status"): "resolution_status",
+    ("provenance_links", "entity_type"): "provenance_entity_type",
+    ("provenance_links", "transformation"): "provenance_transformation",
 }
 errors = []
 
@@ -57,6 +88,18 @@ for domain, values in domains.items():
         if not isinstance(label, str) or not label.strip() or not FA.search(label):
             errors.append(f"{TAXONOMY_PATH}: {domain}.{code} needs a non-empty Persian label")
 
+# Every semantic ENUM defined by MySQL must already have a Persian taxonomy label,
+# even before a content row uses that code.
+schema_text = SCHEMA_PATH.read_text(encoding="utf-8")
+for table, body in re.findall(r"CREATE TABLE IF NOT EXISTS\s+(\w+)\s*\((.*?)\) ENGINE=", schema_text, flags=re.S):
+    for column, enum_body in re.findall(r"^\s*(\w+)\s+ENUM\(([^)]]+)\)", body, flags=re.M):
+        domain = SCHEMA_ENUM_DOMAINS.get((table, column))
+        if domain is None:
+            errors.append(f"{SCHEMA_PATH}: enum {table}.{column} has no taxonomy-domain mapping in validator")
+            continue
+        for code in re.findall(r"'([^']+)'", enum_body):
+            require_label(domain, code, f"{SCHEMA_PATH}:{table}.{column}")
+
 
 def normalized_image_key(key):
     return re.sub(r"[_\-\s]", "", str(key)).lower()
@@ -87,18 +130,36 @@ def walk_editorial(path, value, is_source=False, loc="$."):
 
 
 all_json = []
+characters_by_language = {}
+language_manifests = {}
+levels_by_language = {}
+dialogues = {}
+lessons = {}
+cefr_order = {"Pre-A1": 0, "A1": 1, "A2": 2, "B1": 3, "B2": 4, "C1": 5, "C2": 6}
+
 for path in CONTENT.rglob("*.json"):
     data = load(path)
     if data is None:
         continue
     all_json.append((path, data))
     walk_editorial(path, data, is_source="sources" in path.parts)
+    if path.name == "language.json":
+        language_manifests[data.get("id")] = (path, data)
+    elif path.name == "level.json":
+        levels_by_language.setdefault(data.get("languageId"), []).append((path, data))
+    elif "characters" in path.parts:
+        characters_by_language.setdefault(data.get("languageId"), {})[data.get("id")] = path
+    elif "dialogues" in path.parts:
+        dialogues[data.get("id")] = (path, data)
+    elif "lessons" in path.parts:
+        lessons[data.get("id")] = (path, data)
 
-# Language manifests
 for path, data in all_json:
     parts = path.parts
     if path.name == "language.json":
         require_label("language_status", data.get("status"), path)
+        for level in data.get("supportedLevels", []) or []:
+            require_label("cefr_level", level, path)
     if path.name == "level.json":
         require_label("cefr_level", data.get("level"), path)
         require_label("level_status", data.get("status"), path)
@@ -135,6 +196,8 @@ for path, data in all_json:
         require_label("lesson_status", data.get("status"), path)
         require_label("audio_status", data.get("audioStatus"), path)
         activities = data.get("activities", [])
+        if activities and activities[0].get("type") != "conversation_speaking":
+            errors.append(f"{path}: first activity must be conversation_speaking")
         for activity in activities:
             aid = activity.get("id", "<activity>")
             require_label("activity_type", activity.get("type"), f"{path}:{aid}")
@@ -151,27 +214,29 @@ for path, data in all_json:
         if not 4 <= len(turns) <= 12:
             errors.append(f"{path}: opening dialogue must contain 4–12 turns; got {len(turns)}")
         init = data.get("openingInitiator")
-        if turns and init in {"app", "learner"}:
-            if bool(turns[0].get("learnerTurn")) != (init == "learner"):
-                errors.append(f"{path}: openingInitiator conflicts with turn 1")
+        if turns and init in {"app", "learner"} and bool(turns[0].get("learnerTurn")) != (init == "learner"):
+            errors.append(f"{path}: openingInitiator conflicts with turn 1")
         for turn in turns:
             tid = turn.get("id", "<turn>")
             require_label("speaker_identity_origin", turn.get("speakerIdentityOrigin"), f"{path}:{tid}")
             require_label("gender", turn.get("speakerGenderEvidence"), f"{path}:{tid}")
 
-# Beginner-path exact four-turn rule derives lesson order from level manifests.
-dialogues = {}
-lessons = {}
-levels_by_language = {}
-cefr_order = {"Pre-A1": 0, "A1": 1, "A2": 2, "B1": 3, "B2": 4, "C1": 5, "C2": 6}
-for path, data in all_json:
-    if "dialogues" in path.parts:
-        dialogues[data.get("id")] = (path, data)
-    elif "lessons" in path.parts:
-        lessons[data.get("id")] = (path, data)
-    elif path.name == "level.json":
-        levels_by_language.setdefault(data.get("languageId"), []).append((path, data))
+# Manifests must enumerate the durable objects belonging to their language.
+for language_id, (path, manifest) in language_manifests.items():
+    actual_characters = set(characters_by_language.get(language_id, {}))
+    declared_characters = set(manifest.get("characterRefs") or [])
+    for missing in sorted(actual_characters - declared_characters):
+        errors.append(f"{path}: character file {missing!r} exists but is missing from characterRefs")
+    for unknown in sorted(declared_characters - actual_characters):
+        errors.append(f"{path}: characterRefs contains unknown character {unknown!r}")
+    actual_levels = {level.get("id") for _, level in levels_by_language.get(language_id, [])}
+    declared_levels = set(manifest.get("levelManifestRefs") or [])
+    for missing in sorted(actual_levels - declared_levels):
+        errors.append(f"{path}: level manifest {missing!r} exists but is missing from levelManifestRefs")
+    for unknown in sorted(declared_levels - actual_levels):
+        errors.append(f"{path}: levelManifestRefs contains unknown level {unknown!r}")
 
+# Beginner-path exact four-turn rule derives lesson order from level manifests.
 for language_id, manifests in levels_by_language.items():
     beginner_path, beginner = min(manifests, key=lambda item: cefr_order.get(item[1].get("level"), 999))
     for lesson_id in (beginner.get("lessonRefs") or [])[:10]:
@@ -181,10 +246,10 @@ for language_id, manifests in levels_by_language.items():
             continue
         lesson_path, lesson = lesson_entry
         activities = lesson.get("activities") or []
-        if not activities or activities[0].get("type") != "conversation_speaking":
-            errors.append(f"{lesson_path}: first activity must be conversation_speaking")
+        if not activities or not activities[0].get("dialogueRef"):
+            errors.append(f"{lesson_path}: beginner lesson has no opening dialogue")
             continue
-        ref = activities[0].get("dialogueRef")
+        ref = activities[0]["dialogueRef"]
         if ref not in dialogues:
             errors.append(f"{lesson_path}: opening dialogue {ref!r} not found")
             continue
@@ -199,4 +264,4 @@ if errors:
     print("\n".join(errors))
     sys.exit(1)
 
-print(f"Project contract validation passed for {len(all_json)} JSON files and {sum(len(v) for v in domains.values())} Persian taxonomy labels.")
+print(f"Project contract validation passed for {len(all_json)} JSON files, all mapped MySQL ENUMs, and {sum(len(v) for v in domains.values())} Persian taxonomy labels.")
