@@ -1,0 +1,25 @@
+name: One-time Pre-A1 SQL header cleanup
+
+on:
+  push:
+    paths:
+      - 'scripts/fix_pre_a1_header_temp.py'
+      - '.github/workflows/fix-pre-a1-header-temp.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix SQL header
+        run: python scripts/fix_pre_a1_header_temp.py
+      - name: Commit SQL header cleanup
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add database/content/de/pre-a1.sql
+          git commit -m 'Clarify finalized German Pre-A1 SQL snapshot'
+          git push
