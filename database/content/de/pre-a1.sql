@@ -2,7 +2,7 @@
 -- German Pre-A1
 -- Canonical runtime: MySQL 9.0.1
 -- Requires database/schema.sql first.
--- Current snapshot: 9 source-backed beginner lessons.
+-- Current snapshot: finalized source-backed German Pre-A1 curriculum.
 -- Product rule: beginner lessons 1-10 use exactly 4 opening turns.
 
 SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
