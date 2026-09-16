@@ -19,6 +19,7 @@
     "grammarNoteRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
     "exampleRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
     "sourceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "formRefs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true, "default": [], "description": "Optional references to approved or candidate lexeme_form records belonging to this lexeme. The child form record remains authoritative for the parent relationship."},
     "flashcardEligible": {"type": "boolean", "default": true},
     "audioStatus": {"enum": ["blocked_until_language_final", "pending", "ready"]},
     "audioRef": {"type": ["string", "null"], "default": null},
