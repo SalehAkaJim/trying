@@ -74,11 +74,14 @@ These transformations must not create unsupported target-language instructional 
 - `lexemes.surface` is the canonical/headword display form for a lexeme, not every spelling or inflected form that may appear in content.
 - `lexemes.lemma` stores the linguistic lemma when applicable; for a canonical word it may equal `surface`.
 - Inflected forms and meaningful surface variants belong to a child entity/table concept named `lexeme_forms` and point back to the parent lexeme.
-- A lexeme form stores at minimum a stable ID, `lexeme_id`, exact `surface`, and a coarse `form_type`. Language-specific morphology belongs in flexible feature metadata rather than a fixed German-specific column set.
+- A lexeme form stores at minimum a stable ID, `lexeme_id`, exact `surface`, and a coarse `form_type`. Language-specific morphology belongs in flexible feature metadata rather than a fixed language-specific column set.
 - Form provenance/origin and review state must be retained so automatically generated candidates cannot silently become trusted learner-facing data.
 - The same written surface may legitimately have multiple grammatical analyses for one lexeme and may also map to multiple different lexemes. Therefore form `surface` is **not globally unique** and lookup must allow multiple candidates rather than silently choosing one.
 - Canonical matching should consider both `lexemes.surface` and approved `lexeme_forms.surface` records. A canonical form does not need to be duplicated in `lexeme_forms` solely to make lookup work.
 - Inflected or orthographic forms must not become separate lexemes merely because their surface differs. A separate lexeme is justified only when the lexical identity/meaning actually differs.
+- Surface-string lookup is used to discover candidates during ingestion/authoring, not as the permanent runtime identity mechanism.
+- Once a word/phrase occurrence in dialogue, activity, example, or other tappable text is resolved, the future storage model should persist its `lexeme_id` and, when applicable, `lexeme_form_id` (or an equivalent referential mapping). Approved clients should consume this stored resolution instead of re-guessing from the raw surface string.
+- Ambiguous surface matches must be resolved during content QA before the occurrence is used for tappable help, grammar behavior, review, or similar learner-facing lexeme features.
 - Lexemes and their forms can later support tap-for-help, grammar/usage links, examples, pronunciation, flashcards, review, and occurrence-to-lexeme resolution.
 - `lesson_lexemes.is_primary` marks the core tappable lexemes/phrases for a lesson without changing the many-to-many relation.
 
@@ -112,6 +115,7 @@ Before content can be final, QA must verify at minimum:
 - neighboring activity patterns are not mechanically cloned;
 - referenced IDs resolve;
 - lexeme-form references resolve to valid parent lexemes and unreviewed generated forms are not treated as trusted learner-facing mappings;
+- ambiguous lexeme-form occurrence mappings are resolved before dependent learner-facing features are enabled;
 - audio remains blocked until the language-level completion gate is satisfied.
 
 ## 13. Clean-baseline rule
