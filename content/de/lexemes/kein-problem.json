@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-kein-problem",
+  "languageId": "de",
+  "type": "phrase",
+  "surface": "kein Problem",
+  "lemma": null,
+  "partOfSpeech": "response_formula",
+  "level": "Pre-A1",
+  "translationFa": "مشکلی نیست",
+  "usageNoteFa": "برای پاسخ کوتاه و دوستانه به یک عذرخواهی ساده.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wiktionary-de-kein-problem"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_language_final",
+  "audioRef": null,
+  "audioVoice": null
+}
