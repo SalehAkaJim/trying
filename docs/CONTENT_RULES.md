@@ -7,7 +7,7 @@ Target-language teaching content is source-driven. Do not invent new lesson dial
 Permitted editorial work includes:
 - selecting source material;
 - assigning it to an appropriate CEFR level;
-- grouping source material into lessons;
+- grouping source material into lessons and units when pedagogically coherent;
 - combining compatible source-backed utterances into a coherent app scene when every target-language turn remains individually traceable;
 - transforming source material into app-friendly activities;
 - translating required content into Persian;
@@ -15,65 +15,81 @@ Permitted editorial work includes:
 
 When a source cannot be directly reused, it may still inform curriculum coverage, but the repository must not bulk-copy restricted copyrighted text. Prefer reusable/public-domain/openly licensed sources for the actual reusable lesson corpus.
 
-## 2. Persian translation
+## 2. No-fixed-count rule
+
+Content structure is never quota-driven.
+
+Do not use a fixed number or preferred numeric range for:
+- units per language or CEFR level;
+- lessons per level or unit;
+- activities per lesson;
+- turns in the opening conversation;
+- learner turns in the opening conversation;
+- review cadence.
+
+Counts are derived from approved content after creation. They are not authoring targets, limits, completion criteria or QA thresholds.
+
+Do not pad, split, merge or truncate content merely to make its size resemble neighboring content.
+
+See `DYNAMIC_CONTENT_MODEL.md` for the complete generation model.
+
+## 3. Persian translation
 
 - Translation must be fluent Persian, not mechanical word-for-word Persian.
 - Meaning and teaching intent must remain faithful to the source.
 - Do not silently add instructional claims absent from the source.
 - Preserve ambiguity when the source is genuinely ambiguous.
 
-## 3. Lesson structure
+## 4. Units and lessons
 
-- Every lesson MUST begin with `conversation_speaking`.
+- Units are coherent organizational clusters, not fixed-size containers.
+- Unit boundaries come from theme, progression, prerequisite structure, review logic or learner-facing navigation needs.
+- A new unit must not be created because a lesson-count threshold was reached.
+- A unit must not be kept open because it has not reached a lesson-count threshold.
+- Lessons are built around coherent learning targets and source-backed material, not a target lesson size.
+- Content should not be split solely to create more lessons or merged solely to create fewer lessons.
+
+## 5. Lesson structure
+
+- Every finalized lesson MUST begin with `conversation_speaking`.
 - The opening conversation introduces the learner directly to the lesson context, including at beginner/zero-knowledge entry points.
 - Do not require a pre-lesson vocabulary screen.
-- After the opening conversation, activity type, order and count are dynamic.
+- After the opening conversation, activity type, order and count are fully dynamic.
 - There is NO universal sequence such as `conversation -> multiple_choice -> word_order -> review`.
-- A lesson may contain 2 activities, 10 activities, or another count if justified by the source content and learning targets.
-- Do not pad a lesson to reach a target activity count.
-- Do not truncate a lesson just to fit a maximum count unless product constraints are later defined.
-- Avoid repeating the same activity type back-to-back without a pedagogical reason.
-- Across neighboring lessons, vary practice patterns to reduce predictability and fatigue.
+- Do not pad a lesson to reach an activity count.
+- Do not truncate a lesson to fit an activity count.
+- Avoid repeating the same activity pattern without a pedagogical reason.
+- Across neighboring lessons, vary practice patterns when the learning targets support different modalities.
 
 ### Opening-conversation depth
 
-`conversation_speaking` is a real mini-scene, not merely a two-line prompt/answer wrapper.
+`conversation_speaking` is a real scene, not a count-based wrapper.
 
 - Conversation length is dynamic and source-driven.
-- For normal course lessons, a two-turn dialogue is considered insufficient and must be replaced by a more complete source-backed scene.
-- A typical beginner opening should contain several alternating turns and multiple learner-speaking turns so the learner participates more than once.
-- Early zero-beginner lessons should normally expose the learner to the same small language set repeatedly inside one coherent scene instead of introducing many unrelated words.
+- There is no minimum, maximum, target or preferred range for total turns.
+- There is no minimum, maximum, target or preferred range for learner turns.
+- QA evaluates whether the scene has enough communicative progression and learner participation for its actual purpose.
 - Prefer one source's continuous dialogue when suitable. A composite scene is allowed only when its source-backed turns are mutually compatible and every turn keeps exact provenance.
 - Do not lengthen a dialogue by inventing target-language filler.
-- Dialogue length must follow the scene: a greeting may be compact, while a cafe, shopping, directions or registration scene may be substantially longer.
+- Do not shorten a useful scene merely to make it resemble another lesson.
+- Dialogue length follows the scene, source evidence, cognitive load and learning target.
 
-## 4. Zero-beginner progression
+## 6. Zero-beginner progression
 
 Pre-A1 must be designed for a learner who can start with zero knowledge of the target language.
 
-The beginning of a language should favor immediately understandable, reusable communication before administrative or travel-heavy material. A sensible progression is:
+The beginning of a language should favor immediately understandable, reusable communication before unnecessarily complex contexts. Progression should be chosen by communicative prerequisites, learner load, source coverage and recycling needs—not by assigning topics to fixed lesson numbers.
 
-1. hello / good morning / goodbye;
-2. how are you and fixed short responses;
-3. yes / no / please / thanks / excuse me and repair phrases;
-4. giving and asking a name;
-5. very simple identity/origin/residence;
-6. very simple preferences such as liking familiar food;
-7. simple wants/choices such as water, coffee or food;
-8. numbers and age;
-9. family and familiar people;
-10. only then broader time/date/place/transaction/form tasks as coverage requires.
-
-This is a progression principle rather than a globally fixed lesson list. Source availability and language-specific structure may change the exact grouping.
-
-For the earliest lessons:
+For early progression:
 - assume no unexplained target-language vocabulary;
-- keep each lesson's new productive load small;
-- recycle previously introduced phrases heavily;
+- keep new productive load appropriate to what has already been established;
+- recycle high-value phrases when pedagogically useful;
 - prioritize concrete familiar words and visually supportable meanings;
-- avoid starting the course with passport control, registration bureaucracy, formal travel procedures or other contexts that require unnecessary world knowledge when simpler communicative material is available.
+- avoid unnecessarily complex administrative or travel contexts when simpler communication is a better prerequisite.
 
-## 5. Activity integrity
+There is no fixed number of "early lessons" to which these rules apply. Apply them for as long as the learner's actual progression requires them.
+
+## 7. Activity integrity
 
 Activities should reinforce material introduced by the lesson rather than introduce unrelated target-language content.
 
@@ -84,7 +100,9 @@ For transformed activities:
 - `matching`: pair source-backed words/phrases with faithful Persian meanings or source-backed equivalents;
 - grammar activities must trace back to a cited grammar source.
 
-## 6. Words and phrases
+Activity quantity is determined only by what practice the lesson requires in the wider curriculum.
+
+## 8. Words and phrases
 
 Every reusable word or phrase should have a stable ID. This enables:
 - tap-for-help inside lessons;
@@ -94,9 +112,9 @@ Every reusable word or phrase should have a stable ID. This enables:
 - future pronunciation/audio;
 - future user flashcards and spaced review.
 
-A lesson references lexeme IDs rather than duplicating educational metadata wherever possible.
+A lesson references lexeme IDs rather than duplicating educational metadata wherever possible. Inflected and alternate forms resolve through `lexeme_forms` when lexical identity is unchanged.
 
-## 7. Audio policy
+## 9. Audio policy
 
 Audio is not produced during initial content assembly.
 
@@ -108,7 +126,7 @@ Future audio rules:
 - voices should be clear, calm, low-stress, non-aggressive and relatively consistent in overall tone;
 - speech should remain easy for learners to understand.
 
-## 8. Source provenance
+## 10. Source provenance
 
 Every reusable teaching item must be traceable to one or more source records. Store, when available:
 - source ID;
@@ -119,17 +137,18 @@ Every reusable teaching item must be traceable to one or more source records. St
 - retrieval date;
 - transformation notes.
 
-## 9. QA invariants
+## 11. QA invariants
 
 Before a lesson is final:
 - first activity is conversation speaking;
-- opening conversation is a meaningful multi-turn mini-scene rather than a token two-line exchange;
-- the learner speaks more than once in ordinary opening scenes;
+- opening conversation is a meaningful scene judged semantically, not by turn count;
+- learner participation is meaningful for the scene, not checked against a numeric quota;
+- no structural decision was made primarily to hit a unit, lesson, activity or dialogue count;
 - source references resolve;
 - CEFR assignment is justified;
 - Persian translations preserve meaning;
 - character assignment does not conflict with speaker gender, age, role, relationship or context;
 - no unsupported grammar explanation has been authored;
 - activity ordering is not mechanically copied from a global template;
-- word/phrase IDs resolve;
+- word/phrase/form IDs resolve;
 - audio fields remain empty until the language audio phase.
