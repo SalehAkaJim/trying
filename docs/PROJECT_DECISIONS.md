@@ -17,8 +17,10 @@
 
 ## Opening conversation
 - Every finalized lesson starts with `conversation_speaking`.
-- Opening conversations must contain **4–12 turns**. This is an explicit product exception to the anti-quota rule.
-- Inside 4–12 there is no preferred count; choose the natural scene length and never invent filler.
+- Opening conversations use **4–12 turns**.
+- For the **first 10 lessons of a language's beginner path**, the opening conversation is **exactly 4 turns** to keep initial cognitive load low. When Pre-A1 exists, these are the first 10 Pre-A1 lessons.
+- From lesson 11 onward there is no preferred turn count inside 4–12; choose the natural scene length and never invent filler.
+- This turn envelope is an explicit product exception to the general anti-quota rule.
 - Learner-turn count has no quota.
 - The app or learner may initiate. For learner initiation, turn 1 is a learner turn and the Persian instruction explicitly asks the learner to start.
 - Do not hard-code the app as starter across the course.
