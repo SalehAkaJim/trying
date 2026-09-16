@@ -139,7 +139,7 @@ jobs:
       - name: Verify Persian editorial columns after MySQL import
         run: |
           docker run --rm --network host mysql:9.0.1 mysql -N -s -h127.0.0.1 -uroot -proot language_content_test -e "
-            SELECT txt FROM (
+            SELECT HEX(txt) FROM (
               SELECT structure_rationale txt FROM language_levels ll JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1'
               UNION ALL SELECT notes FROM language_levels ll JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1' AND notes IS NOT NULL
               UNION ALL SELECT title FROM curriculum_targets ct JOIN language_levels ll ON ll.id=ct.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE lang.code='de' AND ll.cefr_level='Pre-A1'
@@ -158,7 +158,8 @@ jobs:
           python - <<'PY'
           import pathlib,re,sys
           fa=re.compile(r'[\u0600-\u06FF]')
-          lines=[x.strip() for x in pathlib.Path('/tmp/editorial.txt').read_text(encoding='utf-8').splitlines() if x.strip()]
+          hex_lines=[x.strip() for x in pathlib.Path('/tmp/editorial.txt').read_text(encoding='ascii').splitlines() if x.strip()]
+          lines=[bytes.fromhex(x).decode('utf-8') for x in hex_lines]
           bad=[x for x in lines if not fa.search(x)]
           if bad:
               print('Non-Persian editorial rows:')
