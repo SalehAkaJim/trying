@@ -34,7 +34,9 @@ For each language and level:
 8. Re-run the coverage matrix and QA.
 9. Group lessons into units only when coherent learner-facing clusters emerge.
 10. Continue until unresolved required coverage no longer justifies additional content.
-11. Finalize the level based on coverage and quality—not because any numeric count was reached.
+11. Run a formal level-completion audit covering CEFR ability coverage, language-specific prerequisites, progression, practice/retrieval, reinforcement, skill/mode balance and unresolved gaps.
+12. Run the holistic 0–10 quality review and revise any material weakness that prevents the level from being close to 10/10.
+13. Finalize the level only when the educational completion audit passes, material gaps are resolved, and the quality review supports release.
 
 At every stage, unit and lesson counts are derived from the current approved structure.
 
@@ -110,15 +112,39 @@ Operational estimates, if ever introduced, must be clearly non-binding and must 
 ## Completion rule
 
 A level is complete when:
+- the CEFR abilities intended for that level and product scope are adequately covered;
 - required communicative targets are adequately covered;
 - major language-specific prerequisites are covered;
-- source-backed practice is sufficient for the curriculum design;
+- source-backed practice and retrieval are sufficient for the curriculum design;
 - important material has appropriate reinforcement;
-- known curriculum gaps are resolved or explicitly documented;
-- progression is coherent;
-- QA approves source integrity, level placement and structure.
+- the balance of reception, interaction, production and other relevant modes is appropriate to the level;
+- known required curriculum gaps are resolved;
+- progression from prerequisite knowledge to end-of-level capability is coherent;
+- QA approves source integrity, linguistic accuracy, level placement, activity design and structure.
 
-A level is **not** complete because it reached a certain number of units or lessons.
+A level is **not** complete because it reached a certain number of units or lessons, and it is not complete merely because no obvious topic remains on an informal checklist.
+
+The end point must be justified against CEFR descriptors and sound language-teaching practice. If a meaningful learner capability, prerequisite, practice need or retention/retrieval need is still under-supported, generation continues.
+
+## Level quality review: 0–10
+
+Before a level can become `final`, perform a holistic quality review on a 0–10 scale. The desired release state is **close to 10/10**.
+
+The review must consider at minimum:
+- CEFR coverage and completeness;
+- pedagogical progression and prerequisite handling;
+- adequacy of practice, retrieval and reinforcement;
+- activity quality, fit and variety;
+- linguistic accuracy, naturalness and contemporary usage;
+- source quality, provenance and modernity;
+- learner clarity/support, including Persian support where required;
+- QA integrity and absence of unresolved material issues.
+
+The overall score is a summary of evidence, not a replacement for it. A high score cannot make an incomplete level complete. Any material unresolved gap blocks finalization regardless of the arithmetic score.
+
+The score must not be improved artificially by adding extra lessons, activities, turns or repetitions. Add content only when a specific educational deficiency justifies it; remove/revise content when that improves clarity, progression or learning value.
+
+The quality assessment should record a rationale and remaining weaknesses so future audits can understand why the level was considered ready.
 
 ## Progression rule
 
