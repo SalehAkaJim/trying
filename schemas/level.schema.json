@@ -26,9 +26,91 @@
         "gaps": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
       }
     },
+    "completionAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewedAt",
+        "cefrCoverageComplete",
+        "progressionComplete",
+        "practiceAndRetrievalComplete",
+        "skillModeCoverageComplete",
+        "requiredGaps",
+        "qualityReview"
+      ],
+      "properties": {
+        "reviewedAt": {"type": "string", "format": "date-time"},
+        "cefrCoverageComplete": {"type": "boolean"},
+        "progressionComplete": {"type": "boolean"},
+        "practiceAndRetrievalComplete": {"type": "boolean"},
+        "skillModeCoverageComplete": {"type": "boolean"},
+        "requiredGaps": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "qualityReview": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["overallScore", "dimensionScores", "rationale", "strengths", "remainingWeaknesses"],
+          "properties": {
+            "overallScore": {"type": "number", "minimum": 0, "maximum": 10},
+            "dimensionScores": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "cefrCoverage",
+                "pedagogicalProgression",
+                "practiceAndRetrieval",
+                "activityQualityAndVariety",
+                "linguisticAccuracyAndNaturalness",
+                "sourceQualityAndCurrency",
+                "learnerSupportAndClarity",
+                "qaIntegrity"
+              ],
+              "properties": {
+                "cefrCoverage": {"type": "number", "minimum": 0, "maximum": 10},
+                "pedagogicalProgression": {"type": "number", "minimum": 0, "maximum": 10},
+                "practiceAndRetrieval": {"type": "number", "minimum": 0, "maximum": 10},
+                "activityQualityAndVariety": {"type": "number", "minimum": 0, "maximum": 10},
+                "linguisticAccuracyAndNaturalness": {"type": "number", "minimum": 0, "maximum": 10},
+                "sourceQualityAndCurrency": {"type": "number", "minimum": 0, "maximum": 10},
+                "learnerSupportAndClarity": {"type": "number", "minimum": 0, "maximum": 10},
+                "qaIntegrity": {"type": "number", "minimum": 0, "maximum": 10}
+              }
+            },
+            "rationale": {"type": "string", "minLength": 1},
+            "strengths": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+            "remainingWeaknesses": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+          }
+        }
+      }
+    },
     "sourceRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
     "unitRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
     "lessonRefs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "default": []},
     "notes": {"type": "string"}
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"status": {"const": "final"}},
+        "required": ["status"]
+      },
+      "then": {
+        "required": ["completionAssessment"],
+        "properties": {
+          "completionAssessment": {
+            "properties": {
+              "cefrCoverageComplete": {"const": true},
+              "progressionComplete": {"const": true},
+              "practiceAndRetrievalComplete": {"const": true},
+              "skillModeCoverageComplete": {"const": true},
+              "requiredGaps": {"maxItems": 0}
+            }
+          }
+        }
+      }
+    }
+  ]
 }
