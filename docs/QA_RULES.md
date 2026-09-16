@@ -6,9 +6,9 @@ These checks are intended for future automated validation plus editorial review.
 
 A lesson fails QA when any of the following is true:
 
-- activity #1 is not `conversation_speaking`;
-- an ordinary course opening dialogue contains only one prompt/response pair and has no approved editorial exception;
-- an opening dialogue has no learner turn, or the learner participates only once in a scene that is meant to be a normal multi-turn lesson conversation;
+- the opening activity is not `conversation_speaking`;
+- the opening scene is not a meaningful communicative scene for the lesson purpose;
+- learner participation is absent or clearly inadequate for a lesson that requires learner interaction;
 - a reusable target-language teaching item has no source reference;
 - a grammar explanation has no source-backed origin;
 - a required Persian translation is missing;
@@ -17,59 +17,87 @@ A lesson fails QA when any of the following is true:
 - referenced lexeme, lexeme-form, character, dialogue or source IDs do not resolve;
 - an unreviewed generated lexeme form is treated as an authoritative learner-facing mapping;
 - audio is generated before the full language reaches final content status;
-- an activity introduces unrelated target-language material only to satisfy a template.
+- an activity introduces unrelated target-language material only to satisfy a template;
+- content is padded, split, merged, truncated or grouped primarily to satisfy a numeric unit/lesson/activity/dialogue quota.
 
-## Conversation-depth checks
+## Anti-quota checks
 
-Conversation length is dynamic; QA must not force every lesson to the same turn count. It must, however, reject token conversations that do not function as a real scene.
+The project does not use fixed counts or preferred numeric ranges to design curriculum structure.
+
+QA must flag rationales or automation rules such as:
+- a target number of units per level;
+- a target, minimum, maximum or preferred lesson count per level/unit;
+- a target, minimum, maximum or preferred activity count per lesson;
+- a target, minimum, maximum or preferred total-turn count for opening conversations;
+- a target, minimum, maximum or preferred learner-turn count;
+- a fixed review cadence such as review after every N lessons;
+- closing/opening a unit because a lesson-count threshold was reached;
+- marking a level complete because it reached a count.
+
+Counts may be measured for analytics and QA observation, but must not become pass/fail targets or authoring quotas.
+
+## Conversation-quality checks
+
+Conversation length is fully dynamic. QA evaluates the scene semantically rather than against a turn threshold.
 
 For every opening dialogue, review:
-- total turn count;
-- learner-turn count;
-- alternation between speakers;
-- whether the scene has a clear beginning, progression and natural stopping point;
+- whether it functions as a real scene rather than a token wrapper;
+- whether learner participation is meaningful for the communicative purpose;
+- whether speaker alternation and progression make sense for the actual scene;
+- whether the scene has a natural beginning, development and stopping point where applicable;
 - whether repeated phrases are pedagogically useful rather than filler;
+- whether cognitive/productive load fits the learner's actual progression;
 - whether every target-language turn remains source-backed;
 - whether a composite dialogue combines compatible utterances without changing their target-language text.
 
-For zero-beginner Pre-A1, flag strongly when:
-- the opening has fewer than four total turns;
-- the learner has fewer than two speaking turns;
-- the first ten lessons repeatedly use the same two-turn or four-turn micro-pattern;
-- a supposedly introductory lesson assumes unexplained vocabulary or a bureaucratic/travel context before simpler everyday communication has been introduced.
+Never fail or pass a conversation solely because of total-turn or learner-turn count. Never expand a conversation to reach a number and never cut useful source-backed turns to stay below a number.
 
-The preferred pattern for early lessons is several short turns with a very small recycled language set. Longer transactional scenes may naturally contain more turns.
+## Dynamic unit and lesson checks
 
-## Zero-beginner progression checks
+For units:
+- verify that each unit boundary has a pedagogical/navigation rationale;
+- flag units created or closed primarily because of lesson count;
+- allow units within the same level to differ substantially in size;
+- verify that unrelated lessons were not merged into a unit merely to reduce unit count.
 
-For the opening run of Pre-A1 lessons, verify that the learner can plausibly begin with no prior knowledge of the target language.
-
-Flag for editorial review when:
-- a lesson depends on words or structures that have not appeared earlier and are not immediately supported by context;
-- passport, registration, complex travel, prices, dates or directions are introduced before basic greetings, name, courtesy, simple preferences and very simple personal information;
-- productive vocabulary load increases sharply without recycling;
-- a later lesson fails to reuse high-value beginner chunks introduced earlier;
-- the course teaches isolated labels for too long without giving the learner simple conversational use.
+For lessons:
+- verify that learning targets and source-backed material form a coherent experience;
+- flag artificial lesson splitting intended to increase lesson count;
+- flag unrelated target merging intended to decrease lesson count;
+- verify that level completion is based on coverage/progression rather than number of lessons.
 
 ## Dynamic activity checks
 
-There is no desired universal activity count. QA must not reward a lesson for having more activities or penalize a lesson simply for being short.
+There is no desired universal activity count.
 
-For each lesson, record an activity signature, for example:
+For each lesson, a derived activity signature may be recorded for pattern analysis, for example:
 
 ```text
 conversation_speaking > word_order > pronunciation_read
 ```
 
 Compare signatures across neighboring lessons and flag for editorial review when:
-
-- adjacent lessons use the exact same full sequence without a clear pedagogical reason;
-- a repeated local pattern becomes dominant across a run of lessons;
+- adjacent lessons use the exact same sequence without a pedagogical reason;
+- a repeated local pattern becomes dominant without target-driven justification;
 - the same response modality is overused while equally suitable alternatives exist;
-- activity count appears padded to imitate nearby lessons;
-- activity count appears artificially cut to match a preset number.
+- activities appear padded to imitate nearby lessons;
+- useful activities appear removed to imitate a target size;
+- activity count or sequence rationale refers primarily to a numeric template rather than learning need.
 
-These are review flags, not automatic reasons to mutate source content.
+These are review flags, not reasons to mutate source content automatically.
+
+## Zero-beginner progression checks
+
+For early Pre-A1 progression, verify that the learner can plausibly continue from actual previously introduced knowledge.
+
+Flag for editorial review when:
+- a lesson depends on words or structures not previously established and not immediately supported by context;
+- complex administrative/travel contexts appear before simpler communicative prerequisites without justification;
+- productive load increases sharply without enough support or recycling;
+- high-value beginner chunks are not reused when later targets depend on them;
+- the course teaches isolated labels for too long without simple communicative use.
+
+Do not define "early" as a fixed number of lessons. Apply these checks for as long as the learner's actual progression requires them.
 
 ## Activity-quality checks
 
@@ -94,7 +122,7 @@ Hard/review rules:
 - collisions where one surface maps to multiple lexemes are valid ambiguity, not data corruption;
 - multiple morphological analyses for the same surface and parent lexeme are allowed when linguistically valid;
 - automatic lookup must return/disambiguate candidates rather than silently taking the first matching surface;
-- language-aware normalization must not erase distinctions that are meaningful in that language.
+- language-aware normalization must not erase distinctions meaningful in that language.
 
 Flag for editorial/linguistic review when:
 - a form's morphology metadata conflicts with the parent lexeme or source context;
@@ -109,7 +137,7 @@ A level assignment should be reviewed against:
 - assumed prior knowledge;
 - grammar complexity;
 - vocabulary range/frequency;
-- discourse length/complexity;
+- discourse complexity;
 - learner output demand;
 - listening/reading burden;
 - support/scaffolding required.
@@ -137,7 +165,7 @@ For every dialogue:
 ## Audio preflight
 
 Before ElevenLabs generation begins for a language:
-- all levels are final;
+- all levels are final by coverage/QA criteria;
 - all dialogue speaker assignments are final;
 - no unresolved gender/age/role conflicts remain;
 - voice cast is stable;
