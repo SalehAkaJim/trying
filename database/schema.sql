@@ -179,6 +179,7 @@ INSERT INTO taxonomy_labels (domain_code,value_code,label_fa) VALUES
   ('activity_transformation','options_selected_from_source_material','گزینه‌ها از محتوای منبع انتخاب شده‌اند'),
   ('activity_transformation','sentence_tokenized_for_word_order','جمله برای مرتب‌سازی کلمات بخش‌بندی شده'),
   ('activity_transformation','source_items_grouped_for_matching','موارد منبع برای تطبیق گروه‌بندی شده'),
+  ('activity_transformation','source_backed_pairs_grouped','جفت‌های منبع‌دار برای تطبیق گروه‌بندی شده‌اند'),
   ('activity_transformation','source_sentence_blanked','از جملهٔ منبع جای خالی ساخته شده')
 ON DUPLICATE KEY UPDATE label_fa=VALUES(label_fa);
 -- END GENERATED FA TAXONOMY
