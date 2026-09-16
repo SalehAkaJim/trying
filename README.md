@@ -1,30 +1,48 @@
 # Language Learning Project
 
-This repository contains the finalized rules/contracts foundation and the source-backed educational content built from those rules.
+This repository is the canonical durable source of truth for the product rules, machine-readable contracts, source-backed educational content and MySQL output.
+
+## Start here
+
+Before creating or modifying a language, level or substantial content batch, start with [`docs/PROJECT_RULES_INDEX.md`](docs/PROJECT_RULES_INDEX.md). It defines the mandatory read order and rule-change protocol.
+
+Important shared references:
+- [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md)
+- [`docs/LOCALIZATION_POLICY.md`](docs/LOCALIZATION_POLICY.md)
+- [`docs/AUTOMATION_CONTRACT.md`](docs/AUTOMATION_CONTRACT.md)
+- [`docs/QA_RULES.md`](docs/QA_RULES.md)
+- [`config/fa-taxonomy.json`](config/fa-taxonomy.json)
 
 ## Non-negotiable architecture
 
 - MySQL-first architecture; canonical target runtime: **MySQL 9.0.1**.
-- Final language deliverables must be exportable as complete MySQL `.sql` files.
+- Final language deliverables are organized as one MySQL content file per language × CEFR level.
 - Course sizing is coverage-driven, source-driven and QA-driven — never quota-driven.
-- There is no fixed or preferred numeric count for units, lessons, activities, opening-conversation turns, learner turns, or review cadence.
-- Every finalized lesson begins with `conversation_speaking`; everything after that is selected dynamically.
-- Target-language instructional content must be source-backed and provenance-preserving.
+- There is no fixed/preferred numeric count for units, lessons, post-opening activities, learner turns or review cadence.
+- Every finalized lesson begins with `conversation_speaking`.
+- Opening conversations use 4–12 turns; the first 10 lessons of a language's beginner path use exactly 4 turns.
+- The app or learner may initiate a conversation; learner-start is explicit and turn 1 belongs to the learner.
+- Target-language instructional content is source-backed and provenance-preserving.
+- Current learner-facing content is image-free.
 - `lexemes` represent lexical identity; inflected/variant forms resolve through `lexeme_forms`.
+- Stable technical codes may remain English/ASCII, but every semantic code has a stored Persian human-readable label through the canonical taxonomy; `partOfSpeech` also stores `partOfSpeechFa` directly.
 - Audio generation is deferred until the full target-language curriculum is finalized.
 
-Start with [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md), [`docs/DYNAMIC_CONTENT_MODEL.md`](docs/DYNAMIC_CONTENT_MODEL.md), [`docs/CONTENT_RULES.md`](docs/CONTENT_RULES.md), and [`docs/SOURCE_POLICY.md`](docs/SOURCE_POLICY.md).
+## Automation
 
-## Current content status
-
-German `Pre-A1` production has started under `content/de/pre-a1/`.
-
-The initial seed deliberately starts with the smallest immediately useful communication requested for a zero beginner: informal greeting, morning greeting, and a familiar food preference. The current number of units/lessons/activities is only the result of the content built so far; it is **not** a target or forecast for the completed level.
+Cross-language validation lives in `scripts/validate_project_contracts.py` and CI. New languages inherit the existing rules automatically. Repeated defects should become permanent repository rules/tests rather than chat-only reminders.
 
 ## Repository layout
 
 ```text
-/docs/              Finalized project, editorial, QA and architecture rules
-/schemas/           Formal content contracts
-/content/           Source-backed language content produced under those contracts
+/docs/              Canonical project, editorial, QA and architecture rules
+/config/            Machine-readable shared configuration such as Persian taxonomy
+/schemas/           Formal authoring contracts
+/scripts/           Shared automation and validation tools
+/content/           Source-backed language authoring content
+/database/          MySQL 9.0.1 schema and per-language/per-level content SQL
 ```
+
+## Current content status
+
+German `Pre-A1` production is in progress under `content/de/pre-a1/`. Current counts describe only what has been built so far and are never curriculum targets or forecasts.
