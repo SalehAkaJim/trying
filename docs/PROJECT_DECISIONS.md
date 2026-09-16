@@ -1,5 +1,11 @@
 # Finalized Project Decisions
 
+## Repository as durable source of truth
+- The current `main` branch is the canonical durable project memory for rules, contracts and automation.
+- Before creating a new language, CEFR level or substantial content batch, start from `docs/PROJECT_RULES_INDEX.md` and apply the referenced contracts.
+- Chat/model memory is secondary; durable decisions must be committed to GitHub.
+- When a repeated defect is discovered, fix current content and add a rule/schema/test whenever the defect is machine-testable.
+
 ## Database and deliverable
 - MySQL-first; canonical runtime is **MySQL 9.0.1**.
 - JSON schemas are authoring contracts; MySQL is canonical finalized storage.
@@ -25,10 +31,13 @@
 - The app or learner may initiate. For learner initiation, turn 1 is a learner turn and the Persian instruction explicitly asks the learner to start.
 - Do not hard-code the app as starter across the course.
 
-## Persian editorial/support prose
+## Persian localization
 - Assistant-authored learner/curriculum/editorial prose is Persian: targets, instructions, reasons, scenarios, rationales, coverage/gaps and editorial notes.
-- Exceptions: target-language text, exact quotations, proper names, IDs/keys/enums, URLs, licenses and official source/bibliographic metadata.
-- English-only authored prose in these fields is a QA failure.
+- Stable machine codes may remain ASCII/English, but every semantic code must have a stored Persian human-readable label.
+- `config/fa-taxonomy.json` is the canonical Persian label registry for shared semantic codes.
+- `partOfSpeech` always stores the stable technical code and `partOfSpeechFa` stores the matching Persian label.
+- A new semantic code without a Persian taxonomy entry is a hard QA failure.
+- Exceptions for untranslated storage are limited to target-language text, exact source quotations, proper names, IDs/keys, URLs, licenses and exact official bibliographic metadata. If any such value needs a product-facing label, that label must be Persian.
 
 ## Sources
 - Reusable target-language content is source-backed.
@@ -45,6 +54,13 @@
 ## Lexemes/forms
 - Canonical lexical identity is stored in `lexemes`; inflections/variants in `lexeme_forms`.
 - Persist resolved occurrences to lexeme/form IDs; do not rely on runtime string guessing.
+
+## Automation
+- Cross-language contract validation is mandatory before accepting content batches.
+- Shared rules must be enforced generically across languages rather than reimplemented as German-only checks.
+- Authoring manifests and MySQL output must remain synchronized.
+- MySQL schema/content imports must pass on MySQL 9.0.1 and remain idempotent.
+- The full automation sequence is defined in `docs/AUTOMATION_CONTRACT.md`.
 
 ## Audio
 - Audio is generated only after the whole target-language curriculum/text/speaker assignments are final.
