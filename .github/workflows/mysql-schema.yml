@@ -1,0 +1,49 @@
+name: MySQL 9.0.1 Schema
+
+on:
+  push:
+    paths:
+      - 'database/schema.sql'
+      - '.github/workflows/mysql-schema.yml'
+  pull_request:
+    paths:
+      - 'database/schema.sql'
+      - '.github/workflows/mysql-schema.yml'
+
+jobs:
+  validate-schema:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:9.0.1
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: language_content_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=12
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply schema on MySQL 9.0.1
+        run: |
+          docker run --rm --network host mysql:9.0.1 \
+            mysql -h127.0.0.1 -uroot -proot language_content_test \
+            < database/schema.sql
+
+      - name: Apply schema a second time
+        run: |
+          docker run --rm --network host mysql:9.0.1 \
+            mysql -h127.0.0.1 -uroot -proot language_content_test \
+            < database/schema.sql
+
+      - name: Verify core objects
+        run: |
+          docker run --rm --network host mysql:9.0.1 \
+            mysql -N -h127.0.0.1 -uroot -proot language_content_test \
+            -e "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='language_content_test' AND table_name IN ('languages','lessons','activities','lexemes','lexeme_forms','lexeme_occurrences','sources');" \
+            | grep -qx '7'
