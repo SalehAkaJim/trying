@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'scripts/fix_persian_coverage_temp.py'
+      - 'scripts/fix_persian_coverage_round2_temp.py'
       - '.github/workflows/persian-coverage-temp.yml'
 
 permissions:
@@ -17,7 +18,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Apply Persian coverage migration
-        run: python scripts/fix_persian_coverage_temp.py
+        run: |
+          python scripts/fix_persian_coverage_temp.py
+          python scripts/fix_persian_coverage_round2_temp.py
       - name: Synchronize MySQL taxonomy seed
         run: python scripts/apply_mysql_localization.py
       - name: Install schema validator
