@@ -1,0 +1,32 @@
+name: One-off voice lock stability hardening
+
+on:
+  push:
+    paths:
+      - '.github/workflows/migrate-voice-lock-stability.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Harden voice-lock behavior
+        run: |
+          python scripts/migrate_voice_lock_stability.py
+          rm -f scripts/migrate_voice_lock_stability.py .github/workflows/migrate-voice-lock-stability.yml
+      - name: Validate hardened audio contracts
+        run: |
+          python -m py_compile scripts/audio_pipeline.py scripts/validate_audio_contracts.py
+          python scripts/validate_audio_contracts.py
+      - name: Commit hardening on main
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Keep character voice locks stable across resolves'
+          git push
