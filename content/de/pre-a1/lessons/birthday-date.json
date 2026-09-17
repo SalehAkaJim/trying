@@ -73,14 +73,20 @@
       "dialogueRef": null,
       "data": {
         "sourceText": "Ich habe am dreizehnten November Geburtstag.",
+        "sourceTextFa": "تولد من سیزدهم نوامبر است.",
         "blankedText": "Ich habe am ___ November Geburtstag.",
+        "blankedTextFa": "تولد من ___ نوامبر است.",
         "choices": [
           "dreizehnten"
+        ],
+        "choicesFa": [
+          "سیزدهم"
         ],
         "answer": "dreizehnten"
       },
       "transformations": [
-        "source_sentence_blank_created"
+        "source_sentence_blank_created",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
