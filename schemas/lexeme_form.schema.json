@@ -4,39 +4,84 @@
   "title": "Lexeme Form",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "id", "lexemeId", "surface", "formType", "origin", "reviewStatus", "sourceRefs"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "lexemeId",
+    "surface",
+    "formType",
+    "formTypeFa",
+    "features",
+    "featuresFa",
+    "origin",
+    "originFa",
+    "reviewStatus",
+    "reviewStatusFa",
+    "sourceRefs"
+  ],
   "properties": {
     "schemaVersion": {"type": "string"},
     "id": {"type": "string", "minLength": 1},
     "lexemeId": {"type": "string", "minLength": 1},
-    "surface": {"type": "string", "minLength": 1, "description": "Exact inflected or alternate surface form that resolves to the parent lexeme."},
+    "surface": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Exact inflected or alternate surface form that resolves to the parent lexeme."
+    },
     "formType": {
       "enum": ["inflected", "orthographic_variant", "contraction", "cliticized", "abbreviation", "other"],
-      "description": "Coarse cross-language classification. Language-specific grammatical detail belongs in features."
+      "description": "Stable technical code. Learner-facing surfaces must use formTypeFa."
+    },
+    "formTypeFa": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[\\u0600-\\u06FF]",
+      "description": "Canonical Persian label for formType from config/fa-taxonomy.json."
     },
     "features": {
       "type": "object",
-      "description": "Language-specific morphological or grammatical features such as person, number, tense, mood, case, gender or degree. Multiple rows may share the same surface when the same written form has multiple valid analyses.",
+      "description": "Language-specific morphological or grammatical feature codes.",
       "additionalProperties": {
         "type": ["string", "number", "boolean", "null", "array"],
         "items": {"type": ["string", "number", "boolean", "null"]}
       },
       "default": {}
     },
+    "featuresFa": {
+      "type": "object",
+      "description": "Persian learner-facing labels mirroring every localized grammatical feature in features.",
+      "additionalProperties": {
+        "type": ["string", "null", "array"],
+        "items": {"type": ["string", "null"]}
+      },
+      "default": {}
+    },
     "origin": {
       "enum": ["source_attested", "reference_attested", "generated"],
-      "description": "How the form entered the system. Generated forms are candidates until reviewed."
+      "description": "Stable technical code for how the form entered the system."
+    },
+    "originFa": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[\\u0600-\\u06FF]",
+      "description": "Canonical Persian label for origin."
     },
     "reviewStatus": {
       "enum": ["pending_review", "approved"],
-      "description": "Only approved forms may be relied on for learner-facing resolution or grammar behavior."
+      "description": "Stable technical review code."
+    },
+    "reviewStatusFa": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[\\u0600-\\u06FF]",
+      "description": "Canonical Persian label for reviewStatus."
     },
     "sourceRefs": {
       "type": "array",
       "items": {"type": "string"},
       "uniqueItems": true,
       "default": [],
-      "description": "Attestation/provenance references when available. Source-attested forms should retain the relevant source references."
+      "description": "Attestation/provenance references when available."
     },
     "notes": {"type": ["string", "null"], "default": null}
   }
