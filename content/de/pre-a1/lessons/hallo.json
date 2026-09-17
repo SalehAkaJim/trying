@@ -74,6 +74,7 @@
         "options": [
           {
             "textTarget": "Tschüss!",
+            "translationFa": "خداحافظ!",
             "correct": true,
             "sourceRefs": [
               "src-wikibooks-de-basic-greetings"
@@ -81,6 +82,7 @@
           },
           {
             "textTarget": "Hallo!",
+            "translationFa": "سلام!",
             "correct": false,
             "sourceRefs": [
               "src-wiktionary-de-hallo"
