@@ -24,9 +24,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "هدف این مرحله فقط فهم یک پرسش سادهٔ خواستن و انتخاب یک گزینهٔ آشناست؛ همان گفت‌وگوی چهار نوبت هدف را کامل پوشش می‌دهد و تمرین اضافه در این لحظه فقط تکرار مکانیکی ایجاد می‌کند.",
-    "sequenceRationale": "زبان‌آموز ابتدا زبان آشنای سلام را بازیابی می‌کند، سپس پرسش تازهٔ «Was möchtest du?» را می‌شنود و بدون واژهٔ جدید با «Pizza.» پاسخ می‌دهد.",
-    "templateSignature": "conversation_speaking"
+    "activitySelectionRationale": "گفت‌وگو معنی «Was möchtest du?» را در یک انتخاب ساده روشن می‌کند و بازسازی همان پرسش دقیق منبع، فرم «möchtest» را بدون افزودن واژه یا ساختار تازه بازیابی می‌کند.",
+    "sequenceRationale": "ابتدا زبان‌آموز پرسش را در بافت می‌فهمد و پاسخ آشنا می‌دهد؛ سپس خود پرسش منبع‌دار را با مرتب‌کردن واژه‌ها بازسازی می‌کند.",
+    "templateSignature": "conversation_speaking>word_order"
   },
   "activities": [
     {
@@ -56,6 +56,47 @@
       "transformations": [
         "persian_translation_added",
         "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-simple-choice-word-order",
+      "type": "word_order",
+      "instructionFa": "پرسش منبع‌دار را دوباره بساز.",
+      "selectionReason": "بازسازی «Was möchtest du?» فرم تازهٔ «möchtest» را در همان پرسش آشنا تثبیت می‌کند و زبان تازه‌ای وارد نمی‌کند.",
+      "sourceRefs": [
+        "src-oak-de-was-moechtest-du",
+        "src-wiktionary-de-moechten"
+      ],
+      "learningTargets": [
+        "بازسازی درست «Was möchtest du?» و توجه به فرم «möchtest»."
+      ],
+      "lexemeRefs": [
+        "lex-de-moegen"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Was möchtest du?",
+        "tokens": [
+          "Was",
+          "möchtest",
+          "du?"
+        ],
+        "answer": [
+          "Was",
+          "möchtest",
+          "du?"
+        ],
+        "tokenLexemeMappings": [
+          {
+            "token": "möchtest",
+            "lexemeId": "lex-de-moegen",
+            "lexemeFormId": "lexform-de-moegen-moechtest"
+          }
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order"
       ],
       "audioStatus": "not_required"
     }
