@@ -78,6 +78,7 @@
         "options": [
           {
             "textTarget": "Guten Morgen!",
+            "translationFa": "صبح بخیر!",
             "correct": true,
             "sourceRefs": [
               "src-wiktionary-de-guten-morgen"
@@ -85,6 +86,7 @@
           },
           {
             "textTarget": "Hallo!",
+            "translationFa": "سلام!",
             "correct": false,
             "sourceRefs": [
               "src-wiktionary-de-hallo"
