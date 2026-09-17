@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lexform-de-trinken-trinke",
+  "lexemeId": "lex-de-trinken",
+  "surface": "trinke",
+  "formType": "inflected",
+  "formTypeFa": "صرف‌شده",
+  "features": {"tense":"present","mood":"indicative","person":"1","number":"singular"},
+  "featuresFa": {"tense":"حال","mood":"اخباری","person":"اول‌شخص","number":"مفرد"},
+  "origin": "source_attested",
+  "originFa": "ثبت‌شده در منبع",
+  "reviewStatus": "approved",
+  "reviewStatusFa": "تأییدشده",
+  "sourceRefs": ["src-wikibooks-de-lesson-022-daily-routine"],
+  "notes": "در پاسخ منبع‌دار مربوط به صبح، فعل نوشیدن به‌صورت اول‌شخص مفرد زمان حال آمده است."
+}

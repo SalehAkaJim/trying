@@ -1,0 +1,17 @@
+{
+  "id":"dlg-de-a1-daily-routine-work",
+  "languageId":"de",
+  "level":"A1",
+  "sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],
+  "scenario":"آیریس از پاول دربارهٔ کارهای معمول صبح و پیش از ظهر می‌پرسد و پاول با دو پاسخ کوتاه دربارهٔ قهوه و کار جواب می‌دهد.",
+  "openingInitiator":"app",
+  "characterRefs":["char-de-iris","char-de-paul"],
+  "turns":[
+    {"id":"turn-de-a1-daily-routine-work-1","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Was machen Sie morgens?","translationFa":"صبح‌ها چه کار می‌کنید؟","learnerTurn":false,"lexemeRefs":["lex-de-machen","lex-de-morgens"],"lexemeOccurrences":[{"surface":"machen","lexemeId":"lex-de-machen","lexemeFormId":null},{"surface":"morgens","lexemeId":"lex-de-morgens","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"audioRef":null},
+    {"id":"turn-de-a1-daily-routine-work-2","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Morgens trinke ich Kaffee.","translationFa":"صبح‌ها قهوه می‌نوشم.","learnerTurn":true,"lexemeRefs":["lex-de-morgens","lex-de-trinken","lex-de-kaffee"],"lexemeOccurrences":[{"surface":"Morgens","lexemeId":"lex-de-morgens","lexemeFormId":null},{"surface":"trinke","lexemeId":"lex-de-trinken","lexemeFormId":"lexform-de-trinken-trinke"},{"surface":"Kaffee","lexemeId":"lex-de-kaffee","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"audioRef":null},
+    {"id":"turn-de-a1-daily-routine-work-3","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Was machen Sie vormittags?","translationFa":"پیش از ظهرها چه کار می‌کنید؟","learnerTurn":false,"lexemeRefs":["lex-de-machen","lex-de-vormittags"],"lexemeOccurrences":[{"surface":"machen","lexemeId":"lex-de-machen","lexemeFormId":null},{"surface":"vormittags","lexemeId":"lex-de-vormittags","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"audioRef":null},
+    {"id":"turn-de-a1-daily-routine-work-4","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Vormittags arbeite ich im Betrieb.","translationFa":"پیش از ظهرها در محل کار کار می‌کنم.","learnerTurn":true,"lexemeRefs":["lex-de-vormittags","lex-de-arbeiten","lex-de-betrieb"],"lexemeOccurrences":[{"surface":"Vormittags","lexemeId":"lex-de-vormittags","lexemeFormId":null},{"surface":"arbeite","lexemeId":"lex-de-arbeiten","lexemeFormId":"lexform-de-arbeiten-arbeite"},{"surface":"Betrieb","lexemeId":"lex-de-betrieb","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"audioRef":null}
+  ],
+  "sceneQualityRationale":"دو جفت پرسش و پاسخِ بخش ۹۳۶ بدون بازنویسی کنار هم قرار گرفته‌اند و یک گفت‌وگوی طبیعی دربارهٔ دو بخش پیاپی روز می‌سازند.",
+  "learnerCharacterId":"char-de-paul"
+}

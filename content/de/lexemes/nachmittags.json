@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-nachmittags",
+  "languageId": "de",
+  "type": "word",
+  "surface": "nachmittags",
+  "lemma": "nachmittags",
+  "partOfSpeech": "adverb",
+  "partOfSpeechFa": "قید",
+  "level": "A1",
+  "translationFa": "بعدازظهرها / بعدازظهر",
+  "usageNoteFa": "برای بیان کارهایی که در بعدازظهر انجام می‌شوند استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-lesson-022-daily-routine"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

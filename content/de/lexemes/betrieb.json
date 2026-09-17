@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-betrieb",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Betrieb",
+  "lemma": "Betrieb",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "محل کار / شرکت",
+  "usageNoteFa": "در این سطح برای اشارهٔ ساده به محل کار در جملهٔ روزمره استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-lesson-022-daily-routine"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-morgens",
+  "languageId": "de",
+  "type": "word",
+  "surface": "morgens",
+  "lemma": "morgens",
+  "partOfSpeech": "adverb",
+  "partOfSpeechFa": "قید",
+  "level": "A1",
+  "translationFa": "صبح‌ها / صبح",
+  "usageNoteFa": "برای گفتن زمانی از روز که یک کار معمولاً صبح انجام می‌شود استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-lesson-022-daily-routine"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

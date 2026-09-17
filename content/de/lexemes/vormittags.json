@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-vormittags",
+  "languageId": "de",
+  "type": "word",
+  "surface": "vormittags",
+  "lemma": "vormittags",
+  "partOfSpeech": "adverb",
+  "partOfSpeechFa": "قید",
+  "level": "A1",
+  "translationFa": "پیش از ظهرها / پیش از ظهر",
+  "usageNoteFa": "برای بیان کارهایی که در بخش پیش از ظهر انجام می‌شوند استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-lesson-022-daily-routine"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}
