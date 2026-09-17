@@ -7,7 +7,7 @@ Target-language teaching content is source-driven and traceable. Do not invent t
 Project-authored learner support and curriculum/editorial prose must be Persian. Exact target-language text, proper names, IDs/enums, source titles, bibliographic/license metadata and URLs are exempt.
 
 ## Structure
-No target/preferred unit, lesson or activity count exists. Every finalized lesson starts with `conversation_speaking`; post-opening activities are dynamic.
+No target/preferred unit or lesson count exists. Every finalized lesson starts with `conversation_speaking`; post-opening activity type/order are dynamic. Finalized lesson activity count must stay inside the CEFR-level envelope in `config/activity-count-bounds.json`. `Pre-A1` currently requires **2–5 total activities**. The range is a quality guardrail, not a target count: add useful practice to meet the minimum and never pad toward the maximum.
 
 ## Opening conversation
 Opening conversations must contain **4–12 turns**. The first 10 lessons of a language's beginner path use exactly 4 turns; when Pre-A1 exists these are the first 10 Pre-A1 lessons. From lesson 11 onward, exact length inside 4–12 is chosen by scene/source/learning need; do not pad toward either boundary.
@@ -22,7 +22,7 @@ Learner-turn count otherwise remains dynamic. Every target-language turn is sour
 Current learner content is text/audio-only and independently solvable without images.
 
 ## Activities
-Activities reinforce lesson content. `word_order` and `fill_blank` reconstruct sourced text; choices/matching must not introduce fabricated teaching claims; grammar is sourced.
+Activities reinforce lesson content. `word_order` and `fill_blank` reconstruct sourced text; choices/matching must not introduce fabricated teaching claims; grammar is sourced. If a lesson is below the configured minimum, add a distinct useful retrieval/practice mode rather than filler or a near-duplicate exercise.
 
 ## Level completion
 A level becomes final only when CEFR coverage, prerequisites, progression, practice/retrieval, skill modes and QA are complete. Run the 0–10 review and aim close to 10 without padding.
