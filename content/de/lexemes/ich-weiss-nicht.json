@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-ich-weiss-nicht",
+  "languageId": "de",
+  "type": "phrase",
+  "surface": "Ich weiß nicht.",
+  "lemma": null,
+  "partOfSpeech": null,
+  "level": "Pre-A1",
+  "translationFa": "نمی‌دانم.",
+  "usageNoteFa": "به‌صورت یک عبارت ثابت و بسیار کوتاه برای وقتی پاسخ را نمی‌دانیم استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-phrasebook"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null,
+  "partOfSpeechFa": null
+}
