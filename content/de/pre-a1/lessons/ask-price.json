@@ -143,7 +143,7 @@
       "id": "act-de-price-sentence-choice",
       "type": "multiple_choice",
       "instructionFa": "کدام جمله قیمت ۳۵ یورو و ۱۵ سنت را می‌گوید؟",
-      "selectionReason": "دو پاسخ قیمتِ بسیار شبیه و هر دو منبع‌دار جای distractor نامرتبط را می‌گیرند تا پاسخ بدون خواندن دقیق عددها قابل حدس نباشد.",
+      "selectionReason": "دو پاسخ قیمتِ بسیار شبیه و هر دو منبع‌دار جای گزینهٔ غلطِ نامرتبط را می‌گیرند تا پاسخ بدون خواندن دقیق عددها قابل حدس نباشد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-004"
       ],
