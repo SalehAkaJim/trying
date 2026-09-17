@@ -8,7 +8,8 @@
   "sourceTitle": "Wo wohnen Sie? / Woher kommen Sie?",
   "learningTargets": [
     "محل زندگی را در یک جملهٔ کوتاه بفهمد و بیان کند.",
-    "مبدأ/کشور را در یک پرسش و پاسخ کوتاه بفهمد و بیان کند."
+    "مبدأ/کشور را در یک پرسش و پاسخ کوتاه بفهمد و بیان کند.",
+    "«Sie» را در دو پرسش منبع‌دار این درس به‌عنوان خطاب رسمی «شما» تشخیص دهد و آن را با «du» دوستانهٔ درس‌های قبلی قاطی نکند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-residence-origin"
@@ -21,7 +22,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "چهار مرحله تعامل، تطبیق، تشخیص نوع سؤال و ساخت پاسخ محل زندگی را پوشش می‌دهد.",
+    "activitySelectionRationale": "چهار مرحله تعامل، تطبیق، تشخیص نوع سؤال و ساخت پاسخ محل زندگی را پوشش می‌دهد و خطاب رسمی «Sie» را در همان نمونه‌های منبع‌دار روشن می‌کند.",
     "sequenceRationale": "از کاربرد دو مفهوم نزدیک به تمایز و در پایان تولید ساختاری می‌رسد.",
     "templateSignature": "conversation_speaking>matching>multiple_choice>word_order"
   },
@@ -29,13 +30,13 @@
     {
       "id": "act-de-residence-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "در یک گفت‌وگوی مؤدبانه دربارهٔ محل زندگی و مبدأ جواب بده و یک سؤال هم بپرس.",
-      "selectionReason": "دو توصیفگر نزدیکِ اطلاعات شخصی در یک تبادل چهار نوبت طبیعی کنار هم تمرین می‌شوند.",
+      "instructionFa": "در این گفت‌وگوی مؤدبانه طرف مقابل با «Sie» خطاب می‌شود؛ دربارهٔ محل زندگی و مبدأ جواب بده و یک سؤال هم بپرس.",
+      "selectionReason": "دو توصیفگر نزدیکِ اطلاعات شخصی در یک تبادل چهار نوبت طبیعی کنار هم تمرین می‌شوند و فرم رسمی موجود در منبع صریحاً برای زبان‌آموز مشخص می‌شود.",
       "sourceRefs": [
         "src-wikibooks-de-residence-origin"
       ],
       "learningTargets": [
-        "فهم و استفاده از پرسش و پاسخ بسیار ساده دربارهٔ محل زندگی و مبدأ."
+        "فهم و استفاده از پرسش و پاسخ بسیار ساده دربارهٔ محل زندگی و مبدأ با خطاب رسمی «Sie»."
       ],
       "lexemeRefs": [
         "lex-de-wohnen",
@@ -57,7 +58,7 @@
     {
       "id": "act-de-residence-matching",
       "type": "matching",
-      "instructionFa": "هر پرسش را به پاسخ مناسبش وصل کن.",
+      "instructionFa": "هر پرسش رسمی را به پاسخ مناسبش وصل کن.",
       "selectionReason": "این تطبیق تفاوت «محل زندگی» و «مبدأ» را با چهار عبارت دقیق منبع و بدون افزودن جملهٔ تازه تمرین می‌کند.",
       "sourceRefs": [
         "src-wikibooks-de-residence-origin"
