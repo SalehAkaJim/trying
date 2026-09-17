@@ -9,12 +9,15 @@
   "learningTargets": [
     "پرسش کوتاه «Was möchtest du?» را بفهمد.",
     "با یک گزینهٔ کاملاً آشنا مثل «Pizza.» انتخاب ساده انجام دهد.",
-    "فرم «möchtest» را به مدخل واژگانی پایهٔ «mögen» مرتبط کند."
+    "فرم «möchtest» را به مدخل واژگانی پایهٔ «mögen» مرتبط کند.",
+    "تفاوت کاربرد منبع‌دار «Magst du Pizza?» برای دوست‌داشتن و «Was möchtest du?» برای خواستن را تشخیص دهد."
   ],
   "sourceRefs": [
     "src-wiktionary-de-hallo",
     "src-oak-de-was-moechtest-du",
     "src-wiktionary-de-moechten",
+    "src-wiktionary-de-moegen",
+    "src-wikibooks-de-magst-du-pizza",
     "src-wiktionary-de-pizza"
   ],
   "lexemeRefs": [
@@ -24,9 +27,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "چهار مرحله فهم انتخاب، بازسازی پرسش، بازیابی «möchtest» و پاسخ‌دادن را پوشش می‌دهد.",
-    "sequenceRationale": "تعامل به ساخت پرسش، تمرکز روی فرم و سپس پاسخ کاربردی می‌رسد.",
-    "templateSignature": "conversation_speaking>word_order>fill_blank>choose_response"
+    "activitySelectionRationale": "پنج مرحله فهم انتخاب، بازسازی پرسش، تمایز معنایی «möchtest» و «magst»، پاسخ‌دادن و تشخیص شنیداری پرسش خواستن را پوشش می‌دهد.",
+    "sequenceRationale": "تعامل به ساخت پرسش، تمرکز روی تفاوت معنی، پاسخ کاربردی و در پایان تشخیص شنیداری همان پرسش می‌رسد.",
+    "templateSignature": "conversation_speaking>word_order>fill_blank>choose_response>listen_choose"
   },
   "activities": [
     {
@@ -105,16 +108,16 @@
     {
       "id": "act-de-simple-choice-fill",
       "type": "fill_blank",
-      "instructionFa": "پرسش انتخاب را کامل کن.",
-      "selectionReason": "این بازیابی روی فرم «möchtest» تمرکز می‌کند و آن را از فرم آشنای «magst» جدا نگه می‌دارد.",
+      "instructionFa": "با توجه به معنی انتخاب کن: «möchtest» برای «می‌خواهی» و «magst» برای «دوست داری».",
+      "selectionReason": "دو فرم منبع‌دار کنار هم قرار می‌گیرند تا زبان‌آموز فقط شکل را حفظ نکند و تفاوت «خواستن» و «دوست داشتن» را تشخیص دهد.",
       "sourceRefs": [
-        "src-wiktionary-de-hallo",
         "src-oak-de-was-moechtest-du",
         "src-wiktionary-de-moechten",
-        "src-wiktionary-de-pizza"
+        "src-wiktionary-de-moegen",
+        "src-wikibooks-de-magst-du-pizza"
       ],
       "learningTargets": [
-        "انتخاب «möchtest» در «Was möchtest du?»."
+        "انتخاب «möchtest» در «Was möchtest du?» و جداکردن آن از «magst» در کاربرد علاقه."
       ],
       "lexemeRefs": [
         "lex-de-moegen"
@@ -182,9 +185,44 @@
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-simple-choice-listen",
+      "type": "listen_choose",
+      "instructionFa": "پرسش را گوش کن و معنی درستش را انتخاب کن.",
+      "selectionReason": "همان پرسش دقیق منبع به‌صورت شنیداری ارائه می‌شود تا تفاوت «خواستن» و «دوست داشتن» فقط به خواندن محدود نماند.",
+      "sourceRefs": [
+        "src-oak-de-was-moechtest-du"
+      ],
+      "learningTargets": [
+        "تشخیص شنیداری «Was möchtest du?» به معنی پرسیدن خواسته."
+      ],
+      "lexemeRefs": [
+        "lex-de-moegen"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "audioTextTargetFa": "چی می‌خوای؟",
+        "options": [
+          {
+            "text": "چی می‌خوای؟",
+            "correct": true
+          },
+          {
+            "text": "پیتزا دوست داری؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added"
+      ],
+      "audioStatus": "pending",
+      "audioTextTarget": "Was möchtest du?"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitleFa": "چی می‌خوای؟"
 }
