@@ -94,7 +94,7 @@
       "id": "act-de-time-of-day",
       "type": "multiple_choice",
       "instructionFa": "اگر صبح باشد، کدام جملهٔ منبع‌دار زمان روز را بیان می‌کند؟",
-      "selectionReason": "دو عبارت زمان روز مستقیماً از منبع آمده‌اند و واژه‌های «Morgen» و «Abend» نیز به‌عنوان lexeme منبع‌دار ثبت شده‌اند.",
+      "selectionReason": "دو عبارت زمان روز مستقیماً از منبع آمده‌اند و واژه‌های «Morgen» و «Abend» نیز به‌عنوان مدخل‌های واژگانی منبع‌دار ثبت شده‌اند.",
       "sourceRefs": [
         "src-wikibooks-de-age-time"
       ],
