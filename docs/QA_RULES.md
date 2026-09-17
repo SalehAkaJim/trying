@@ -2,7 +2,8 @@
 
 ## Hard failures
 - finalized lesson does not begin with `conversation_speaking`;
-- finalized lesson activity count falls outside the CEFR-level range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 2–5 total activities;
+- finalized lesson activity count falls outside the CEFR-level range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 3–6 total activities;
+- `matching` activity contains fewer than 4 or more than 8 pairs;
 - opening dialogue is outside 4–12 turns;
 - any of the first 10 lessons of a language's beginner path has an opening dialogue other than exactly 4 turns;
 - starter metadata and turn 1 disagree;
@@ -47,9 +48,16 @@ Exact target language, exact source quotations, proper names, stable IDs/keys, U
 - meaningful learner participation without learner-turn quota;
 - starter may be app or learner and should follow communicative purpose rather than a fixed template.
 
+## Matching QA
+- every `matching` activity contains **4–8 pairs**;
+- each side must be non-empty and unique within that activity;
+- `Pre-A1` should normally use **4 pairs**;
+- increasing above 4 must be justified by learning need rather than filler;
+- target-language matching items must remain source-backed.
+
 ## Activity-count QA
 - activity-count ranges are configured by CEFR level in `config/activity-count-bounds.json` and apply to finalized lessons across languages;
-- `Pre-A1` finalized lessons contain 2–5 total activities, including the opening conversation;
+- `Pre-A1` finalized lessons contain 3–6 total activities, including the opening conversation;
 - the minimum is a quality floor: if a lesson is short, add a distinct source-backed retrieval/practice activity with real value rather than filler;
 - the maximum is a ceiling, not a target; do not expand a complete lesson merely to use the available capacity;
 - future level ranges must be explicitly defined before they are enforced; never infer an unset range from another level.
