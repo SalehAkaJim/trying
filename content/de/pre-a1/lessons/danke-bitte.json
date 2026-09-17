@@ -125,11 +125,13 @@
           {
             "left": "Danke!",
             "leftFa": "ممنون!",
+            "right": "تشکر",
             "rightFa": "تشکر"
           },
           {
             "left": "Bitte!",
             "leftFa": "خواهش می‌کنم!",
+            "right": "پاسخ به تشکر",
             "rightFa": "پاسخ به تشکر"
           }
         ]
