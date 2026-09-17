@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lexform-de-essen-esse",
+  "lexemeId": "lex-de-essen",
+  "surface": "esse",
+  "formType": "inflected",
+  "formTypeFa": "صرف‌شده",
+  "features": {
+    "tense": "present",
+    "mood": "indicative",
+    "person": "1",
+    "number": "singular"
+  },
+  "featuresFa": {
+    "tense": "حال",
+    "mood": "اخباری",
+    "person": "اول‌شخص",
+    "number": "مفرد"
+  },
+  "origin": "source_attested",
+  "originFa": "ثبت‌شده در منبع",
+  "reviewStatus": "approved",
+  "reviewStatusFa": "تأییدشده",
+  "sourceRefs": ["src-wikibooks-de-lesson-002"],
+  "notes": "در جملهٔ منبع‌دار «Ich esse Reis.» به‌صورت اول‌شخص مفرد حال استفاده شده است."
+}
