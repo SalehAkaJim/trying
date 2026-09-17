@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-find-toilet",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-survival-basics",
+  "titleFa": "سرویس بهداشتی کجاست؟",
+  "sourceTitle": "Wo ist die Toilette? / Ich weiß nicht.",
+  "learningTargets": [
+    "با «Wo ist die Toilette?» محل سرویس بهداشتی را بپرسد.",
+    "عبارت بسیار کوتاه «Ich weiß nicht.» را در پاسخ بفهمد.",
+    "عذرخواهی کوتاه را قبل از پرسش مکانی در یک تبادل ساده به کار ببرد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-phrasebook",
+    "src-wiktionary-de-entschuldigung",
+    "src-wiktionary-de-ja"
+  ],
+  "lexemeRefs": [
+    "lex-de-toilette",
+    "lex-de-ich-weiss-nicht",
+    "lex-de-entschuldigung",
+    "lex-de-ja"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "چهار مرحله مکالمه، تطبیق دو جفت کوتاه، بازسازی پرسش مکان و تشخیص معنی «نمی‌دانم» را پوشش می‌دهد.",
+    "sequenceRationale": "پرسش ابتدا در یک موقعیت واقعی دیده می‌شود، سپس ارتباط دو جفت گفت‌وگو تثبیت می‌شود، خود پرسش ساخته می‌شود و در پایان پاسخ کوتاه از پرسش تشخیص داده می‌شود.",
+    "templateSignature": "conversation_speaking>matching>word_order>multiple_choice"
+  },
+  "activities": [
+    {
+      "id": "act-de-toilet-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "مودبانه شروع کن و بپرس سرویس بهداشتی کجاست.",
+      "selectionReason": "چهار نوبت کوتاه یک نیاز واقعی را با عبارت‌های کاملاً پایه و منبع‌دار تمرین می‌کند.",
+      "sourceRefs": ["src-wikibooks-de-phrasebook", "src-wiktionary-de-entschuldigung", "src-wiktionary-de-ja"],
+      "learningTargets": ["پرسیدن محل سرویس بهداشتی در یک گفت‌وگوی خیلی کوتاه."],
+      "lexemeRefs": ["lex-de-toilette", "lex-de-ich-weiss-nicht", "lex-de-entschuldigung", "lex-de-ja"],
+      "dialogueRef": "dlg-de-pre-a1-find-toilet",
+      "data": {"interaction": "read_aloud_exchange", "openingInitiator": "learner"},
+      "transformations": ["persian_translation_added", "character_metadata_added"],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-toilet-exchange-match",
+      "type": "matching",
+      "instructionFa": "دو شروع گفت‌وگو را به پاسخ مناسب وصل کن.",
+      "selectionReason": "دو جفت کوتاه باعث می‌شود «Entschuldigung.»، «Ja.»، پرسش مکان و «Ich weiß nicht.» به‌صورت رابطه‌ای بازیابی شوند.",
+      "sourceRefs": ["src-wikibooks-de-phrasebook", "src-wiktionary-de-entschuldigung", "src-wiktionary-de-ja"],
+      "learningTargets": ["تشخیص دو جفت طبیعی در گفت‌وگوی کوتاه."],
+      "lexemeRefs": ["lex-de-toilette", "lex-de-ich-weiss-nicht", "lex-de-entschuldigung", "lex-de-ja"],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {"left": "Entschuldigung.", "leftFa": "ببخشید.", "right": "Ja.", "rightFa": "بله."},
+          {"left": "Wo ist die Toilette?", "leftFa": "سرویس بهداشتی کجاست؟", "right": "Ich weiß nicht.", "rightFa": "نمی‌دانم."}
+        ]
+      },
+      "transformations": ["source_items_grouped_for_matching", "persian_translation_added"],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-toilet-question-order",
+      "type": "word_order",
+      "instructionFa": "پرسش مکان را دوباره بساز.",
+      "selectionReason": "بازسازی پرسش باعث می‌شود زبان‌آموز عبارت کامل را فعالانه بازیابی کند، نه اینکه فقط معنی آن را تشخیص دهد.",
+      "sourceRefs": ["src-wikibooks-de-phrasebook"],
+      "learningTargets": ["بازسازی «Wo ist die Toilette?»."],
+      "lexemeRefs": ["lex-de-toilette"],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wo ist die Toilette?",
+        "sourceTextFa": "سرویس بهداشتی کجاست؟",
+        "tokens": ["Wo", "ist", "die", "Toilette?"],
+        "answer": ["Wo", "ist", "die", "Toilette?"]
+      },
+      "transformations": ["sentence_tokenized_for_word_order", "persian_translation_added"],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-dont-know-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام عبارت یعنی «نمی‌دانم»؟",
+      "selectionReason": "مرحلهٔ پایانی پاسخ کوتاه را از خود پرسش مکان جدا می‌کند و فهم مستقیم عبارت را می‌سنجد.",
+      "sourceRefs": ["src-wikibooks-de-phrasebook"],
+      "learningTargets": ["تشخیص معنی «Ich weiß nicht.»."],
+      "lexemeRefs": ["lex-de-ich-weiss-nicht", "lex-de-toilette"],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {"textTarget": "Ich weiß nicht.", "translationFa": "نمی‌دانم.", "correct": true},
+          {"textTarget": "Wo ist die Toilette?", "translationFa": "سرویس بهداشتی کجاست؟", "correct": false}
+        ]
+      },
+      "transformations": ["options_selected_from_source_material", "persian_translation_added"],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending",
+  "sourceTitleFa": "سرویس بهداشتی کجاست؟ / نمی‌دانم."
+}
