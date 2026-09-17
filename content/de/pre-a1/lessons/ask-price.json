@@ -29,7 +29,7 @@
       "learningTargets": ["پرسیدن و فهم یک قیمت ساده."],
       "lexemeRefs": ["lex-de-kosten", "lex-de-euro", "lex-de-cent"],
       "dialogueRef": "dlg-de-pre-a1-ask-price",
-      "data": {"interaction": "read_aloud_exchange", "openingInitiator": "app"},
+      "data": {"interaction": "read_aloud_exchange", "openingInitiator": "learner"},
       "transformations": ["persian_translation_added", "character_metadata_added"],
       "audioStatus": "not_required"
     },
