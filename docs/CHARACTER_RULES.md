@@ -14,6 +14,8 @@ For every dialogue, learner turns must belong to the actual character the learne
 
 Do not assign a universal standalone voice to all learner dialogue turns.
 
+Every dialogue must declare `learnerCharacterId`. Every turn with `learnerTurn=true` must use that same character as `speakerCharacterId`; app-controlled turns must use another real character from the scene. A generic durable character such as `char-*-learner` is forbidden.
+
 ### Rule 2 — Character, text and voice must agree
 
 Character assignment must be compatible with all available evidence in the dialogue:
@@ -27,6 +29,8 @@ Character assignment must be compatible with all available evidence in the dialo
 - cultural and contextual clues.
 
 The selected voice must also match the character. A line clearly spoken by a woman must not be generated with a male character/voice, and vice versa. The same compatibility requirement applies to age, role and context when the source provides that evidence.
+
+Gender compatibility is a hard production constraint, not merely a voice-ranking preference. Voice resolution must fail instead of selecting a voice with the wrong gender for a character whose gender is known.
 
 When gender cannot be inferred from the source, assignment may be chosen freely only if it creates no contradiction elsewhere in the dialogue.
 
@@ -43,6 +47,8 @@ A new character may be created whenever the dialogue, setting, relationship, age
 Characters may have explicit relationships with other characters, such as friend, classmate, coworker, neighbor, family member, customer/shopkeeper or other context-specific relationships.
 
 Relationships should identify **which characters are related**, not merely attach an isolated tag to one character. They may be reused in later lessons to create continuity and longer story arcs.
+
+Pairwise relationships in authoring data must be reciprocal: if Character A records Character B as a classmate/friend/neighbor/etc., Character B must contain the corresponding relationship back to Character A.
 
 Do not invent a relationship that contradicts source material. App-created relationships are allowed when the source is silent and the relationship does not change the instructional meaning of the source-backed dialogue.
 
@@ -95,6 +101,8 @@ The character key is the durable identity. The ElevenLabs voice ID is the replac
 The canonical voice lock must preserve the mapping between each character key and its exact provider voice ID/name. Generated dialogue-audio metadata must preserve both the character assignment key and the actual voice ID used for generation.
 
 If a character's production voice is rejected or replaced (for example, "Max's voice does not fit"), update that character's voice binding. Every dialogue audio asset generated with the old voice for that character must then be treated as stale and regenerated. Other characters' audio should remain reusable unless a full-level regeneration is explicitly requested.
+
+Voice-resolution SQL must mark existing dialogue audio for a character as stale when its stored `audio_voice_id` differs from the newly selected provider voice ID. The audio planner must also compare stored voice IDs against the current voice lock so stale audio cannot be mistaken for current audio while database voice metadata is being rebuilt.
 
 A voice change must never require guessing from filenames or spoken text which files belong to the character.
 
