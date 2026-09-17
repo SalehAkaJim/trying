@@ -18,8 +18,8 @@
   ],
   "audioPolicy": {
     "standaloneVoicePreference": [
-      "Lori",
-      "Hope"
+      "Hope - upbeat and clear",
+      "Lori"
     ],
     "conversationVoiceStyle": "شفاف، آرام، کم‌فشار و مناسب زبان‌آموز",
     "generateAfterEachLevelFinal": true
