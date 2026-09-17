@@ -28,25 +28,22 @@ on:
         required: true
         type: boolean
         default: false
-  push:
-    paths:
-      - '.github/workflows/audio-generation.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: curriculum-audio-${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}-${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
+  group: curriculum-audio-${{ inputs.language }}-${{ inputs.level }}
   cancel-in-progress: false
 
 jobs:
   audio:
     runs-on: ubuntu-latest
     env:
-      AUDIO_OPERATION: ${{ github.event_name == 'workflow_dispatch' && inputs.operation || 'generate' }}
-      AUDIO_LANGUAGE: ${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}
-      AUDIO_LEVEL: ${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
-      AUDIO_CONFIRM_PAID: ${{ github.event_name == 'workflow_dispatch' && inputs.confirm_paid_generation || true }}
+      AUDIO_OPERATION: ${{ inputs.operation }}
+      AUDIO_LANGUAGE: ${{ inputs.language }}
+      AUDIO_LEVEL: ${{ inputs.level }}
+      AUDIO_CONFIRM_PAID: ${{ inputs.confirm_paid_generation }}
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
       AUDIO_DB_HOST: 127.0.0.1
       AUDIO_DB_PORT: '3306'
@@ -167,7 +164,7 @@ jobs:
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.email '41898282+SalehAkaJim@users.noreply.github.com'
           for path in config/audio-voice-locks database/audio audio; do
             if [ -e "$path" ]; then git add -A "$path"; fi
           done
