@@ -28,29 +28,39 @@ def schema_for(path):
     if 'lessons' in parts: return 'lesson.schema.json'
     return None
 
+
+def validate_instance(path, schema_name, errors):
+    schema=schemas[schema_name]
+    resolver=RefResolver(base_uri=(S/schema_name).resolve().as_uri(), referrer=schema, store=schemas)
+    data=json.loads(path.read_text(encoding='utf-8'))
+    for e in sorted(Draft202012Validator(schema,resolver=resolver).iter_errors(data), key=lambda x:list(x.absolute_path)):
+        loc='.'.join(map(str,e.absolute_path)) or '$'
+        errors.append(f'{path.relative_to(ROOT)}:{loc}: {e.message}')
+
 errors=[]
 files=0
 for p in (ROOT/'content').rglob('*.json'):
     name=schema_for(p)
     if not name: continue
     files+=1
-    schema=schemas[name]
-    resolver=RefResolver(base_uri=(S/name).resolve().as_uri(), referrer=schema, store=schemas)
-    v=Draft202012Validator(schema, resolver=resolver)
-    data=json.loads(p.read_text(encoding='utf-8'))
-    for e in sorted(v.iter_errors(data), key=lambda x:list(x.absolute_path)):
-        loc='.'.join(map(str,e.absolute_path)) or '$'
-        errors.append(f'{p.relative_to(ROOT)}:{loc}: {e.message}')
+    validate_instance(p,name,errors)
 
 # taxonomy is also an authored instance
 p=ROOT/'config/fa-taxonomy.json'
-schema=schemas['fa-taxonomy.schema.json']
-resolver=RefResolver(base_uri=(S/'fa-taxonomy.schema.json').resolve().as_uri(), referrer=schema, store=schemas)
-for e in Draft202012Validator(schema,resolver=resolver).iter_errors(json.loads(p.read_text(encoding='utf-8'))):
-    errors.append(f'config/fa-taxonomy.json: {e.message}')
+validate_instance(p,'fa-taxonomy.schema.json',errors)
+
+# Audio pipeline configuration is a canonical authored contract.
+p=ROOT/'config/audio-pipeline.json'
+validate_instance(p,'audio-pipeline.schema.json',errors)
+
+# Provider voice locks become authored instances after the first voice resolution.
+voice_locks=0
+for p in sorted((ROOT/'config/audio-voice-locks').glob('*.json')):
+    voice_locks+=1
+    validate_instance(p,'audio-voice-lock.schema.json',errors)
 
 if errors:
     print('JSON schema instance validation failed:')
     print('\n'.join(errors))
     sys.exit(1)
-print(f'JSON schema instance validation passed for {files} content files plus taxonomy.')
+print(f'JSON schema instance validation passed for {files} content files, taxonomy, audio config and {voice_locks} voice lock(s).')
