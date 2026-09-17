@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-toilette",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Toilette",
+  "lemma": "Toilette",
+  "partOfSpeech": "noun",
+  "level": "Pre-A1",
+  "translationFa": "سرویس بهداشتی / توالت",
+  "usageNoteFa": "در پرسش خیلی سادهٔ «Wo ist die Toilette?» استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-phrasebook"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null,
+  "partOfSpeechFa": "اسم"
+}
