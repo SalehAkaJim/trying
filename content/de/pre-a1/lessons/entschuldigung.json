@@ -86,7 +86,9 @@
         "pairs": [
           {
             "left": "Entschuldigung.",
+            "leftFa": "ببخشید.",
             "right": "Kein Problem.",
+            "rightFa": "مشکلی نیست.",
             "sourceRefs": [
               "src-wiktionary-de-entschuldigung",
               "src-wiktionary-de-kein-problem"
@@ -94,7 +96,9 @@
           },
           {
             "left": "Danke!",
+            "leftFa": "ممنون!",
             "right": "Bitte!",
+            "rightFa": "خواهش می‌کنم!",
             "sourceRefs": [
               "src-wiktionary-de-danke",
               "src-wiktionary-de-bitte"
@@ -103,7 +107,8 @@
         ]
       },
       "transformations": [
-        "source_items_grouped_for_matching"
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
