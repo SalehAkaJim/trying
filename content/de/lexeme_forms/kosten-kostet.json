@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lexform-de-kosten-kostet",
+  "lexemeId": "lex-de-kosten",
+  "surface": "kostet",
+  "formType": "inflected",
+  "formTypeFa": "صرف‌شده",
+  "features": {
+    "tense": "present",
+    "mood": "indicative",
+    "person": "3",
+    "number": "singular"
+  },
+  "featuresFa": {
+    "tense": "حال",
+    "mood": "اخباری",
+    "person": "سوم‌شخص",
+    "number": "مفرد"
+  },
+  "origin": "source_attested",
+  "originFa": "ثبت‌شده در منبع",
+  "reviewStatus": "approved",
+  "reviewStatusFa": "تأییدشده",
+  "sourceRefs": ["src-wikibooks-de-lesson-004"],
+  "notes": "در پرسش‌ها و پاسخ‌های قیمت منبع، «kostet» به‌صورت سوم‌شخص مفرد حال استفاده شده است."
+}
