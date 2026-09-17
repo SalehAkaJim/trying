@@ -11,7 +11,9 @@ on:
       - 'database/schema.sql'
       - 'database/content/**'
       - 'database/audio/**'
+      - 'audio/**'
       - '.github/workflows/project-contracts.yml'
+      - '.github/workflows/audio-generation.yml'
   pull_request:
     paths:
       - 'content/**'
@@ -22,7 +24,9 @@ on:
       - 'database/schema.sql'
       - 'database/content/**'
       - 'database/audio/**'
+      - 'audio/**'
       - '.github/workflows/project-contracts.yml'
+      - '.github/workflows/audio-generation.yml'
 
 jobs:
   validate-contracts:
@@ -33,12 +37,15 @@ jobs:
       - name: Validate machine-readable files
         run: |
           python -m json.tool config/fa-taxonomy.json >/dev/null
+          python -m json.tool config/audio-pipeline.json >/dev/null
           python -m json.tool schemas/fa-taxonomy.schema.json >/dev/null
           python -m json.tool schemas/lexeme.schema.json >/dev/null
           python -m json.tool schemas/source.schema.json >/dev/null
           python -m json.tool schemas/activity.schema.json >/dev/null
           python -m json.tool schemas/dialogue.schema.json >/dev/null
           python -m json.tool schemas/level.schema.json >/dev/null
+          python -m json.tool schemas/audio-pipeline.schema.json >/dev/null
+          python -m json.tool schemas/audio-voice-lock.schema.json >/dev/null
 
       - name: Install JSON Schema validator
         run: python -m pip install --disable-pip-version-check jsonschema
