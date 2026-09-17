@@ -8,6 +8,7 @@
   "sourceTitle": "Wie alt bist du? / Ich bin ... Jahre alt.",
   "learningTargets": [
     "پرسش «Wie alt bist du?» را بفهمد و استفاده کند.",
+    "در «Wie alt bist du?» خطاب دوستانهٔ «du» را تشخیص دهد و تفاوتش با «Sie» رسمی درس قبل را بداند.",
     "سن را با یک عدد ساده بیان کند.",
     "عددهای ساده را در شنیدن تشخیص دهد."
   ],
@@ -22,7 +23,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "چهار مرحله گفتن سن، شنیدن عدد، تشخیص پرسش و ساخت پاسخ کامل را ترکیب می‌کند.",
+    "activitySelectionRationale": "چهار مرحله گفتن سن، شنیدن عدد، تشخیص پرسش و ساخت پاسخ کامل را ترکیب می‌کند و تفاوت خطاب دوستانهٔ «du» با «Sie» رسمی را در توضیح فارسی روشن نگه می‌دارد.",
     "sequenceRationale": "تعامل، دریافت شنیداری، تشخیص معنایی و تولید ساختاری به‌ترتیب انجام می‌شود.",
     "templateSignature": "conversation_speaking>listen_choose>multiple_choice>word_order"
   },
@@ -30,13 +31,13 @@
     {
       "id": "act-de-age-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "سن میا را بپرس و وقتی او از سن تو می‌پرسد، پاسخ نمونه را بگو.",
-      "selectionReason": "سن و عدد باید اول در تعامل واقعی دیده شوند.",
+      "instructionFa": "اینجا خطاب دوستانه است: سن میا را با «du» بپرس و وقتی او از سن تو می‌پرسد، پاسخ نمونه را بگو.",
+      "selectionReason": "سن و عدد باید اول در تعامل واقعی دیده شوند و توضیح فارسی مشخص می‌کند چرا این درس از «du» استفاده می‌کند.",
       "sourceRefs": [
         "src-wikibooks-de-age-time"
       ],
       "learningTargets": [
-        "پرسیدن و گفتن سن با عدد ساده."
+        "پرسیدن و گفتن سن با عدد ساده و خطاب دوستانهٔ «du»."
       ],
       "lexemeRefs": [
         "lex-de-alt",
