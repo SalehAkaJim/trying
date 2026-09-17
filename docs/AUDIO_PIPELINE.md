@@ -39,6 +39,13 @@ Mappingهای تولیدشده جداگانه در `database/audio/<language>/<l
 
 Dialogue turn از طریق `speaker_character_id` به شخصیت متصل است و شخصیت Voice ID تولید فعلی خود را نگه می‌دارد. View تولید Audio، Voice مورد انتظار شخصیت را با `audio_voice_id` فایل موجود مقایسه می‌کند. اگر Voice binding شخصیت عوض شود، Audioهای ساخته‌شده با Voice قبلی دیگر current محسوب نمی‌شوند و باید regenerate شوند.
 
+## مرجع وضعیت Audio
+مرجع runtime/release برای وجود و اعتبار Audio، ترکیب `v_audio_generation_manifest`، فایل `audio/<language>/<level>/manifest.json` و mappingهای `database/audio/` است. یک asset فقط وقتی معتبر است که فایل فیزیکی، hash متن، hash فایل، Voice ID و metadata تولید با وضعیت canonical فعلی سازگار باشند.
+
+فیلدهای `audioRef` و `audioStatus` داخل JSONهای authoring مثل Dialogue، Lexeme یا Activity مرجع اتصال runtime نیستند. به‌خصوص `audioRef: null` به معنی گم‌شدن MP3 نیست؛ اتصال فایل تولیدشده از stable owner key انجام می‌شود. همین‌طور `pending` در یک JSON authoring نباید به‌تنهایی برای تشخیص وضعیت فایل تولیدشده استفاده شود.
+
+فقط `level.json.audioStatus` وضعیت تجمیعی انتشار سطح را نشان می‌دهد. اسکریپت `scripts/sync_audio_level_status.py` این مقدار را از plan واقعی MySQL مشتق می‌کند: وقتی همهٔ assetها current و Voiceها resolve باشند `ready`، وقتی بخشی از Audio قبلی دیگر current نباشد `stale`، و قبل از داشتن asset current کافی `pending` است. CI همین تطابق را برای تمام سطح‌های `final` کنترل می‌کند.
+
 ## قفل صدا
 اولین اجرای `resolve-voices` فایل `config/audio-voice-locks/<language>.json` را می‌سازد.
 
@@ -77,7 +84,8 @@ Secret استاندارد GitHub Actions برای ElevenLabs دقیقاً `ELEVE
 8. `manifest.json` و SQL mapping ساخته می‌شوند.
 9. فایل‌ها و hashها validate می‌شوند.
 10. کل schema/content/audio روی MySQL 9.0.1 دوباره import و validate می‌شود.
-11. فقط در صورت موفقیت همهٔ مراحل، فایل‌ها commit می‌شوند.
+11. `level.json.audioStatus` از plan canonical sync می‌شود.
+12. فقط در صورت موفقیت همهٔ مراحل، فایل‌ها commit می‌شوند.
 
 ## کهنه‌شدن Audio
 اگر متن قابل‌خواندن، Character assignment یا Voice binding تغییر کند، Audio قبلی دیگر معتبر نیست.
@@ -87,4 +95,4 @@ Secret استاندارد GitHub Actions برای ElevenLabs دقیقاً `ELEVE
 اگر کاربر صریحاً درخواست بازتولید کامل یک شخصیت یا کل سطح را بدهد، حتی assetهای قابل reuse نیز می‌توانند از صفر ساخته شوند.
 
 ## وضعیت انتشار
-یک سطح نهایی می‌تواند از `pending` به `ready` برسد. سطح فقط وقتی Audio-ready است که تمام ردیف‌های موردنیاز manifest معتبر و current باشند.
+یک سطح نهایی می‌تواند از `pending` به `ready` برسد و در صورت تغییر متن/Voice دوباره `stale` شود. سطح فقط وقتی Audio-ready است که تمام ردیف‌های موردنیاز manifest معتبر و current باشند و هیچ Voice حل‌نشده‌ای باقی نمانده باشد.
