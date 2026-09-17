@@ -8,8 +8,9 @@
   "sourceTitle": "Was möchten Sie bitte? / Eine Tasse Kaffee bitte!",
   "learningTargets": [
     "پرسش بسیار سادهٔ سفارش «Was möchten Sie bitte?» را در بافت بفهمد.",
-    "فرم رسمی «möchten» را به مدخل پایهٔ «mögen» مرتبط کند.",
-    "با عبارت منبع‌دار «Eine Tasse Kaffee bitte!» یک سفارش خیلی کوتاه و مؤدبانه انجام دهد."
+    "در پرسش «Was möchten Sie bitte?» خطاب رسمی «Sie» را تشخیص دهد و فرم «möchten» را به مدخل پایهٔ «mögen» مرتبط کند.",
+    "با عبارت منبع‌دار «Eine Tasse Kaffee bitte!» یک سفارش خیلی کوتاه و مؤدبانه انجام دهد.",
+    "سفارش کوتاه منبع‌دار را از راه شنیدن تشخیص دهد."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-002"
@@ -22,16 +23,16 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "چهار مرحله مکالمهٔ سفارش، ساخت عبارت، پاسخ به سؤال رسمی و تشخیص نقش کل سفارش را پوشش می‌دهد.",
-    "sequenceRationale": "تعامل به ساخت سفارش، بازیابی پاسخ و در پایان فهم کاربرد عبارت می‌رسد.",
-    "templateSignature": "conversation_speaking>word_order>choose_response>true_false"
+    "activitySelectionRationale": "پنج مرحله مکالمهٔ سفارش، ساخت عبارت، پاسخ به سؤال رسمی، تشخیص نقش کل سفارش و دریافت شنیداری را پوشش می‌دهد.",
+    "sequenceRationale": "تعامل به ساخت سفارش، بازیابی پاسخ، فهم کاربرد عبارت و در پایان تشخیص شنیداری همان سفارش می‌رسد.",
+    "templateSignature": "conversation_speaking>word_order>choose_response>true_false>listen_choose"
   },
   "activities": [
     {
       "id": "act-de-simple-order-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "سلام کن و وقتی آیریس سفارش را می‌پرسد، یک فنجان قهوه سفارش بده.",
-      "selectionReason": "این تبادل کوتاه عیناً از الگوی منبع استفاده می‌کند و هم پرسش رسمی «möchten» و هم ادب کاربردی را بدون دستور سنگین تمرین می‌دهد.",
+      "instructionFa": "این گفت‌وگو رسمی است و آیریس با «Sie» خطاب می‌کند؛ سلام کن و وقتی سفارش را می‌پرسد، یک فنجان قهوه سفارش بده.",
+      "selectionReason": "این تبادل کوتاه عیناً از الگوی منبع استفاده می‌کند و هم پرسش رسمی با «Sie» و هم ادب کاربردی را بدون دستور سنگین تمرین می‌دهد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-002"
       ],
@@ -160,9 +161,46 @@
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-simple-order-listen",
+      "type": "listen_choose",
+      "instructionFa": "عبارت را گوش کن و معنی درستش را انتخاب کن.",
+      "selectionReason": "عبارت دقیق سفارش از همان منبع به‌صورت شنیداری تمرین می‌شود تا زبان‌آموز فقط شکل نوشته‌شده را نشناسد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "تشخیص شنیداری «Eine Tasse Kaffee bitte!»."
+      ],
+      "lexemeRefs": [
+        "lex-de-bitte",
+        "lex-de-tasse",
+        "lex-de-kaffee"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "audioTextTargetFa": "یک فنجان قهوه لطفاً!",
+        "options": [
+          {
+            "text": "یک فنجان قهوه لطفاً!",
+            "correct": true
+          },
+          {
+            "text": "لطفاً چی میل دارید؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added"
+      ],
+      "audioStatus": "pending",
+      "audioTextTarget": "Eine Tasse Kaffee bitte!"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitleFa": "لطفاً چی میل دارید؟ / یک فنجان قهوه لطفاً!"
 }
