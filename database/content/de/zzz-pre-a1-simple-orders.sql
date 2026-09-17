@@ -1,5 +1,5 @@
 -- German Pre-A1 Unit 3: simple food, ordering, needs and shopping.
--- Idempotent extension; applied after the canonical Pre-A1 snapshot.
+-- Idempotent extension; generated audio metadata is never overwritten on re-import.
 
 SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 SET time_zone = '+00:00';
@@ -19,8 +19,8 @@ SET @t_order := (SELECT id FROM curriculum_targets WHERE language_level_id=@leve
 SET @t_need := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.need_and_buy');
 
 INSERT INTO sources(source_key,title,title_fa,organization_or_author,language_code,source_type,url,locator,locator_fa,published_or_updated_at,modernity_status,currency_evidence,license_name,license_url,attribution_text,reuse_status,retrieved_at,notes) VALUES
-('src-wikibooks-de-lesson-002','Deutschkurs für Anfänger/Lektion 002','منبع غذای روز و سفارش خیلی ساده','Wikibooks contributors','de','course','https://en.wikibooks.org/wiki/Deutschkurs_f%C3%BCr_Anf%C3%A4nger/Lektion_002','Items 046–058','بخش‌های ۰۴۶ تا ۰۵۸؛ غذای موجود، خوردن و سفارش ساده.',NULL,'maintained_current','صفحهٔ زندهٔ Wikibooks در ۱۷ سپتامبر ۲۰۲۶ بررسی شد؛ عبارت‌های غذا، نوشیدنی و سفارش برای کاربرد آموزشی معاصر مناسب‌اند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wikibooks contributors — Deutschkurs für Anfänger/Lektion 002','reuse_with_attribution','2026-09-17','منبع اصلی Unit سوم برای غذای امروز و سفارش خیلی ساده.'),
-('src-wikibooks-de-lesson-004','Deutschkurs für Anfänger/Lektion 004','منبع نیاز و خرید خیلی ساده','Wikibooks contributors','de','course','https://en.wikibooks.org/wiki/Deutschkurs_f%C3%BCr_Anf%C3%A4nger/Lektion_004','Items 131 and 134','بخش‌های ۱۳۱ و ۱۳۴؛ نیاز و خرید بسیار ساده.',NULL,'maintained_current','صفحهٔ زندهٔ Wikibooks در ۱۷ سپتامبر ۲۰۲۶ بررسی شد؛ الگوهای «brauchen» و «kaufen» برای کاربرد آموزشی معاصر معتبرند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wikibooks contributors — Deutschkurs für Anfänger/Lektion 004','reuse_with_attribution','2026-09-17','منبع Unit سوم برای نیاز و خرید خیلی ساده.')
+('src-wikibooks-de-lesson-002','Deutschkurs für Anfänger/Lektion 002','منبع غذای روز و سفارش خیلی ساده','Wikibooks contributors','de','course','https://en.wikibooks.org/wiki/Deutschkurs_f%C3%BCr_Anf%C3%A4nger/Lektion_002','Items 040–058','بخش‌های ۰۴۰ تا ۰۵۸؛ غذای موجود، خوردن و سفارش ساده.',NULL,'maintained_current','صفحهٔ زندهٔ Wikibooks در ۱۷ سپتامبر ۲۰۲۶ بررسی شد؛ عبارت‌های غذا، نوشیدنی و سفارش برای کاربرد آموزشی معاصر مناسب‌اند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wikibooks contributors — Deutschkurs für Anfänger/Lektion 002','reuse_with_attribution','2026-09-17','منبع اصلی واحد سوم برای غذای امروز و سفارش خیلی ساده.'),
+('src-wikibooks-de-lesson-004','Deutschkurs für Anfänger/Lektion 004','منبع نیاز و خرید خیلی ساده','Wikibooks contributors','de','course','https://en.wikibooks.org/wiki/Deutschkurs_f%C3%BCr_Anf%C3%A4nger/Lektion_004','Items 131 and 134','بخش‌های ۱۳۱ و ۱۳۴؛ نیاز و خرید بسیار ساده.',NULL,'maintained_current','صفحهٔ زندهٔ Wikibooks در ۱۷ سپتامبر ۲۰۲۶ بررسی شد؛ الگوهای «brauchen» و «kaufen» برای کاربرد آموزشی معاصر معتبرند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wikibooks contributors — Deutschkurs für Anfänger/Lektion 004','reuse_with_attribution','2026-09-17','منبع واحد سوم برای نیاز و خرید خیلی ساده.')
 ON DUPLICATE KEY UPDATE title=VALUES(title),title_fa=VALUES(title_fa),organization_or_author=VALUES(organization_or_author),source_type=VALUES(source_type),url=VALUES(url),locator=VALUES(locator),locator_fa=VALUES(locator_fa),modernity_status=VALUES(modernity_status),currency_evidence=VALUES(currency_evidence),license_name=VALUES(license_name),license_url=VALUES(license_url),attribution_text=VALUES(attribution_text),reuse_status=VALUES(reuse_status),retrieved_at=VALUES(retrieved_at),notes=VALUES(notes);
 SET @s2 := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-002');
 SET @s4 := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-004');
@@ -29,7 +29,7 @@ INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,sourc
 (@s2,'srcitem-de-u3-was-gibt-heute','046','بخش ۰۴۶','Was gibt es heute?',UNHEX(SHA2('Was gibt es heute?',256)),'پرسش غذای موجود.'),
 (@s2,'srcitem-de-u3-heute-suppe','046','بخش ۰۴۶','Heute gibt es Suppe.',UNHEX(SHA2('Heute gibt es Suppe.',256)),'پاسخ غذای موجود.'),
 (@s2,'srcitem-de-u3-was-essen','047','بخش ۰۴۷','Was essen Sie?',UNHEX(SHA2('Was essen Sie?',256)),'پرسش دربارهٔ خوردن.'),
-(@s2,'srcitem-de-u3-ich-esse-reis','047','بخش ۰۴۷','Ich esse Reis.',UNHEX(SHA2('Ich esse Reis.',256)),'پاسخ دربارهٔ خوردن.'),
+(@s2,'srcitem-de-u3-ich-esse-reis','042','بخش ۰۴۲','Ich esse Reis.',UNHEX(SHA2('Ich esse Reis.',256)),'پاسخ دربارهٔ خوردن.'),
 (@s2,'srcitem-de-u3-guten-tag','049/058','بخش ۰۴۹/۰۵۸','Guten Tag!',UNHEX(SHA2('Guten Tag!',256)),'سلام مؤدبانه.'),
 (@s2,'srcitem-de-u3-order-question','049','بخش ۰۴۹','Was möchten Sie bitte?',UNHEX(SHA2('Was möchten Sie bitte?',256)),'پرسش سفارش.'),
 (@s2,'srcitem-de-u3-coffee-please','057','بخش ۰۵۷','Eine Tasse Kaffee bitte!',UNHEX(SHA2('Eine Tasse Kaffee bitte!',256)),'سفارش کوتاه قهوه.'),
@@ -40,23 +40,23 @@ INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,sourc
 ON DUPLICATE KEY UPDATE locator=VALUES(locator),locator_fa=VALUES(locator_fa),source_text=VALUES(source_text),source_text_hash=VALUES(source_text_hash),notes=VALUES(notes);
 
 INSERT INTO units(unit_key,language_level_id,sequence_index,title_fa,grouping_rationale,status,metadata,notes) VALUES
-('de-pre-a1-unit-simple-orders',@level,3,'خرید و سفارش خیلی ساده','این سه درس زبان‌آموز را از دیدن و گفتن گزینهٔ موجود، به سفارش مؤدبانه و سپس بیان یک نیاز/خرید بسیار ساده می‌برند؛ همه در موقعیت‌های روزمرهٔ کم‌فشار و با جمله‌های کوتاه و منبع‌دار باقی می‌مانند.','final',JSON_OBJECT('dynamicStructure',TRUE),'این Unit دامنهٔ کاربرد روزمرهٔ Pre-A1 را گسترش می‌دهد و سهمیهٔ عددی ایجاد نمی‌کند.')
+('de-pre-a1-unit-simple-orders',@level,3,'خرید و سفارش خیلی ساده','این سه درس زبان‌آموز را از دیدن و گفتن گزینهٔ موجود، به سفارش مؤدبانه و سپس بیان یک نیاز یا خرید بسیار ساده می‌برند؛ همه در موقعیت‌های روزمرهٔ کم‌فشار و با جمله‌های کوتاه و منبع‌دار باقی می‌مانند.','final',JSON_OBJECT('dynamicStructure',TRUE),'این واحد دامنهٔ کاربرد روزمرهٔ سطح پیش از A1 را گسترش می‌دهد و سهمیهٔ عددی ایجاد نمی‌کند.')
 ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),sequence_index=VALUES(sequence_index),title_fa=VALUES(title_fa),grouping_rationale=VALUES(grouping_rationale),status=VALUES(status),metadata=VALUES(metadata),notes=VALUES(notes);
 SET @unit3 := (SELECT id FROM units WHERE unit_key='de-pre-a1-unit-simple-orders');
 INSERT IGNORE INTO unit_targets(unit_id,curriculum_target_id) VALUES(@unit3,@t_food),(@unit3,@t_order),(@unit3,@t_need);
 
 INSERT INTO lessons(lesson_key,language_level_id,unit_id,sequence_index,position_in_unit,title_fa,source_title,source_title_fa,status,activity_selection_rationale,sequence_rationale,template_signature,audio_status,notes) VALUES
-('de-pre-a1-lesson-food-today',@level,@unit3,17,1,'امروز چی داریم؟','Was gibt es heute? / Was essen Sie?','امروز چی داریم؟ / شما چی می‌خورید؟','draft','مکالمه معنی دو پرسش روزمره را در بافت می‌سازد و matching همان دو جفت را بازیابی می‌کند.','اول پرسش‌ها در گفت‌وگو و سپس همان ارتباط‌ها در matching تثبیت می‌شوند.','conversation_speaking>matching','pending',NULL),
-('de-pre-a1-lesson-simple-order',@level,@unit3,18,2,'یک قهوه، لطفاً','Was möchten Sie bitte? / Eine Tasse Kaffee bitte!','لطفاً چی میل دارید؟ / یک فنجان قهوه لطفاً!','draft','گفت‌وگو سفارش کوتاه را در موقعیت واقعی قرار می‌دهد و word order همان عبارت سفارش را بازسازی می‌کند.','اول سفارش در تعامل و سپس همان عبارت به‌صورت word order بازیابی می‌شود.','conversation_speaking>word_order','pending',NULL),
-('de-pre-a1-lesson-need-and-buy',@level,@unit3,19,3,'چی لازم داری؟ چی می‌خری؟','Was brauchen Sie? / Und was kaufen Sie?','چه چیزی لازم دارید؟ / و چه چیزی می‌خرید؟','draft','مکالمه دو فعل کاربردی را در دو سؤال معرفی می‌کند و matching تفاوت نیاز و خرید را تثبیت می‌کند.','ابتدا نیاز و خرید در تعامل دیده می‌شوند و سپس به پاسخ درست وصل می‌شوند.','conversation_speaking>matching','pending',NULL)
-ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),unit_id=VALUES(unit_id),sequence_index=VALUES(sequence_index),position_in_unit=VALUES(position_in_unit),title_fa=VALUES(title_fa),source_title=VALUES(source_title),source_title_fa=VALUES(source_title_fa),activity_selection_rationale=VALUES(activity_selection_rationale),sequence_rationale=VALUES(sequence_rationale),template_signature=VALUES(template_signature),audio_status=IF(audio_status='ready','stale',VALUES(audio_status)),notes=VALUES(notes);
+('de-pre-a1-lesson-food-today',@level,@unit3,17,1,'امروز چی داریم؟','Was gibt es heute? / Was essen Sie?','امروز چی داریم؟ / شما چی می‌خورید؟','draft','مکالمه معنی دو پرسش روزمره را در بافت می‌سازد و تمرین تطبیق همان دو جفت را بازیابی می‌کند.','اول پرسش‌ها در گفت‌وگو و سپس همان ارتباط‌ها در تمرین تطبیق تثبیت می‌شوند.','conversation_speaking>matching','pending',NULL),
+('de-pre-a1-lesson-simple-order',@level,@unit3,18,2,'یک قهوه، لطفاً','Was möchten Sie bitte? / Eine Tasse Kaffee bitte!','لطفاً چی میل دارید؟ / یک فنجان قهوه لطفاً!','draft','گفت‌وگو سفارش کوتاه را در موقعیت واقعی قرار می‌دهد و مرتب‌سازی واژه‌ها همان عبارت سفارش را بازسازی می‌کند.','اول سفارش در تعامل و سپس همان عبارت با مرتب‌سازی واژه‌ها بازیابی می‌شود.','conversation_speaking>word_order','pending',NULL),
+('de-pre-a1-lesson-need-and-buy',@level,@unit3,19,3,'چی لازم داری؟ چی می‌خری؟','Was brauchen Sie? / Und was kaufen Sie?','چه چیزی لازم دارید؟ / و چه چیزی می‌خرید؟','draft','مکالمه دو فعل کاربردی را در دو سؤال معرفی می‌کند و تمرین تطبیق تفاوت نیاز و خرید را تثبیت می‌کند.','ابتدا نیاز و خرید در تعامل دیده می‌شوند و سپس به پاسخ درست وصل می‌شوند.','conversation_speaking>matching','pending',NULL)
+ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),unit_id=VALUES(unit_id),sequence_index=VALUES(sequence_index),position_in_unit=VALUES(position_in_unit),title_fa=VALUES(title_fa),source_title=VALUES(source_title),source_title_fa=VALUES(source_title_fa),activity_selection_rationale=VALUES(activity_selection_rationale),sequence_rationale=VALUES(sequence_rationale),template_signature=VALUES(template_signature),notes=VALUES(notes);
 SET @l17 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-food-today');
 SET @l18 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-simple-order');
 SET @l19 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-need-and-buy');
 INSERT IGNORE INTO lesson_targets(lesson_id,curriculum_target_id,coverage_role) VALUES(@l17,@t_food,'introduce'),(@l18,@t_order,'introduce'),(@l19,@t_need,'introduce');
 
 INSERT INTO dialogues(dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES
-('dlg-de-pre-a1-food-today',@level,'آیریس و پاول دربارهٔ غذای امروز و چیزی که می‌خورند سؤال و جواب می‌کنند.','app','چهار نوبت برای دو جفت سؤال/پاسخ کوتاه کافی است.'),
+('dlg-de-pre-a1-food-today',@level,'آیریس و پاول دربارهٔ غذای امروز و چیزی که می‌خورند سؤال و جواب می‌کنند.','app','چهار نوبت برای دو جفت سؤال و پاسخ کوتاه کافی است.'),
 ('dlg-de-pre-a1-simple-order',@level,'آیریس سفارش بسیار کوتاه پاول را می‌گیرد و پاول قهوه سفارش می‌دهد.','app','سلام، پرسش سفارش و پاسخ مؤدبانه بدون پیچیدگی اضافه تمرین می‌شوند.'),
 ('dlg-de-pre-a1-need-and-buy',@level,'آیریس از پاول می‌پرسد چه چیزی لازم دارد و چه چیزی می‌خرد.','app','دو پرسش و دو پاسخ کوتاه تفاوت کاربردی نیاز و خرید را نشان می‌دهند.')
 ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),scenario=VALUES(scenario),opening_initiator=VALUES(opening_initiator),scene_quality_rationale=VALUES(scene_quality_rationale);
@@ -65,37 +65,129 @@ SET @d18 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-simple-o
 SET @d19 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-need-and-buy');
 
 INSERT INTO dialogue_turns(turn_key,dialogue_id,position_index,speaker_character_id,speaker_identity_origin,speaker_gender_evidence,text_target,translation_fa,learner_turn,audio_status) VALUES
-('turn-de-food-today-1',@d17,1,@iris,'app_assigned','unspecified','Was gibt es heute?','امروز چی داریم؟',FALSE,'pending'),('turn-de-food-today-2',@d17,2,@paul,'app_assigned','unspecified','Heute gibt es Suppe.','امروز سوپ داریم.',TRUE,'pending'),('turn-de-food-today-3',@d17,3,@iris,'app_assigned','unspecified','Was essen Sie?','شما چی می‌خورید؟',FALSE,'pending'),('turn-de-food-today-4',@d17,4,@paul,'app_assigned','unspecified','Ich esse Reis.','من برنج می‌خورم.',TRUE,'pending'),
-('turn-de-simple-order-1',@d18,1,@iris,'app_assigned','unspecified','Guten Tag!','سلام / روز بخیر!',FALSE,'pending'),('turn-de-simple-order-2',@d18,2,@paul,'app_assigned','unspecified','Guten Tag!','سلام / روز بخیر!',TRUE,'pending'),('turn-de-simple-order-3',@d18,3,@iris,'app_assigned','unspecified','Was möchten Sie bitte?','لطفاً چی میل دارید؟',FALSE,'pending'),('turn-de-simple-order-4',@d18,4,@paul,'app_assigned','unspecified','Eine Tasse Kaffee bitte!','یک فنجان قهوه لطفاً!',TRUE,'pending'),
-('turn-de-need-buy-1',@d19,1,@iris,'app_assigned','unspecified','Was brauchen Sie?','چه چیزی لازم دارید؟',FALSE,'pending'),('turn-de-need-buy-2',@d19,2,@paul,'app_assigned','unspecified','Ich brauche eine Hose.','من یک شلوار لازم دارم.',TRUE,'pending'),('turn-de-need-buy-3',@d19,3,@iris,'app_assigned','unspecified','Und was kaufen Sie?','و چه چیزی می‌خرید؟',FALSE,'pending'),('turn-de-need-buy-4',@d19,4,@paul,'app_assigned','unspecified','Ich kaufe ein Hemd und ein Paar Schuhe.','من یک پیراهن و یک جفت کفش می‌خرم.',TRUE,'pending')
+('turn-de-food-today-1',@d17,1,@iris,'app_assigned','unspecified','Was gibt es heute?','امروز چی داریم؟',FALSE,'pending'),
+('turn-de-food-today-2',@d17,2,@paul,'app_assigned','unspecified','Heute gibt es Suppe.','امروز سوپ داریم.',TRUE,'pending'),
+('turn-de-food-today-3',@d17,3,@iris,'app_assigned','unspecified','Was essen Sie?','شما چی می‌خورید؟',FALSE,'pending'),
+('turn-de-food-today-4',@d17,4,@paul,'app_assigned','unspecified','Ich esse Reis.','من برنج می‌خورم.',TRUE,'pending'),
+('turn-de-simple-order-1',@d18,1,@iris,'app_assigned','unspecified','Guten Tag!','سلام / روز بخیر!',FALSE,'pending'),
+('turn-de-simple-order-2',@d18,2,@paul,'app_assigned','unspecified','Guten Tag!','سلام / روز بخیر!',TRUE,'pending'),
+('turn-de-simple-order-3',@d18,3,@iris,'app_assigned','unspecified','Was möchten Sie bitte?','لطفاً چی میل دارید؟',FALSE,'pending'),
+('turn-de-simple-order-4',@d18,4,@paul,'app_assigned','unspecified','Eine Tasse Kaffee bitte!','یک فنجان قهوه لطفاً!',TRUE,'pending'),
+('turn-de-need-buy-1',@d19,1,@iris,'app_assigned','unspecified','Was brauchen Sie?','چه چیزی لازم دارید؟',FALSE,'pending'),
+('turn-de-need-buy-2',@d19,2,@paul,'app_assigned','unspecified','Ich brauche eine Hose.','من یک شلوار لازم دارم.',TRUE,'pending'),
+('turn-de-need-buy-3',@d19,3,@iris,'app_assigned','unspecified','Und was kaufen Sie?','و چه چیزی می‌خرید؟',FALSE,'pending'),
+('turn-de-need-buy-4',@d19,4,@paul,'app_assigned','unspecified','Ich kaufe ein Hemd und ein Paar Schuhe.','من یک پیراهن و یک جفت کفش می‌خرم.',TRUE,'pending')
 ON DUPLICATE KEY UPDATE dialogue_id=VALUES(dialogue_id),position_index=VALUES(position_index),speaker_character_id=VALUES(speaker_character_id),speaker_identity_origin=VALUES(speaker_identity_origin),speaker_gender_evidence=VALUES(speaker_gender_evidence),text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn);
 
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status) VALUES
 ('act-de-food-today-conversation',@l17,1,'conversation_speaking','به سؤال‌های آیریس دربارهٔ غذای امروز و چیزی که می‌خوری جواب بده.','چهار نوبت منبع‌دار هر دو هدف ارتباطی را با کمترین بار شناختی پوشش می‌دهد.',@d17,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
 ('act-de-food-today-matching',@l17,2,'matching','هر پرسش را به پاسخ درست وصل کن.','دو جفت دقیق منبع‌دار را بدون جملهٔ تازه دوباره بازیابی می‌کند.',NULL,JSON_OBJECT('pairs',JSON_ARRAY(JSON_OBJECT('left','Was gibt es heute?','leftFa','امروز چی داریم؟','right','Heute gibt es Suppe.','rightFa','امروز سوپ داریم.'),JSON_OBJECT('left','Was essen Sie?','leftFa','شما چی می‌خورید؟','right','Ich esse Reis.','rightFa','من برنج می‌خورم.'))),JSON_ARRAY('source_items_grouped_for_matching','persian_translation_added'),NULL,'not_required'),
 ('act-de-simple-order-conversation',@l18,1,'conversation_speaking','سلام کن و وقتی آیریس سفارش را می‌پرسد، یک فنجان قهوه سفارش بده.','این تبادل کوتاه الگوی منبع را بدون دستور تازه تمرین می‌دهد.',@d18,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
-('act-de-simple-order-word-order',@l18,2,'word_order','سفارش کوتاه را دوباره بساز.','بازسازی همان عبارت منبع‌دار chunk کاربردی را تثبیت می‌کند.',NULL,JSON_OBJECT('sourceText','Eine Tasse Kaffee bitte!','sourceTextFa','یک فنجان قهوه لطفاً!','tokens',JSON_ARRAY('Eine','Tasse','Kaffee','bitte!'),'answer',JSON_ARRAY('Eine','Tasse','Kaffee','bitte!')),JSON_ARRAY('sentence_tokenized_for_word_order','persian_translation_added'),NULL,'not_required'),
-('act-de-need-buy-conversation',@l19,1,'conversation_speaking','به آیریس بگو چه چیزی لازم داری و چه چیزی می‌خری.','دو جفت سؤال/پاسخ کوتاه معنای کاربردی «brauchen» و «kaufen» را روشن می‌کنند.',@d19,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-simple-order-word-order',@l18,2,'word_order','سفارش کوتاه را دوباره بساز.','بازسازی همان عبارت منبع‌دار، الگوی کاربردی سفارش را تثبیت می‌کند.',NULL,JSON_OBJECT('sourceText','Eine Tasse Kaffee bitte!','sourceTextFa','یک فنجان قهوه لطفاً!','tokens',JSON_ARRAY('Eine','Tasse','Kaffee','bitte!'),'answer',JSON_ARRAY('Eine','Tasse','Kaffee','bitte!')),JSON_ARRAY('sentence_tokenized_for_word_order','persian_translation_added'),NULL,'not_required'),
+('act-de-need-buy-conversation',@l19,1,'conversation_speaking','به آیریس بگو چه چیزی لازم داری و چه چیزی می‌خری.','دو جفت سؤال و پاسخ کوتاه معنای کاربردی «brauchen» و «kaufen» را روشن می‌کنند.',@d19,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
 ('act-de-need-buy-matching',@l19,2,'matching','هر سؤال را به پاسخ درست وصل کن.','دو کاربرد نزدیک ولی متفاوت فقط با جمله‌های دقیق منبع تثبیت می‌شوند.',NULL,JSON_OBJECT('pairs',JSON_ARRAY(JSON_OBJECT('left','Was brauchen Sie?','leftFa','چه چیزی لازم دارید؟','right','Ich brauche eine Hose.','rightFa','من یک شلوار لازم دارم.'),JSON_OBJECT('left','Und was kaufen Sie?','leftFa','و چه چیزی می‌خرید؟','right','Ich kaufe ein Hemd und ein Paar Schuhe.','rightFa','من یک پیراهن و یک جفت کفش می‌خرم.'))),JSON_ARRAY('source_items_grouped_for_matching','persian_translation_added'),NULL,'not_required')
-ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
 UPDATE lessons SET status='final' WHERE id IN(@l17,@l18,@l19);
 
 INSERT INTO lexemes(lexeme_key,language_id,lexeme_type,surface,normalized_surface,lemma,part_of_speech,part_of_speech_fa,cefr_level,translation_fa,usage_note_fa,flashcard_eligible,audio_status) VALUES
-('lex-de-suppe',@de,'word','Suppe','Suppe','Suppe','noun','اسم','Pre-A1','سوپ','در پاسخ «Heute gibt es Suppe.» استفاده می‌شود.',TRUE,'pending'),('lex-de-essen',@de,'word','essen','essen','essen','verb','فعل','Pre-A1','خوردن','برای پرسیدن و گفتن چیزی که فرد می‌خورد استفاده می‌شود.',TRUE,'pending'),('lex-de-reis',@de,'word','Reis','Reis','Reis','noun','اسم','Pre-A1','برنج',NULL,TRUE,'pending'),('lex-de-tasse',@de,'word','Tasse','Tasse','Tasse','noun','اسم','Pre-A1','فنجان','در سفارش «Eine Tasse Kaffee bitte!» استفاده می‌شود.',TRUE,'pending'),('lex-de-kaffee',@de,'word','Kaffee','Kaffee','Kaffee','noun','اسم','Pre-A1','قهوه',NULL,TRUE,'pending'),('lex-de-brauchen',@de,'word','brauchen','brauchen','brauchen','verb','فعل','Pre-A1','لازم داشتن / نیاز داشتن','در این سطح فقط در الگوی خیلی سادهٔ نیاز استفاده می‌شود.',TRUE,'pending'),('lex-de-hose',@de,'word','Hose','Hose','Hose','noun','اسم','Pre-A1','شلوار',NULL,TRUE,'pending'),('lex-de-kaufen',@de,'word','kaufen','kaufen','kaufen','verb','فعل','Pre-A1','خریدن','در این سطح فقط برای بیان یک خرید ساده استفاده می‌شود.',TRUE,'pending'),('lex-de-hemd',@de,'word','Hemd','Hemd','Hemd','noun','اسم','Pre-A1','پیراهن',NULL,TRUE,'pending'),('lex-de-schuhe',@de,'word','Schuhe','Schuhe','Schuh','noun','اسم','Pre-A1','کفش‌ها / یک جفت کفش','در جملهٔ منبع به‌صورت جمع «Schuhe» آمده است.',TRUE,'pending')
+('lex-de-suppe',@de,'word','Suppe','Suppe','Suppe','noun','اسم','Pre-A1','سوپ','در پاسخ «Heute gibt es Suppe.» استفاده می‌شود.',TRUE,'pending'),
+('lex-de-essen',@de,'word','essen','essen','essen','verb','فعل','Pre-A1','خوردن','برای پرسیدن و گفتن چیزی که فرد می‌خورد استفاده می‌شود.',TRUE,'pending'),
+('lex-de-reis',@de,'word','Reis','Reis','Reis','noun','اسم','Pre-A1','برنج',NULL,TRUE,'pending'),
+('lex-de-tasse',@de,'word','Tasse','Tasse','Tasse','noun','اسم','Pre-A1','فنجان','در سفارش «Eine Tasse Kaffee bitte!» استفاده می‌شود.',TRUE,'pending'),
+('lex-de-kaffee',@de,'word','Kaffee','Kaffee','Kaffee','noun','اسم','Pre-A1','قهوه',NULL,TRUE,'pending'),
+('lex-de-brauchen',@de,'word','brauchen','brauchen','brauchen','verb','فعل','Pre-A1','لازم داشتن / نیاز داشتن','در این سطح فقط در الگوی خیلی سادهٔ نیاز استفاده می‌شود.',TRUE,'pending'),
+('lex-de-hose',@de,'word','Hose','Hose','Hose','noun','اسم','Pre-A1','شلوار',NULL,TRUE,'pending'),
+('lex-de-kaufen',@de,'word','kaufen','kaufen','kaufen','verb','فعل','Pre-A1','خریدن','در این سطح فقط برای بیان یک خرید ساده استفاده می‌شود.',TRUE,'pending'),
+('lex-de-hemd',@de,'word','Hemd','Hemd','Hemd','noun','اسم','Pre-A1','پیراهن',NULL,TRUE,'pending'),
+('lex-de-schuhe',@de,'word','Schuhe','Schuhe','Schuh','noun','اسم','Pre-A1','کفش‌ها / یک جفت کفش','در جملهٔ منبع به‌صورت جمع «Schuhe» آمده است.',TRUE,'pending')
 ON DUPLICATE KEY UPDATE language_id=VALUES(language_id),lexeme_type=VALUES(lexeme_type),surface=VALUES(surface),normalized_surface=VALUES(normalized_surface),lemma=VALUES(lemma),part_of_speech=VALUES(part_of_speech),part_of_speech_fa=VALUES(part_of_speech_fa),cefr_level=VALUES(cefr_level),translation_fa=VALUES(translation_fa),usage_note_fa=VALUES(usage_note_fa),flashcard_eligible=VALUES(flashcard_eligible);
 
-SET @x_suppe=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-suppe'); SET @x_essen=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-essen'); SET @x_reis=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-reis'); SET @x_tasse=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-tasse'); SET @x_kaffee=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-kaffee'); SET @x_brauchen=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-brauchen'); SET @x_hose=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-hose'); SET @x_kaufen=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-kaufen'); SET @x_hemd=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-hemd'); SET @x_schuhe=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-schuhe'); SET @x_heute=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-heute'); SET @x_bitte=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-bitte');
-INSERT IGNORE INTO lesson_lexemes(lesson_id,lexeme_id,is_primary,role) VALUES(@l17,@x_heute,FALSE,'review'),(@l17,@x_suppe,TRUE,'introduce'),(@l17,@x_essen,TRUE,'introduce'),(@l17,@x_reis,TRUE,'introduce'),(@l18,@x_bitte,FALSE,'review'),(@l18,@x_tasse,TRUE,'introduce'),(@l18,@x_kaffee,TRUE,'introduce'),(@l19,@x_brauchen,TRUE,'introduce'),(@l19,@x_hose,TRUE,'introduce'),(@l19,@x_kaufen,TRUE,'introduce'),(@l19,@x_hemd,TRUE,'introduce'),(@l19,@x_schuhe,TRUE,'introduce');
+SET @x_suppe=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-suppe');
+SET @x_essen=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-essen');
+SET @x_reis=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-reis');
+SET @x_tasse=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-tasse');
+SET @x_kaffee=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-kaffee');
+SET @x_brauchen=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-brauchen');
+SET @x_hose=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-hose');
+SET @x_kaufen=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-kaufen');
+SET @x_hemd=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-hemd');
+SET @x_schuhe=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-schuhe');
+SET @x_heute=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-heute');
+SET @x_bitte=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-bitte');
+INSERT IGNORE INTO lesson_lexemes(lesson_id,lexeme_id,is_primary,role) VALUES
+(@l17,@x_heute,FALSE,'review'),(@l17,@x_suppe,TRUE,'introduce'),(@l17,@x_essen,TRUE,'introduce'),(@l17,@x_reis,TRUE,'introduce'),
+(@l18,@x_bitte,FALSE,'review'),(@l18,@x_tasse,TRUE,'introduce'),(@l18,@x_kaffee,TRUE,'introduce'),
+(@l19,@x_brauchen,TRUE,'introduce'),(@l19,@x_hose,TRUE,'introduce'),(@l19,@x_kaufen,TRUE,'introduce'),(@l19,@x_hemd,TRUE,'introduce'),(@l19,@x_schuhe,TRUE,'introduce');
 
-SET @a17a=(SELECT id FROM activities WHERE activity_key='act-de-food-today-conversation'); SET @a17b=(SELECT id FROM activities WHERE activity_key='act-de-food-today-matching'); SET @a18a=(SELECT id FROM activities WHERE activity_key='act-de-simple-order-conversation'); SET @a18b=(SELECT id FROM activities WHERE activity_key='act-de-simple-order-word-order'); SET @a19a=(SELECT id FROM activities WHERE activity_key='act-de-need-buy-conversation'); SET @a19b=(SELECT id FROM activities WHERE activity_key='act-de-need-buy-matching');
+SET @a17a=(SELECT id FROM activities WHERE activity_key='act-de-food-today-conversation');
+SET @a17b=(SELECT id FROM activities WHERE activity_key='act-de-food-today-matching');
+SET @a18a=(SELECT id FROM activities WHERE activity_key='act-de-simple-order-conversation');
+SET @a18b=(SELECT id FROM activities WHERE activity_key='act-de-simple-order-word-order');
+SET @a19a=(SELECT id FROM activities WHERE activity_key='act-de-need-buy-conversation');
+SET @a19b=(SELECT id FROM activities WHERE activity_key='act-de-need-buy-matching');
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id) VALUES(@a17a,@t_food),(@a17b,@t_food),(@a18a,@t_order),(@a18b,@t_order),(@a19a,@t_need),(@a19b,@t_need);
-INSERT IGNORE INTO activity_lexemes(activity_id,lexeme_id) VALUES(@a17a,@x_heute),(@a17a,@x_suppe),(@a17a,@x_essen),(@a17a,@x_reis),(@a17b,@x_heute),(@a17b,@x_suppe),(@a17b,@x_essen),(@a17b,@x_reis),(@a18a,@x_bitte),(@a18a,@x_tasse),(@a18a,@x_kaffee),(@a18b,@x_bitte),(@a18b,@x_tasse),(@a18b,@x_kaffee),(@a19a,@x_brauchen),(@a19a,@x_hose),(@a19a,@x_kaufen),(@a19a,@x_hemd),(@a19a,@x_schuhe),(@a19b,@x_brauchen),(@a19b,@x_hose),(@a19b,@x_kaufen),(@a19b,@x_hemd),(@a19b,@x_schuhe);
+INSERT IGNORE INTO activity_lexemes(activity_id,lexeme_id) VALUES
+(@a17a,@x_heute),(@a17a,@x_suppe),(@a17a,@x_essen),(@a17a,@x_reis),(@a17b,@x_heute),(@a17b,@x_suppe),(@a17b,@x_essen),(@a17b,@x_reis),
+(@a18a,@x_bitte),(@a18a,@x_tasse),(@a18a,@x_kaffee),(@a18b,@x_bitte),(@a18b,@x_tasse),(@a18b,@x_kaffee),
+(@a19a,@x_brauchen),(@a19a,@x_hose),(@a19a,@x_kaufen),(@a19a,@x_hemd),(@a19a,@x_schuhe),(@a19b,@x_brauchen),(@a19b,@x_hose),(@a19b,@x_kaufen),(@a19b,@x_hemd),(@a19b,@x_schuhe);
 
-SET @si_q1=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-was-gibt-heute'); SET @si_a1=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-heute-suppe'); SET @si_q2=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-was-essen'); SET @si_a2=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-ich-esse-reis'); SET @si_gt=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-guten-tag'); SET @si_oq=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-order-question'); SET @si_oa=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-coffee-please'); SET @si_nq=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-need-question'); SET @si_na=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-need-hose'); SET @si_bq=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-buy-question'); SET @si_ba=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-buy-answer');
+SET @si_q1=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-was-gibt-heute');
+SET @si_a1=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-heute-suppe');
+SET @si_q2=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-was-essen');
+SET @si_a2=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-ich-esse-reis');
+SET @si_gt=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-guten-tag');
+SET @si_oq=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-order-question');
+SET @si_oa=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-coffee-please');
+SET @si_nq=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-need-question');
+SET @si_na=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-need-hose');
+SET @si_bq=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-buy-question');
+SET @si_ba=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-buy-answer');
 INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes) VALUES
-('dialogue_turn','turn-de-food-today-1',@si_q1,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-food-today-2',@si_a1,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-food-today-3',@si_q2,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-food-today-4',@si_a2,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-simple-order-1',@si_gt,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-simple-order-2',@si_gt,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-simple-order-3',@si_oq,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-simple-order-4',@si_oa,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-need-buy-1',@si_nq,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-need-buy-2',@si_na,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-need-buy-3',@si_bq,'verbatim','متن هدف عین منبع است.'),('dialogue_turn','turn-de-need-buy-4',@si_ba,'verbatim','متن هدف عین منبع است.'),
-('activity','act-de-food-today-matching',@si_q1,'source_items_grouped_for_matching','جفت پرسش/پاسخ از منبع گروه‌بندی شده است.'),('activity','act-de-food-today-matching',@si_a1,'source_items_grouped_for_matching','جفت پرسش/پاسخ از منبع گروه‌بندی شده است.'),('activity','act-de-food-today-matching',@si_q2,'source_items_grouped_for_matching','جفت پرسش/پاسخ از منبع گروه‌بندی شده است.'),('activity','act-de-food-today-matching',@si_a2,'source_items_grouped_for_matching','جفت پرسش/پاسخ از منبع گروه‌بندی شده است.'),('activity','act-de-simple-order-word-order',@si_oa,'sentence_tokenized_for_word_order','جملهٔ منبع برای مرتب‌سازی کلمات بخش‌بندی شده است.'),('activity','act-de-need-buy-matching',@si_nq,'source_items_grouped_for_matching','جفت پرسش/پاسخ از منبع گروه‌بندی شده است.'),('activity','act-de-need-buy-matching',@si_na,'source_items_grouped_for_matching','جفت پرسش/پاسخ از منبع گروه‌بندی شده است.'),('activity','act-de-need-buy-matching',@si_bq,'source_items_grouped_for_matching','جفت پرسش/پاسخ از منبع گروه‌بندی شده است.'),('activity','act-de-need-buy-matching',@si_ba,'source_items_grouped_for_matching','جفت پرسش/پاسخ از منبع گروه‌بندی شده است.'),
-('lexeme','lex-de-suppe',@si_a1,'other','واژه در جملهٔ منبع‌دار آمده است.'),('lexeme','lex-de-essen',@si_q2,'other','واژه در جملهٔ منبع‌دار آمده است.'),('lexeme','lex-de-reis',@si_a2,'other','واژه در جملهٔ منبع‌دار آمده است.'),('lexeme','lex-de-tasse',@si_oa,'other','واژه در جملهٔ منبع‌دار آمده است.'),('lexeme','lex-de-kaffee',@si_oa,'other','واژه در جملهٔ منبع‌دار آمده است.'),('lexeme','lex-de-brauchen',@si_nq,'other','فعل در پرسش منبع‌دار آمده است.'),('lexeme','lex-de-hose',@si_na,'other','واژه در جملهٔ منبع‌دار آمده است.'),('lexeme','lex-de-kaufen',@si_bq,'other','فعل در پرسش منبع‌دار آمده است.'),('lexeme','lex-de-hemd',@si_ba,'other','واژه در جملهٔ منبع‌دار آمده است.'),('lexeme','lex-de-schuhe',@si_ba,'other','واژه در جملهٔ منبع‌دار آمده است.');
+('dialogue_turn','turn-de-food-today-1',@si_q1,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-food-today-2',@si_a1,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-food-today-3',@si_q2,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-food-today-4',@si_a2,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-simple-order-1',@si_gt,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-simple-order-2',@si_gt,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-simple-order-3',@si_oq,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-simple-order-4',@si_oa,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-need-buy-1',@si_nq,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-need-buy-2',@si_na,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-need-buy-3',@si_bq,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-need-buy-4',@si_ba,'verbatim','متن هدف عین منبع است.'),
+('activity','act-de-food-today-matching',@si_q1,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-food-today-matching',@si_a1,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-food-today-matching',@si_q2,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-food-today-matching',@si_a2,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-simple-order-word-order',@si_oa,'sentence_tokenized_for_word_order','جملهٔ منبع برای مرتب‌سازی واژه‌ها بخش‌بندی شده است.'),
+('activity','act-de-need-buy-matching',@si_nq,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-need-buy-matching',@si_na,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-need-buy-matching',@si_bq,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-need-buy-matching',@si_ba,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('lexeme','lex-de-suppe',@si_a1,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-essen',@si_q2,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-reis',@si_a2,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-tasse',@si_oa,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-kaffee',@si_oa,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-brauchen',@si_nq,'other','فعل در پرسش منبع‌دار آمده است.'),
+('lexeme','lex-de-hose',@si_na,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-kaufen',@si_bq,'other','فعل در پرسش منبع‌دار آمده است.'),
+('lexeme','lex-de-hemd',@si_ba,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-schuhe',@si_ba,'other','واژه در جملهٔ منبع‌دار آمده است.');
 
-UPDATE language_levels SET coverage=JSON_SET(coverage,'$.communicativeTargets',JSON_ARRAY('سلام، خداحافظی، تشکر، پاسخ مؤدبانه و عذرخواهی کوتاه','پرسیدن و گفتن نام','احوال‌پرسی بسیار ساده','پرسیدن و پاسخ‌دادن دربارهٔ علاقه/انتخاب غذای آشنا','پاسخ مثبت و منفی کوتاه','پرسیدن و گفتن محل زندگی و مبدأ','پرسیدن و گفتن سن و فهم عددهای ساده','پرسیدن و گفتن روز، ساعت و زمان روز','پرسیدن و گفتن تاریخ تولد','پرسیدن و گفتن شماره تلفن','پرسیدن سؤال اطلاعاتی بسیار ساده و فهم پاسخ کوتاه','نوشتن اطلاعات شخصی بسیار کوتاه در یک فرم متنی','تشخیص شنیداری یک قیمت ساده','پرسیدن و گفتن غذای موجود و چیزی که فرد می‌خورد','انجام یک سفارش بسیار کوتاه و مؤدبانه','فهم و بیان یک نیاز یا خرید بسیار ساده'),'$.linguisticTargets',JSON_ARRAY('عبارت‌های ثابت سلام/خداحافظی و ادب','فعل‌های پایهٔ mögen، heißen، wohnen و kommen در کاربردهای منبع‌دار این سطح','عددهای ساده در سن، ساعت، تلفن و قیمت','واژه‌های پایهٔ روز، ساعت، تولد، شماره تلفن و نشانی','الگوهای منبع‌دار معرفی، محل زندگی، سن، تاریخ تولد و شماره تلفن','واژه‌های خیلی پایهٔ غذا و نوشیدنی در جمله‌های کوتاه','الگوهای خیلی سادهٔ essen، brauchen و kaufen در بافت روزمره'),'$.situations',JSON_ARRAY('آشنایی اولیه','گفت‌وگوی کوتاه صبحگاهی','علاقه و انتخاب غذای آشنا','تشکر و عذرخواهی','اطلاعات شخصی در آشنایی مؤدبانه','پرسش سن','پرسش روز و ساعت','تاریخ تولد','تبادل شماره تلفن','سؤال اطلاعاتی بسیار ساده','فرم متنی اطلاعات شخصی','تشخیص قیمت ساده','پرسیدن دربارهٔ غذای امروز','سفارش خیلی سادهٔ قهوه','بیان نیاز و خرید خیلی ساده'),'$.gaps',JSON_ARRAY()),completion_assessment=JSON_SET(completion_assessment,'$.reviewedAt','2026-09-17T09:30:00Z','$.qualityReview.rationale','Unit سوم دامنهٔ کاربرد روزمره را با غذای موجود، سفارش مؤدبانه و بیان نیاز/خرید خیلی ساده گسترش می‌دهد؛ همهٔ متن‌های هدف جدید منبع‌دار و قابل ردیابی‌اند.','$.qualityReview.remainingWeaknesses',JSON_ARRAY('۲۲ دارایی صوتی جدید Unit سوم هنوز تولید نشده‌اند.')),notes='German Pre-A1 اکنون Unit سوم برای غذا، سفارش و خرید خیلی ساده دارد؛ ۱۰۴ دارایی صوتی قبلی معتبرند و ۲۲ دارایی تازه باید تولید شوند.',audio_status='stale' WHERE id=@level;
+UPDATE language_levels
+SET coverage=JSON_SET(
+      coverage,
+      '$.communicativeTargets',JSON_ARRAY('سلام، خداحافظی، تشکر، پاسخ مؤدبانه و عذرخواهی کوتاه','پرسیدن و گفتن نام','احوال‌پرسی بسیار ساده','پرسیدن و پاسخ‌دادن دربارهٔ علاقه/انتخاب غذای آشنا','پاسخ مثبت و منفی کوتاه','پرسیدن و گفتن محل زندگی و مبدأ','پرسیدن و گفتن سن و فهم عددهای ساده','پرسیدن و گفتن روز، ساعت و زمان روز','پرسیدن و گفتن تاریخ تولد','پرسیدن و گفتن شماره تلفن','پرسیدن سؤال اطلاعاتی بسیار ساده و فهم پاسخ کوتاه','نوشتن اطلاعات شخصی بسیار کوتاه در یک فرم متنی','تشخیص شنیداری یک قیمت ساده','پرسیدن و گفتن غذای موجود و چیزی که فرد می‌خورد','انجام یک سفارش بسیار کوتاه و مؤدبانه','فهم و بیان یک نیاز یا خرید بسیار ساده'),
+      '$.linguisticTargets',JSON_ARRAY('عبارت‌های ثابت سلام/خداحافظی و ادب','فعل‌های پایهٔ mögen، heißen، wohnen و kommen در کاربردهای منبع‌دار این سطح','عددهای ساده در سن، ساعت، تلفن و قیمت','واژه‌های پایهٔ روز، ساعت، تولد، شماره تلفن و نشانی','الگوهای منبع‌دار معرفی، محل زندگی، سن، تاریخ تولد و شماره تلفن','واژه‌های خیلی پایهٔ غذا و نوشیدنی در جمله‌های کوتاه','الگوهای خیلی سادهٔ essen، brauchen و kaufen در بافت روزمره'),
+      '$.situations',JSON_ARRAY('آشنایی اولیه','گفت‌وگوی کوتاه صبحگاهی','علاقه و انتخاب غذای آشنا','تشکر و عذرخواهی','اطلاعات شخصی در آشنایی مؤدبانه','پرسش سن','پرسش روز و ساعت','تاریخ تولد','تبادل شماره تلفن','سؤال اطلاعاتی بسیار ساده','فرم متنی اطلاعات شخصی','تشخیص قیمت ساده','پرسیدن دربارهٔ غذای امروز','سفارش خیلی سادهٔ قهوه','بیان نیاز و خرید خیلی ساده'),
+      '$.gaps',JSON_ARRAY()),
+    completion_assessment=JSON_SET(
+      completion_assessment,
+      '$.reviewedAt','2026-09-17T09:30:00Z',
+      '$.qualityReview.rationale','واحد سوم دامنهٔ کاربرد روزمره را با غذای موجود، سفارش مؤدبانه و بیان نیاز یا خرید خیلی ساده گسترش می‌دهد؛ همهٔ متن‌های هدف جدید منبع‌دار و قابل ردیابی‌اند.',
+      '$.qualityReview.remainingWeaknesses',JSON_ARRAY('۲۲ دارایی صوتی جدید واحد سوم هنوز تولید نشده‌اند.')),
+    notes='German Pre-A1 اکنون واحد سوم برای غذا، سفارش و خرید خیلی ساده دارد؛ ۱۰۴ دارایی صوتی قبلی معتبرند و ۲۲ دارایی تازه باید تولید شوند.',
+    audio_status='stale'
+WHERE id=@level;
 COMMIT;
