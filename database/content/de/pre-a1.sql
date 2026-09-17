@@ -1074,6 +1074,10 @@ SET @g_l_residence=(SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-re
 SET @g_l_object=(SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-basic-object' LIMIT 1);
 SET @g_l_choice=(SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-simple-choice' LIMIT 1);
 
+-- Reopen only the lessons whose activity sequences are being revised.
+UPDATE lessons SET status='qa'
+WHERE id IN (@g_l_hallo,@g_l_danke,@g_l_residence,@g_l_object,@g_l_choice);
+
 UPDATE lessons SET
  activity_selection_rationale='گفت‌وگوی کوتاه سلام و خداحافظی را در بافت می‌آورد و یک تشخیص متنیِ سبک کمک می‌کند زبان‌آموز نقش «Tschüss!» را جدا از «Hallo!» بازیابی کند.',
  sequence_rationale='اول دو عبارت در تعامل استفاده می‌شوند و سپس زبان‌آموز عبارت مناسب برای پایان گفت‌وگو را تشخیص می‌دهد.',
@@ -1212,6 +1216,11 @@ INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformatio
 ('activity','act-de-simple-choice-word-order',@g_si_choice,'sentence_tokenized_for_word_order','پرسش منبع‌دار فقط برای مرتب‌سازی توکن‌بندی شده است.'),
 ('activity','act-de-simple-choice-word-order',@g_si_moechtest,'other','فرم «möchtest» به شاهد واژگانی منبع‌دار متصل است.')
 ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+
+
+-- Restore finalized status after the activity revision is complete.
+UPDATE lessons SET status='final'
+WHERE id IN (@g_l_hallo,@g_l_danke,@g_l_residence,@g_l_object,@g_l_choice);
 
 COMMIT;
 -- END PRE-A1 ACTIVITY COUNT GUARDRAIL SYNC
