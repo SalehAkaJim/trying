@@ -76,14 +76,18 @@
         "pairs": [
           {
             "left": "Wo wohnen Sie?",
+            "leftFa": "کجا زندگی می‌کنید؟",
             "right": "Ich wohne in Österreich.",
+            "rightFa": "من در اتریش زندگی می‌کنم.",
             "sourceRefs": [
               "src-wikibooks-de-residence-origin"
             ]
           },
           {
             "left": "Woher kommen Sie?",
+            "leftFa": "اهل کجا هستید؟",
             "right": "Ich komme aus Deutschland, und Sie?",
+            "rightFa": "من اهل آلمان هستم، شما چطور؟",
             "sourceRefs": [
               "src-wikibooks-de-residence-origin"
             ]
@@ -91,7 +95,8 @@
         ]
       },
       "transformations": [
-        "source_items_grouped_for_matching"
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
