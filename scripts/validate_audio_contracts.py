@@ -78,15 +78,29 @@ for pth in Path("content").glob("*/lexemes/*.json"):
     d=json.loads(pth.read_text(encoding="utf-8"))
     if (levels.get((d.get("languageId"),d.get("level"))) or {}).get("status")=="final" and d.get("audioStatus")=="blocked_until_level_final": errors.append(f"{pth}: final-level lexeme audio remains blocked")
 
-# Voice locks, when present, must have provider SQL and no duplicate conversation voice IDs except learner inheritance.
+# Voice locks, when present, must match the canonical cast, have provider SQL,
+# preserve gender compatibility, and have no duplicate conversation voice IDs.
 for lock_path in Path('config/audio-voice-locks').glob('*.json'):
     lock=json.loads(lock_path.read_text(encoding='utf-8'))
     language=lock.get('language')
     voice_sql=Path('database/audio')/str(language)/'voices.sql'
     if not voice_sql.exists(): errors.append(f'{lock_path}: missing {voice_sql}')
+    locked=lock.get('characters') or {}
+    char_dir=Path('content')/str(language)/'characters'
+    canonical={}
+    for cp in char_dir.glob('*.json'):
+        cd=json.loads(cp.read_text(encoding='utf-8')); canonical[cd.get('id')]=cd
+    if set(locked) != set(canonical):
+        errors.append(f'{lock_path}: locked character keys must equal canonical cast; locked={sorted(locked)} canonical={sorted(canonical)}')
     ids=[]
-    for key,rec in (lock.get('characters') or {}).items():
-        if rec.get('strategy')!='standalone_inherited': ids.append((key,rec.get('voiceId')))
+    for key,rec in locked.items():
+        if rec.get('strategy')=='standalone_inherited': errors.append(f'{lock_path}: standalone-inherited learner voice is forbidden for {key}')
+        ids.append((key,rec.get('voiceId')))
+        ch=canonical.get(key) or {}
+        wanted=str((ch.get('voiceProfile') or {}).get('genderImpression') or ch.get('gender') or '').lower()
+        actual=str(((rec.get('providerMetadata') or {}).get('labels') or {}).get('gender') or '').lower()
+        if wanted in {'female','male'} and actual != wanted:
+            errors.append(f'{lock_path}: voice gender {actual!r} conflicts with {key} gender {wanted!r}')
     seen={}
     for key,vid in ids:
         if vid in seen: errors.append(f'{lock_path}: duplicate non-learner conversation voice {vid} for {seen[vid]} and {key}')

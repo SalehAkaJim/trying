@@ -263,7 +263,14 @@ def resolve_voices(language: str, config: dict, api_key: str) -> dict:
         prefs = (manifest.get("audioPolicy") or {}).get("standaloneVoicePreference") or []
         raise RuntimeError(f"None of the configured standalone voices are available in ElevenLabs: {prefs}")
 
+    old_path = voice_lock_path(language)
+    previous_lock = load_json(old_path) if old_path.exists() else None
+    previous_characters = (previous_lock or {}).get("characters") or {}
+
     used = {standalone["voiceId"]}
+    # Reserve both explicit authoring bindings and prior locked voices so a new
+    # character cannot steal an existing character's production identity.
+    used.update(rec.get("voiceId") for rec in previous_characters.values() if rec.get("voiceId"))
     characters = {}
     character_dir = ROOT / "content" / language / "characters"
     for reserved_path in sorted(character_dir.glob("*.json")):
@@ -311,6 +318,18 @@ def resolve_voices(language: str, config: dict, api_key: str) -> dict:
             used.add(rec["voiceId"])
             continue
 
+        previous = previous_characters.get(key)
+        if previous and previous.get("voiceId"):
+            match = next((v for v in voices if v.get("voice_id") == previous["voiceId"]), None)
+            if match and voice_gender_compatible(match, character):
+                strategy = previous.get("strategy")
+                if strategy not in {"preference_name", "profile_match", "standalone_inherited", "explicit"}:
+                    strategy = "profile_match"
+                rec = voice_record(match, strategy=strategy, score=previous.get("matchScore"), character_key=key)
+                characters[key] = rec
+                used.add(rec["voiceId"])
+                continue
+
         candidates = [v for v in voices if v["voice_id"] not in used and voice_gender_compatible(v, character)]
         if not candidates:
             wanted = profile.get("genderImpression") or character.get("gender") or "unspecified"
@@ -333,7 +352,6 @@ def resolve_voices(language: str, config: dict, api_key: str) -> dict:
         "characters": characters,
     }
 
-    old_path = voice_lock_path(language)
     if old_path.exists():
         old = load_json(old_path)
         comparable_old = dict(old)
