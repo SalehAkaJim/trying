@@ -121,7 +121,7 @@
     "de-pre-a1-lesson-need-help"
   ],
   "notes": "سطح پیش از A1 آلمانی اکنون ۲۲ درس در ۴ واحد دارد؛ هر درس بین ۳ تا ۶ فعالیت هدفمند دارد. سه درس تازهٔ قیمت، پیدا کردن سرویس بهداشتی و درخواست کمک اضافه شده‌اند و صوت آن‌ها هنوز تولید نشده است.",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "completionAssessment": {
     "reviewedAt": "2026-09-17T12:25:00Z",
     "cefrCoverageComplete": true,
