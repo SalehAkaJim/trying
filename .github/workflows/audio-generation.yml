@@ -28,26 +28,22 @@ on:
         required: true
         type: boolean
         default: false
-  push:
-    paths:
-      - '.github/workflows/audio-generation.yml'
 
 permissions:
   contents: write
 
-# Temporary push trigger: explicitly approved paid regeneration of German Pre-A1 audio.
 concurrency:
-  group: curriculum-audio-${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}-${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
+  group: curriculum-audio-${{ inputs.language }}-${{ inputs.level }}
   cancel-in-progress: false
 
 jobs:
   audio:
     runs-on: ubuntu-latest
     env:
-      AUDIO_OPERATION: ${{ github.event_name == 'workflow_dispatch' && inputs.operation || 'generate' }}
-      AUDIO_LANGUAGE: ${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}
-      AUDIO_LEVEL: ${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
-      AUDIO_CONFIRM_PAID: ${{ github.event_name == 'workflow_dispatch' && inputs.confirm_paid_generation || true }}
+      AUDIO_OPERATION: ${{ inputs.operation }}
+      AUDIO_LANGUAGE: ${{ inputs.language }}
+      AUDIO_LEVEL: ${{ inputs.level }}
+      AUDIO_CONFIRM_PAID: ${{ inputs.confirm_paid_generation }}
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
       AUDIO_DB_HOST: 127.0.0.1
       AUDIO_DB_PORT: '3306'
@@ -96,7 +92,7 @@ jobs:
           --allow-unresolved-voices
 
       - name: Require ElevenLabs key
-        if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate' || env.AUDIO_OPERATION == 'recover-history'
+        if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate'
         shell: bash
         run: |
           if [ -z "$ELEVENLABS_API_KEY" ]; then
@@ -136,31 +132,22 @@ jobs:
           --level "$AUDIO_LEVEL"
           --confirm-paid-generation
 
-      - name: Recover already-paid audio assets from ElevenLabs history
-        if: env.AUDIO_OPERATION == 'recover-history'
-        run: >-
-          python scripts/recover_elevenlabs_history.py
-          --language "$AUDIO_LANGUAGE"
-          --level "$AUDIO_LEVEL"
-          --after-unix 1789627480
-          --before-unix 1789627590
-
       - name: Make activity audio mapping safe for final lessons
-        if: env.AUDIO_OPERATION == 'generate' || env.AUDIO_OPERATION == 'recover-history'
+        if: env.AUDIO_OPERATION == 'generate'
         run: >-
           python scripts/make_audio_mapping_final_safe.py
           --language "$AUDIO_LANGUAGE"
           --level "$AUDIO_LEVEL"
 
       - name: Validate audio assets
-        if: env.AUDIO_OPERATION == 'generate' || env.AUDIO_OPERATION == 'validate-assets' || env.AUDIO_OPERATION == 'recover-history'
+        if: env.AUDIO_OPERATION == 'generate' || env.AUDIO_OPERATION == 'validate-assets'
         run: >-
           python scripts/audio_pipeline.py validate-assets
           --language "$AUDIO_LANGUAGE"
           --level "$AUDIO_LEVEL"
 
       - name: Validate audio mapping on MySQL 9.0.1
-        if: env.AUDIO_OPERATION == 'generate' || env.AUDIO_OPERATION == 'recover-history'
+        if: env.AUDIO_OPERATION == 'generate'
         run: |
           bash scripts/validate_mysql_content.sh
           python scripts/audio_pipeline.py plan --language "$AUDIO_LANGUAGE" --level "$AUDIO_LEVEL" > /tmp/audio-plan-summary.json
@@ -172,8 +159,8 @@ jobs:
           print('Audio is fully current in MySQL.')
           PY
 
-      - name: Commit resolved voices or audio assets
-        if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate' || env.AUDIO_OPERATION == 'recover-history'
+      - name: Commit resolved voices or generated assets
+        if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate'
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
