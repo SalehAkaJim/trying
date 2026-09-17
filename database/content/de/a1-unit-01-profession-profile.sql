@@ -77,8 +77,7 @@ INSERT INTO lexemes(
 ON DUPLICATE KEY UPDATE
   language_id=VALUES(language_id),lexeme_type=VALUES(lexeme_type),surface=VALUES(surface),normalized_surface=VALUES(normalized_surface),
   lemma=VALUES(lemma),part_of_speech=VALUES(part_of_speech),part_of_speech_fa=VALUES(part_of_speech_fa),cefr_level=VALUES(cefr_level),
-  translation_fa=VALUES(translation_fa),usage_note_fa=VALUES(usage_note_fa),flashcard_eligible=VALUES(flashcard_eligible),
-  audio_status=IF(audio_status='ready',audio_status,VALUES(audio_status));
+  translation_fa=VALUES(translation_fa),usage_note_fa=VALUES(usage_note_fa),flashcard_eligible=VALUES(flashcard_eligible);
 
 SET @x_beruf := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-beruf' LIMIT 1);
 SET @x_student := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-student' LIMIT 1);
@@ -111,7 +110,7 @@ ON DUPLICATE KEY UPDATE
   language_level_id=VALUES(language_level_id),unit_id=VALUES(unit_id),sequence_index=VALUES(sequence_index),position_in_unit=VALUES(position_in_unit),
   title_fa=VALUES(title_fa),source_title=VALUES(source_title),source_title_fa=VALUES(source_title_fa),status=VALUES(status),
   activity_selection_rationale=VALUES(activity_selection_rationale),sequence_rationale=VALUES(sequence_rationale),template_signature=VALUES(template_signature),
-  audio_status=IF(audio_status='ready',audio_status,VALUES(audio_status)),notes=VALUES(notes);
+  notes=VALUES(notes);
 
 SET @lesson := (SELECT id FROM lessons WHERE lesson_key='de-a1-lesson-profession-profile' LIMIT 1);
 
@@ -157,8 +156,7 @@ INSERT INTO dialogue_turns(
 ON DUPLICATE KEY UPDATE
   dialogue_id=VALUES(dialogue_id),position_index=VALUES(position_index),speaker_character_id=VALUES(speaker_character_id),
   speaker_identity_origin=VALUES(speaker_identity_origin),speaker_gender_evidence=VALUES(speaker_gender_evidence),
-  text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn),
-  audio_status=IF(audio_status='ready',audio_status,VALUES(audio_status));
+  text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn);
 
 INSERT INTO activities(
   activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,
@@ -207,7 +205,7 @@ INSERT INTO activities(
 ON DUPLICATE KEY UPDATE
   lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
   selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),
-  audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+  audio_text_target=VALUES(audio_text_target);
 
 SET @a_conv := (SELECT id FROM activities WHERE activity_key='act-de-a1-profession-conversation' LIMIT 1);
 SET @a_match := (SELECT id FROM activities WHERE activity_key='act-de-a1-profession-matching' LIMIT 1);
