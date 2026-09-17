@@ -71,6 +71,7 @@
       ],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "هجده",
         "options": [
           {
             "text": "18",
@@ -83,7 +84,8 @@
         ]
       },
       "transformations": [
-        "other"
+        "other",
+        "persian_translation_added"
       ],
       "audioStatus": "pending",
       "audioTextTarget": "achtzehn"
