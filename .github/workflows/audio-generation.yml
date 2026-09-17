@@ -35,7 +35,7 @@ on:
 permissions:
   contents: write
 
-# Temporary push trigger: resolve exact Hope voice name after schema sync.
+# Temporary push trigger: paid German Pre-A1 generation explicitly confirmed by the user.
 concurrency:
   group: curriculum-audio-${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}-${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
   cancel-in-progress: false
@@ -44,10 +44,10 @@ jobs:
   audio:
     runs-on: ubuntu-latest
     env:
-      AUDIO_OPERATION: ${{ github.event_name == 'workflow_dispatch' && inputs.operation || 'resolve-voices' }}
+      AUDIO_OPERATION: ${{ github.event_name == 'workflow_dispatch' && inputs.operation || 'generate' }}
       AUDIO_LANGUAGE: ${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}
       AUDIO_LEVEL: ${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
-      AUDIO_CONFIRM_PAID: ${{ github.event_name == 'workflow_dispatch' && inputs.confirm_paid_generation || false }}
+      AUDIO_CONFIRM_PAID: ${{ github.event_name == 'workflow_dispatch' && inputs.confirm_paid_generation || true }}
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
       AUDIO_DB_HOST: 127.0.0.1
       AUDIO_DB_PORT: '3306'
