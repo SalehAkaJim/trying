@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-unit-survival-basics",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "titleFa": "موقعیت‌های ضروری روزمره",
+  "learningTargets": [
+    "قیمت یک چیز را با یک پرسش بسیار کوتاه بپرسد و یک قیمت ساده را بفهمد.",
+    "با «Wo ist die Toilette?» محل سرویس بهداشتی را بپرسد و «Ich weiß nicht.» را بفهمد.",
+    "با «Ich brauche Hilfe.» درخواست کمک بسیار کوتاه و مستقیم انجام دهد."
+  ],
+  "lessonRefs": [
+    "de-pre-a1-lesson-ask-price",
+    "de-pre-a1-lesson-find-toilet",
+    "de-pre-a1-lesson-need-help"
+  ],
+  "groupingRationale": "این سه درس بعد از خرید و سفارش، دامنهٔ بقا در موقعیت‌های واقعی را گسترش می‌دهند: اول قیمت، بعد پیدا کردن یک مکان ضروری و در پایان درخواست کمک. همهٔ جمله‌ها کوتاه، کاربردی و منبع‌دار باقی می‌مانند.",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-004",
+    "src-wikibooks-de-phrasebook",
+    "src-wiktionary-de-entschuldigung",
+    "src-wiktionary-de-ja",
+    "src-wiktionary-de-kein-problem"
+  ],
+  "status": "final",
+  "notes": "واحد چهارم Pre-A1 سه موقعیت فوری و کم‌فشار را اضافه می‌کند و همچنان از ساختار بدون تصویر و تمرین‌های کوتاه استفاده می‌کند."
+}
