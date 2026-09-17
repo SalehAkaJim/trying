@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-polizistin",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Polizistin",
+  "lemma": "Polizistin",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "پلیس زن",
+  "usageNoteFa": "در بخش منبع‌دار شغل‌ها برای معرفی یک پلیس زن استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-lesson-002-professions"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}
