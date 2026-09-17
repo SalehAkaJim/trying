@@ -1,0 +1,21 @@
+{
+  "id": "dlg-de-a1-profession-profile",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": ["src-wikibooks-de-lesson-002-professions"],
+  "scenario": "یوناس و لنا اطلاعات کوتاه آقای ورنر را مرور می‌کنند؛ اطلاعات آشنای هویت و مکان در پایان به پرسش تازه دربارهٔ شغل می‌رسد.",
+  "openingInitiator": "app",
+  "characterRefs": ["char-de-jonas", "char-de-lena"],
+  "turns": [
+    {"id":"turn-de-a1-profession-1","speakerCharacterId":"char-de-jonas","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Wer ist das?","translationFa":"این کیه؟","learnerTurn":false,"lexemeRefs":[],"lexemeOccurrences":[],"sourceRefs":["src-wikibooks-de-lesson-002-professions"],"audioRef":null},
+    {"id":"turn-de-a1-profession-2","speakerCharacterId":"char-de-lena","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Das ist Herr Werner.","translationFa":"این آقای ورنر است.","learnerTurn":true,"lexemeRefs":[],"lexemeOccurrences":[],"sourceRefs":["src-wikibooks-de-lesson-002-professions"],"audioRef":null},
+    {"id":"turn-de-a1-profession-3","speakerCharacterId":"char-de-jonas","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ist er Amerikaner?","translationFa":"آیا او آمریکایی است؟","learnerTurn":false,"lexemeRefs":[],"lexemeOccurrences":[],"sourceRefs":["src-wikibooks-de-lesson-002-professions"],"audioRef":null},
+    {"id":"turn-de-a1-profession-4","speakerCharacterId":"char-de-lena","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Nein, er ist Deutscher.","translationFa":"نه، او آلمانی است.","learnerTurn":true,"lexemeRefs":[],"lexemeOccurrences":[],"sourceRefs":["src-wikibooks-de-lesson-002-professions"],"audioRef":null},
+    {"id":"turn-de-a1-profession-5","speakerCharacterId":"char-de-jonas","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ist er jetzt in Hamburg?","translationFa":"آیا او الان در هامبورگ است؟","learnerTurn":false,"lexemeRefs":[],"lexemeOccurrences":[],"sourceRefs":["src-wikibooks-de-lesson-002-professions"],"audioRef":null},
+    {"id":"turn-de-a1-profession-6","speakerCharacterId":"char-de-lena","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Nein, er ist in Berlin.","translationFa":"نه، او در برلین است.","learnerTurn":true,"lexemeRefs":[],"lexemeOccurrences":[],"sourceRefs":["src-wikibooks-de-lesson-002-professions"],"audioRef":null},
+    {"id":"turn-de-a1-profession-7","speakerCharacterId":"char-de-jonas","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Was ist er von Beruf?","translationFa":"شغل او چیست؟","learnerTurn":false,"lexemeRefs":["lex-de-beruf"],"lexemeOccurrences":[{"surface":"Beruf","lexemeId":"lex-de-beruf","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-002-professions"],"audioRef":null},
+    {"id":"turn-de-a1-profession-8","speakerCharacterId":"char-de-lena","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Er ist Kraftfahrer.","translationFa":"او راننده است.","learnerTurn":true,"lexemeRefs":["lex-de-kraftfahrer"],"lexemeOccurrences":[{"surface":"Kraftfahrer","lexemeId":"lex-de-kraftfahrer","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-002-professions"],"audioRef":null}
+  ],
+  "sceneQualityRationale": "هشت نوبت عیناً از یک بخش پیوستهٔ منبع گرفته شده‌اند. سه جفت نخست اطلاعات آشنای هویت، ملیت و مکان را بازیابی می‌کنند و جفت پایانی هدف تازهٔ شغل را وارد می‌کند؛ بنابراین درس بدون تکرار آموزشی سطح قبلی به A1 پل می‌زند.",
+  "learnerCharacterId": "char-de-lena"
+}
