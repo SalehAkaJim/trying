@@ -66,6 +66,7 @@
       ],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "شماره تلفن من ۷۸۹ است.",
         "options": [
           {
             "text": "789",
@@ -78,7 +79,8 @@
         ]
       },
       "transformations": [
-        "other"
+        "other",
+        "persian_translation_added"
       ],
       "audioStatus": "pending",
       "audioTextTarget": "Meine Telefonnummer lautet 789."
