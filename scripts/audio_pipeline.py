@@ -542,6 +542,11 @@ def generate(language: str, level: str, config: dict, db: str, api_key: str, con
         if item["audioIsCurrent"] and path.exists():
             assets.append({
                 **item,
+                "audioStatus": "ready",
+                "audioUrl": public_url_for(path, config),
+                "audioStoragePath": path.relative_to(ROOT).as_posix(),
+                "audioIsCurrent": True,
+                "needsGeneration": False,
                 "path": path.relative_to(ROOT).as_posix(),
                 "publicUrl": public_url_for(path, config),
                 "audioSha256": sha256_file(path),
@@ -556,12 +561,31 @@ def generate(language: str, level: str, config: dict, db: str, api_key: str, con
         path.write_bytes(audio)
         assets.append({
             **item,
+            "audioStatus": "ready",
+            "audioUrl": public_url_for(path, config),
+            "audioStoragePath": path.relative_to(ROOT).as_posix(),
+            "audioIsCurrent": True,
+            "needsGeneration": False,
             "path": path.relative_to(ROOT).as_posix(),
             "publicUrl": public_url_for(path, config),
             "audioSha256": sha256_file(path),
             "byteSize": path.stat().st_size,
             "reused": False,
         })
+
+    invalid_generated_state = [
+        a["ownerKey"] for a in assets
+        if a.get("audioStatus") != "ready"
+        or a.get("audioIsCurrent") is not True
+        or a.get("needsGeneration") is not False
+        or a.get("audioUrl") != a.get("publicUrl")
+        or a.get("audioStoragePath") != a.get("path")
+    ]
+    if invalid_generated_state:
+        raise RuntimeError(
+            "Refusing to write audio mapping with non-current generated assets: "
+            + ", ".join(invalid_generated_state[:10])
+        )
 
     asset_manifest = {
         "schemaVersion": "1.0.0",
@@ -616,8 +640,11 @@ def validate_assets(language: str, level: str, config: dict) -> dict:
         raise RuntimeError(f"Asset manifest does not exist: {manifest_path.relative_to(ROOT)}")
     data = load_json(manifest_path)
     errors = []
+    assets = data.get("assets") or []
+    if data.get("assetCount") != len(assets):
+        errors.append(f"manifest assetCount mismatch: declared={data.get('assetCount')} actual={len(assets)}")
     seen = set()
-    for asset in data.get("assets") or []:
+    for asset in assets:
         key = (asset.get("ownerType"), asset.get("ownerKey"))
         if key in seen:
             errors.append(f"duplicate asset key: {key}")
@@ -635,6 +662,16 @@ def validate_assets(language: str, level: str, config: dict) -> dict:
             errors.append(f"source text hash mismatch: {asset.get('ownerKey')}")
         if not asset.get("voiceId") or not asset.get("voiceName"):
             errors.append(f"missing voice assignment: {asset.get('ownerKey')}")
+        if asset.get("audioStatus") != "ready":
+            errors.append(f"generated asset is not ready: {asset.get('ownerKey')}")
+        if asset.get("audioIsCurrent") is not True:
+            errors.append(f"generated asset is not current: {asset.get('ownerKey')}")
+        if asset.get("needsGeneration") is not False:
+            errors.append(f"generated asset still requests generation: {asset.get('ownerKey')}")
+        if asset.get("audioUrl") != asset.get("publicUrl"):
+            errors.append(f"audioUrl/publicUrl mismatch: {asset.get('ownerKey')}")
+        if asset.get("audioStoragePath") != asset.get("path"):
+            errors.append(f"audioStoragePath/path mismatch: {asset.get('ownerKey')}")
     if not mapping_sql_path(language, level).exists():
         errors.append(f"missing SQL mapping: {mapping_sql_path(language, level).relative_to(ROOT)}")
     if errors:

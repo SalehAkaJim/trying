@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import hashlib
 import json
 from pathlib import Path
 import py_compile
@@ -105,6 +106,55 @@ for lock_path in Path('config/audio-voice-locks').glob('*.json'):
     for key,vid in ids:
         if vid in seen: errors.append(f'{lock_path}: duplicate non-learner conversation voice {vid} for {seen[vid]} and {key}')
         seen[vid]=key
+
+# Committed generated manifests are release artifacts. They must be physically
+# valid, current, and aligned with the current canonical voice lock.
+def _audio_file_sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+for manifest_path in Path("audio").glob("*/*/manifest.json"):
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        errors.append(f"{manifest_path}: invalid manifest JSON: {exc}")
+        continue
+    assets = manifest.get("assets") or []
+    if manifest.get("assetCount") != len(assets):
+        errors.append(f"{manifest_path}: assetCount does not match assets length")
+    language = manifest.get("language")
+    lock_path = Path("config/audio-voice-locks") / f"{language}.json"
+    lock = json.loads(lock_path.read_text(encoding="utf-8")) if lock_path.exists() else None
+    if not lock:
+        errors.append(f"{manifest_path}: missing canonical voice lock {lock_path}")
+        continue
+    for asset in assets:
+        owner = asset.get("ownerKey")
+        rel = asset.get("path")
+        p = Path(str(rel or ""))
+        if not rel or not p.is_file():
+            errors.append(f"{manifest_path}:{owner}: missing generated audio file {rel!r}")
+        else:
+            if _audio_file_sha256(p) != asset.get("audioSha256"):
+                errors.append(f"{manifest_path}:{owner}: generated audio SHA mismatch")
+            if p.stat().st_size != asset.get("byteSize"):
+                errors.append(f"{manifest_path}:{owner}: generated audio byte size mismatch")
+        expected_text_hash = hashlib.sha256(str(asset.get("audioText") or "").encode("utf-8")).hexdigest()
+        if expected_text_hash != asset.get("expectedSourceHash"):
+            errors.append(f"{manifest_path}:{owner}: source text hash mismatch")
+        if asset.get("audioStatus") != "ready" or asset.get("audioIsCurrent") is not True or asset.get("needsGeneration") is not False:
+            errors.append(f"{manifest_path}:{owner}: committed generated asset is not ready/current")
+        if asset.get("audioUrl") != asset.get("publicUrl") or asset.get("audioStoragePath") != asset.get("path"):
+            errors.append(f"{manifest_path}:{owner}: generated URL/storage metadata is inconsistent")
+        assignment = asset.get("voiceAssignmentKey")
+        expected_voice = lock.get("standalone") if assignment == "standalone" else (lock.get("characters") or {}).get(assignment)
+        if not expected_voice:
+            errors.append(f"{manifest_path}:{owner}: no canonical voice for {assignment!r}")
+        elif asset.get("voiceId") != expected_voice.get("voiceId") or asset.get("voiceName") != expected_voice.get("voiceName"):
+            errors.append(f"{manifest_path}:{owner}: generated voice does not match canonical voice lock")
 
 if errors:
     print("Audio contract validation failed:")
