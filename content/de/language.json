@@ -5,11 +5,13 @@
   "nameFa": "آلمانی",
   "nameNative": "Deutsch",
   "supportedLevels": [
-    "Pre-A1"
+    "Pre-A1",
+    "A1"
   ],
   "status": "building",
   "levelManifestRefs": [
-    "de-pre-a1"
+    "de-pre-a1",
+    "de-a1"
   ],
   "characterRefs": [
     "char-de-mia",
