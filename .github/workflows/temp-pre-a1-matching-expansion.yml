@@ -1,0 +1,252 @@
+name: Temporary Pre-A1 Matching Expansion
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/temp-pre-a1-matching-expansion.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Expand Pre-A1 matching activities to four pairs
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('content/de/pre-a1/lessons')
+
+          specs = {
+            'hallo.json': {
+              'activity': 'act-de-hallo-role-match',
+              'instruction': 'هر عبارت را به کاربردش وصل کن.',
+              'reason': 'چهار عبارت اجتماعی پایهٔ منبع‌دارِ واحد اول را در یک تطبیق کوتاه از هم جدا می‌کند تا مرحلهٔ وصل‌کردن چهار گزینهٔ معنادار داشته باشد.',
+              'targets': ['تشخیص نقش چهار عبارت اجتماعی پایه در شروع، پایان، تشکر و پاسخ به تشکر.'],
+              'extra_sources': ['src-wiktionary-de-danke', 'src-wiktionary-de-bitte'],
+              'extra_lexemes': ['lex-de-danke', 'lex-de-bitte'],
+              'pairs': [
+                {'left':'Hallo!','leftFa':'سلام!','right':'سلام / شروع گفت‌وگو','rightFa':'سلام / شروع گفت‌وگو'},
+                {'left':'Tschüss!','leftFa':'خداحافظ!','right':'خداحافظی / پایان گفت‌وگو','rightFa':'خداحافظی / پایان گفت‌وگو'},
+                {'left':'Danke!','leftFa':'ممنون!','right':'تشکر','rightFa':'تشکر'},
+                {'left':'Bitte!','leftFa':'خواهش می‌کنم!','right':'پاسخ به تشکر','rightFa':'پاسخ به تشکر'},
+              ],
+            },
+            'danke-bitte.json': {
+              'activity': 'act-de-danke-bitte-role-match',
+              'instruction': 'هر عبارت را به کاربردش وصل کن.',
+              'reason': 'چهار عبارت اجتماعی آشنای منبع‌دار را کنار هم می‌گذارد تا تشکر و پاسخ به آن در میان سلام و خداحافظی هم درست تشخیص داده شوند.',
+              'targets': ['تشخیص نقش سلام، خداحافظی، تشکر و پاسخ به تشکر.'],
+              'extra_sources': ['src-wikibooks-de-basic-greetings'],
+              'extra_lexemes': ['lex-de-tschuess'],
+              'pairs': [
+                {'left':'Hallo!','leftFa':'سلام!','right':'سلام / شروع گفت‌وگو','rightFa':'سلام / شروع گفت‌وگو'},
+                {'left':'Tschüss!','leftFa':'خداحافظ!','right':'خداحافظی / پایان گفت‌وگو','rightFa':'خداحافظی / پایان گفت‌وگو'},
+                {'left':'Danke!','leftFa':'ممنون!','right':'تشکر','rightFa':'تشکر'},
+                {'left':'Bitte!','leftFa':'خواهش می‌کنم!','right':'پاسخ به تشکر','rightFa':'پاسخ به تشکر'},
+              ],
+            },
+            'entschuldigung.json': {
+              'activity': 'act-de-entschuldigung-matching',
+              'instruction': 'هر عبارت را به کاربردش وصل کن.',
+              'reason': 'چهار عبارت منبع‌دارِ همین درس را جداگانه تطبیق می‌دهد تا عذرخواهی، پاسخ به عذرخواهی، تشکر و پاسخ به تشکر با چهار گزینهٔ روشن از هم تفکیک شوند.',
+              'targets': ['تشخیص نقش چهار عبارت اجتماعی منبع‌دار این درس.'],
+              'pairs': [
+                {'left':'Entschuldigung.','leftFa':'ببخشید.','right':'عذرخواهی','rightFa':'عذرخواهی'},
+                {'left':'Kein Problem.','leftFa':'مشکلی نیست.','right':'پاسخ به عذرخواهی','rightFa':'پاسخ به عذرخواهی'},
+                {'left':'Danke!','leftFa':'ممنون!','right':'تشکر','rightFa':'تشکر'},
+                {'left':'Bitte!','leftFa':'خواهش می‌کنم!','right':'پاسخ به تشکر','rightFa':'پاسخ به تشکر'},
+              ],
+            },
+            'residence-origin.json': {
+              'activity': 'act-de-residence-matching',
+              'instruction': 'هر عبارت را به نقش درستش وصل کن.',
+              'reason': 'چهار عبارت دقیق منبع را جداگانه تطبیق می‌دهد تا پرسش و پاسخِ محل زندگی و مبدأ با چهار گزینهٔ مستقل از هم تشخیص داده شوند.',
+              'targets': ['تشخیص پرسش و پاسخ مربوط به محل زندگی و مبدأ.'],
+              'pairs': [
+                {'left':'Wo wohnen Sie?','leftFa':'کجا زندگی می‌کنید؟','right':'پرسش دربارهٔ محل زندگی','rightFa':'پرسش دربارهٔ محل زندگی'},
+                {'left':'Ich wohne in Österreich.','leftFa':'من در اتریش زندگی می‌کنم.','right':'پاسخ دربارهٔ محل زندگی','rightFa':'پاسخ دربارهٔ محل زندگی'},
+                {'left':'Woher kommen Sie?','leftFa':'اهل کجا هستید؟','right':'پرسش دربارهٔ مبدأ','rightFa':'پرسش دربارهٔ مبدأ'},
+                {'left':'Ich komme aus Deutschland, und Sie?','leftFa':'من اهل آلمان هستم، شما چطور؟','right':'پاسخ دربارهٔ مبدأ','rightFa':'پاسخ دربارهٔ مبدأ'},
+              ],
+            },
+            'personal-review.json': {
+              'activity': 'act-de-personal-review-match',
+              'instruction': 'هر عبارت را به نقش درستش وصل کن.',
+              'reason': 'چهار عبارت منبع‌دارِ مرور را جداگانه تطبیق می‌دهد تا پرسش و پاسخ سن و محل زندگی با چهار گزینهٔ مستقل بازیابی شوند.',
+              'targets': ['بازیابی نقش پرسش و پاسخِ سن و محل زندگی.'],
+              'pairs': [
+                {'left':'Wo wohnen Sie?','leftFa':'کجا زندگی می‌کنید؟','right':'پرسش دربارهٔ محل زندگی','rightFa':'پرسش دربارهٔ محل زندگی'},
+                {'left':'Ich wohne in Österreich.','leftFa':'من در اتریش زندگی می‌کنم.','right':'پاسخ دربارهٔ محل زندگی','rightFa':'پاسخ دربارهٔ محل زندگی'},
+                {'left':'Wie alt bist du?','leftFa':'چند سالته؟','right':'پرسش دربارهٔ سن','rightFa':'پرسش دربارهٔ سن'},
+                {'left':'Ich bin 20 Jahre alt.','leftFa':'من ۲۰ ساله هستم.','right':'پاسخ دربارهٔ سن','rightFa':'پاسخ دربارهٔ سن'},
+              ],
+            },
+            'day-time.json': {
+              'activity': 'act-de-time-question-match',
+              'instruction': 'هر عبارت را به نقش درستش وصل کن.',
+              'reason': 'چهار عبارت منبع‌دار روز و ساعت را جداگانه تطبیق می‌دهد تا پرسش و پاسخ هر دسته با چهار گزینهٔ مستقل از هم تشخیص داده شوند.',
+              'targets': ['تشخیص پرسش و پاسخ مربوط به روز و ساعت.'],
+              'pairs': [
+                {'left':'Welcher Tag ist heute?','leftFa':'امروز چه روزی است؟','right':'پرسش دربارهٔ روز','rightFa':'پرسش دربارهٔ روز'},
+                {'left':'Heute ist Dienstag.','leftFa':'امروز سه‌شنبه است.','right':'پاسخ دربارهٔ روز','rightFa':'پاسخ دربارهٔ روز'},
+                {'left':'Wie spät ist es?','leftFa':'ساعت چنده؟','right':'پرسش دربارهٔ ساعت','rightFa':'پرسش دربارهٔ ساعت'},
+                {'left':'Es ist 6.30 Uhr.','leftFa':'ساعت ۶:۳۰ است.','right':'پاسخ دربارهٔ ساعت','rightFa':'پاسخ دربارهٔ ساعت'},
+              ],
+            },
+            'food-today.json': {
+              'activity': 'act-de-food-today-matching',
+              'instruction': 'هر عبارت را به نقش درستش وصل کن.',
+              'reason': 'چهار عبارت دقیق منبع را جداگانه تطبیق می‌دهد تا پرسش و پاسخ دربارهٔ غذای موجود و چیزی که فرد می‌خورد با چهار گزینهٔ مستقل تمرین شوند.',
+              'targets': ['تشخیص نقش چهار عبارت مربوط به غذای امروز و خوردن.'],
+              'pairs': [
+                {'left':'Was gibt es heute?','leftFa':'امروز چی داریم؟','right':'پرسش دربارهٔ غذای امروز','rightFa':'پرسش دربارهٔ غذای امروز'},
+                {'left':'Heute gibt es Suppe.','leftFa':'امروز سوپ داریم.','right':'پاسخ دربارهٔ غذای موجود','rightFa':'پاسخ دربارهٔ غذای موجود'},
+                {'left':'Was essen Sie?','leftFa':'شما چی می‌خورید؟','right':'پرسش دربارهٔ چیزی که می‌خورید','rightFa':'پرسش دربارهٔ چیزی که می‌خورید'},
+                {'left':'Ich esse Reis.','leftFa':'من برنج می‌خورم.','right':'پاسخ دربارهٔ خوردن','rightFa':'پاسخ دربارهٔ خوردن'},
+              ],
+            },
+            'need-and-buy.json': {
+              'activity': 'act-de-need-buy-matching',
+              'instruction': 'هر عبارت را به نقش درستش وصل کن.',
+              'reason': 'چهار عبارت دقیق منبع را جداگانه تطبیق می‌دهد تا پرسش و پاسخِ نیاز و خرید با چهار گزینهٔ مستقل از هم متمایز شوند.',
+              'targets': ['تشخیص پرسش و پاسخ مربوط به نیاز و خرید.'],
+              'pairs': [
+                {'left':'Was brauchen Sie?','leftFa':'چه چیزی لازم دارید؟','right':'پرسش دربارهٔ نیاز','rightFa':'پرسش دربارهٔ نیاز'},
+                {'left':'Ich brauche eine Hose.','leftFa':'من یک شلوار لازم دارم.','right':'پاسخ دربارهٔ نیاز','rightFa':'پاسخ دربارهٔ نیاز'},
+                {'left':'Und was kaufen Sie?','leftFa':'و چه چیزی می‌خرید؟','right':'پرسش دربارهٔ خرید','rightFa':'پرسش دربارهٔ خرید'},
+                {'left':'Ich kaufe ein Hemd und ein Paar Schuhe.','leftFa':'من یک پیراهن و یک جفت کفش می‌خرم.','right':'پاسخ دربارهٔ خرید','rightFa':'پاسخ دربارهٔ خرید'},
+              ],
+            },
+            'ask-price.json': {
+              'activity': 'act-de-price-match',
+              'instruction': 'هر عبارت را به نقش درستش وصل کن.',
+              'reason': 'چهار عبارت منبع‌دار قیمت را جداگانه تطبیق می‌دهد تا دو شکل پرسش و دو پاسخ عددی با چهار گزینهٔ مستقل خوانده و تشخیص داده شوند.',
+              'targets': ['تشخیص دو شکل پرسش قیمت و دو پاسخ قیمت منبع‌دار.'],
+              'pairs': [
+                {'left':'Wie viel kostet das?','leftFa':'این چقدر قیمت دارد؟','right':'پرسش قیمت','rightFa':'پرسش قیمت'},
+                {'left':'Das kostet 70 Euro und 92 Cent.','leftFa':'این ۷۰ یورو و ۹۲ سنت قیمت دارد.','right':'پاسخ قیمت ۷۰ یورو و ۹۲ سنت','rightFa':'پاسخ قیمت ۷۰ یورو و ۹۲ سنت'},
+                {'left':'Was kostet das?','leftFa':'قیمت این چقدره؟','right':'شکل کوتاه‌تر پرسش قیمت','rightFa':'شکل کوتاه‌تر پرسش قیمت'},
+                {'left':'Das kostet 35 Euro und 15 Cent.','leftFa':'این ۳۵ یورو و ۱۵ سنت قیمت دارد.','right':'پاسخ قیمت ۳۵ یورو و ۱۵ سنت','rightFa':'پاسخ قیمت ۳۵ یورو و ۱۵ سنت'},
+              ],
+            },
+            'find-toilet.json': {
+              'activity': 'act-de-toilet-exchange-match',
+              'instruction': 'هر عبارت را به نقش درستش وصل کن.',
+              'reason': 'چهار عبارت منبع‌دار گفت‌وگو را جداگانه تطبیق می‌دهد تا شروع مؤدبانه، پاسخ آن، پرسش مکان و پاسخ «نمی‌دانم» با چهار گزینهٔ مستقل تمرین شوند.',
+              'targets': ['تشخیص نقش چهار عبارت منبع‌دار در گفت‌وگوی کوتاه.'],
+              'pairs': [
+                {'left':'Entschuldigung!','leftFa':'ببخشید!','right':'شروع مؤدبانه','rightFa':'شروع مؤدبانه'},
+                {'left':'Bitte?','leftFa':'بفرمایید؟','right':'پاسخ به شروع مؤدبانه','rightFa':'پاسخ به شروع مؤدبانه'},
+                {'left':'Wo ist die Toilette?','leftFa':'سرویس بهداشتی کجاست؟','right':'پرسش دربارهٔ مکان','rightFa':'پرسش دربارهٔ مکان'},
+                {'left':'Ich weiß nicht.','leftFa':'نمی‌دانم.','right':'پاسخ «نمی‌دانم»','rightFa':'پاسخ «نمی‌دانم»'},
+              ],
+            },
+          }
+
+          for filename, spec in specs.items():
+              path = root / filename
+              data = json.loads(path.read_text(encoding='utf-8'))
+              activity = next(a for a in data['activities'] if a['id'] == spec['activity'])
+              activity['instructionFa'] = spec['instruction']
+              activity['selectionReason'] = spec['reason']
+              activity['learningTargets'] = spec['targets']
+              activity['data']['pairs'] = spec['pairs']
+              for source in spec.get('extra_sources', []):
+                  if source not in data['sourceRefs']:
+                      data['sourceRefs'].append(source)
+                  if source not in activity['sourceRefs']:
+                      activity['sourceRefs'].append(source)
+              for lexeme in spec.get('extra_lexemes', []):
+                  if lexeme not in data['lexemeRefs']:
+                      data['lexemeRefs'].append(lexeme)
+                  if lexeme not in activity['lexemeRefs']:
+                      activity['lexemeRefs'].append(lexeme)
+              path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          migration = Path('database/content/de/zzzzzzzzzz-pre-a1-matching-bounds.sql')
+          lesson_keys = [
+              'de-pre-a1-lesson-hallo','de-pre-a1-lesson-danke-bitte','de-pre-a1-lesson-entschuldigung',
+              'de-pre-a1-lesson-residence-origin','de-pre-a1-lesson-personal-review','de-pre-a1-lesson-day-time',
+              'de-pre-a1-lesson-food-today','de-pre-a1-lesson-need-and-buy','de-pre-a1-lesson-ask-price','de-pre-a1-lesson-find-toilet'
+          ]
+
+          def sqlq(s):
+              return "'" + s.replace("'", "''") + "'"
+
+          statements = [
+              '-- German Pre-A1 matching activities: global matching bound is 4–8 pairs; Pre-A1 uses exactly 4.',
+              '-- This migration changes only non-audio matching payloads and learner-facing Persian guidance.',
+              'SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;',
+              'START TRANSACTION;',
+              "SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);",
+              "SET @prea1 := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);",
+              'UPDATE lessons SET status=\'qa\' WHERE language_level_id=@prea1 AND lesson_key IN (' + ','.join(sqlq(x) for x in lesson_keys) + ") AND status='final';",
+          ]
+
+          for filename, spec in specs.items():
+              pairs_sql = []
+              for p in spec['pairs']:
+                  pairs_sql.append(
+                      'JSON_OBJECT(' + ','.join([
+                          sqlq('left'), sqlq(p['left']),
+                          sqlq('leftFa'), sqlq(p['leftFa']),
+                          sqlq('right'), sqlq(p['right']),
+                          sqlq('rightFa'), sqlq(p['rightFa']),
+                      ]) + ')'
+                  )
+              arr = 'JSON_ARRAY(' + ','.join(pairs_sql) + ')'
+              statements.append(
+                  'UPDATE activities SET instruction_fa=' + sqlq(spec['instruction']) +
+                  ', selection_reason=' + sqlq(spec['reason']) +
+                  ", payload=JSON_SET(payload,'$.pairs'," + arr + ') WHERE activity_key=' + sqlq(spec['activity']) + ';'
+              )
+
+          statements += [
+              'UPDATE lessons SET status=\'final\' WHERE language_level_id=@prea1 AND lesson_key IN (' + ','.join(sqlq(x) for x in lesson_keys) + ');',
+              'COMMIT;',
+              '',
+          ]
+          migration.write_text('\n'.join(statements), encoding='utf-8')
+          PY
+
+      - name: Validate generated JSON and matching bounds
+        shell: bash
+        run: |
+          python scripts/validate_activity_payload_completeness.py
+          python scripts/validate_json_schemas.py
+          python - <<'PY'
+          import json, pathlib
+          found=[]
+          for p in pathlib.Path('content/de/pre-a1/lessons').glob('*.json'):
+              d=json.loads(p.read_text(encoding='utf-8'))
+              for a in d.get('activities',[]):
+                  if a.get('type')=='matching':
+                      n=len(a.get('data',{}).get('pairs',[]))
+                      found.append((a['id'],n))
+                      assert n == 4, (p,a['id'],n)
+          print('Pre-A1 matching counts:', found)
+          PY
+
+      - name: Commit generated content
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/de/pre-a1/lessons database/content/de/zzzzzzzzzz-pre-a1-matching-bounds.sql
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Expand Pre-A1 matching activities to four pairs"
+          git push origin HEAD:main
