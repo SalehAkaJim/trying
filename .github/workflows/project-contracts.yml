@@ -57,6 +57,9 @@ jobs:
       - name: Validate CEFR activity-count guardrails
         run: python scripts/validate_activity_count_bounds.py
 
+      - name: Validate interactive activity payload completeness
+        run: python scripts/validate_activity_payload_completeness.py
+
       - name: Verify Persian companion labels are synchronized
         run: python scripts/sync_fa_labels.py
 
