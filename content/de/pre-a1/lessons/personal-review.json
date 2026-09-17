@@ -97,7 +97,9 @@
           {
             "labelFa": "نام",
             "patternTarget": "Ich heiße ___.",
+            "patternFa": "اسم من ___ است.",
             "exampleSourceText": "Ich heiße Paul Müller.",
+            "exampleSourceTextFa": "اسم من پاول مولر است.",
             "sourceRefs": [
               "src-wikibooks-de-residence-origin"
             ],
@@ -106,7 +108,9 @@
           {
             "labelFa": "محل زندگی",
             "patternTarget": "Ich wohne in ___.",
+            "patternFa": "من در ___ زندگی می‌کنم.",
             "exampleSourceText": "Ich wohne in Österreich.",
+            "exampleSourceTextFa": "من در اتریش زندگی می‌کنم.",
             "sourceRefs": [
               "src-wikibooks-de-residence-origin"
             ],
@@ -115,7 +119,9 @@
           {
             "labelFa": "سن",
             "patternTarget": "Ich bin ___ Jahre alt.",
+            "patternFa": "من ___ ساله هستم.",
             "exampleSourceText": "Ich bin 20 Jahre alt.",
+            "exampleSourceTextFa": "من ۲۰ ساله هستم.",
             "sourceRefs": [
               "src-wikibooks-de-age-time"
             ],
@@ -124,7 +130,9 @@
           {
             "labelFa": "شماره تلفن",
             "patternTarget": "Meine Telefonnummer lautet ___.",
+            "patternFa": "شماره تلفن من ___ است.",
             "exampleSourceText": "Meine Telefonnummer lautet 789.",
+            "exampleSourceTextFa": "شماره تلفن من ۷۸۹ است.",
             "sourceRefs": [
               "src-wikibooks-de-phone"
             ],
@@ -133,7 +141,9 @@
           {
             "labelFa": "تاریخ تولد",
             "patternTarget": "Ich habe am ___ Geburtstag.",
+            "patternFa": "تولد من ___ است.",
             "exampleSourceText": "Ich habe am dreizehnten November Geburtstag.",
+            "exampleSourceTextFa": "تولد من سیزدهم نوامبر است.",
             "sourceRefs": [
               "src-wikibooks-de-birthday"
             ],
@@ -142,7 +152,9 @@
           {
             "labelFa": "نشانی",
             "patternTarget": "Adresse: ___",
+            "patternFa": "نشانی: ___",
             "exampleSourceText": "Adresse",
+            "exampleSourceTextFa": "نشانی",
             "sourceRefs": [
               "src-wikibooks-de-age-time"
             ],
@@ -151,7 +163,8 @@
         ]
       },
       "transformations": [
-        "source_sentence_blank_created"
+        "source_sentence_blank_created",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     },
@@ -169,6 +182,7 @@
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "قیمت مجله ۷٫۶۰ یورو است.",
         "options": [
           {
             "text": "7,60 €",
@@ -181,7 +195,8 @@
         ]
       },
       "transformations": [
-        "other"
+        "other",
+        "persian_translation_added"
       ],
       "audioStatus": "pending",
       "audioTextTarget": "Die Zeitschrift kostet 7,60 Euro."
