@@ -75,9 +75,14 @@
         "sourceText": "Wie geht's?",
         "sourceTextFa": "حالت چطوره؟",
         "blankedText": "Wie ___?",
+        "blankedTextFa": "حالت ___؟",
         "choices": [
           "geht's",
           "gut"
+        ],
+        "choicesFa": [
+          "جزء ثابت عبارت «حالت چطوره؟»",
+          "خوب"
         ],
         "answer": "geht's"
       },
