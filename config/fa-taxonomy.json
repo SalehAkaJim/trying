@@ -232,14 +232,17 @@
     },
     "character_role": {
       "learner": "زبان‌آموز",
-      "conversation_partner": "شریک مکالمه"
+      "conversation_partner": "شریک مکالمه",
+      "cafe_staff": "کارمند کافه"
     },
     "relationship_tag": {
       "friend": "دوست",
       "coworker": "همکار",
       "family": "عضو خانواده",
       "stranger": "ناآشنا",
-      "classmate": "هم‌کلاسی"
+      "classmate": "هم‌کلاسی",
+      "neighbor": "همسایه",
+      "acquaintance": "آشنا"
     },
     "voice_clarity": {
       "high": "شفافیت بالا"
