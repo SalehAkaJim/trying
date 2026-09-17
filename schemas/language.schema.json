@@ -87,7 +87,7 @@
           "type": "array",
           "items": {
             "enum": [
-              "Hope",
+              "Hope - upbeat and clear",
               "Lori"
             ]
           },
