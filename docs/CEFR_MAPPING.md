@@ -117,10 +117,17 @@ Operational estimates, if ever introduced, must be clearly non-binding and must 
 Activity-count bounds are an explicit lesson-quality guardrail rather than a curriculum-sizing quota.
 
 - `Pre-A1`: **2–5 total activities per finalized lesson**, including the opening `conversation_speaking`.
-- The exact count inside the envelope is selected from learning need, source material, retrieval value and cognitive load.
+- `A1`: **3–6 total activities per finalized lesson**.
+- `A2`: **3–7 total activities per finalized lesson**.
+- `B1`: **4–8 total activities per finalized lesson**.
+- `B2`: **4–9 total activities per finalized lesson**.
+- `C1`: **5–10 total activities per finalized lesson**.
+- `C2`: **5–11 total activities per finalized lesson**.
+- The exact count inside the envelope is selected from learning need, source material, retrieval value, skill integration and cognitive load.
+- The minimum rises conservatively: higher-level lessons usually need more retrieval and integration, but complexity itself must not be confused with a requirement to add filler.
+- The maximum rises more steadily so advanced lessons have room for multi-step comprehension, production, interaction and review when justified.
 - The minimum must be met with genuine source-backed practice; filler or near-duplicate activities are not acceptable.
 - The maximum is a ceiling, not a target.
-- A later CEFR level may use a larger envelope only after that range is explicitly decided and stored in `config/activity-count-bounds.json`; do not extrapolate an unset range.
 
 ## Completion rule
 
