@@ -15,7 +15,7 @@
   "lexemeRefs": ["lex-de-moegen", "lex-de-bitte", "lex-de-tasse", "lex-de-kaffee"],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو سفارش کوتاه را در موقعیت واقعی قرار می‌دهد و word order همان عبارت سفارش را بدون نیاز به توضیح دستور بازسازی می‌کند.",
+    "activitySelectionRationale": "گفت‌وگو سفارش کوتاه را در موقعیت واقعی قرار می‌دهد و تمرین مرتب‌سازی واژه‌ها همان عبارت سفارش را بدون نیاز به توضیح دستور بازسازی می‌کند.",
     "sequenceRationale": "اول زبان‌آموز پرسش رسمی سفارش را در گفت‌وگو می‌شنود و پاسخ می‌دهد؛ سپس همان عبارت سفارش را از قطعه‌های آشنا دوباره می‌سازد.",
     "templateSignature": "conversation_speaking>word_order"
   },
