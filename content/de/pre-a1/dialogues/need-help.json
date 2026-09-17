@@ -1,0 +1,68 @@
+{
+  "id": "dlg-de-pre-a1-need-help",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": ["src-wikibooks-de-phrasebook", "src-wiktionary-de-entschuldigung", "src-wiktionary-de-ja", "src-wiktionary-de-kein-problem"],
+  "scenario": "آیریس مودبانه شروع می‌کند و می‌گوید کمک لازم دارد؛ پاول با یک پاسخ آرام جواب می‌دهد.",
+  "openingInitiator": "learner",
+  "characterRefs": ["char-de-iris", "char-de-paul"],
+  "turns": [
+    {
+      "id": "turn-de-help-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Entschuldigung.",
+      "translationFa": "ببخشید.",
+      "learnerTurn": true,
+      "lexemeRefs": ["lex-de-entschuldigung"],
+      "lexemeOccurrences": [{"surface": "Entschuldigung", "lexemeId": "lex-de-entschuldigung", "lexemeFormId": null}],
+      "sourceRefs": ["src-wiktionary-de-entschuldigung"],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-help-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ja.",
+      "translationFa": "بله.",
+      "learnerTurn": false,
+      "lexemeRefs": ["lex-de-ja"],
+      "lexemeOccurrences": [{"surface": "Ja", "lexemeId": "lex-de-ja", "lexemeFormId": null}],
+      "sourceRefs": ["src-wiktionary-de-ja"],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-help-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich brauche Hilfe.",
+      "translationFa": "من کمک لازم دارم.",
+      "learnerTurn": true,
+      "lexemeRefs": ["lex-de-brauchen", "lex-de-hilfe"],
+      "lexemeOccurrences": [
+        {"surface": "brauche", "lexemeId": "lex-de-brauchen", "lexemeFormId": "lexform-de-brauchen-brauche"},
+        {"surface": "Hilfe", "lexemeId": "lex-de-hilfe", "lexemeFormId": null}
+      ],
+      "sourceRefs": ["src-wikibooks-de-phrasebook"],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-help-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Kein Problem.",
+      "translationFa": "مشکلی نیست.",
+      "learnerTurn": false,
+      "lexemeRefs": ["lex-de-kein-problem"],
+      "lexemeOccurrences": [{"surface": "Kein Problem", "lexemeId": "lex-de-kein-problem", "lexemeFormId": null}],
+      "sourceRefs": ["src-wiktionary-de-kein-problem"],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "سه عبارت آشنا و یک عبارت جدیدِ بسیار کاربردی در چهار نوبت کوتاه ترکیب می‌شوند تا درخواست کمک بدون بار دستوری تازه تمرین شود.",
+  "learnerCharacterId": "char-de-iris"
+}
