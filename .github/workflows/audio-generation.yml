@@ -36,7 +36,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: curriculum-audio-${{ env.AUDIO_LANGUAGE }}-${{ env.AUDIO_LEVEL }}
+  group: curriculum-audio-${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}-${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
   cancel-in-progress: false
 
 jobs:
