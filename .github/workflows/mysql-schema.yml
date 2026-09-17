@@ -68,4 +68,5 @@ jobs:
             [ -n "$language" ] || continue
             echo "Planning audio for $language $level"
             python scripts/audio_pipeline.py plan --language "$language" --level "$level" --allow-unresolved-voices
+            python scripts/sync_audio_level_status.py --language "$language" --level "$level" --check
           done < /tmp/final_audio_levels.tsv
