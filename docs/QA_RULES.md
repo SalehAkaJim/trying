@@ -2,6 +2,7 @@
 
 ## Hard failures
 - finalized lesson does not begin with `conversation_speaking`;
+- finalized lesson activity count falls outside the CEFR-level range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 2–5 total activities;
 - opening dialogue is outside 4–12 turns;
 - any of the first 10 lessons of a language's beginner path has an opening dialogue other than exactly 4 turns;
 - starter metadata and turn 1 disagree;
@@ -20,7 +21,8 @@
 - language/level manifests omit durable content objects that belong to them;
 - authoring manifests and MySQL output disagree about the content batch;
 - dialogue is padded with invented filler to satisfy the turn envelope;
-- curriculum is padded/split/merged to hit unit/lesson/activity counts.
+- curriculum is padded/split/merged to hit unit or lesson counts;
+- activities are duplicated or padded merely to approach the configured upper activity bound rather than meeting a real learning need.
 
 ## Persian localization audit
 Require Persian for `instructionFa`, `translationFa`, `learningTargets`, `selectionReason`, `scenario`, `sceneQualityRationale`, lesson/unit/level rationales, coverage/gaps, editorial notes, character context notes and direct `*Fa` companion fields.
@@ -45,8 +47,15 @@ Exact target language, exact source quotations, proper names, stable IDs/keys, U
 - meaningful learner participation without learner-turn quota;
 - starter may be app or learner and should follow communicative purpose rather than a fixed template.
 
+## Activity-count QA
+- activity-count ranges are configured by CEFR level in `config/activity-count-bounds.json` and apply to finalized lessons across languages;
+- `Pre-A1` finalized lessons contain 2–5 total activities, including the opening conversation;
+- the minimum is a quality floor: if a lesson is short, add a distinct source-backed retrieval/practice activity with real value rather than filler;
+- the maximum is a ceiling, not a target; do not expand a complete lesson merely to use the available capacity;
+- future level ranges must be explicitly defined before they are enforced; never infer an unset range from another level.
+
 ## Automation QA
-Before accepting a batch, run the shared project contract validator, JSON/schema validation, MySQL 9.0.1 import, second import/idempotency, source/provenance checks, localization checks, image-free checks and manifest/SQL consistency checks.
+Before accepting a batch, run the shared project contract validator, CEFR activity-count validator, JSON/schema validation, MySQL 9.0.1 import, second import/idempotency, source/provenance checks, localization checks, image-free checks and manifest/SQL consistency checks.
 
 Rules that apply across languages must be tested generically. Do not solve a cross-language defect with a German-only test.
 
