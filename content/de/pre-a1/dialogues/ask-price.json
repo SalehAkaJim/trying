@@ -1,0 +1,73 @@
+{
+  "id": "dlg-de-pre-a1-ask-price",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": ["src-wikibooks-de-lesson-004"],
+  "scenario": "آیریس دو بار قیمت را می‌پرسد و پاول با دو قیمت دقیقِ منبع‌دار پاسخ می‌دهد.",
+  "openingInitiator": "learner",
+  "characterRefs": ["char-de-iris", "char-de-paul"],
+  "turns": [
+    {
+      "id": "turn-de-price-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie viel kostet das?",
+      "translationFa": "این چقدر قیمت دارد؟",
+      "learnerTurn": true,
+      "lexemeRefs": ["lex-de-kosten"],
+      "lexemeOccurrences": [{"surface": "kostet", "lexemeId": "lex-de-kosten", "lexemeFormId": "lexform-de-kosten-kostet"}],
+      "sourceRefs": ["src-wikibooks-de-lesson-004"],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-price-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Das kostet 70 Euro und 92 Cent.",
+      "translationFa": "این ۷۰ یورو و ۹۲ سنت قیمت دارد.",
+      "learnerTurn": false,
+      "lexemeRefs": ["lex-de-kosten", "lex-de-euro", "lex-de-cent"],
+      "lexemeOccurrences": [
+        {"surface": "kostet", "lexemeId": "lex-de-kosten", "lexemeFormId": "lexform-de-kosten-kostet"},
+        {"surface": "Euro", "lexemeId": "lex-de-euro", "lexemeFormId": null},
+        {"surface": "Cent", "lexemeId": "lex-de-cent", "lexemeFormId": null}
+      ],
+      "sourceRefs": ["src-wikibooks-de-lesson-004"],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-price-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was kostet das?",
+      "translationFa": "قیمت این چقدره؟",
+      "learnerTurn": true,
+      "lexemeRefs": ["lex-de-kosten"],
+      "lexemeOccurrences": [{"surface": "kostet", "lexemeId": "lex-de-kosten", "lexemeFormId": "lexform-de-kosten-kostet"}],
+      "sourceRefs": ["src-wikibooks-de-lesson-004"],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-price-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Das kostet 35 Euro und 15 Cent.",
+      "translationFa": "این ۳۵ یورو و ۱۵ سنت قیمت دارد.",
+      "learnerTurn": false,
+      "lexemeRefs": ["lex-de-kosten", "lex-de-euro", "lex-de-cent"],
+      "lexemeOccurrences": [
+        {"surface": "kostet", "lexemeId": "lex-de-kosten", "lexemeFormId": "lexform-de-kosten-kostet"},
+        {"surface": "Euro", "lexemeId": "lex-de-euro", "lexemeFormId": null},
+        {"surface": "Cent", "lexemeId": "lex-de-cent", "lexemeFormId": null}
+      ],
+      "sourceRefs": ["src-wikibooks-de-lesson-004"],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "دو شکل منبع‌دارِ پرسیدن قیمت و دو پاسخ دقیق، بدون زبان اضافه یک تبادل کوتاه و کاربردی می‌سازند.",
+  "learnerCharacterId": "char-de-iris"
+}
