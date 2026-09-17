@@ -122,9 +122,9 @@ def asset_manifest_path(language: str, level: str, config: dict) -> Path:
     return ROOT / config["storageRoot"] / language / level_slug(language, level) / "manifest.json"
 
 
-def api_request(url: str, api_key: str, *, method: str = "GET", body: dict | None = None, timeout: int = 120, max_retries: int = 3) -> bytes:
+def api_request(url: str, api_key: str, *, method: str = "GET", body: dict | None = None, timeout: int = 120, max_retries: int = 3, accept: str = "application/json") -> bytes:
     data = None
-    headers = {"xi-api-key": api_key, "Accept": "application/json"}
+    headers = {"xi-api-key": api_key, "Accept": accept}
     if body is not None:
         data = json.dumps(body, ensure_ascii=False).encode("utf-8")
         headers["Content-Type"] = "application/json"
@@ -454,6 +454,7 @@ def tts_audio(text: str, voice_id: str, config: dict, api_key: str) -> bytes:
         body={"text": text, "model_id": config["modelId"]},
         timeout=int(config["generation"]["timeoutSeconds"]),
         max_retries=int(config["generation"]["maxRetries"]),
+        accept="audio/mpeg",
     )
 
 
