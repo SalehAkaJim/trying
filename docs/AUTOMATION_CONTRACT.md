@@ -11,17 +11,20 @@ Starting the next language should not require repeating the same manual checks o
 5. Store Persian support/editorial text and Persian labels for every semantic code.
 6. Keep the current image-free baseline.
 7. Start every finalized lesson with `conversation_speaking`.
-8. Apply the beginner opening-dialogue rule: lessons 1–10 of the beginner path use exactly 4 turns; later openings use 4–12 as pedagogically justified.
-9. Allow either app-start or learner-start; learner-start must explicitly instruct the learner to begin and turn 1 must belong to the learner.
-10. Preserve provenance, lexeme/form identity and occurrence mappings.
-11. Export each language × level as one MySQL 9.0.1 content file under `database/content/<language>/<level>.sql`.
-12. Run authoring validation, taxonomy/localization validation, JSON contract checks, MySQL import twice, idempotency, provenance/source QA, image-free checks and Persian editorial checks.
-13. Finalize a CEFR level only after completion audit and quality review show no material gaps and release quality is close to 10/10.
+8. Keep every finalized lesson inside the CEFR-level activity-count range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 2–5 total activities. Treat the range as a quality guardrail, not an exact-count target.
+9. Apply the beginner opening-dialogue rule: lessons 1–10 of the beginner path use exactly 4 turns; later openings use 4–12 as pedagogically justified.
+10. Allow either app-start or learner-start; learner-start must explicitly instruct the learner to begin and turn 1 must belong to the learner.
+11. Preserve provenance, lexeme/form identity and occurrence mappings.
+12. Export each language × level as one MySQL 9.0.1 content file under `database/content/<language>/<level>.sql`.
+13. Run authoring validation, activity-count validation, taxonomy/localization validation, JSON contract checks, MySQL import twice, idempotency, provenance/source QA, image-free checks and Persian editorial checks.
+14. Finalize a CEFR level only after completion audit and quality review show no material gaps and release quality is close to 10/10.
 
 ## Automation principles
 - CI rules are cross-language by default; avoid hard-coding German-specific logic when the same rule should apply to future languages.
+- `config/activity-count-bounds.json` is the machine-readable source of CEFR-level activity-count guardrails. Do not hard-code a language-specific range in content validators.
+- `scripts/validate_activity_count_bounds.py` validates finalized lessons generically across languages for every level that has an explicit range.
 - `scripts/validate_mysql_content.sh` is the reusable MySQL 9.0.1 validation entry point. It automatically discovers every `database/content/**/*.sql` file; adding a new language or CEFR level must not require a bespoke database workflow.
-- Counts used for consistency checks are derived from manifests/data, never authoring quotas.
+- Counts used for consistency checks are derived from manifests/data unless they are explicit quality guardrails such as the configured activity-count range; no exact activity target is inferred from a range.
 - A failed contract test must be fixed at the content/schema/rule source; do not weaken the test merely to make CI green.
 - Repeated manual defects should become permanent regression tests.
 - Shared semantic codes must resolve through `config/fa-taxonomy.json`; introducing a code without its Persian label is invalid.
@@ -44,6 +47,7 @@ Starting the next language should not require repeating the same manual checks o
 
 ## Minimum automatic gates before a language batch is accepted
 - JSON parses and required schemas are valid.
+- finalized lessons satisfy the configured CEFR-level activity-count range;
 - assistant-authored prose that should be Persian contains Persian text.
 - all semantic codes used by authoring content have canonical Persian taxonomy labels.
 - direct companion Persian fields required by schema match taxonomy.
@@ -65,6 +69,12 @@ When a new reusable category, activity, status, grammatical label, or other sema
 3. update schema/docs if the concept changes the contract;
 4. add validator coverage;
 5. then use it in content.
+
+When a new CEFR-level activity range is needed:
+1. decide the explicit minimum and maximum for that level;
+2. add the range to `config/activity-count-bounds.json` before finalizing lessons at that level;
+3. keep exact activity counts pedagogically dynamic inside the range;
+4. never infer the new range from a neighboring CEFR level.
 
 When a new language or level is needed:
 1. create its authoring manifests and content using the shared contracts;
