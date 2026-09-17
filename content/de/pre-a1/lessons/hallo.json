@@ -20,16 +20,16 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "برای درس اول، یک گفت‌وگوی چهار نوبت از سلام تا خداحافظی کافی است و بار زبانی بیشتری اضافه نمی‌شود.",
-    "sequenceRationale": "زبان‌آموز فقط دو عبارت بسیار پایه را در یک رفت‌وبرگشت کوتاه استفاده می‌کند.",
-    "templateSignature": "conversation_speaking"
+    "activitySelectionRationale": "گفت‌وگوی کوتاه سلام و خداحافظی را در بافت می‌آورد و یک تشخیص متنیِ سبک کمک می‌کند زبان‌آموز نقش «Tschüss!» را جدا از «Hallo!» بازیابی کند.",
+    "sequenceRationale": "اول دو عبارت در تعامل استفاده می‌شوند و سپس زبان‌آموز عبارت مناسب برای پایان گفت‌وگو را تشخیص می‌دهد.",
+    "templateSignature": "conversation_speaking>multiple_choice"
   },
   "activities": [
     {
       "id": "act-de-hallo-conversation",
       "type": "conversation_speaking",
       "instructionFa": "با میا یک گفت‌وگوی خیلی کوتاه از سلام تا خداحافظی انجام بده.",
-      "selectionReason": "برای شروع دوره همین تعامل چهار نوبت هدف اصلی را پوشش می‌دهد و تمرین اضافه لازم نیست.",
+      "selectionReason": "تعامل چهار نوبت دو عبارت پایه را در یک موقعیت ساده و کم‌فشار قرار می‌دهد.",
       "sourceRefs": [
         "src-wiktionary-de-hallo",
         "src-wikibooks-de-basic-greetings"
@@ -49,6 +49,47 @@
       "transformations": [
         "persian_translation_added",
         "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-hallo-farewell-choice",
+      "type": "multiple_choice",
+      "instructionFa": "برای خداحافظی کدام عبارت مناسب است؟",
+      "selectionReason": "این تشخیص کوتاه تفاوت نقش سلام و خداحافظی را با همان دو عبارت منبع‌دار تثبیت می‌کند.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "learningTargets": [
+        "تشخیص عبارت مناسب برای خداحافظی."
+      ],
+      "lexemeRefs": [
+        "lex-de-hallo",
+        "lex-de-tschuess"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptFa": "می‌خواهی گفت‌وگو را تمام کنی.",
+        "options": [
+          {
+            "textTarget": "Tschüss!",
+            "correct": true,
+            "sourceRefs": [
+              "src-wikibooks-de-basic-greetings"
+            ]
+          },
+          {
+            "textTarget": "Hallo!",
+            "correct": false,
+            "sourceRefs": [
+              "src-wiktionary-de-hallo"
+            ]
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material"
       ],
       "audioStatus": "not_required"
     }
