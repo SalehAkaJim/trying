@@ -1145,7 +1145,7 @@ INSERT INTO activities
 ON DUPLICATE KEY UPDATE
  lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
  instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
- payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
 
 SET @g_a_hallo=(SELECT id FROM activities WHERE activity_key='act-de-hallo-farewell-choice');
 SET @g_a_danke=(SELECT id FROM activities WHERE activity_key='act-de-danke-bitte-response');
