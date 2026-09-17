@@ -8,13 +8,25 @@ EDITORIAL_KEYS = {
  'structureRationale','groupingRationale','activitySelectionRationale','sequenceRationale','selectionReason',
  'scenario','sceneQualityRationale','contextNotes','notes','instructionFa','translationFa','usageNoteFa',
  'titleFa','contextFa','promptFa','descriptionFa','partOfSpeechFa','rationale','conversationVoiceStyle',
- 'sourceTitleFa','locatorFa','currencyEvidence'
+ 'sourceTitleFa','locatorFa','currencyEvidence','sourceTextFa','blankedTextFa','patternFa',
+ 'exampleSourceTextFa','leftFa','rightFa','audioTextTargetFa'
 }
-EDITORIAL_LIST_KEYS={'learningTargets','scopeExclusions','requiredGaps','strengths','remainingWeaknesses'}
+EDITORIAL_LIST_KEYS={'learningTargets','scopeExclusions','requiredGaps','strengths','remainingWeaknesses','choicesFa'}
 TARGET_KEYS={'surface','lemma','textTarget','sourceText','promptTarget','audioTextTarget','patternTarget','exampleSourceText','blankedText','sourceTitle'}
 ALLOWED={'CEFR','MySQL','SQL','JSON','API','URL','ElevenLabs','OGL','CC','BY','SA','Pre','A1','A2','B1','B2','C1','C2','Wikibooks','Wiktionary','Oak','National','Academy','LIBRA','Mia','Iris','Lori','Hope'}
 errors=[]
 tax=json.loads((ROOT/'config/fa-taxonomy.json').read_text(encoding='utf-8'))['domains']
+
+PAIR_KEYS={
+    'promptTarget':'promptFa',
+    'textTarget':'translationFa',
+    'sourceText':'sourceTextFa',
+    'blankedText':'blankedTextFa',
+    'patternTarget':'patternFa',
+    'exampleSourceText':'exampleSourceTextFa',
+    'left':'leftFa',
+    'right':'rightFa',
+}
 
 def label(domain, code, where):
     if code is None: return
@@ -44,6 +56,33 @@ def check_prose(text, where, target_words):
         bad.append(tok)
     if bad:
         errors.append(f'{where}: untranslated Latin/English prose tokens: {sorted(set(bad))}')
+
+def needs_translation(text):
+    return isinstance(text,str) and bool(text.strip()) and any(ch.isalpha() for ch in text) and not FA.search(text)
+
+def require_fa(value, where):
+    if not isinstance(value,str) or not value.strip() or not FA.search(value):
+        errors.append(f'{where}: Persian translation is required')
+
+def check_activity_payload_pairs(value, where):
+    if isinstance(value,dict):
+        for target_key,fa_key in PAIR_KEYS.items():
+            target=value.get(target_key)
+            if needs_translation(target):
+                require_fa(value.get(fa_key),f'{where}.{fa_key} for {target_key}')
+        choices=value.get('choices')
+        if isinstance(choices,list) and choices and all(isinstance(x,str) for x in choices):
+            if any(needs_translation(x) for x in choices):
+                choices_fa=value.get('choicesFa')
+                if not isinstance(choices_fa,list) or len(choices_fa)!=len(choices):
+                    errors.append(f'{where}.choicesFa: Persian translations must match choices length')
+                else:
+                    for i,(target,fa) in enumerate(zip(choices,choices_fa)):
+                        if needs_translation(target): require_fa(fa,f'{where}.choicesFa[{i}]')
+        for k,x in value.items():
+            check_activity_payload_pairs(x,f'{where}.{k}')
+    elif isinstance(value,list):
+        for i,x in enumerate(value): check_activity_payload_pairs(x,f'{where}[{i}]')
 
 def walk(v, where, target_words, is_source=False):
     if isinstance(v,dict):
@@ -90,6 +129,9 @@ for path,data in files:
         for act in data.get('activities') or []:
             interaction=(act.get('data') or {}).get('interaction')
             if interaction is not None: label('activity_interaction',interaction,f'{rel}:{act.get("id")}.data.interaction')
+            check_activity_payload_pairs(act.get('data') or {},f'{rel}:{act.get("id")}.data')
+            if needs_translation(act.get('audioTextTarget')):
+                require_fa((act.get('data') or {}).get('audioTextTargetFa'),f'{rel}:{act.get("id")}.data.audioTextTargetFa for audioTextTarget')
     if 'lexeme_forms' in path.parts:
         mapping={'tense':'grammar_feature_tense','mood':'grammar_feature_mood','number':'grammar_feature_number','person':'grammar_feature_person'}
         for k,v in (data.get('features') or {}).items():
@@ -108,4 +150,4 @@ if errors:
     print('Strict Persian coverage validation failed:')
     print('\n'.join(errors))
     sys.exit(1)
-print(f'Strict Persian coverage passed for {len(files)} JSON files and content READMEs.')
+print(f'Strict Persian coverage passed for {len(files)} JSON files, learner-facing activity payloads, and content READMEs.')
