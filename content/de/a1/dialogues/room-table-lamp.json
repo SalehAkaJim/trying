@@ -1,0 +1,17 @@
+{
+  "id":"dlg-de-a1-room-table-lamp",
+  "languageId":"de",
+  "level":"A1",
+  "sourceRefs":["src-wikibooks-de-lesson-007-room-objects"],
+  "scenario":"آیریس در یک اتاق دو وسیله را به پاول نشان می‌دهد و مؤدبانه می‌پرسد آیا متعلق به او هستند؛ پاول پاسخ می‌دهد.",
+  "openingInitiator":"app",
+  "characterRefs":["char-de-iris","char-de-paul"],
+  "turns":[
+    {"id":"turn-de-a1-room-objects-1","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ist das Ihr Tisch?","translationFa":"آیا این میز شماست؟","learnerTurn":false,"lexemeRefs":["lex-de-tisch"],"lexemeOccurrences":[{"surface":"Tisch","lexemeId":"lex-de-tisch","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-room-objects"],"audioRef":null},
+    {"id":"turn-de-a1-room-objects-2","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ja, das ist mein Tisch.","translationFa":"بله، این میز من است.","learnerTurn":true,"lexemeRefs":["lex-de-tisch"],"lexemeOccurrences":[{"surface":"Tisch","lexemeId":"lex-de-tisch","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-room-objects"],"audioRef":null},
+    {"id":"turn-de-a1-room-objects-3","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ist das Ihre Lampe?","translationFa":"آیا این چراغ شماست؟","learnerTurn":false,"lexemeRefs":["lex-de-lampe"],"lexemeOccurrences":[{"surface":"Lampe","lexemeId":"lex-de-lampe","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-room-objects"],"audioRef":null},
+    {"id":"turn-de-a1-room-objects-4","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ja, das ist meine Lampe.","translationFa":"بله، این چراغ من است.","learnerTurn":true,"lexemeRefs":["lex-de-lampe"],"lexemeOccurrences":[{"surface":"Lampe","lexemeId":"lex-de-lampe","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-room-objects"],"audioRef":null}
+  ],
+  "sceneQualityRationale":"دو جفت پرسش و پاسخِ بخش تکمیلی ۲۷۴ منبع بدون بازنویسی کنار هم قرار گرفته‌اند. هر دو دربارهٔ مالکیت وسایل داخل اتاق هستند و خطاب رسمی با رابطهٔ آشنایی مؤدبانهٔ آیریس و پاول سازگار است.",
+  "learnerCharacterId":"char-de-paul"
+}
