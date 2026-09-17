@@ -6,6 +6,8 @@ on:
       - pre-a1-activity-expansion
     paths:
       - .github/workflows/pre-a1-activity-expansion-once.yml
+      - scripts/expand_pre_a1_activities_once.py
+      - scripts/fix_pre_a1_activity_expansion_once.py
 
 permissions:
   contents: write
