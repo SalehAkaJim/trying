@@ -1,0 +1,31 @@
+{
+  "schemaVersion":"1.0.0",
+  "id":"de-a1-lesson-room-position",
+  "languageId":"de",
+  "level":"A1",
+  "unitRef":"de-a1-unit-home-and-nearby",
+  "titleFa":"پنجره کدام طرف است؟",
+  "sourceTitle":"Ist das Fenster rechts? / Steht der Stuhl hinten?",
+  "sourceTitleFa":"آیا پنجره سمت راست است؟ / آیا صندلی عقب قرار دارد؟",
+  "learningTargets":[
+    "موقعیت سادهٔ راست و چپ و جلو و عقب را در پرسش و پاسخ کوتاه بفهمد.",
+    "پنجره و صندلی را در جمله‌های موقعیتی منبع‌دار تشخیص دهد.",
+    "یک ویژگی بسیار سادهٔ خانه را از جملهٔ منبع‌دار بفهمد."
+  ],
+  "sourceRefs":["src-wikibooks-de-lesson-009-room-position"],
+  "lexemeRefs":["lex-de-fenster","lex-de-stuhl","lex-de-haus","lex-de-rechts","lex-de-links","lex-de-hinten","lex-de-vorn","lex-de-klein"],
+  "grammarNoteRefs":[],
+  "activityDesign":{
+    "activitySelectionRationale":"گفت‌وگوی آغازین دو محور مکانی راست و چپ و جلو و عقب را وارد می‌کند؛ سپس ویژگی کوچک بودن خانه تشخیص داده می‌شود، پرسش موقعیت صندلی بازسازی می‌شود و در پایان چهار قید مکانی به معنی درست وصل می‌شوند.",
+    "sequenceRationale":"درس از فهم موقعیت در بافت به تشخیص ویژگی، بازیابی فعال پرسش و تثبیت شبکهٔ واژگان مکانی می‌رود و الگوی آن با درس قبلی متفاوت است.",
+    "templateSignature":"conversation_speaking>multiple_choice>word_order>matching"
+  },
+  "activities":[
+    {"id":"act-de-a1-room-position-conversation","type":"conversation_speaking","instructionFa":"آیریس دربارهٔ جای پنجره و صندلی می‌پرسد؛ موقعیت درست را جواب بده.","selectionReason":"دو جفت پرسش و پاسخِ منبع‌دار، دو تضاد مکانی پایه را در یک صحنهٔ اتاق تمرین می‌کنند.","sourceRefs":["src-wikibooks-de-lesson-009-room-position"],"learningTargets":["فهم راست و چپ و جلو و عقب در گفت‌وگوی کوتاه."],"lexemeRefs":["lex-de-fenster","lex-de-stuhl","lex-de-rechts","lex-de-links","lex-de-hinten","lex-de-vorn"],"dialogueRef":"dlg-de-a1-room-position","data":{"interaction":"read_aloud_exchange","openingInitiator":"app"},"transformations":["other","persian_translation_added","character_metadata_added"],"audioStatus":"not_required"},
+    {"id":"act-de-a1-home-small-choice","type":"multiple_choice","instructionFa":"کدام جملهٔ منبع می‌گوید خانه کوچک است؟","selectionReason":"ویژگی سادهٔ خانه از میان سه جملهٔ منبع‌دار با موضوع‌های متفاوت تشخیص داده می‌شود.","sourceRefs":["src-wikibooks-de-lesson-009-room-position"],"learningTargets":["تشخیص یک ویژگی سادهٔ خانه."],"lexemeRefs":["lex-de-haus","lex-de-klein","lex-de-lampe","lex-de-fenster","lex-de-links"],"dialogueRef":null,"data":{"options":[{"textTarget":"Ist das Haus klein? - Ja, es ist klein.","translationFa":"آیا خانه کوچک است؟ بله، کوچک است.","correct":true},{"textTarget":"Ist die Lampe alt? - Nein, sie ist neu.","translationFa":"آیا چراغ قدیمی است؟ نه، نو است.","correct":false},{"textTarget":"Ist das Fenster rechts? - Nein, es ist links.","translationFa":"آیا پنجره سمت راست است؟ نه، سمت چپ است.","correct":false}]},"transformations":["options_selected_from_source_material","persian_translation_added"],"audioStatus":"not_required"},
+    {"id":"act-de-a1-chair-position-order","type":"word_order","instructionFa":"پرسش دربارهٔ جای صندلی را دوباره بساز.","selectionReason":"پرسش مکانیِ گفت‌وگو پس از فهم آن به بازیابی فعال منتقل می‌شود.","sourceRefs":["src-wikibooks-de-lesson-009-room-position"],"learningTargets":["بازسازی پرسش ساده دربارهٔ موقعیت صندلی."],"lexemeRefs":["lex-de-stuhl","lex-de-hinten"],"dialogueRef":null,"data":{"sourceText":"Steht der Stuhl hinten?","sourceTextFa":"آیا صندلی عقب قرار دارد؟","tokens":["Steht","der","Stuhl","hinten?"],"answer":["Steht","der","Stuhl","hinten?"]},"transformations":["sentence_tokenized_for_word_order","persian_translation_added"],"audioStatus":"not_required"},
+    {"id":"act-de-a1-position-words-matching","type":"matching","instructionFa":"هر موقعیت را به معنی درستش وصل کن.","selectionReason":"چهار قید مکانیِ موجود در همان بخش منبع به‌صورت شبکهٔ دو تضاد تثبیت می‌شوند.","sourceRefs":["src-wikibooks-de-lesson-009-room-position"],"learningTargets":["تشخیص راست، چپ، جلو و عقب."],"lexemeRefs":["lex-de-rechts","lex-de-links","lex-de-hinten","lex-de-vorn"],"dialogueRef":null,"data":{"pairs":[{"left":"rechts","leftFa":"سمت راست","right":"سمت راست","rightFa":"سمت راست"},{"left":"links","leftFa":"سمت چپ","right":"سمت چپ","rightFa":"سمت چپ"},{"left":"hinten","leftFa":"عقب","right":"عقب","rightFa":"عقب"},{"left":"vorn","leftFa":"جلو","right":"جلو","rightFa":"جلو"}]},"transformations":["source_items_grouped_for_matching","persian_translation_added"],"audioStatus":"not_required"}
+  ],
+  "status":"draft",
+  "audioStatus":"blocked_until_level_final"
+}

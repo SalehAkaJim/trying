@@ -1,0 +1,17 @@
+{
+  "id":"dlg-de-a1-room-position",
+  "languageId":"de",
+  "level":"A1",
+  "sourceRefs":["src-wikibooks-de-lesson-009-room-position"],
+  "scenario":"آیریس در یک اتاق دربارهٔ جای پنجره و صندلی از پاول سؤال می‌کند و او موقعیت درست را پاسخ می‌دهد.",
+  "openingInitiator":"app",
+  "characterRefs":["char-de-iris","char-de-paul"],
+  "turns":[
+    {"id":"turn-de-a1-room-position-1","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ist das Fenster rechts?","translationFa":"آیا پنجره سمت راست است؟","learnerTurn":false,"lexemeRefs":["lex-de-fenster","lex-de-rechts"],"lexemeOccurrences":[{"surface":"Fenster","lexemeId":"lex-de-fenster","lexemeFormId":null},{"surface":"rechts","lexemeId":"lex-de-rechts","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-009-room-position"],"audioRef":null},
+    {"id":"turn-de-a1-room-position-2","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Nein, es ist links.","translationFa":"نه، سمت چپ است.","learnerTurn":true,"lexemeRefs":["lex-de-links"],"lexemeOccurrences":[{"surface":"links","lexemeId":"lex-de-links","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-009-room-position"],"audioRef":null},
+    {"id":"turn-de-a1-room-position-3","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Steht der Stuhl hinten?","translationFa":"آیا صندلی عقب قرار دارد؟","learnerTurn":false,"lexemeRefs":["lex-de-stuhl","lex-de-hinten"],"lexemeOccurrences":[{"surface":"Stuhl","lexemeId":"lex-de-stuhl","lexemeFormId":null},{"surface":"hinten","lexemeId":"lex-de-hinten","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-009-room-position"],"audioRef":null},
+    {"id":"turn-de-a1-room-position-4","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Nein, er steht vorn.","translationFa":"نه، جلو قرار دارد.","learnerTurn":true,"lexemeRefs":["lex-de-vorn"],"lexemeOccurrences":[{"surface":"vorn","lexemeId":"lex-de-vorn","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-009-room-position"],"audioRef":null}
+  ],
+  "sceneQualityRationale":"دو جفت پرسش و پاسخِ بخش ۴۱۹ دربارهٔ موقعیت اشیای یک محیط بدون بازنویسی در یک صحنه قرار گرفته‌اند. سؤال صندلی از صورت پرسشی خود تمرین و پاسخ آن از بخش پاسخ همان تمرین گرفته شده است.",
+  "learnerCharacterId":"char-de-paul"
+}
