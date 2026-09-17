@@ -77,6 +77,7 @@
       "dialogueRef": null,
       "data": {
         "sourceText": "Was möchtest du?",
+        "sourceTextFa": "چی می‌خوای؟",
         "tokens": [
           "Was",
           "möchtest",
@@ -96,7 +97,8 @@
         ]
       },
       "transformations": [
-        "sentence_tokenized_for_word_order"
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
