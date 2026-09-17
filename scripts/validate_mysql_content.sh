@@ -123,6 +123,70 @@ if expected != actual:
 print('Authoring/MySQL manifests are synchronized:', expected)
 PY
 
+# Authoring lesson activity counts and MySQL activity counts must be identical.
+python - <<'PY' > /tmp/expected_lesson_activities.tsv
+import json, pathlib
+rows=[]
+for path in pathlib.Path('content').glob('*/*/lessons/*.json'):
+    data=json.loads(path.read_text(encoding='utf-8'))
+    rows.append((data['languageId'], data['level'], data['id'], len(data.get('activities', [])), data.get('status','')))
+for row in sorted(rows):
+    print('\t'.join(map(str, row)))
+PY
+mysql_cmd -e "
+  SELECT lang.code,ll.cefr_level,l.lesson_key,COUNT(a.id)
+  FROM lessons l
+  JOIN language_levels ll ON ll.id=l.language_level_id
+  JOIN languages lang ON lang.id=ll.language_id
+  LEFT JOIN activities a ON a.lesson_id=l.id
+  GROUP BY lang.code,ll.cefr_level,l.lesson_key
+  ORDER BY lang.code,FIELD(ll.cefr_level,'Pre-A1','A1','A2','B1','B2','C1','C2'),l.sequence_index,l.lesson_key;
+" > /tmp/actual_lesson_activities.tsv
+
+python - <<'PY'
+import json, pathlib, sys
+expected={}
+statuses={}
+for line in pathlib.Path('/tmp/expected_lesson_activities.tsv').read_text(encoding='utf-8').splitlines():
+    if line.strip():
+        lang, level, lesson, count, status=line.split('\t')
+        key=(lang,level,lesson)
+        expected[key]=int(count)
+        statuses[key]=status
+actual={}
+for line in pathlib.Path('/tmp/actual_lesson_activities.tsv').read_text(encoding='utf-8').splitlines():
+    if line.strip():
+        lang, level, lesson, count=line.split('\t')
+        actual[(lang,level,lesson)]=int(count)
+if expected != actual:
+    print('Authoring/MySQL lesson activity-count mismatch')
+    missing=set(expected)-set(actual)
+    extra=set(actual)-set(expected)
+    changed={k:(expected[k],actual[k]) for k in expected.keys() & actual.keys() if expected[k] != actual[k]}
+    print('Missing:', sorted(missing))
+    print('Extra:', sorted(extra))
+    print('Changed:', changed)
+    sys.exit(1)
+bounds=json.loads(pathlib.Path('config/activity-count-bounds.json').read_text(encoding='utf-8')).get('levels',{})
+bad=[]
+for key,count in sorted(actual.items()):
+    if statuses.get(key) != 'final':
+        continue
+    level=key[1]
+    rule=bounds.get(level)
+    if not rule:
+        continue
+    minimum=rule['minActivities']; maximum=rule['maxActivities']
+    if not minimum <= count <= maximum:
+        bad.append((key,count,minimum,maximum))
+if bad:
+    print('Final MySQL lessons outside configured activity-count bounds:')
+    for key,count,minimum,maximum in bad:
+        print(f'- {key}: {count}, expected {minimum}-{maximum}')
+    sys.exit(1)
+print(f'Authoring/MySQL activity counts are synchronized for {len(expected)} lessons.')
+PY
+
 # Dialogue starter is canonical relational data in MySQL and must match authoring JSON.
 python - <<'PY' > /tmp/expected_dialogue_starters.tsv
 import json, pathlib
