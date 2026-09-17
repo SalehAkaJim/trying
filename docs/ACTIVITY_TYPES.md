@@ -12,7 +12,8 @@ Every finalized lesson begins with `conversation_speaking`; everything after it 
 ## matching
 - Display between **4 and 8 pairs**.
 - Each left value and each right value must be non-empty and unique inside the activity.
-- `Pre-A1` should normally use **4 pairs**; add more only when the learning need clearly justifies the extra load.
+- `Pre-A1` uses **exactly 4 pairs**.
+- Levels above `Pre-A1` may use 4–8 pairs when the learning need justifies the extra load.
 - All target-language items must remain source-backed.
 
 ## Catalog
