@@ -103,6 +103,27 @@ jobs:
             exit 2
           fi
 
+      - name: Inspect available ElevenLabs voices
+        if: env.AUDIO_OPERATION == 'resolve-voices'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from scripts.audio_pipeline import CONFIG_PATH, fetch_all_voices, load_json
+          config=load_json(CONFIG_PATH)
+          voices=fetch_all_voices(config, os.environ['ELEVENLABS_API_KEY'])
+          print(f'AVAILABLE_VOICE_COUNT={len(voices)}')
+          for v in voices:
+              print(json.dumps({
+                  'name': v.get('name'),
+                  'category': v.get('category'),
+                  'labels': v.get('labels') or {},
+                  'verifiedLanguages': v.get('verified_languages') or [],
+                  'recordingQuality': v.get('recording_quality'),
+                  'description': v.get('description'),
+              }, ensure_ascii=False))
+          PY
+
       - name: Resolve and lock voices
         if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate'
         run: python scripts/audio_pipeline.py resolve-voices --language "$AUDIO_LANGUAGE"
