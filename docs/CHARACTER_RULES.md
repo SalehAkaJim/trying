@@ -90,6 +90,10 @@ Character metadata may include:
 - personality/voice notes;
 - production voice binding.
 
+### German Pre-A1 baseline cast
+
+The recurring German Pre-A1 cast currently consists of six real characters: Mia, Max, Lena, Jonas, Iris and Paul Müller. There is no persistent learner character. The learner role is assigned to one of these real characters per dialogue through `learnerCharacterId`.
+
 ## Character ↔ voice binding
 
 Every production dialogue voice must be traceable through a stable relationship:
