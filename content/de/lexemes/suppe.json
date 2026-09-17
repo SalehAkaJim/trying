@@ -1,1 +1,21 @@
-{"schemaVersion":"1.0.0","id":"lex-de-suppe","languageId":"de","type":"word","surface":"Suppe","lemma":"Suppe","partOfSpeech":"noun","level":"Pre-A1","translationFa":"سوپ","usageNoteFa":"در این Unit به‌عنوان غذای موجود در پاسخ «Heute gibt es Suppe.» استفاده می‌شود.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-de-lesson-002"],"formRefs":[],"flashcardEligible":true,"audioStatus":"pending","audioRef":null,"audioVoice":null,"partOfSpeechFa":"اسم"}
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-suppe",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Suppe",
+  "lemma": "Suppe",
+  "partOfSpeech": "noun",
+  "level": "Pre-A1",
+  "translationFa": "سوپ",
+  "usageNoteFa": "در این واحد به‌عنوان غذای موجود در پاسخ «Heute gibt es Suppe.» استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-lesson-002"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null,
+  "partOfSpeechFa": "اسم"
+}
