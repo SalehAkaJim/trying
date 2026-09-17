@@ -6,14 +6,50 @@
   "unitRef": "de-pre-a1-unit-simple-orders",
   "titleFa": "امروز چی داریم؟",
   "sourceTitle": "Was gibt es heute? / Was essen Sie?",
-  "learningTargets": ["پرسش «Was gibt es heute?» را بفهمد و یک پاسخ کوتاه دربارهٔ غذای موجود بگوید.","پرسش «Was essen Sie?» را بفهمد و یک پاسخ کوتاه منبع‌دار دربارهٔ غذا بدهد."],
+  "learningTargets": [
+    "پرسش «Was gibt es heute?» را بفهمد و یک پاسخ کوتاه دربارهٔ غذای موجود بگوید.",
+    "پرسش «Was essen Sie?» را بفهمد و یک پاسخ کوتاه منبع‌دار دربارهٔ غذا بدهد."
+  ],
   "sourceRefs": ["src-wikibooks-de-lesson-002"],
-  "lexemeRefs": ["lex-de-heute","lex-de-suppe","lex-de-essen","lex-de-reis"],
+  "lexemeRefs": ["lex-de-heute", "lex-de-suppe", "lex-de-essen", "lex-de-reis"],
   "grammarNoteRefs": [],
-  "activityDesign": {"activitySelectionRationale":"مکالمه معنی دو پرسش روزمره را در بافت می‌سازد و matching همان دو جفت پرسش/پاسخ را بدون افزودن زبان تازه بازیابی می‌کند.","sequenceRationale":"اول پرسش‌ها در گفت‌وگو فهمیده و گفته می‌شوند؛ سپس همان ارتباط پرسش و پاسخ به‌صورت matching تثبیت می‌شود.","templateSignature":"conversation_speaking>matching"},
+  "activityDesign": {
+    "activitySelectionRationale": "مکالمه معنی دو پرسش روزمره را در بافت می‌سازد و تمرین تطبیق همان دو جفت پرسش و پاسخ را بدون افزودن زبان تازه بازیابی می‌کند.",
+    "sequenceRationale": "اول پرسش‌ها در گفت‌وگو فهمیده و گفته می‌شوند؛ سپس همان ارتباط پرسش و پاسخ به‌صورت تطبیق تثبیت می‌شود.",
+    "templateSignature": "conversation_speaking>matching"
+  },
   "activities": [
-    {"id":"act-de-food-today-conversation","type":"conversation_speaking","instructionFa":"به سؤال‌های آیریس دربارهٔ غذای امروز و چیزی که می‌خوری جواب بده.","selectionReason":"چهار نوبت منبع‌دار هر دو هدف ارتباطی را با کمترین بار شناختی پوشش می‌دهد.","sourceRefs":["src-wikibooks-de-lesson-002"],"learningTargets":["فهم و پاسخ کوتاه دربارهٔ غذای امروز و خوردن."],"lexemeRefs":["lex-de-heute","lex-de-suppe","lex-de-essen","lex-de-reis"],"dialogueRef":"dlg-de-pre-a1-food-today","data":{"interaction":"read_aloud_exchange","openingInitiator":"app"},"transformations":["persian_translation_added","character_metadata_added"],"audioStatus":"not_required"},
-    {"id":"act-de-food-today-matching","type":"matching","instructionFa":"هر پرسش را به پاسخ درست وصل کن.","selectionReason":"دو جفت دقیق منبع‌دار را بدون جملهٔ تازه دوباره بازیابی می‌کند.","sourceRefs":["src-wikibooks-de-lesson-002"],"learningTargets":["تشخیص ارتباط پرسش و پاسخ دربارهٔ غذای موجود و خوردن."],"lexemeRefs":["lex-de-heute","lex-de-suppe","lex-de-essen","lex-de-reis"],"dialogueRef":null,"data":{"pairs":[{"left":"Was gibt es heute?","leftFa":"امروز چی داریم؟","right":"Heute gibt es Suppe.","rightFa":"امروز سوپ داریم."},{"left":"Was essen Sie?","leftFa":"شما چی می‌خورید؟","right":"Ich esse Reis.","rightFa":"من برنج می‌خورم."}]},"transformations":["source_items_grouped_for_matching","persian_translation_added"],"audioStatus":"not_required"}
+    {
+      "id": "act-de-food-today-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "به سؤال‌های آیریس دربارهٔ غذای امروز و چیزی که می‌خوری جواب بده.",
+      "selectionReason": "چهار نوبت منبع‌دار هر دو هدف ارتباطی را با کمترین بار شناختی پوشش می‌دهد.",
+      "sourceRefs": ["src-wikibooks-de-lesson-002"],
+      "learningTargets": ["فهم و پاسخ کوتاه دربارهٔ غذای امروز و خوردن."],
+      "lexemeRefs": ["lex-de-heute", "lex-de-suppe", "lex-de-essen", "lex-de-reis"],
+      "dialogueRef": "dlg-de-pre-a1-food-today",
+      "data": {"interaction": "read_aloud_exchange", "openingInitiator": "app"},
+      "transformations": ["persian_translation_added", "character_metadata_added"],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-food-today-matching",
+      "type": "matching",
+      "instructionFa": "هر پرسش را به پاسخ درست وصل کن.",
+      "selectionReason": "دو جفت دقیق منبع‌دار را بدون جملهٔ تازه دوباره بازیابی می‌کند.",
+      "sourceRefs": ["src-wikibooks-de-lesson-002"],
+      "learningTargets": ["تشخیص ارتباط پرسش و پاسخ دربارهٔ غذای موجود و خوردن."],
+      "lexemeRefs": ["lex-de-heute", "lex-de-suppe", "lex-de-essen", "lex-de-reis"],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {"left": "Was gibt es heute?", "leftFa": "امروز چی داریم؟", "right": "Heute gibt es Suppe.", "rightFa": "امروز سوپ داریم."},
+          {"left": "Was essen Sie?", "leftFa": "شما چی می‌خورید؟", "right": "Ich esse Reis.", "rightFa": "من برنج می‌خورم."}
+        ]
+      },
+      "transformations": ["source_items_grouped_for_matching", "persian_translation_added"],
+      "audioStatus": "not_required"
+    }
   ],
   "status": "final",
   "audioStatus": "pending",
