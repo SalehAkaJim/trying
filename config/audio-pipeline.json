@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "provider": "elevenlabs",
+  "apiKeyEnv": "ELEVENLABS_API_KEY",
+  "baseUrl": "https://api.elevenlabs.io",
+  "modelId": "eleven_multilingual_v2",
+  "outputFormat": "mp3_44100_128",
+  "storageRoot": "audio",
+  "mappingRoot": "database/audio",
+  "publicBaseUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/",
+  "generation": {
+    "maxRetries": 3,
+    "timeoutSeconds": 120,
+    "commitGeneratedAssets": true,
+    "requirePaidGenerationConfirmation": true
+  },
+  "voiceResolution": {
+    "distinctConversationVoices": true,
+    "preferVerifiedTargetLanguage": true,
+    "learnerUsesStandaloneVoice": true
+  }
+}
