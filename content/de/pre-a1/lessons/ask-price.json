@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-ask-price",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-survival-basics",
+  "titleFa": "قیمتش چقدره؟",
+  "sourceTitle": "Wie viel kostet das? / Das kostet ... Euro und ... Cent.",
+  "learningTargets": [
+    "پرسش خیلی کوتاه «Wie viel kostet das?» و شکل کوتاه‌تر «Was kostet das?» را بفهمد.",
+    "یک قیمت ساده با «Euro» و «Cent» را در پاسخ تشخیص دهد.",
+    "شکل «kostet» را به فعل پایهٔ «kosten» مرتبط کند."
+  ],
+  "sourceRefs": ["src-wikibooks-de-lesson-004"],
+  "lexemeRefs": ["lex-de-kosten", "lex-de-euro", "lex-de-cent"],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "چهار مرحلهٔ مکالمه، تطبیق دو پرسش با دو قیمت، بازسازی پرسش و تشخیص جملهٔ قیمت، هم فهم و هم بازیابی فعال را پوشش می‌دهد.",
+    "sequenceRationale": "اول قیمت در گفت‌وگو شنیده و گفته می‌شود، سپس سؤال/جواب‌ها از هم تفکیک می‌شوند، خود پرسش ساخته می‌شود و در پایان جملهٔ قیمت از جملهٔ خرید تشخیص داده می‌شود.",
+    "templateSignature": "conversation_speaking>matching>word_order>multiple_choice"
+  },
+  "activities": [
+    {
+      "id": "act-de-price-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "دو بار قیمت را بپرس و پاسخ قیمت را با پاول تمرین کن.",
+      "selectionReason": "دو الگوی منبع‌دار پرسیدن قیمت با دو پاسخ واقعی منبع، کاربرد «kostet»، «Euro» و «Cent» را بدون توضیح سنگین نشان می‌دهند.",
+      "sourceRefs": ["src-wikibooks-de-lesson-004"],
+      "learningTargets": ["پرسیدن و فهم یک قیمت ساده."],
+      "lexemeRefs": ["lex-de-kosten", "lex-de-euro", "lex-de-cent"],
+      "dialogueRef": "dlg-de-pre-a1-ask-price",
+      "data": {"interaction": "read_aloud_exchange", "openingInitiator": "app"},
+      "transformations": ["persian_translation_added", "character_metadata_added"],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-price-match",
+      "type": "matching",
+      "instructionFa": "هر سؤال قیمت را به پاسخ خودش وصل کن.",
+      "selectionReason": "وجود دو پرسش و دو قیمت باعث می‌شود تمرین واقعاً تطبیقی باشد و فقط یک پاسخ حفظ نشود.",
+      "sourceRefs": ["src-wikibooks-de-lesson-004"],
+      "learningTargets": ["تشخیص ارتباط سؤال قیمت با پاسخ قیمت."],
+      "lexemeRefs": ["lex-de-kosten", "lex-de-euro", "lex-de-cent"],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {"left": "Wie viel kostet das?", "leftFa": "این چقدر قیمت دارد؟", "right": "Das kostet 70 Euro und 92 Cent.", "rightFa": "این ۷۰ یورو و ۹۲ سنت قیمت دارد."},
+          {"left": "Was kostet das?", "leftFa": "قیمت این چقدره؟", "right": "Das kostet 35 Euro und 15 Cent.", "rightFa": "این ۳۵ یورو و ۱۵ سنت قیمت دارد."}
+        ]
+      },
+      "transformations": ["source_items_grouped_for_matching", "persian_translation_added"],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-price-question-order",
+      "type": "word_order",
+      "instructionFa": "پرسش قیمت را دوباره بساز.",
+      "selectionReason": "بعد از فهم دو نمونه، بازسازی پرسش اصلی آن را از تشخیص به بازیابی فعال منتقل می‌کند.",
+      "sourceRefs": ["src-wikibooks-de-lesson-004"],
+      "learningTargets": ["بازسازی «Wie viel kostet das?»."],
+      "lexemeRefs": ["lex-de-kosten"],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wie viel kostet das?",
+        "sourceTextFa": "این چقدر قیمت دارد؟",
+        "tokens": ["Wie", "viel", "kostet", "das?"],
+        "answer": ["Wie", "viel", "kostet", "das?"],
+        "tokenLexemeMappings": [
+          {"token": "kostet", "lexemeId": "lex-de-kosten", "lexemeFormId": "lexform-de-kosten-kostet"}
+        ]
+      },
+      "transformations": ["sentence_tokenized_for_word_order", "persian_translation_added"],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-price-sentence-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله یک قیمت را می‌گوید؟",
+      "selectionReason": "مرحلهٔ پایانی جملهٔ قیمت را از جملهٔ نیاز قبلی جدا می‌کند تا معنی «kostet» در بافت تثبیت شود.",
+      "sourceRefs": ["src-wikibooks-de-lesson-004"],
+      "learningTargets": ["تشخیص جملهٔ قیمت از یک جملهٔ خرید/نیاز."],
+      "lexemeRefs": ["lex-de-kosten", "lex-de-euro", "lex-de-cent", "lex-de-brauchen", "lex-de-hose"],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {"textTarget": "Das kostet 35 Euro und 15 Cent.", "translationFa": "این ۳۵ یورو و ۱۵ سنت قیمت دارد.", "correct": true},
+          {"textTarget": "Ich brauche eine Hose.", "translationFa": "من یک شلوار لازم دارم.", "correct": false}
+        ]
+      },
+      "transformations": ["options_selected_from_source_material", "persian_translation_added"],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending",
+  "sourceTitleFa": "قیمتش چقدره؟ / این ... یورو و ... سنت قیمت دارد."
+}
