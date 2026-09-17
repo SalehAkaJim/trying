@@ -4,14 +4,23 @@
   "lexemeId": "lex-de-moegen",
   "surface": "magst",
   "formType": "inflected",
+  "formTypeFa": "صرف‌شده",
   "features": {
     "tense": "present",
     "mood": "indicative",
     "person": "2",
     "number": "singular"
   },
+  "featuresFa": {
+    "tense": "حال",
+    "mood": "اخباری",
+    "person": "دوم‌شخص",
+    "number": "مفرد"
+  },
   "origin": "reference_attested",
+  "originFa": "ثبت‌شده در مرجع",
   "reviewStatus": "approved",
+  "reviewStatusFa": "تأییدشده",
   "sourceRefs": [
     "src-wiktionary-de-moegen"
   ],
