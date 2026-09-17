@@ -78,8 +78,8 @@ def validate_matching(errors: list[str], path: Path, activity: dict) -> None:
     activity_id = activity.get("id", "<missing-id>")
     data = activity.get("data") or {}
     pairs = data.get("pairs")
-    if not isinstance(pairs, list) or len(pairs) < 2:
-        add_error(errors, path, activity_id, "matching requires at least 2 pairs")
+    if not isinstance(pairs, list) or not 4 <= len(pairs) <= 8:
+        add_error(errors, path, activity_id, "matching requires 4 to 8 pairs")
         return
 
     left_values: list[str] = []
