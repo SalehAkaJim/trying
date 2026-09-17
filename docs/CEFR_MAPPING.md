@@ -4,11 +4,13 @@
 
 CEFR planning is **coverage-driven, not count-driven**.
 
-No language or CEFR level receives a predetermined number of units or lessons. No preferred range is allowed either. Counts emerge only after source-backed curriculum coverage, progression and QA are satisfied.
+No language or CEFR level receives a predetermined number of units or lessons. No preferred unit/lesson range is allowed either. Counts emerge only after source-backed curriculum coverage, progression and QA are satisfied.
+
+Lesson activity count is not an exact quota, but finalized lessons must satisfy the explicit CEFR-level quality envelope in `config/activity-count-bounds.json`. This guardrail controls minimum practice and maximum lesson load; it does not determine how many lessons or units a level contains.
 
 Assumptions such as `Language X A1 = N lessons`, `each level has N units`, or `each unit has N lessons` must never be used as authoring rules.
 
-Actual counts are outputs of the curriculum, not inputs to it.
+Actual unit and lesson counts are outputs of the curriculum, not inputs to it.
 
 ## Supported levels
 
@@ -31,12 +33,13 @@ For each language and level:
 5. Detect gaps, duplicates and overrepresented topics.
 6. Group compatible source-backed material into coherent lessons where pedagogically justified.
 7. Add or revise lessons only when target coverage, practice, progression or review needs justify it.
-8. Re-run the coverage matrix and QA.
-9. Group lessons into units only when coherent learner-facing clusters emerge.
-10. Continue until unresolved required coverage no longer justifies additional content.
-11. Run a formal level-completion audit covering CEFR ability coverage, language-specific prerequisites, progression, practice/retrieval, reinforcement, skill/mode balance and unresolved gaps.
-12. Run the holistic 0–10 quality review and revise any material weakness that prevents the level from being close to 10/10.
-13. Finalize the level only when the educational completion audit passes, material gaps are resolved, and the quality review supports release.
+8. Keep each finalized lesson inside the configured activity-count envelope for its CEFR level while choosing the exact activity sequence by learning need.
+9. Re-run the coverage matrix and QA.
+10. Group lessons into units only when coherent learner-facing clusters emerge.
+11. Continue until unresolved required coverage no longer justifies additional content.
+12. Run a formal level-completion audit covering CEFR ability coverage, language-specific prerequisites, progression, practice/retrieval, reinforcement, skill/mode balance and unresolved gaps.
+13. Run the holistic 0–10 quality review and revise any material weakness that prevents the level from being close to 10/10.
+14. Finalize the level only when the educational completion audit passes, material gaps are resolved, and the quality review supports release.
 
 At every stage, unit and lesson counts are derived from the current approved structure.
 
@@ -105,9 +108,19 @@ Do not store or treat any of the following as authoritative curriculum targets:
 - minimum/maximum lessons per unit;
 - preferred lesson-count range.
 
-If analytics or UI needs counts, derive them from the actual approved `unit` and `lesson` records.
+If analytics or UI needs these counts, derive them from the actual approved `unit` and `lesson` records.
 
 Operational estimates, if ever introduced, must be clearly non-binding and must never participate in generation logic or QA pass/fail decisions.
+
+## Activity-count quality envelope
+
+Activity-count bounds are an explicit lesson-quality guardrail rather than a curriculum-sizing quota.
+
+- `Pre-A1`: **2–5 total activities per finalized lesson**, including the opening `conversation_speaking`.
+- The exact count inside the envelope is selected from learning need, source material, retrieval value and cognitive load.
+- The minimum must be met with genuine source-backed practice; filler or near-duplicate activities are not acceptable.
+- The maximum is a ceiling, not a target.
+- A later CEFR level may use a larger envelope only after that range is explicitly decided and stored in `config/activity-count-bounds.json`; do not extrapolate an unset range.
 
 ## Completion rule
 
@@ -142,7 +155,7 @@ The review must consider at minimum:
 
 The overall score is a summary of evidence, not a replacement for it. A high score cannot make an incomplete level complete. Any material unresolved gap blocks finalization regardless of the arithmetic score.
 
-The score must not be improved artificially by adding extra lessons, activities, turns or repetitions. Add content only when a specific educational deficiency justifies it; remove/revise content when that improves clarity, progression or learning value.
+The score must not be improved artificially by adding extra lessons, activities, turns or repetitions. Add content only when a specific educational deficiency or the configured minimum practice floor justifies it; remove/revise content when that improves clarity, progression or learning value.
 
 The quality assessment should record a rationale and remaining weaknesses so future audits can understand why the level was considered ready.
 
@@ -150,4 +163,4 @@ The quality assessment should record a rationale and remaining weaknesses so fut
 
 Do not force all source material from one book/course to remain in its original order. Preserve useful source sequencing when pedagogically sound, but the app curriculum may reorganize material to achieve coherent CEFR progression.
 
-See [`DYNAMIC_CONTENT_MODEL.md`](DYNAMIC_CONTENT_MODEL.md) for the project-wide no-fixed-count rule covering units, lessons, activities and opening conversations.
+See [`DYNAMIC_CONTENT_MODEL.md`](DYNAMIC_CONTENT_MODEL.md) for the project-wide no-fixed-unit/lesson-count rule and the level-specific activity-count guardrail model.

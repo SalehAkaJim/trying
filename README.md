@@ -12,13 +12,15 @@ Important shared references:
 - [`docs/AUTOMATION_CONTRACT.md`](docs/AUTOMATION_CONTRACT.md)
 - [`docs/QA_RULES.md`](docs/QA_RULES.md)
 - [`config/fa-taxonomy.json`](config/fa-taxonomy.json)
+- [`config/activity-count-bounds.json`](config/activity-count-bounds.json)
 
 ## Non-negotiable architecture
 
 - MySQL-first architecture; canonical target runtime: **MySQL 9.0.1**.
 - Final language deliverables are organized as one MySQL content file per language × CEFR level.
 - Course sizing is coverage-driven, source-driven and QA-driven — never quota-driven.
-- There is no fixed/preferred numeric count for units, lessons, post-opening activities, learner turns or review cadence.
+- There is no fixed/preferred numeric count for units or lessons.
+- Finalized lesson activity counts use CEFR-level quality guardrails. `Pre-A1` currently requires **2–5 total activities per lesson**. Inside the allowed range, activity type/order/count remain pedagogically chosen rather than quota-driven.
 - Every finalized lesson begins with `conversation_speaking`.
 - Opening conversations use 4–12 turns; the first 10 lessons of a language's beginner path use exactly 4 turns.
 - The app or learner may initiate a conversation; learner-start is explicit and turn 1 belongs to the learner.
@@ -30,13 +32,13 @@ Important shared references:
 
 ## Automation
 
-Cross-language validation lives in `scripts/validate_project_contracts.py` and CI. New languages inherit the existing rules automatically. Repeated defects should become permanent repository rules/tests rather than chat-only reminders.
+Cross-language validation lives in `scripts/validate_project_contracts.py`, `scripts/validate_activity_count_bounds.py` and CI. New languages inherit the existing rules automatically. Repeated defects should become permanent repository rules/tests rather than chat-only reminders.
 
 ## Repository layout
 
 ```text
 /docs/              Canonical project, editorial, QA and architecture rules
-/config/            Machine-readable shared configuration such as Persian taxonomy
+/config/            Machine-readable shared configuration such as Persian taxonomy and CEFR activity-count guardrails
 /schemas/           Formal authoring contracts
 /scripts/           Shared automation and validation tools
 /content/           Source-backed language authoring content
@@ -45,4 +47,4 @@ Cross-language validation lives in `scripts/validate_project_contracts.py` and C
 
 ## Current content status
 
-German `Pre-A1` production is in progress under `content/de/pre-a1/`. Current counts describe only what has been built so far and are never curriculum targets or forecasts.
+German `Pre-A1` authoring content is finalized under `content/de/pre-a1/`; audio generation remains the next production stage after all content and database synchronization checks pass.

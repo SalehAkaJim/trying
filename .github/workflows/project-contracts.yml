@@ -38,6 +38,7 @@ jobs:
         run: |
           python -m json.tool config/fa-taxonomy.json >/dev/null
           python -m json.tool config/audio-pipeline.json >/dev/null
+          python -m json.tool config/activity-count-bounds.json >/dev/null
           python -m json.tool schemas/fa-taxonomy.schema.json >/dev/null
           python -m json.tool schemas/lexeme.schema.json >/dev/null
           python -m json.tool schemas/source.schema.json >/dev/null
@@ -52,6 +53,9 @@ jobs:
 
       - name: Validate content instances against JSON Schemas
         run: python scripts/validate_json_schemas.py
+
+      - name: Validate CEFR activity-count guardrails
+        run: python scripts/validate_activity_count_bounds.py
 
       - name: Verify Persian companion labels are synchronized
         run: python scripts/sync_fa_labels.py

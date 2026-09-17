@@ -21,9 +21,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "همان مکالمهٔ کوتاه هدف این درس را پوشش می‌دهد و تمرین اضافه فقط تکرار ایجاد می‌کند.",
-    "sequenceRationale": "ابتدا محل زندگی و سپس مبدأ در یک آشنایی مؤدبانه مطرح می‌شود.",
-    "templateSignature": "conversation_speaking"
+    "activitySelectionRationale": "مکالمه محل زندگی و مبدأ را در یک آشنایی کوتاه تمرین می‌کند و تطبیق دو جفت پرسش‌وپاسخِ دقیق منبع کمک می‌کند این دو مفهوم نزدیک با هم قاطی نشوند.",
+    "sequenceRationale": "ابتدا زبان‌آموز محل زندگی و مبدأ را در گفت‌وگو استفاده می‌کند و سپس هر پرسش را به پاسخ منبع‌دار مناسب وصل می‌کند.",
+    "templateSignature": "conversation_speaking>matching"
   },
   "activities": [
     {
@@ -51,6 +51,47 @@
       "transformations": [
         "persian_translation_added",
         "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-residence-matching",
+      "type": "matching",
+      "instructionFa": "هر پرسش را به پاسخ مناسبش وصل کن.",
+      "selectionReason": "این تطبیق تفاوت «محل زندگی» و «مبدأ» را با چهار عبارت دقیق منبع و بدون افزودن جملهٔ تازه تمرین می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "learningTargets": [
+        "تشخیص پاسخ مناسب برای پرسش محل زندگی و پرسش مبدأ."
+      ],
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-oesterreich",
+        "lex-de-kommen",
+        "lex-de-deutschland"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Wo wohnen Sie?",
+            "right": "Ich wohne in Österreich.",
+            "sourceRefs": [
+              "src-wikibooks-de-residence-origin"
+            ]
+          },
+          {
+            "left": "Woher kommen Sie?",
+            "right": "Ich komme aus Deutschland, und Sie?",
+            "sourceRefs": [
+              "src-wikibooks-de-residence-origin"
+            ]
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching"
       ],
       "audioStatus": "not_required"
     }

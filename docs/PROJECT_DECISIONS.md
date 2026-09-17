@@ -12,8 +12,12 @@
 - Each language × CEFR level may be one SQL content file.
 
 ## Coverage-driven curriculum
-- No fixed/preferred unit, lesson or activity count exists.
-- Counts are outputs, not authoring quotas.
+- No fixed/preferred unit or lesson count exists.
+- Unit and lesson counts are outputs, not authoring quotas.
+- Activity count is also not an exact target quota, but finalized lessons must stay inside the CEFR-level quality envelope configured in `config/activity-count-bounds.json`.
+- `Pre-A1` finalized lessons require **2–5 total activities**, including the opening `conversation_speaking` activity.
+- Inside a level's allowed activity envelope, add only pedagogically useful practice/retrieval/review and never pad toward the maximum.
+- Future CEFR levels may define larger activity envelopes before production; do not infer or invent an unset range from a neighboring level.
 - Do not pad/split/merge curriculum to resemble neighboring content.
 
 ## CEFR completion
@@ -48,7 +52,9 @@
 - Current learner-facing content is text/audio-only and must not contain/reference/depend on instructional images.
 
 ## Dynamic lesson/activity design
-- Post-opening activity type/order/count are dynamic and selected by learning need.
+- Every finalized lesson begins with `conversation_speaking`.
+- Post-opening activity type and order are dynamic and selected by learning need.
+- The exact activity count is dynamic inside the configured CEFR-level envelope; the minimum is a quality floor, not permission to add filler, and the maximum is a cognitive-load/content-scope ceiling rather than a target.
 - Avoid mechanically cloned neighboring lesson patterns.
 
 ## Lexemes/forms

@@ -8,9 +8,9 @@ The database remains the canonical target for the language-learning content pipe
 - Final language deliverables must be exportable as complete MySQL `.sql` files.
 - JSON schemas are authoring/validation contracts; finalized content must also be representable in the relational MySQL model.
 - Curriculum structure is coverage-driven, source-driven and QA-driven.
-- Unit count, lesson count, activity count and opening-dialogue turn count are derived outputs, never authoritative planning inputs.
-- Preferred numeric ranges are also prohibited for these structural decisions.
-- Every finalized lesson begins with `conversation_speaking`; subsequent activity type/order/count are dynamic.
+- Unit count and lesson count are derived outputs, never authoritative planning inputs.
+- Finalized lesson activity counts obey CEFR-level quality guardrails stored in `config/activity-count-bounds.json`; these bounds are not exact-count quotas. `Pre-A1` currently requires 2–5 total activities.
+- Every finalized lesson begins with `conversation_speaking`; subsequent activity type/order and exact count inside the allowed range are pedagogically dynamic.
 - Units are dynamic organizational clusters, not fixed-capacity containers.
 - A lesson/activity signature may be stored for QA pattern detection; it is not a lesson template requirement.
 - Source provenance is first-class and should link learner-facing items to precise reusable source locations.
@@ -24,7 +24,7 @@ The database remains the canonical target for the language-learning content pipe
 
 ## Dynamic structure and counts
 
-The relational model must represent actual relationships rather than encode content quotas.
+The relational model must represent actual relationships rather than encode arbitrary curriculum quotas.
 
 Do not make fields such as the following authoritative generation inputs:
 
@@ -33,12 +33,12 @@ Do not make fields such as the following authoritative generation inputs:
 - `target_lessons_per_unit`;
 - `min_lessons_per_unit` / `max_lessons_per_unit`;
 - `target_activity_count`;
-- `min_activity_count` / `max_activity_count`;
 - `target_dialogue_turn_count`;
-- `min_dialogue_turns` / `max_dialogue_turns`;
 - `target_learner_turn_count`.
 
-If analytics needs these counts, derive them from rows/relationships. A temporary operational estimate, if ever introduced, must be explicitly non-binding and must not control content generation or QA.
+CEFR-level minimum/maximum activity bounds are different from target counts: they are cross-language quality guardrails configured outside the content rows in `config/activity-count-bounds.json`. Do not store a preferred exact activity count on each lesson, and do not treat the upper bound as a target.
+
+If analytics needs actual counts, derive them from rows/relationships. A temporary operational estimate, if ever introduced, must be explicitly non-binding and must not control curriculum sizing or QA except where an explicit product quality guardrail exists.
 
 ### Units
 
@@ -50,7 +50,9 @@ Lessons may reference their unit through an ordering/junction relationship depen
 
 Lessons are created from coherent targets and source-backed material. Their number is derived from coverage.
 
-A finalized lesson must have an opening `conversation_speaking` activity. This is an existence/type invariant, not a target activity count. The rest of the sequence is variable-length and target-driven.
+A finalized lesson must have an opening `conversation_speaking` activity and satisfy the configured activity-count range for its CEFR level. For `Pre-A1`, that means 2–5 total activities. The remaining activities are variable in type/order and exact count inside the range, and each must have a pedagogical reason.
+
+The activity minimum is a practice floor: if a lesson would otherwise contain only the opening conversation, add a genuinely useful source-backed retrieval/practice activity. The maximum is a ceiling for lesson scope/cognitive load, not a signal to add more activities.
 
 ### Dialogues
 
@@ -106,7 +108,7 @@ Once approved, clients should use the persisted mapping instead of repeatedly gu
 
 Curriculum targets are the planning mechanism for dynamic course sizing. Lessons connect to targets; units organize coherent lesson clusters after pedagogical structure emerges.
 
-A level becomes final because mandatory targets have adequate source-backed coverage, progression is coherent and QA passes—not because it reached any count.
+A level becomes final because mandatory targets have adequate source-backed coverage, progression is coherent and QA passes—not because it reached any unit or lesson count. Lesson activity-count bounds are a separate quality gate and do not determine curriculum size.
 
 ## Intended content model
 
@@ -118,7 +120,7 @@ The future relational implementation should support:
 - source and source-item provenance;
 - reusable characters;
 - conversations and turns;
-- lessons and dynamic activity sequencing;
+- lessons and activity sequences constrained by the applicable CEFR-level quality envelope;
 - activity items/options/tokens;
 - reusable words and phrases plus inflected/variant form resolution and persisted occurrence mappings;
 - grammar notes and example sentences;

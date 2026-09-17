@@ -22,9 +22,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی چهار نوبت عبارت تشکر و پاسخ مؤدبانه را داخل یک تعامل کوتاه و روشن قرار می‌دهد و برای این هدف تمرین اضافه لازم نیست.",
-    "sequenceRationale": "زبان‌آموز سلام می‌کند، تشکر را در بافت می‌شنود و پاسخ مؤدبانه می‌دهد؛ مکالمه عمداً طولانی‌تر نمی‌شود.",
-    "templateSignature": "conversation_speaking"
+    "activitySelectionRationale": "گفت‌وگوی کوتاه تشکر و پاسخ مؤدبانه را در بافت قرار می‌دهد و یک انتخاب پاسخ، رابطهٔ مستقیم «Danke!» و «Bitte!» را بدون افزودن زبان تازه تثبیت می‌کند.",
+    "sequenceRationale": "ابتدا زبان‌آموز پاسخ مؤدبانه را در مکالمه می‌گوید و سپس همان پاسخ را در یک موقعیت روشن بازیابی می‌کند.",
+    "templateSignature": "conversation_speaking>choose_response"
   },
   "activities": [
     {
@@ -53,6 +53,49 @@
       "transformations": [
         "persian_translation_added",
         "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-danke-bitte-response",
+      "type": "choose_response",
+      "instructionFa": "در پاسخ به «Danke!» کدام عبارت مناسب است؟",
+      "selectionReason": "این تمرین پاسخ مؤدبانه را با دو عبارت آشنای منبع‌دار بازیابی می‌کند و نقش «Bitte!» را روشن نگه می‌دارد.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-wiktionary-de-danke",
+        "src-wiktionary-de-bitte"
+      ],
+      "learningTargets": [
+        "انتخاب «Bitte!» به‌عنوان پاسخ مناسب به تشکر."
+      ],
+      "lexemeRefs": [
+        "lex-de-hallo",
+        "lex-de-danke",
+        "lex-de-bitte"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Danke!",
+        "options": [
+          {
+            "textTarget": "Bitte!",
+            "correct": true,
+            "sourceRefs": [
+              "src-wiktionary-de-bitte"
+            ]
+          },
+          {
+            "textTarget": "Hallo!",
+            "correct": false,
+            "sourceRefs": [
+              "src-wiktionary-de-hallo"
+            ]
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material"
       ],
       "audioStatus": "not_required"
     }

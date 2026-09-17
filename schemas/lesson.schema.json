@@ -107,7 +107,7 @@
     "activities": {
       "type": "array",
       "minItems": 1,
-      "description": "Dynamic-length sequence. The only structural invariant is that a finalized lesson opens with conversation_speaking; there is no target/min/max/preferred activity count for sizing.",
+      "description": "Dynamic-length sequence. Every finalized lesson opens with conversation_speaking and must satisfy the CEFR-level activity-count quality guardrail configured in config/activity-count-bounds.json. Drafts may temporarily be below the configured minimum; there is no preferred exact activity count inside the allowed range.",
       "prefixItems": [
         {
           "allOf": [
