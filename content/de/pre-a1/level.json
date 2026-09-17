@@ -1,11 +1,146 @@
 {
-  "schemaVersion":"1.0.0","id":"de-pre-a1","languageId":"de","level":"Pre-A1","status":"final",
-  "structureRationale":"سطح از ارتباط‌های بسیار ساده و فوری برای زبان‌آموز صفر شروع می‌شود و فقط وقتی گسترش پیدا می‌کند که پوشش CEFR، پیش‌نیازها یا نیاز به تمرین بیشتر آن را توجیه کند؛ تعداد درس یا واحد معیار تولید محتوا نیست.",
-  "coverage":{"communicativeTargets":["سلام، خداحافظی، تشکر، پاسخ مؤدبانه و عذرخواهی کوتاه","پرسیدن و گفتن نام","احوال‌پرسی بسیار ساده","پرسیدن و پاسخ‌دادن دربارهٔ علاقه/انتخاب غذای آشنا","پاسخ مثبت و منفی کوتاه","پرسیدن و گفتن محل زندگی و مبدأ","پرسیدن و گفتن سن و فهم عددهای ساده","پرسیدن و گفتن روز، ساعت و زمان روز","پرسیدن و گفتن تاریخ تولد","پرسیدن و گفتن شماره تلفن","پرسیدن سؤال اطلاعاتی بسیار ساده و فهم پاسخ کوتاه","نوشتن اطلاعات شخصی بسیار کوتاه در یک فرم متنی","تشخیص شنیداری یک قیمت ساده","پرسیدن و گفتن غذای موجود و چیزی که فرد می‌خورد","انجام یک سفارش بسیار کوتاه و مؤدبانه","فهم و بیان یک نیاز یا خرید بسیار ساده"],"linguisticTargets":["عبارت‌های ثابت سلام/خداحافظی و ادب","فعل‌های پایهٔ «mögen»، «heißen»، «wohnen» و «kommen» در کاربردهای منبع‌دار این سطح","عددهای ساده در سن، ساعت، تلفن و قیمت","واژه‌های پایهٔ روز، ساعت، تولد، شماره تلفن و نشانی","الگوهای منبع‌دار معرفی، محل زندگی، سن، تاریخ تولد و شماره تلفن","واژه‌های خیلی پایهٔ غذا و نوشیدنی در جمله‌های کوتاه","الگوهای خیلی سادهٔ «essen»، «brauchen» و «kaufen» در بافت روزمره"],"situations":["آشنایی اولیه","گفت‌وگوی کوتاه صبحگاهی","علاقه و انتخاب غذای آشنا","تشکر و عذرخواهی","اطلاعات شخصی در آشنایی مؤدبانه","پرسش سن","پرسش روز و ساعت","تاریخ تولد","تبادل شماره تلفن","سؤال اطلاعاتی بسیار ساده","فرم متنی اطلاعات شخصی","تشخیص قیمت ساده","پرسیدن دربارهٔ غذای امروز","سفارش خیلی سادهٔ قهوه","بیان نیاز و خرید خیلی ساده"],"gaps":[]},
-  "sourceRefs":["src-wiktionary-de-hallo","src-wiktionary-de-guten-morgen","src-wiktionary-de-moegen","src-wiktionary-de-pizza","src-libra-de-ich-mag-pizza","src-wikibooks-de-magst-du-pizza","src-wiktionary-de-ja","src-wiktionary-de-nein","src-wiktionary-de-danke","src-wiktionary-de-bitte","src-wikibooks-de-basic-greetings","src-wiktionary-de-entschuldigung","src-wiktionary-de-kein-problem","src-wikibooks-de-wie-heisst-du","src-wiktionary-de-heissen","src-oak-de-was-moechtest-du","src-wiktionary-de-moechten","src-coe-cefr-pre-a1","src-wikibooks-de-residence-origin","src-wikibooks-de-age-time","src-wikibooks-de-birthday","src-wikibooks-de-birthday-question","src-wikibooks-de-phone","src-wikibooks-de-phone-example","src-wikibooks-de-basic-object","src-wikibooks-de-lesson-002","src-wikibooks-de-lesson-004"],
-  "unitRefs":["de-pre-a1-unit-first-steps","de-pre-a1-unit-personal-info","de-pre-a1-unit-simple-orders"],
-  "lessonRefs":["de-pre-a1-lesson-hallo","de-pre-a1-lesson-guten-morgen","de-pre-a1-lesson-pizza-like","de-pre-a1-lesson-ja-nein","de-pre-a1-lesson-danke-bitte","de-pre-a1-lesson-entschuldigung","de-pre-a1-lesson-name-exchange","de-pre-a1-lesson-wellbeing","de-pre-a1-lesson-simple-choice","de-pre-a1-lesson-residence-origin","de-pre-a1-lesson-age-numbers","de-pre-a1-lesson-day-time","de-pre-a1-lesson-birthday-date","de-pre-a1-lesson-phone-number","de-pre-a1-lesson-basic-object","de-pre-a1-lesson-personal-review","de-pre-a1-lesson-food-today","de-pre-a1-lesson-simple-order","de-pre-a1-lesson-need-and-buy"],
-  "notes":"سطح پیش از A1 آلمانی اکنون یک Unit سوم برای غذا، سفارش و خرید خیلی ساده دارد. ۱۰۴ دارایی صوتی قبلی معتبر باقی می‌مانند و ۲۲ دارایی تازه برای این Unit باید تولید شوند.",
-  "audioStatus":"stale",
-  "completionAssessment":{"reviewedAt":"2026-09-17T09:30:00Z","cefrCoverageComplete":true,"progressionComplete":true,"practiceAndRetrievalComplete":true,"skillModeCoverageComplete":true,"requiredGaps":[],"scopeExclusions":["توصیفگرهای پیش از A1 که صراحتاً به متن مصور، تصویر یا اشارهٔ فیزیکی/دیداری وابسته‌اند، به‌دلیل مبنای فعلی بدون تصویر خارج از دامنه محصول هستند؛ توانایی‌های مستقلِ متنی، گفتاری و شنیداری متناظر پوشش داده شده‌اند."],"qualityReview":{"overallScore":9.7,"dimensionScores":{"cefrCoverage":9.8,"pedagogicalProgression":9.7,"practiceAndRetrieval":9.7,"activityQualityAndVariety":9.7,"linguisticAccuracyAndNaturalness":9.7,"sourceQualityAndCurrency":9.8,"learnerSupportAndClarity":9.8,"qaIntegrity":10.0},"rationale":"Unit سوم دامنهٔ کاربرد روزمره را با غذای موجود، سفارش مؤدبانه و بیان نیاز/خرید خیلی ساده گسترش می‌دهد؛ همهٔ متن‌های هدف جدید از صفحات زنده و قابل‌بازاستفادهٔ Wikibooks آمده‌اند و فعالیت‌ها در دامنهٔ متنی/صوتی بدون تصویر باقی می‌مانند.","strengths":["پوشش توصیفگرمحور بدون سهمیهٔ درس یا فعالیت","تمام متن هدف نمایش‌داده‌شده به زبان‌آموز منبع‌دار و قابل ردیابی است","سه موقعیت روزمرهٔ تازه بدون افزایش ناگهانی بار دستوری اضافه شده‌اند","قواعد فارسی، بدون تصویر، آغازکننده، صوت و MySQL به‌صورت خودکار کنترل می‌شوند."],"remainingWeaknesses":["۲۲ دارایی صوتی جدید Unit سوم هنوز تولید نشده‌اند؛ تا تولید و اعتبارسنجی، audioStatus سطح stale است."]}}
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "status": "final",
+  "structureRationale": "سطح از ارتباط‌های بسیار ساده و فوری برای زبان‌آموز صفر شروع می‌شود و فقط وقتی گسترش پیدا می‌کند که پوشش CEFR، پیش‌نیازها یا نیاز به تمرین بیشتر آن را توجیه کند؛ تعداد درس یا واحد معیار تولید محتوا نیست.",
+  "coverage": {
+    "communicativeTargets": [
+      "سلام، خداحافظی، تشکر، پاسخ مؤدبانه و عذرخواهی کوتاه",
+      "پرسیدن و گفتن نام",
+      "احوال‌پرسی بسیار ساده",
+      "پرسیدن و پاسخ‌دادن دربارهٔ علاقه/انتخاب غذای آشنا",
+      "پاسخ مثبت و منفی کوتاه",
+      "پرسیدن و گفتن محل زندگی و مبدأ",
+      "پرسیدن و گفتن سن و فهم عددهای ساده",
+      "پرسیدن و گفتن روز، ساعت و زمان روز",
+      "پرسیدن و گفتن تاریخ تولد",
+      "پرسیدن و گفتن شماره تلفن",
+      "پرسیدن سؤال اطلاعاتی بسیار ساده و فهم پاسخ کوتاه",
+      "نوشتن اطلاعات شخصی بسیار کوتاه در یک فرم متنی",
+      "تشخیص شنیداری یک قیمت ساده",
+      "پرسیدن و گفتن غذای موجود و چیزی که فرد می‌خورد",
+      "انجام یک سفارش بسیار کوتاه و مؤدبانه",
+      "فهم و بیان یک نیاز یا خرید بسیار ساده"
+    ],
+    "linguisticTargets": [
+      "عبارت‌های ثابت سلام/خداحافظی و ادب",
+      "فعل‌های پایهٔ «mögen»، «heißen»، «wohnen» و «kommen» در کاربردهای منبع‌دار این سطح",
+      "عددهای ساده در سن، ساعت، تلفن و قیمت",
+      "واژه‌های پایهٔ روز، ساعت، تولد، شماره تلفن و نشانی",
+      "الگوهای منبع‌دار معرفی، محل زندگی، سن، تاریخ تولد و شماره تلفن",
+      "واژه‌های خیلی پایهٔ غذا و نوشیدنی در جمله‌های کوتاه",
+      "الگوهای خیلی سادهٔ «essen»، «brauchen» و «kaufen» در بافت روزمره"
+    ],
+    "situations": [
+      "آشنایی اولیه",
+      "گفت‌وگوی کوتاه صبحگاهی",
+      "علاقه و انتخاب غذای آشنا",
+      "تشکر و عذرخواهی",
+      "اطلاعات شخصی در آشنایی مؤدبانه",
+      "پرسش سن",
+      "پرسش روز و ساعت",
+      "تاریخ تولد",
+      "تبادل شماره تلفن",
+      "سؤال اطلاعاتی بسیار ساده",
+      "فرم متنی اطلاعات شخصی",
+      "تشخیص قیمت ساده",
+      "پرسیدن دربارهٔ غذای امروز",
+      "سفارش خیلی سادهٔ قهوه",
+      "بیان نیاز و خرید خیلی ساده"
+    ],
+    "gaps": []
+  },
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-wiktionary-de-guten-morgen",
+    "src-wiktionary-de-moegen",
+    "src-wiktionary-de-pizza",
+    "src-libra-de-ich-mag-pizza",
+    "src-wikibooks-de-magst-du-pizza",
+    "src-wiktionary-de-ja",
+    "src-wiktionary-de-nein",
+    "src-wiktionary-de-danke",
+    "src-wiktionary-de-bitte",
+    "src-wikibooks-de-basic-greetings",
+    "src-wiktionary-de-entschuldigung",
+    "src-wiktionary-de-kein-problem",
+    "src-wikibooks-de-wie-heisst-du",
+    "src-wiktionary-de-heissen",
+    "src-oak-de-was-moechtest-du",
+    "src-wiktionary-de-moechten",
+    "src-coe-cefr-pre-a1",
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-age-time",
+    "src-wikibooks-de-birthday",
+    "src-wikibooks-de-birthday-question",
+    "src-wikibooks-de-phone",
+    "src-wikibooks-de-phone-example",
+    "src-wikibooks-de-basic-object",
+    "src-wikibooks-de-lesson-002",
+    "src-wikibooks-de-lesson-004"
+  ],
+  "unitRefs": [
+    "de-pre-a1-unit-first-steps",
+    "de-pre-a1-unit-personal-info",
+    "de-pre-a1-unit-simple-orders"
+  ],
+  "lessonRefs": [
+    "de-pre-a1-lesson-hallo",
+    "de-pre-a1-lesson-guten-morgen",
+    "de-pre-a1-lesson-pizza-like",
+    "de-pre-a1-lesson-ja-nein",
+    "de-pre-a1-lesson-danke-bitte",
+    "de-pre-a1-lesson-entschuldigung",
+    "de-pre-a1-lesson-name-exchange",
+    "de-pre-a1-lesson-wellbeing",
+    "de-pre-a1-lesson-simple-choice",
+    "de-pre-a1-lesson-residence-origin",
+    "de-pre-a1-lesson-age-numbers",
+    "de-pre-a1-lesson-day-time",
+    "de-pre-a1-lesson-birthday-date",
+    "de-pre-a1-lesson-phone-number",
+    "de-pre-a1-lesson-basic-object",
+    "de-pre-a1-lesson-personal-review",
+    "de-pre-a1-lesson-food-today",
+    "de-pre-a1-lesson-simple-order",
+    "de-pre-a1-lesson-need-and-buy"
+  ],
+  "notes": "سطح پیش از A1 آلمانی اکنون یک واحد سوم برای غذا، سفارش و خرید خیلی ساده دارد. ۱۰۴ دارایی صوتی قبلی معتبر باقی می‌مانند و ۲۲ دارایی تازه برای این واحد باید تولید شوند.",
+  "audioStatus": "stale",
+  "completionAssessment": {
+    "reviewedAt": "2026-09-17T09:30:00Z",
+    "cefrCoverageComplete": true,
+    "progressionComplete": true,
+    "practiceAndRetrievalComplete": true,
+    "skillModeCoverageComplete": true,
+    "requiredGaps": [],
+    "scopeExclusions": [
+      "توصیفگرهای پیش از A1 که صراحتاً به متن مصور، تصویر یا اشارهٔ فیزیکی یا دیداری وابسته‌اند، به‌دلیل مبنای فعلی بدون تصویر خارج از دامنه محصول هستند؛ توانایی‌های مستقلِ متنی، گفتاری و شنیداری متناظر پوشش داده شده‌اند."
+    ],
+    "qualityReview": {
+      "overallScore": 9.7,
+      "dimensionScores": {
+        "cefrCoverage": 9.8,
+        "pedagogicalProgression": 9.7,
+        "practiceAndRetrieval": 9.7,
+        "activityQualityAndVariety": 9.7,
+        "linguisticAccuracyAndNaturalness": 9.7,
+        "sourceQualityAndCurrency": 9.8,
+        "learnerSupportAndClarity": 9.8,
+        "qaIntegrity": 10.0
+      },
+      "rationale": "واحد سوم دامنهٔ کاربرد روزمره را با غذای موجود، سفارش مؤدبانه و بیان نیاز یا خرید خیلی ساده گسترش می‌دهد؛ همهٔ متن‌های هدف جدید از صفحات زنده و قابل‌بازاستفادهٔ Wikibooks آمده‌اند و فعالیت‌ها در دامنهٔ متنی و صوتی بدون تصویر باقی می‌مانند.",
+      "strengths": [
+        "پوشش توصیفگرمحور بدون سهمیهٔ درس یا فعالیت",
+        "تمام متن هدف نمایش‌داده‌شده به زبان‌آموز منبع‌دار و قابل ردیابی است",
+        "سه موقعیت روزمرهٔ تازه بدون افزایش ناگهانی بار دستوری اضافه شده‌اند",
+        "قواعد فارسی، بدون تصویر، آغازکننده، صوت و MySQL به‌صورت خودکار کنترل می‌شوند."
+      ],
+      "remainingWeaknesses": [
+        "۲۲ دارایی صوتی جدید واحد سوم هنوز تولید نشده‌اند؛ تا تولید و اعتبارسنجی، وضعیت صوتی سطح نیازمند به‌روزرسانی است."
+      ]
+    }
+  }
 }
