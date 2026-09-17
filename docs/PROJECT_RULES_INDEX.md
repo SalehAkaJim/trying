@@ -20,7 +20,8 @@ Before starting a new language, a new CEFR level, or a substantial content batch
 10. `docs/QA_RULES.md`
 11. `docs/AUTOMATION_CONTRACT.md`
 12. `config/fa-taxonomy.json`
-13. relevant JSON Schemas under `schemas/`
+13. `config/activity-count-bounds.json`
+14. relevant JSON Schemas under `schemas/`
 
 ## Rule-change protocol
 Whenever the user makes a durable product/content decision:
