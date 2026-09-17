@@ -1,21 +1,3 @@
 {
-  "schemaVersion": "1.0.0",
-  "id": "lex-de-kosten",
-  "languageId": "de",
-  "type": "word",
-  "surface": "kosten",
-  "lemma": "kosten",
-  "partOfSpeech": "verb",
-  "level": "Pre-A1",
-  "translationFa": "قیمت داشتن / هزینه داشتن",
-  "usageNoteFa": "در این سطح فقط برای پرسیدن و گفتن قیمت یک چیز در جمله‌های خیلی کوتاه استفاده می‌شود.",
-  "grammarNoteRefs": [],
-  "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-lesson-004"],
-  "formRefs": ["lexform-de-kosten-kostet"],
-  "flashcardEligible": true,
-  "audioStatus": "pending",
-  "audioRef": null,
-  "audioVoice": null,
-  "partOfSpeechFa": "فعل"
+  "schemaVersion":"1.0.0","id":"lex-de-kosten","languageId":"de","type":"word","surface":"kosten","lemma":"kosten","partOfSpeech":"verb","partOfSpeechFa":"فعل","level":"A1","translationFa":"قیمت داشتن","usageNoteFa":"برای پرسیدن و گفتن قیمت کالا استفاده می‌شود.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-de-lesson-009-shopping"],"formRefs":["lexform-de-kosten-kostet"],"flashcardEligible":true,"audioStatus":"blocked_until_level_final","audioRef":null,"audioVoice":null
 }
