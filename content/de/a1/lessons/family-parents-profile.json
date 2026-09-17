@@ -1,0 +1,31 @@
+{
+  "schemaVersion":"1.0.0",
+  "id":"de-a1-lesson-family-parents-profile",
+  "languageId":"de",
+  "level":"A1",
+  "unitRef":"de-a1-unit-family-and-close-people",
+  "titleFa":"مادر و پدرتان چند ساله‌اند؟",
+  "sourceTitle":"Wie alt ist eure Mutter? / Wie alt ist euer Vater?",
+  "sourceTitleFa":"مادرتان چند ساله است؟ / پدرتان چند ساله است؟",
+  "learningTargets":[
+    "پرسش و پاسخ ساده دربارهٔ سن مادر و پدر را در یک گفت‌وگوی خانوادگی بفهمد.",
+    "پرسش ساده دربارهٔ شغل پدر را بازسازی کند و پاسخ منبع‌دار را تشخیص دهد.",
+    "اطلاعات نام، سن، محل زندگی و شغل را به اعضای درست خانواده نسبت دهد."
+  ],
+  "sourceRefs":["src-wikibooks-de-lesson-007-family"],
+  "lexemeRefs":["lex-de-mutter","lex-de-vater","lex-de-bruder","lex-de-schwester","lex-de-lehrer"],
+  "grammarNoteRefs":[],
+  "activityDesign":{
+    "activitySelectionRationale":"گفت‌وگوی آغازین سن مادر و پدر را در همان بافت خانوادگی تثبیت می‌کند؛ سپس پرسش شغل پدر بازسازی می‌شود، پاسخ شغلی از جمله‌های منبع‌دار تشخیص داده می‌شود و در پایان چهار اطلاعات خانوادگی به فرد درست وصل می‌شوند.",
+    "sequenceRationale":"درس از فهم سن دو عضو خانواده به بازیابی پرسش شغل، تشخیص پاسخ و یکپارچه‌سازی اطلاعات چند عضو می‌رود؛ بنابراین مهارت‌های آشنای اطلاعات شخصی به شبکهٔ خانوادگی منتقل می‌شوند.",
+    "templateSignature":"conversation_speaking>word_order>multiple_choice>matching"
+  },
+  "activities":[
+    {"id":"act-de-a1-family-parents-conversation","type":"conversation_speaking","instructionFa":"آیریس دربارهٔ سن مادر و پدرتان می‌پرسد؛ از طرف خودت و میا جواب بده.","selectionReason":"دو جفت پرسش و پاسخ سن عین منبع هستند و با حضور دو خواهر و برادر، خطاب و پاسخ جمع بدون بازنویسی طبیعی می‌ماند.","sourceRefs":["src-wikibooks-de-lesson-007-family"],"learningTargets":["فهم و پاسخ به پرسش سن مادر و پدر."],"lexemeRefs":["lex-de-mutter","lex-de-vater"],"dialogueRef":"dlg-de-a1-family-parents-profile","data":{"interaction":"read_aloud_exchange","openingInitiator":"app"},"transformations":["other","persian_translation_added","character_metadata_added"],"audioStatus":"not_required"},
+    {"id":"act-de-a1-family-father-job-order","type":"word_order","instructionFa":"پرسش شغل پدر را دوباره بساز.","selectionReason":"پرسش شغل از همان تمرین خانواده می‌آید و اطلاعات کاریِ آموخته‌شده در واحد قبل را به یک عضو خانواده منتقل می‌کند.","sourceRefs":["src-wikibooks-de-lesson-007-family"],"learningTargets":["بازسازی پرسش شغل پدر."],"lexemeRefs":["lex-de-vater"],"dialogueRef":null,"data":{"sourceText":"Was ist euer Vater?","sourceTextFa":"شغل پدرتان چیست؟","tokens":["Was","ist","euer","Vater?"],"answer":["Was","ist","euer","Vater?"]},"transformations":["sentence_tokenized_for_word_order","persian_translation_added"],"audioStatus":"not_required"},
+    {"id":"act-de-a1-family-father-job-choice","type":"multiple_choice","instructionFa":"طبق منبع، شغل پدرشان چیست؟","selectionReason":"پاسخ درست دربارهٔ شغل پدر در برابر دو جملهٔ خانوادگیِ منبع‌دار با اطلاعات متفاوت بازیابی می‌شود.","sourceRefs":["src-wikibooks-de-lesson-007-family"],"learningTargets":["تشخیص پاسخ درست دربارهٔ شغل پدر."],"lexemeRefs":["lex-de-vater","lex-de-lehrer","lex-de-bruder","lex-de-schwester"],"dialogueRef":null,"data":{"options":[{"textTarget":"Unser Vater ist Lehrer.","translationFa":"پدر ما معلم است.","correct":true},{"textTarget":"Unser Bruder heißt Uwe.","translationFa":"اسم برادر ما اووه است.","correct":false},{"textTarget":"Unsere Schwester wohnt in Hamburg.","translationFa":"خواهر ما در هامبورگ زندگی می‌کند.","correct":false}]},"transformations":["options_selected_from_source_material","persian_translation_added"],"audioStatus":"not_required"},
+    {"id":"act-de-a1-family-info-matching","type":"matching","instructionFa":"هر جمله را به اطلاعات درست خانواده وصل کن.","selectionReason":"چهار جملهٔ منبع‌دار نام، سن و محل زندگی را میان اعضای خانواده تفکیک می‌کنند و فهم کلی واحد را جمع می‌کنند.","sourceRefs":["src-wikibooks-de-lesson-007-family"],"learningTargets":["نسبت‌دادن اطلاعات ساده به عضو درست خانواده."],"lexemeRefs":["lex-de-mutter","lex-de-vater","lex-de-bruder","lex-de-schwester"],"dialogueRef":null,"data":{"pairs":[{"left":"Unsere Mutter ist 66 Jahre alt.","leftFa":"مادر ما ۶۶ ساله است.","right":"سن مادر","rightFa":"سن مادر"},{"left":"Unser Vater ist 56 Jahre alt.","leftFa":"پدر ما ۵۶ ساله است.","right":"سن پدر","rightFa":"سن پدر"},{"left":"Unser Bruder heißt Uwe.","leftFa":"اسم برادر ما اووه است.","right":"نام برادر","rightFa":"نام برادر"},{"left":"Unsere Schwester wohnt in Hamburg.","leftFa":"خواهر ما در هامبورگ زندگی می‌کند.","right":"محل زندگی خواهر","rightFa":"محل زندگی خواهر"}]},"transformations":["source_items_grouped_for_matching","persian_translation_added"],"audioStatus":"not_required"}
+  ],
+  "status":"draft",
+  "audioStatus":"blocked_until_level_final"
+}

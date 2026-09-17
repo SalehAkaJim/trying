@@ -1,0 +1,17 @@
+{
+  "id":"dlg-de-a1-family-parents-profile",
+  "languageId":"de",
+  "level":"A1",
+  "sourceRefs":["src-wikibooks-de-lesson-007-family"],
+  "scenario":"آیریس در حضور پاول و میا دربارهٔ سن مادر و پدر مشترکشان می‌پرسد و پاول از طرف هر دو پاسخ می‌دهد.",
+  "openingInitiator":"app",
+  "characterRefs":["char-de-iris","char-de-paul","char-de-mia"],
+  "turns":[
+    {"id":"turn-de-a1-family-parents-1","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Wie alt ist eure Mutter?","translationFa":"مادرتان چند ساله است؟","learnerTurn":false,"lexemeRefs":["lex-de-mutter"],"lexemeOccurrences":[{"surface":"Mutter","lexemeId":"lex-de-mutter","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-family"],"audioRef":null},
+    {"id":"turn-de-a1-family-parents-2","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Unsere Mutter ist 66 Jahre alt.","translationFa":"مادر ما ۶۶ ساله است.","learnerTurn":true,"lexemeRefs":["lex-de-mutter"],"lexemeOccurrences":[{"surface":"Mutter","lexemeId":"lex-de-mutter","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-family"],"audioRef":null},
+    {"id":"turn-de-a1-family-parents-3","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Wie alt ist euer Vater?","translationFa":"پدرتان چند ساله است؟","learnerTurn":false,"lexemeRefs":["lex-de-vater"],"lexemeOccurrences":[{"surface":"Vater","lexemeId":"lex-de-vater","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-family"],"audioRef":null},
+    {"id":"turn-de-a1-family-parents-4","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Unser Vater ist 56 Jahre alt.","translationFa":"پدر ما ۵۶ ساله است.","learnerTurn":true,"lexemeRefs":["lex-de-vater"],"lexemeOccurrences":[{"surface":"Vater","lexemeId":"lex-de-vater","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-family"],"audioRef":null}
+  ],
+  "sceneQualityRationale":"دو جفت پرسش و پاسخ سن مادر و پدر عیناً از پاسخ تمرین ۲۷۷ آمده‌اند. همان صحنهٔ خواهر و برادری پاول و میا حفظ می‌شود تا خطاب و پاسخ جمع منبع بدون تغییر طبیعی بماند.",
+  "learnerCharacterId":"char-de-paul"
+}

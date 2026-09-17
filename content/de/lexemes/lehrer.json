@@ -1,0 +1,3 @@
+{
+  "schemaVersion":"1.0.0","id":"lex-de-lehrer","languageId":"de","type":"word","surface":"Lehrer","lemma":"Lehrer","partOfSpeech":"noun","partOfSpeechFa":"اسم","level":"A1","translationFa":"معلم مرد","usageNoteFa":"در جملهٔ منبع‌دار مربوط به شغل پدر به کار می‌رود.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-de-lesson-007-family"],"formRefs":[],"flashcardEligible":true,"audioStatus":"blocked_until_level_final","audioRef":null,"audioVoice":null
+}
