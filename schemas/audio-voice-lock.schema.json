@@ -30,16 +30,17 @@
       }
     },
     "characterVoice": {
-      "allOf": [
-        {"$ref": "#/$defs/voice"},
-        {
-          "type": "object",
-          "properties": {
-            "characterKey": {"type": "string", "minLength": 1}
-          },
-          "required": ["characterKey"]
-        }
-      ]
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["voiceId", "voiceName", "strategy", "characterKey"],
+      "properties": {
+        "voiceId": {"type": "string", "minLength": 1},
+        "voiceName": {"type": "string", "minLength": 1},
+        "strategy": {"enum": ["preference_name", "profile_match", "standalone_inherited", "explicit"]},
+        "matchScore": {"type": ["number", "null"]},
+        "providerMetadata": {"type": ["object", "null"]},
+        "characterKey": {"type": "string", "minLength": 1}
+      }
     }
   }
 }
