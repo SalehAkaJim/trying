@@ -1,39 +1,18 @@
 {
-  "schemaVersion": "1.0.0",
-  "id": "char-de-mia",
-  "languageId": "de",
-  "name": "Mia",
-  "origin": "app_created",
-  "gender": "female",
-  "ageBand": "young_adult",
-  "roles": [
-    "conversation_partner"
+  "schemaVersion":"1.0.0",
+  "id":"char-de-mia",
+  "languageId":"de",
+  "name":"Mia",
+  "origin":"app_created",
+  "gender":"female",
+  "ageBand":"young_adult",
+  "roles":["conversation_partner"],
+  "relationshipTags":["classmate","friend","family"],
+  "relationships":[
+    {"characterId":"char-de-max","type":"classmate","contextNotes":"میا و مکس هم‌کلاسی‌اند و در چند درس ابتدایی دوباره با هم صحبت می‌کنند."},
+    {"characterId":"char-de-lena","type":"friend","contextNotes":"میا و لنا دوست‌اند و می‌توانند در درس‌های بعدی خط داستانی مشترک داشته باشند."},
+    {"characterId":"char-de-paul","type":"family","contextNotes":"میا و پاول خواهر و برادرند و در واحد خانواده می‌توانند دربارهٔ اعضای مشترک خانواده پاسخ بدهند."}
   ],
-  "relationshipTags": [
-    "classmate",
-    "friend"
-  ],
-  "relationships": [
-    {
-      "characterId": "char-de-max",
-      "type": "classmate",
-      "contextNotes": "میا و مکس هم‌کلاسی‌اند و در چند درس ابتدایی دوباره با هم صحبت می‌کنند."
-    },
-    {
-      "characterId": "char-de-lena",
-      "type": "friend",
-      "contextNotes": "میا و لنا دوست‌اند و می‌توانند در درس‌های بعدی خط داستانی مشترک داشته باشند."
-    }
-  ],
-  "contextNotes": "میا ۲۰ ساله است. تاریخ تولد او سیزدهم نوامبر و شمارهٔ تمرینی او 692-267-752 است.",
-  "voiceProfile": {
-    "clarity": "high",
-    "stressLevel": "very_low",
-    "aggressiveness": "none",
-    "toneConsistency": "high",
-    "ageImpression": "young_adult",
-    "genderImpression": "female",
-    "elevenLabsVoiceId": "NE7AIW5DoJ7lUosXV2KR",
-    "voiceName": "Ela - Urban and Playful v.2"
-  }
+  "contextNotes":"میا ۲۰ ساله است. تاریخ تولد او سیزدهم نوامبر و شمارهٔ تمرینی او 692-267-752 است. در واحد خانواده، پاول برادر اوست و هر دو دربارهٔ برادر کوچک‌تر مشترکشان پاسخ می‌دهند.",
+  "voiceProfile":{"clarity":"high","stressLevel":"very_low","aggressiveness":"none","toneConsistency":"high","ageImpression":"young_adult","genderImpression":"female","elevenLabsVoiceId":"NE7AIW5DoJ7lUosXV2KR","voiceName":"Ela - Urban and Playful v.2"}
 }
