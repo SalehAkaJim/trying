@@ -4,6 +4,7 @@
 - finalized lesson does not begin with `conversation_speaking`;
 - finalized lesson activity count falls outside the CEFR-level range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 3–6 total activities;
 - `matching` activity contains fewer than 4 or more than 8 pairs;
+- `Pre-A1` `matching` activity contains anything other than exactly 4 pairs;
 - opening dialogue is outside 4–12 turns;
 - any of the first 10 lessons of a language's beginner path has an opening dialogue other than exactly 4 turns;
 - starter metadata and turn 1 disagree;
@@ -51,8 +52,8 @@ Exact target language, exact source quotations, proper names, stable IDs/keys, U
 ## Matching QA
 - every `matching` activity contains **4–8 pairs**;
 - each side must be non-empty and unique within that activity;
-- `Pre-A1` should normally use **4 pairs**;
-- increasing above 4 must be justified by learning need rather than filler;
+- `Pre-A1` uses **exactly 4 pairs**;
+- levels above `Pre-A1` may increase above 4 only when justified by learning need rather than filler;
 - target-language matching items must remain source-backed.
 
 ## Activity-count QA
