@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-student",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Student",
+  "lemma": "Student",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "دانشجوی مرد",
+  "usageNoteFa": "در بخش منبع‌دار شغل‌ها برای معرفی یک دانشجوی مرد استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-lesson-002-professions"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}
