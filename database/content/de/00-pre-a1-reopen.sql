@@ -6,6 +6,9 @@
 -- the older base migration can safely restore its historical position 3 before the
 -- later quality migration moves the price listening activity back to Lesson 20 and
 -- restores review positions 3 and 4.
+-- Any activity audio still blocked by the old base state is unblocked while the
+-- lesson is open; the base file contains the same transition after finalization,
+-- where changing an activity would correctly be rejected by the guard.
 
 SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 SET time_zone = '+00:00';
@@ -18,6 +21,17 @@ SET l.status='qa'
 WHERE lang.code='de'
   AND ll.cefr_level='Pre-A1'
   AND l.status='final';
+
+UPDATE activities a
+JOIN lessons l ON l.id=a.lesson_id
+JOIN language_levels ll ON ll.id=l.language_level_id
+JOIN languages lang ON lang.id=ll.language_id
+SET a.audio_status='pending'
+WHERE lang.code='de'
+  AND ll.cefr_level='Pre-A1'
+  AND a.audio_text_target IS NOT NULL
+  AND a.audio_status='blocked_until_level_final'
+  AND a.audio_url IS NULL;
 
 UPDATE activities
 SET position_index=98
