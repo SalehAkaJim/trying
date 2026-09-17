@@ -35,7 +35,7 @@ on:
 permissions:
   contents: write
 
-# Temporary push trigger: resolve corrected Hope voice name.
+# Temporary push trigger: resolve exact Hope voice name after schema sync.
 concurrency:
   group: curriculum-audio-${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}-${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
   cancel-in-progress: false
