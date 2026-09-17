@@ -1,7 +1,40 @@
 -- Persian learner-facing payload translations for German Pre-A1.
 -- This file is intentionally sorted after pre-a1.sql and is idempotent.
+-- Final lessons are reopened only for the duration of these activity updates,
+-- then restored to their exact prior status in the same transaction.
 
 START TRANSACTION;
+
+DROP TEMPORARY TABLE IF EXISTS _prea1_translation_lesson_status;
+CREATE TEMPORARY TABLE _prea1_translation_lesson_status AS
+SELECT DISTINCT l.id AS lesson_id, l.status AS original_status
+FROM lessons l
+JOIN activities a ON a.lesson_id=l.id
+WHERE a.activity_key IN (
+  'act-de-hallo-farewell-choice',
+  'act-de-gm-choice',
+  'act-de-pizza-word-order',
+  'act-de-ja-nein-choice',
+  'act-de-danke-bitte-response',
+  'act-de-entschuldigung-matching',
+  'act-de-name-word-order',
+  'act-de-wellbeing-fill',
+  'act-de-simple-choice-word-order',
+  'act-de-residence-matching',
+  'act-de-age-listen',
+  'act-de-time-listen',
+  'act-de-time-of-day',
+  'act-de-birthday-fill',
+  'act-de-phone-listen',
+  'act-de-object-word-order',
+  'act-de-personal-form',
+  'act-de-price-listen'
+);
+
+UPDATE lessons l
+JOIN _prea1_translation_lesson_status b ON b.lesson_id=l.id
+SET l.status='qa'
+WHERE b.original_status='final';
 
 UPDATE activities
 SET payload = JSON_SET(payload,
@@ -69,8 +102,7 @@ SET payload = JSON_SET(payload,'$.audioTextTargetFa','هجده')
 WHERE activity_key='act-de-age-listen';
 
 UPDATE activities
-SET payload = JSON_SET(payload,
-  '$.audioTextTargetFa','ساعت ۶:۳۰ است.')
+SET payload = JSON_SET(payload,'$.audioTextTargetFa','ساعت ۶:۳۰ است.')
 WHERE activity_key='act-de-time-listen';
 
 UPDATE activities
@@ -113,5 +145,11 @@ WHERE activity_key='act-de-personal-form';
 UPDATE activities
 SET payload = JSON_SET(payload,'$.audioTextTargetFa','قیمت مجله ۷٫۶۰ یورو است.')
 WHERE activity_key='act-de-price-listen';
+
+UPDATE lessons l
+JOIN _prea1_translation_lesson_status b ON b.lesson_id=l.id
+SET l.status=b.original_status;
+
+DROP TEMPORARY TABLE _prea1_translation_lesson_status;
 
 COMMIT;
