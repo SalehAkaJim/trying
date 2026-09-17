@@ -5,7 +5,7 @@
   "level": "Pre-A1",
   "modelId": "eleven_multilingual_v2",
   "outputFormat": "mp3_44100_128",
-  "generatedAt": "2026-09-17T16:21:14Z",
+  "generatedAt": "2026-09-17T16:42:22Z",
   "assetCount": 149,
   "assets": [
     {
@@ -44,7 +44,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-phone-listen.mp3",
       "audioSha256": "72df1674d2747627fcda8d902988d83e1a804efc462437e50cdd93ed8c54b878",
       "byteSize": 70261,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "activity",
@@ -63,7 +63,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-price-listen.mp3",
       "audioSha256": "926c6a6ecacb6b88891cf2ed21ef1588685f34acb180cc6290d81d1e435b3b4a",
       "byteSize": 48527,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "activity",
@@ -82,7 +82,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-simple-choice-listen.mp3",
       "audioSha256": "4d5b563a89ac4d3eda9972d8e7e693aadaf7e57b204d2d82914192d2b75cbdf2",
       "byteSize": 24703,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "activity",
@@ -101,7 +101,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-simple-order-listen.mp3",
       "audioSha256": "d567b1c1d779be5a439bd5546e7d57c6a8f44073e4702915005ab686b9c85917",
       "byteSize": 25539,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "activity",
@@ -139,7 +139,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-toilet-listen.mp3",
       "audioSha256": "c18c915310c764da6e8acf35d056ef9249b5e728b7594c391c71b46274e5b154",
       "byteSize": 21777,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -147,8 +147,8 @@
       "audioText": "Wie alt bist du?",
       "expectedSourceHash": "4000ddf9f15272ec95c7de7400f566e3e8457a174571f491a1c2ee3bfb501fb6",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-age-1.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-age-1.mp3",
@@ -156,9 +156,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-age-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-age-1.mp3",
-      "audioSha256": "b5bb05d17ba82aab992d34cfa137cf669363ad800e3605a48170ace554672f54",
-      "byteSize": 19688,
-      "reused": true
+      "audioSha256": "eec80859d53049574d8e53ba7ca17108be608a4c5de2be3f510274cbbc7ca9bd",
+      "byteSize": 32226,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -204,8 +204,8 @@
       "audioText": "Ich bin 20 Jahre alt.",
       "expectedSourceHash": "bd4c8fa9c4e20c3d4b88721832f0044e7f3c0d5957383e700c48401518605abe",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-age-4.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-age-4.mp3",
@@ -213,9 +213,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-age-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-age-4.mp3",
-      "audioSha256": "cbc126c79a4f1299707b679844eba4beba66a868153c271f6ec8c38a9af8ce04",
-      "byteSize": 25539,
-      "reused": true
+      "audioSha256": "bd6cdb075b497665ed9ed7a710b93fe800007567d0eebff0c5c82203e77f1be0",
+      "byteSize": 37660,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -223,8 +223,8 @@
       "audioText": "Wann hast du Geburtstag?",
       "expectedSourceHash": "b110beafea5dd4613479d598bd803a2c2f09bdd8adaf69a7fdcd5eca0923fd7e",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-birthday-1.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-birthday-1.mp3",
@@ -232,9 +232,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-birthday-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-birthday-1.mp3",
-      "audioSha256": "b78f0d05db484baa899f4acd168298c5d43669adefcf605a4c8b9f45a8c1e9dc",
-      "byteSize": 24285,
-      "reused": true
+      "audioSha256": "f14c1d8e03d7867113f0cf3cf653d197c55fa64deffa0af9c725993d8ba1e1b8",
+      "byteSize": 33898,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -280,8 +280,8 @@
       "audioText": "Ich habe am dreizehnten November Geburtstag.",
       "expectedSourceHash": "82b01dce7f3b0a3c90ff47defa32f46b800599a91a04165d2be2230dc273ecfe",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-birthday-4.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-birthday-4.mp3",
@@ -289,9 +289,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-birthday-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-birthday-4.mp3",
-      "audioSha256": "bef7b9028f17d969802cc3759a1d878afbb499efff72d5e336c973959a5b20f0",
-      "byteSize": 39750,
-      "reused": true
+      "audioSha256": "6b2b75ced58bcf46f7364a82b7f11bc2b3c1aaa37841cbd6358967cded58089a",
+      "byteSize": 60648,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -299,8 +299,8 @@
       "audioText": "Hallo!",
       "expectedSourceHash": "357a57fe73d6c63bb1923e970f79a924db3a3609eb9797547784a94ee38fc3df",
       "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Adam - Authentic & Engaging Conversationalist",
-      "voiceId": "s3TPKV1kjDlVtZbl4Ksh",
+      "voiceName": "Leon - Soothing and Grounded",
+      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-choice-1.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-choice-1.mp3",
@@ -308,9 +308,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-choice-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-choice-1.mp3",
-      "audioSha256": "fc245bb644670e7e38f1f250e9699c28192a1f678b14c9d1524d8d25f0eb5945",
-      "byteSize": 15926,
-      "reused": true
+      "audioSha256": "21638562bff9904c734ef2dd7dad411c64e152517a0f908cd34095eb90afa181",
+      "byteSize": 13000,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -337,8 +337,8 @@
       "audioText": "Was möchtest du?",
       "expectedSourceHash": "8c9f2215996e4c6b6b59f6cdb3e3264987ca154b6c889b0b97e3f3fea9647a7c",
       "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Adam - Authentic & Engaging Conversationalist",
-      "voiceId": "s3TPKV1kjDlVtZbl4Ksh",
+      "voiceName": "Leon - Soothing and Grounded",
+      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-choice-3.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-choice-3.mp3",
@@ -346,9 +346,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-choice-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-choice-3.mp3",
-      "audioSha256": "0c824c7cf2f8808d3ea13a3316403d8d86c2c9d5a3dc9752cda5614b173d8223",
-      "byteSize": 20942,
-      "reused": true
+      "audioSha256": "18a5423b84f1e5d5d5e76eed19d99789c6b42e1c7d1665111b187f663613935f",
+      "byteSize": 24703,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -375,8 +375,8 @@
       "audioText": "Hallo!",
       "expectedSourceHash": "357a57fe73d6c63bb1923e970f79a924db3a3609eb9797547784a94ee38fc3df",
       "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Adam - Authentic & Engaging Conversationalist",
-      "voiceId": "s3TPKV1kjDlVtZbl4Ksh",
+      "voiceName": "Leon - Soothing and Grounded",
+      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-danke-bitte-1.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-danke-bitte-1.mp3",
@@ -384,9 +384,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-danke-bitte-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-danke-bitte-1.mp3",
-      "audioSha256": "51ce7544d68c246c904d849d342081b17b795fffa6714b12db6b88d0b8d1151e",
-      "byteSize": 15090,
-      "reused": true
+      "audioSha256": "1e73d531c8264f1b7276a3a84630bb067ba8d7ef135730a9e96e50c6edd86943",
+      "byteSize": 13836,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -413,8 +413,8 @@
       "audioText": "Danke!",
       "expectedSourceHash": "dacc874c2bd53ebe5e4e58ff2d986849d5e178e70f823dc9efe9615301ea4b02",
       "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Adam - Authentic & Engaging Conversationalist",
-      "voiceId": "s3TPKV1kjDlVtZbl4Ksh",
+      "voiceName": "Leon - Soothing and Grounded",
+      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-danke-bitte-3.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-danke-bitte-3.mp3",
@@ -422,9 +422,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-danke-bitte-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-danke-bitte-3.mp3",
-      "audioSha256": "2c97d79ce0c0af84b5e3be5546ea38cce2598b4d3532116a8f3ad171db8a25f5",
-      "byteSize": 15090,
-      "reused": true
+      "audioSha256": "57eb79bf442560d4a06fcc3ced85e005fdcdac01e4f50ee0b03f28a5b16288eb",
+      "byteSize": 16762,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -470,8 +470,8 @@
       "audioText": "Kein Problem.",
       "expectedSourceHash": "5d8e88683f6d9efcc7d1e08dd640e164f651605f8d3d76c3b1161e339b63d311",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-entschuldigung-2.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-entschuldigung-2.mp3",
@@ -479,9 +479,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-entschuldigung-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-entschuldigung-2.mp3",
-      "audioSha256": "6874da20ac70d122c77e8534501478775b77102f0512cf3dca0158a379bbc98a",
-      "byteSize": 19688,
-      "reused": true
+      "audioSha256": "777dc0fcb53ea90faa8c4b8d25efa39f1d210b28356d05dbcc3d10f3db3d727b",
+      "byteSize": 27629,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -508,8 +508,8 @@
       "audioText": "Bitte!",
       "expectedSourceHash": "bae96a730bf6df654872f70cf07d031e5b564c1ab9be6b18edf74b9b15e264b9",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-entschuldigung-4.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-entschuldigung-4.mp3",
@@ -517,9 +517,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-entschuldigung-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-entschuldigung-4.mp3",
-      "audioSha256": "56ab6855fc7bfb96fcd45c619cf3b859afc25098e124c41fb1b3023f854da6b2",
-      "byteSize": 15090,
-      "reused": true
+      "audioSha256": "79bfa8d283123c6f07583cd4b5a23181e03a4c21ee9796ee60d210c324363221",
+      "byteSize": 20524,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -622,8 +622,8 @@
       "audioText": "Guten Morgen!",
       "expectedSourceHash": "d8fcfdbdd51c12e43bfe500e065983dfb4e7ad7e49c204b94cc00eecf83418e8",
       "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Adam - Authentic & Engaging Conversationalist",
-      "voiceId": "s3TPKV1kjDlVtZbl4Ksh",
+      "voiceName": "Leon - Soothing and Grounded",
+      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-gm-2.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-gm-2.mp3",
@@ -631,9 +631,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-gm-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-gm-2.mp3",
-      "audioSha256": "e090aae0dc86fe5df2e7e26c2ce7aedc94803c43fae4110ced206443b1630a72",
-      "byteSize": 17598,
-      "reused": true
+      "audioSha256": "1afe226a1e1d8030fa9a61733f6b0e92c9e74129dd31b42aa950aeaa80627b99",
+      "byteSize": 19688,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -641,8 +641,8 @@
       "audioText": "Tschüss!",
       "expectedSourceHash": "43f692229732b4a5323689d6dc018a4acb578ca6d48152b78ceb88250d3323fa",
       "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Adam - Authentic & Engaging Conversationalist",
-      "voiceId": "s3TPKV1kjDlVtZbl4Ksh",
+      "voiceName": "Leon - Soothing and Grounded",
+      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-gm-3.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-gm-3.mp3",
@@ -650,9 +650,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-gm-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-gm-3.mp3",
-      "audioSha256": "379b39a8bec8e79b9d1342e9a5b59cc83c57fe9d4165da4794b38933c587974d",
+      "audioSha256": "c2563d90c191461b2772f0cbaa4a34e1e44b0bbf39883873bb9f8a737081e50e",
       "byteSize": 16762,
-      "reused": true
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -679,8 +679,8 @@
       "audioText": "Hallo!",
       "expectedSourceHash": "357a57fe73d6c63bb1923e970f79a924db3a3609eb9797547784a94ee38fc3df",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-hallo-1.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-hallo-1.mp3",
@@ -688,9 +688,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-hallo-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-hallo-1.mp3",
-      "audioSha256": "af93a17bb7797bfa2e5f8cca55eb55f5081e52a69c49da76128145ca51c423e4",
-      "byteSize": 13836,
-      "reused": true
+      "audioSha256": "7cad94576690b42d560527a453ca6c1c1de876e76c884e799e1c4c2b3a7bb743",
+      "byteSize": 19688,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -717,8 +717,8 @@
       "audioText": "Tschüss!",
       "expectedSourceHash": "43f692229732b4a5323689d6dc018a4acb578ca6d48152b78ceb88250d3323fa",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-hallo-3.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-hallo-3.mp3",
@@ -726,9 +726,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-hallo-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-hallo-3.mp3",
-      "audioSha256": "1d4d694aa2396a187269491e6cc63f9213a3b9f0a2c7b69cb1ab1c0b2de85e76",
-      "byteSize": 18016,
-      "reused": true
+      "audioSha256": "81cf5f13c826f5eed2cbaaf248fe0429d795854fde2bad28cbec65d08a9a0510",
+      "byteSize": 22613,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -850,8 +850,8 @@
       "audioText": "Hallo!",
       "expectedSourceHash": "357a57fe73d6c63bb1923e970f79a924db3a3609eb9797547784a94ee38fc3df",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-ja-2.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-ja-2.mp3",
@@ -859,9 +859,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-ja-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-ja-2.mp3",
-      "audioSha256": "bd3a6ee7c52a7d6579bddc16282652142aae62316056f40d40d6fe402f6081bb",
-      "byteSize": 17598,
-      "reused": true
+      "audioSha256": "4a946002ddef0ac5f2aaa1a638340782e299d3e832eb95954f1fd510e87da21d",
+      "byteSize": 18852,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -888,8 +888,8 @@
       "audioText": "Ja!",
       "expectedSourceHash": "a2107b1e8fbd980e039f39db3063a8a3ac8204b1ee1e8e30a8864c47352fdd7c",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-ja-4.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-ja-4.mp3",
@@ -897,9 +897,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-ja-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-ja-4.mp3",
-      "audioSha256": "c8c3318d8f64426ea086faa7180f8bd0c87fdc64967d7ad473a6e6270693a08c",
-      "byteSize": 11328,
-      "reused": true
+      "audioSha256": "8e6f643221f26dcb497a00537dcdbab4e03c54020cf7077e6ccaceedb802231a",
+      "byteSize": 14254,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -926,8 +926,8 @@
       "audioText": "Hallo!",
       "expectedSourceHash": "357a57fe73d6c63bb1923e970f79a924db3a3609eb9797547784a94ee38fc3df",
       "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Adam - Authentic & Engaging Conversationalist",
-      "voiceId": "s3TPKV1kjDlVtZbl4Ksh",
+      "voiceName": "Leon - Soothing and Grounded",
+      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-name-2.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-name-2.mp3",
@@ -935,9 +935,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-name-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-name-2.mp3",
-      "audioSha256": "699e7578d12c5b895a438d797fd92b204c91321a6bb33157ce4670b79527280d",
-      "byteSize": 15090,
-      "reused": true
+      "audioSha256": "c60463029a6f26e109b75f47926e18141843bb7194f668a1ebda9fa1e3a0c37e",
+      "byteSize": 13836,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -945,8 +945,8 @@
       "audioText": "Wie heißt du?",
       "expectedSourceHash": "2753e4860651be83bea82179f42ddb29947635c5ea61b047a06924f8c758f042",
       "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Adam - Authentic & Engaging Conversationalist",
-      "voiceId": "s3TPKV1kjDlVtZbl4Ksh",
+      "voiceName": "Leon - Soothing and Grounded",
+      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-name-3.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-name-3.mp3",
@@ -954,9 +954,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-name-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-name-3.mp3",
-      "audioSha256": "aa3b83500c2150b158b90db42dc815d34f01a92228c6288fdd858865da8f2ce1",
-      "byteSize": 17598,
-      "reused": true
+      "audioSha256": "645fcf2bcfa62fc9f4d36605383b9fa26aba6939e1175ed708302d7c9e4f2230",
+      "byteSize": 18852,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1078,8 +1078,8 @@
       "audioText": "Das ist ein Buch.",
       "expectedSourceHash": "b71ba810509465f2b34b383718ca755e1fa3bad4fa5a128fe6bea7c88639a662",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-object-2.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-object-2.mp3",
@@ -1087,9 +1087,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-object-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-object-2.mp3",
-      "audioSha256": "336bfebc25ec4e5385e02353eb46a20c98efa0639f013b410a346fc17c78821b",
-      "byteSize": 20942,
-      "reused": true
+      "audioSha256": "3273734825ee291d6acddad625edd4867e30481f06363dc1e130289bea4a79d1",
+      "byteSize": 32226,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1097,8 +1097,8 @@
       "audioText": "Was ist das?",
       "expectedSourceHash": "1f95da836b4c4f2a5f1f27979a25137ba84a5a033f3026bb534d36bd9efd531c",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-object-3.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-object-3.mp3",
@@ -1106,9 +1106,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-object-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-object-3.mp3",
-      "audioSha256": "61bf0daedc34498d57a9a3f8b9dbb2e0a55bbd0d3a5542e7cb427c986572f121",
-      "byteSize": 18852,
-      "reused": true
+      "audioSha256": "aad0d1359853aceda98203607cbbff565467af73ba175bd17f1e0e61e22976ba",
+      "byteSize": 25539,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1135,8 +1135,8 @@
       "audioText": "Wie lautet deine Telefonnummer?",
       "expectedSourceHash": "31819adbccf49b77a825310d1ea7f0dd73b558fa887f59dfa592ff9a4bb76942",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-phone-1.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-phone-1.mp3",
@@ -1144,9 +1144,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-phone-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-phone-1.mp3",
-      "audioSha256": "adda7aa4cc419942c3950f2fd80fd9b84fbea3fe5097d4e4b2478f292f574515",
-      "byteSize": 26375,
-      "reused": true
+      "audioSha256": "835e5e63093e2ee71e609b62c7ca9bed8fc5747252b3324c9e4f69c2d9011f7b",
+      "byteSize": 39750,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1165,7 +1165,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-phone-2.mp3",
       "audioSha256": "b4bf47f37e2788296c828946f7d4202b923f978f6b15405c1507286fab1f4cb2",
       "byteSize": 61066,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1192,8 +1192,8 @@
       "audioText": "Meine Telefonnummer ist: 692-267-752.",
       "expectedSourceHash": "85a30fb7eea64eb3cf66ca61aedf689a3174638a24f21a394bf00e819160f2ce",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-phone-4.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-phone-4.mp3",
@@ -1201,9 +1201,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-phone-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-phone-4.mp3",
-      "audioSha256": "7857f20d6c97e59ac4200723f546f6f66502da6e6f261f959b4000b187ed844c",
-      "byteSize": 61902,
-      "reused": true
+      "audioSha256": "ada79ccea64f8ec4a39da9734bfb337ca8001bc662b55c287058754ea32887ce",
+      "byteSize": 99100,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1211,8 +1211,8 @@
       "audioText": "Hallo!",
       "expectedSourceHash": "357a57fe73d6c63bb1923e970f79a924db3a3609eb9797547784a94ee38fc3df",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-pizza-1.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-pizza-1.mp3",
@@ -1220,9 +1220,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-pizza-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-pizza-1.mp3",
-      "audioSha256": "f895448179f88aa835afd3110b055dd149056c65a655616f7c842316e3072275",
-      "byteSize": 13000,
-      "reused": true
+      "audioSha256": "b3e215ac0aa2e2aeea3006ae9830bc2d65a592f4facdf389ef7ba5673fd1bc08",
+      "byteSize": 19688,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1249,8 +1249,8 @@
       "audioText": "Magst du Pizza?",
       "expectedSourceHash": "0165e376399855bf0a2ffb6fa6b2f41e6529053f9a34bab9de4ba5068efa6d39",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-pizza-3.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-pizza-3.mp3",
@@ -1258,9 +1258,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-pizza-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-pizza-3.mp3",
-      "audioSha256": "7d64278c162ef8abd667126a257533972c68ea06fc76cbef2157b3de38bf6fd7",
-      "byteSize": 18852,
-      "reused": true
+      "audioSha256": "4441cac62e552e92e57d83e7375295758dd30965edaf811436365aec3ccf47c3",
+      "byteSize": 29301,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1667,8 +1667,8 @@
       "audioText": "Welcher Tag ist heute?",
       "expectedSourceHash": "0512ccba8b6863fe08bf0ca6ae1daa81d78e538e7c34f04a5a2baa75a172a19b",
       "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Adam - Authentic & Engaging Conversationalist",
-      "voiceId": "s3TPKV1kjDlVtZbl4Ksh",
+      "voiceName": "Leon - Soothing and Grounded",
+      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-time-1.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-time-1.mp3",
@@ -1676,9 +1676,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-time-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-time-1.mp3",
-      "audioSha256": "0d50ae90ff1abf21b78fa24a39418eb457b8f815426460efd676f2026ee0c157",
-      "byteSize": 22613,
-      "reused": true
+      "audioSha256": "a90acbd0e21ecdb56c05241c46f781dad3d2fa15d598a25a46c1d76254bee18a",
+      "byteSize": 26375,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1686,8 +1686,8 @@
       "audioText": "Heute ist Dienstag.",
       "expectedSourceHash": "26b381270fdbc6fe6c5d393eb5a88c5c42b3ab12ac22dbdab948ce15dd5a1ea6",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-time-2.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-time-2.mp3",
@@ -1695,9 +1695,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-time-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-time-2.mp3",
-      "audioSha256": "b4fb9542d049ef426b782a1bfb38d930931e6d77dc405ef508e9e46a9c4bcd86",
-      "byteSize": 23449,
-      "reused": true
+      "audioSha256": "ea60eda5b0a68f2e42d69de9a3b9b2f44e16ed9a24455e10b25c8019b28c4b96",
+      "byteSize": 33898,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1705,8 +1705,8 @@
       "audioText": "Wie spät ist es?",
       "expectedSourceHash": "71eea649b3249b034472ada67adabf9747f4dd5eb9a4b29ee18b0f1b9d16bcf8",
       "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Adam - Authentic & Engaging Conversationalist",
-      "voiceId": "s3TPKV1kjDlVtZbl4Ksh",
+      "voiceName": "Leon - Soothing and Grounded",
+      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-time-3.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-time-3.mp3",
@@ -1714,9 +1714,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-time-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-time-3.mp3",
-      "audioSha256": "0f849a595c9b5d3a2d52a7dd9b95dd9ffb55ff0e3c245b251c39fe8732db0665",
-      "byteSize": 20524,
-      "reused": true
+      "audioSha256": "fb1f210aa24b95a03c421a04f1f1c431a2fcf04b3f52c2673a2d48a9f7eeed12",
+      "byteSize": 30137,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1724,8 +1724,8 @@
       "audioText": "Es ist 6.30 Uhr.",
       "expectedSourceHash": "748dfc000ff6f4d65ed52fb4f52ab33afda0f3cdc1b84ade83996f2c4afbf126",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-time-4.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-time-4.mp3",
@@ -1733,9 +1733,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-time-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-time-4.mp3",
-      "audioSha256": "83f98ef1180a2334c90ddad5c8135712cda8a21ad528d1cd616107e8a78e8f90",
-      "byteSize": 26375,
-      "reused": true
+      "audioSha256": "0a58f92734dde0c9d278d9078f07becb12fa3e4c3714a6e4f464ee13866a0bed",
+      "byteSize": 42675,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1754,7 +1754,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-toilet-1.mp3",
       "audioSha256": "77682dc708e09494b933d8d3f0a5d1029cd38e9152a8ae9b74bc7b409f3743e4",
       "byteSize": 20524,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1773,7 +1773,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-toilet-2.mp3",
       "audioSha256": "fa59604cd6fa496746a254e141fb3c8ca270114c394d84f68c28fe226987b656",
       "byteSize": 12164,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1819,8 +1819,8 @@
       "audioText": "Hallo!",
       "expectedSourceHash": "357a57fe73d6c63bb1923e970f79a924db3a3609eb9797547784a94ee38fc3df",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-wellbeing-1.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-wellbeing-1.mp3",
@@ -1828,9 +1828,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-wellbeing-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-wellbeing-1.mp3",
-      "audioSha256": "ec57aa7ca71282170fcd404c3eec16d9c9a80ed93bc9dcae1a55fd14949881e8",
-      "byteSize": 13836,
-      "reused": true
+      "audioSha256": "47565140c7a4ada681b35acc3ba4b2662d1e2794a6f782522ca71d6ae419de55",
+      "byteSize": 20942,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1857,8 +1857,8 @@
       "audioText": "Wie geht's?",
       "expectedSourceHash": "bd23ea6cdb98e4bb5d64da2cc90102ddc6acacb0806ae97aa3f5e03e817f6057",
       "voiceAssignmentKey": "char-de-mia",
-      "voiceName": "Ava – Natural AI Voice",
-      "voiceId": "gJx1vCzNCD1EQHT212Ls",
+      "voiceName": "Ela - Urban and Playful v.2",
+      "voiceId": "NE7AIW5DoJ7lUosXV2KR",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-wellbeing-3.mp3",
       "audioStoragePath": "audio/de/pre-a1/dialogue_turn/turn-de-wellbeing-3.mp3",
@@ -1866,9 +1866,9 @@
       "needsGeneration": false,
       "path": "audio/de/pre-a1/dialogue_turn/turn-de-wellbeing-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-wellbeing-3.mp3",
-      "audioSha256": "241487a60442d3617685d27d4ef152786a6ac94016c21f3ea89107b1ea13f66b",
-      "byteSize": 13000,
-      "reused": true
+      "audioSha256": "5f05d607a6043b24de7afe10251cab32cfd2df6c981c05921fa8b5d14799e068",
+      "byteSize": 21777,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1906,7 +1906,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/lexeme/lex-de-abend.mp3",
       "audioSha256": "2faf3eeef69e3b073d1dbeb066d6520558e6eaae373fc4e3596317f8b96e3772",
       "byteSize": 12164,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "lexeme",
@@ -2552,7 +2552,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/lexeme/lex-de-morgen.mp3",
       "audioSha256": "97c057e60cd3139f7ec295a52113eb3291c32aef5907d698de48413aa571e796",
       "byteSize": 15090,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "lexeme",
