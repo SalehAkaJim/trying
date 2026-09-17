@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-unit-simple-orders",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "titleFa": "خرید و سفارش خیلی ساده",
+  "learningTargets": [
+    "در یک بافت ساده بفهمد امروز چه غذایی موجود است و یک غذای آشنا را بگوید.",
+    "یک سفارش بسیار کوتاه و مؤدبانه برای نوشیدنی یا خوراکی آشنا را بفهمد و بازسازی کند.",
+    "نیاز و خرید بسیار ساده را با الگوهای منبع‌دار «brauchen» و «kaufen» بفهمد."
+  ],
+  "lessonRefs": [
+    "de-pre-a1-lesson-food-today",
+    "de-pre-a1-lesson-simple-order",
+    "de-pre-a1-lesson-need-and-buy"
+  ],
+  "groupingRationale": "این سه درس زبان‌آموز را از دیدن و گفتن گزینهٔ موجود، به سفارش مؤدبانه و سپس بیان یک نیاز/خرید بسیار ساده می‌برند؛ همه در موقعیت‌های روزمرهٔ کم‌فشار و با جمله‌های کوتاه و منبع‌دار باقی می‌مانند.",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002",
+    "src-wikibooks-de-lesson-004"
+  ],
+  "status": "final",
+  "notes": "این Unit دامنهٔ کاربرد روزمرهٔ Pre-A1 را گسترش می‌دهد و هیچ سهمیهٔ عددی برای تعداد درس ایجاد نمی‌کند."
+}

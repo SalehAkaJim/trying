@@ -1,0 +1,17 @@
+{
+  "id": "dlg-de-pre-a1-food-today",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": ["src-wikibooks-de-lesson-002"],
+  "scenario": "آیریس و پاول در یک موقعیت ساده دربارهٔ غذای امروز و چیزی که می‌خورند سؤال و جواب می‌کنند.",
+  "openingInitiator": "app",
+  "characterRefs": ["char-de-iris", "char-de-paul"],
+  "turns": [
+    {"id":"turn-de-food-today-1","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Was gibt es heute?","translationFa":"امروز چی داریم؟","learnerTurn":false,"lexemeRefs":["lex-de-heute"],"lexemeOccurrences":[{"surface":"heute","lexemeId":"lex-de-heute","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-002"],"audioRef":null},
+    {"id":"turn-de-food-today-2","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Heute gibt es Suppe.","translationFa":"امروز سوپ داریم.","learnerTurn":true,"lexemeRefs":["lex-de-heute","lex-de-suppe"],"lexemeOccurrences":[{"surface":"Heute","lexemeId":"lex-de-heute","lexemeFormId":null},{"surface":"Suppe","lexemeId":"lex-de-suppe","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-002"],"audioRef":null},
+    {"id":"turn-de-food-today-3","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Was essen Sie?","translationFa":"شما چی می‌خورید؟","learnerTurn":false,"lexemeRefs":["lex-de-essen"],"lexemeOccurrences":[{"surface":"essen","lexemeId":"lex-de-essen","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-002"],"audioRef":null},
+    {"id":"turn-de-food-today-4","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Ich esse Reis.","translationFa":"من برنج می‌خورم.","learnerTurn":true,"lexemeRefs":["lex-de-essen","lex-de-reis"],"lexemeOccurrences":[{"surface":"esse","lexemeId":"lex-de-essen","lexemeFormId":null},{"surface":"Reis","lexemeId":"lex-de-reis","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-002"],"audioRef":null}
+  ],
+  "sceneQualityRationale": "چهار نوبت کافی است تا زبان‌آموز هم سؤال دربارهٔ گزینهٔ موجود را بفهمد و هم یک پاسخ کوتاه دربارهٔ خوردن تولید کند؛ هیچ جملهٔ اضافه‌ای برای طولانی‌کردن صحنه وارد نشده است.",
+  "learnerCharacterId": "char-de-paul"
+}

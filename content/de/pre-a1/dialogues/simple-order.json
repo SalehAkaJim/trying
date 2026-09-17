@@ -1,0 +1,17 @@
+{
+  "id": "dlg-de-pre-a1-simple-order",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "sourceRefs": ["src-wikibooks-de-lesson-002"],
+  "scenario": "آیریس سفارش بسیار کوتاه پاول را می‌گیرد؛ پاول با یک عبارت کوتاه و مؤدبانه قهوه سفارش می‌دهد.",
+  "openingInitiator": "app",
+  "characterRefs": ["char-de-iris", "char-de-paul"],
+  "turns": [
+    {"id":"turn-de-simple-order-1","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Guten Tag!","translationFa":"سلام / روز بخیر!","learnerTurn":false,"lexemeRefs":[],"lexemeOccurrences":[],"sourceRefs":["src-wikibooks-de-lesson-002"],"audioRef":null},
+    {"id":"turn-de-simple-order-2","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Guten Tag!","translationFa":"سلام / روز بخیر!","learnerTurn":true,"lexemeRefs":[],"lexemeOccurrences":[],"sourceRefs":["src-wikibooks-de-lesson-002"],"audioRef":null},
+    {"id":"turn-de-simple-order-3","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Was möchten Sie bitte?","translationFa":"لطفاً چی میل دارید؟","learnerTurn":false,"lexemeRefs":["lex-de-bitte"],"lexemeOccurrences":[{"surface":"bitte","lexemeId":"lex-de-bitte","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-002"],"audioRef":null},
+    {"id":"turn-de-simple-order-4","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Eine Tasse Kaffee bitte!","translationFa":"یک فنجان قهوه لطفاً!","learnerTurn":true,"lexemeRefs":["lex-de-tasse","lex-de-kaffee","lex-de-bitte"],"lexemeOccurrences":[{"surface":"Tasse","lexemeId":"lex-de-tasse","lexemeFormId":null},{"surface":"Kaffee","lexemeId":"lex-de-kaffee","lexemeFormId":null},{"surface":"bitte","lexemeId":"lex-de-bitte","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-002"],"audioRef":null}
+  ],
+  "sceneQualityRationale": "صحنه فقط یک سفارش کوتاه را تمرین می‌کند: سلام، پرسش سفارش و پاسخ مؤدبانه؛ جمله‌های منبع‌دار بدون پیچیدگی دستوری تازه استفاده شده‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}
