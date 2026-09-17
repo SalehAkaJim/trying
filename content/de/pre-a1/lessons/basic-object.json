@@ -19,9 +19,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "خود مکالمه توصیفگر را کامل پوشش می‌دهد؛ فعالیت تصویری عمداً وارد نمی‌شود.",
-    "sequenceRationale": "زبان‌آموز یک بار سؤال را شروع می‌کند و یک بار پاسخ می‌دهد تا هر دو نقش تمرین شوند.",
-    "templateSignature": "conversation_speaking"
+    "activitySelectionRationale": "مکالمه پرسش و پاسخ را در بافت متنی تمرین می‌کند و بازسازی یکی از پاسخ‌های دقیق منبع، الگوی «Das ist ...» را بدون تصویر و بدون ساخت جملهٔ تازه بازیابی می‌کند.",
+    "sequenceRationale": "اول زبان‌آموز سؤال و پاسخ را در تعامل می‌بیند و سپس یک پاسخ منبع‌دار را با مرتب‌کردن واژه‌ها بازسازی می‌کند.",
+    "templateSignature": "conversation_speaking>word_order"
   },
   "activities": [
     {
@@ -47,6 +47,41 @@
       "transformations": [
         "persian_translation_added",
         "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-object-word-order",
+      "type": "word_order",
+      "instructionFa": "پاسخ منبع‌دار را دوباره بساز.",
+      "selectionReason": "بازسازی «Das ist ein Buch.» همان الگوی پاسخ درس را بدون تصویر و بدون افزودن زبان تازه تثبیت می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-basic-object"
+      ],
+      "learningTargets": [
+        "بازسازی درست پاسخ سادهٔ «Das ist ein Buch.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-buch"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Das ist ein Buch.",
+        "tokens": [
+          "Das",
+          "ist",
+          "ein",
+          "Buch."
+        ],
+        "answer": [
+          "Das",
+          "ist",
+          "ein",
+          "Buch."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order"
       ],
       "audioStatus": "not_required"
     }
