@@ -4,14 +4,23 @@
   "lexemeId": "lex-de-heissen",
   "surface": "heiße",
   "formType": "inflected",
+  "formTypeFa": "صرف‌شده",
   "features": {
     "tense": "present",
     "mood": "indicative",
     "person": "1",
     "number": "singular"
   },
+  "featuresFa": {
+    "tense": "حال",
+    "mood": "اخباری",
+    "person": "اول‌شخص",
+    "number": "مفرد"
+  },
   "origin": "reference_attested",
+  "originFa": "ثبت‌شده در مرجع",
   "reviewStatus": "approved",
+  "reviewStatusFa": "تأییدشده",
   "sourceRefs": [
     "src-wiktionary-de-heissen",
     "src-wikibooks-de-wie-heisst-du"
