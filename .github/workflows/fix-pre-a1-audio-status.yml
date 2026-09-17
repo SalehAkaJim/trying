@@ -1,0 +1,36 @@
+name: Fix Pre-A1 Audio Status Update
+
+on:
+  push:
+    branches:
+      - fix/pre-a1-activity-bounds
+    paths:
+      - '.github/workflows/fix-pre-a1-audio-status.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/pre-a1-activity-bounds
+          fetch-depth: 0
+      - name: Remove forbidden audio status overwrite
+        run: python scripts/fix_pre_a1_audio_status_update.py
+      - name: Verify diff
+        run: |
+          git diff --check
+          git diff --quiet -- database/content/de/pre-a1.sql && {
+            echo 'Expected SQL diff was not produced.'
+            exit 1
+          } || true
+      - name: Commit SQL fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add database/content/de/pre-a1.sql
+          git commit -m 'Preserve generated audio status on Pre-A1 reimport'
+          git push origin HEAD:fix/pre-a1-activity-bounds
