@@ -10,13 +10,21 @@
     "پرسش «Was brauchen Sie?» را بفهمد و پاسخ کوتاه منبع‌دار را تشخیص دهد.",
     "پرسش «Und was kaufen Sie?» را بفهمد و پاسخ کوتاه منبع‌دار دربارهٔ خرید را تشخیص دهد."
   ],
-  "sourceRefs": ["src-wikibooks-de-lesson-004"],
-  "lexemeRefs": ["lex-de-brauchen", "lex-de-hose", "lex-de-kaufen", "lex-de-hemd", "lex-de-schuhe"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-004"
+  ],
+  "lexemeRefs": [
+    "lex-de-brauchen",
+    "lex-de-hose",
+    "lex-de-kaufen",
+    "lex-de-hemd",
+    "lex-de-schuhe"
+  ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "مکالمه دو فعل کاربردی را در دو سؤال پشت‌سرهم معرفی می‌کند و تمرین تطبیق تفاوت معنایی نیاز و خرید را با همان پاسخ‌های منبع‌دار بازیابی می‌کند.",
-    "sequenceRationale": "ابتدا نیاز و خرید در تعامل دیده می‌شوند؛ سپس دو پرسش به پاسخ درستشان وصل می‌شوند.",
-    "templateSignature": "conversation_speaking>matching"
+    "activitySelectionRationale": "چهار مرحله مکالمه، تطبیق نیاز/خرید، ساخت جملهٔ نیاز و تشخیص جملهٔ خرید را پوشش می‌دهد.",
+    "sequenceRationale": "معنی دو فعل در تعامل ساخته می‌شود و سپس با تولید و تمایز فعال تثبیت می‌شود.",
+    "templateSignature": "conversation_speaking>matching>word_order>multiple_choice"
   },
   "activities": [
     {
@@ -24,12 +32,28 @@
       "type": "conversation_speaking",
       "instructionFa": "به آیریس بگو چه چیزی لازم داری و چه چیزی می‌خری.",
       "selectionReason": "دو جفت سؤال و پاسخ کوتاه بدون توضیح دستوری سنگین معنای کاربردی «brauchen» و «kaufen» را روشن می‌کنند.",
-      "sourceRefs": ["src-wikibooks-de-lesson-004"],
-      "learningTargets": ["فهم و پاسخ کوتاه دربارهٔ نیاز و خرید."],
-      "lexemeRefs": ["lex-de-brauchen", "lex-de-hose", "lex-de-kaufen", "lex-de-hemd", "lex-de-schuhe"],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "فهم و پاسخ کوتاه دربارهٔ نیاز و خرید."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hose",
+        "lex-de-kaufen",
+        "lex-de-hemd",
+        "lex-de-schuhe"
+      ],
       "dialogueRef": "dlg-de-pre-a1-need-and-buy",
-      "data": {"interaction": "read_aloud_exchange", "openingInitiator": "app"},
-      "transformations": ["persian_translation_added", "character_metadata_added"],
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
       "audioStatus": "not_required"
     },
     {
@@ -37,17 +61,117 @@
       "type": "matching",
       "instructionFa": "هر سؤال را به پاسخ درست وصل کن.",
       "selectionReason": "تمرین، دو کاربرد نزدیک ولی متفاوت را فقط با جمله‌های دقیق منبع تثبیت می‌کند.",
-      "sourceRefs": ["src-wikibooks-de-lesson-004"],
-      "learningTargets": ["تشخیص تفاوت سؤال دربارهٔ نیاز و سؤال دربارهٔ خرید."],
-      "lexemeRefs": ["lex-de-brauchen", "lex-de-hose", "lex-de-kaufen", "lex-de-hemd", "lex-de-schuhe"],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "تشخیص تفاوت سؤال دربارهٔ نیاز و سؤال دربارهٔ خرید."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hose",
+        "lex-de-kaufen",
+        "lex-de-hemd",
+        "lex-de-schuhe"
+      ],
       "dialogueRef": null,
       "data": {
         "pairs": [
-          {"left": "Was brauchen Sie?", "leftFa": "چه چیزی لازم دارید؟", "right": "Ich brauche eine Hose.", "rightFa": "من یک شلوار لازم دارم."},
-          {"left": "Und was kaufen Sie?", "leftFa": "و چه چیزی می‌خرید؟", "right": "Ich kaufe ein Hemd und ein Paar Schuhe.", "rightFa": "من یک پیراهن و یک جفت کفش می‌خرم."}
+          {
+            "left": "Was brauchen Sie?",
+            "leftFa": "چه چیزی لازم دارید؟",
+            "right": "Ich brauche eine Hose.",
+            "rightFa": "من یک شلوار لازم دارم."
+          },
+          {
+            "left": "Und was kaufen Sie?",
+            "leftFa": "و چه چیزی می‌خرید؟",
+            "right": "Ich kaufe ein Hemd und ein Paar Schuhe.",
+            "rightFa": "من یک پیراهن و یک جفت کفش می‌خرم."
+          }
         ]
       },
-      "transformations": ["source_items_grouped_for_matching", "persian_translation_added"],
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-need-word-order",
+      "type": "word_order",
+      "instructionFa": "جملهٔ نیاز را دوباره بساز.",
+      "selectionReason": "پس از تطبیق، بازسازی جملهٔ «brauchen» آن را از تشخیص به تولید فعال منتقل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "بازسازی «Ich brauche eine Hose.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hose"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich brauche eine Hose.",
+        "sourceTextFa": "من یک شلوار لازم دارم.",
+        "tokens": [
+          "Ich",
+          "brauche",
+          "eine",
+          "Hose."
+        ],
+        "answer": [
+          "Ich",
+          "brauche",
+          "eine",
+          "Hose."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-buy-sentence-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله دربارهٔ خرید است؟",
+      "selectionReason": "مرحلهٔ پایانی تفاوت معنایی «نیاز داشتن» و «خریدن» را با دو جملهٔ کامل منبع‌دار می‌سنجد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "تشخیص جملهٔ دارای «kaufen» به‌عنوان بیان خرید."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hose",
+        "lex-de-kaufen",
+        "lex-de-hemd",
+        "lex-de-schuhe"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Ich kaufe ein Hemd und ein Paar Schuhe.",
+            "translationFa": "من یک پیراهن و یک جفت کفش می‌خرم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich brauche eine Hose.",
+            "translationFa": "من یک شلوار لازم دارم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
       "audioStatus": "not_required"
     }
   ],

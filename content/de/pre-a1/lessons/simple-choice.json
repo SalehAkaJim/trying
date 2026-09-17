@@ -24,9 +24,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو معنی «Was möchtest du?» را در یک انتخاب ساده روشن می‌کند و بازسازی همان پرسش دقیق منبع، فرم «möchtest» را بدون افزودن واژه یا ساختار تازه بازیابی می‌کند.",
-    "sequenceRationale": "ابتدا زبان‌آموز پرسش را در بافت می‌فهمد و پاسخ آشنا می‌دهد؛ سپس خود پرسش منبع‌دار را با مرتب‌کردن واژه‌ها بازسازی می‌کند.",
-    "templateSignature": "conversation_speaking>word_order"
+    "activitySelectionRationale": "چهار مرحله فهم انتخاب، بازسازی پرسش، بازیابی «möchtest» و پاسخ‌دادن را پوشش می‌دهد.",
+    "sequenceRationale": "تعامل به ساخت پرسش، تمرکز روی فرم و سپس پاسخ کاربردی می‌رسد.",
+    "templateSignature": "conversation_speaking>word_order>fill_blank>choose_response"
   },
   "activities": [
     {
@@ -98,6 +98,87 @@
       },
       "transformations": [
         "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-simple-choice-fill",
+      "type": "fill_blank",
+      "instructionFa": "پرسش انتخاب را کامل کن.",
+      "selectionReason": "این بازیابی روی فرم «möchtest» تمرکز می‌کند و آن را از فرم آشنای «magst» جدا نگه می‌دارد.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-oak-de-was-moechtest-du",
+        "src-wiktionary-de-moechten",
+        "src-wiktionary-de-pizza"
+      ],
+      "learningTargets": [
+        "انتخاب «möchtest» در «Was möchtest du?»."
+      ],
+      "lexemeRefs": [
+        "lex-de-moegen"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Was möchtest du?",
+        "sourceTextFa": "چی می‌خوای؟",
+        "blankedText": "Was ___ du?",
+        "blankedTextFa": "چی می‌خوای؟",
+        "choices": [
+          "möchtest",
+          "magst"
+        ],
+        "answer": "möchtest",
+        "choicesFa": [
+          "می‌خواهی",
+          "دوست داری"
+        ]
+      },
+      "transformations": [
+        "source_sentence_blank_created",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-simple-choice-response",
+      "type": "choose_response",
+      "instructionFa": "برای «Was möchtest du?» یک پاسخ مناسب انتخاب کن.",
+      "selectionReason": "در پایان، زبان‌آموز پرسش تازه را به گزینهٔ آشنای «Pizza.» وصل می‌کند تا معنی آن در کاربرد تثبیت شود.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-oak-de-was-moechtest-du",
+        "src-wiktionary-de-moechten",
+        "src-wiktionary-de-pizza"
+      ],
+      "learningTargets": [
+        "پاسخ‌دادن به «Was möchtest du?» با یک گزینهٔ آشنا."
+      ],
+      "lexemeRefs": [
+        "lex-de-moegen",
+        "lex-de-pizza",
+        "lex-de-hallo"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Was möchtest du?",
+        "promptFa": "چی می‌خوای؟",
+        "options": [
+          {
+            "textTarget": "Pizza.",
+            "translationFa": "پیتزا.",
+            "correct": true
+          },
+          {
+            "textTarget": "Hallo!",
+            "translationFa": "سلام!",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

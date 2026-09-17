@@ -30,9 +30,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "مرور نهایی باید تعامل، نوشتن و شنیدن را کنار هم جمع کند؛ هر سه فعالیت خلأ متفاوتی را می‌بندند و هیچ‌کدام برای رسیدن به تعداد اضافه نشده‌اند.",
-    "sequenceRationale": "اول بازیابی گفتاری، سپس فرم متنی شخصی و در پایان یک تشخیص شنیداری قیمت انجام می‌شود.",
-    "templateSignature": "conversation_speaking>review>listen_choose"
+    "activitySelectionRationale": "پنج مرحله مرور گفتاری، فرم متنی، شنیدن قیمت، تطبیق پرسش‌های شخصی و تشخیص الگوی تلفن را ترکیب می‌کند.",
+    "sequenceRationale": "بازیابی گفتاری، نوشتاری و شنیداری با دو مرور کوتاه ساختاری تکمیل می‌شود.",
+    "templateSignature": "conversation_speaking>review>listen_choose>matching>true_false"
   },
   "activities": [
     {
@@ -200,6 +200,78 @@
       ],
       "audioStatus": "pending",
       "audioTextTarget": "Die Zeitschrift kostet 7,60 Euro."
+    },
+    {
+      "id": "act-de-personal-review-match",
+      "type": "matching",
+      "instructionFa": "هر پرسش شخصی را به پاسخ مناسب وصل کن.",
+      "selectionReason": "مرور چندهدفه باید علاوه بر فرم آزاد، بازیابی ساختاری پرسش و پاسخ‌های مهم را هم دوباره فعال کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin",
+        "src-wikibooks-de-age-time",
+        "src-wikibooks-de-birthday",
+        "src-wikibooks-de-phone"
+      ],
+      "learningTargets": [
+        "بازیابی ارتباط پرسش سن و محل زندگی با پاسخ مناسب."
+      ],
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-oesterreich",
+        "lex-de-alt",
+        "lex-de-jahr",
+        "lex-de-zwanzig"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Wo wohnen Sie?",
+            "leftFa": "کجا زندگی می‌کنید؟",
+            "right": "Ich wohne in Österreich.",
+            "rightFa": "من در اتریش زندگی می‌کنم."
+          },
+          {
+            "left": "Wie alt bist du?",
+            "leftFa": "چند سالته؟",
+            "right": "Ich bin 20 Jahre alt.",
+            "rightFa": "من ۲۰ ساله هستم."
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-personal-review-phone-check",
+      "type": "true_false",
+      "instructionFa": "درست یا غلط؟ این جمله یک شماره تلفن را بیان می‌کند.",
+      "selectionReason": "این مرحلهٔ کوتاه یک هدف اطلاعات شخصی دیگر را بعد از فرم و شنیدن دوباره بازیابی می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin",
+        "src-wikibooks-de-age-time",
+        "src-wikibooks-de-birthday",
+        "src-wikibooks-de-phone"
+      ],
+      "learningTargets": [
+        "تشخیص الگوی بیان شماره تلفن در مرور نهایی."
+      ],
+      "lexemeRefs": [
+        "lex-de-telefonnummer"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "statementTarget": "Meine Telefonnummer lautet 789.",
+        "statementFa": "این جمله یک شماره تلفن را بیان می‌کند.",
+        "answer": true
+      },
+      "transformations": [
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
     }
   ],
   "status": "final",

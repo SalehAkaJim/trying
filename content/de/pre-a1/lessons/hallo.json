@@ -20,9 +20,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی کوتاه سلام و خداحافظی را در بافت می‌آورد و یک تشخیص متنیِ سبک کمک می‌کند زبان‌آموز نقش «Tschüss!» را جدا از «Hallo!» بازیابی کند.",
-    "sequenceRationale": "اول دو عبارت در تعامل استفاده می‌شوند و سپس زبان‌آموز عبارت مناسب برای پایان گفت‌وگو را تشخیص می‌دهد.",
-    "templateSignature": "conversation_speaking>multiple_choice"
+    "activitySelectionRationale": "سه مرحلهٔ کوتاه، استفاده در مکالمه، تشخیص خداحافظی و تمایز نقش سلام/خداحافظی را پوشش می‌دهد.",
+    "sequenceRationale": "از کاربرد واقعی به تشخیص و سپس دسته‌بندی نقش دو عبارت می‌رسد.",
+    "templateSignature": "conversation_speaking>multiple_choice>matching"
   },
   "activities": [
     {
@@ -92,6 +92,43 @@
       },
       "transformations": [
         "options_selected_from_source_material"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-hallo-role-match",
+      "type": "matching",
+      "instructionFa": "هر عبارت را به کاربردش وصل کن.",
+      "selectionReason": "بعد از استفاده در مکالمه و تشخیص خداحافظی، این مرحله نقش دو عبارت پایه را بدون افزودن زبان تازه از هم جدا می‌کند.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "learningTargets": [
+        "تشخیص نقش «Hallo!» و «Tschüss!» در شروع و پایان گفت‌وگو."
+      ],
+      "lexemeRefs": [
+        "lex-de-hallo",
+        "lex-de-tschuess"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Hallo!",
+            "leftFa": "سلام!",
+            "rightFa": "شروع گفت‌وگو"
+          },
+          {
+            "left": "Tschüss!",
+            "leftFa": "خداحافظ!",
+            "rightFa": "پایان گفت‌وگو"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }

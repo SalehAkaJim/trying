@@ -25,9 +25,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی چهار نوبت پرسش و پاسخ دربارهٔ علاقه به پیتزا را در بافت قرار می‌دهد و سپس بازسازی همان جمله یک بازیابی متمرکز ایجاد می‌کند.",
-    "sequenceRationale": "اول زبان‌آموز در مکالمهٔ کوتاه به پرسش واقعی پاسخ می‌دهد و بعد همان جملهٔ منبع‌دار را دوباره می‌سازد.",
-    "templateSignature": "conversation_speaking>word_order"
+    "activitySelectionRationale": "چهار مرحله فهم پرسش، ساخت پاسخ، انتخاب فرم درست و تمایز پرسش/پاسخ را بدون زبان تازه پوشش می‌دهد.",
+    "sequenceRationale": "تعامل به بازسازی، بازیابی فرم و در پایان تشخیص نقش جمله‌ها پیش می‌رود.",
+    "templateSignature": "conversation_speaking>word_order>fill_blank>multiple_choice"
   },
   "activities": [
     {
@@ -78,14 +78,113 @@
       "data": {
         "sourceText": "Ich mag Pizza.",
         "sourceTextFa": "من پیتزا دوست دارم.",
-        "tokens": ["Ich", "mag", "Pizza."],
-        "answer": ["Ich", "mag", "Pizza."],
+        "tokens": [
+          "Ich",
+          "mag",
+          "Pizza."
+        ],
+        "answer": [
+          "Ich",
+          "mag",
+          "Pizza."
+        ],
         "tokenLexemeMappings": [
-          {"token": "mag", "lexemeId": "lex-de-moegen", "lexemeFormId": "lexform-de-moegen-mag"},
-          {"token": "Pizza.", "lexemeId": "lex-de-pizza", "lexemeFormId": null}
+          {
+            "token": "mag",
+            "lexemeId": "lex-de-moegen",
+            "lexemeFormId": "lexform-de-moegen-mag"
+          },
+          {
+            "token": "Pizza.",
+            "lexemeId": "lex-de-pizza",
+            "lexemeFormId": null
+          }
         ]
       },
-      "transformations": ["sentence_tokenized_for_word_order"],
+      "transformations": [
+        "sentence_tokenized_for_word_order"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-pizza-fill-mag",
+      "type": "fill_blank",
+      "instructionFa": "جملهٔ علاقه را کامل کن.",
+      "selectionReason": "این مرحله تفاوت «mag» و «magst» را در همان جملهٔ منبع‌دار بازیابی می‌کند و شکل اول‌شخص را تثبیت می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-magst-du-pizza",
+        "src-libra-de-ich-mag-pizza",
+        "src-wiktionary-de-moegen",
+        "src-wiktionary-de-pizza",
+        "src-wiktionary-de-hallo"
+      ],
+      "learningTargets": [
+        "انتخاب فرم درست «mag» در «Ich mag Pizza.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-moegen",
+        "lex-de-pizza"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich mag Pizza.",
+        "sourceTextFa": "من پیتزا دوست دارم.",
+        "blankedText": "Ich ___ Pizza.",
+        "blankedTextFa": "من پیتزا ___ دارم.",
+        "choices": [
+          "mag",
+          "magst"
+        ],
+        "answer": "mag",
+        "choicesFa": [
+          "برای «من»",
+          "برای «تو»"
+        ]
+      },
+      "transformations": [
+        "source_sentence_blank_created",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-pizza-question-vs-answer",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله دربارهٔ علاقهٔ خودت است؟",
+      "selectionReason": "پس از ساخت جمله، زبان‌آموز باید پرسش و پاسخ را از هم تشخیص دهد تا نقش «mag» و «magst» فقط حفظ شکلی نباشد.",
+      "sourceRefs": [
+        "src-wikibooks-de-magst-du-pizza",
+        "src-libra-de-ich-mag-pizza",
+        "src-wiktionary-de-moegen",
+        "src-wiktionary-de-pizza",
+        "src-wiktionary-de-hallo"
+      ],
+      "learningTargets": [
+        "تشخیص پاسخ «Ich mag Pizza.» از پرسش «Magst du Pizza?»."
+      ],
+      "lexemeRefs": [
+        "lex-de-moegen",
+        "lex-de-pizza"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Ich mag Pizza.",
+            "translationFa": "من پیتزا دوست دارم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Magst du Pizza?",
+            "translationFa": "پیتزا دوست داری؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
       "audioStatus": "not_required"
     }
   ],

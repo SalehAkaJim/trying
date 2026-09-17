@@ -10,13 +10,20 @@
     "پرسش «Was gibt es heute?» را بفهمد و یک پاسخ کوتاه دربارهٔ غذای موجود بگوید.",
     "پرسش «Was essen Sie?» را بفهمد و یک پاسخ کوتاه منبع‌دار دربارهٔ غذا بدهد."
   ],
-  "sourceRefs": ["src-wikibooks-de-lesson-002"],
-  "lexemeRefs": ["lex-de-heute", "lex-de-suppe", "lex-de-essen", "lex-de-reis"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002"
+  ],
+  "lexemeRefs": [
+    "lex-de-heute",
+    "lex-de-suppe",
+    "lex-de-essen",
+    "lex-de-reis"
+  ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "مکالمه معنی دو پرسش روزمره را در بافت می‌سازد و تمرین تطبیق همان دو جفت پرسش و پاسخ را بدون افزودن زبان تازه بازیابی می‌کند.",
-    "sequenceRationale": "اول پرسش‌ها در گفت‌وگو فهمیده و گفته می‌شوند؛ سپس همان ارتباط پرسش و پاسخ به‌صورت تطبیق تثبیت می‌شود.",
-    "templateSignature": "conversation_speaking>matching"
+    "activitySelectionRationale": "چهار مرحله مکالمه، تطبیق دو پرسش، ساخت پاسخ «essen» و تمایز غذای موجود از غذای خورده‌شده را پوشش می‌دهد.",
+    "sequenceRationale": "از تعامل به ارتباط پرسش/پاسخ، تولید جمله و سپس تشخیص معنایی می‌رسد.",
+    "templateSignature": "conversation_speaking>matching>word_order>multiple_choice"
   },
   "activities": [
     {
@@ -24,12 +31,27 @@
       "type": "conversation_speaking",
       "instructionFa": "به سؤال‌های آیریس دربارهٔ غذای امروز و چیزی که می‌خوری جواب بده.",
       "selectionReason": "چهار نوبت منبع‌دار هر دو هدف ارتباطی را با کمترین بار شناختی پوشش می‌دهد.",
-      "sourceRefs": ["src-wikibooks-de-lesson-002"],
-      "learningTargets": ["فهم و پاسخ کوتاه دربارهٔ غذای امروز و خوردن."],
-      "lexemeRefs": ["lex-de-heute", "lex-de-suppe", "lex-de-essen", "lex-de-reis"],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "فهم و پاسخ کوتاه دربارهٔ غذای امروز و خوردن."
+      ],
+      "lexemeRefs": [
+        "lex-de-heute",
+        "lex-de-suppe",
+        "lex-de-essen",
+        "lex-de-reis"
+      ],
       "dialogueRef": "dlg-de-pre-a1-food-today",
-      "data": {"interaction": "read_aloud_exchange", "openingInitiator": "app"},
-      "transformations": ["persian_translation_added", "character_metadata_added"],
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
       "audioStatus": "not_required"
     },
     {
@@ -37,17 +59,113 @@
       "type": "matching",
       "instructionFa": "هر پرسش را به پاسخ درست وصل کن.",
       "selectionReason": "دو جفت دقیق منبع‌دار را بدون جملهٔ تازه دوباره بازیابی می‌کند.",
-      "sourceRefs": ["src-wikibooks-de-lesson-002"],
-      "learningTargets": ["تشخیص ارتباط پرسش و پاسخ دربارهٔ غذای موجود و خوردن."],
-      "lexemeRefs": ["lex-de-heute", "lex-de-suppe", "lex-de-essen", "lex-de-reis"],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "تشخیص ارتباط پرسش و پاسخ دربارهٔ غذای موجود و خوردن."
+      ],
+      "lexemeRefs": [
+        "lex-de-heute",
+        "lex-de-suppe",
+        "lex-de-essen",
+        "lex-de-reis"
+      ],
       "dialogueRef": null,
       "data": {
         "pairs": [
-          {"left": "Was gibt es heute?", "leftFa": "امروز چی داریم؟", "right": "Heute gibt es Suppe.", "rightFa": "امروز سوپ داریم."},
-          {"left": "Was essen Sie?", "leftFa": "شما چی می‌خورید؟", "right": "Ich esse Reis.", "rightFa": "من برنج می‌خورم."}
+          {
+            "left": "Was gibt es heute?",
+            "leftFa": "امروز چی داریم؟",
+            "right": "Heute gibt es Suppe.",
+            "rightFa": "امروز سوپ داریم."
+          },
+          {
+            "left": "Was essen Sie?",
+            "leftFa": "شما چی می‌خورید؟",
+            "right": "Ich esse Reis.",
+            "rightFa": "من برنج می‌خورم."
+          }
         ]
       },
-      "transformations": ["source_items_grouped_for_matching", "persian_translation_added"],
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-food-eat-word-order",
+      "type": "word_order",
+      "instructionFa": "پاسخ مربوط به چیزی که می‌خوری را دوباره بساز.",
+      "selectionReason": "بعد از تطبیق دو جفت پرسش و پاسخ، بازسازی پاسخ «essen» بازیابی فعال فعل تازه را اضافه می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "بازسازی «Ich esse Reis.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-essen",
+        "lex-de-reis"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich esse Reis.",
+        "sourceTextFa": "من برنج می‌خورم.",
+        "tokens": [
+          "Ich",
+          "esse",
+          "Reis."
+        ],
+        "answer": [
+          "Ich",
+          "esse",
+          "Reis."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-food-available-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله می‌گوید امروز چه غذایی موجود است؟",
+      "selectionReason": "این مقایسهٔ معنایی تفاوت «غذای موجود» و «چیزی که فرد می‌خورد» را روشن نگه می‌دارد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "تشخیص جملهٔ «Heute gibt es Suppe.» به‌عنوان پاسخ دربارهٔ غذای موجود."
+      ],
+      "lexemeRefs": [
+        "lex-de-heute",
+        "lex-de-suppe",
+        "lex-de-essen",
+        "lex-de-reis"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Heute gibt es Suppe.",
+            "translationFa": "امروز سوپ داریم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich esse Reis.",
+            "translationFa": "من برنج می‌خورم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
       "audioStatus": "not_required"
     }
   ],

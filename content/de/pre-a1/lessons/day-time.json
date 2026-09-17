@@ -21,9 +21,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "مکالمه تولید سؤال را می‌گیرد؛ شنیدن ساعت و تشخیص زمان روز دو شیوه جدا و لازم برای توصیفگر هستند.",
-    "sequenceRationale": "روز و ساعت در یک صحنه می‌آیند؛ سپس دریافت شنیداری و خواندنی بدون افزودن ساختار تازه تثبیت می‌شود.",
-    "templateSignature": "conversation_speaking>listen_choose>multiple_choice"
+    "activitySelectionRationale": "پنج مرحله روز، ساعت، شنیدن، زمان روز، تطبیق سؤال/پاسخ و ساخت جمله را بدون تکرار بی‌هدف پوشش می‌دهد.",
+    "sequenceRationale": "از تعامل به دریافت و تشخیص و سپس بازیابی ترکیبی و ساخت جمله می‌رسد.",
+    "templateSignature": "conversation_speaking>listen_choose>multiple_choice>matching>word_order"
   },
   "activities": [
     {
@@ -123,6 +123,82 @@
       },
       "transformations": [
         "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-time-question-match",
+      "type": "matching",
+      "instructionFa": "پرسش روز و ساعت را به پاسخ مناسب وصل کن.",
+      "selectionReason": "این مرحله دو نوع اطلاعات نزدیک را کنار هم مقایسه می‌کند تا زبان‌آموز فقط عدد ساعت را حفظ نکند.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "تشخیص ارتباط پرسش روز با پاسخ روز و پرسش ساعت با پاسخ ساعت."
+      ],
+      "lexemeRefs": [
+        "lex-de-heute",
+        "lex-de-dienstag",
+        "lex-de-uhr"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Welcher Tag ist heute?",
+            "leftFa": "امروز چه روزی است؟",
+            "right": "Heute ist Dienstag.",
+            "rightFa": "امروز سه‌شنبه است."
+          },
+          {
+            "left": "Wie spät ist es?",
+            "leftFa": "ساعت چنده؟",
+            "right": "Es ist 6.30 Uhr.",
+            "rightFa": "ساعت ۶:۳۰ است."
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-time-word-order",
+      "type": "word_order",
+      "instructionFa": "جملهٔ ساعت را دوباره بساز.",
+      "selectionReason": "بازسازی جملهٔ شنیده‌شده، دریافت شنیداری را به بازیابی فعال همان ساختار متصل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "بازسازی «Es ist 6.30 Uhr.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-uhr"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Es ist 6.30 Uhr.",
+        "sourceTextFa": "ساعت ۶:۳۰ است.",
+        "tokens": [
+          "Es",
+          "ist",
+          "6.30",
+          "Uhr."
+        ],
+        "answer": [
+          "Es",
+          "ist",
+          "6.30",
+          "Uhr."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

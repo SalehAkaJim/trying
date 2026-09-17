@@ -22,9 +22,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "بعد از مکالمه فقط یک بازیابی نوشتاری منبع‌دار لازم است.",
-    "sequenceRationale": "اول تاریخ در تعامل معنا پیدا می‌کند و سپس همان ساختار با جای خالی تثبیت می‌شود.",
-    "templateSignature": "conversation_speaking>fill_blank"
+    "activitySelectionRationale": "چهار مرحله پرسش و پاسخ تاریخ تولد، تکمیل ساختار، بازسازی پرسش و تشخیص ماه را پوشش می‌دهد.",
+    "sequenceRationale": "تعامل به بازیابی پاسخ، ساخت پرسش و در پایان فهم معنی تاریخ می‌رسد.",
+    "templateSignature": "conversation_speaking>fill_blank>word_order>true_false"
   },
   "activities": [
     {
@@ -86,6 +86,71 @@
       },
       "transformations": [
         "source_sentence_blank_created",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-birthday-question-order",
+      "type": "word_order",
+      "instructionFa": "پرسش تاریخ تولد را دوباره بساز.",
+      "selectionReason": "پس از گفت‌وگو و تکمیل پاسخ، بازسازی خود پرسش باعث می‌شود هر دو سمت تبادل بازیابی شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-birthday-question",
+        "src-wikibooks-de-birthday"
+      ],
+      "learningTargets": [
+        "بازسازی «Wann hast du Geburtstag?»."
+      ],
+      "lexemeRefs": [
+        "lex-de-geburtstag"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wann hast du Geburtstag?",
+        "sourceTextFa": "تولدت کیه؟",
+        "tokens": [
+          "Wann",
+          "hast",
+          "du",
+          "Geburtstag?"
+        ],
+        "answer": [
+          "Wann",
+          "hast",
+          "du",
+          "Geburtstag?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-birthday-month-check",
+      "type": "true_false",
+      "instructionFa": "درست یا غلط؟ این جمله یک تاریخ تولد در نوامبر می‌گوید.",
+      "selectionReason": "بررسی معنی ماه در جملهٔ کامل کمک می‌کند تمرین فقط روی شکل «dreizehnten» متوقف نماند.",
+      "sourceRefs": [
+        "src-wikibooks-de-birthday-question",
+        "src-wikibooks-de-birthday"
+      ],
+      "learningTargets": [
+        "تشخیص «November» در جملهٔ تاریخ تولد."
+      ],
+      "lexemeRefs": [
+        "lex-de-geburtstag",
+        "lex-de-november"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "statementTarget": "Ich habe am dreizehnten November Geburtstag.",
+        "statementFa": "این تاریخ تولد در ماه نوامبر است.",
+        "answer": true
+      },
+      "transformations": [
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

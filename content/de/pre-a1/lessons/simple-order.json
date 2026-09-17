@@ -11,13 +11,20 @@
     "فرم رسمی «möchten» را به مدخل پایهٔ «mögen» مرتبط کند.",
     "با عبارت منبع‌دار «Eine Tasse Kaffee bitte!» یک سفارش خیلی کوتاه و مؤدبانه انجام دهد."
   ],
-  "sourceRefs": ["src-wikibooks-de-lesson-002"],
-  "lexemeRefs": ["lex-de-moegen", "lex-de-bitte", "lex-de-tasse", "lex-de-kaffee"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002"
+  ],
+  "lexemeRefs": [
+    "lex-de-moegen",
+    "lex-de-bitte",
+    "lex-de-tasse",
+    "lex-de-kaffee"
+  ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو سفارش کوتاه را در موقعیت واقعی قرار می‌دهد و تمرین مرتب‌سازی واژه‌ها همان عبارت سفارش را بدون نیاز به توضیح دستور بازسازی می‌کند.",
-    "sequenceRationale": "اول زبان‌آموز پرسش رسمی سفارش را در گفت‌وگو می‌شنود و پاسخ می‌دهد؛ سپس همان عبارت سفارش را از قطعه‌های آشنا دوباره می‌سازد.",
-    "templateSignature": "conversation_speaking>word_order"
+    "activitySelectionRationale": "چهار مرحله مکالمهٔ سفارش، ساخت عبارت، پاسخ به سؤال رسمی و تشخیص نقش کل سفارش را پوشش می‌دهد.",
+    "sequenceRationale": "تعامل به ساخت سفارش، بازیابی پاسخ و در پایان فهم کاربرد عبارت می‌رسد.",
+    "templateSignature": "conversation_speaking>word_order>choose_response>true_false"
   },
   "activities": [
     {
@@ -25,12 +32,27 @@
       "type": "conversation_speaking",
       "instructionFa": "سلام کن و وقتی آیریس سفارش را می‌پرسد، یک فنجان قهوه سفارش بده.",
       "selectionReason": "این تبادل کوتاه عیناً از الگوی منبع استفاده می‌کند و هم پرسش رسمی «möchten» و هم ادب کاربردی را بدون دستور سنگین تمرین می‌دهد.",
-      "sourceRefs": ["src-wikibooks-de-lesson-002"],
-      "learningTargets": ["فهم پرسش رسمی سفارش و گفتن یک سفارش کوتاه مؤدبانه."],
-      "lexemeRefs": ["lex-de-moegen", "lex-de-bitte", "lex-de-tasse", "lex-de-kaffee"],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "فهم پرسش رسمی سفارش و گفتن یک سفارش کوتاه مؤدبانه."
+      ],
+      "lexemeRefs": [
+        "lex-de-moegen",
+        "lex-de-bitte",
+        "lex-de-tasse",
+        "lex-de-kaffee"
+      ],
       "dialogueRef": "dlg-de-pre-a1-simple-order",
-      "data": {"interaction": "read_aloud_exchange", "openingInitiator": "app"},
-      "transformations": ["persian_translation_added", "character_metadata_added"],
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
       "audioStatus": "not_required"
     },
     {
@@ -38,17 +60,105 @@
       "type": "word_order",
       "instructionFa": "سفارش کوتاه را دوباره بساز.",
       "selectionReason": "بازسازی همان عبارت منبع‌دار جای «Tasse»، «Kaffee» و «bitte» را در یک عبارت کاربردی تثبیت می‌کند.",
-      "sourceRefs": ["src-wikibooks-de-lesson-002"],
-      "learningTargets": ["بازسازی «Eine Tasse Kaffee bitte!»."],
-      "lexemeRefs": ["lex-de-bitte", "lex-de-tasse", "lex-de-kaffee"],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "بازسازی «Eine Tasse Kaffee bitte!»."
+      ],
+      "lexemeRefs": [
+        "lex-de-bitte",
+        "lex-de-tasse",
+        "lex-de-kaffee"
+      ],
       "dialogueRef": null,
       "data": {
         "sourceText": "Eine Tasse Kaffee bitte!",
         "sourceTextFa": "یک فنجان قهوه لطفاً!",
-        "tokens": ["Eine", "Tasse", "Kaffee", "bitte!"],
-        "answer": ["Eine", "Tasse", "Kaffee", "bitte!"]
+        "tokens": [
+          "Eine",
+          "Tasse",
+          "Kaffee",
+          "bitte!"
+        ],
+        "answer": [
+          "Eine",
+          "Tasse",
+          "Kaffee",
+          "bitte!"
+        ]
       },
-      "transformations": ["sentence_tokenized_for_word_order", "persian_translation_added"],
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-simple-order-response",
+      "type": "choose_response",
+      "instructionFa": "به سؤال سفارش پاسخ مناسب بده.",
+      "selectionReason": "بعد از بازسازی سفارش، این مرحله پرسش رسمی را دوباره به پاسخ کاربردی آن وصل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "انتخاب سفارش «Eine Tasse Kaffee bitte!» در پاسخ به «Was möchten Sie bitte?»."
+      ],
+      "lexemeRefs": [
+        "lex-de-moegen",
+        "lex-de-bitte",
+        "lex-de-tasse",
+        "lex-de-kaffee"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Was möchten Sie bitte?",
+        "promptFa": "لطفاً چی میل دارید؟",
+        "options": [
+          {
+            "textTarget": "Eine Tasse Kaffee bitte!",
+            "translationFa": "یک فنجان قهوه لطفاً!",
+            "correct": true
+          },
+          {
+            "textTarget": "Guten Tag!",
+            "translationFa": "روز بخیر!",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-simple-order-function-check",
+      "type": "true_false",
+      "instructionFa": "درست یا غلط؟ این عبارت یک سفارش کوتاه و مؤدبانه است.",
+      "selectionReason": "در پایان زبان‌آموز باید نقش کل عبارت را بفهمد، نه اینکه فقط ترتیب واژه‌ها را حفظ کرده باشد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "تشخیص کاربرد «Eine Tasse Kaffee bitte!» به‌عنوان سفارش کوتاه."
+      ],
+      "lexemeRefs": [
+        "lex-de-bitte",
+        "lex-de-tasse",
+        "lex-de-kaffee"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "statementTarget": "Eine Tasse Kaffee bitte!",
+        "statementFa": "این یک سفارش کوتاه و مؤدبانه است.",
+        "answer": true
+      },
+      "transformations": [
+        "persian_translation_added"
+      ],
       "audioStatus": "not_required"
     }
   ],

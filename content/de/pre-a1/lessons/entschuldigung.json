@@ -25,9 +25,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "بعد از گفت‌وگوی کوتاه، تطبیق فقط رابطهٔ دو جفت اجتماعی نزدیک را تثبیت می‌کند و زبان تازه‌ای وارد نمی‌کند.",
-    "sequenceRationale": "زبان‌آموز ابتدا خودش عذرخواهی را آغاز می‌کند و بعد پاسخ‌های مناسب را به عبارت‌های آشنا وصل می‌کند.",
-    "templateSignature": "conversation_speaking>matching"
+    "activitySelectionRationale": "چهار مرحله عذرخواهی، تطبیق جفت‌های اجتماعی، انتخاب پاسخ و تشخیص عبارت عذرخواهی را پوشش می‌دهد.",
+    "sequenceRationale": "از تعامل به مقایسهٔ جفت‌ها و سپس دو بازیابی کاربردی می‌رسد.",
+    "templateSignature": "conversation_speaking>matching>choose_response>multiple_choice"
   },
   "activities": [
     {
@@ -108,6 +108,87 @@
       },
       "transformations": [
         "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-apology-response-choice",
+      "type": "choose_response",
+      "instructionFa": "در پاسخ به «Entschuldigung.» کدام عبارت مناسب‌تر است؟",
+      "selectionReason": "این فعالیت پاسخ آرام به عذرخواهی را از جفت اجتماعی تشکر جدا می‌کند و بازیابی کاربردی می‌سازد.",
+      "sourceRefs": [
+        "src-wiktionary-de-entschuldigung",
+        "src-wiktionary-de-kein-problem",
+        "src-wiktionary-de-danke",
+        "src-wiktionary-de-bitte"
+      ],
+      "learningTargets": [
+        "انتخاب «Kein Problem.» به‌عنوان پاسخ به عذرخواهی."
+      ],
+      "lexemeRefs": [
+        "lex-de-entschuldigung",
+        "lex-de-kein-problem",
+        "lex-de-danke"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Entschuldigung.",
+        "promptFa": "ببخشید.",
+        "options": [
+          {
+            "textTarget": "Kein Problem.",
+            "translationFa": "مشکلی نیست.",
+            "correct": true
+          },
+          {
+            "textTarget": "Danke!",
+            "translationFa": "ممنون!",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-apology-formula-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام عبارت خودِ عذرخواهی است؟",
+      "selectionReason": "در مرحلهٔ پایانی، زبان‌آموز باید عبارت آغازگر عذرخواهی را از یک عبارت اجتماعی آشنای دیگر تشخیص دهد.",
+      "sourceRefs": [
+        "src-wiktionary-de-entschuldigung",
+        "src-wiktionary-de-kein-problem",
+        "src-wiktionary-de-danke",
+        "src-wiktionary-de-bitte"
+      ],
+      "learningTargets": [
+        "تشخیص «Entschuldigung.» به‌عنوان عبارت عذرخواهی."
+      ],
+      "lexemeRefs": [
+        "lex-de-entschuldigung",
+        "lex-de-danke"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Entschuldigung.",
+            "translationFa": "ببخشید.",
+            "correct": true
+          },
+          {
+            "textTarget": "Danke!",
+            "translationFa": "ممنون!",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

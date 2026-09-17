@@ -22,9 +22,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "بعد از گفت‌وگو، جای‌خالی فقط عبارت تازهٔ «Wie geht's?» را با حذف یک بخش کوچک بازیابی می‌کند و بار شناختی را پایین نگه می‌دارد.",
-    "sequenceRationale": "اول معنی و پاسخ در مکالمه دیده می‌شود و بعد همان عبارت منبع‌دار با یک جای‌خالی ساده بازیابی می‌شود.",
-    "templateSignature": "conversation_speaking>fill_blank"
+    "activitySelectionRationale": "سه مرحله تعامل، بازیابی ساختار پرسش و انتخاب پاسخ کوتاه را پوشش می‌دهد.",
+    "sequenceRationale": "معنی در مکالمه ساخته می‌شود و سپس پرسش و پاسخ جداگانه بازیابی می‌شوند.",
+    "templateSignature": "conversation_speaking>fill_blank>choose_response"
   },
   "activities": [
     {
@@ -88,6 +88,46 @@
       },
       "transformations": [
         "source_sentence_blank_created",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-wellbeing-response",
+      "type": "choose_response",
+      "instructionFa": "به «Wie geht's?» پاسخ مناسب بده.",
+      "selectionReason": "پس از کامل‌کردن پرسش، این مرحله جفت پرسش و پاسخ را با بازیابی مستقیم و کم‌فشار می‌بندد.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "learningTargets": [
+        "انتخاب «Gut.» در پاسخ به «Wie geht's?»."
+      ],
+      "lexemeRefs": [
+        "lex-de-wie-gehts",
+        "lex-de-gut",
+        "lex-de-hallo"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Wie geht's?",
+        "promptFa": "حالت چطوره؟",
+        "options": [
+          {
+            "textTarget": "Gut.",
+            "translationFa": "خوبم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Hallo!",
+            "translationFa": "سلام!",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

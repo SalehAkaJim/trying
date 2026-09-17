@@ -21,9 +21,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "مکالمه محل زندگی و مبدأ را در یک آشنایی کوتاه تمرین می‌کند و تطبیق دو جفت پرسش‌وپاسخِ دقیق منبع کمک می‌کند این دو مفهوم نزدیک با هم قاطی نشوند.",
-    "sequenceRationale": "ابتدا زبان‌آموز محل زندگی و مبدأ را در گفت‌وگو استفاده می‌کند و سپس هر پرسش را به پاسخ منبع‌دار مناسب وصل می‌کند.",
-    "templateSignature": "conversation_speaking>matching"
+    "activitySelectionRationale": "چهار مرحله تعامل، تطبیق، تشخیص نوع سؤال و ساخت پاسخ محل زندگی را پوشش می‌دهد.",
+    "sequenceRationale": "از کاربرد دو مفهوم نزدیک به تمایز و در پایان تولید ساختاری می‌رسد.",
+    "templateSignature": "conversation_speaking>matching>multiple_choice>word_order"
   },
   "activities": [
     {
@@ -96,6 +96,80 @@
       },
       "transformations": [
         "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-residence-question-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام سؤال دربارهٔ محل زندگی است؟",
+      "selectionReason": "پس از تطبیق پرسش و پاسخ، تشخیص خود سؤال‌ها از هم مانع قاطی‌شدن «wohnen» و «kommen» می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "learningTargets": [
+        "تشخیص پرسش محل زندگی از پرسش مبدأ."
+      ],
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-kommen"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Wo wohnen Sie?",
+            "translationFa": "کجا زندگی می‌کنید؟",
+            "correct": true
+          },
+          {
+            "textTarget": "Woher kommen Sie?",
+            "translationFa": "اهل کجا هستید؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-residence-word-order",
+      "type": "word_order",
+      "instructionFa": "پاسخ محل زندگی را دوباره بساز.",
+      "selectionReason": "بازسازی جملهٔ کامل، الگوی «Ich wohne in ...» را از تشخیص به بازیابی فعال می‌برد.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "learningTargets": [
+        "بازسازی «Ich wohne in Österreich.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-oesterreich"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich wohne in Österreich.",
+        "sourceTextFa": "من در اتریش زندگی می‌کنم.",
+        "tokens": [
+          "Ich",
+          "wohne",
+          "in",
+          "Österreich."
+        ],
+        "answer": [
+          "Ich",
+          "wohne",
+          "in",
+          "Österreich."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

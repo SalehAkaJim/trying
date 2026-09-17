@@ -19,9 +19,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "مکالمه پرسش و پاسخ را در بافت متنی تمرین می‌کند و بازسازی یکی از پاسخ‌های دقیق منبع، الگوی «Das ist ...» را بدون تصویر و بدون ساخت جملهٔ تازه بازیابی می‌کند.",
-    "sequenceRationale": "اول زبان‌آموز سؤال و پاسخ را در تعامل می‌بیند و سپس یک پاسخ منبع‌دار را با مرتب‌کردن واژه‌ها بازسازی می‌کند.",
-    "templateSignature": "conversation_speaking>word_order"
+    "activitySelectionRationale": "چهار مرحله پرسش/پاسخ متنی، ساخت پاسخ، تمایز دو شیء و تشخیص نقش پرسش را پوشش می‌دهد.",
+    "sequenceRationale": "از تعامل به ساخت جمله و سپس دو تشخیص معنایی می‌رسد.",
+    "templateSignature": "conversation_speaking>word_order>multiple_choice>true_false"
   },
   "activities": [
     {
@@ -83,6 +83,68 @@
       },
       "transformations": [
         "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-object-answer-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام پاسخ می‌گوید «این یک کتاب است»؟",
+      "selectionReason": "بعد از بازسازی یک پاسخ، این مرحله دو پاسخ هم‌ساخت را از نظر معنی واژهٔ پایانی مقایسه می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-basic-object"
+      ],
+      "learningTargets": [
+        "تشخیص «Das ist ein Buch.» از پاسخ مربوط به کارت."
+      ],
+      "lexemeRefs": [
+        "lex-de-buch",
+        "lex-de-karte"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Das ist ein Buch.",
+            "translationFa": "این یک کتاب است.",
+            "correct": true
+          },
+          {
+            "textTarget": "Das ist eine Karte.",
+            "translationFa": "این یک کارت است.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-object-question-check",
+      "type": "true_false",
+      "instructionFa": "درست یا غلط؟ «Was ist das?» یک پرسش است.",
+      "selectionReason": "این بررسی کوتاه نقش عبارت را تثبیت می‌کند و از حفظ صرفِ پاسخ جلوگیری می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-basic-object"
+      ],
+      "learningTargets": [
+        "تشخیص «Was ist das?» به‌عنوان پرسش اطلاعاتی ساده."
+      ],
+      "lexemeRefs": [
+        "lex-de-buch",
+        "lex-de-karte"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "statementTarget": "Was ist das?",
+        "statementFa": "این یک پرسش اطلاعاتی ساده است.",
+        "answer": true
+      },
+      "transformations": [
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

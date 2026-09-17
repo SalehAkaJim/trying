@@ -19,9 +19,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "بعد از مکالمه، تشخیص شنیداری شماره برای پوشش دریافت لازم است.",
-    "sequenceRationale": "اول تبادل شماره تمرین می‌شود و بعد یک شمارهٔ همان منبع از راه شنیدن بازیابی می‌شود.",
-    "templateSignature": "conversation_speaking>listen_choose"
+    "activitySelectionRationale": "چهار مرحله تبادل شماره، دریافت شنیداری، ساخت پاسخ و تشخیص پرسش را پوشش می‌دهد.",
+    "sequenceRationale": "تعامل و شنیدن به تولید ساختاری و سپس تشخیص نقش پرسش می‌رسد.",
+    "templateSignature": "conversation_speaking>listen_choose>word_order>multiple_choice"
   },
   "activities": [
     {
@@ -84,6 +84,80 @@
       ],
       "audioStatus": "pending",
       "audioTextTarget": "Meine Telefonnummer lautet 789."
+    },
+    {
+      "id": "act-de-phone-word-order",
+      "type": "word_order",
+      "instructionFa": "جملهٔ شماره تلفن را دوباره بساز.",
+      "selectionReason": "پس از تشخیص شنیداری، بازسازی همان جمله باعث می‌شود الگوی گفتن شماره نیز فعالانه تمرین شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-phone",
+        "src-wikibooks-de-phone-example"
+      ],
+      "learningTargets": [
+        "بازسازی «Meine Telefonnummer lautet 789.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-telefonnummer"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Meine Telefonnummer lautet 789.",
+        "sourceTextFa": "شماره تلفن من ۷۸۹ است.",
+        "tokens": [
+          "Meine",
+          "Telefonnummer",
+          "lautet",
+          "789."
+        ],
+        "answer": [
+          "Meine",
+          "Telefonnummer",
+          "lautet",
+          "789."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-phone-question-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام عبارت سؤالِ شماره تلفن است؟",
+      "selectionReason": "این مرحله پرسش را از پاسخ جدا می‌کند تا زبان‌آموز هر دو نقش را در تبادل تشخیص دهد.",
+      "sourceRefs": [
+        "src-wikibooks-de-phone",
+        "src-wikibooks-de-phone-example"
+      ],
+      "learningTargets": [
+        "تشخیص «Wie lautet deine Telefonnummer?» به‌عنوان پرسش شماره تلفن."
+      ],
+      "lexemeRefs": [
+        "lex-de-telefonnummer"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Wie lautet deine Telefonnummer?",
+            "translationFa": "شماره تلفنت چیه؟",
+            "correct": true
+          },
+          {
+            "textTarget": "Meine Telefonnummer lautet 789.",
+            "translationFa": "شماره تلفن من ۷۸۹ است.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
     }
   ],
   "status": "final",

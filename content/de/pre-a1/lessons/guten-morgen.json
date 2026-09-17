@@ -23,9 +23,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی چهار نوبت فقط سلام صبحگاهی و خداحافظی را تمرین می‌کند؛ بعد یک فعالیت تشخیصی تفاوت آن را با سلام عمومی تثبیت می‌کند.",
-    "sequenceRationale": "اول زبان‌آموز خودش مکالمه را با عبارت صبحگاهی آغاز می‌کند و بعد زمان مناسب استفاده از آن را تشخیص می‌دهد.",
-    "templateSignature": "conversation_speaking>multiple_choice"
+    "activitySelectionRationale": "سلام صبحگاهی، تمایز آن با سلام عمومی و پایان گفت‌وگو هر کدام یک بازیابی مشخص دارند.",
+    "sequenceRationale": "مکالمه، تشخیص زمان مناسب و سپس انتخاب پایان مناسب انجام می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>choose_response"
   },
   "activities": [
     {
@@ -96,6 +96,45 @@
       },
       "transformations": [
         "options_selected_from_source_material"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-gm-farewell-response",
+      "type": "choose_response",
+      "instructionFa": "گفت‌وگوی صبحگاهی تمام شده؛ پاسخ مناسب را انتخاب کن.",
+      "selectionReason": "پس از تمرکز روی سلام صبحگاهی، یک بازیابی کوتاه از پایان مکالمه کمک می‌کند زبان‌آموز شروع و پایان را در یک توالی کامل نگه دارد.",
+      "sourceRefs": [
+        "src-wiktionary-de-guten-morgen",
+        "src-wiktionary-de-hallo",
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "learningTargets": [
+        "انتخاب «Tschüss!» برای پایان گفت‌وگوی صبحگاهی."
+      ],
+      "lexemeRefs": [
+        "lex-de-guten-morgen",
+        "lex-de-tschuess"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "contextFa": "صبح است و گفت‌وگو تمام شده.",
+        "options": [
+          {
+            "textTarget": "Tschüss!",
+            "translationFa": "خداحافظ!",
+            "correct": true
+          },
+          {
+            "textTarget": "Guten Morgen!",
+            "translationFa": "صبح بخیر!",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }

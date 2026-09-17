@@ -22,9 +22,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "بعد از تعامل، یک تشخیص شنیداری عدد لازم است چون CEFR روی فهم عددهای ساده تأکید دارد.",
-    "sequenceRationale": "اول سن در مکالمه معنا پیدا می‌کند و سپس عدد به‌تنهایی از راه شنیدن بازیابی می‌شود.",
-    "templateSignature": "conversation_speaking>listen_choose"
+    "activitySelectionRationale": "چهار مرحله گفتن سن، شنیدن عدد، تشخیص پرسش و ساخت پاسخ کامل را ترکیب می‌کند.",
+    "sequenceRationale": "تعامل، دریافت شنیداری، تشخیص معنایی و تولید ساختاری به‌ترتیب انجام می‌شود.",
+    "templateSignature": "conversation_speaking>listen_choose>multiple_choice>word_order"
   },
   "activities": [
     {
@@ -89,6 +89,82 @@
       ],
       "audioStatus": "pending",
       "audioTextTarget": "achtzehn"
+    },
+    {
+      "id": "act-de-age-question-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام پرسش دربارهٔ سن است؟",
+      "selectionReason": "بعد از تمرین گفتاری و شنیداری عدد، تشخیص پرسش سن کمک می‌کند معنی کل الگو حفظ شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "تشخیص «Wie alt bist du?» به‌عنوان پرسش سن."
+      ],
+      "lexemeRefs": [
+        "lex-de-alt"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Wie alt bist du?",
+            "translationFa": "چند سالته؟",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich bin 20 Jahre alt.",
+            "translationFa": "من ۲۰ ساله هستم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-age-word-order",
+      "type": "word_order",
+      "instructionFa": "پاسخ سن را دوباره بساز.",
+      "selectionReason": "این مرحله الگوی کامل گفتن سن را از تشخیص عدد به تولید ساختاری منتقل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "بازسازی «Ich bin 20 Jahre alt.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-alt",
+        "lex-de-jahr",
+        "lex-de-zwanzig"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich bin 20 Jahre alt.",
+        "sourceTextFa": "من ۲۰ ساله هستم.",
+        "tokens": [
+          "Ich",
+          "bin",
+          "20",
+          "Jahre",
+          "alt."
+        ],
+        "answer": [
+          "Ich",
+          "bin",
+          "20",
+          "Jahre",
+          "alt."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
     }
   ],
   "status": "final",

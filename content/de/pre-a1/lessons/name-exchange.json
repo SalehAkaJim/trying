@@ -22,9 +22,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو نام‌پرسیدن را در بافت قرار می‌دهد و مرتب‌کردن واژه‌ها همان پاسخ منبع‌دار را برای بازیابی الگوی «Ich heiße ...» تمرین می‌کند.",
-    "sequenceRationale": "اول زبان‌آموز سؤال نام را در مکالمه استفاده می‌کند و بعد پاسخ منبع‌دار را بدون معرفی جملهٔ تازه بازسازی می‌کند.",
-    "templateSignature": "conversation_speaking>word_order"
+    "activitySelectionRationale": "چهار مرحله پرسیدن نام، بازسازی پاسخ، بازیابی «heiße» و تشخیص پرسش از پاسخ را پوشش می‌دهد.",
+    "sequenceRationale": "کاربرد، ساخت جمله، تمرکز روی فرم و در پایان تشخیص نقش جمله انجام می‌شود.",
+    "templateSignature": "conversation_speaking>word_order>fill_blank>multiple_choice"
   },
   "activities": [
     {
@@ -94,6 +94,81 @@
       },
       "transformations": [
         "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-name-fill-heisse",
+      "type": "fill_blank",
+      "instructionFa": "پاسخ معرفی نام را کامل کن.",
+      "selectionReason": "جای‌خالی روی فرم «heiße» تمرکز می‌کند تا زبان‌آموز آن را از «heißt» در پرسش جدا کند.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-wikibooks-de-wie-heisst-du",
+        "src-wiktionary-de-heissen"
+      ],
+      "learningTargets": [
+        "انتخاب «heiße» در پاسخ «Ich heiße Iris.»."
+      ],
+      "lexemeRefs": [
+        "lex-de-heissen"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich heiße Iris.",
+        "sourceTextFa": "اسم من آیریس است.",
+        "blankedText": "Ich ___ Iris.",
+        "blankedTextFa": "اسم من آیریس است.",
+        "choices": [
+          "heiße",
+          "heißt"
+        ],
+        "answer": "heiße",
+        "choicesFa": [
+          "برای «من»",
+          "برای «تو»"
+        ]
+      },
+      "transformations": [
+        "source_sentence_blank_created",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-name-question-role",
+      "type": "multiple_choice",
+      "instructionFa": "کدام عبارت سؤالِ نام است؟",
+      "selectionReason": "بعد از بازیابی پاسخ، تشخیص سؤال از جواب نقش دو فرم «heißt» و «heiße» را در ارتباط واقعی روشن می‌کند.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-wikibooks-de-wie-heisst-du",
+        "src-wiktionary-de-heissen"
+      ],
+      "learningTargets": [
+        "تشخیص «Wie heißt du?» به‌عنوان پرسش نام."
+      ],
+      "lexemeRefs": [
+        "lex-de-heissen"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Wie heißt du?",
+            "translationFa": "اسمت چیه؟",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich heiße Iris.",
+            "translationFa": "اسم من آیریس است.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
