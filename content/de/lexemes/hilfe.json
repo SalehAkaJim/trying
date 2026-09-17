@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-hilfe",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Hilfe",
+  "lemma": "Hilfe",
+  "partOfSpeech": "noun",
+  "level": "Pre-A1",
+  "translationFa": "کمک",
+  "usageNoteFa": "در عبارت کوتاه و کاربردی «Ich brauche Hilfe.» استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-phrasebook"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null,
+  "partOfSpeechFa": "اسم"
+}
