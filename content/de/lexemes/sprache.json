@@ -1,0 +1,3 @@
+{
+  "schemaVersion":"1.0.0","id":"lex-de-sprache","languageId":"de","type":"word","surface":"Sprache","lemma":"Sprache","partOfSpeech":"noun","partOfSpeechFa":"اسم","level":"A1","translationFa":"زبان","usageNoteFa":"در پرسش «Welche Sprachen lernen Sie?» به شکل جمع آمده است.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-bll-a1-lesson-2"],"formRefs":["lexform-de-sprache-sprachen"],"flashcardEligible":true,"audioStatus":"blocked_until_level_final","audioRef":null,"audioVoice":null
+}
