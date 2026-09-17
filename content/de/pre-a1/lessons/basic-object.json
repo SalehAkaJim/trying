@@ -67,6 +67,7 @@
       "dialogueRef": null,
       "data": {
         "sourceText": "Das ist ein Buch.",
+        "sourceTextFa": "این یک کتاب است.",
         "tokens": [
           "Das",
           "ist",
@@ -81,7 +82,8 @@
         ]
       },
       "transformations": [
-        "sentence_tokenized_for_word_order"
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
