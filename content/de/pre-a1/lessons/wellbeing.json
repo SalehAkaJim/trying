@@ -73,15 +73,22 @@
       "dialogueRef": null,
       "data": {
         "sourceText": "Wie geht's?",
+        "sourceTextFa": "حالت چطوره؟",
         "blankedText": "Wie ___?",
+        "blankedTextFa": "___ چطوره؟",
         "choices": [
           "geht's",
           "gut"
         ],
+        "choicesFa": [
+          "حالت",
+          "خوب"
+        ],
         "answer": "geht's"
       },
       "transformations": [
-        "source_sentence_blank_created"
+        "source_sentence_blank_created",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
