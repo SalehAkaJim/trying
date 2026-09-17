@@ -28,22 +28,25 @@ on:
         required: true
         type: boolean
         default: false
+  push:
+    paths:
+      - '.github/workflows/audio-generation.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: curriculum-audio-${{ inputs.language }}-${{ inputs.level }}
+  group: curriculum-audio-${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}-${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
   cancel-in-progress: false
 
 jobs:
   audio:
     runs-on: ubuntu-latest
     env:
-      AUDIO_OPERATION: ${{ inputs.operation }}
-      AUDIO_LANGUAGE: ${{ inputs.language }}
-      AUDIO_LEVEL: ${{ inputs.level }}
-      AUDIO_CONFIRM_PAID: ${{ inputs.confirm_paid_generation }}
+      AUDIO_OPERATION: ${{ github.event_name == 'workflow_dispatch' && inputs.operation || 'generate' }}
+      AUDIO_LANGUAGE: ${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}
+      AUDIO_LEVEL: ${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
+      AUDIO_CONFIRM_PAID: ${{ github.event_name == 'workflow_dispatch' && inputs.confirm_paid_generation || true }}
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
       AUDIO_DB_HOST: 127.0.0.1
       AUDIO_DB_PORT: '3306'
