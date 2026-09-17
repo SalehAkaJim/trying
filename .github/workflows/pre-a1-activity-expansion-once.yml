@@ -37,7 +37,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Expand Pre-A1 activities
-        run: python scripts/expand_pre_a1_activities_once.py
+        run: |
+          python scripts/expand_pre_a1_activities_once.py
+          python scripts/fix_pre_a1_activity_expansion_once.py
 
       - name: Install JSON Schema validator
         run: python -m pip install --disable-pip-version-check jsonschema
