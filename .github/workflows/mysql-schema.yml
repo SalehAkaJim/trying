@@ -51,6 +51,9 @@ jobs:
       - name: Validate every language and level on MySQL 9.0.1
         run: bash scripts/validate_mysql_content.sh
 
+      - name: Validate matching pair bounds in MySQL
+        run: bash scripts/validate_mysql_matching_bounds.sh
+
       - name: Dry-run audio plan for every final level
         shell: bash
         run: |
