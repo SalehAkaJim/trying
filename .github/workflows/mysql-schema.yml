@@ -10,6 +10,7 @@ on:
       - 'scripts/**'
       - 'docs/**'
       - '.github/workflows/mysql-schema.yml'
+      - '.github/workflows/audio-generation.yml'
   pull_request:
     paths:
       - 'database/**'
@@ -19,6 +20,7 @@ on:
       - 'scripts/**'
       - 'docs/**'
       - '.github/workflows/mysql-schema.yml'
+      - '.github/workflows/audio-generation.yml'
 
 jobs:
   validate-database:
@@ -48,3 +50,22 @@ jobs:
 
       - name: Validate every language and level on MySQL 9.0.1
         run: bash scripts/validate_mysql_content.sh
+
+      - name: Dry-run audio plan for every final level
+        shell: bash
+        run: |
+          python - <<'PY' > /tmp/final_audio_levels.tsv
+          import json, pathlib
+          rows=[]
+          for path in pathlib.Path('content').glob('*/*/level.json'):
+              data=json.loads(path.read_text(encoding='utf-8'))
+              if data.get('status')=='final':
+                  rows.append((data['languageId'], data['level']))
+          for language, level in sorted(rows):
+              print(f'{language}\t{level}')
+          PY
+          while IFS=$'\t' read -r language level; do
+            [ -n "$language" ] || continue
+            echo "Planning audio for $language $level"
+            python scripts/audio_pipeline.py plan --language "$language" --level "$level" --allow-unresolved-voices
+          done < /tmp/final_audio_levels.tsv
