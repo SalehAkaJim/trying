@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-beruf",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Beruf",
+  "lemma": "Beruf",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "شغل / حرفه",
+  "usageNoteFa": "در پرسش منبع‌دار «Was ist er von Beruf?» برای پرسیدن شغل یک نفر به کار می‌رود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-lesson-002-professions"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}
