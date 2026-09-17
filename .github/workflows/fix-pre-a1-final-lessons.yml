@@ -1,0 +1,36 @@
+name: Fix Pre-A1 Final Lesson Activity Sync
+
+on:
+  push:
+    branches:
+      - fix/pre-a1-activity-bounds
+    paths:
+      - '.github/workflows/fix-pre-a1-final-lessons.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/pre-a1-activity-bounds
+          fetch-depth: 0
+      - name: Reopen and re-finalize revised lessons in SQL
+        run: python scripts/fix_pre_a1_reopen_final_lessons.py
+      - name: Verify diff
+        run: |
+          git diff --check
+          git diff --quiet -- database/content/de/pre-a1.sql && {
+            echo 'Expected SQL diff was not produced.'
+            exit 1
+          } || true
+      - name: Commit SQL fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add database/content/de/pre-a1.sql
+          git commit -m 'Reopen revised Pre-A1 lessons during SQL sync'
+          git push origin HEAD:fix/pre-a1-activity-bounds
