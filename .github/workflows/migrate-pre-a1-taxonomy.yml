@@ -1,0 +1,33 @@
+name: One-off Pre-A1 cast taxonomy sync
+
+on:
+  push:
+    paths:
+      - '.github/workflows/migrate-pre-a1-taxonomy.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update taxonomy and generated MySQL labels
+        run: |
+          python scripts/migrate_pre_a1_taxonomy.py
+          python scripts/apply_mysql_localization.py
+          rm -f scripts/migrate_pre_a1_taxonomy.py .github/workflows/migrate-pre-a1-taxonomy.yml
+      - name: Validate taxonomy
+        run: |
+          python scripts/validate_persian_coverage.py
+          python scripts/apply_mysql_localization.py --check
+      - name: Commit taxonomy sync on main
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Add Persian taxonomy for new German cast'
+          git push
