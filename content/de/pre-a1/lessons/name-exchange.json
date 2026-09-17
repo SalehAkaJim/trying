@@ -73,6 +73,7 @@
       "dialogueRef": null,
       "data": {
         "sourceText": "Ich heiße Iris.",
+        "sourceTextFa": "اسم من آیریس است.",
         "tokens": [
           "Ich",
           "heiße",
@@ -92,7 +93,8 @@
         ]
       },
       "transformations": [
-        "sentence_tokenized_for_word_order"
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
