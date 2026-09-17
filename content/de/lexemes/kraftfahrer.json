@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-kraftfahrer",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Kraftfahrer",
+  "lemma": "Kraftfahrer",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "راننده",
+  "usageNoteFa": "در گفت‌وگوی منبع‌دار بخش ۰۷۲ به‌عنوان شغل آقای ورنر آمده است.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": ["src-wikibooks-de-lesson-002-professions"],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}
