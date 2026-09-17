@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "char-de-lena",
+  "languageId": "de",
+  "name": "Lena",
+  "origin": "app_created",
+  "gender": "female",
+  "ageBand": "young_adult",
+  "roles": [
+    "conversation_partner"
+  ],
+  "relationshipTags": [
+    "friend",
+    "neighbor"
+  ],
+  "relationships": [
+    {
+      "characterId": "char-de-mia",
+      "type": "friend",
+      "contextNotes": "لنا و میا دوست‌اند."
+    },
+    {
+      "characterId": "char-de-jonas",
+      "type": "neighbor",
+      "contextNotes": "لنا و یوناس همسایه‌اند و موقعیت‌های روزمرهٔ ساده می‌توانند بین آن‌ها ادامه پیدا کنند."
+    }
+  ],
+  "contextNotes": "لنا جوان، دوستانه و آرام است. زبان‌آموز در برخی صحنه‌های روزمره نقش لنا را بازی می‌کند.",
+  "voiceProfile": {
+    "clarity": "high",
+    "stressLevel": "very_low",
+    "aggressiveness": "none",
+    "toneConsistency": "high",
+    "ageImpression": "young_adult",
+    "genderImpression": "female",
+    "elevenLabsVoiceId": null,
+    "voiceName": null
+  }
+}

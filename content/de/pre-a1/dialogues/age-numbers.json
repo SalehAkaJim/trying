@@ -5,11 +5,11 @@
   "sourceRefs": [
     "src-wikibooks-de-age-time"
   ],
-  "scenario": "میا و زبان‌آموز سن هم را می‌پرسند و با عددهای ساده جواب می‌دهند.",
+  "scenario": "میا و مکس سن هم را می‌پرسند؛ مکس ۱۸ ساله و میا ۲۰ ساله است.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-mia",
-    "char-de-learner"
+    "char-de-max"
   ],
   "turns": [
     {
@@ -31,7 +31,7 @@
     },
     {
       "id": "turn-de-age-2",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Ich bin achtzehn Jahre alt.",
@@ -50,7 +50,7 @@
     },
     {
       "id": "turn-de-age-3",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Wie alt bist du?",
@@ -85,5 +85,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "چهار نوبت برای رفت‌وبرگشت سن کافی است؛ فعالیت شنیداری بعدی عدد را جداگانه بازیابی می‌کند."
+  "sceneQualityRationale": "چهار نوبت برای رفت‌وبرگشت سن کافی است؛ فعالیت شنیداری بعدی عدد را جداگانه بازیابی می‌کند.",
+  "learnerCharacterId": "char-de-max"
 }

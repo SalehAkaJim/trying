@@ -4,23 +4,29 @@
   "languageId": "de",
   "name": "Iris",
   "origin": "app_created",
-  "sourceRefs": [
-    "src-wikibooks-de-wie-heisst-du"
-  ],
-  "gender": "unspecified",
+  "gender": "female",
   "ageBand": "young_adult",
   "roles": [
     "conversation_partner"
   ],
-  "relationshipTags": [],
-  "contextNotes": "شخصیت گفت‌وگویی برای تمرین نام‌پرسیدن؛ دربارهٔ جنسیت یا ویژگی‌های دیگری که منبع مشخص نکرده چیزی فرض نشده است.",
+  "relationshipTags": [
+    "acquaintance"
+  ],
+  "relationships": [
+    {
+      "characterId": "char-de-paul",
+      "type": "acquaintance",
+      "contextNotes": "آیریس و پاول در یک آشنایی مؤدبانه با هم صحبت می‌کنند و این آشنایی می‌تواند بعداً ادامه پیدا کند."
+    }
+  ],
+  "contextNotes": "آیریس یک زن جوان است و در صحنه‌های آشنایی مؤدبانه حضور دارد. در محتوای فعلی می‌گوید اهل آلمان است.",
   "voiceProfile": {
     "clarity": "high",
     "stressLevel": "very_low",
     "aggressiveness": "none",
     "toneConsistency": "high",
     "ageImpression": "young_adult",
-    "genderImpression": "neutral",
+    "genderImpression": "female",
     "elevenLabsVoiceId": null,
     "voiceName": null
   }

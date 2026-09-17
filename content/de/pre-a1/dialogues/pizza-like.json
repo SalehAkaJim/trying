@@ -7,11 +7,11 @@
     "src-wikibooks-de-magst-du-pizza",
     "src-libra-de-ich-mag-pizza"
   ],
-  "scenario": "میا و زبان‌آموز سلام می‌کنند و بعد یک پرسش و پاسخ کوتاه دربارهٔ دوست‌داشتن پیتزا دارند.",
+  "scenario": "میا و مکس سلام می‌کنند و بعد یک پرسش و پاسخ کوتاه دربارهٔ دوست‌داشتن پیتزا دارند.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-mia",
-    "char-de-learner"
+    "char-de-max"
   ],
   "turns": [
     {
@@ -39,7 +39,7 @@
     },
     {
       "id": "turn-de-pizza-2",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Hallo!",
@@ -91,7 +91,7 @@
     },
     {
       "id": "turn-de-pizza-4",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Ich mag Pizza.",
@@ -119,5 +119,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "پرسش و پاسخ اصلی دربارهٔ پیتزا در چهار نوبت کامل می‌شود و برای درس‌های ابتدایی هیچ ادامهٔ غیرضروری به مکالمه اضافه نشده است."
+  "sceneQualityRationale": "پرسش و پاسخ اصلی دربارهٔ پیتزا در چهار نوبت کامل می‌شود و برای درس‌های ابتدایی هیچ ادامهٔ غیرضروری به مکالمه اضافه نشده است.",
+  "learnerCharacterId": "char-de-max"
 }

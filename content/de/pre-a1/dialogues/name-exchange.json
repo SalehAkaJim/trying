@@ -7,11 +7,11 @@
     "src-wikibooks-de-wie-heisst-du",
     "src-wiktionary-de-heissen"
   ],
-  "scenario": "آیریس سلام می‌کند و زبان‌آموز پس از پاسخ، نام او را می‌پرسد و یک پاسخ ساده با «heißen» می‌شنود.",
+  "scenario": "آیریس سلام می‌کند و یوناس پس از پاسخ، نام او را می‌پرسد و پاسخ سادهٔ «Ich heiße Iris.» را می‌شنود.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-iris",
-    "char-de-learner"
+    "char-de-jonas"
   ],
   "turns": [
     {
@@ -39,7 +39,7 @@
     },
     {
       "id": "turn-de-name-2",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-jonas",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Hallo!",
@@ -62,7 +62,7 @@
     },
     {
       "id": "turn-de-name-3",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-jonas",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Wie heißt du?",
@@ -109,5 +109,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "مکالمه فقط یک سلام و یک پرسش‌وپاسخ نام دارد؛ برای شروع از صفر کوتاه است و فرم‌های «heißt / heiße» مستقیماً به مدخل واژگانی پایه متصل‌اند."
+  "sceneQualityRationale": "مکالمه فقط یک سلام و یک پرسش‌وپاسخ نام دارد؛ برای شروع از صفر کوتاه است و فرم‌های «heißt / heiße» مستقیماً به مدخل واژگانی پایه متصل‌اند.",
+  "learnerCharacterId": "char-de-jonas"
 }

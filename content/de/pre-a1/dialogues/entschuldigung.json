@@ -8,16 +8,16 @@
     "src-wiktionary-de-danke",
     "src-wiktionary-de-bitte"
   ],
-  "scenario": "زبان‌آموز برای یک اشتباه کوچک عذرخواهی می‌کند، میا پاسخ آرام می‌دهد و تعامل با تشکر و پاسخ مؤدبانه تمام می‌شود.",
+  "scenario": "مکس برای یک اشتباه کوچک عذرخواهی می‌کند، میا پاسخ آرام می‌دهد و تعامل با تشکر و پاسخ مؤدبانه تمام می‌شود.",
   "openingInitiator": "learner",
   "characterRefs": [
     "char-de-mia",
-    "char-de-learner"
+    "char-de-max"
   ],
   "turns": [
     {
       "id": "turn-de-entschuldigung-1",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Entschuldigung.",
@@ -63,7 +63,7 @@
     },
     {
       "id": "turn-de-entschuldigung-3",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Danke!",
@@ -108,5 +108,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "چهار نوبت یک تبادل اجتماعی کامل و کم‌فشار می‌سازند و هر چهار عبارت از منابع مدرن قابل‌ردیابی آمده‌اند."
+  "sceneQualityRationale": "چهار نوبت یک تبادل اجتماعی کامل و کم‌فشار می‌سازند و هر چهار عبارت از منابع مدرن قابل‌ردیابی آمده‌اند.",
+  "learnerCharacterId": "char-de-max"
 }

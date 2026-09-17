@@ -8,11 +8,11 @@
     "src-wikibooks-de-birthday",
     "src-wikibooks-de-phone"
   ],
-  "scenario": "یک آشنایی مؤدبانهٔ کوتاه چند بخش اصلی اطلاعات شخصی را در هشت نوبت مرور می‌کند.",
+  "scenario": "آیریس در یک آشنایی مؤدبانه با پاول مولر چند بخش اصلی اطلاعات شخصی او را در هشت نوبت مرور می‌کند.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-iris",
-    "char-de-learner"
+    "char-de-paul"
   ],
   "turns": [
     {
@@ -32,7 +32,7 @@
     },
     {
       "id": "turn-de-review-2",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Guten Tag!",
@@ -62,7 +62,7 @@
     },
     {
       "id": "turn-de-review-4",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Ich heiße Paul Müller.",
@@ -94,7 +94,7 @@
     },
     {
       "id": "turn-de-review-6",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Ich wohne in Österreich.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "turn-de-review-8",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Ich bin 20 Jahre alt.",
@@ -147,5 +147,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "هشت نوبت فقط مطالب اصلی قبلی را در یک تعامل واحد بازیابی می‌کند؛ هیچ زبان تازه‌ای برای طولانی‌کردن صحنه اضافه نشده است."
+  "sceneQualityRationale": "هشت نوبت فقط مطالب اصلی قبلی را در یک تعامل واحد بازیابی می‌کند؛ هیچ زبان تازه‌ای برای طولانی‌کردن صحنه اضافه نشده است.",
+  "learnerCharacterId": "char-de-paul"
 }

@@ -6,11 +6,11 @@
     "src-wikibooks-de-birthday-question",
     "src-wikibooks-de-birthday"
   ],
-  "scenario": "میا و زبان‌آموز تاریخ تولد را می‌پرسند و با دو تاریخ منبع‌دار پاسخ می‌دهند.",
+  "scenario": "میا و مکس تاریخ تولد را از هم می‌پرسند؛ تاریخ‌های این صحنه به اطلاعات ثابت همین دو شخصیت تبدیل شده‌اند.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-mia",
-    "char-de-learner"
+    "char-de-max"
   ],
   "turns": [
     {
@@ -32,7 +32,7 @@
     },
     {
       "id": "turn-de-birthday-2",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Am 16. Juli.",
@@ -49,7 +49,7 @@
     },
     {
       "id": "turn-de-birthday-3",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Wann hast du Geburtstag?",
@@ -83,5 +83,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "چهار نوبت دو شکل رایج پاسخ به تاریخ تولد را نشان می‌دهد و برای پیش از A1 کافی است."
+  "sceneQualityRationale": "چهار نوبت دو شکل رایج پاسخ به تاریخ تولد را نشان می‌دهد و برای پیش از A1 کافی است.",
+  "learnerCharacterId": "char-de-max"
 }

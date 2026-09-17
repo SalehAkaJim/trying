@@ -4,14 +4,28 @@
   "languageId": "de",
   "name": "Mia",
   "origin": "app_created",
-  "sourceRefs": [],
   "gender": "female",
   "ageBand": "young_adult",
   "roles": [
     "conversation_partner"
   ],
-  "relationshipTags": [],
-  "contextNotes": "شخصیت گفت‌وگویی دوستانه و تکرارشونده؛ جمله‌های منبع فعلی با این هویت اختصاص‌داده‌شده تعارض ندارند.",
+  "relationshipTags": [
+    "classmate",
+    "friend"
+  ],
+  "relationships": [
+    {
+      "characterId": "char-de-max",
+      "type": "classmate",
+      "contextNotes": "میا و مکس هم‌کلاسی‌اند و در چند درس ابتدایی دوباره با هم صحبت می‌کنند."
+    },
+    {
+      "characterId": "char-de-lena",
+      "type": "friend",
+      "contextNotes": "میا و لنا دوست‌اند و می‌توانند در درس‌های بعدی خط داستانی مشترک داشته باشند."
+    }
+  ],
+  "contextNotes": "میا ۲۰ ساله است. تاریخ تولد او سیزدهم نوامبر و شمارهٔ تمرینی او 692-267-752 است.",
   "voiceProfile": {
     "clarity": "high",
     "stressLevel": "very_low",
@@ -19,7 +33,7 @@
     "toneConsistency": "high",
     "ageImpression": "young_adult",
     "genderImpression": "female",
-    "elevenLabsVoiceId": null,
-    "voiceName": null
+    "elevenLabsVoiceId": "gJx1vCzNCD1EQHT212Ls",
+    "voiceName": "Ava – Natural AI Voice"
   }
 }

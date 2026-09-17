@@ -5,16 +5,16 @@
   "sourceRefs": [
     "src-wikibooks-de-basic-object"
   ],
-  "scenario": "در یک موقعیت متنی، میا و زبان‌آموز دربارهٔ دو شیء نام‌برده‌شده سؤال بسیار ساده می‌پرسند؛ حل فعالیت به تصویر وابسته نیست.",
+  "scenario": "لنا و میا دربارهٔ دو شیء نام‌برده‌شده سؤال بسیار ساده می‌پرسند؛ حل فعالیت به تصویر وابسته نیست.",
   "openingInitiator": "learner",
   "characterRefs": [
     "char-de-mia",
-    "char-de-learner"
+    "char-de-lena"
   ],
   "turns": [
     {
       "id": "turn-de-object-1",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-lena",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Was ist das?",
@@ -61,7 +61,7 @@
     },
     {
       "id": "turn-de-object-4",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-lena",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Das ist eine Karte.",
@@ -77,5 +77,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "سؤال اطلاعاتی بسیار ساده و پاسخ کوتاه از متن منبع گرفته شده‌اند؛ بافت فارسی شیء را مشخص می‌کند تا هیچ تصویر آموزشی لازم نباشد."
+  "sceneQualityRationale": "سؤال اطلاعاتی بسیار ساده و پاسخ کوتاه از متن منبع گرفته شده‌اند؛ بافت فارسی شیء را مشخص می‌کند تا هیچ تصویر آموزشی لازم نباشد.",
+  "learnerCharacterId": "char-de-lena"
 }

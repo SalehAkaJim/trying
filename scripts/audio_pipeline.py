@@ -193,6 +193,13 @@ def normalize_age(value: str | None) -> str:
     return aliases.get(v, v)
 
 
+def voice_gender_compatible(voice: dict, character: dict) -> bool:
+    profile=character.get("voiceProfile") or {}
+    wanted=str(profile.get("genderImpression") or character.get("gender") or "").lower()
+    if wanted not in {"female","male"}: return True
+    return str((voice.get("labels") or {}).get("gender") or "").lower()==wanted
+
+
 def score_voice(voice: dict, language: str, character: dict) -> float:
     labels = voice.get("labels") or {}
     profile = character.get("voiceProfile") or {}
@@ -259,6 +266,13 @@ def resolve_voices(language: str, config: dict, api_key: str) -> dict:
     used = {standalone["voiceId"]}
     characters = {}
     character_dir = ROOT / "content" / language / "characters"
+    for reserved_path in sorted(character_dir.glob("*.json")):
+        rc=load_json(reserved_path); rp=rc.get("voiceProfile") or {}
+        rid=rp.get("elevenLabsVoiceId"); rn=rp.get("voiceName")
+        if rid: used.add(rid)
+        elif rn:
+            m=by_name.get(str(rn).casefold()) or []
+            if m: used.add(sorted(m,key=lambda v:v["voice_id"])[0]["voice_id"])
     for path in sorted(character_dir.glob("*.json")):
         character = load_json(path)
         key = character["id"]
@@ -278,6 +292,8 @@ def resolve_voices(language: str, config: dict, api_key: str) -> dict:
             match = next((v for v in voices if v.get("voice_id") == explicit_id), None)
             if not match:
                 raise RuntimeError(f"Configured ElevenLabs voice ID for {key} is unavailable: {explicit_id}")
+            if not voice_gender_compatible(match, character):
+                raise RuntimeError(f"Configured ElevenLabs voice ID for {key} conflicts with character gender: {explicit_id}")
             rec = voice_record(match, strategy="explicit", character_key=key)
             characters[key] = rec
             used.add(rec["voiceId"])
@@ -286,15 +302,19 @@ def resolve_voices(language: str, config: dict, api_key: str) -> dict:
             matches = by_name.get(str(explicit_name).casefold()) or []
             if not matches:
                 raise RuntimeError(f"Configured ElevenLabs voice name for {key} is unavailable: {explicit_name}")
-            match = sorted(matches, key=lambda v: v["voice_id"])[0]
+            compatible = [v for v in matches if voice_gender_compatible(v, character)]
+            if not compatible:
+                raise RuntimeError(f"Configured ElevenLabs voice name for {key} conflicts with character gender: {explicit_name}")
+            match = sorted(compatible, key=lambda v: v["voice_id"])[0]
             rec = voice_record(match, strategy="explicit", character_key=key)
             characters[key] = rec
             used.add(rec["voiceId"])
             continue
 
-        candidates = [v for v in voices if v["voice_id"] not in used]
+        candidates = [v for v in voices if v["voice_id"] not in used and voice_gender_compatible(v, character)]
         if not candidates:
-            raise RuntimeError(f"No distinct ElevenLabs voice remains for {key}")
+            wanted = profile.get("genderImpression") or character.get("gender") or "unspecified"
+            raise RuntimeError(f"No distinct gender-compatible ElevenLabs voice remains for {key} (wanted {wanted})")
         scored = sorted(
             ((score_voice(v, language, character), v) for v in candidates),
             key=lambda pair: (-pair[0], str(pair[1].get("name", "")).casefold(), pair[1]["voice_id"]),
@@ -341,6 +361,12 @@ def write_voice_sql(lock: dict) -> Path:
     ]
     for key, rec in sorted(lock["characters"].items()):
         lines.append(
+            "UPDATE dialogue_turns t JOIN characters c ON c.id=t.speaker_character_id "
+            "JOIN languages l ON l.id=c.language_id "
+            f"SET t.audio_status='stale' WHERE l.code={sql_quote(language)} AND c.character_key={sql_quote(key)} "
+            f"AND t.audio_status='ready' AND t.audio_voice_id IS NOT NULL AND t.audio_voice_id<>{sql_quote(rec['voiceId'])};"
+        )
+        lines.append(
             "UPDATE characters c JOIN languages l ON l.id=c.language_id "
             f"SET c.voice_name={sql_quote(rec['voiceName'])}, c.elevenlabs_voice_id={sql_quote(rec['voiceId'])}, "
             f"c.voice_profile=JSON_SET(COALESCE(c.voice_profile,JSON_OBJECT()),'$.voiceName',{sql_quote(rec['voiceName'])},'$.elevenLabsVoiceId',{sql_quote(rec['voiceId'])}) "
@@ -360,7 +386,7 @@ def manifest_rows(language: str, level: str, db: str, lock: dict | None = None) 
     rows = mysql_rows(
         "SELECT owner_type,owner_key,HEX(audio_text),expected_source_hash,"
         "COALESCE(expected_voice_name,''),COALESCE(expected_voice_id,''),audio_status,"
-        "COALESCE(audio_url,''),COALESCE(audio_storage_path,''),audio_is_current "
+        "COALESCE(audio_url,''),COALESCE(audio_storage_path,''),COALESCE(audio_voice_id,''),audio_is_current "
         "FROM v_audio_generation_manifest "
         f"WHERE language_code={sql_quote(language)} AND cefr_level={sql_quote(level)} AND level_status='final' "
         "ORDER BY owner_type,owner_key;",
@@ -379,7 +405,7 @@ def manifest_rows(language: str, level: str, db: str, lock: dict | None = None) 
     }
     out = []
     for row in rows:
-        owner_type, owner_key, text_hex, expected_hash, voice_name, voice_id, audio_status, audio_url, storage_path, current = row
+        owner_type, owner_key, text_hex, expected_hash, voice_name, voice_id, audio_status, audio_url, storage_path, stored_voice_id, current = row
         text = bytes.fromhex(text_hex).decode("utf-8")
         voice_assignment_key = turn_voice_map.get(owner_key) if owner_type == "dialogue_turn" else "standalone"
         if lock:
@@ -387,6 +413,8 @@ def manifest_rows(language: str, level: str, db: str, lock: dict | None = None) 
             if rec:
                 voice_name = rec["voiceName"]
                 voice_id = rec["voiceId"]
+                if stored_voice_id != voice_id: current = "0"
+        if not voice_id: current = "0"
         out.append({
             "ownerType": owner_type,
             "ownerKey": owner_key,

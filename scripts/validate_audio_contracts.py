@@ -37,6 +37,10 @@ if config.get('apiKeyEnv')!='ELEVENLABS_API_KEY': errors.append('audio API key e
 if config.get('generation',{}).get('requirePaidGenerationConfirmation') is not True: errors.append('paid generation confirmation must remain mandatory')
 if config.get('storageRoot')!='audio': errors.append('audio storageRoot must be audio')
 if config.get('mappingRoot')!='database/audio': errors.append('audio mappingRoot must be database/audio')
+if config.get('voiceResolution',{}).get('learnerUsesStandaloneVoice') is not False: errors.append('learner dialogue turns must never inherit the standalone voice')
+for pth in Path('content').glob('*/characters/*.json'):
+    d=json.loads(pth.read_text(encoding='utf-8'))
+    if 'learner' in set(d.get('roles') or []): errors.append(f'{pth}: durable learner persona is forbidden')
 
 for p in Path("content").glob("*/*/lessons/*.json"):
     data=json.loads(p.read_text(encoding="utf-8"))

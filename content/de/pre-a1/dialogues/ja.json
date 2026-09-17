@@ -7,16 +7,16 @@
     "src-wikibooks-de-magst-du-pizza",
     "src-wiktionary-de-ja"
   ],
-  "scenario": "این بار زبان‌آموز خودش سلام می‌کند و سؤال آشنای پیتزا را می‌پرسد؛ میا با یک پاسخ مثبت کوتاه جواب می‌دهد.",
+  "scenario": "این بار مکس خودش سلام می‌کند و سؤال آشنای پیتزا را می‌پرسد؛ میا با یک پاسخ مثبت کوتاه جواب می‌دهد.",
   "openingInitiator": "learner",
   "characterRefs": [
     "char-de-mia",
-    "char-de-learner"
+    "char-de-max"
   ],
   "turns": [
     {
       "id": "turn-de-ja-1",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Hallo!",
@@ -62,7 +62,7 @@
     },
     {
       "id": "turn-de-ja-3",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Magst du Pizza?",
@@ -113,5 +113,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "زبان‌آموز در چهار نوبت کوتاه هم مکالمه را شروع می‌کند و هم سؤال آشنا را فعالانه می‌پرسد؛ ادامهٔ غیرضروری حذف شده است."
+  "sceneQualityRationale": "زبان‌آموز در چهار نوبت کوتاه هم مکالمه را شروع می‌کند و هم سؤال آشنا را فعالانه می‌پرسد؛ ادامهٔ غیرضروری حذف شده است.",
+  "learnerCharacterId": "char-de-max"
 }

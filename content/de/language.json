@@ -12,9 +12,12 @@
     "de-pre-a1"
   ],
   "characterRefs": [
-    "char-de-learner",
     "char-de-mia",
-    "char-de-iris"
+    "char-de-max",
+    "char-de-lena",
+    "char-de-jonas",
+    "char-de-iris",
+    "char-de-paul"
   ],
   "audioPolicy": {
     "standaloneVoicePreference": [

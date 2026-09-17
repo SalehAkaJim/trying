@@ -7,16 +7,16 @@
     "src-wiktionary-de-danke",
     "src-wiktionary-de-bitte"
   ],
-  "scenario": "میا و زبان‌آموز سلام می‌کنند؛ بعد از یک کمک کوچک میا تشکر می‌کند و زبان‌آموز پاسخ مؤدبانه می‌دهد.",
+  "scenario": "یوناس و لنا سلام می‌کنند؛ بعد از یک کمک کوچک یوناس تشکر می‌کند و لنا پاسخ مؤدبانه می‌دهد.",
   "openingInitiator": "app",
   "characterRefs": [
-    "char-de-mia",
-    "char-de-learner"
+    "char-de-jonas",
+    "char-de-lena"
   ],
   "turns": [
     {
       "id": "turn-de-danke-bitte-1",
-      "speakerCharacterId": "char-de-mia",
+      "speakerCharacterId": "char-de-jonas",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Hallo!",
@@ -39,7 +39,7 @@
     },
     {
       "id": "turn-de-danke-bitte-2",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-lena",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Hallo!",
@@ -62,7 +62,7 @@
     },
     {
       "id": "turn-de-danke-bitte-3",
-      "speakerCharacterId": "char-de-mia",
+      "speakerCharacterId": "char-de-jonas",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Danke!",
@@ -85,7 +85,7 @@
     },
     {
       "id": "turn-de-danke-bitte-4",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-lena",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Bitte!",
@@ -107,5 +107,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "تشکر و پاسخ مؤدبانه در چهار نوبت کوتاه و بدون وابستگی به تصویر یا جملهٔ ساختگی تمرین می‌شوند."
+  "sceneQualityRationale": "تشکر و پاسخ مؤدبانه در چهار نوبت کوتاه و بدون وابستگی به تصویر یا جملهٔ ساختگی تمرین می‌شوند.",
+  "learnerCharacterId": "char-de-lena"
 }

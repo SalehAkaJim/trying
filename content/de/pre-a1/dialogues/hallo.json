@@ -6,11 +6,11 @@
     "src-wiktionary-de-hallo",
     "src-wikibooks-de-basic-greetings"
   ],
-  "scenario": "میا و زبان‌آموز با یک سلام ساده شروع می‌کنند و با یک خداحافظی کوتاه مکالمه را تمام می‌کنند.",
+  "scenario": "میا و مکس با یک سلام ساده شروع می‌کنند و با یک خداحافظی کوتاه مکالمه را تمام می‌کنند.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-mia",
-    "char-de-learner"
+    "char-de-max"
   ],
   "turns": [
     {
@@ -38,7 +38,7 @@
     },
     {
       "id": "turn-de-hallo-2",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Hallo!",
@@ -84,7 +84,7 @@
     },
     {
       "id": "turn-de-hallo-4",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Tschüss!",
@@ -106,5 +106,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "برای شروع دوره، مکالمه عمداً روی چهار نوبت نگه داشته شده و فقط سلام و خداحافظی بسیار ساده را تمرین می‌کند."
+  "sceneQualityRationale": "برای شروع دوره، مکالمه عمداً روی چهار نوبت نگه داشته شده و فقط سلام و خداحافظی بسیار ساده را تمرین می‌کند.",
+  "learnerCharacterId": "char-de-max"
 }

@@ -6,16 +6,16 @@
     "src-wiktionary-de-guten-morgen",
     "src-wikibooks-de-basic-greetings"
   ],
-  "scenario": "صبح است و این بار زبان‌آموز گفت‌وگو را با سلام صبحگاهی شروع می‌کند و مکالمه با یک خداحافظی کوتاه تمام می‌شود.",
+  "scenario": "صبح است؛ لنا گفت‌وگو را با همسایه‌اش یوناس با یک سلام صبحگاهی شروع می‌کند و مکالمه با خداحافظی کوتاه تمام می‌شود.",
   "openingInitiator": "learner",
   "characterRefs": [
-    "char-de-mia",
-    "char-de-learner"
+    "char-de-jonas",
+    "char-de-lena"
   ],
   "turns": [
     {
       "id": "turn-de-gm-1",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-lena",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Guten Morgen!",
@@ -38,7 +38,7 @@
     },
     {
       "id": "turn-de-gm-2",
-      "speakerCharacterId": "char-de-mia",
+      "speakerCharacterId": "char-de-jonas",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Guten Morgen!",
@@ -61,7 +61,7 @@
     },
     {
       "id": "turn-de-gm-3",
-      "speakerCharacterId": "char-de-mia",
+      "speakerCharacterId": "char-de-jonas",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Tschüss!",
@@ -84,7 +84,7 @@
     },
     {
       "id": "turn-de-gm-4",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-lena",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Tschüss!",
@@ -106,5 +106,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "زبان‌آموز نقش آغازکننده را می‌گیرد و مکالمه برای شروع دوره عمداً در چهار نوبت و با دو عبارت بسیار ساده نگه داشته شده است."
+  "sceneQualityRationale": "زبان‌آموز نقش آغازکننده را می‌گیرد و مکالمه برای شروع دوره عمداً در چهار نوبت و با دو عبارت بسیار ساده نگه داشته شده است.",
+  "learnerCharacterId": "char-de-lena"
 }

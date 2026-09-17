@@ -17,6 +17,6 @@
   "voiceResolution": {
     "distinctConversationVoices": true,
     "preferVerifiedTargetLanguage": true,
-    "learnerUsesStandaloneVoice": true
+    "learnerUsesStandaloneVoice": false
   }
 }

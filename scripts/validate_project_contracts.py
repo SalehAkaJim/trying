@@ -308,6 +308,33 @@ for language_id, manifests in levels_by_language.items():
         if dialogue.get("openingInitiator") == "learner" and "شروع" not in (activities[0].get("instructionFa") or ""):
             errors.append(f"{lesson_path}: learner-start opening must explicitly ask the learner to start")
 
+# Character identity / learner-role contract.
+for language_id, character_paths in characters_by_language.items():
+    character_data={k:load(p) for k,p in character_paths.items()}
+    for key,ch in character_data.items():
+        if "learner" in set(ch.get("roles") or []): errors.append(f"{character_paths[key]}: durable characters must not use the learner role")
+        for rel in ch.get("relationships") or []:
+            target=rel.get("characterId"); typ=rel.get("type")
+            if target==key: errors.append(f"{character_paths[key]}: relationship cannot point to itself")
+            if target not in character_data: errors.append(f"{character_paths[key]}: relationship target {target!r} does not exist"); continue
+            if not any(x.get("characterId")==key and x.get("type")==typ for x in (character_data[target].get("relationships") or [])):
+                errors.append(f"{character_paths[key]}: relationship {typ!r} to {target!r} is not reciprocal")
+for dialogue_id,(dialogue_path,dialogue) in dialogues.items():
+    lang=dialogue.get("languageId"); paths=characters_by_language.get(lang,{}); refs=set(dialogue.get("characterRefs") or []); learner=dialogue.get("learnerCharacterId")
+    if not learner: errors.append(f"{dialogue_path}: learnerCharacterId is required"); continue
+    if learner not in refs: errors.append(f"{dialogue_path}: learnerCharacterId must be present in characterRefs")
+    if learner not in paths: errors.append(f"{dialogue_path}: learnerCharacterId {learner!r} is not canonical")
+    if str(learner).endswith("-learner"): errors.append(f"{dialogue_path}: generic learner persona is forbidden")
+    for turn in dialogue.get("turns") or []:
+        tid=turn.get("id","<turn>"); sp=turn.get("speakerCharacterId")
+        if sp not in refs: errors.append(f"{dialogue_path}:{tid}: speakerCharacterId must be present in characterRefs")
+        if sp not in paths: errors.append(f"{dialogue_path}:{tid}: unknown speaker {sp!r}"); continue
+        if str(sp).endswith("-learner"): errors.append(f"{dialogue_path}:{tid}: generic learner persona is forbidden")
+        if bool(turn.get("learnerTurn")) and sp!=learner: errors.append(f"{dialogue_path}:{tid}: learner turn must use learnerCharacterId")
+        if not bool(turn.get("learnerTurn")) and sp==learner: errors.append(f"{dialogue_path}:{tid}: app turn cannot use learner-controlled character")
+        ev=turn.get("speakerGenderEvidence")
+        if ev in {"female","male"} and load(paths[sp]).get("gender")!=ev: errors.append(f"{dialogue_path}:{tid}: speaker gender evidence conflicts with character gender")
+
 if errors:
     print("\n".join(errors))
     sys.exit(1)

@@ -6,11 +6,11 @@
     "src-wikibooks-de-phone",
     "src-wikibooks-de-phone-example"
   ],
-  "scenario": "میا و زبان‌آموز شماره تلفن را از هم می‌پرسند و دو شمارهٔ منبع‌دار می‌گویند.",
+  "scenario": "میا و مکس شمارهٔ تلفن تمرینی را از هم می‌پرسند و دو شمارهٔ منبع‌دار می‌گویند.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-mia",
-    "char-de-learner"
+    "char-de-max"
   ],
   "turns": [
     {
@@ -32,7 +32,7 @@
     },
     {
       "id": "turn-de-phone-2",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Meine Telefonnummer lautet 789.",
@@ -49,7 +49,7 @@
     },
     {
       "id": "turn-de-phone-3",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Wie lautet deine Telefonnummer?",
@@ -82,5 +82,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "چهار نوبت برای تمرین پرسیدن و شنیدن/گفتن شماره کافی است و عددها نقش اطلاعات واقعی را دارند."
+  "sceneQualityRationale": "چهار نوبت برای تمرین پرسیدن و شنیدن/گفتن شماره کافی است و عددها نقش اطلاعات واقعی را دارند.",
+  "learnerCharacterId": "char-de-max"
 }

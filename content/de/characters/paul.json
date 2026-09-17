@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "char-de-paul",
+  "languageId": "de",
+  "name": "Paul Müller",
+  "origin": "app_created",
+  "gender": "male",
+  "ageBand": "young_adult",
+  "roles": [
+    "conversation_partner"
+  ],
+  "relationshipTags": [
+    "acquaintance"
+  ],
+  "relationships": [
+    {
+      "characterId": "char-de-iris",
+      "type": "acquaintance",
+      "contextNotes": "پاول و آیریس در یک آشنایی مؤدبانه با هم آشنا شده‌اند."
+    }
+  ],
+  "contextNotes": "پاول مولر ۲۰ ساله است و در محتوای فعلی در اتریش زندگی می‌کند. زبان‌آموز در مرور اطلاعات شخصی نقش پاول را بازی می‌کند.",
+  "voiceProfile": {
+    "clarity": "high",
+    "stressLevel": "very_low",
+    "aggressiveness": "none",
+    "toneConsistency": "high",
+    "ageImpression": "young_adult",
+    "genderImpression": "male",
+    "elevenLabsVoiceId": null,
+    "voiceName": null
+  }
+}

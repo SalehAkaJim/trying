@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "char-de-max",
+  "languageId": "de",
+  "name": "Max",
+  "origin": "app_created",
+  "gender": "male",
+  "ageBand": "young_adult",
+  "roles": [
+    "conversation_partner"
+  ],
+  "relationshipTags": [
+    "classmate"
+  ],
+  "relationships": [
+    {
+      "characterId": "char-de-mia",
+      "type": "classmate",
+      "contextNotes": "مکس و میا هم‌کلاسی‌اند و چند گفت‌وگوی پایه را با هم پیش می‌برند."
+    }
+  ],
+  "contextNotes": "مکس ۱۸ ساله است. تاریخ تولد او ۱۶ ژوئیه و شمارهٔ تمرینی او 789 است. زبان‌آموز در چند صحنه نقش مکس را بازی می‌کند.",
+  "voiceProfile": {
+    "clarity": "high",
+    "stressLevel": "very_low",
+    "aggressiveness": "none",
+    "toneConsistency": "high",
+    "ageImpression": "young_adult",
+    "genderImpression": "male",
+    "elevenLabsVoiceId": null,
+    "voiceName": null
+  }
+}

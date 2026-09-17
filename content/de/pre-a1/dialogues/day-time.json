@@ -5,16 +5,16 @@
   "sourceRefs": [
     "src-wikibooks-de-age-time"
   ],
-  "scenario": "میا و زبان‌آموز دربارهٔ روز و ساعت فعلی سؤال و جواب می‌کنند.",
+  "scenario": "یوناس دربارهٔ روز و ساعت فعلی سؤال می‌کند و میا با اطلاعات ساده پاسخ می‌دهد.",
   "openingInitiator": "learner",
   "characterRefs": [
     "char-de-mia",
-    "char-de-learner"
+    "char-de-jonas"
   ],
   "turns": [
     {
       "id": "turn-de-time-1",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-jonas",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Welcher Tag ist heute?",
@@ -49,7 +49,7 @@
     },
     {
       "id": "turn-de-time-3",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-jonas",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Wie spät ist es?",
@@ -82,5 +82,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "زبان‌آموز هر دو سؤال را فعالانه می‌پرسد و چهار نوبت روز و ساعت را بدون حاشیه پوشش می‌دهند."
+  "sceneQualityRationale": "زبان‌آموز هر دو سؤال را فعالانه می‌پرسد و چهار نوبت روز و ساعت را بدون حاشیه پوشش می‌دهند.",
+  "learnerCharacterId": "char-de-jonas"
 }

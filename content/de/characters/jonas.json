@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "char-de-jonas",
+  "languageId": "de",
+  "name": "Jonas",
+  "origin": "app_created",
+  "gender": "male",
+  "ageBand": "young_adult",
+  "roles": [
+    "conversation_partner",
+    "cafe_staff"
+  ],
+  "relationshipTags": [
+    "neighbor"
+  ],
+  "relationships": [
+    {
+      "characterId": "char-de-lena",
+      "type": "neighbor",
+      "contextNotes": "یوناس و لنا همسایه‌اند."
+    }
+  ],
+  "contextNotes": "یوناس جوان و خوش‌برخورد است و در یکی از موقعیت‌های انتخاب غذا نقش کارمند کافه را دارد.",
+  "voiceProfile": {
+    "clarity": "high",
+    "stressLevel": "very_low",
+    "aggressiveness": "none",
+    "toneConsistency": "high",
+    "ageImpression": "young_adult",
+    "genderImpression": "male",
+    "elevenLabsVoiceId": null,
+    "voiceName": null
+  }
+}

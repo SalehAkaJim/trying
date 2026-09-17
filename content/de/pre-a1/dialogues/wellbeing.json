@@ -6,11 +6,11 @@
     "src-wiktionary-de-hallo",
     "src-wikibooks-de-basic-greetings"
   ],
-  "scenario": "میا و زبان‌آموز سلام می‌کنند و میا یک احوال‌پرسی خیلی کوتاه می‌پرسد که زبان‌آموز با یک پاسخ ساده جواب می‌دهد.",
+  "scenario": "میا و لنا سلام می‌کنند و میا یک احوال‌پرسی خیلی کوتاه می‌پرسد که لنا با یک پاسخ ساده جواب می‌دهد.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-mia",
-    "char-de-learner"
+    "char-de-lena"
   ],
   "turns": [
     {
@@ -38,7 +38,7 @@
     },
     {
       "id": "turn-de-wellbeing-2",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-lena",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Hallo!",
@@ -84,7 +84,7 @@
     },
     {
       "id": "turn-de-wellbeing-4",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-lena",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Gut.",
@@ -106,5 +106,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "فقط چهار نوبت لازم برای سلام و یک احوال‌پرسی پایه نگه داشته شده و هیچ عبارت اضافی برای طولانی‌کردن صحنه وارد نشده است."
+  "sceneQualityRationale": "فقط چهار نوبت لازم برای سلام و یک احوال‌پرسی پایه نگه داشته شده و هیچ عبارت اضافی برای طولانی‌کردن صحنه وارد نشده است.",
+  "learnerCharacterId": "char-de-lena"
 }

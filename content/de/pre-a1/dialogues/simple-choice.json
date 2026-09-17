@@ -8,16 +8,16 @@
     "src-wiktionary-de-moechten",
     "src-wiktionary-de-pizza"
   ],
-  "scenario": "میا و زبان‌آموز سلام می‌کنند؛ میا با یک پرسش بسیار کوتاه می‌پرسد زبان‌آموز چه می‌خواهد و زبان‌آموز یک گزینهٔ کاملاً آشنا را انتخاب می‌کند.",
+  "scenario": "مکس در یک کافه با یوناس سلام می‌کند؛ یوناس می‌پرسد چه می‌خواهد و مکس گزینهٔ آشنای «Pizza.» را انتخاب می‌کند.",
   "openingInitiator": "app",
   "characterRefs": [
-    "char-de-mia",
-    "char-de-learner"
+    "char-de-jonas",
+    "char-de-max"
   ],
   "turns": [
     {
       "id": "turn-de-choice-1",
-      "speakerCharacterId": "char-de-mia",
+      "speakerCharacterId": "char-de-jonas",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Hallo!",
@@ -40,7 +40,7 @@
     },
     {
       "id": "turn-de-choice-2",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Hallo!",
@@ -63,7 +63,7 @@
     },
     {
       "id": "turn-de-choice-3",
-      "speakerCharacterId": "char-de-mia",
+      "speakerCharacterId": "char-de-jonas",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Was möchtest du?",
@@ -87,7 +87,7 @@
     },
     {
       "id": "turn-de-choice-4",
-      "speakerCharacterId": "char-de-learner",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Pizza.",
@@ -109,5 +109,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "درس نهم هنوز در بازهٔ ده درس اول است؛ مکالمه دقیقاً چهار نوبت دارد و فقط یک پرسش تازه را با یک پاسخ واژگانی از قبل آشنا ترکیب می‌کند."
+  "sceneQualityRationale": "درس نهم هنوز در بازهٔ ده درس اول است؛ مکالمه دقیقاً چهار نوبت دارد و فقط یک پرسش تازه را با یک پاسخ واژگانی از قبل آشنا ترکیب می‌کند.",
+  "learnerCharacterId": "char-de-max"
 }

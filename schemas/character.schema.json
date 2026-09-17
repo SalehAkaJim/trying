@@ -154,6 +154,39 @@
           "default": null
         }
       }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "characterId",
+          "type"
+        ],
+        "properties": {
+          "characterId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "friend",
+              "classmate",
+              "neighbor",
+              "acquaintance",
+              "coworker",
+              "family",
+              "service_context"
+            ]
+          },
+          "contextNotes": {
+            "type": "string"
+          }
+        }
+      },
+      "uniqueItems": true,
+      "default": []
     }
   }
 }
