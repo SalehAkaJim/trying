@@ -1,0 +1,17 @@
+{
+  "id":"dlg-de-a1-daily-routine-school",
+  "languageId":"de",
+  "level":"A1",
+  "sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],
+  "scenario":"آیریس در یک گفت‌وگوی مؤدبانه از مکس دربارهٔ برنامهٔ پیش از ظهر و بعدازظهر می‌پرسد؛ مکس دربارهٔ رفتن به مدرسه و برگشتن به خانه جواب می‌دهد.",
+  "openingInitiator":"app",
+  "characterRefs":["char-de-iris","char-de-max"],
+  "turns":[
+    {"id":"turn-de-a1-daily-routine-school-1","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Was machen Sie vormittags?","translationFa":"پیش از ظهرها چه کار می‌کنید؟","learnerTurn":false,"lexemeRefs":["lex-de-machen","lex-de-vormittags"],"lexemeOccurrences":[{"surface":"machen","lexemeId":"lex-de-machen","lexemeFormId":null},{"surface":"vormittags","lexemeId":"lex-de-vormittags","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"audioRef":null},
+    {"id":"turn-de-a1-daily-routine-school-2","speakerCharacterId":"char-de-max","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Vormittags gehe ich in die Schule.","translationFa":"پیش از ظهرها به مدرسه می‌روم.","learnerTurn":true,"lexemeRefs":["lex-de-vormittags","lex-de-gehen","lex-de-schule"],"lexemeOccurrences":[{"surface":"Vormittags","lexemeId":"lex-de-vormittags","lexemeFormId":null},{"surface":"gehe","lexemeId":"lex-de-gehen","lexemeFormId":"lexform-de-gehen-gehe"},{"surface":"Schule","lexemeId":"lex-de-schule","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"audioRef":null},
+    {"id":"turn-de-a1-daily-routine-school-3","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Was machen Sie nachmittags?","translationFa":"بعدازظهرها چه کار می‌کنید؟","learnerTurn":false,"lexemeRefs":["lex-de-machen","lex-de-nachmittags"],"lexemeOccurrences":[{"surface":"machen","lexemeId":"lex-de-machen","lexemeFormId":null},{"surface":"nachmittags","lexemeId":"lex-de-nachmittags","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"audioRef":null},
+    {"id":"turn-de-a1-daily-routine-school-4","speakerCharacterId":"char-de-max","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Nachmittags gehe ich nach Hause.","translationFa":"بعدازظهرها به خانه می‌روم.","learnerTurn":true,"lexemeRefs":["lex-de-nachmittags","lex-de-gehen","lex-de-nach-hause"],"lexemeOccurrences":[{"surface":"Nachmittags","lexemeId":"lex-de-nachmittags","lexemeFormId":null},{"surface":"gehe","lexemeId":"lex-de-gehen","lexemeFormId":"lexform-de-gehen-gehe"},{"surface":"nach Hause","lexemeId":"lex-de-nach-hause","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"audioRef":null}
+  ],
+  "sceneQualityRationale":"دو جفت پرسش و پاسخِ بخش ۹۳۶ عیناً حفظ شده‌اند. سن مکس با موقعیت مدرسه سازگار است و خطاب رسمی منبع در قالب یک گفت‌وگوی مؤدبانه با آیریس طبیعی باقی می‌ماند.",
+  "learnerCharacterId":"char-de-max"
+}

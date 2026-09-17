@@ -1,0 +1,21 @@
+{
+  "schemaVersion":"1.0.0",
+  "id":"lex-de-gehen",
+  "languageId":"de",
+  "type":"word",
+  "surface":"gehen",
+  "lemma":"gehen",
+  "partOfSpeech":"verb",
+  "partOfSpeechFa":"فعل",
+  "level":"A1",
+  "translationFa":"رفتن",
+  "usageNoteFa":"برای بیان رفتن به مدرسه، خانه یا یک مکان در روتین روزانه استفاده می‌شود.",
+  "grammarNoteRefs":[],
+  "exampleRefs":[],
+  "sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],
+  "formRefs":["lexform-de-gehen-gehe"],
+  "flashcardEligible":true,
+  "audioStatus":"blocked_until_level_final",
+  "audioRef":null,
+  "audioVoice":null
+}

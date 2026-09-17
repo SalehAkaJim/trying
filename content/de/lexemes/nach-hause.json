@@ -1,0 +1,21 @@
+{
+  "schemaVersion":"1.0.0",
+  "id":"lex-de-nach-hause",
+  "languageId":"de",
+  "type":"phrase",
+  "surface":"nach Hause",
+  "lemma":null,
+  "partOfSpeech":null,
+  "partOfSpeechFa":null,
+  "level":"A1",
+  "translationFa":"به خانه",
+  "usageNoteFa":"در این سطح به‌صورت یک عبارت کاربردی برای برگشتن یا رفتن به خانه یاد گرفته می‌شود.",
+  "grammarNoteRefs":[],
+  "exampleRefs":[],
+  "sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],
+  "formRefs":[],
+  "flashcardEligible":true,
+  "audioStatus":"blocked_until_level_final",
+  "audioRef":null,
+  "audioVoice":null
+}

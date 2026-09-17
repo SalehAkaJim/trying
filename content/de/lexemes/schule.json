@@ -1,0 +1,21 @@
+{
+  "schemaVersion":"1.0.0",
+  "id":"lex-de-schule",
+  "languageId":"de",
+  "type":"word",
+  "surface":"Schule",
+  "lemma":"Schule",
+  "partOfSpeech":"noun",
+  "partOfSpeechFa":"اسم",
+  "level":"A1",
+  "translationFa":"مدرسه",
+  "usageNoteFa":"برای اشارهٔ ساده به مدرسه در برنامهٔ روزانه استفاده می‌شود.",
+  "grammarNoteRefs":[],
+  "exampleRefs":[],
+  "sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],
+  "formRefs":[],
+  "flashcardEligible":true,
+  "audioStatus":"blocked_until_level_final",
+  "audioRef":null,
+  "audioVoice":null
+}
