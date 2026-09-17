@@ -4,13 +4,21 @@
   "lexemeId": "lex-de-moegen",
   "surface": "möchtest",
   "formType": "inflected",
+  "formTypeFa": "صرف‌شده",
   "features": {
     "mood": "subjunctive_II",
     "person": "2",
     "number": "singular"
   },
+  "featuresFa": {
+    "mood": "وجه شرطی دوم",
+    "person": "دوم‌شخص",
+    "number": "مفرد"
+  },
   "origin": "reference_attested",
+  "originFa": "ثبت‌شده در مرجع",
   "reviewStatus": "approved",
+  "reviewStatusFa": "تأییدشده",
   "sourceRefs": [
     "src-wiktionary-de-moechten",
     "src-oak-de-was-moechtest-du"
