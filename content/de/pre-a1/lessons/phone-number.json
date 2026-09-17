@@ -8,7 +8,7 @@
   "sourceTitle": "Wie lautet deine Telefonnummer? / Meine Telefonnummer ...",
   "learningTargets": [
     "پرسش شماره تلفن را بفهمد و استفاده کند.",
-    "یک شماره تلفن ساده را بیان و از راه شنیدن تشخیص دهد."
+    "یک شماره تلفن کامل و منبع‌دار را بیان و از راه شنیدن تشخیص دهد."
   ],
   "sourceRefs": [
     "src-wikibooks-de-phone",
@@ -19,7 +19,7 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "چهار مرحله تبادل شماره، دریافت شنیداری، ساخت پاسخ و تشخیص پرسش را پوشش می‌دهد.",
+    "activitySelectionRationale": "چهار مرحله تبادل شماره، دریافت شنیداری، ساخت پاسخ و تشخیص پرسش را با نمونهٔ کامل منبع‌دار پوشش می‌دهد.",
     "sequenceRationale": "تعامل و شنیدن به تولید ساختاری و سپس تشخیص نقش پرسش می‌رسد.",
     "templateSignature": "conversation_speaking>listen_choose>word_order>multiple_choice"
   },
@@ -27,8 +27,8 @@
     {
       "id": "act-de-phone-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "شماره تلفن را بپرس و پاسخ نمونه را بگو.",
-      "selectionReason": "پرسش و پاسخ مستقیم شماره تلفن توصیفگر صریح پیش از A1 است.",
+      "instructionFa": "شماره تلفن را بپرس و پاسخ کامل منبع‌دار را بگو.",
+      "selectionReason": "پرسش و پاسخ مستقیم شماره تلفن توصیفگر صریح پیش از A1 است و نمونهٔ پاسخ کامل از خود منبع بازاستفاده می‌شود.",
       "sourceRefs": [
         "src-wikibooks-de-phone",
         "src-wikibooks-de-phone-example"
@@ -53,27 +53,28 @@
     {
       "id": "act-de-phone-listen",
       "type": "listen_choose",
-      "instructionFa": "شماره را گوش کن و عدد درست را انتخاب کن.",
-      "selectionReason": "شماره تلفن باید در دریافت شنیداری هم قابل تشخیص باشد.",
+      "instructionFa": "شماره را گوش کن و نمونهٔ درست را انتخاب کن.",
+      "selectionReason": "شماره تلفن باید در دریافت شنیداری هم قابل تشخیص باشد و هر دو گزینهٔ عددی از نمونه‌های موجود در منابع پروژه می‌آیند.",
       "sourceRefs": [
-        "src-wikibooks-de-phone"
+        "src-wikibooks-de-phone",
+        "src-wikibooks-de-phone-example"
       ],
       "learningTargets": [
-        "تشخیص شنیداری شمارهٔ «789»."
+        "تشخیص شنیداری شمارهٔ کامل منبع‌دار."
       ],
       "lexemeRefs": [
         "lex-de-telefonnummer"
       ],
       "dialogueRef": null,
       "data": {
-        "audioTextTargetFa": "شماره تلفن من ۷۸۹ است.",
+        "audioTextTargetFa": "شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.",
         "options": [
           {
-            "text": "789",
+            "text": "692-267-752",
             "correct": true
           },
           {
-            "text": "798",
+            "text": "789",
             "correct": false
           }
         ]
@@ -83,7 +84,7 @@
         "persian_translation_added"
       ],
       "audioStatus": "pending",
-      "audioTextTarget": "Meine Telefonnummer lautet 789."
+      "audioTextTarget": "Meine Telefonnummer ist: 692-267-752."
     },
     {
       "id": "act-de-phone-word-order",
@@ -91,30 +92,29 @@
       "instructionFa": "جملهٔ شماره تلفن را دوباره بساز.",
       "selectionReason": "پس از تشخیص شنیداری، بازسازی همان جمله باعث می‌شود الگوی گفتن شماره نیز فعالانه تمرین شود.",
       "sourceRefs": [
-        "src-wikibooks-de-phone",
         "src-wikibooks-de-phone-example"
       ],
       "learningTargets": [
-        "بازسازی «Meine Telefonnummer lautet 789.»."
+        "بازسازی «Meine Telefonnummer ist: 692-267-752.»."
       ],
       "lexemeRefs": [
         "lex-de-telefonnummer"
       ],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Meine Telefonnummer lautet 789.",
-        "sourceTextFa": "شماره تلفن من ۷۸۹ است.",
+        "sourceText": "Meine Telefonnummer ist: 692-267-752.",
+        "sourceTextFa": "شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.",
         "tokens": [
           "Meine",
           "Telefonnummer",
-          "lautet",
-          "789."
+          "ist:",
+          "692-267-752."
         ],
         "answer": [
           "Meine",
           "Telefonnummer",
-          "lautet",
-          "789."
+          "ist:",
+          "692-267-752."
         ]
       },
       "transformations": [
@@ -147,8 +147,8 @@
             "correct": true
           },
           {
-            "textTarget": "Meine Telefonnummer lautet 789.",
-            "translationFa": "شماره تلفن من ۷۸۹ است.",
+            "textTarget": "Meine Telefonnummer ist: 692-267-752.",
+            "translationFa": "شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.",
             "correct": false
           }
         ]
@@ -161,6 +161,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitleFa": "شماره تلفنت چیه؟"
 }
