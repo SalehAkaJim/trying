@@ -135,13 +135,13 @@
     {
       "id": "act-de-time-question-match",
       "type": "matching",
-      "instructionFa": "پرسش روز و ساعت را به پاسخ مناسب وصل کن.",
-      "selectionReason": "این مرحله دو نوع اطلاعات نزدیک را کنار هم مقایسه می‌کند تا زبان‌آموز فقط عدد ساعت را حفظ نکند.",
+      "instructionFa": "هر عبارت را به نقش درستش وصل کن.",
+      "selectionReason": "چهار عبارت منبع‌دار روز و ساعت را جداگانه تطبیق می‌دهد تا پرسش و پاسخ هر دسته با چهار گزینهٔ مستقل از هم تشخیص داده شوند.",
       "sourceRefs": [
         "src-wikibooks-de-age-time"
       ],
       "learningTargets": [
-        "تشخیص ارتباط پرسش روز با پاسخ روز و پرسش ساعت با پاسخ ساعت."
+        "تشخیص پرسش و پاسخ مربوط به روز و ساعت."
       ],
       "lexemeRefs": [
         "lex-de-heute",
@@ -154,14 +154,26 @@
           {
             "left": "Welcher Tag ist heute?",
             "leftFa": "امروز چه روزی است؟",
-            "right": "Heute ist Dienstag.",
-            "rightFa": "امروز سه‌شنبه است."
+            "right": "پرسش دربارهٔ روز",
+            "rightFa": "پرسش دربارهٔ روز"
+          },
+          {
+            "left": "Heute ist Dienstag.",
+            "leftFa": "امروز سه‌شنبه است.",
+            "right": "پاسخ دربارهٔ روز",
+            "rightFa": "پاسخ دربارهٔ روز"
           },
           {
             "left": "Wie spät ist es?",
             "leftFa": "ساعت چنده؟",
-            "right": "Es ist 6.30 Uhr.",
-            "rightFa": "ساعت ۶:۳۰ است."
+            "right": "پرسش دربارهٔ ساعت",
+            "rightFa": "پرسش دربارهٔ ساعت"
+          },
+          {
+            "left": "Es ist 6.30 Uhr.",
+            "leftFa": "ساعت ۶:۳۰ است.",
+            "right": "پاسخ دربارهٔ ساعت",
+            "rightFa": "پاسخ دربارهٔ ساعت"
           }
         ]
       },

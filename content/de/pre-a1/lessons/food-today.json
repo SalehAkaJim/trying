@@ -57,13 +57,13 @@
     {
       "id": "act-de-food-today-matching",
       "type": "matching",
-      "instructionFa": "هر پرسش را به پاسخ درست وصل کن.",
-      "selectionReason": "دو جفت دقیق منبع‌دار را بدون جملهٔ تازه دوباره بازیابی می‌کند.",
+      "instructionFa": "هر عبارت را به نقش درستش وصل کن.",
+      "selectionReason": "چهار عبارت دقیق منبع را جداگانه تطبیق می‌دهد تا پرسش و پاسخ دربارهٔ غذای موجود و چیزی که فرد می‌خورد با چهار گزینهٔ مستقل تمرین شوند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-002"
       ],
       "learningTargets": [
-        "تشخیص ارتباط پرسش و پاسخ دربارهٔ غذای موجود و خوردن."
+        "تشخیص نقش چهار عبارت مربوط به غذای امروز و خوردن."
       ],
       "lexemeRefs": [
         "lex-de-heute",
@@ -77,14 +77,26 @@
           {
             "left": "Was gibt es heute?",
             "leftFa": "امروز چی داریم؟",
-            "right": "Heute gibt es Suppe.",
-            "rightFa": "امروز سوپ داریم."
+            "right": "پرسش دربارهٔ غذای امروز",
+            "rightFa": "پرسش دربارهٔ غذای امروز"
+          },
+          {
+            "left": "Heute gibt es Suppe.",
+            "leftFa": "امروز سوپ داریم.",
+            "right": "پاسخ دربارهٔ غذای موجود",
+            "rightFa": "پاسخ دربارهٔ غذای موجود"
           },
           {
             "left": "Was essen Sie?",
             "leftFa": "شما چی می‌خورید؟",
-            "right": "Ich esse Reis.",
-            "rightFa": "من برنج می‌خورم."
+            "right": "پرسش دربارهٔ چیزی که می‌خورید",
+            "rightFa": "پرسش دربارهٔ چیزی که می‌خورید"
+          },
+          {
+            "left": "Ich esse Reis.",
+            "leftFa": "من برنج می‌خورم.",
+            "right": "پاسخ دربارهٔ خوردن",
+            "rightFa": "پاسخ دربارهٔ خوردن"
           }
         ]
       },

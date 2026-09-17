@@ -58,13 +58,13 @@
     {
       "id": "act-de-residence-matching",
       "type": "matching",
-      "instructionFa": "هر پرسش رسمی را به پاسخ مناسبش وصل کن.",
-      "selectionReason": "این تطبیق تفاوت «محل زندگی» و «مبدأ» را با چهار عبارت دقیق منبع و بدون افزودن جملهٔ تازه تمرین می‌کند.",
+      "instructionFa": "هر عبارت را به نقش درستش وصل کن.",
+      "selectionReason": "چهار عبارت دقیق منبع را جداگانه تطبیق می‌دهد تا پرسش و پاسخِ محل زندگی و مبدأ با چهار گزینهٔ مستقل از هم تشخیص داده شوند.",
       "sourceRefs": [
         "src-wikibooks-de-residence-origin"
       ],
       "learningTargets": [
-        "تشخیص پاسخ مناسب برای پرسش محل زندگی و پرسش مبدأ."
+        "تشخیص پرسش و پاسخ مربوط به محل زندگی و مبدأ."
       ],
       "lexemeRefs": [
         "lex-de-wohnen",
@@ -78,20 +78,26 @@
           {
             "left": "Wo wohnen Sie?",
             "leftFa": "کجا زندگی می‌کنید؟",
-            "right": "Ich wohne in Österreich.",
-            "rightFa": "من در اتریش زندگی می‌کنم.",
-            "sourceRefs": [
-              "src-wikibooks-de-residence-origin"
-            ]
+            "right": "پرسش دربارهٔ محل زندگی",
+            "rightFa": "پرسش دربارهٔ محل زندگی"
+          },
+          {
+            "left": "Ich wohne in Österreich.",
+            "leftFa": "من در اتریش زندگی می‌کنم.",
+            "right": "پاسخ دربارهٔ محل زندگی",
+            "rightFa": "پاسخ دربارهٔ محل زندگی"
           },
           {
             "left": "Woher kommen Sie?",
             "leftFa": "اهل کجا هستید؟",
-            "right": "Ich komme aus Deutschland, und Sie?",
-            "rightFa": "من اهل آلمان هستم، شما چطور؟",
-            "sourceRefs": [
-              "src-wikibooks-de-residence-origin"
-            ]
+            "right": "پرسش دربارهٔ مبدأ",
+            "rightFa": "پرسش دربارهٔ مبدأ"
+          },
+          {
+            "left": "Ich komme aus Deutschland, und Sie?",
+            "leftFa": "من اهل آلمان هستم، شما چطور؟",
+            "right": "پاسخ دربارهٔ مبدأ",
+            "rightFa": "پاسخ دربارهٔ مبدأ"
           }
         ]
       },

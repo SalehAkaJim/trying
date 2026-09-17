@@ -64,8 +64,8 @@
     {
       "id": "act-de-entschuldigung-matching",
       "type": "matching",
-      "instructionFa": "هر عبارت را به پاسخ مناسبش وصل کن.",
-      "selectionReason": "دو جفت اجتماعی کوتاه ممکن است در شروع دوره با هم قاطی شوند؛ تطبیق بدون افزودن متن تازه رابطهٔ درست را تمرین می‌کند.",
+      "instructionFa": "هر عبارت را به کاربردش وصل کن.",
+      "selectionReason": "چهار عبارت منبع‌دارِ همین درس را جداگانه تطبیق می‌دهد تا عذرخواهی، پاسخ به عذرخواهی، تشکر و پاسخ به تشکر با چهار گزینهٔ روشن از هم تفکیک شوند.",
       "sourceRefs": [
         "src-wiktionary-de-entschuldigung",
         "src-wiktionary-de-kein-problem",
@@ -73,7 +73,7 @@
         "src-wiktionary-de-bitte"
       ],
       "learningTargets": [
-        "تشخیص پاسخ مناسب برای عذرخواهی و تشکر."
+        "تشخیص نقش چهار عبارت اجتماعی منبع‌دار این درس."
       ],
       "lexemeRefs": [
         "lex-de-entschuldigung",
@@ -87,22 +87,26 @@
           {
             "left": "Entschuldigung.",
             "leftFa": "ببخشید.",
-            "right": "Kein Problem.",
-            "rightFa": "مشکلی نیست.",
-            "sourceRefs": [
-              "src-wiktionary-de-entschuldigung",
-              "src-wiktionary-de-kein-problem"
-            ]
+            "right": "عذرخواهی",
+            "rightFa": "عذرخواهی"
+          },
+          {
+            "left": "Kein Problem.",
+            "leftFa": "مشکلی نیست.",
+            "right": "پاسخ به عذرخواهی",
+            "rightFa": "پاسخ به عذرخواهی"
           },
           {
             "left": "Danke!",
             "leftFa": "ممنون!",
-            "right": "Bitte!",
-            "rightFa": "خواهش می‌کنم!",
-            "sourceRefs": [
-              "src-wiktionary-de-danke",
-              "src-wiktionary-de-bitte"
-            ]
+            "right": "تشکر",
+            "rightFa": "تشکر"
+          },
+          {
+            "left": "Bitte!",
+            "leftFa": "خواهش می‌کنم!",
+            "right": "پاسخ به تشکر",
+            "rightFa": "پاسخ به تشکر"
           }
         ]
       },

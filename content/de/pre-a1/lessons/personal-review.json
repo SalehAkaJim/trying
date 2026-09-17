@@ -172,8 +172,8 @@
     {
       "id": "act-de-personal-review-match",
       "type": "matching",
-      "instructionFa": "هر پرسش شخصی را به پاسخ مناسب وصل کن.",
-      "selectionReason": "مرور چندهدفه باید علاوه بر فرم آزاد، بازیابی ساختاری پرسش و پاسخ‌های مهم را هم دوباره فعال کند.",
+      "instructionFa": "هر عبارت را به نقش درستش وصل کن.",
+      "selectionReason": "چهار عبارت منبع‌دارِ مرور را جداگانه تطبیق می‌دهد تا پرسش و پاسخ سن و محل زندگی با چهار گزینهٔ مستقل بازیابی شوند.",
       "sourceRefs": [
         "src-wikibooks-de-residence-origin",
         "src-wikibooks-de-age-time",
@@ -181,7 +181,7 @@
         "src-wikibooks-de-phone"
       ],
       "learningTargets": [
-        "بازیابی ارتباط پرسش سن و محل زندگی با پاسخ مناسب."
+        "بازیابی نقش پرسش و پاسخِ سن و محل زندگی."
       ],
       "lexemeRefs": [
         "lex-de-wohnen",
@@ -196,14 +196,26 @@
           {
             "left": "Wo wohnen Sie?",
             "leftFa": "کجا زندگی می‌کنید؟",
-            "right": "Ich wohne in Österreich.",
-            "rightFa": "من در اتریش زندگی می‌کنم."
+            "right": "پرسش دربارهٔ محل زندگی",
+            "rightFa": "پرسش دربارهٔ محل زندگی"
+          },
+          {
+            "left": "Ich wohne in Österreich.",
+            "leftFa": "من در اتریش زندگی می‌کنم.",
+            "right": "پاسخ دربارهٔ محل زندگی",
+            "rightFa": "پاسخ دربارهٔ محل زندگی"
           },
           {
             "left": "Wie alt bist du?",
             "leftFa": "چند سالته؟",
-            "right": "Ich bin 20 Jahre alt.",
-            "rightFa": "من ۲۰ ساله هستم."
+            "right": "پرسش دربارهٔ سن",
+            "rightFa": "پرسش دربارهٔ سن"
+          },
+          {
+            "left": "Ich bin 20 Jahre alt.",
+            "leftFa": "من ۲۰ ساله هستم.",
+            "right": "پاسخ دربارهٔ سن",
+            "rightFa": "پاسخ دربارهٔ سن"
           }
         ]
       },

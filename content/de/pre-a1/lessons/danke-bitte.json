@@ -13,12 +13,14 @@
   "sourceRefs": [
     "src-wiktionary-de-hallo",
     "src-wiktionary-de-danke",
-    "src-wiktionary-de-bitte"
+    "src-wiktionary-de-bitte",
+    "src-wikibooks-de-basic-greetings"
   ],
   "lexemeRefs": [
     "lex-de-hallo",
     "lex-de-danke",
-    "lex-de-bitte"
+    "lex-de-bitte",
+    "lex-de-tschuess"
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
@@ -105,23 +107,37 @@
     {
       "id": "act-de-danke-bitte-role-match",
       "type": "matching",
-      "instructionFa": "تشکر و پاسخ به تشکر را به هم وصل کن.",
-      "selectionReason": "بعد از انتخاب «Bitte!» در پاسخ، این مرحله نقش دو عبارت را به‌صورت دوطرفه تثبیت می‌کند.",
+      "instructionFa": "هر عبارت را به کاربردش وصل کن.",
+      "selectionReason": "چهار عبارت اجتماعی آشنای منبع‌دار را کنار هم می‌گذارد تا تشکر و پاسخ به آن در میان سلام و خداحافظی هم درست تشخیص داده شوند.",
       "sourceRefs": [
         "src-wiktionary-de-hallo",
         "src-wiktionary-de-danke",
-        "src-wiktionary-de-bitte"
+        "src-wiktionary-de-bitte",
+        "src-wikibooks-de-basic-greetings"
       ],
       "learningTargets": [
-        "تشخیص نقش «Danke!» و «Bitte!» در یک تبادل مؤدبانه."
+        "تشخیص نقش سلام، خداحافظی، تشکر و پاسخ به تشکر."
       ],
       "lexemeRefs": [
         "lex-de-danke",
-        "lex-de-bitte"
+        "lex-de-bitte",
+        "lex-de-tschuess"
       ],
       "dialogueRef": null,
       "data": {
         "pairs": [
+          {
+            "left": "Hallo!",
+            "leftFa": "سلام!",
+            "right": "سلام / شروع گفت‌وگو",
+            "rightFa": "سلام / شروع گفت‌وگو"
+          },
+          {
+            "left": "Tschüss!",
+            "leftFa": "خداحافظ!",
+            "right": "خداحافظی / پایان گفت‌وگو",
+            "rightFa": "خداحافظی / پایان گفت‌وگو"
+          },
           {
             "left": "Danke!",
             "leftFa": "ممنون!",

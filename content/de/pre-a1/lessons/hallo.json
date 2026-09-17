@@ -12,11 +12,15 @@
   ],
   "sourceRefs": [
     "src-wiktionary-de-hallo",
-    "src-wikibooks-de-basic-greetings"
+    "src-wikibooks-de-basic-greetings",
+    "src-wiktionary-de-danke",
+    "src-wiktionary-de-bitte"
   ],
   "lexemeRefs": [
     "lex-de-hallo",
-    "lex-de-tschuess"
+    "lex-de-tschuess",
+    "lex-de-danke",
+    "lex-de-bitte"
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
@@ -99,17 +103,21 @@
       "id": "act-de-hallo-role-match",
       "type": "matching",
       "instructionFa": "هر عبارت را به کاربردش وصل کن.",
-      "selectionReason": "بعد از استفاده در مکالمه و تشخیص خداحافظی، این مرحله نقش دو عبارت پایه را بدون افزودن زبان تازه از هم جدا می‌کند.",
+      "selectionReason": "چهار عبارت اجتماعی پایهٔ منبع‌دارِ واحد اول را در یک تطبیق کوتاه از هم جدا می‌کند تا مرحلهٔ وصل‌کردن چهار گزینهٔ معنادار داشته باشد.",
       "sourceRefs": [
         "src-wiktionary-de-hallo",
-        "src-wikibooks-de-basic-greetings"
+        "src-wikibooks-de-basic-greetings",
+        "src-wiktionary-de-danke",
+        "src-wiktionary-de-bitte"
       ],
       "learningTargets": [
-        "تشخیص نقش «Hallo!» و «Tschüss!» در شروع و پایان گفت‌وگو."
+        "تشخیص نقش چهار عبارت اجتماعی پایه در شروع، پایان، تشکر و پاسخ به تشکر."
       ],
       "lexemeRefs": [
         "lex-de-hallo",
-        "lex-de-tschuess"
+        "lex-de-tschuess",
+        "lex-de-danke",
+        "lex-de-bitte"
       ],
       "dialogueRef": null,
       "data": {
@@ -117,14 +125,26 @@
           {
             "left": "Hallo!",
             "leftFa": "سلام!",
-            "right": "شروع گفت‌وگو",
-            "rightFa": "شروع گفت‌وگو"
+            "right": "سلام / شروع گفت‌وگو",
+            "rightFa": "سلام / شروع گفت‌وگو"
           },
           {
             "left": "Tschüss!",
             "leftFa": "خداحافظ!",
-            "right": "پایان گفت‌وگو",
-            "rightFa": "پایان گفت‌وگو"
+            "right": "خداحافظی / پایان گفت‌وگو",
+            "rightFa": "خداحافظی / پایان گفت‌وگو"
+          },
+          {
+            "left": "Danke!",
+            "leftFa": "ممنون!",
+            "right": "تشکر",
+            "rightFa": "تشکر"
+          },
+          {
+            "left": "Bitte!",
+            "leftFa": "خواهش می‌کنم!",
+            "right": "پاسخ به تشکر",
+            "rightFa": "پاسخ به تشکر"
           }
         ]
       },

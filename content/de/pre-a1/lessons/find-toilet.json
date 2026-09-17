@@ -62,13 +62,13 @@
     {
       "id": "act-de-toilet-exchange-match",
       "type": "matching",
-      "instructionFa": "دو شروع گفت‌وگو را به پاسخ مناسب وصل کن.",
-      "selectionReason": "دو جفت کوتاه منبع‌دار، شروع مؤدبانه و پرسش مکان را به پاسخ درستشان وصل می‌کنند.",
+      "instructionFa": "هر عبارت را به نقش درستش وصل کن.",
+      "selectionReason": "چهار عبارت منبع‌دار گفت‌وگو را جداگانه تطبیق می‌دهد تا شروع مؤدبانه، پاسخ آن، پرسش مکان و پاسخ «نمی‌دانم» با چهار گزینهٔ مستقل تمرین شوند.",
       "sourceRefs": [
         "src-wikibooks-de-phrasebook"
       ],
       "learningTargets": [
-        "تشخیص دو جفت منبع‌دار در گفت‌وگوی کوتاه."
+        "تشخیص نقش چهار عبارت منبع‌دار در گفت‌وگوی کوتاه."
       ],
       "lexemeRefs": [
         "lex-de-toilette",
@@ -82,14 +82,26 @@
           {
             "left": "Entschuldigung!",
             "leftFa": "ببخشید!",
-            "right": "Bitte?",
-            "rightFa": "بفرمایید؟"
+            "right": "شروع مؤدبانه",
+            "rightFa": "شروع مؤدبانه"
+          },
+          {
+            "left": "Bitte?",
+            "leftFa": "بفرمایید؟",
+            "right": "پاسخ به شروع مؤدبانه",
+            "rightFa": "پاسخ به شروع مؤدبانه"
           },
           {
             "left": "Wo ist die Toilette?",
             "leftFa": "سرویس بهداشتی کجاست؟",
-            "right": "Ich weiß nicht.",
-            "rightFa": "نمی‌دانم."
+            "right": "پرسش دربارهٔ مکان",
+            "rightFa": "پرسش دربارهٔ مکان"
+          },
+          {
+            "left": "Ich weiß nicht.",
+            "leftFa": "نمی‌دانم.",
+            "right": "پاسخ «نمی‌دانم»",
+            "rightFa": "پاسخ «نمی‌دانم»"
           }
         ]
       },

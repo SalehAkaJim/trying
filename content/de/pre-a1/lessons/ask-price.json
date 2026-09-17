@@ -59,13 +59,13 @@
     {
       "id": "act-de-price-match",
       "type": "matching",
-      "instructionFa": "هر سؤال قیمت را به پاسخ خودش وصل کن.",
-      "selectionReason": "وجود دو پرسش و دو قیمت باعث می‌شود تمرین واقعاً تطبیقی باشد و فقط یک پاسخ حفظ نشود.",
+      "instructionFa": "هر عبارت را به نقش درستش وصل کن.",
+      "selectionReason": "چهار عبارت منبع‌دار قیمت را جداگانه تطبیق می‌دهد تا دو شکل پرسش و دو پاسخ عددی با چهار گزینهٔ مستقل خوانده و تشخیص داده شوند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "تشخیص ارتباط سؤال قیمت با پاسخ قیمت."
+        "تشخیص دو شکل پرسش قیمت و دو پاسخ قیمت منبع‌دار."
       ],
       "lexemeRefs": [
         "lex-de-kosten",
@@ -78,14 +78,26 @@
           {
             "left": "Wie viel kostet das?",
             "leftFa": "این چقدر قیمت دارد؟",
-            "right": "Das kostet 70 Euro und 92 Cent.",
-            "rightFa": "این ۷۰ یورو و ۹۲ سنت قیمت دارد."
+            "right": "پرسش قیمت",
+            "rightFa": "پرسش قیمت"
+          },
+          {
+            "left": "Das kostet 70 Euro und 92 Cent.",
+            "leftFa": "این ۷۰ یورو و ۹۲ سنت قیمت دارد.",
+            "right": "پاسخ قیمت ۷۰ یورو و ۹۲ سنت",
+            "rightFa": "پاسخ قیمت ۷۰ یورو و ۹۲ سنت"
           },
           {
             "left": "Was kostet das?",
             "leftFa": "قیمت این چقدره؟",
-            "right": "Das kostet 35 Euro und 15 Cent.",
-            "rightFa": "این ۳۵ یورو و ۱۵ سنت قیمت دارد."
+            "right": "شکل کوتاه‌تر پرسش قیمت",
+            "rightFa": "شکل کوتاه‌تر پرسش قیمت"
+          },
+          {
+            "left": "Das kostet 35 Euro und 15 Cent.",
+            "leftFa": "این ۳۵ یورو و ۱۵ سنت قیمت دارد.",
+            "right": "پاسخ قیمت ۳۵ یورو و ۱۵ سنت",
+            "rightFa": "پاسخ قیمت ۳۵ یورو و ۱۵ سنت"
           }
         ]
       },

@@ -59,13 +59,13 @@
     {
       "id": "act-de-need-buy-matching",
       "type": "matching",
-      "instructionFa": "هر سؤال را به پاسخ درست وصل کن.",
-      "selectionReason": "تمرین، دو کاربرد نزدیک ولی متفاوت را فقط با جمله‌های دقیق منبع تثبیت می‌کند.",
+      "instructionFa": "هر عبارت را به نقش درستش وصل کن.",
+      "selectionReason": "چهار عبارت دقیق منبع را جداگانه تطبیق می‌دهد تا پرسش و پاسخِ نیاز و خرید با چهار گزینهٔ مستقل از هم متمایز شوند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "تشخیص تفاوت سؤال دربارهٔ نیاز و سؤال دربارهٔ خرید."
+        "تشخیص پرسش و پاسخ مربوط به نیاز و خرید."
       ],
       "lexemeRefs": [
         "lex-de-brauchen",
@@ -80,14 +80,26 @@
           {
             "left": "Was brauchen Sie?",
             "leftFa": "چه چیزی لازم دارید؟",
-            "right": "Ich brauche eine Hose.",
-            "rightFa": "من یک شلوار لازم دارم."
+            "right": "پرسش دربارهٔ نیاز",
+            "rightFa": "پرسش دربارهٔ نیاز"
+          },
+          {
+            "left": "Ich brauche eine Hose.",
+            "leftFa": "من یک شلوار لازم دارم.",
+            "right": "پاسخ دربارهٔ نیاز",
+            "rightFa": "پاسخ دربارهٔ نیاز"
           },
           {
             "left": "Und was kaufen Sie?",
             "leftFa": "و چه چیزی می‌خرید؟",
-            "right": "Ich kaufe ein Hemd und ein Paar Schuhe.",
-            "rightFa": "من یک پیراهن و یک جفت کفش می‌خرم."
+            "right": "پرسش دربارهٔ خرید",
+            "rightFa": "پرسش دربارهٔ خرید"
+          },
+          {
+            "left": "Ich kaufe ein Hemd und ein Paar Schuhe.",
+            "leftFa": "من یک پیراهن و یک جفت کفش می‌خرم.",
+            "right": "پاسخ دربارهٔ خرید",
+            "rightFa": "پاسخ دربارهٔ خرید"
           }
         ]
       },
