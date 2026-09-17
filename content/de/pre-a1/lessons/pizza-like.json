@@ -77,32 +77,15 @@
       "dialogueRef": null,
       "data": {
         "sourceText": "Ich mag Pizza.",
-        "tokens": [
-          "Ich",
-          "mag",
-          "Pizza."
-        ],
-        "answer": [
-          "Ich",
-          "mag",
-          "Pizza."
-        ],
+        "sourceTextFa": "من پیتزا دوست دارم.",
+        "tokens": ["Ich", "mag", "Pizza."],
+        "answer": ["Ich", "mag", "Pizza."],
         "tokenLexemeMappings": [
-          {
-            "token": "mag",
-            "lexemeId": "lex-de-moegen",
-            "lexemeFormId": "lexform-de-moegen-mag"
-          },
-          {
-            "token": "Pizza.",
-            "lexemeId": "lex-de-pizza",
-            "lexemeFormId": null
-          }
+          {"token": "mag", "lexemeId": "lex-de-moegen", "lexemeFormId": "lexform-de-moegen-mag"},
+          {"token": "Pizza.", "lexemeId": "lex-de-pizza", "lexemeFormId": null}
         ]
       },
-      "transformations": [
-        "sentence_tokenized_for_word_order"
-      ],
+      "transformations": ["sentence_tokenized_for_word_order"],
       "audioStatus": "not_required"
     }
   ],
