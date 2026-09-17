@@ -2,22 +2,37 @@
   "id": "dlg-de-pre-a1-find-toilet",
   "languageId": "de",
   "level": "Pre-A1",
-  "sourceRefs": ["src-wikibooks-de-phrasebook", "src-wiktionary-de-entschuldigung", "src-wiktionary-de-ja"],
-  "scenario": "آیریس مودبانه شروع می‌کند، محل سرویس بهداشتی را می‌پرسد و پاول می‌گوید نمی‌داند.",
+  "sourceRefs": [
+    "src-wikibooks-de-phrasebook"
+  ],
+  "scenario": "آیریس با عذرخواهی شروع می‌کند، پاول با عبارت پرسشی مؤدبانه پاسخ می‌دهد، سپس آیریس محل سرویس بهداشتی را می‌پرسد و پاول می‌گوید نمی‌داند.",
   "openingInitiator": "learner",
-  "characterRefs": ["char-de-iris", "char-de-paul"],
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
   "turns": [
     {
       "id": "turn-de-toilet-1",
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Entschuldigung.",
-      "translationFa": "ببخشید.",
+      "textTarget": "Entschuldigung!",
+      "translationFa": "ببخشید!",
       "learnerTurn": true,
-      "lexemeRefs": ["lex-de-entschuldigung"],
-      "lexemeOccurrences": [{"surface": "Entschuldigung", "lexemeId": "lex-de-entschuldigung", "lexemeFormId": null}],
-      "sourceRefs": ["src-wiktionary-de-entschuldigung"],
+      "lexemeRefs": [
+        "lex-de-entschuldigung"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Entschuldigung",
+          "lexemeId": "lex-de-entschuldigung",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook"
+      ],
       "audioRef": null
     },
     {
@@ -25,12 +40,22 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Ja.",
-      "translationFa": "بله.",
+      "textTarget": "Bitte?",
+      "translationFa": "بفرمایید؟",
       "learnerTurn": false,
-      "lexemeRefs": ["lex-de-ja"],
-      "lexemeOccurrences": [{"surface": "Ja", "lexemeId": "lex-de-ja", "lexemeFormId": null}],
-      "sourceRefs": ["src-wiktionary-de-ja"],
+      "lexemeRefs": [
+        "lex-de-bitte"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Bitte",
+          "lexemeId": "lex-de-bitte",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook"
+      ],
       "audioRef": null
     },
     {
@@ -41,9 +66,19 @@
       "textTarget": "Wo ist die Toilette?",
       "translationFa": "سرویس بهداشتی کجاست؟",
       "learnerTurn": true,
-      "lexemeRefs": ["lex-de-toilette"],
-      "lexemeOccurrences": [{"surface": "Toilette", "lexemeId": "lex-de-toilette", "lexemeFormId": null}],
-      "sourceRefs": ["src-wikibooks-de-phrasebook"],
+      "lexemeRefs": [
+        "lex-de-toilette"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Toilette",
+          "lexemeId": "lex-de-toilette",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook"
+      ],
       "audioRef": null
     },
     {
@@ -54,12 +89,22 @@
       "textTarget": "Ich weiß nicht.",
       "translationFa": "نمی‌دانم.",
       "learnerTurn": false,
-      "lexemeRefs": ["lex-de-ich-weiss-nicht"],
-      "lexemeOccurrences": [{"surface": "Ich weiß nicht.", "lexemeId": "lex-de-ich-weiss-nicht", "lexemeFormId": null}],
-      "sourceRefs": ["src-wikibooks-de-phrasebook"],
+      "lexemeRefs": [
+        "lex-de-ich-weiss-nicht"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Ich weiß nicht.",
+          "lexemeId": "lex-de-ich-weiss-nicht",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook"
+      ],
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "چهار نوبت کوتاه از عبارت‌های پایه و منبع‌دار ساخته شده‌اند و بدون آموزش جهت‌یابی، فقط توانایی ضروریِ پرسیدن محل را تمرین می‌کنند.",
+  "sceneQualityRationale": "چهار نوبت از یک عبارت‌نامهٔ قابل‌بازاستفاده آمده‌اند و شروع گفت‌وگو از «Ja.» مصنوعی به «Bitte?» منبع‌دار تغییر کرده است، بدون ساختن جملهٔ آلمانی تازه.",
   "learnerCharacterId": "char-de-iris"
 }
