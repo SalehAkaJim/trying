@@ -58,31 +58,34 @@
     {
       "id": "act-de-birthday-fill",
       "type": "fill_blank",
-      "instructionFa": "جملهٔ تاریخ تولد را با بخش منبع‌دار کامل کن.",
-      "selectionReason": "یک بازیابی نوشتاری سبک از همان جملهٔ منبع‌دار، تاریخ را بدون ساخت جملهٔ تازه تمرین می‌کند.",
+      "instructionFa": "جملهٔ تاریخ تولد را با ماه درست کامل کن.",
+      "selectionReason": "جای خالی روی ماه قرار گرفته تا زبان‌آموز بین دو گزینهٔ واقعی و منبع‌دار انتخاب کند و تمرین به یک گزینهٔ بدیهی محدود نشود.",
       "sourceRefs": [
         "src-wikibooks-de-birthday"
       ],
       "learningTargets": [
-        "بازیابی ساختار تاریخ تولد."
+        "بازیابی ماه درست در ساختار تاریخ تولد."
       ],
       "lexemeRefs": [
         "lex-de-geburtstag",
+        "lex-de-juli",
         "lex-de-november"
       ],
       "dialogueRef": null,
       "data": {
         "sourceText": "Ich habe am dreizehnten November Geburtstag.",
         "sourceTextFa": "تولد من سیزدهم نوامبر است.",
-        "blankedText": "Ich habe am ___ November Geburtstag.",
-        "blankedTextFa": "تولد من ___ نوامبر است.",
+        "blankedText": "Ich habe am dreizehnten ___ Geburtstag.",
+        "blankedTextFa": "تولد من سیزدهم ___ است.",
         "choices": [
-          "dreizehnten"
+          "November",
+          "Juli"
         ],
         "choicesFa": [
-          "سیزدهم"
+          "نوامبر",
+          "ژوئیه"
         ],
-        "answer": "dreizehnten"
+        "answer": "November"
       },
       "transformations": [
         "source_sentence_blank_created",
@@ -132,7 +135,7 @@
       "id": "act-de-birthday-month-check",
       "type": "true_false",
       "instructionFa": "درست یا غلط؟ این جمله یک تاریخ تولد در نوامبر می‌گوید.",
-      "selectionReason": "بررسی معنی ماه در جملهٔ کامل کمک می‌کند تمرین فقط روی شکل «dreizehnten» متوقف نماند.",
+      "selectionReason": "بررسی معنی ماه در جملهٔ کامل کمک می‌کند تمرین فقط روی شکل تاریخ متوقف نماند.",
       "sourceRefs": [
         "src-wikibooks-de-birthday-question",
         "src-wikibooks-de-birthday"
