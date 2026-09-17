@@ -1,0 +1,147 @@
+name: Temporary Pre-A1 Quality Audio
+
+on:
+  push:
+    branches:
+      - pre-a1-quality-fixes
+    paths:
+      - .github/audio-quality-trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temp-pre-a1-quality-audio
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      AUDIO_DB_HOST: 127.0.0.1
+      AUDIO_DB_PORT: '3306'
+      AUDIO_DB_USER: root
+      AUDIO_DB_PASSWORD: root
+      AUDIO_DB_NAME: language_content_test
+      AUDIO_MYSQL_IMAGE: mysql:9.0.1
+    services:
+      mysql:
+        image: mysql:9.0.1
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: language_content_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
+          --health-interval=10s --health-timeout=5s --health-retries=12
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install JSON Schema validator
+        run: python -m pip install --disable-pip-version-check jsonschema
+
+      - name: Validate contracts
+        run: |
+          python scripts/validate_json_schemas.py
+          python scripts/sync_fa_labels.py
+          python scripts/validate_source_localization.py
+          python scripts/validate_persian_coverage.py
+          python scripts/apply_mysql_localization.py --check
+          python scripts/validate_project_contracts.py
+          python scripts/validate_audio_contracts.py
+
+      - name: Build canonical MySQL state
+        run: bash scripts/validate_mysql_content.sh
+
+      - name: Assert exact paid generation scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$ELEVENLABS_API_KEY"
+          python scripts/audio_pipeline.py plan --language de --level Pre-A1 > /tmp/pre-plan.json
+          cat /tmp/pre-plan.json
+          python - <<'PY'
+          import json
+          p=json.load(open('/tmp/pre-plan.json',encoding='utf-8'))
+          expected={
+              'totalRequired':149,
+              'currentAssets':139,
+              'needsGeneration':10,
+              'unresolvedVoices':0,
+              'voiceLockPresent':True,
+          }
+          bad={k:(p.get(k),v) for k,v in expected.items() if p.get(k)!=v}
+          if bad:
+              raise SystemExit(f'Paid generation scope drifted; refusing to generate: {bad}; plan={p}')
+          print('Paid generation scope locked to exactly 10 assets.')
+          PY
+
+      - name: Generate exactly missing or stale audio
+        run: >-
+          python scripts/audio_pipeline.py generate
+          --language de
+          --level Pre-A1
+          --confirm-paid-generation
+
+      - name: Make activity audio mapping safe for final lessons
+        run: >-
+          python scripts/make_audio_mapping_final_safe.py
+          --language de
+          --level Pre-A1
+
+      - name: Validate generated assets
+        run: >-
+          python scripts/audio_pipeline.py validate-assets
+          --language de
+          --level Pre-A1
+
+      - name: Validate final MySQL mapping and exact post-generation plan
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash scripts/validate_mysql_content.sh
+          python scripts/audio_pipeline.py plan --language de --level Pre-A1 > /tmp/post-plan.json
+          cat /tmp/post-plan.json
+          python - <<'PY'
+          import json
+          p=json.load(open('/tmp/post-plan.json',encoding='utf-8'))
+          expected={
+              'totalRequired':149,
+              'currentAssets':149,
+              'needsGeneration':0,
+              'unresolvedVoices':0,
+              'voiceLockPresent':True,
+          }
+          bad={k:(p.get(k),v) for k,v in expected.items() if p.get(k)!=v}
+          if bad:
+              raise SystemExit(f'Audio post-generation state is not exact: {bad}; plan={p}')
+          print('Audio is exactly 149/149 and fully current.')
+          PY
+
+      - name: Sync aggregate level audio status
+        run: >-
+          python scripts/sync_audio_level_status.py
+          --language de
+          --level Pre-A1
+
+      - name: Commit generated audio
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for path in config/audio-voice-locks database/audio audio; do
+            if [ -e "$path" ]; then git add -A "$path"; fi
+          done
+          git add -A content/de/pre-a1/level.json
+          if git diff --cached --quiet; then
+            echo 'No audio changes to commit.' >&2
+            exit 2
+          fi
+          git commit -m 'Regenerate audio after Pre-A1 quality fixes'
+          git push
