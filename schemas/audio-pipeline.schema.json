@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "audio-pipeline.schema.json",
+  "title": "Audio Pipeline Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "provider",
+    "apiKeyEnv",
+    "baseUrl",
+    "modelId",
+    "outputFormat",
+    "storageRoot",
+    "mappingRoot",
+    "publicBaseUrl",
+    "generation",
+    "voiceResolution"
+  ],
+  "properties": {
+    "schemaVersion": {"const": "1.0.0"},
+    "provider": {"const": "elevenlabs"},
+    "apiKeyEnv": {"const": "ELEVENLABS_API_KEY"},
+    "baseUrl": {"const": "https://api.elevenlabs.io"},
+    "modelId": {"type": "string", "minLength": 1},
+    "outputFormat": {"type": "string", "pattern": "^mp3_[0-9]+_[0-9]+$"},
+    "storageRoot": {"const": "audio"},
+    "mappingRoot": {"const": "database/audio"},
+    "publicBaseUrl": {"type": "string", "pattern": "^https://"},
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxRetries", "timeoutSeconds", "commitGeneratedAssets", "requirePaidGenerationConfirmation"],
+      "properties": {
+        "maxRetries": {"type": "integer", "minimum": 1, "maximum": 10},
+        "timeoutSeconds": {"type": "integer", "minimum": 10, "maximum": 600},
+        "commitGeneratedAssets": {"const": true},
+        "requirePaidGenerationConfirmation": {"const": true}
+      }
+    },
+    "voiceResolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["distinctConversationVoices", "preferVerifiedTargetLanguage", "learnerUsesStandaloneVoice"],
+      "properties": {
+        "distinctConversationVoices": {"const": true},
+        "preferVerifiedTargetLanguage": {"const": true},
+        "learnerUsesStandaloneVoice": {"const": true}
+      }
+    }
+  }
+}
