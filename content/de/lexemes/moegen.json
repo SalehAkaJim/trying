@@ -17,7 +17,8 @@
   "formRefs": [
     "lexform-de-moegen-mag",
     "lexform-de-moegen-magst",
-    "lexform-de-moegen-moechtest"
+    "lexform-de-moegen-moechtest",
+    "lexform-de-moegen-moechten"
   ],
   "flashcardEligible": true,
   "audioStatus": "pending",
