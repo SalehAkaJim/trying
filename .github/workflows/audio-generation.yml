@@ -115,6 +115,13 @@ jobs:
           --language "$AUDIO_LANGUAGE"
           --level "$AUDIO_LEVEL"
 
+      - name: Sync aggregate level status after voice resolution
+        if: env.AUDIO_OPERATION == 'resolve-voices'
+        run: >-
+          python scripts/sync_audio_level_status.py
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
+
       - name: Require explicit paid-generation confirmation
         if: env.AUDIO_OPERATION == 'generate'
         shell: bash
@@ -159,6 +166,13 @@ jobs:
           print('Audio is fully current in MySQL.')
           PY
 
+      - name: Sync aggregate level status after generation
+        if: env.AUDIO_OPERATION == 'generate'
+        run: >-
+          python scripts/sync_audio_level_status.py
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
+
       - name: Commit resolved voices or generated assets
         if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate'
         shell: bash
@@ -168,6 +182,7 @@ jobs:
           for path in config/audio-voice-locks database/audio audio; do
             if [ -e "$path" ]; then git add -A "$path"; fi
           done
+          git add -A "content/$AUDIO_LANGUAGE"/*/level.json
           if git diff --cached --quiet; then
             echo 'No audio changes to commit.'
           else
