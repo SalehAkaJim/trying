@@ -74,13 +74,15 @@ def validate_fill_blank(errors: list[str], path: Path, activity: dict) -> None:
             add_error(errors, path, activity_id, "fill_blank choicesFa entries must be non-empty")
 
 
-def validate_matching(errors: list[str], path: Path, activity: dict) -> None:
+def validate_matching(errors: list[str], path: Path, activity: dict, lesson_level: str | None) -> None:
     activity_id = activity.get("id", "<missing-id>")
     data = activity.get("data") or {}
     pairs = data.get("pairs")
     if not isinstance(pairs, list) or not 4 <= len(pairs) <= 8:
         add_error(errors, path, activity_id, "matching requires 4 to 8 pairs")
         return
+    if lesson_level == "Pre-A1" and len(pairs) != 4:
+        add_error(errors, path, activity_id, "Pre-A1 matching requires exactly 4 pairs")
 
     left_values: list[str] = []
     right_values: list[str] = []
@@ -133,6 +135,7 @@ def main() -> int:
 
     for path in LESSON_FILES:
         lesson = json.loads(path.read_text(encoding="utf-8"))
+        lesson_level = lesson.get("level")
         for activity in lesson.get("activities", []):
             checked += 1
             activity_type = activity.get("type")
@@ -147,7 +150,7 @@ def main() -> int:
             elif activity_type == "fill_blank":
                 validate_fill_blank(errors, path, activity)
             elif activity_type == "matching":
-                validate_matching(errors, path, activity)
+                validate_matching(errors, path, activity, lesson_level)
             elif activity_type == "word_order":
                 validate_word_order(errors, path, activity)
             elif activity_type == "true_false":
