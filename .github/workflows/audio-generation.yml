@@ -28,17 +28,32 @@ on:
         required: true
         type: boolean
         default: false
+  push:
+    paths:
+      - '.github/workflows/audio-generation.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: curriculum-audio-${{ inputs.language }}-${{ inputs.level }}
+  group: curriculum-audio-${{ env.AUDIO_LANGUAGE }}-${{ env.AUDIO_LEVEL }}
   cancel-in-progress: false
 
 jobs:
   audio:
     runs-on: ubuntu-latest
+    env:
+      AUDIO_OPERATION: ${{ github.event_name == 'workflow_dispatch' && inputs.operation || 'resolve-voices' }}
+      AUDIO_LANGUAGE: ${{ github.event_name == 'workflow_dispatch' && inputs.language || 'de' }}
+      AUDIO_LEVEL: ${{ github.event_name == 'workflow_dispatch' && inputs.level || 'Pre-A1' }}
+      AUDIO_CONFIRM_PAID: ${{ github.event_name == 'workflow_dispatch' && inputs.confirm_paid_generation || false }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      AUDIO_DB_HOST: 127.0.0.1
+      AUDIO_DB_PORT: '3306'
+      AUDIO_DB_USER: root
+      AUDIO_DB_PASSWORD: root
+      AUDIO_DB_NAME: language_content_test
+      AUDIO_MYSQL_IMAGE: mysql:9.0.1
     services:
       mysql:
         image: mysql:9.0.1
@@ -49,14 +64,6 @@ jobs:
         options: >-
           --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
           --health-interval=10s --health-timeout=5s --health-retries=12
-    env:
-      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-      AUDIO_DB_HOST: 127.0.0.1
-      AUDIO_DB_PORT: '3306'
-      AUDIO_DB_USER: root
-      AUDIO_DB_PASSWORD: root
-      AUDIO_DB_NAME: language_content_test
-      AUDIO_MYSQL_IMAGE: mysql:9.0.1
 
     steps:
       - uses: actions/checkout@v4
@@ -80,15 +87,15 @@ jobs:
         run: bash scripts/validate_mysql_content.sh
 
       - name: Plan audio
-        if: inputs.operation == 'plan'
+        if: env.AUDIO_OPERATION == 'plan'
         run: >-
           python scripts/audio_pipeline.py plan
-          --language "${{ inputs.language }}"
-          --level "${{ inputs.level }}"
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
           --allow-unresolved-voices
 
       - name: Require ElevenLabs key
-        if: inputs.operation == 'resolve-voices' || inputs.operation == 'generate'
+        if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate'
         shell: bash
         run: |
           if [ -z "$ELEVENLABS_API_KEY" ]; then
@@ -97,49 +104,49 @@ jobs:
           fi
 
       - name: Resolve and lock voices
-        if: inputs.operation == 'resolve-voices' || inputs.operation == 'generate'
-        run: python scripts/audio_pipeline.py resolve-voices --language "${{ inputs.language }}"
+        if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate'
+        run: python scripts/audio_pipeline.py resolve-voices --language "$AUDIO_LANGUAGE"
 
       - name: Rebuild MySQL with voice lock
-        if: inputs.operation == 'resolve-voices' || inputs.operation == 'generate'
+        if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate'
         run: bash scripts/validate_mysql_content.sh
 
       - name: Verify resolved audio plan
-        if: inputs.operation == 'resolve-voices' || inputs.operation == 'generate'
+        if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate'
         run: >-
           python scripts/audio_pipeline.py plan
-          --language "${{ inputs.language }}"
-          --level "${{ inputs.level }}"
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
 
       - name: Require explicit paid-generation confirmation
-        if: inputs.operation == 'generate'
+        if: env.AUDIO_OPERATION == 'generate'
         shell: bash
         run: |
-          if [ "${{ inputs.confirm_paid_generation }}" != 'true' ]; then
+          if [ "$AUDIO_CONFIRM_PAID" != 'true' ]; then
             echo 'Paid generation was not confirmed.' >&2
             exit 2
           fi
 
       - name: Generate audio assets
-        if: inputs.operation == 'generate'
+        if: env.AUDIO_OPERATION == 'generate'
         run: >-
           python scripts/audio_pipeline.py generate
-          --language "${{ inputs.language }}"
-          --level "${{ inputs.level }}"
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
           --confirm-paid-generation
 
       - name: Validate generated assets
-        if: inputs.operation == 'generate' || inputs.operation == 'validate-assets'
+        if: env.AUDIO_OPERATION == 'generate' || env.AUDIO_OPERATION == 'validate-assets'
         run: >-
           python scripts/audio_pipeline.py validate-assets
-          --language "${{ inputs.language }}"
-          --level "${{ inputs.level }}"
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
 
       - name: Validate generated mapping on MySQL 9.0.1
-        if: inputs.operation == 'generate'
+        if: env.AUDIO_OPERATION == 'generate'
         run: |
           bash scripts/validate_mysql_content.sh
-          python scripts/audio_pipeline.py plan --language "${{ inputs.language }}" --level "${{ inputs.level }}" > /tmp/audio-plan-summary.json
+          python scripts/audio_pipeline.py plan --language "$AUDIO_LANGUAGE" --level "$AUDIO_LEVEL" > /tmp/audio-plan-summary.json
           python - <<'PY'
           import json
           data=json.load(open('/tmp/audio-plan-summary.json',encoding='utf-8'))
@@ -149,7 +156,7 @@ jobs:
           PY
 
       - name: Commit resolved voices or generated assets
-        if: inputs.operation == 'resolve-voices' || inputs.operation == 'generate'
+        if: env.AUDIO_OPERATION == 'resolve-voices' || env.AUDIO_OPERATION == 'generate'
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
@@ -160,6 +167,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No audio changes to commit.'
           else
-            git commit -m "Audio ${{ inputs.operation }}: ${{ inputs.language }} ${{ inputs.level }}"
+            git commit -m "Audio $AUDIO_OPERATION: $AUDIO_LANGUAGE $AUDIO_LEVEL"
             git push
           fi
