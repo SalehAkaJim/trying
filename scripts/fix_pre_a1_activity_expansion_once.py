@@ -25,3 +25,8 @@ level["completionAssessment"]["qualityReview"]["strengths"] = [
     s.replace("TTS تازه", "تولید صوت تازه") for s in strengths
 ]
 level_path.write_text(json.dumps(level, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+sql_path = ROOT / "database" / "content" / "de" / "zzzzz-pre-a1-activity-expansion.sql"
+sql = sql_path.read_text(encoding="utf-8")
+sql = sql.replace(",audio_status=VALUES(audio_status);", ";")
+sql_path.write_text(sql, encoding="utf-8")
