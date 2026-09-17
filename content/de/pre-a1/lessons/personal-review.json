@@ -5,18 +5,18 @@
   "level": "Pre-A1",
   "unitRef": "de-pre-a1-unit-personal-info",
   "titleFa": "مرور اطلاعات شخصی",
-  "sourceTitle": "مرور نام، محل، سن، فرم کوتاه و قیمت شنیداری",
+  "sourceTitle": "مرور نام، محل، سن و فرم کوتاه",
   "learningTargets": [
     "نام، محل زندگی و سن را در یک گفت‌وگوی کوتاه بازیابی کند.",
     "اطلاعات شخصی بسیار کوتاه را در یک فرم متنی وارد کند.",
-    "نام واقعی خودش را با جایگزینی در الگوی منبع‌دار «Ich heiße ...» بنویسد.",
-    "یک قیمت ساده را از راه شنیدن تشخیص دهد."
+    "نام واقعی خودش را با جایگزینی در الگوی منبع‌دار «Ich heiße ...» بنویسد."
   ],
   "sourceRefs": [
     "src-wikibooks-de-residence-origin",
     "src-wikibooks-de-age-time",
     "src-wikibooks-de-birthday",
-    "src-wikibooks-de-phone"
+    "src-wikibooks-de-phone",
+    "src-wikibooks-de-phone-example"
   ],
   "lexemeRefs": [
     "lex-de-wohnen",
@@ -30,9 +30,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "پنج مرحله مرور گفتاری، فرم متنی، شنیدن قیمت، تطبیق پرسش‌های شخصی و تشخیص الگوی تلفن را ترکیب می‌کند.",
-    "sequenceRationale": "بازیابی گفتاری، نوشتاری و شنیداری با دو مرور کوتاه ساختاری تکمیل می‌شود.",
-    "templateSignature": "conversation_speaking>review>listen_choose>matching>true_false"
+    "activitySelectionRationale": "چهار مرحله مرور گفتاری، فرم متنی، تطبیق پرسش‌های شخصی و تشخیص الگوی تلفن را ترکیب می‌کند؛ تمرین قیمت به درس قیمت منتقل شده تا پیش از آموزش «kosten» و «Euro» سنجیده نشود.",
+    "sequenceRationale": "بازیابی گفتاری و نوشتاری با دو مرور کوتاه ساختاری تکمیل می‌شود و هیچ مفهوم آموزش‌نداده‌ای وارد مرور نمی‌شود.",
+    "templateSignature": "conversation_speaking>review>matching>true_false"
   },
   "activities": [
     {
@@ -76,7 +76,8 @@
         "src-wikibooks-de-residence-origin",
         "src-wikibooks-de-age-time",
         "src-wikibooks-de-birthday",
-        "src-wikibooks-de-phone"
+        "src-wikibooks-de-phone",
+        "src-wikibooks-de-phone-example"
       ],
       "learningTargets": [
         "نوشتن اطلاعات شخصی بسیار کوتاه با الگوهای منبع‌دار.",
@@ -129,12 +130,12 @@
           },
           {
             "labelFa": "شماره تلفن",
-            "patternTarget": "Meine Telefonnummer lautet ___.",
-            "patternFa": "شماره تلفن من ___ است.",
-            "exampleSourceText": "Meine Telefonnummer lautet 789.",
-            "exampleSourceTextFa": "شماره تلفن من ۷۸۹ است.",
+            "patternTarget": "Meine Telefonnummer ist: ___.",
+            "patternFa": "شماره تلفن من: ___.",
+            "exampleSourceText": "Meine Telefonnummer ist: 692-267-752.",
+            "exampleSourceTextFa": "شماره تلفن من: ۶۹۲-۲۶۷-۷۵۲.",
             "sourceRefs": [
-              "src-wikibooks-de-phone"
+              "src-wikibooks-de-phone-example"
             ],
             "instructionFa": "یک شمارهٔ تمرینی یا شمارهٔ خودت را وارد کن."
           },
@@ -167,39 +168,6 @@
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
-    },
-    {
-      "id": "act-de-price-listen",
-      "type": "listen_choose",
-      "instructionFa": "قیمت را گوش کن و عدد درست را انتخاب کن.",
-      "selectionReason": "توصیفگر دریافت در پیش از A1 تشخیص عدد و قیمت آشنا را پوشش می‌دهد؛ یک نمونهٔ منبع‌دار برای این خلأ کافی است.",
-      "sourceRefs": [
-        "src-wikibooks-de-age-time"
-      ],
-      "learningTargets": [
-        "تشخیص شنیداری قیمت ساده."
-      ],
-      "lexemeRefs": [],
-      "dialogueRef": null,
-      "data": {
-        "audioTextTargetFa": "قیمت مجله ۷٫۶۰ یورو است.",
-        "options": [
-          {
-            "text": "7,60 €",
-            "correct": true
-          },
-          {
-            "text": "6,70 €",
-            "correct": false
-          }
-        ]
-      },
-      "transformations": [
-        "other",
-        "persian_translation_added"
-      ],
-      "audioStatus": "pending",
-      "audioTextTarget": "Die Zeitschrift kostet 7,60 Euro."
     },
     {
       "id": "act-de-personal-review-match",
@@ -249,12 +217,9 @@
       "id": "act-de-personal-review-phone-check",
       "type": "true_false",
       "instructionFa": "درست یا غلط؟ این جمله یک شماره تلفن را بیان می‌کند.",
-      "selectionReason": "این مرحلهٔ کوتاه یک هدف اطلاعات شخصی دیگر را بعد از فرم و شنیدن دوباره بازیابی می‌کند.",
+      "selectionReason": "نمونهٔ کامل و منبع‌دار شماره تلفن جای نمونهٔ سه‌رقمی مصنوعی را می‌گیرد.",
       "sourceRefs": [
-        "src-wikibooks-de-residence-origin",
-        "src-wikibooks-de-age-time",
-        "src-wikibooks-de-birthday",
-        "src-wikibooks-de-phone"
+        "src-wikibooks-de-phone-example"
       ],
       "learningTargets": [
         "تشخیص الگوی بیان شماره تلفن در مرور نهایی."
@@ -264,7 +229,7 @@
       ],
       "dialogueRef": null,
       "data": {
-        "statementTarget": "Meine Telefonnummer lautet 789.",
+        "statementTarget": "Meine Telefonnummer ist: 692-267-752.",
         "statementFa": "این جمله یک شماره تلفن را بیان می‌کند.",
         "answer": true
       },
