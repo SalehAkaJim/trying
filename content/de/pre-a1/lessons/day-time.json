@@ -69,6 +69,7 @@
       ],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "ساعت ۶:۳۰ است.",
         "options": [
           {
             "text": "6:30",
@@ -81,7 +82,8 @@
         ]
       },
       "transformations": [
-        "other"
+        "other",
+        "persian_translation_added"
       ],
       "audioStatus": "pending",
       "audioTextTarget": "Es ist 6.30 Uhr."
@@ -103,6 +105,7 @@
         "options": [
           {
             "textTarget": "Es ist Morgen.",
+            "translationFa": "صبح است.",
             "correct": true,
             "sourceRefs": [
               "src-wikibooks-de-age-time"
@@ -110,6 +113,7 @@
           },
           {
             "textTarget": "Es ist Abend.",
+            "translationFa": "عصر است.",
             "correct": false,
             "sourceRefs": [
               "src-wikibooks-de-age-time"
@@ -118,7 +122,8 @@
         ]
       },
       "transformations": [
-        "options_selected_from_source_material"
+        "options_selected_from_source_material",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
