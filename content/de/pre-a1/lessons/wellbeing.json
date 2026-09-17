@@ -58,13 +58,13 @@
     {
       "id": "act-de-wellbeing-fill",
       "type": "fill_blank",
-      "instructionFa": "عبارت احوال‌پرسی را کامل کن.",
-      "selectionReason": "جای‌خالی از همان عبارت منبع‌دار ساخته شده و بدون معرفی واژهٔ تازه یک بازیابی سبک ایجاد می‌کند.",
+      "instructionFa": "خودِ عبارت آلمانی احوال‌پرسی را کامل کن؛ گزینه‌ها ترجمهٔ کلمه‌به‌کلمه نیستند.",
+      "selectionReason": "جای‌خالی از همان عبارت منبع‌دار ساخته شده و بدون نسبت‌دادن ترجمهٔ کلمه‌به‌کلمهٔ نادرست به «geht's»، یک بازیابی سبک ایجاد می‌کند.",
       "sourceRefs": [
         "src-wikibooks-de-basic-greetings"
       ],
       "learningTargets": [
-        "بازیابی عبارت «Wie geht's?»."
+        "بازیابی عبارت «Wie geht's?» بدون ساختن نگاشت واژه‌به‌واژهٔ گمراه‌کننده."
       ],
       "lexemeRefs": [
         "lex-de-wie-gehts",
@@ -75,14 +75,9 @@
         "sourceText": "Wie geht's?",
         "sourceTextFa": "حالت چطوره؟",
         "blankedText": "Wie ___?",
-        "blankedTextFa": "___ چطوره؟",
         "choices": [
           "geht's",
           "gut"
-        ],
-        "choicesFa": [
-          "حالت",
-          "خوب"
         ],
         "answer": "geht's"
       },
