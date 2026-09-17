@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lexform-de-moegen-moechten",
+  "lexemeId": "lex-de-moegen",
+  "surface": "möchten",
+  "formType": "inflected",
+  "formTypeFa": "صرف‌شده",
+  "features": {
+    "mood": "subjunctive_II",
+    "person": "3",
+    "number": "plural"
+  },
+  "featuresFa": {
+    "mood": "وجه شرطی دوم",
+    "person": "سوم‌شخص",
+    "number": "جمع"
+  },
+  "origin": "source_attested",
+  "originFa": "ثبت‌شده در منبع",
+  "reviewStatus": "approved",
+  "reviewStatusFa": "تأییدشده",
+  "sourceRefs": ["src-wikibooks-de-lesson-002", "src-wiktionary-de-moechten"],
+  "notes": "در پرسش مؤدبانهٔ منبع‌دار «Was möchten Sie bitte?» همین صورت با ضمیر رسمی «Sie» استفاده شده است؛ از نظر صرفی با صورت سوم‌شخص جمع هم‌شکل است."
+}
