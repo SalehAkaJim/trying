@@ -8,7 +8,7 @@
   "learningTargets": [
     "دربارهٔ محل تحصیل یک عضو خانواده سؤال کند و پاسخ را بفهمد.",
     "دربارهٔ محل زندگی یک عضو خانواده سؤال کند و پاسخ را بفهمد.",
-    "studieren و wohnen را در اطلاعات خانوادگی از هم تشخیص دهد."
+    "فعل‌های مربوط به تحصیل و زندگی را در اطلاعات خانوادگی از هم تشخیص دهد."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-007-family"
@@ -49,7 +49,7 @@
       "id": "act-de-a1-family-review-matching",
       "type": "multiple_choice",
       "instructionFa": "کدام جمله دربارهٔ محل تحصیل برادر است؟",
-      "selectionReason": "تمرین تفاوت studieren و wohnen را در همان بافت خانواده می‌سنجد.",
+      "selectionReason": "تمرین تفاوت فعل‌های مربوط به تحصیل و زندگی را در همان بافت خانواده می‌سنجد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-family"
       ],
