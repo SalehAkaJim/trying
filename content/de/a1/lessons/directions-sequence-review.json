@@ -101,7 +101,7 @@
       "id": "act-de-a1-directions-sequence-review-fill",
       "type": "word_order",
       "instructionFa": "پرسش زمان رسیدن قطار را بساز.",
-      "selectionReason": "فعل جداشدنی ankommen در یک جملهٔ کوتاه و واقعی به‌صورت هدایت‌شده بازیابی می‌شود.",
+      "selectionReason": "فعل جداشدنیِ رسیدن در یک جملهٔ کوتاه و واقعی به‌صورت هدایت‌شده بازیابی می‌شود.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-024-short-messages"
       ],
