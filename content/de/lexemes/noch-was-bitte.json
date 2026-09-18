@@ -1,0 +1,3 @@
+{
+  "schemaVersion":"1.0.0","id":"lex-de-noch-was-bitte","languageId":"de","type":"phrase","surface":"Noch was bitte?","lemma":null,"partOfSpeech":null,"partOfSpeechFa":null,"level":"A1","translationFa":"چیز دیگری هم؟","usageNoteFa":"در گفت‌وگوی سفارش برای پرسیدن اینکه مشتری قلم دیگری هم می‌خواهد استفاده می‌شود.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-de-lesson-007-food-order"],"formRefs":[],"flashcardEligible":true,"audioStatus":"blocked_until_level_final","audioRef":null,"audioVoice":null
+}
