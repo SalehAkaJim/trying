@@ -463,4 +463,20 @@ coverage=JSON_SET(coverage,
   '$.situations[12]','آب‌وهوا، آفتاب، ابر، باران و برف')
 WHERE id=@level;
 
+
+-- Text-change triggers correctly invalidate existing audio as blocked. Because A1 is already
+-- final, convert only the five replaced dialogues to stale so the canonical audio pipeline
+-- can regenerate them instead of leaving final-level audio blocked.
+UPDATE dialogue_turns dt
+JOIN dialogues d ON d.id=dt.dialogue_id
+SET dt.audio_status='stale'
+WHERE d.dialogue_key IN (
+  'dlg-de-a1-reschedule-exact-time',
+  'dlg-de-a1-train-arrival-station',
+  'dlg-de-a1-transport-arrival',
+  'dlg-de-a1-weather-rain-plan',
+  'dlg-de-a1-weather-temperature'
+)
+AND dt.audio_status='blocked_until_level_final';
+
 COMMIT;
