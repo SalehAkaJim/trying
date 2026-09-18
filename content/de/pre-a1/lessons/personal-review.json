@@ -5,7 +5,7 @@
   "level": "Pre-A1",
   "unitRef": "de-pre-a1-unit-personal-info",
   "titleFa": "مرور اطلاعات شخصی",
-  "sourceTitle": "مرور نام، محل، سن و فرم کوتاه",
+  "sourceTitle": "Wie heißen Sie? / Wo wohnen Sie? / Wie alt sind Sie?",
   "learningTargets": [
     "نام، محل زندگی و سن را در یک گفت‌وگوی کوتاه بازیابی کند.",
     "اطلاعات شخصی بسیار کوتاه را در یک فرم متنی وارد کند.",
@@ -253,5 +253,5 @@
   ],
   "status": "final",
   "audioStatus": "pending",
-  "sourceTitleFa": "مرور اطلاعات شخصی"
+  "sourceTitleFa": "اسمتان چیست؟ / کجا زندگی می‌کنید؟ / چند سالتان است؟"
 }

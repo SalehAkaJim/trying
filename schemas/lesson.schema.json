@@ -53,7 +53,9 @@
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "minLength": 1,
+      "description": "Target-language lesson title/excerpt. Required for finalized lessons; must be source-backed."
     },
     "learningTargets": {
       "type": "array",
@@ -158,10 +160,39 @@
       ],
       "minLength": 1,
       "pattern": "[\\u0600-\\u06FF]",
-      "description": "معادل یا برچسب فارسی برای sourceTitle."
+      "description": "معادل فارسی عنوان زبان هدفِ درس."
     }
   },
   "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "final"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "sourceTitle",
+          "sourceTitleFa"
+        ],
+        "properties": {
+          "sourceTitle": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceTitleFa": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "[\\u0600-\\u06FF]"
+          }
+        }
+      }
+    },
     {
       "if": {
         "properties": {

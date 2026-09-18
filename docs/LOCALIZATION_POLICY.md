@@ -63,7 +63,8 @@ This policy applies to every language, every CEFR level, and all future content 
 ## Strict Persian coverage
 - A Persian field is not valid merely because it contains one Persian character; untranslated English prose/jargon mixed into assistant-authored Persian text is a QA failure.
 - Exact target-language strings, official names and standardized identifiers may remain in their original form, but human-facing companions must be Persian.
-- `sourceTitle` requires `sourceTitleFa`; source `title` has `titleFa`; source `locator` requires `locatorFa`.
+- every finalized lesson requires a target-language `sourceTitle` and Persian `sourceTitleFa`; for German lessons the target title must be German/source-backed, never assistant-authored;
+- source `title` has `titleFa`; source `locator` requires `locatorFa`.
 - Character roles, voice-profile values, activity interaction modes and grammatical feature values are semantic codes and must resolve through the canonical Persian taxonomy.
 - Content README files under `content/` are Persian durable project/content memory.
 

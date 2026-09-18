@@ -249,6 +249,54 @@ if bad:
 print(f'Authoring/MySQL activity counts are synchronized for {len(expected)} lessons.')
 PY
 
+# Final lesson target-language titles and Persian companions must match authoring exactly.
+python - <<'PY' > /tmp/expected_lesson_titles.tsv
+import json, pathlib
+for path in sorted(pathlib.Path('content').glob('*/*/lessons/*.json')):
+    data=json.loads(path.read_text(encoding='utf-8'))
+    if data.get('status')!='final':
+        continue
+    print('\t'.join([
+        data['id'],
+        data.get('languageId',''),
+        data.get('sourceTitle') or '',
+        data.get('sourceTitleFa') or ''
+    ]))
+PY
+mysql_cmd -e "SELECT l.lesson_key,lang.code,COALESCE(l.source_title,''),COALESCE(l.source_title_fa,'') FROM lessons l JOIN language_levels ll ON ll.id=l.language_level_id JOIN languages lang ON lang.id=ll.language_id WHERE l.status='final' ORDER BY l.lesson_key;" > /tmp/actual_lesson_titles.tsv
+
+python - <<'PY'
+import pathlib,re,sys
+fa=re.compile(r'[\u0600-\u06FF]')
+def rows(path):
+    out={}
+    for line in pathlib.Path(path).read_text(encoding='utf-8').splitlines():
+        if not line.strip(): continue
+        key,lang,title,title_fa=line.split('\t',3)
+        out[key]=(lang,title,title_fa)
+    return out
+expected=rows('/tmp/expected_lesson_titles.tsv')
+actual=rows('/tmp/actual_lesson_titles.tsv')
+if expected != actual:
+    print('Authoring/MySQL final lesson title mismatch')
+    print('Missing:', sorted(set(expected)-set(actual)))
+    print('Extra:', sorted(set(actual)-set(expected)))
+    changed={k:(expected[k],actual[k]) for k in expected.keys() & actual.keys() if expected[k]!=actual[k]}
+    print('Changed:', changed)
+    sys.exit(1)
+bad=[]
+for key,(lang,title,title_fa) in actual.items():
+    if not title.strip() or not title_fa.strip() or not fa.search(title_fa):
+        bad.append((key,'missing title or Persian companion'))
+    if lang=='de' and (fa.search(title) or not re.search(r'[A-Za-zÄÖÜäöüß]',title)):
+        bad.append((key,f'invalid German source_title: {title!r}'))
+if bad:
+    print('Invalid final lesson titles in MySQL:')
+    for row in bad: print('-',row)
+    sys.exit(1)
+print(f'Final lesson title synchronization passed for {len(actual)} lessons.')
+PY
+
 # Dialogue starter is canonical relational data in MySQL and must match authoring JSON.
 python - <<'PY' > /tmp/expected_dialogue_starters.tsv
 import json, pathlib

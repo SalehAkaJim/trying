@@ -216,6 +216,18 @@ for path, data in all_json:
         require_label("cefr_level", data.get("level"), path)
         require_label("lesson_status", data.get("status"), path)
         require_label("audio_status", data.get("audioStatus"), path)
+        if data.get("status") == "final":
+            source_title = data.get("sourceTitle")
+            source_title_fa = data.get("sourceTitleFa")
+            if not isinstance(source_title, str) or not source_title.strip():
+                errors.append(f"{path}: finalized lesson requires a non-empty sourceTitle")
+            if not isinstance(source_title_fa, str) or not source_title_fa.strip() or not FA.search(source_title_fa):
+                errors.append(f"{path}: finalized lesson requires a Persian sourceTitleFa")
+            if data.get("languageId") == "de" and isinstance(source_title, str):
+                if FA.search(source_title):
+                    errors.append(f"{path}: German sourceTitle must not contain Persian text: {source_title!r}")
+                if not re.search(r"[A-Za-zÄÖÜäöüß]", source_title):
+                    errors.append(f"{path}: German sourceTitle must contain German/Latin-script target text: {source_title!r}")
         activities = data.get("activities", [])
         if activities and activities[0].get("type") != "conversation_speaking":
             errors.append(f"{path}: first activity must be conversation_speaking")

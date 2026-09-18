@@ -1,6 +1,8 @@
 # Content QA Rules
 
 ## Hard failures
+- finalized lesson lacks a non-empty target-language `sourceTitle` or Persian `sourceTitleFa`;
+- for German lessons, `sourceTitle` contains Persian instead of German/Latin-script target text;
 - finalized lesson does not begin with `conversation_speaking`;
 - finalized lesson activity count falls outside the CEFR-level range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 3–6 total activities;
 - `matching` activity contains fewer than 4 or more than 8 pairs;
