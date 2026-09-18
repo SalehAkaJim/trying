@@ -1,0 +1,114 @@
+{
+  "id": "dlg-de-a1-ask-and-follow-directions",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-german-print-directions"
+  ],
+  "scenario": "پاول در سنت پولتن از آیریس مسیر شهرداری را می‌پرسد. آیریس ابتدا درخواست تکرار می‌کند و سپس مسیر ساده را می‌گوید.",
+  "openingInitiator": "learner",
+  "characterRefs": [
+    "char-de-paul",
+    "char-de-iris"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-directions-1",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Danke sehr. Und können Sie mir sagen, wo das Rathaus von St. Pölten ist?",
+      "translationFa": "خیلی ممنون. می‌توانید به من بگویید شهرداری سنت پولتن کجاست؟",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-rathaus"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Rathaus",
+          "lexemeId": "lex-de-rathaus",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-directions-2",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie bitte?",
+      "translationFa": "ببخشید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-directions-3",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie komme ich zum Rathaus?",
+      "translationFa": "چطور به شهرداری برسم؟",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-rathaus"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Rathaus",
+          "lexemeId": "lex-de-rathaus",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-directions-4",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Rechts um die Ecke und dann immer geradeaus – ungefähr ein Kilometer.",
+      "translationFa": "از گوشه به راست و بعد همیشه مستقیم؛ حدود یک کیلومتر.",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-rechts",
+        "lex-de-ecke",
+        "lex-de-geradeaus"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Rechts",
+          "lexemeId": "lex-de-rechts",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "Ecke",
+          "lexemeId": "lex-de-ecke",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "geradeaus",
+          "lexemeId": "lex-de-geradeaus",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "چهار نوبت پیوسته از گفت‌وگوی منبع بدون بازنویسی حفظ شده‌اند: پرسش نخست، درخواست تکرار، پرسش مستقیم‌تر و راهنمایی مسیر. نقش‌های مسافر و فرد محلی فقط به شخصیت‌های برنامه نسبت داده شده‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}

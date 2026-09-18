@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-abbiegen",
+  "languageId": "de",
+  "type": "word",
+  "surface": "abbiegen",
+  "lemma": "abbiegen",
+  "partOfSpeech": "verb",
+  "partOfSpeechFa": "فعل",
+  "level": "A1",
+  "translationFa": "پیچیدن",
+  "usageNoteFa": "در عبارت‌های راهنمایی چپ و راست استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-directions"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

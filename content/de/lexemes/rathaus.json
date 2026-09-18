@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-rathaus",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Rathaus",
+  "lemma": "Rathaus",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "شهرداری / ساختمان شهرداری",
+  "usageNoteFa": "در گفت‌وگوی منبع مقصدی است که مسافر مسیرش را می‌پرسد.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-german-print-directions"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

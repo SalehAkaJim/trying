@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-ask-and-follow-directions",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-directions-public-places",
+  "titleFa": "چطور به شهرداری برسم؟",
+  "sourceTitle": "Wie komme ich zum Rathaus? / Rechts ... geradeaus",
+  "sourceTitleFa": "چطور به شهرداری برسم؟ / راست و بعد مستقیم",
+  "learningTargets": [
+    "یک پرسش ساده دربارهٔ مسیر یک مکان عمومی را بفهمد و بیان کند.",
+    "راهنمایی بسیار ساده با راست و مستقیم را در گفت‌وگو بفهمد.",
+    "نام چند مکان عمومی پرتکرار را در بافت مسیر تشخیص دهد.",
+    "عبارت‌های پایهٔ چپ، راست و مستقیم را از هم تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-german-print-directions",
+    "src-wikivoyage-german-phrasebook-directions"
+  ],
+  "lexemeRefs": [
+    "lex-de-rathaus",
+    "lex-de-ecke",
+    "lex-de-bahnhof",
+    "lex-de-bushaltestelle",
+    "lex-de-flughafen",
+    "lex-de-stadtmitte",
+    "lex-de-abbiegen",
+    "lex-de-geradeaus",
+    "lex-de-links",
+    "lex-de-rechts"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "گفت‌وگوی واقعی پرسیدن مسیر شهرداری را وارد می‌کند؛ سپس چهار مکان عمومی تثبیت می‌شوند، سه جهت پایه از هم تشخیص داده می‌شوند و در پایان پرسش اصلی مسیر بازسازی می‌شود.",
+    "sequenceRationale": "درس از فهم یک تعامل کامل به شبکهٔ مکان‌ها، تمایز جهت‌ها و بازیابی فعال پرسش مسیر حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>matching>multiple_choice>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-directions-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "مسیر شهرداری را بپرس و پاسخ راهنمایی را دنبال کن.",
+      "selectionReason": "چهار نوبت پیوستهٔ منبع یک موقعیت واقعی پرسیدن مسیر، درخواست تکرار و پاسخ جهت را می‌سازند.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "learningTargets": [
+        "پرسیدن و فهم مسیر سادهٔ یک مکان عمومی."
+      ],
+      "lexemeRefs": [
+        "lex-de-rathaus",
+        "lex-de-ecke",
+        "lex-de-geradeaus",
+        "lex-de-rechts"
+      ],
+      "dialogueRef": "dlg-de-a1-ask-and-follow-directions",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-public-places-matching",
+      "type": "matching",
+      "instructionFa": "هر مکان عمومی را به معنی درستش وصل کن.",
+      "selectionReason": "چهار مقصد پرتکرار از بخش مسیرهای ویکی‌ویاژ انتخاب شده‌اند تا واژگان مکان از راهنمایی جهت جداگانه تثبیت شود.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-directions"
+      ],
+      "learningTargets": [
+        "تشخیص چهار مکان عمومی پرتکرار."
+      ],
+      "lexemeRefs": [
+        "lex-de-bahnhof",
+        "lex-de-bushaltestelle",
+        "lex-de-flughafen",
+        "lex-de-stadtmitte"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Bahnhof",
+            "leftFa": "ایستگاه قطار",
+            "right": "ایستگاه قطار",
+            "rightFa": "ایستگاه قطار"
+          },
+          {
+            "left": "Bushaltestelle",
+            "leftFa": "ایستگاه اتوبوس",
+            "right": "ایستگاه اتوبوس",
+            "rightFa": "ایستگاه اتوبوس"
+          },
+          {
+            "left": "Flughafen",
+            "leftFa": "فرودگاه",
+            "right": "فرودگاه",
+            "rightFa": "فرودگاه"
+          },
+          {
+            "left": "Stadtmitte",
+            "leftFa": "مرکز شهر",
+            "right": "مرکز شهر",
+            "rightFa": "مرکز شهر"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-direction-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام عبارت یعنی مستقیم به جلو؟",
+      "selectionReason": "سه عبارت جهت عین بخش مسیرهای منبع‌اند و تفاوت مستقیم، چپ و راست را می‌سنجند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-directions"
+      ],
+      "learningTargets": [
+        "تشخیص مستقیم از چپ و راست."
+      ],
+      "lexemeRefs": [
+        "lex-de-geradeaus",
+        "lex-de-abbiegen",
+        "lex-de-links",
+        "lex-de-rechts"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "geradeaus",
+            "translationFa": "مستقیم به جلو",
+            "correct": true
+          },
+          {
+            "textTarget": "Links abbiegen.",
+            "translationFa": "به چپ بپیچید.",
+            "correct": false
+          },
+          {
+            "textTarget": "Rechts abbiegen.",
+            "translationFa": "به راست بپیچید.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-directions-question-order",
+      "type": "word_order",
+      "instructionFa": "پرسش مسیر شهرداری را دوباره بساز.",
+      "selectionReason": "پرسش اصلی پس از فهم مسیر و واژگان مکان به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "learningTargets": [
+        "بازسازی پرسش منبع‌دار برای رسیدن به یک مکان."
+      ],
+      "lexemeRefs": [
+        "lex-de-rathaus"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wie komme ich zum Rathaus?",
+        "sourceTextFa": "چطور به شهرداری برسم؟",
+        "tokens": [
+          "Wie",
+          "komme",
+          "ich",
+          "zum",
+          "Rathaus?"
+        ],
+        "answer": [
+          "Wie",
+          "komme",
+          "ich",
+          "zum",
+          "Rathaus?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_level_final"
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-stadtmitte",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Stadtmitte",
+  "lemma": "Stadtmitte",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "مرکز شهر",
+  "usageNoteFa": "در بخش مسیرها برای مقصد مرکز شهر آمده است.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-directions"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-bushaltestelle",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Bushaltestelle",
+  "lemma": "Bushaltestelle",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "ایستگاه اتوبوس",
+  "usageNoteFa": "از مقصدهای پرتکرار بخش مسیرهاست.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-directions"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

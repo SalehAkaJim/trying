@@ -52,7 +52,7 @@
     "gaps": [
       "برای هر هدف A1 باید قبل از ساخت درس، متن و مثال آلمانی از منابع معاصر و قابل‌بازاستفاده ثبت شود.",
       "فهرست دقیق واژگان و دستور زبان آلمانی A1 هنوز باید با منابع زبان‌ویژه و قابل‌بازاستفاده نهایی شود؛ CEFR به‌تنهایی فهرست دستور زبان آلمانی ارائه نمی‌کند.",
-      "هفت واحد نخست به بازبینی رسیده‌اند؛ مرحلهٔ بعد مسیر و مکان‌های عمومی است.",
+      "هشت واحد نخست به بازبینی رسیده‌اند؛ مرحلهٔ بعد درخواست، اجازه و خدمات روزمره است.",
       "پوشش شنیدن، خواندن، نوشتن و گفتار باید هنگام طراحی درس‌ها به‌صورت واقعی و نه صرفاً برچسبی توزیع شود.",
       "صوت A1 تا نهایی‌شدن سطح تولید نمی‌شود."
     ]
@@ -69,7 +69,9 @@
     "src-wikibooks-de-lesson-022-daily-routine",
     "src-wikibooks-de-lesson-009-shopping",
     "src-wikibooks-de-lesson-007-food-order",
-    "src-wikibooks-de-lesson-021-time-appointment"
+    "src-wikibooks-de-lesson-021-time-appointment",
+    "src-wikibooks-german-print-directions",
+    "src-wikivoyage-german-phrasebook-directions"
   ],
   "unitRefs": [
     "de-a1-unit-extended-introduction",
@@ -78,7 +80,8 @@
     "de-a1-unit-daily-routine-work-school",
     "de-a1-unit-shopping-quantity-payment",
     "de-a1-unit-expanded-food-order",
-    "de-a1-unit-time-plans-appointment"
+    "de-a1-unit-time-plans-appointment",
+    "de-a1-unit-directions-public-places"
   ],
   "lessonRefs": [
     "de-a1-lesson-profession-profile",
@@ -92,8 +95,9 @@
     "de-a1-lesson-shopping-quantity-payment",
     "de-a1-lesson-expanded-food-order",
     "de-a1-lesson-time-class-schedule",
-    "de-a1-lesson-time-simple-appointment"
+    "de-a1-lesson-time-simple-appointment",
+    "de-a1-lesson-ask-and-follow-directions"
   ],
-  "notes": "A1 همچنان در مرحلهٔ ساخت تدریجی است. هفت واحد نخست در بازبینی‌اند. مرحلهٔ بعد مسیر و مکان‌های عمومی است؛ زمان، برنامه و قرار با دو درس منبع‌دار بازبینی شده است.",
+  "notes": "A1 همچنان در مرحلهٔ ساخت تدریجی است. هشت واحد نخست در بازبینی‌اند. مرحلهٔ بعد درخواست، اجازه و خدمات روزمره است؛ مسیر و مکان‌های عمومی با یک گفت‌وگوی واقعی و تمرین مکان‌ها و جهت‌های پایه پوشش داده شده است.",
   "audioStatus": "blocked_until_level_final"
 }

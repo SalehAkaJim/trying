@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-wikivoyage-german-phrasebook-directions",
+  "title": "German phrasebook — Directions",
+  "organizationOrAuthor": "Wikivoyage contributors",
+  "language": "de",
+  "sourceType": "website",
+  "url": "https://en.wikivoyage.org/wiki/German_phrasebook",
+  "locator": "Directions section: public-place destinations and left/right/straight-ahead route phrases.",
+  "publishedOrUpdatedAt": null,
+  "modernityStatus": "maintained_current",
+  "currencyEvidence": "بخش زندهٔ مسیرها در German phrasebook ویکی‌ویاژ در ۱۸ سپتامبر ۲۰۲۶ بررسی شد. عبارت‌های مقصدهای عمومی، چپ و راست و مستقیم در نسخهٔ فعلی صفحه حضور دارند و برای کاربرد روزمرهٔ معاصر مناسب‌اند.",
+  "licenseName": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attributionText": "Wikivoyage contributors — German phrasebook",
+  "reuseStatus": "reuse_with_attribution",
+  "retrievedAt": "2026-09-18",
+  "notes": "برای این واحد فقط مقصدهای عمومی Bahnhof، Bushaltestelle، Flughafen و Stadtmitte و عبارت‌های Links abbiegen، Rechts abbiegen و geradeaus استفاده می‌شوند.",
+  "titleFa": "عبارت‌های مسیر و مکان‌های عمومی",
+  "locatorFa": "بخش مسیرها؛ مقصدهای عمومی و عبارت‌های چپ، راست و مستقیم."
+}
