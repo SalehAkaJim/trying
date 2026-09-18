@@ -106,7 +106,7 @@
     "de-a1-lesson-short-phone-message"
   ],
   "notes": "A1 از نظر محتوایی نهایی شده است: هر ۱۰ واحد و هر ۱۶ درس نهایی‌اند، همهٔ ۳۷ هدف الزامی پوشش و ارزیابی شده‌اند و شکاف الزامی باز باقی نمانده است. صوت اکنون از حالت مسدود خارج شده و در وضعیت انتظار قرار دارد؛ هنوز هیچ تولید صوت پولی انجام نشده است.",
-  "audioStatus": "pending",
+  "audioStatus": "ready",
   "completionAssessment": {
     "reviewedAt": "2026-09-18T04:45:00Z",
     "cefrCoverageComplete": true,

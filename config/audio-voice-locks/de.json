@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "provider": "elevenlabs",
   "language": "de",
-  "resolvedAt": "2026-09-17T16:48:16Z",
+  "resolvedAt": "2026-09-18T04:57:56Z",
   "standalone": {
     "voiceId": "tnSpp4vdxKPjI9w0GnoV",
     "voiceName": "Hope - upbeat and clear",
@@ -11,12 +11,12 @@
     "providerMetadata": {
       "category": "professional",
       "labels": {
-        "use_case": "social_media",
         "accent": "american",
-        "descriptive": "upbeat",
         "language": "en",
-        "gender": "female",
-        "age": "young"
+        "age": "young",
+        "use_case": "social_media",
+        "descriptive": "upbeat",
+        "gender": "female"
       },
       "verifiedLanguages": [
         {
@@ -186,12 +186,12 @@
       "providerMetadata": {
         "category": "professional",
         "labels": {
-          "use_case": "conversational",
           "accent": "standard",
           "language": "de",
+          "age": "young",
+          "use_case": "conversational",
           "descriptive": "confident",
-          "gender": "female",
-          "age": "young"
+          "gender": "female"
         },
         "verifiedLanguages": [
           {
@@ -480,12 +480,12 @@
       "providerMetadata": {
         "category": "professional",
         "labels": {
-          "use_case": "informative_educational",
           "accent": "standard",
-          "descriptive": "calm",
-          "language": "de",
           "gender": "male",
-          "age": "middle_aged"
+          "age": "middle_aged",
+          "descriptive": "calm",
+          "use_case": "informative_educational",
+          "language": "de"
         },
         "verifiedLanguages": [
           {
@@ -753,12 +753,12 @@
       "providerMetadata": {
         "category": "professional",
         "labels": {
-          "descriptive": "pleasant",
           "accent": "standard",
-          "use_case": "conversational",
-          "language": "fr",
           "gender": "female",
-          "age": "young"
+          "age": "young",
+          "descriptive": "pleasant",
+          "use_case": "conversational",
+          "language": "fr"
         },
         "verifiedLanguages": [
           {
@@ -1040,11 +1040,11 @@
       "providerMetadata": {
         "category": "professional",
         "labels": {
-          "use_case": "conversational",
           "accent": "standard",
-          "descriptive": "upbeat",
           "language": "de",
           "age": "young",
+          "use_case": "conversational",
+          "descriptive": "upbeat",
           "gender": "male"
         },
         "verifiedLanguages": [
@@ -1272,11 +1272,11 @@
         "category": "professional",
         "labels": {
           "accent": "standard",
-          "use_case": "conversational",
-          "descriptive": "casual",
           "language": "de",
-          "gender": "female",
-          "age": "young"
+          "age": "young",
+          "descriptive": "casual",
+          "use_case": "conversational",
+          "gender": "female"
         },
         "verifiedLanguages": [
           {
@@ -1545,11 +1545,11 @@
         "category": "professional",
         "labels": {
           "accent": "seoul",
+          "language": "ko",
+          "age": "young",
           "use_case": "conversational",
           "descriptive": "casual",
-          "language": "ko",
-          "gender": "male",
-          "age": "young"
+          "gender": "male"
         },
         "verifiedLanguages": [
           {
@@ -1557,42 +1557,42 @@
             "model_id": "eleven_v4",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NjYwODAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzA0MDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "ko",
             "model_id": "eleven_v4_hq",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NjYwODAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzA0MDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "ko",
             "model_id": "eleven_multilingual_v2",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NjYwODAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzA0MDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "ko",
             "model_id": "eleven_turbo_v2_5",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NjYwODAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzA0MDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "ko",
             "model_id": "eleven_v2_5_flash",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NjYwODAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzA0MDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "ko",
             "model_id": "eleven_flash_v2_5",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NjYwODAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzA0MDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "no",
