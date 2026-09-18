@@ -1,8 +1,214 @@
 {
-  "schemaVersion":"1.0.0","id":"de-a1-lesson-work-and-languages","languageId":"de","level":"A1","unitRef":"de-a1-unit-extended-introduction","titleFa":"کارت چیه؟ چه زبانی یاد می‌گیری؟","sourceTitle":"Arbeiten Sie ...? / Welche Sprachen lernen Sie?","sourceTitleFa":"چه کاری می‌کنید؟ / چه زبان‌هایی یاد می‌گیرید؟","learningTargets":["در یک گفت‌وگوی مؤدبانه پرسش ساده دربارهٔ شغل را بفهمد و پاسخ منبع‌دار بدهد.","پرسش دربارهٔ زبان‌های در حال یادگیری را بفهمد و پاسخ کوتاه منبع‌دار را تشخیص دهد.","تفاوت کاربردی arbeiten، lernen و sprechen را در جمله‌های کوتاه منبع‌دار تشخیص دهد."],"sourceRefs":["src-wikibooks-bll-a1-lesson-1","src-wikibooks-bll-a1-lesson-2"],"lexemeRefs":["lex-de-arbeiten","lex-de-lernen","lex-de-sprechen","lex-de-sprache","lex-de-journalist","lex-de-fremdenfuhrer","lex-de-deutsch","lex-de-franzosisch","lex-de-englisch"],"grammarNoteRefs":[],"activityDesign":{"activitySelectionRationale":"گفت‌وگوی چهار نوبتی شغل و زبان‌های در حال یادگیری را در یک تعامل مؤدبانه می‌آورد؛ سپس تفاوت صحبت‌کردن، یادگیری و کار با جمله‌های منبع‌دار سنجیده می‌شود و در پایان پرسش زبان بازسازی می‌شود.","sequenceRationale":"درس از تعامل و فهم بافت به تمایز معنایی سه فعل، دسته‌بندی جمله‌ها و بازیابی فعال پرسش حرکت می‌کند؛ بنابراین نسبت به درس اول الگوی فعالیت متفاوتی دارد.","templateSignature":"conversation_speaking>multiple_choice>matching>word_order"},"activities":[
-    {"id":"act-de-a1-work-language-conversation","type":"conversation_speaking","instructionFa":"با آیریس دربارهٔ شغل و زبان‌هایی که یاد می‌گیری صحبت کن.","selectionReason":"دو جفت پرسش و پاسخ منبع‌دار یک گفت‌وگوی کوتاه و مؤدبانه می‌سازند و هدف تازه را بدون توضیح دستوری انتزاعی وارد می‌کنند. کنارهم‌گذاری دو جفت و انتخاب شکل مردانهٔ شغل برای پاول در ردیابی منبع ثبت شده است.","sourceRefs":["src-wikibooks-bll-a1-lesson-2"],"learningTargets":["پاسخ‌دادن به پرسش شغل و زبان‌های در حال یادگیری در یک تعامل کوتاه."],"lexemeRefs":["lex-de-arbeiten","lex-de-lernen","lex-de-sprache","lex-de-journalist","lex-de-fremdenfuhrer","lex-de-deutsch","lex-de-franzosisch"],"dialogueRef":"dlg-de-a1-work-and-languages","data":{"interaction":"read_aloud_exchange","openingInitiator":"app"},"transformations":["other","persian_translation_added","character_metadata_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-speak-learn-work-choice","type":"multiple_choice","instructionFa":"کدام جمله می‌گوید فرد انگلیسی و فرانسوی صحبت می‌کند؟","selectionReason":"سه جملهٔ کامل و منبع‌دار، sprechen را از lernen و arbeiten جدا می‌کنند.","sourceRefs":["src-wikibooks-bll-a1-lesson-1","src-wikibooks-bll-a1-lesson-2"],"learningTargets":["تشخیص تفاوت صحبت‌کردن، یادگیری و کار در جمله‌های کوتاه."],"lexemeRefs":["lex-de-sprechen","lex-de-lernen","lex-de-arbeiten","lex-de-englisch","lex-de-franzosisch","lex-de-deutsch","lex-de-journalist"],"dialogueRef":null,"data":{"options":[{"textTarget":"Ich spreche Englisch und Französisch.","translationFa":"من انگلیسی و فرانسوی صحبت می‌کنم.","correct":true},{"textTarget":"Ich lerne Deutsch und Französisch.","translationFa":"من آلمانی و فرانسوی یاد می‌گیرم.","correct":false},{"textTarget":"Nein, ich arbeite als Journalist.","translationFa":"نه، من به‌عنوان روزنامه‌نگار کار می‌کنم.","correct":false}]},"transformations":["options_selected_from_source_material","persian_translation_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-work-language-matching","type":"matching","instructionFa":"هر جمله را به کاری که انجام می‌دهد وصل کن.","selectionReason":"چهار جملهٔ منبع‌دار نقش کار، یادگیری یک یا چند زبان و صحبت‌کردن به زبان‌ها را از هم جدا می‌کنند.","sourceRefs":["src-wikibooks-bll-a1-lesson-1","src-wikibooks-bll-a1-lesson-2"],"learningTargets":["دسته‌بندی جمله‌های مربوط به کار، یادگیری و صحبت‌کردن."],"lexemeRefs":["lex-de-arbeiten","lex-de-lernen","lex-de-sprechen","lex-de-deutsch","lex-de-franzosisch","lex-de-englisch","lex-de-journalist"],"dialogueRef":null,"data":{"pairs":[{"left":"Nein, ich arbeite als Journalist.","leftFa":"نه، من به‌عنوان روزنامه‌نگار کار می‌کنم.","right":"کار / شغل","rightFa":"کار / شغل"},{"left":"Ich lerne Deutsch und Französisch.","leftFa":"من آلمانی و فرانسوی یاد می‌گیرم.","right":"یادگیری دو زبان","rightFa":"یادگیری دو زبان"},{"left":"Ich spreche Englisch und Französisch.","leftFa":"من انگلیسی و فرانسوی صحبت می‌کنم.","right":"صحبت‌کردن به زبان‌ها","rightFa":"صحبت‌کردن به زبان‌ها"},{"left":"Ich lerne Deutsch.","leftFa":"من آلمانی یاد می‌گیرم.","right":"یادگیری یک زبان","rightFa":"یادگیری یک زبان"}]},"transformations":["source_items_grouped_for_matching","persian_translation_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-language-question-order","type":"word_order","instructionFa":"پرسش دربارهٔ زبان‌های در حال یادگیری را دوباره بساز.","selectionReason":"در پایان، زبان‌آموز پرسش اصلی را از تشخیص به بازیابی فعال منتقل می‌کند.","sourceRefs":["src-wikibooks-bll-a1-lesson-2"],"learningTargets":["بازسازی «Welche Sprachen lernen Sie?»."],"lexemeRefs":["lex-de-sprache","lex-de-lernen"],"dialogueRef":null,"data":{"sourceText":"Welche Sprachen lernen Sie?","sourceTextFa":"چه زبان‌هایی یاد می‌گیرید؟","tokens":["Welche","Sprachen","lernen","Sie?"],"answer":["Welche","Sprachen","lernen","Sie?"]},"transformations":["sentence_tokenized_for_word_order","persian_translation_added"],"audioStatus":"not_required"}
-  ],"status":"draft","audioStatus":"blocked_until_level_final"
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-work-and-languages",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-extended-introduction",
+  "titleFa": "کارت چیه؟ چه زبانی یاد می‌گیری؟",
+  "sourceTitle": "Arbeiten Sie ...? / Welche Sprachen lernen Sie?",
+  "sourceTitleFa": "چه کاری می‌کنید؟ / چه زبان‌هایی یاد می‌گیرید؟",
+  "learningTargets": [
+    "در یک گفت‌وگوی مؤدبانه پرسش ساده دربارهٔ شغل را بفهمد و پاسخ منبع‌دار بدهد.",
+    "پرسش دربارهٔ زبان‌های در حال یادگیری را بفهمد و پاسخ کوتاه منبع‌دار را تشخیص دهد.",
+    "تفاوت کاربردی arbeiten، lernen و sprechen را در جمله‌های کوتاه منبع‌دار تشخیص دهد.",
+    "شکل مفرد و جمع واژهٔ زبان را در نمونه‌های منبع‌دار تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-bll-a1-lesson-1",
+    "src-wikibooks-bll-a1-lesson-2"
+  ],
+  "lexemeRefs": [
+    "lex-de-arbeiten",
+    "lex-de-lernen",
+    "lex-de-sprechen",
+    "lex-de-sprache",
+    "lex-de-journalist",
+    "lex-de-fremdenfuhrer",
+    "lex-de-deutsch",
+    "lex-de-franzosisch",
+    "lex-de-englisch"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "گفت‌وگوی چهار نوبتی شغل و زبان‌های در حال یادگیری را در یک تعامل مؤدبانه می‌آورد؛ سپس تفاوت صحبت‌کردن، یادگیری و کار با جمله‌های منبع‌دار سنجیده می‌شود و در پایان پرسش زبان بازسازی می‌شود.",
+    "sequenceRationale": "درس از تعامل و فهم بافت به تمایز معنایی سه فعل، دسته‌بندی جمله‌ها و بازیابی فعال پرسش حرکت می‌کند؛ بنابراین نسبت به درس اول الگوی فعالیت متفاوتی دارد.",
+    "templateSignature": "conversation_speaking>multiple_choice>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-work-language-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "با آیریس دربارهٔ شغل و زبان‌هایی که یاد می‌گیری صحبت کن.",
+      "selectionReason": "دو جفت پرسش و پاسخ منبع‌دار یک گفت‌وگوی کوتاه و مؤدبانه می‌سازند و هدف تازه را بدون توضیح دستوری انتزاعی وارد می‌کنند. کنارهم‌گذاری دو جفت و انتخاب شکل مردانهٔ شغل برای پاول در ردیابی منبع ثبت شده است.",
+      "sourceRefs": [
+        "src-wikibooks-bll-a1-lesson-2"
+      ],
+      "learningTargets": [
+        "پاسخ‌دادن به پرسش شغل و زبان‌های در حال یادگیری در یک تعامل کوتاه."
+      ],
+      "lexemeRefs": [
+        "lex-de-arbeiten",
+        "lex-de-lernen",
+        "lex-de-sprache",
+        "lex-de-journalist",
+        "lex-de-fremdenfuhrer",
+        "lex-de-deutsch",
+        "lex-de-franzosisch"
+      ],
+      "dialogueRef": "dlg-de-a1-work-and-languages",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-speak-learn-work-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله می‌گوید فرد انگلیسی و فرانسوی صحبت می‌کند؟",
+      "selectionReason": "سه جملهٔ کامل و منبع‌دار، sprechen را از lernen و arbeiten جدا می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-bll-a1-lesson-1",
+        "src-wikibooks-bll-a1-lesson-2"
+      ],
+      "learningTargets": [
+        "تشخیص تفاوت صحبت‌کردن، یادگیری و کار در جمله‌های کوتاه."
+      ],
+      "lexemeRefs": [
+        "lex-de-sprechen",
+        "lex-de-lernen",
+        "lex-de-arbeiten",
+        "lex-de-englisch",
+        "lex-de-franzosisch",
+        "lex-de-deutsch",
+        "lex-de-journalist"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Ich spreche Englisch und Französisch.",
+            "translationFa": "من انگلیسی و فرانسوی صحبت می‌کنم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich lerne Deutsch und Französisch.",
+            "translationFa": "من آلمانی و فرانسوی یاد می‌گیرم.",
+            "correct": false
+          },
+          {
+            "textTarget": "Nein, ich arbeite als Journalist.",
+            "translationFa": "نه، من به‌عنوان روزنامه‌نگار کار می‌کنم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-work-language-matching",
+      "type": "matching",
+      "instructionFa": "هر جمله را به کاری که انجام می‌دهد وصل کن.",
+      "selectionReason": "چهار جملهٔ منبع‌دار نقش کار، یادگیری یک یا چند زبان و صحبت‌کردن به زبان‌ها را از هم جدا می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-bll-a1-lesson-1",
+        "src-wikibooks-bll-a1-lesson-2"
+      ],
+      "learningTargets": [
+        "دسته‌بندی جمله‌های مربوط به کار، یادگیری و صحبت‌کردن."
+      ],
+      "lexemeRefs": [
+        "lex-de-arbeiten",
+        "lex-de-lernen",
+        "lex-de-sprechen",
+        "lex-de-deutsch",
+        "lex-de-franzosisch",
+        "lex-de-englisch",
+        "lex-de-journalist"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Nein, ich arbeite als Journalist.",
+            "leftFa": "نه، من به‌عنوان روزنامه‌نگار کار می‌کنم.",
+            "right": "کار / شغل",
+            "rightFa": "کار / شغل"
+          },
+          {
+            "left": "Ich lerne Deutsch und Französisch.",
+            "leftFa": "من آلمانی و فرانسوی یاد می‌گیرم.",
+            "right": "یادگیری دو زبان",
+            "rightFa": "یادگیری دو زبان"
+          },
+          {
+            "left": "Ich spreche Englisch und Französisch.",
+            "leftFa": "من انگلیسی و فرانسوی صحبت می‌کنم.",
+            "right": "صحبت‌کردن به زبان‌ها",
+            "rightFa": "صحبت‌کردن به زبان‌ها"
+          },
+          {
+            "left": "Ich lerne Deutsch.",
+            "leftFa": "من آلمانی یاد می‌گیرم.",
+            "right": "یادگیری یک زبان",
+            "rightFa": "یادگیری یک زبان"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-language-question-order",
+      "type": "word_order",
+      "instructionFa": "پرسش دربارهٔ زبان‌های در حال یادگیری را دوباره بساز.",
+      "selectionReason": "در پایان، زبان‌آموز پرسش اصلی را از تشخیص به بازیابی فعال منتقل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-bll-a1-lesson-2"
+      ],
+      "learningTargets": [
+        "بازسازی «Welche Sprachen lernen Sie?»."
+      ],
+      "lexemeRefs": [
+        "lex-de-sprache",
+        "lex-de-lernen"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Welche Sprachen lernen Sie?",
+        "sourceTextFa": "چه زبان‌هایی یاد می‌گیرید؟",
+        "tokens": [
+          "Welche",
+          "Sprachen",
+          "lernen",
+          "Sie?"
+        ],
+        "answer": [
+          "Welche",
+          "Sprachen",
+          "lernen",
+          "Sie?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_level_final"
 }
