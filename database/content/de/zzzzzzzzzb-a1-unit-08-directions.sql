@@ -69,7 +69,7 @@ INSERT INTO dialogue_turns(turn_key,dialogue_id,position_index,speaker_character
 ('turn-de-a1-directions-1',@dialogue,1,@paul,'app_assigned','unspecified','Danke sehr. Und können Sie mir sagen, wo das Rathaus von St. Pölten ist?','خیلی ممنون. می‌توانید به من بگویید شهرداری سنت پولتن کجاست؟',TRUE,'blocked_until_level_final'),
 ('turn-de-a1-directions-2',@dialogue,2,@iris,'app_assigned','unspecified','Wie bitte?','ببخشید؟',FALSE,'blocked_until_level_final'),
 ('turn-de-a1-directions-3',@dialogue,3,@paul,'app_assigned','unspecified','Wie komme ich zum Rathaus?','چطور به شهرداری برسم؟',TRUE,'blocked_until_level_final'),
-('turn-de-a1-directions-4',@dialogue,4,@iris,'app_assigned','unspecified','Rechts um die Ecke und dann immer geradeaus – ungefähr ein Kilometer.','از گوشه به راست و بعد همیشه مستقیم؛ حدود یک کیلومتر.',FALSE,'blocked_until_level_final')
+('turn-de-a1-directions-4',@dialogue,4,@iris,'app_assigned','unspecified','Rechts um die Ecke und dann immer geradeaus – ungefähr ein Kilometer.','سرِ پیچ به راست بپیچید و بعد مستقیم ادامه بدهید؛ حدود یک کیلومتر.',FALSE,'blocked_until_level_final')
 ON DUPLICATE KEY UPDATE dialogue_id=VALUES(dialogue_id),position_index=VALUES(position_index),speaker_character_id=VALUES(speaker_character_id),speaker_identity_origin=VALUES(speaker_identity_origin),speaker_gender_evidence=VALUES(speaker_gender_evidence),text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn);
 
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status) VALUES

@@ -103,7 +103,7 @@ INSERT INTO dialogue_turns(turn_key,dialogue_id,position_index,speaker_character
 ('turn-de-a1-time-schedule-3',@d1,3,@mia,'app_assigned','unspecified','Und bis wann bleibst du dann noch in der Schule?','و بعد تا چه زمانی در مدرسه می‌مانی؟',FALSE,'blocked_until_level_final'),
 ('turn-de-a1-time-schedule-4',@d1,4,@max,'app_assigned','unspecified','Bis 13.00 Uhr bleibe ich noch hier.','تا ساعت ۱۳ اینجا می‌مانم.',TRUE,'blocked_until_level_final'),
 ('turn-de-a1-appointment-1',@d2,1,@iris,'app_assigned','unspecified','Was machen Sie heute Abend? Darf ich Sie ins Konzert einladen?','امشب چه کار می‌کنید؟ می‌توانم شما را به کنسرت دعوت کنم؟',FALSE,'blocked_until_level_final'),
-('turn-de-a1-appointment-2',@d2,2,@paul,'app_assigned','unspecified','Heute? Das tut mir leid, heute geht es leider nicht.','امروز؟ متأسفم، امروز متأسفانه نمی‌شود.',TRUE,'blocked_until_level_final'),
+('turn-de-a1-appointment-2',@d2,2,@paul,'app_assigned','unspecified','Heute? Das tut mir leid, heute geht es leider nicht.','امشب؟ متأسفم، امشب متأسفانه نمی‌شود.',TRUE,'blocked_until_level_final'),
 ('turn-de-a1-appointment-3',@d2,3,@iris,'app_assigned','unspecified','Und morgen?','و فردا؟',FALSE,'blocked_until_level_final'),
 ('turn-de-a1-appointment-4',@d2,4,@paul,'app_assigned','unspecified','Morgen geht es vielleicht.','فردا شاید بشود.',TRUE,'blocked_until_level_final')
 ON DUPLICATE KEY UPDATE dialogue_id=VALUES(dialogue_id),position_index=VALUES(position_index),speaker_character_id=VALUES(speaker_character_id),speaker_identity_origin=VALUES(speaker_identity_origin),speaker_gender_evidence=VALUES(speaker_gender_evidence),text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn);
