@@ -36,8 +36,8 @@
     {
       "id": "act-de-a1-message-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "تماس دوباره و گرفتن کارت‌ها برای فردا را هماهنگ کن.",
-      "selectionReason": "دو جفت پرسش‌وپاسخ مجاور منبع، یک هماهنگی کوتاه و قابل‌فهم می‌سازند.",
+      "instructionFa": "تماس دوباره و گرفتن بلیت‌ها برای فردا را هماهنگ کن.",
+      "selectionReason": "دو جفت پرسش‌وپاسخ مجاور منبع، یک هماهنگی کوتاه برای تماس دوباره و تحویل گرفتن بلیت‌ها می‌سازند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-024-short-messages"
       ],

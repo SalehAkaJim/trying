@@ -5,7 +5,7 @@
   "sourceRefs": [
     "src-wikibooks-de-lesson-024-short-messages"
   ],
-  "scenario": "آیریس و پاول در یک تماس کوتاه دو کار را هماهنگ می‌کنند: تماس دوباره برای فردا و گرفتن کارت‌ها در فردا.",
+  "scenario": "آیریس و پاول در یک تماس کوتاه دو کار را هماهنگ می‌کنند: تماس دوباره برای فردا و گرفتن بلیت‌ها در فردا.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-iris",
@@ -89,7 +89,7 @@
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Möchten Sie die Karten morgen abholen?",
-      "translationFa": "می‌خواهید فردا کارت‌ها را تحویل بگیرید؟",
+      "translationFa": "می‌خواهید فردا بلیت‌ها را تحویل بگیرید؟",
       "learnerTurn": false,
       "lexemeRefs": [
         "lex-de-moegen",
@@ -148,6 +148,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "چهار نوبت از دو جفت پرسش‌وپاسخ مجاور بخش ۱۰۱۰ عیناً حفظ شده‌اند و به‌عنوان دو کار کوتاه در یک تماس هماهنگی کنار هم قرار گرفته‌اند. نقش شخصیت‌ها افزوده شده اما متن آلمانی تغییر نکرده است.",
+  "sceneQualityRationale": "چهار نوبت از دو جفت پرسش‌وپاسخ مجاور بخش ۱۰۱۰ عیناً حفظ شده‌اند. با توجه به بافت نزدیک منبع که از بلیت‌های تئاتر صحبت می‌کند، «Karten» در ترجمهٔ فارسی به «بلیت‌ها» برگردانده شده است؛ متن آلمانی تغییر نکرده است.",
   "learnerCharacterId": "char-de-paul"
 }
