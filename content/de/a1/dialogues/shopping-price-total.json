@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-shopping-price-total",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-004"
+  ],
+  "scenario": "مشتری دو بار دربارهٔ قیمت می‌پرسد و پاسخ‌ها عدد یورو و سنت را در قالب واقعی نشان می‌دهند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-shopping-price-total-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie viel kostet das?",
+      "translationFa": "این چقدر قیمت دارد؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-shopping-price-total-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Das kostet 70 Euro und 92 Cent.",
+      "translationFa": "۷۰ یورو و ۹۲ سنت قیمت دارد.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-shopping-price-total-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was kostet das?",
+      "translationFa": "قیمت این چقدر است؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-shopping-price-total-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Das kostet 35 Euro und 15 Cent.",
+      "translationFa": "۳۵ یورو و ۱۵ سنت قیمت دارد.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "دو صورت پرسش قیمت و دو پاسخ دقیق یورو/سنت از تمرین‌های قیمت منبع استفاده شده‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}
