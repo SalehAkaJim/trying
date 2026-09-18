@@ -1,0 +1,108 @@
+{
+  "id": "dlg-de-a1-clothing-store-help",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-german-print-shopping-service"
+  ],
+  "scenario": "کارمند فروشگاه پیشنهاد کمک می‌دهد؛ مشتری برای پیدا کردن سایز مناسب کمک می‌خواهد و اتاق پرو را می‌پرسد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-clothing-store-help-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Darf ich Ihnen helfen?",
+      "translationFa": "می‌توانم کمکتان کنم؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-shopping-service"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-clothing-store-help-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ja, können Sie mir helfen, diesen Rock in meiner Größe zu finden?",
+      "translationFa": "بله، می‌توانید کمکم کنید این دامن را در سایز من پیدا کنم؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-shopping-service"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-clothing-store-help-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Natürlich.",
+      "translationFa": "البته.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-shopping-service"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-clothing-store-help-4",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hier ist der Rock in Ihrer Größe.",
+      "translationFa": "این هم دامن در سایز شما.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-shopping-service"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-clothing-store-help-5",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Danke. Wo ist die Umkleidekabine?",
+      "translationFa": "ممنون. اتاق پرو کجاست؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-shopping-service"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-clothing-store-help-6",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Dort drüben.",
+      "translationFa": "آن طرف.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-shopping-service"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "شش نوبت پیوسته از گفت‌وگوی فروشگاه منبع حفظ شده‌اند و درخواست کمک مشخص را در خدمات واقعی تمرین می‌کنند.",
+  "learnerCharacterId": "char-de-paul"
+}
