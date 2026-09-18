@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>NOVA Content Prototype</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <button id="homeBtn" class="brand" type="button" aria-label="خانه">
+        <span class="brand-mark">N</span>
+        <span><strong>NOVA</strong><small>Content Prototype</small></span>
+      </button>
+      <div class="topbar-actions">
+        <label class="language-picker" for="languageSelect"><span>زبان</span><select id="languageSelect"></select></label>
+        <button id="resetBtn" class="ghost-btn" type="button">پاک‌کردن پیشرفت</button>
+      </div>
+    </header>
+    <main id="main" class="main"></main>
+  </div>
+  <div id="lexemeModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="بستن" data-close-modal>×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+  <script src="/activity_extensions.js" defer></script>
+  <script src="/audio_extensions.js" defer></script>
+  <script>
+    (() => {
+      let selectedLevelKey = null;
+
+      function installLevelSelector() {
+        const levelsRoot = document.querySelector('#levels');
+        if (!levelsRoot || document.querySelector('.level-filter')) return;
+
+        const sections = [...levelsRoot.querySelectorAll('.level-section')];
+        if (!sections.length) return;
+
+        sections.forEach((section, index) => {
+          const title = section.querySelector('.section-head h2')?.textContent?.trim()
+            || section.querySelector('.section-head .eyebrow')?.textContent?.trim()
+            || `سطح ${index + 1}`;
+          section.dataset.levelKey = title;
+        });
+
+        const filter = document.createElement('div');
+        filter.className = 'level-filter';
+        filter.style.cssText = 'display:flex;align-items:center;gap:10px;margin:0 0 18px;flex-wrap:wrap';
+
+        const label = document.createElement('label');
+        label.setAttribute('for', 'levelSelect');
+        label.textContent = 'سطح';
+        label.style.cssText = 'font-weight:700;color:#5f6678';
+
+        const select = document.createElement('select');
+        select.id = 'levelSelect';
+        select.style.minWidth = '240px';
+
+        sections.forEach((section) => {
+          const option = document.createElement('option');
+          option.value = section.dataset.levelKey;
+          const lessonCount = section.querySelectorAll('.lesson-row').length;
+          option.textContent = `${section.dataset.levelKey} (${lessonCount} درس)`;
+          select.append(option);
+        });
+
+        if (!selectedLevelKey || !sections.some((section) => section.dataset.levelKey === selectedLevelKey)) {
+          selectedLevelKey = sections.find((section) => /^Pre-A1$/i.test(section.dataset.levelKey || ''))?.dataset.levelKey
+            || sections[0].dataset.levelKey;
+        }
+
+        const applyLevel = () => {
+          selectedLevelKey = select.value;
+          sections.forEach((section) => {
+            section.hidden = section.dataset.levelKey !== selectedLevelKey;
+          });
+        };
+
+        select.value = selectedLevelKey;
+        select.addEventListener('change', applyLevel);
+        applyLevel();
+
+        filter.append(label, select);
+        levelsRoot.parentElement?.insertBefore(filter, levelsRoot);
+      }
+
+      function installUnitSelectors() {
+        const levelsRoot = document.querySelector('#levels');
+        if (!levelsRoot) return;
+
+        [...levelsRoot.querySelectorAll('.level-section')].forEach((section, levelIndex) => {
+          if (section.querySelector('.unit-filter')) return;
+
+          const cards = [...section.querySelectorAll('.unit-card')];
+          if (!cards.length) return;
+
+          cards.forEach((card, unitIndex) => {
+            card.dataset.unitKey = `${levelIndex}:${unitIndex}`;
+          });
+
+          const filter = document.createElement('div');
+          filter.className = 'unit-filter';
+          filter.style.cssText = 'display:flex;align-items:center;gap:10px;margin:0 0 16px;flex-wrap:wrap';
+
+          const label = document.createElement('label');
+          label.setAttribute('for', `unitSelect-${levelIndex}`);
+          label.textContent = 'یونیت';
+          label.style.cssText = 'font-weight:700;color:#5f6678';
+
+          const select = document.createElement('select');
+          select.id = `unitSelect-${levelIndex}`;
+          select.style.minWidth = '240px';
+
+          const totalLessons = cards.reduce((sum, card) => sum + card.querySelectorAll('.lesson-row').length, 0);
+          const allOption = document.createElement('option');
+          allOption.value = 'all';
+          allOption.textContent = `همه یونیت‌ها (${totalLessons} درس)`;
+          select.append(allOption);
+
+          cards.forEach((card, unitIndex) => {
+            const option = document.createElement('option');
+            option.value = `${levelIndex}:${unitIndex}`;
+            const title = card.querySelector('.unit-title h3')?.textContent?.trim() || `یونیت ${unitIndex + 1}`;
+            const count = card.querySelectorAll('.lesson-row').length;
+            option.textContent = `${title} (${count} درس)`;
+            select.append(option);
+          });
+
+          select.addEventListener('change', () => {
+            const selected = select.value;
+            cards.forEach((card) => {
+              card.hidden = selected !== 'all' && card.dataset.unitKey !== selected;
+            });
+          });
+
+          filter.append(label, select);
+          const levelHead = section.querySelector('.section-head');
+          if (levelHead) levelHead.insertAdjacentElement('afterend', filter);
+          else section.prepend(filter);
+        });
+      }
+
+      function hasPersian(text) {
+        return /[\u0600-\u06FF]/.test(text || '');
+      }
+
+      function fixPersianActivityOptions(root = document) {
+        const candidates = root.querySelectorAll ? root.querySelectorAll('.ext-option-target') : [];
+        candidates.forEach((node) => {
+          if (!hasPersian(node.textContent)) return;
+          node.classList.remove('ext-option-target');
+          node.classList.add('ext-option-fa');
+          node.setAttribute('dir', 'rtl');
+          node.style.textAlign = 'right';
+        });
+      }
+
+      function fixPersianMatchingCards(root = document) {
+        const candidates = root.querySelectorAll ? root.querySelectorAll('.ext-match-card') : [];
+        candidates.forEach((node) => {
+          if (!hasPersian(node.textContent)) return;
+          node.setAttribute('dir', 'rtl');
+          node.style.direction = 'rtl';
+          node.style.textAlign = 'right';
+        });
+      }
+
+      function featureLabel(key) {
+        return ({ tense: 'زمان', mood: 'وجه', person: 'شخص', number: 'شمار', case: 'حالت', gender: 'جنس' })[key] || key;
+      }
+
+      function renderFaFeatures(container, featuresFa) {
+        if (!container || !featuresFa || !Object.keys(featuresFa).length) return;
+        container.replaceChildren();
+        Object.entries(featuresFa).forEach(([key, rawValue]) => {
+          const values = Array.isArray(rawValue) ? rawValue : [rawValue];
+          values.forEach((value) => {
+            const chip = document.createElement('span');
+            chip.className = 'feature-chip';
+            chip.textContent = `${featureLabel(key)}: ${value}`;
+            container.append(chip);
+          });
+        });
+      }
+
+      function localizeLexemeModal(lexemeId, formId) {
+        const lexeme = state.bundle?.lexemes?.[lexemeId];
+        const selectedForm = formId ? state.bundle?.lexemeForms?.[formId] : null;
+        if (!lexeme) return;
+
+        const grid = document.querySelector('#modalContent .lexeme-grid');
+        if (grid) {
+          [...grid.querySelectorAll('.detail')].forEach((detail) => {
+            const label = detail.querySelector('small')?.textContent?.trim();
+            const value = detail.querySelector('strong');
+            if (!value) return;
+            if (label === 'نوع' && lexeme.partOfSpeechFa) value.textContent = lexeme.partOfSpeechFa;
+            if (label === 'نوع فرم' && selectedForm?.formTypeFa) value.textContent = selectedForm.formTypeFa;
+          });
+
+          if (selectedForm?.originFa && !grid.querySelector('[data-fa-meta="origin"]')) {
+            const detail = document.createElement('div');
+            detail.className = 'detail';
+            detail.dataset.faMeta = 'origin';
+            const label = document.createElement('small');
+            label.textContent = 'منشأ فرم';
+            const value = document.createElement('strong');
+            value.textContent = selectedForm.originFa;
+            detail.append(label, value);
+            grid.append(detail);
+          }
+
+          if (selectedForm?.reviewStatusFa && !grid.querySelector('[data-fa-meta="review"]')) {
+            const detail = document.createElement('div');
+            detail.className = 'detail';
+            detail.dataset.faMeta = 'review';
+            const label = document.createElement('small');
+            label.textContent = 'وضعیت بررسی';
+            const value = document.createElement('strong');
+            value.textContent = selectedForm.reviewStatusFa;
+            detail.append(label, value);
+            grid.append(detail);
+          }
+        }
+
+        if (selectedForm?.featuresFa) {
+          renderFaFeatures(document.querySelector('#modalContent > .feature-chips'), selectedForm.featuresFa);
+        }
+
+        const forms = Object.values(state.bundle?.lexemeForms || {}).filter((form) => form.lexemeId === lexemeId);
+        const rows = [...document.querySelectorAll('#modalContent .forms .form-row')];
+        rows.forEach((row, index) => {
+          const form = forms[index];
+          if (!form) return;
+          renderFaFeatures(row.querySelector('.feature-chips'), form.featuresFa);
+          const surface = row.querySelector('.form-surface');
+          if (surface && form.formTypeFa) surface.title = `${form.formTypeFa}${form.originFa ? ` · ${form.originFa}` : ''}`;
+        });
+      }
+
+      function installLexemeLocalization() {
+        if (typeof window.openLexeme !== 'function' || window.openLexeme.__faTaxonomyWrapped) return;
+        const previous = window.openLexeme;
+        const wrapped = function(lexemeId, formId = null) {
+          previous(lexemeId, formId);
+          localizeLexemeModal(lexemeId, formId);
+        };
+        wrapped.__faTaxonomyWrapped = true;
+        window.openLexeme = wrapped;
+      }
+
+      const observer = new MutationObserver((mutations) => {
+        installLevelSelector();
+        installUnitSelectors();
+        installLexemeLocalization();
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType !== Node.ELEMENT_NODE) return;
+            if (node.matches?.('.ext-option-target')) fixPersianActivityOptions(node.parentElement || document);
+            else fixPersianActivityOptions(node);
+            if (node.matches?.('.ext-match-card')) fixPersianMatchingCards(node.parentElement || document);
+            else fixPersianMatchingCards(node);
+          });
+        });
+      });
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+      window.addEventListener('DOMContentLoaded', () => {
+        installLevelSelector();
+        installUnitSelectors();
+        installLexemeLocalization();
+        fixPersianActivityOptions();
+        fixPersianMatchingCards();
+      });
+      installLexemeLocalization();
+    })();
+  </script>
+</body>
+</html>
