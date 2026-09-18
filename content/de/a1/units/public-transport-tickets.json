@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-unit-public-transport-tickets",
+  "languageId": "de",
+  "level": "A1",
+  "titleFa": "بلیت و حمل‌ونقل عمومی",
+  "learningTargets": [
+    "برای یک مقصد ساده بلیت بخواهد و دربارهٔ قیمت بلیت سؤال کند.",
+    "قطار یا اتوبوس درست را با پرسش دربارهٔ مقصد و توقف تشخیص دهد.",
+    "زمان حرکت یا رسیدن و سکوی حرکت را در پرسش‌های کوتاه بفهمد."
+  ],
+  "lessonRefs": [
+    "de-a1-lesson-transport-ticket",
+    "de-a1-lesson-transport-train-bus",
+    "de-a1-lesson-transport-times-platform"
+  ],
+  "groupingRationale": "واحد سه گام مستقل سفر با حمل‌ونقل عمومی را پوشش می‌دهد: گرفتن بلیت، انتخاب وسیلهٔ درست و فهم اطلاعات حرکت. این مسیر از خرید خدمت به تصمیم سفر و سپس زمان و سکو می‌رسد.",
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-transport",
+    "src-wikivoyage-german-phrasebook-directions",
+    "src-wikibooks-de-lesson-024-short-messages"
+  ],
+  "status": "final",
+  "notes": "نام برلین فقط به‌عنوان مقدار نمونه در الگوهای جای‌خالی منبع استفاده می‌شود؛ واژگان و ساختارهای اصلی از عبارت‌نامهٔ منبع می‌آیند."
+}
