@@ -4,39 +4,39 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-shopping-quantity-payment",
-  "titleFa": "قیمت‌ها را سریع پیدا کن",
+  "titleFa": "چی لازم داری؟ چی می‌خری؟",
   "learningTargets": [
-    "پرسش قیمت را در تراکنش فروشگاهی تشخیص دهد.",
-    "چند مقدار و قیمت را به هم وصل کند.",
-    "پرسش پایهٔ قیمت را بازسازی کند."
+    "پرسش دربارهٔ نیاز را بفهمد و پاسخ دهد.",
+    "پرسش دربارهٔ تصمیم خرید را از نیاز تشخیص دهد.",
+    "brauchen و kaufen را در جمله‌های کوتاه کاربردی از هم تفکیک کند."
   ],
   "sourceRefs": [
-    "src-wikibooks-de-lesson-009-shopping"
+    "src-wikibooks-de-lesson-004"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس قیمت را به‌عنوان یک زیرمهارت مستقل در خرید تثبیت می‌کند تا تشخیص عدد و ساخت پرسش به‌اندازهٔ کافی تمرین شود.",
-    "sequenceRationale": "از قیمت در گفت‌وگو به مقایسهٔ چند قیمت و سپس بازسازی پرسش می‌رسد.",
+    "activitySelectionRationale": "این درس پیش از تراکنش مقدار و پرداخت، مرحلهٔ واقعیِ انتخاب کالا را اضافه می‌کند: اول نیاز، بعد تصمیم خرید.",
+    "sequenceRationale": "مکالمه تفاوت دو فعل را در یک کالای ثابت روشن می‌کند؛ تطبیق نمونه‌ها دامنه را گسترش می‌دهد و بازسازی پرسش نیاز تولید هدایت‌شده می‌دهد.",
     "templateSignature": "conversation_speaking>matching>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-shopping-price-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "گفت‌وگوی خرید را اجرا کن و این بار روی قیمت تمرکز کن.",
-      "selectionReason": "تراکنش کامل، پرسش قیمت را در بافت واقعی نگه می‌دارد.",
+      "instructionFa": "بگو چه چیزی لازم داری و بعد چه چیزی می‌خری.",
+      "selectionReason": "ثابت نگه‌داشتن کالا باعث می‌شود تفاوت brauchen و kaufen بدون حواس‌پرتی واژگانی دیده شود.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-009-shopping"
+        "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "پرسش و پاسخ قیمت را در گفت‌وگو تشخیص دهد."
+        "نیاز و خرید را در مکالمه از هم تشخیص دهد."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-shopping-quantity-payment",
+      "dialogueRef": "dlg-de-a1-shopping-needs-buying",
       "data": {
         "interaction": "read_aloud_exchange",
-        "openingInitiator": "learner"
+        "openingInitiator": "app"
       },
       "transformations": [
         "verbatim_dialogue",
@@ -48,41 +48,41 @@
     {
       "id": "act-de-a1-shopping-price-review-matching",
       "type": "matching",
-      "instructionFa": "هر مقدار کالا را به قیمت درست وصل کن.",
-      "selectionReason": "چهار نمونهٔ منبع‌دار باعث می‌شوند قیمت به یک کالا محدود نماند.",
+      "instructionFa": "هر جمله را به «نیاز» یا «خرید» وصل کن.",
+      "selectionReason": "نمونه‌های مختلفِ لباس و کالا الگوی فعل را از یک مثال منفرد جدا می‌کنند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-009-shopping"
+        "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "مقدار کالا و قیمت را به هم وصل کند."
+        "brauchen و kaufen را بر اساس کاربرد تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "pairs": [
           {
-            "left": "300 g Wurst",
-            "leftFa": "۳۰۰ گرم سوسیس",
-            "right": "5,99 Euro",
-            "rightFa": "۵٫۹۹ یورو"
+            "left": "Ich brauche eine Tasche.",
+            "leftFa": "یک کیف لازم دارم.",
+            "right": "نیاز",
+            "rightFa": "نیاز"
           },
           {
-            "left": "250 g Butter",
-            "leftFa": "۲۵۰ گرم کره",
-            "right": "3,95 Euro",
-            "rightFa": "۳٫۹۵ یورو"
+            "left": "Ich brauche eine Hose.",
+            "leftFa": "یک شلوار لازم دارم.",
+            "right": "نیاز",
+            "rightFa": "نیاز"
           },
           {
-            "left": "zwei Flaschen Milch",
-            "leftFa": "دو بطری شیر",
-            "right": "2,99 Euro",
-            "rightFa": "۲٫۹۹ یورو"
+            "left": "Ich kaufe eine Tasche.",
+            "leftFa": "یک کیف می‌خرم.",
+            "right": "خرید",
+            "rightFa": "خرید"
           },
           {
-            "left": "fünf Eier",
-            "leftFa": "پنج تخم‌مرغ",
-            "right": "2,67 Euro",
-            "rightFa": "۲٫۶۷ یورو"
+            "left": "Ich kaufe ein Paar Schuhe.",
+            "leftFa": "یک جفت کفش می‌خرم.",
+            "right": "خرید",
+            "rightFa": "خرید"
           }
         ]
       },
@@ -95,32 +95,28 @@
     {
       "id": "act-de-a1-shopping-price-review-order",
       "type": "word_order",
-      "instructionFa": "پرسش قیمت گوشت را دوباره بساز.",
-      "selectionReason": "پس از خواندن چند قیمت، پرسش اصلی به بازیابی فعال منتقل می‌شود.",
+      "instructionFa": "پرسش «چه چیزی لازم دارید؟» را بساز.",
+      "selectionReason": "پرسش پایهٔ نیاز برای شروع خرید به بازیابی فعال منتقل می‌شود.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-009-shopping"
+        "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "پرسش قیمت را بازسازی کند."
+        "پرسش نیاز را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wie viel kostet dieses Fleisch?",
-        "sourceTextFa": "این گوشت چقدر قیمت دارد؟",
+        "sourceText": "Was brauchen Sie?",
+        "sourceTextFa": "چه چیزی لازم دارید؟",
         "tokens": [
-          "Wie",
-          "viel",
-          "kostet",
-          "dieses",
-          "Fleisch?"
+          "Was",
+          "brauchen",
+          "Sie?"
         ],
         "answer": [
-          "Wie",
-          "viel",
-          "kostet",
-          "dieses",
-          "Fleisch?"
+          "Was",
+          "brauchen",
+          "Sie?"
         ]
       },
       "transformations": [
