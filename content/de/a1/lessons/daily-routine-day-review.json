@@ -4,11 +4,11 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-daily-routine-work-school",
-  "titleFa": "یک روز معمولی را دنبال کن",
+  "titleFa": "بعدازظهر و شب چه کار می‌کنی؟",
   "learningTargets": [
-    "چهار بخش روز را به کار روزمرهٔ درست وصل کند.",
-    "روتین مدرسه را از کار و غذا تشخیص دهد.",
-    "به پرسش دربارهٔ بعدازظهر پاسخ مناسب بدهد."
+    "فعالیت‌های بعدازظهر را در پاسخ روزمره بفهمد.",
+    "چند فعالیت شبانه را در یک جملهٔ زنجیره‌ای دنبال کند.",
+    "nachmittags و abends را با فعالیت مناسب از هم تشخیص دهد."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-022-daily-routine"
@@ -16,24 +16,24 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس جمع‌بندی واحد، مسیر کار و مدرسه را در چارچوب چهار بخش روز دوباره به هم وصل می‌کند.",
-    "sequenceRationale": "از مکالمه به نمای کامل روز و سپس پاسخ متناسب با یک بخش مشخص زمان حرکت می‌کند.",
-    "templateSignature": "conversation_speaking>matching>choose_response"
+    "activitySelectionRationale": "دو درس قبلی صبح، کار، مدرسه و برگشت به خانه را پوشش می‌دهند؛ این درس عمداً دامنه را به خرید بعدازظهر و فعالیت‌های شب گسترش می‌دهد.",
+    "sequenceRationale": "ابتدا دو بخش تازهٔ روز در مکالمه می‌آیند، سپس تشخیص زمان سنجیده می‌شود و در پایان جملهٔ شب بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-daily-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "روتین صبح و پیش از ظهر را دوباره اجرا کن و ترتیب روز را نگه دار.",
-      "selectionReason": "گفت‌وگوی منبع‌دار چهارچوب زمانی روز را برای مرور فعال می‌کند.",
+      "instructionFa": "برنامهٔ بعدازظهر و شب را در گفت‌وگو دنبال کن.",
+      "selectionReason": "دو پاسخ استفاده‌نشدهٔ منبع، نیمهٔ دوم روز را به روتین اضافه می‌کنند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-022-daily-routine"
       ],
       "learningTargets": [
-        "روتین صبح و پیش از ظهر را در گفت‌وگو بازیابی کند."
+        "فعالیت‌های بعدازظهر و شب را بفهمد."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-daily-routine-work",
+      "dialogueRef": "dlg-de-a1-afternoon-evening-routine",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "app"
@@ -47,87 +47,83 @@
     },
     {
       "id": "act-de-a1-daily-review-matching",
-      "type": "matching",
-      "instructionFa": "هر جمله را به بخش درست روز وصل کن.",
-      "selectionReason": "چهار پاسخ منبع‌دار نمای کامل صبح تا بعدازظهر را می‌سازند.",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله دربارهٔ بعدازظهر است؟",
+      "selectionReason": "زبان‌آموز باید نشانهٔ زمانی و محتوای فعالیت را هم‌زمان تشخیص دهد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-022-daily-routine"
       ],
       "learningTargets": [
-        "چهار بخش روز را به کارهای مربوط وصل کند."
+        "فعالیت بعدازظهر را از فعالیت شب تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "pairs": [
-          {
-            "left": "Morgens trinke ich Kaffee.",
-            "leftFa": "صبح‌ها قهوه می‌نوشم.",
-            "right": "صبح",
-            "rightFa": "صبح"
-          },
-          {
-            "left": "Vormittags arbeite ich im Betrieb.",
-            "leftFa": "پیش از ظهرها در محل کار کار می‌کنم.",
-            "right": "پیش از ظهر",
-            "rightFa": "پیش از ظهر"
-          },
-          {
-            "left": "Mittags esse ich in einem Restaurant.",
-            "leftFa": "ظهرها در یک رستوران غذا می‌خورم.",
-            "right": "ظهر",
-            "rightFa": "ظهر"
-          },
-          {
-            "left": "Nachmittags gehe ich nach Hause.",
-            "leftFa": "بعدازظهرها به خانه می‌روم.",
-            "right": "بعدازظهر",
-            "rightFa": "بعدازظهر"
-          }
-        ]
-      },
-      "transformations": [
-        "source_items_grouped_for_matching",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
-    },
-    {
-      "id": "act-de-a1-daily-review-response",
-      "type": "choose_response",
-      "instructionFa": "برای پرسش بعدازظهر پاسخ مناسب را انتخاب کن.",
-      "selectionReason": "پاسخ‌های منبع‌دار نشان می‌دهند زبان‌آموز باید بخش درست روز را به پرسش وصل کند.",
-      "sourceRefs": [
-        "src-wikibooks-de-lesson-022-daily-routine"
-      ],
-      "learningTargets": [
-        "به پرسش دربارهٔ بعدازظهر پاسخ مناسب بدهد."
-      ],
-      "lexemeRefs": [],
-      "dialogueRef": null,
-      "data": {
-        "promptTarget": "Was machen Sie nachmittags?",
-        "promptFa": "بعدازظهرها چه کار می‌کنید؟",
         "options": [
           {
-            "textTarget": "Nachmittags gehe ich nach Hause.",
-            "translationFa": "بعدازظهرها به خانه می‌روم.",
+            "textTarget": "Nachmittags gehe ich in die Stadt und mache Einkäufe.",
+            "translationFa": "بعدازظهرها به شهر می‌روم و خرید می‌کنم.",
             "correct": true
           },
           {
-            "textTarget": "Morgens trinke ich Kaffee.",
-            "translationFa": "صبح‌ها قهوه می‌نوشم.",
+            "textTarget": "Abends höre ich Radio, sehe fern und lese Zeitung.",
+            "translationFa": "شب‌ها رادیو گوش می‌دهم، تلویزیون می‌بینم و روزنامه می‌خوانم.",
             "correct": false
           },
           {
-            "textTarget": "Mittags esse ich in einem Restaurant.",
-            "translationFa": "ظهرها در یک رستوران غذا می‌خورم.",
+            "textTarget": "Vormittags arbeite ich im Betrieb.",
+            "translationFa": "پیش از ظهرها در محل کار کار می‌کنم.",
             "correct": false
           }
         ]
       },
       "transformations": [
         "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-daily-review-response",
+      "type": "word_order",
+      "instructionFa": "جملهٔ فعالیت‌های شب را دوباره بساز.",
+      "selectionReason": "بازسازی یک جملهٔ چندفعلی ساده، دامنهٔ روتین را فراتر از یک فعل منفرد می‌برد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-022-daily-routine"
+      ],
+      "learningTargets": [
+        "چند فعالیت شبانه را در یک جمله بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Abends höre ich Radio, sehe fern und lese Zeitung.",
+        "sourceTextFa": "شب‌ها رادیو گوش می‌دهم، تلویزیون می‌بینم و روزنامه می‌خوانم.",
+        "tokens": [
+          "Abends",
+          "höre",
+          "ich",
+          "Radio,",
+          "sehe",
+          "fern",
+          "und",
+          "lese",
+          "Zeitung."
+        ],
+        "answer": [
+          "Abends",
+          "höre",
+          "ich",
+          "Radio,",
+          "sehe",
+          "fern",
+          "und",
+          "lese",
+          "Zeitung."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
