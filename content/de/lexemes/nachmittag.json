@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-nachmittag",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Nachmittag",
+  "lemma": "Nachmittag",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "بعدازظهر",
+  "usageNoteFa": "در پیام تماس برای تعیین زمان تماس دوباره استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-024-short-messages"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

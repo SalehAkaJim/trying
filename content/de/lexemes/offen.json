@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-offen",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Offen",
+  "lemma": "offen",
+  "partOfSpeech": "adjective",
+  "partOfSpeechFa": "صفت",
+  "level": "A1",
+  "translationFa": "باز",
+  "usageNoteFa": "روی تابلوی کوتاه برای نشان‌دادن باز بودن مکان استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-signs"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

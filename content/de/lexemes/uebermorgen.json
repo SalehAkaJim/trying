@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-uebermorgen",
+  "languageId": "de",
+  "type": "word",
+  "surface": "übermorgen",
+  "lemma": "übermorgen",
+  "partOfSpeech": "adverb",
+  "partOfSpeechFa": "قید",
+  "level": "A1",
+  "translationFa": "پس‌فردا",
+  "usageNoteFa": "در پیام کوتاه برای تعیین روز تماس دوباره استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-024-short-messages"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

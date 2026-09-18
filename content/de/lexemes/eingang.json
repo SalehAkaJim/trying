@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-eingang",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Eingang",
+  "lemma": "Eingang",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "ورودی",
+  "usageNoteFa": "روی تابلوی کوتاه برای مشخص‌کردن ورودی استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-signs"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

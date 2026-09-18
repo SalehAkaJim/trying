@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-personal-form-signs",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-forms-signs-messages",
+  "titleFa": "فرم را پر کن، تابلو را بخوان",
+  "sourceTitle": "Vorname / Familienname / Adresse / Stadt — common signs",
+  "sourceTitleFa": "نام کوچک، نام خانوادگی، نشانی، شهر و تابلوهای رایج",
+  "learningTargets": [
+    "اطلاعات شخصی پایه را در یک گفت‌وگوی کوتاه بازیابی کند.",
+    "برچسب‌های نام کوچک، نام خانوادگی، نشانی و شهر را در فرم تشخیص دهد.",
+    "یک فیلد سادهٔ فرم را با نمونهٔ منبع‌دار کامل کند.",
+    "چهار تابلوی بسیار کوتاه روزمره را بخواند و معنی کند.",
+    "گروه‌های پایهٔ حروف الفبا را واضح بخواند تا برای هجی‌کردن آماده شود."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-lesson-007-form-spelling",
+    "src-wikivoyage-german-phrasebook-signs"
+  ],
+  "lexemeRefs": [
+    "lex-de-vorname",
+    "lex-de-familienname",
+    "lex-de-adresse",
+    "lex-de-stadt",
+    "lex-de-buchstabieren",
+    "lex-de-offen",
+    "lex-de-geschlossen",
+    "lex-de-eingang",
+    "lex-de-ausgang",
+    "lex-de-wohnen"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس با بازیابی اطلاعات شخصی شروع می‌شود؛ سپس برچسب‌های فرم، تکمیل یک فیلد واقعی، خواندن چهار تابلوی کوتاه و در پایان خواندن حروف برای هجی‌کردن تمرین می‌شوند.",
+    "sequenceRationale": "ترتیب از تعامل آشنا به خواندن فرم، تولید هدایت‌شده، خواندن متن محیطی و سپس وضوح تلفظ حروف حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>matching>fill_blank>matching>pronunciation_read"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-form-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "اطلاعات پایهٔ نام و محل زندگی را در یک ثبت‌نام کوتاه پاسخ بده.",
+      "selectionReason": "گفت‌وگوی منبع‌دار سطح پیشین اطلاعاتی را بازیابی می‌کند که بلافاصله در فرم استفاده می‌شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "learningTargets": [
+        "بازیابی اطلاعات شخصی پایه پیش از کار با فرم."
+      ],
+      "lexemeRefs": [
+        "lex-de-wohnen"
+      ],
+      "dialogueRef": "dlg-de-a1-personal-form-review",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-form-fields-matching",
+      "type": "matching",
+      "instructionFa": "هر برچسب فرم را به معنی درستش وصل کن.",
+      "selectionReason": "چهار برچسب مستقیم از بخش فرم و واژگان منبع انتخاب شده‌اند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-form-spelling"
+      ],
+      "learningTargets": [
+        "تشخیص چهار فیلد پایهٔ فرم شخصی."
+      ],
+      "lexemeRefs": [
+        "lex-de-vorname",
+        "lex-de-familienname",
+        "lex-de-adresse",
+        "lex-de-stadt"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Vorname",
+            "leftFa": "نام کوچک",
+            "right": "نام کوچک",
+            "rightFa": "نام کوچک"
+          },
+          {
+            "left": "Familienname",
+            "leftFa": "نام خانوادگی",
+            "right": "نام خانوادگی",
+            "rightFa": "نام خانوادگی"
+          },
+          {
+            "left": "Adresse",
+            "leftFa": "نشانی",
+            "right": "نشانی",
+            "rightFa": "نشانی"
+          },
+          {
+            "left": "Stadt",
+            "leftFa": "شهر",
+            "right": "شهر",
+            "rightFa": "شهر"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-form-first-name-fill",
+      "type": "fill_blank",
+      "instructionFa": "فیلد نام کوچک را با نمونهٔ درست کامل کن.",
+      "selectionReason": "چهار مقدار از مثال‌های هجی‌کردن همان بخش منبع گرفته شده‌اند و فقط یکی برای فیلد نام کوچک مناسب است.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-form-spelling"
+      ],
+      "learningTargets": [
+        "تکمیل هدایت‌شدهٔ یک فیلد سادهٔ فرم."
+      ],
+      "lexemeRefs": [
+        "lex-de-vorname"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "blankedText": "Vorname: ___",
+        "blankedTextFa": "نام کوچک: ___",
+        "choices": [
+          "Marcus",
+          "Clinton",
+          "Hauptstraße",
+          "Werdau"
+        ],
+        "choicesFa": [
+          "مارکوس",
+          "کلینتون",
+          "هاوپت‌اشتراسه",
+          "ورداو"
+        ],
+        "answer": "Marcus"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-common-signs-matching",
+      "type": "matching",
+      "instructionFa": "هر تابلوی کوتاه را به معنی درستش وصل کن.",
+      "selectionReason": "چهار تابلوی بسیار پرتکرار از بخش تابلوهای رایج منبع انتخاب شده‌اند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-signs"
+      ],
+      "learningTargets": [
+        "خواندن چهار تابلوی بسیار کوتاه روزمره."
+      ],
+      "lexemeRefs": [
+        "lex-de-offen",
+        "lex-de-geschlossen",
+        "lex-de-eingang",
+        "lex-de-ausgang"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Offen",
+            "leftFa": "باز",
+            "right": "باز",
+            "rightFa": "باز"
+          },
+          {
+            "left": "Geschlossen",
+            "leftFa": "بسته",
+            "right": "بسته",
+            "rightFa": "بسته"
+          },
+          {
+            "left": "Eingang",
+            "leftFa": "ورودی",
+            "right": "ورودی",
+            "rightFa": "ورودی"
+          },
+          {
+            "left": "Ausgang",
+            "leftFa": "خروجی",
+            "right": "خروجی",
+            "rightFa": "خروجی"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-alphabet-pronunciation",
+      "type": "pronunciation_read",
+      "instructionFa": "گروه‌های حروف را واضح و با صدای بلند بخوان.",
+      "selectionReason": "شش خط الفبا عین بخش ۲۹۴ هستند و تمرین تلفظ را مستقیماً به نیاز هجی‌کردن فرم وصل می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-form-spelling"
+      ],
+      "learningTargets": [
+        "خواندن واضح گروه‌های پایهٔ حروف برای هجی‌کردن."
+      ],
+      "lexemeRefs": [
+        "lex-de-buchstabieren"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "lines": [
+          "A B C D E F",
+          "G H I J K L",
+          "M N O P Q",
+          "R S T",
+          "U V W",
+          "X Y Z"
+        ]
+      },
+      "transformations": [
+        "other"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_level_final"
+}

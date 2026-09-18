@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-stadt",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Stadt",
+  "lemma": "Stadt",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "شهر",
+  "usageNoteFa": "در فرم و نشانی برای نام شهر استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-form-spelling"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

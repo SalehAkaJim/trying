@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-wikivoyage-german-phrasebook-signs",
+  "title": "German phrasebook — Common signs",
+  "organizationOrAuthor": "Wikivoyage contributors",
+  "language": "de",
+  "sourceType": "website",
+  "url": "https://en.wikivoyage.org/wiki/German_phrasebook",
+  "locator": "Basics — Common signs: open, closed, entrance and exit.",
+  "publishedOrUpdatedAt": null,
+  "modernityStatus": "maintained_current",
+  "currencyEvidence": "بخش تابلوهای رایج در عبارت‌نامهٔ آلمانی ویکی‌ویاژ در ۱۸ سپتامبر ۲۰۲۶ بررسی شد. چهار تابلوی انتخاب‌شده در نسخهٔ فعلی صفحه حضور دارند و برای خواندن متن‌های بسیار کوتاه روزمره مناسب‌اند.",
+  "licenseName": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attributionText": "Wikivoyage contributors — German phrasebook",
+  "reuseStatus": "reuse_with_attribution",
+  "retrievedAt": "2026-09-18",
+  "notes": "فقط چهار تابلوی بسیار پرتکرار مربوط به بازبودن، بسته‌بودن، ورودی و خروجی وارد این واحد می‌شوند.",
+  "titleFa": "تابلوهای بسیار کوتاه روزمره",
+  "locatorFa": "بخش تابلوهای رایج؛ باز، بسته، ورودی و خروجی."
+}

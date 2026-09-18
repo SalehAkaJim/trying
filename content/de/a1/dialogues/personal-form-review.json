@@ -1,0 +1,113 @@
+{
+  "id": "dlg-de-a1-personal-form-review",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-residence-origin"
+  ],
+  "scenario": "آیریس در یک ثبت‌نام کوتاه اطلاعات پایهٔ پاول را مرور می‌کند: سلام، نام و محل زندگی.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-form-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Guten Tag!",
+      "translationFa": "سلام / روز بخیر!",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-form-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Guten Tag!",
+      "translationFa": "سلام / روز بخیر!",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-form-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie heißen Sie?",
+      "translationFa": "اسمتان چیست؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-form-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich heiße Paul Müller.",
+      "translationFa": "اسم من پاول مولر است.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-form-5",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wo wohnen Sie?",
+      "translationFa": "کجا زندگی می‌کنید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-wohnen"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-form-6",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich wohne in Österreich.",
+      "translationFa": "من در اتریش زندگی می‌کنم.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-oesterreich"
+      ],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "شش نوبت عین نمونه‌های منبع‌دار سطح پیشین‌اند و فقط در یک موقعیت ثبت‌نام کوتاه دوباره کنار هم قرار گرفته‌اند؛ هیچ متن آلمانی تازه‌ای برای فرم ساخته نشده است.",
+  "learnerCharacterId": "char-de-paul"
+}

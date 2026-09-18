@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-buchstabieren",
+  "languageId": "de",
+  "type": "word",
+  "surface": "buchstabieren",
+  "lemma": "buchstabieren",
+  "partOfSpeech": "verb",
+  "partOfSpeechFa": "فعل",
+  "level": "A1",
+  "translationFa": "هجی کردن",
+  "usageNoteFa": "برای گفتن حروف نام، نام خانوادگی و نشانی استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-form-spelling"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

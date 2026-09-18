@@ -52,8 +52,8 @@
     "gaps": [
       "برای هر هدف A1 باید قبل از ساخت درس، متن و مثال آلمانی از منابع معاصر و قابل‌بازاستفاده ثبت شود.",
       "فهرست دقیق واژگان و دستور زبان آلمانی A1 هنوز باید با منابع زبان‌ویژه و قابل‌بازاستفاده نهایی شود؛ CEFR به‌تنهایی فهرست دستور زبان آلمانی ارائه نمی‌کند.",
-      "نه واحد نخست به بازبینی رسیده‌اند؛ مرحلهٔ بعد پیام، فرم، اعلان و جمع‌بندی A1 است.",
-      "پوشش شنیدن، خواندن، نوشتن و گفتار باید هنگام طراحی درس‌ها به‌صورت واقعی و نه صرفاً برچسبی توزیع شود.",
+      "ده واحد محتوایی به بازبینی رسیده‌اند؛ مرحلهٔ بعد بررسی سراسری پوشش هدف‌ها و رفع شکاف‌های واقعی پیش از تغییر وضعیت سطح است.",
+      "پوشش شنیدن، خواندن، نوشتن و گفتار اکنون در واحدهای محتوایی توزیع شده است؛ در بررسی سراسری باید کفایت و توازن آن‌ها دوباره سنجیده شود.",
       "صوت A1 تا نهایی‌شدن سطح تولید نمی‌شود."
     ]
   },
@@ -74,7 +74,11 @@
     "src-wikivoyage-german-phrasebook-directions",
     "src-wikibooks-de-lesson-002-service-clarification",
     "src-wikivoyage-german-phrasebook-services",
-    "src-wiktionary-de-ja"
+    "src-wiktionary-de-ja",
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-lesson-007-form-spelling",
+    "src-wikivoyage-german-phrasebook-signs",
+    "src-wikibooks-de-lesson-024-short-messages"
   ],
   "unitRefs": [
     "de-a1-unit-extended-introduction",
@@ -85,7 +89,8 @@
     "de-a1-unit-expanded-food-order",
     "de-a1-unit-time-plans-appointment",
     "de-a1-unit-directions-public-places",
-    "de-a1-unit-requests-services-help"
+    "de-a1-unit-requests-services-help",
+    "de-a1-unit-forms-signs-messages"
   ],
   "lessonRefs": [
     "de-a1-lesson-profession-profile",
@@ -101,8 +106,10 @@
     "de-a1-lesson-time-class-schedule",
     "de-a1-lesson-time-simple-appointment",
     "de-a1-lesson-ask-and-follow-directions",
-    "de-a1-lesson-clarify-permission-help"
+    "de-a1-lesson-clarify-permission-help",
+    "de-a1-lesson-personal-form-signs",
+    "de-a1-lesson-short-phone-message"
   ],
-  "notes": "A1 همچنان در مرحلهٔ ساخت تدریجی است. نه واحد نخست در بازبینی‌اند. مرحلهٔ بعد پیام، فرم، اعلان و جمع‌بندی A1 است؛ درخواست تکرار، اجازهٔ ساده و کمک مشخص در واحد خدمات پوشش داده شده‌اند.",
+  "notes": "A1 همچنان در مرحلهٔ ساخت و بررسی است. ده واحد محتوایی در وضعیت بازبینی‌اند. مرحلهٔ بعد، بررسی سراسری هدف‌های ارتباطی، زبانی و موقعیتی و رفع هر شکاف واقعی پیش از انتقال کل سطح به بازبینی است.",
   "audioStatus": "blocked_until_level_final"
 }

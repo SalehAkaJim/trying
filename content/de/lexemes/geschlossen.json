@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-geschlossen",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Geschlossen",
+  "lemma": "geschlossen",
+  "partOfSpeech": "adjective",
+  "partOfSpeechFa": "صفت",
+  "level": "A1",
+  "translationFa": "بسته",
+  "usageNoteFa": "روی تابلوی کوتاه برای نشان‌دادن بسته بودن مکان استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-signs"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

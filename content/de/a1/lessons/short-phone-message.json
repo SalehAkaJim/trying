@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-short-phone-message",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-forms-signs-messages",
+  "titleFa": "لطفاً دوشنبه دوباره تماس بگیرید",
+  "sourceTitle": "Rufen Sie bitte am Montag noch einmal an.",
+  "sourceTitleFa": "لطفاً دوشنبه دوباره تماس بگیرید",
+  "learningTargets": [
+    "یک هماهنگی کوتاه دربارهٔ تماس دوباره و تحویل گرفتن را در گفت‌وگو بفهمد.",
+    "پیام کوتاه درخواست تماس دوباره را از راه شنیدن بفهمد.",
+    "چند پیام کوتاه تماس را بر اساس زمان آن‌ها بخواند و از هم تشخیص دهد.",
+    "یک پیام کوتاه تماس را به‌صورت هدایت‌شده بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-024-short-messages"
+  ],
+  "lexemeRefs": [
+    "lex-de-anrufen",
+    "lex-de-montag",
+    "lex-de-nachmittag",
+    "lex-de-uebermorgen",
+    "lex-de-morgen-adverb",
+    "lex-de-noch-einmal",
+    "lex-de-moegen",
+    "lex-de-ja"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "گفت‌وگو هماهنگی کوتاه را می‌سازد؛ سپس یک پیام مستقل شنیده می‌شود، چهار پیام زمانی خوانده و تطبیق داده می‌شوند و در پایان یک پیام دیگر بازسازی می‌شود.",
+    "sequenceRationale": "درس از تعامل به دریافت شنیداری، سپس خواندن چند نمونه و در پایان تولید هدایت‌شدهٔ پیام کوتاه حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>listen_choose>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-message-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "تماس دوباره و گرفتن کارت‌ها برای فردا را هماهنگ کن.",
+      "selectionReason": "دو جفت پرسش‌وپاسخ مجاور منبع، یک هماهنگی کوتاه و قابل‌فهم می‌سازند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "learningTargets": [
+        "فهم و پاسخ‌دادن در هماهنگی کوتاه روزمره."
+      ],
+      "lexemeRefs": [
+        "lex-de-anrufen",
+        "lex-de-morgen-adverb",
+        "lex-de-noch-einmal",
+        "lex-de-moegen",
+        "lex-de-ja"
+      ],
+      "dialogueRef": "dlg-de-a1-short-message-coordination",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-message-listen-callback",
+      "type": "listen_choose",
+      "instructionFa": "پیام را گوش کن و زمان تماس دوباره را انتخاب کن.",
+      "selectionReason": "جملهٔ کامل بخش ۱۰۰۷ به‌عنوان پیام مستقل شنیداری استفاده می‌شود و زمان درست از سه عبارت منبع‌دار انتخاب می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "learningTargets": [
+        "فهم اطلاعات اصلی یک پیام کوتاه تلفنی."
+      ],
+      "lexemeRefs": [
+        "lex-de-anrufen",
+        "lex-de-montag",
+        "lex-de-uebermorgen",
+        "lex-de-noch-einmal"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "audioTextTargetFa": "لطفاً دوشنبه دوباره تماس بگیرید.",
+        "options": [
+          {
+            "text": "am Montag",
+            "translationFa": "دوشنبه",
+            "correct": true
+          },
+          {
+            "text": "heute Abend",
+            "translationFa": "امشب",
+            "correct": false
+          },
+          {
+            "text": "übermorgen",
+            "translationFa": "پس‌فردا",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "blocked_until_level_final",
+      "audioTextTarget": "Rufen Sie bitte am Montag noch einmal an."
+    },
+    {
+      "id": "act-de-a1-message-reading-matching",
+      "type": "matching",
+      "instructionFa": "هر پیام کوتاه را به زمان درستش وصل کن.",
+      "selectionReason": "چهار پیام کامل از بخش ۱۰۰۷ انتخاب شده‌اند تا خواندن متن کوتاه و استخراج زمان تمرین شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "learningTargets": [
+        "خواندن و فهم زمان در چهار پیام کوتاه."
+      ],
+      "lexemeRefs": [
+        "lex-de-anrufen",
+        "lex-de-montag",
+        "lex-de-uebermorgen",
+        "lex-de-noch-einmal"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Rufen Sie bitte am Montag noch einmal an.",
+            "leftFa": "لطفاً دوشنبه دوباره تماس بگیرید.",
+            "right": "دوشنبه",
+            "rightFa": "دوشنبه"
+          },
+          {
+            "left": "Rufen Sie bitte heute Abend noch einmal an.",
+            "leftFa": "لطفاً امشب دوباره تماس بگیرید.",
+            "right": "امشب",
+            "rightFa": "امشب"
+          },
+          {
+            "left": "Rufen Sie bitte übermorgen noch einmal an.",
+            "leftFa": "لطفاً پس‌فردا دوباره تماس بگیرید.",
+            "right": "پس‌فردا",
+            "rightFa": "پس‌فردا"
+          },
+          {
+            "left": "Rufen Sie bitte um zehn noch einmal an.",
+            "leftFa": "لطفاً ساعت ده دوباره تماس بگیرید.",
+            "right": "ساعت ده",
+            "rightFa": "ساعت ده"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-message-write-order",
+      "type": "word_order",
+      "instructionFa": "پیام کوتاه تماس برای بعدازظهر را دوباره بساز.",
+      "selectionReason": "یک پیام کامل دیگر از همان تمرین به تولید هدایت‌شده منتقل می‌شود تا فقط پیام شنیده‌شده تکرار نشود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "learningTargets": [
+        "بازسازی هدایت‌شدهٔ یک پیام کوتاه روزمره."
+      ],
+      "lexemeRefs": [
+        "lex-de-anrufen",
+        "lex-de-nachmittag",
+        "lex-de-noch-einmal"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Rufen Sie bitte am Nachmittag noch einmal an.",
+        "sourceTextFa": "لطفاً بعدازظهر دوباره تماس بگیرید.",
+        "tokens": [
+          "Rufen",
+          "Sie",
+          "bitte",
+          "am",
+          "Nachmittag",
+          "noch",
+          "einmal",
+          "an."
+        ],
+        "answer": [
+          "Rufen",
+          "Sie",
+          "bitte",
+          "am",
+          "Nachmittag",
+          "noch",
+          "einmal",
+          "an."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_level_final"
+}

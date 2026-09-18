@@ -1,0 +1,153 @@
+{
+  "id": "dlg-de-a1-short-message-coordination",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-024-short-messages"
+  ],
+  "scenario": "آیریس و پاول در یک تماس کوتاه دو کار را هماهنگ می‌کنند: تماس دوباره برای فردا و گرفتن کارت‌ها در فردا.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-message-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Können Sie mich morgen noch einmal anrufen?",
+      "translationFa": "می‌توانید فردا دوباره با من تماس بگیرید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-morgen-adverb",
+        "lex-de-noch-einmal",
+        "lex-de-anrufen"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "morgen",
+          "lexemeId": "lex-de-morgen-adverb",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "noch einmal",
+          "lexemeId": "lex-de-noch-einmal",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "anrufen",
+          "lexemeId": "lex-de-anrufen",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-message-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ja, ich rufe Sie morgen noch einmal an.",
+      "translationFa": "بله، فردا دوباره با شما تماس می‌گیرم.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-ja",
+        "lex-de-morgen-adverb",
+        "lex-de-noch-einmal",
+        "lex-de-anrufen"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Ja",
+          "lexemeId": "lex-de-ja",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "morgen",
+          "lexemeId": "lex-de-morgen-adverb",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "noch einmal",
+          "lexemeId": "lex-de-noch-einmal",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-message-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Möchten Sie die Karten morgen abholen?",
+      "translationFa": "می‌خواهید فردا کارت‌ها را تحویل بگیرید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-moegen",
+        "lex-de-morgen-adverb"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Möchten",
+          "lexemeId": "lex-de-moegen",
+          "lexemeFormId": "lexform-de-moegen-moechten"
+        },
+        {
+          "surface": "morgen",
+          "lexemeId": "lex-de-morgen-adverb",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-message-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ja, ich möchte sie morgen abholen.",
+      "translationFa": "بله، می‌خواهم فردا آن‌ها را تحویل بگیرم.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-ja",
+        "lex-de-moegen",
+        "lex-de-morgen-adverb"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Ja",
+          "lexemeId": "lex-de-ja",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "möchte",
+          "lexemeId": "lex-de-moegen",
+          "lexemeFormId": "lexform-de-moegen-moechte"
+        },
+        {
+          "surface": "morgen",
+          "lexemeId": "lex-de-morgen-adverb",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "چهار نوبت از دو جفت پرسش‌وپاسخ مجاور بخش ۱۰۱۰ عیناً حفظ شده‌اند و به‌عنوان دو کار کوتاه در یک تماس هماهنگی کنار هم قرار گرفته‌اند. نقش شخصیت‌ها افزوده شده اما متن آلمانی تغییر نکرده است.",
+  "learnerCharacterId": "char-de-paul"
+}
