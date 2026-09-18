@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-health-symptoms",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-health-doctor-pharmacy",
+  "titleFa": "چه مشکلی دارید؟",
+  "learningTargets": [
+    "پرسش ساده دربارهٔ مشکل جسمی را بفهمد.",
+    "دو علامت بسیار رایج را با جملهٔ کوتاه بیان کند.",
+    "تب و سرفه را در پاسخ‌های کوتاه از هم تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-018-health"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس نخست واحد سلامت زبان لازم برای بیان مستقیم یک مشکل جسمی را می‌سازد و دامنه را عمداً به علائم بسیار رایج محدود می‌کند.",
+    "sequenceRationale": "از مکالمهٔ کوتاه به تشخیص علامت و سپس بازسازی پاسخ ساده حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-health-symptoms-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی کوتاه پزشک و بیمار را اجرا کن و دو علامت را درست بیان کن.",
+      "selectionReason": "دو جفت پرسش و پاسخ منبع‌دار، الگوی پایهٔ بیان علامت را بدون پیچیدگی اضافی نشان می‌دهند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "learningTargets": [
+        "علائم ساده را در گفت‌وگو بیان کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-health-symptoms",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-health-symptoms-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام پاسخ یعنی «تب دارم»؟",
+      "selectionReason": "سه پاسخ کوتاه باعث می‌شوند زبان‌آموز معنی علامت را مستقیم تشخیص دهد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "learningTargets": [
+        "تب را در پاسخ کوتاه تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Ich habe Fieber.",
+            "translationFa": "تب دارم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich habe Husten.",
+            "translationFa": "سرفه دارم.",
+            "correct": false
+          },
+          {
+            "textTarget": "Ich habe kein Fieber mehr.",
+            "translationFa": "دیگر تب ندارم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-health-symptoms-order",
+      "type": "word_order",
+      "instructionFa": "پاسخ «سرفه دارم» را بساز.",
+      "selectionReason": "بازسازی یک پاسخ بسیار کوتاه، الگوی بیان علامت را به بازیابی فعال منتقل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "learningTargets": [
+        "یک علامت را با جملهٔ کوتاه بیان کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich habe Husten.",
+        "sourceTextFa": "سرفه دارم.",
+        "tokens": [
+          "Ich",
+          "habe",
+          "Husten."
+        ],
+        "answer": [
+          "Ich",
+          "habe",
+          "Husten."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}
