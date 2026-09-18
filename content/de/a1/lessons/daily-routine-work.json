@@ -1,23 +1,211 @@
 {
-  "schemaVersion":"1.0.0",
-  "id":"de-a1-lesson-daily-routine-work",
-  "languageId":"de",
-  "level":"A1",
-  "unitRef":"de-a1-unit-daily-routine-work-school",
-  "titleFa":"صبح‌ها چه کار می‌کنی؟",
-  "sourceTitle":"Was machen Sie morgens? / Was machen Sie vormittags?",
-  "sourceTitleFa":"صبح‌ها چه کار می‌کنید؟ / پیش از ظهرها چه کار می‌کنید؟",
-  "learningTargets":["پرسش ساده دربارهٔ کارهای صبح و پیش از ظهر را بفهمد و پاسخ کوتاه منبع‌دار بدهد.","چهار بخش روز را به نمونهٔ درستِ کار روزمره وصل کند.","یک جملهٔ کوتاه دربارهٔ کار در پیش از ظهر را از جمله‌های مشابه تشخیص دهد."],
-  "sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],
-  "lexemeRefs":["lex-de-morgens","lex-de-vormittags","lex-de-mittags","lex-de-nachmittags","lex-de-betrieb","lex-de-trinken","lex-de-machen","lex-de-arbeiten","lex-de-kaffee","lex-de-essen"],
-  "grammarNoteRefs":[],
-  "activityDesign":{"activitySelectionRationale":"گفت‌وگو دو بخش نخست روز را در بافت وارد می‌کند؛ سپس چهار جملهٔ منبع‌دار به زمان مناسب وصل می‌شوند، جملهٔ مربوط به کار تشخیص داده می‌شود و در پایان پاسخ صبح بازسازی می‌شود.","sequenceRationale":"درس از تعامل و فهم زمان روز به دسته‌بندی، تمایز معنایی و بازیابی فعال یک پاسخ کوتاه حرکت می‌کند و الگوی فعالیت آن با درس قبلی متفاوت است.","templateSignature":"conversation_speaking>matching>multiple_choice>word_order"},
-  "activities":[
-    {"id":"act-de-a1-daily-routine-conversation","type":"conversation_speaking","instructionFa":"به آیریس بگو صبح و پیش از ظهر معمولاً چه کار می‌کنی.","selectionReason":"دو جفت پرسش و پاسخ منبع‌دار، روتین صبح و کار پیش از ظهر را بدون توضیح دستوری سنگین وارد می‌کنند.","sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"learningTargets":["فهم و پاسخ کوتاه دربارهٔ کارهای صبح و پیش از ظهر."],"lexemeRefs":["lex-de-machen","lex-de-morgens","lex-de-vormittags","lex-de-trinken","lex-de-kaffee","lex-de-arbeiten","lex-de-betrieb"],"dialogueRef":"dlg-de-a1-daily-routine-work","data":{"interaction":"read_aloud_exchange","openingInitiator":"app"},"transformations":["verbatim_dialogue","persian_translation_added","character_metadata_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-dayparts-matching","type":"matching","instructionFa":"هر جمله را به بخش درست روز وصل کن.","selectionReason":"چهار پاسخ کامل از همان بخش منبع، ترتیب زمانی صبح تا بعدازظهر را با کارهای واقعی روزمره پیوند می‌دهند.","sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"learningTargets":["تشخیص صبح، پیش از ظهر، ظهر و بعدازظهر در جمله‌های روزمره."],"lexemeRefs":["lex-de-morgens","lex-de-vormittags","lex-de-mittags","lex-de-nachmittags","lex-de-trinken","lex-de-arbeiten","lex-de-betrieb","lex-de-essen"],"dialogueRef":null,"data":{"pairs":[{"left":"Morgens trinke ich Kaffee.","leftFa":"صبح‌ها قهوه می‌نوشم.","right":"صبح","rightFa":"صبح"},{"left":"Vormittags arbeite ich im Betrieb.","leftFa":"پیش از ظهرها در محل کار کار می‌کنم.","right":"پیش از ظهر","rightFa":"پیش از ظهر"},{"left":"Mittags esse ich in einem Restaurant.","leftFa":"ظهرها در یک رستوران غذا می‌خورم.","right":"ظهر","rightFa":"ظهر"},{"left":"Nachmittags gehe ich nach Hause.","leftFa":"بعدازظهرها به خانه می‌روم.","right":"بعدازظهر","rightFa":"بعدازظهر"}]},"transformations":["source_items_grouped_for_matching","persian_translation_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-routine-work-choice","type":"multiple_choice","instructionFa":"کدام جمله دربارهٔ کار کردن پیش از ظهر است؟","selectionReason":"سه پاسخ کامل و منبع‌دار از همان تمرین، کار را از نوشیدن و غذا خوردن جدا می‌کنند.","sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"learningTargets":["تشخیص جملهٔ مربوط به کار در پیش از ظهر."],"lexemeRefs":["lex-de-vormittags","lex-de-arbeiten","lex-de-betrieb","lex-de-morgens","lex-de-mittags"],"dialogueRef":null,"data":{"options":[{"textTarget":"Vormittags arbeite ich im Betrieb.","translationFa":"پیش از ظهرها در محل کار کار می‌کنم.","correct":true},{"textTarget":"Morgens trinke ich Tee.","translationFa":"صبح‌ها چای می‌نوشم.","correct":false},{"textTarget":"Mittags esse ich in einem Restaurant.","translationFa":"ظهرها در یک رستوران غذا می‌خورم.","correct":false}]},"transformations":["options_selected_from_source_material","persian_translation_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-morning-answer-order","type":"word_order","instructionFa":"پاسخ مربوط به صبح را دوباره بساز.","selectionReason":"پاسخ آغاز گفت‌وگو پس از فهم و تمایز به بازیابی فعال منتقل می‌شود.","sourceRefs":["src-wikibooks-de-lesson-022-daily-routine"],"learningTargets":["بازسازی جملهٔ کوتاه دربارهٔ نوشیدن قهوه در صبح."],"lexemeRefs":["lex-de-morgens","lex-de-trinken","lex-de-kaffee"],"dialogueRef":null,"data":{"sourceText":"Morgens trinke ich Kaffee.","sourceTextFa":"صبح‌ها قهوه می‌نوشم.","tokens":["Morgens","trinke","ich","Kaffee."],"answer":["Morgens","trinke","ich","Kaffee."]},"transformations":["sentence_tokenized_for_word_order","persian_translation_added"],"audioStatus":"not_required"}
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-daily-routine-work",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-daily-routine-work-school",
+  "titleFa": "صبح‌ها چه کار می‌کنی؟",
+  "sourceTitle": "Was machen Sie morgens? / Was machen Sie vormittags?",
+  "sourceTitleFa": "صبح‌ها چه کار می‌کنید؟ / پیش از ظهرها چه کار می‌کنید؟",
+  "learningTargets": [
+    "پرسش ساده دربارهٔ کارهای صبح و پیش از ظهر را بفهمد و پاسخ کوتاه منبع‌دار بدهد.",
+    "چهار بخش روز را به نمونهٔ درستِ کار روزمره وصل کند.",
+    "یک جملهٔ کوتاه دربارهٔ کار در پیش از ظهر را از جمله‌های مشابه تشخیص دهد."
   ],
-  "status":"draft",
-  "audioStatus":"blocked_until_level_final"
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-022-daily-routine"
+  ],
+  "lexemeRefs": [
+    "lex-de-morgens",
+    "lex-de-vormittags",
+    "lex-de-mittags",
+    "lex-de-nachmittags",
+    "lex-de-betrieb",
+    "lex-de-trinken",
+    "lex-de-machen",
+    "lex-de-arbeiten",
+    "lex-de-kaffee",
+    "lex-de-essen"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "گفت‌وگو دو بخش نخست روز را در بافت وارد می‌کند؛ سپس چهار جملهٔ منبع‌دار به زمان مناسب وصل می‌شوند، جملهٔ مربوط به کار تشخیص داده می‌شود و در پایان پاسخ صبح بازسازی می‌شود.",
+    "sequenceRationale": "درس از تعامل و فهم زمان روز به دسته‌بندی، تمایز معنایی و بازیابی فعال یک پاسخ کوتاه حرکت می‌کند و الگوی فعالیت آن با درس قبلی متفاوت است.",
+    "templateSignature": "conversation_speaking>matching>multiple_choice>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-daily-routine-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "به آیریس بگو صبح و پیش از ظهر معمولاً چه کار می‌کنی.",
+      "selectionReason": "دو جفت پرسش و پاسخ منبع‌دار، روتین صبح و کار پیش از ظهر را بدون توضیح دستوری سنگین وارد می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-022-daily-routine"
+      ],
+      "learningTargets": [
+        "فهم و پاسخ کوتاه دربارهٔ کارهای صبح و پیش از ظهر."
+      ],
+      "lexemeRefs": [
+        "lex-de-machen",
+        "lex-de-morgens",
+        "lex-de-vormittags",
+        "lex-de-trinken",
+        "lex-de-kaffee",
+        "lex-de-arbeiten",
+        "lex-de-betrieb"
+      ],
+      "dialogueRef": "dlg-de-a1-daily-routine-work",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-dayparts-matching",
+      "type": "matching",
+      "instructionFa": "هر جمله را به بخش درست روز وصل کن.",
+      "selectionReason": "چهار پاسخ کامل از همان بخش منبع، ترتیب زمانی صبح تا بعدازظهر را با کارهای واقعی روزمره پیوند می‌دهند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-022-daily-routine"
+      ],
+      "learningTargets": [
+        "تشخیص صبح، پیش از ظهر، ظهر و بعدازظهر در جمله‌های روزمره."
+      ],
+      "lexemeRefs": [
+        "lex-de-morgens",
+        "lex-de-vormittags",
+        "lex-de-mittags",
+        "lex-de-nachmittags",
+        "lex-de-trinken",
+        "lex-de-arbeiten",
+        "lex-de-betrieb",
+        "lex-de-essen"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Morgens trinke ich Kaffee.",
+            "leftFa": "صبح‌ها قهوه می‌نوشم.",
+            "right": "صبح",
+            "rightFa": "صبح"
+          },
+          {
+            "left": "Vormittags arbeite ich im Betrieb.",
+            "leftFa": "پیش از ظهرها در محل کار کار می‌کنم.",
+            "right": "پیش از ظهر",
+            "rightFa": "پیش از ظهر"
+          },
+          {
+            "left": "Mittags esse ich in einem Restaurant.",
+            "leftFa": "ظهرها در یک رستوران غذا می‌خورم.",
+            "right": "ظهر",
+            "rightFa": "ظهر"
+          },
+          {
+            "left": "Nachmittags gehe ich nach Hause.",
+            "leftFa": "بعدازظهرها به خانه می‌روم.",
+            "right": "بعدازظهر",
+            "rightFa": "بعدازظهر"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-routine-work-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله دربارهٔ کار کردن پیش از ظهر است؟",
+      "selectionReason": "سه پاسخ کامل و منبع‌دار از همان تمرین، کار را از نوشیدن و غذا خوردن جدا می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-022-daily-routine"
+      ],
+      "learningTargets": [
+        "تشخیص جملهٔ مربوط به کار در پیش از ظهر."
+      ],
+      "lexemeRefs": [
+        "lex-de-vormittags",
+        "lex-de-arbeiten",
+        "lex-de-betrieb",
+        "lex-de-morgens",
+        "lex-de-mittags"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Vormittags arbeite ich im Betrieb.",
+            "translationFa": "پیش از ظهرها در محل کار کار می‌کنم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Morgens trinke ich Tee.",
+            "translationFa": "صبح‌ها چای می‌نوشم.",
+            "correct": false
+          },
+          {
+            "textTarget": "Mittags esse ich in einem Restaurant.",
+            "translationFa": "ظهرها در یک رستوران غذا می‌خورم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-morning-answer-order",
+      "type": "word_order",
+      "instructionFa": "پاسخ مربوط به صبح را دوباره بساز.",
+      "selectionReason": "پاسخ آغاز گفت‌وگو پس از فهم و تمایز به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-022-daily-routine"
+      ],
+      "learningTargets": [
+        "بازسازی جملهٔ کوتاه دربارهٔ نوشیدن قهوه در صبح."
+      ],
+      "lexemeRefs": [
+        "lex-de-morgens",
+        "lex-de-trinken",
+        "lex-de-kaffee"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Morgens trinke ich Kaffee.",
+        "sourceTextFa": "صبح‌ها قهوه می‌نوشم.",
+        "tokens": [
+          "Morgens",
+          "trinke",
+          "ich",
+          "Kaffee."
+        ],
+        "answer": [
+          "Morgens",
+          "trinke",
+          "ich",
+          "Kaffee."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "review",
+  "audioStatus": "blocked_until_level_final"
 }

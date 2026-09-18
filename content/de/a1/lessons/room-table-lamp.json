@@ -1,31 +1,192 @@
 {
-  "schemaVersion":"1.0.0",
-  "id":"de-a1-lesson-room-table-lamp",
-  "languageId":"de",
-  "level":"A1",
-  "unitRef":"de-a1-unit-home-and-nearby",
-  "titleFa":"این میز شماست؟",
-  "sourceTitle":"Ist das Ihr Tisch? / Ist das Ihre Lampe?",
-  "sourceTitleFa":"آیا این میز شماست؟ / آیا این چراغ شماست؟",
-  "learningTargets":[
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-room-table-lamp",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-home-and-nearby",
+  "titleFa": "این میز شماست؟",
+  "sourceTitle": "Ist das Ihr Tisch? / Ist das Ihre Lampe?",
+  "sourceTitleFa": "آیا این میز شماست؟ / آیا این چراغ شماست؟",
+  "learningTargets": [
     "در یک گفت‌وگوی کوتاه، میز و چراغ را به‌عنوان وسایل داخل اتاق تشخیص دهد.",
     "پرسش و پاسخ ساده دربارهٔ تعلق داشتن یک وسیله را در بافت واقعی بفهمد.",
     "واژه‌های اتاق، میز، چراغ و صندلی را از هم تشخیص دهد."
   ],
-  "sourceRefs":["src-wikibooks-de-lesson-007-room-objects"],
-  "lexemeRefs":["lex-de-zimmer","lex-de-tisch","lex-de-lampe","lex-de-stuhl"],
-  "grammarNoteRefs":[],
-  "activityDesign":{
-    "activitySelectionRationale":"درس با دو جفت پرسش و پاسخ دربارهٔ وسایل یک اتاق شروع می‌شود؛ سپس چهار واژهٔ پایهٔ محیط خانه تفکیک می‌شوند، پاسخ درست به پرسش چراغ بازیابی می‌شود و در پایان پرسش میز بازسازی می‌شود.",
-    "sequenceRationale":"مسیر از فهم تعامل و تشخیص شیء به تثبیت واژگان، انتخاب پاسخ و بازیابی فعال پرسش می‌رود. مالکیت در بافت جمله باقی می‌ماند و به توضیح انتزاعی دستور زبان تبدیل نمی‌شود.",
-    "templateSignature":"conversation_speaking>matching>multiple_choice>word_order"
-  },
-  "activities":[
-    {"id":"act-de-a1-room-objects-conversation","type":"conversation_speaking","instructionFa":"آیریس دربارهٔ میز و چراغ می‌پرسد؛ جواب بده کدام وسیله مال توست.","selectionReason":"دو جفت پرسش و پاسخ عین منبع هستند و در یک صحنهٔ واحدِ اتاق و وسایل آن طبیعی می‌مانند.","sourceRefs":["src-wikibooks-de-lesson-007-room-objects"],"learningTargets":["فهم پرسش و پاسخ ساده دربارهٔ وسایل اتاق."],"lexemeRefs":["lex-de-tisch","lex-de-lampe"],"dialogueRef":"dlg-de-a1-room-table-lamp","data":{"interaction":"read_aloud_exchange","openingInitiator":"app"},"transformations":["other","persian_translation_added","character_metadata_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-room-words-matching","type":"matching","instructionFa":"هر وسیله را به معنی درستش وصل کن.","selectionReason":"چهار واژهٔ پایهٔ محیط اتاق پیش از گسترش توصیف خانه تثبیت می‌شوند.","sourceRefs":["src-wikibooks-de-lesson-007-room-objects"],"learningTargets":["تشخیص اتاق، میز، چراغ و صندلی."],"lexemeRefs":["lex-de-zimmer","lex-de-tisch","lex-de-lampe","lex-de-stuhl"],"dialogueRef":null,"data":{"pairs":[{"left":"Zimmer","leftFa":"اتاق","right":"اتاق","rightFa":"اتاق"},{"left":"Tisch","leftFa":"میز","right":"میز","rightFa":"میز"},{"left":"Lampe","leftFa":"چراغ / لامپ","right":"چراغ / لامپ","rightFa":"چراغ / لامپ"},{"left":"Stuhl","leftFa":"صندلی","right":"صندلی","rightFa":"صندلی"}]},"transformations":["source_items_grouped_for_matching","persian_translation_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-room-lamp-choice","type":"multiple_choice","instructionFa":"پاسخ درست به پرسش دربارهٔ چراغ کدام است؟","selectionReason":"پاسخ درست چراغ در برابر دو پاسخ منبع‌دار مربوط به وسایل دیگر بازیابی می‌شود.","sourceRefs":["src-wikibooks-de-lesson-007-room-objects"],"learningTargets":["تشخیص پاسخ درست دربارهٔ مالکیت چراغ."],"lexemeRefs":["lex-de-lampe","lex-de-tisch","lex-de-zimmer"],"dialogueRef":null,"data":{"options":[{"textTarget":"Ja, das ist meine Lampe.","translationFa":"بله، این چراغ من است.","correct":true},{"textTarget":"Ja, das ist mein Tisch.","translationFa":"بله، این میز من است.","correct":false},{"textTarget":"Ja, das ist unser Zimmer.","translationFa":"بله، این اتاق ماست.","correct":false}]},"transformations":["options_selected_from_source_material","persian_translation_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-room-table-order","type":"word_order","instructionFa":"پرسش دربارهٔ میز را دوباره بساز.","selectionReason":"پرسش اصلی درس در پایان از تشخیص به بازیابی فعال منتقل می‌شود.","sourceRefs":["src-wikibooks-de-lesson-007-room-objects"],"learningTargets":["بازسازی پرسش ساده دربارهٔ یک وسیلهٔ اتاق."],"lexemeRefs":["lex-de-tisch"],"dialogueRef":null,"data":{"sourceText":"Ist das Ihr Tisch?","sourceTextFa":"آیا این میز شماست؟","tokens":["Ist","das","Ihr","Tisch?"],"answer":["Ist","das","Ihr","Tisch?"]},"transformations":["sentence_tokenized_for_word_order","persian_translation_added"],"audioStatus":"not_required"}
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-room-objects"
   ],
-  "status":"draft",
-  "audioStatus":"blocked_until_level_final"
+  "lexemeRefs": [
+    "lex-de-zimmer",
+    "lex-de-tisch",
+    "lex-de-lampe",
+    "lex-de-stuhl"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس با دو جفت پرسش و پاسخ دربارهٔ وسایل یک اتاق شروع می‌شود؛ سپس چهار واژهٔ پایهٔ محیط خانه تفکیک می‌شوند، پاسخ درست به پرسش چراغ بازیابی می‌شود و در پایان پرسش میز بازسازی می‌شود.",
+    "sequenceRationale": "مسیر از فهم تعامل و تشخیص شیء به تثبیت واژگان، انتخاب پاسخ و بازیابی فعال پرسش می‌رود. مالکیت در بافت جمله باقی می‌ماند و به توضیح انتزاعی دستور زبان تبدیل نمی‌شود.",
+    "templateSignature": "conversation_speaking>matching>multiple_choice>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-room-objects-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "آیریس دربارهٔ میز و چراغ می‌پرسد؛ جواب بده کدام وسیله مال توست.",
+      "selectionReason": "دو جفت پرسش و پاسخ عین منبع هستند و در یک صحنهٔ واحدِ اتاق و وسایل آن طبیعی می‌مانند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-room-objects"
+      ],
+      "learningTargets": [
+        "فهم پرسش و پاسخ ساده دربارهٔ وسایل اتاق."
+      ],
+      "lexemeRefs": [
+        "lex-de-tisch",
+        "lex-de-lampe"
+      ],
+      "dialogueRef": "dlg-de-a1-room-table-lamp",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-room-words-matching",
+      "type": "matching",
+      "instructionFa": "هر وسیله را به معنی درستش وصل کن.",
+      "selectionReason": "چهار واژهٔ پایهٔ محیط اتاق پیش از گسترش توصیف خانه تثبیت می‌شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-room-objects"
+      ],
+      "learningTargets": [
+        "تشخیص اتاق، میز، چراغ و صندلی."
+      ],
+      "lexemeRefs": [
+        "lex-de-zimmer",
+        "lex-de-tisch",
+        "lex-de-lampe",
+        "lex-de-stuhl"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Zimmer",
+            "leftFa": "اتاق",
+            "right": "اتاق",
+            "rightFa": "اتاق"
+          },
+          {
+            "left": "Tisch",
+            "leftFa": "میز",
+            "right": "میز",
+            "rightFa": "میز"
+          },
+          {
+            "left": "Lampe",
+            "leftFa": "چراغ / لامپ",
+            "right": "چراغ / لامپ",
+            "rightFa": "چراغ / لامپ"
+          },
+          {
+            "left": "Stuhl",
+            "leftFa": "صندلی",
+            "right": "صندلی",
+            "rightFa": "صندلی"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-room-lamp-choice",
+      "type": "multiple_choice",
+      "instructionFa": "پاسخ درست به پرسش دربارهٔ چراغ کدام است؟",
+      "selectionReason": "پاسخ درست چراغ در برابر دو پاسخ منبع‌دار مربوط به وسایل دیگر بازیابی می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-room-objects"
+      ],
+      "learningTargets": [
+        "تشخیص پاسخ درست دربارهٔ مالکیت چراغ."
+      ],
+      "lexemeRefs": [
+        "lex-de-lampe",
+        "lex-de-tisch",
+        "lex-de-zimmer"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Ja, das ist meine Lampe.",
+            "translationFa": "بله، این چراغ من است.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ja, das ist mein Tisch.",
+            "translationFa": "بله، این میز من است.",
+            "correct": false
+          },
+          {
+            "textTarget": "Ja, das ist unser Zimmer.",
+            "translationFa": "بله، این اتاق ماست.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-room-table-order",
+      "type": "word_order",
+      "instructionFa": "پرسش دربارهٔ میز را دوباره بساز.",
+      "selectionReason": "پرسش اصلی درس در پایان از تشخیص به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-room-objects"
+      ],
+      "learningTargets": [
+        "بازسازی پرسش ساده دربارهٔ یک وسیلهٔ اتاق."
+      ],
+      "lexemeRefs": [
+        "lex-de-tisch"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ist das Ihr Tisch?",
+        "sourceTextFa": "آیا این میز شماست؟",
+        "tokens": [
+          "Ist",
+          "das",
+          "Ihr",
+          "Tisch?"
+        ],
+        "answer": [
+          "Ist",
+          "das",
+          "Ihr",
+          "Tisch?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "review",
+  "audioStatus": "blocked_until_level_final"
 }

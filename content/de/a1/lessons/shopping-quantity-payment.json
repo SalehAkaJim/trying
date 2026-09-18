@@ -1,8 +1,207 @@
 {
-  "schemaVersion":"1.0.0","id":"de-a1-lesson-shopping-quantity-payment","languageId":"de","level":"A1","unitRef":"de-a1-unit-shopping-quantity-payment","titleFa":"چقدر می‌خواهید؟","sourceTitle":"Wie viel kostet dieses Fleisch? / Wie viel möchten Sie?","sourceTitleFa":"این گوشت چقدر است؟ / چه مقدار می‌خواهید؟","learningTargets":["قیمت کالا و پاسخ عددی قیمت را در یک گفت‌وگوی فروشگاهی بفهمد.","مقدارهای گرم و کیلو را در درخواست خرید تشخیص دهد و پاسخ مقدار را انتخاب کند.","پایان خرید و دستور سادهٔ پرداخت در صندوق را بفهمد و بازسازی کند."],"sourceRefs":["src-wikibooks-de-lesson-009-shopping"],"lexemeRefs":["lex-de-fleisch","lex-de-gramm","lex-de-kilo","lex-de-wurst","lex-de-kosten","lex-de-nehmen","lex-de-kasse","lex-de-bezahlen","lex-de-noch-etwas","lex-de-euro"],"grammarNoteRefs":[],"activityDesign":{"activitySelectionRationale":"گفت‌وگوی کامل تراکنش را در بافت می‌آورد؛ تطبیق چهار کالای دیگر مقدار را به قیمت وصل می‌کند، انتخاب پاسخ مقدار فهم نوبت فروشنده را می‌سنجد و مرتب‌سازی جملهٔ پرداخت آخرین مرحلهٔ خرید را فعال می‌کند.","sequenceRationale":"درس از مشارکت در یک تراکنش واقعی به خواندن مقدار و قیمت، انتخاب پاسخ مناسب و در پایان بازیابی هدایت‌شدهٔ دستور پرداخت حرکت می‌کند.","templateSignature":"conversation_speaking>matching>choose_response>word_order"},"activities":[
-    {"id":"act-de-a1-shopping-conversation","type":"conversation_speaking","instructionFa":"خرید را از پرسیدن قیمت تا رسیدن به صندوق انجام بده.","selectionReason":"گفت‌وگوی هشت‌نوبتی منبع همهٔ مراحل اصلی تراکنش این واحد را به‌صورت پیوسته دارد.","sourceRefs":["src-wikibooks-de-lesson-009-shopping"],"learningTargets":["شرکت در یک گفت‌وگوی کوتاه دربارهٔ قیمت، مقدار، کالای اضافه و پرداخت."],"lexemeRefs":["lex-de-fleisch","lex-de-gramm","lex-de-kilo","lex-de-wurst","lex-de-kosten","lex-de-nehmen","lex-de-kasse","lex-de-bezahlen","lex-de-noch-etwas","lex-de-euro"],"dialogueRef":"dlg-de-a1-shopping-quantity-payment","data":{"interaction":"read_aloud_exchange","openingInitiator":"learner"},"transformations":["verbatim_dialogue","other","persian_translation_added","character_metadata_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-shopping-price-matching","type":"matching","instructionFa":"هر مقدار کالا را به قیمت منبع‌دار خودش وصل کن.","selectionReason":"چهار نمونهٔ بخش ۴۱۰ مقدارهای متفاوت و چند کالای روزمره را با قیمت واقعی تمرین پیوند می‌دهند.","sourceRefs":["src-wikibooks-de-lesson-009-shopping"],"learningTargets":["وصل کردن مقدار کالا به قیمت درست."],"lexemeRefs":["lex-de-gramm","lex-de-wurst","lex-de-euro"],"dialogueRef":null,"data":{"pairs":[{"left":"300 g Wurst","leftFa":"۳۰۰ گرم سوسیس","right":"5,99 Euro","rightFa":"۵٫۹۹ یورو"},{"left":"250 g Butter","leftFa":"۲۵۰ گرم کره","right":"3,95 Euro","rightFa":"۳٫۹۵ یورو"},{"left":"zwei Flaschen Milch","leftFa":"دو بطری شیر","right":"2,99 Euro","rightFa":"۲٫۹۹ یورو"},{"left":"fünf Eier","leftFa":"پنج تخم‌مرغ","right":"2,67 Euro","rightFa":"۲٫۶۷ یورو"}]},"transformations":["source_items_grouped_for_matching","persian_translation_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-shopping-quantity-response","type":"choose_response","instructionFa":"فروشنده مقدار را می‌پرسد؛ پاسخ درست را انتخاب کن.","selectionReason":"پاسخ مقدار باید از دو نوبت دیگرِ همان تراکنش متمایز شود.","sourceRefs":["src-wikibooks-de-lesson-009-shopping"],"learningTargets":["انتخاب پاسخ مناسب به پرسش مقدار."],"lexemeRefs":["lex-de-gramm","lex-de-noch-etwas"],"dialogueRef":null,"data":{"promptTarget":"Wie viel möchten Sie?","promptFa":"چه مقدار می‌خواهید؟","options":[{"textTarget":"Bitte 250 Gramm.","translationFa":"لطفاً ۲۵۰ گرم.","correct":true},{"textTarget":"Noch etwas?","translationFa":"چیز دیگری؟","correct":false},{"textTarget":"Danke, das ist alles.","translationFa":"ممنون، همین کافی است.","correct":false}]},"transformations":["options_selected_from_source_material","persian_translation_added"],"audioStatus":"not_required"},
-    {"id":"act-de-a1-shopping-payment-order","type":"word_order","instructionFa":"دستور پرداخت را دوباره بساز.","selectionReason":"آخرین مرحلهٔ تراکنش از فهم شنیداری و خواندن به بازیابی فعال جملهٔ پرداخت منتقل می‌شود.","sourceRefs":["src-wikibooks-de-lesson-009-shopping"],"learningTargets":["بازسازی جملهٔ سادهٔ پرداخت."],"lexemeRefs":["lex-de-bezahlen"],"dialogueRef":null,"data":{"sourceText":"Bezahlen Sie bitte dort.","sourceTextFa":"لطفاً آنجا پرداخت کنید.","tokens":["Bezahlen","Sie","bitte","dort."],"answer":["Bezahlen","Sie","bitte","dort."]},"transformations":["sentence_tokenized_for_word_order","persian_translation_added"],"audioStatus":"not_required"}
-  ],"status":"draft","audioStatus":"blocked_until_level_final"
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-shopping-quantity-payment",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-shopping-quantity-payment",
+  "titleFa": "چقدر می‌خواهید؟",
+  "sourceTitle": "Wie viel kostet dieses Fleisch? / Wie viel möchten Sie?",
+  "sourceTitleFa": "این گوشت چقدر است؟ / چه مقدار می‌خواهید؟",
+  "learningTargets": [
+    "قیمت کالا و پاسخ عددی قیمت را در یک گفت‌وگوی فروشگاهی بفهمد.",
+    "مقدارهای گرم و کیلو را در درخواست خرید تشخیص دهد و پاسخ مقدار را انتخاب کند.",
+    "پایان خرید و دستور سادهٔ پرداخت در صندوق را بفهمد و بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-009-shopping"
+  ],
+  "lexemeRefs": [
+    "lex-de-fleisch",
+    "lex-de-gramm",
+    "lex-de-kilo",
+    "lex-de-wurst",
+    "lex-de-kosten",
+    "lex-de-nehmen",
+    "lex-de-kasse",
+    "lex-de-bezahlen",
+    "lex-de-noch-etwas",
+    "lex-de-euro"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "گفت‌وگوی کامل تراکنش را در بافت می‌آورد؛ تطبیق چهار کالای دیگر مقدار را به قیمت وصل می‌کند، انتخاب پاسخ مقدار فهم نوبت فروشنده را می‌سنجد و مرتب‌سازی جملهٔ پرداخت آخرین مرحلهٔ خرید را فعال می‌کند.",
+    "sequenceRationale": "درس از مشارکت در یک تراکنش واقعی به خواندن مقدار و قیمت، انتخاب پاسخ مناسب و در پایان بازیابی هدایت‌شدهٔ دستور پرداخت حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>matching>choose_response>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-shopping-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "خرید را از پرسیدن قیمت تا رسیدن به صندوق انجام بده.",
+      "selectionReason": "گفت‌وگوی هشت‌نوبتی منبع همهٔ مراحل اصلی تراکنش این واحد را به‌صورت پیوسته دارد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-shopping"
+      ],
+      "learningTargets": [
+        "شرکت در یک گفت‌وگوی کوتاه دربارهٔ قیمت، مقدار، کالای اضافه و پرداخت."
+      ],
+      "lexemeRefs": [
+        "lex-de-fleisch",
+        "lex-de-gramm",
+        "lex-de-kilo",
+        "lex-de-wurst",
+        "lex-de-kosten",
+        "lex-de-nehmen",
+        "lex-de-kasse",
+        "lex-de-bezahlen",
+        "lex-de-noch-etwas",
+        "lex-de-euro"
+      ],
+      "dialogueRef": "dlg-de-a1-shopping-quantity-payment",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-shopping-price-matching",
+      "type": "matching",
+      "instructionFa": "هر مقدار کالا را به قیمت منبع‌دار خودش وصل کن.",
+      "selectionReason": "چهار نمونهٔ بخش ۴۱۰ مقدارهای متفاوت و چند کالای روزمره را با قیمت واقعی تمرین پیوند می‌دهند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-shopping"
+      ],
+      "learningTargets": [
+        "وصل کردن مقدار کالا به قیمت درست."
+      ],
+      "lexemeRefs": [
+        "lex-de-gramm",
+        "lex-de-wurst",
+        "lex-de-euro"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "300 g Wurst",
+            "leftFa": "۳۰۰ گرم سوسیس",
+            "right": "5,99 Euro",
+            "rightFa": "۵٫۹۹ یورو"
+          },
+          {
+            "left": "250 g Butter",
+            "leftFa": "۲۵۰ گرم کره",
+            "right": "3,95 Euro",
+            "rightFa": "۳٫۹۵ یورو"
+          },
+          {
+            "left": "zwei Flaschen Milch",
+            "leftFa": "دو بطری شیر",
+            "right": "2,99 Euro",
+            "rightFa": "۲٫۹۹ یورو"
+          },
+          {
+            "left": "fünf Eier",
+            "leftFa": "پنج تخم‌مرغ",
+            "right": "2,67 Euro",
+            "rightFa": "۲٫۶۷ یورو"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-shopping-quantity-response",
+      "type": "choose_response",
+      "instructionFa": "فروشنده مقدار را می‌پرسد؛ پاسخ درست را انتخاب کن.",
+      "selectionReason": "پاسخ مقدار باید از دو نوبت دیگرِ همان تراکنش متمایز شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-shopping"
+      ],
+      "learningTargets": [
+        "انتخاب پاسخ مناسب به پرسش مقدار."
+      ],
+      "lexemeRefs": [
+        "lex-de-gramm",
+        "lex-de-noch-etwas"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Wie viel möchten Sie?",
+        "promptFa": "چه مقدار می‌خواهید؟",
+        "options": [
+          {
+            "textTarget": "Bitte 250 Gramm.",
+            "translationFa": "لطفاً ۲۵۰ گرم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Noch etwas?",
+            "translationFa": "چیز دیگری؟",
+            "correct": false
+          },
+          {
+            "textTarget": "Danke, das ist alles.",
+            "translationFa": "ممنون، همین کافی است.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-shopping-payment-order",
+      "type": "word_order",
+      "instructionFa": "دستور پرداخت را دوباره بساز.",
+      "selectionReason": "آخرین مرحلهٔ تراکنش از فهم شنیداری و خواندن به بازیابی فعال جملهٔ پرداخت منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-shopping"
+      ],
+      "learningTargets": [
+        "بازسازی جملهٔ سادهٔ پرداخت."
+      ],
+      "lexemeRefs": [
+        "lex-de-bezahlen"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Bezahlen Sie bitte dort.",
+        "sourceTextFa": "لطفاً آنجا پرداخت کنید.",
+        "tokens": [
+          "Bezahlen",
+          "Sie",
+          "bitte",
+          "dort."
+        ],
+        "answer": [
+          "Bezahlen",
+          "Sie",
+          "bitte",
+          "dort."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "review",
+  "audioStatus": "blocked_until_level_final"
 }
