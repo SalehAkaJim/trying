@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-find-belongings",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-room-objects"
+  ],
+  "scenario": "آیریس وسایل شخصی‌اش را پیدا نمی‌کند و پاول جای آن‌ها را نشان می‌دهد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-find-belongings-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wo ist mein Heft?",
+      "translationFa": "دفترم کجاست؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-room-objects"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-find-belongings-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ihr Heft ist hier.",
+      "translationFa": "دفتر شما اینجاست.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-room-objects"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-find-belongings-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wo ist meine Tasche?",
+      "translationFa": "کیفم کجاست؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-room-objects"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-find-belongings-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ihre Tasche ist hier.",
+      "translationFa": "کیف شما اینجاست.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-room-objects"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "جمله‌ها از تمرین ۲۷۵ منبع انتخاب شده‌اند و تفاوت mein/meine با Ihr/Ihre را در یک موقعیت کاربردی نشان می‌دهند.",
+  "learnerCharacterId": "char-de-paul"
+}
