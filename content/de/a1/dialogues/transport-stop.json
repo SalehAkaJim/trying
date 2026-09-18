@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-transport-stop",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-transport"
+  ],
+  "scenario": "آیریس کنار قطار به پاول کمک می‌کند؛ پاول می‌پرسد آیا این قطار در برلین توقف دارد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-transport-stop-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Guten Tag.",
+      "translationFa": "روز بخیر.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-stop-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Hält dieser Zug in Berlin?",
+      "translationFa": "این قطار در برلین توقف می‌کند؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-stop-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ja.",
+      "translationFa": "بله.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-stop-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Danke.",
+      "translationFa": "ممنون.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "پرسش توقف از الگوی بخش قطار با جایگزینی مقصد Berlin ساخته شده و سلام، بله و تشکر از همان عبارت‌نامه‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}
