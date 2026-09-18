@@ -4,43 +4,42 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-extended-introduction",
-  "titleFa": "یک معرفی کامل‌تر بساز",
+  "titleFa": "اول مطمئن شو با چه کسی حرف می‌زنی",
   "learningTargets": [
-    "شغل و زبان را در یک معرفی کوتاه کنار هم بازیابی کند.",
-    "پرسش مربوط به شغل را از پرسش مربوط به زبان تشخیص دهد.",
-    "یک پرسش ساده دربارهٔ شغل را بازسازی کند."
+    "در برخورد رسمی، نام و هویت طرف مقابل را بپرسد یا تأیید کند.",
+    "مبدأ و محل زندگی را در یک پاسخ کوتاه از هم تشخیص دهد.",
+    "پرسش سادهٔ «اهل کجا هستید؟» را بازسازی کند."
   ],
   "sourceRefs": [
-    "src-wikibooks-bll-a1-lesson-2",
-    "src-wikibooks-de-lesson-002-professions"
+    "src-wikibooks-bll-a1-lesson-2"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس دو محور قبلی واحد، یعنی شغل و زبان، را در یک مرور یکپارچه دوباره فعال می‌کند و از تشخیص به بازیابی می‌رساند.",
-    "sequenceRationale": "ابتدا اطلاعات در مکالمه بازیابی می‌شوند، سپس تفاوت معنایی جمله‌ها سنجیده می‌شود و در پایان پرسش شغل بازسازی می‌شود.",
+    "activitySelectionRationale": "این درس به‌جای مرور شغل و زبان، مهارت تازهٔ شروع گفت‌وگوی رسمی با فرد ناآشنا و جداکردن مبدأ از محل زندگی را اضافه می‌کند.",
+    "sequenceRationale": "از تشخیص هویت در مکالمه به فهم پاسخ مبدأ/محل زندگی و سپس ساخت پرسش مبدأ حرکت می‌کند.",
     "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-intro-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "گفت‌وگوی شغل و زبان را دوباره اجرا کن و این بار اطلاعات معرفی را یک‌جا دنبال کن.",
-      "selectionReason": "مکالمهٔ منبع‌دار شغل و زبان برای بازیابی فاصله‌دار دوباره استفاده می‌شود.",
+      "instructionFa": "مکالمه را اجرا کن و اول مطمئن شو طرف مقابل همان کسی است که دنبالش می‌گردی.",
+      "selectionReason": "مکالمهٔ منبع‌دار برخورد رسمی، نام، مبدأ و محل زندگی را در یک صحنهٔ واقعی کنار هم می‌آورد.",
       "sourceRefs": [
         "src-wikibooks-bll-a1-lesson-2"
       ],
       "learningTargets": [
-        "شغل و زبان را در یک تعامل کوتاه بازیابی کند."
+        "هویت و اطلاعات پایه را در برخورد رسمی دنبال کند."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-work-and-languages",
+      "dialogueRef": "dlg-de-a1-find-person-formal",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "app"
       },
       "transformations": [
-        "other",
+        "verbatim_dialogue",
         "persian_translation_added",
         "character_metadata_added"
       ],
@@ -49,32 +48,31 @@
     {
       "id": "act-de-a1-intro-review-choice",
       "type": "multiple_choice",
-      "instructionFa": "کدام جمله دربارهٔ شغل است؟",
-      "selectionReason": "سه جملهٔ منبع‌دار شغل، یادگیری زبان و صحبت‌کردن را از هم جدا می‌کنند.",
+      "instructionFa": "کدام پاسخ هم مبدأ و هم محل زندگی را می‌گوید؟",
+      "selectionReason": "زبان‌آموز باید بین معرفی نام و پاسخ کامل مبدأ/محل زندگی تمایز بگذارد.",
       "sourceRefs": [
-        "src-wikibooks-bll-a1-lesson-1",
         "src-wikibooks-bll-a1-lesson-2"
       ],
       "learningTargets": [
-        "جملهٔ مربوط به شغل را تشخیص دهد."
+        "مبدأ و محل زندگی را در یک پاسخ کوتاه تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "options": [
           {
-            "textTarget": "Nein, ich arbeite als Journalist.",
-            "translationFa": "نه، من به‌عنوان روزنامه‌نگار کار می‌کنم.",
+            "textTarget": "Nein, ich komme aus Deutschland und ich wohne hier in Bern.",
+            "translationFa": "نه، من از آلمان می‌آیم و اینجا در برن زندگی می‌کنم.",
             "correct": true
           },
           {
-            "textTarget": "Ich lerne Deutsch und Französisch.",
-            "translationFa": "من آلمانی و فرانسوی یاد می‌گیرم.",
+            "textTarget": "Ich heiße Lutz Schmidt.",
+            "translationFa": "اسم من لوتس اشمیت است.",
             "correct": false
           },
           {
-            "textTarget": "Ich spreche Englisch und Französisch.",
-            "translationFa": "من انگلیسی و فرانسوی صحبت می‌کنم.",
+            "textTarget": "Ja, und Sie? Wie heißen Sie?",
+            "translationFa": "بله، و شما؟ اسمتان چیست؟",
             "correct": false
           }
         ]
@@ -88,32 +86,28 @@
     {
       "id": "act-de-a1-intro-review-order",
       "type": "word_order",
-      "instructionFa": "پرسش شغل را دوباره بساز.",
-      "selectionReason": "بازسازی پرسش، مرور معرفی را با بازیابی فعال پایان می‌دهد.",
+      "instructionFa": "پرسش «اهل کجا هستید؟» را بساز.",
+      "selectionReason": "بازسازی پرسش، تفاوت Woher با معرفی صرفِ نام را فعال می‌کند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-002-professions"
+        "src-wikibooks-bll-a1-lesson-2"
       ],
       "learningTargets": [
-        "پرسش ساده دربارهٔ شغل را بازسازی کند."
+        "پرسش مبدأ را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Was ist er von Beruf?",
-        "sourceTextFa": "شغل او چیست؟",
+        "sourceText": "Woher kommen Sie?",
+        "sourceTextFa": "اهل کجا هستید؟",
         "tokens": [
-          "Was",
-          "ist",
-          "er",
-          "von",
-          "Beruf?"
+          "Woher",
+          "kommen",
+          "Sie?"
         ],
         "answer": [
-          "Was",
-          "ist",
-          "er",
-          "von",
-          "Beruf?"
+          "Woher",
+          "kommen",
+          "Sie?"
         ]
       },
       "transformations": [

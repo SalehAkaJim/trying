@@ -4,44 +4,42 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-requests-services-help",
-  "titleFa": "اجازه بگیر و درخواست کن",
+  "titleFa": "سایزم رو پیدا می‌کنید؟",
   "learningTargets": [
-    "درخواست اجازه را از پرسش‌های خدماتی دیگر تشخیص دهد.",
-    "درخواست مؤدبانه را در بافت خدماتی دنبال کند.",
-    "پرسش اجازه برای استفاده از تلفن را بازسازی کند."
+    "پیشنهاد کمک فروشنده را بفهمد.",
+    "برای پیدا کردن کالای مناسبِ سایز خود درخواست کمک کند.",
+    "محل اتاق پرو را بپرسد."
   ],
   "sourceRefs": [
-    "src-wikibooks-de-lesson-002-service-clarification",
-    "src-wikivoyage-german-phrasebook-services"
+    "src-wikibooks-german-print-shopping-service"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس اجازه گرفتن را به‌عنوان یک کارکرد مستقل خدماتی از تشخیص به تولید می‌رساند.",
-    "sequenceRationale": "بافت خدماتی ابتدا فعال می‌شود، سپس کاربرد عبارت تشخیص داده و در پایان همان پرسش بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "این درس به‌جای تکرار اجازهٔ تلفن، یک خدمت واقعی تازه را آموزش می‌دهد: درخواست کمک مشخص از کارمند فروشگاه و پیدا کردن اتاق پرو.",
+    "sequenceRationale": "مکالمهٔ کامل خدماتی اجرا می‌شود، سپس پاسخ مناسب به پیشنهاد کمک و پرسش محل اتاق پرو تمرین می‌شوند.",
+    "templateSignature": "conversation_speaking>choose_response>fill_blank"
   },
   "activities": [
     {
       "id": "act-de-a1-services-permission-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "گفت‌وگوی خدماتی را دوباره اجرا کن و روی درخواست مؤدبانه تمرکز کن.",
-      "selectionReason": "صحنهٔ روشن‌سازی، بافت خدماتی را پیش از تمرین اجازه فعال می‌کند.",
+      "instructionFa": "از کارمند فروشگاه برای پیدا کردن سایز مناسب کمک بگیر و اتاق پرو را پیدا کن.",
+      "selectionReason": "گفت‌وگوی پیوستهٔ منبع یک تعامل خدماتی کامل و طبیعی ارائه می‌کند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-002-service-clarification",
-        "src-wikivoyage-german-phrasebook-services"
+        "src-wikibooks-german-print-shopping-service"
       ],
       "learningTargets": [
-        "درخواست مؤدبانه را در بافت خدماتی دنبال کند."
+        "درخواست کمک مشخص در فروشگاه را انجام دهد."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-clarify-slowly",
+      "dialogueRef": "dlg-de-a1-clothing-store-help",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "app"
       },
       "transformations": [
-        "other",
+        "verbatim_dialogue",
         "persian_translation_added",
         "character_metadata_added"
       ],
@@ -49,32 +47,34 @@
     },
     {
       "id": "act-de-a1-services-permission-review-choice",
-      "type": "multiple_choice",
-      "instructionFa": "کدام عبارت برای اجازه گرفتنِ استفاده از تلفن است؟",
-      "selectionReason": "سه عبارت منبع‌دار اجازه گرفتن را از پرسش مکان و زبان جدا می‌کنند.",
+      "type": "choose_response",
+      "instructionFa": "به «Darf ich Ihnen helfen?» پاسخ مناسب را انتخاب کن.",
+      "selectionReason": "پاسخ درست دقیقاً درخواست کمک مشخص برای سایز مناسب است.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-services"
+        "src-wikibooks-german-print-shopping-service"
       ],
       "learningTargets": [
-        "درخواست اجازه را تشخیص دهد."
+        "به پیشنهاد کمک فروشنده پاسخ مناسب بدهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "promptTarget": "Darf ich Ihnen helfen?",
+        "promptFa": "می‌توانم کمکتان کنم؟",
         "options": [
           {
-            "textTarget": "Kann ich Ihr Telefon benutzen?",
-            "translationFa": "می‌توانم از تلفن شما استفاده کنم؟",
+            "textTarget": "Ja, können Sie mir helfen, diesen Rock in meiner Größe zu finden?",
+            "translationFa": "بله، می‌توانید کمکم کنید این دامن را در سایز من پیدا کنم؟",
             "correct": true
           },
           {
-            "textTarget": "Wo ist die Toilette, bitte?",
-            "translationFa": "سرویس بهداشتی کجاست، لطفاً؟",
+            "textTarget": "Danke. Wo ist die Umkleidekabine?",
+            "translationFa": "ممنون. اتاق پرو کجاست؟",
             "correct": false
           },
           {
-            "textTarget": "Sprechen Sie Englisch?",
-            "translationFa": "انگلیسی صحبت می‌کنید؟",
+            "textTarget": "Dort drüben.",
+            "translationFa": "آن طرف.",
             "correct": false
           }
         ]
@@ -87,37 +87,36 @@
     },
     {
       "id": "act-de-a1-services-permission-review-order",
-      "type": "word_order",
-      "instructionFa": "پرسش اجازه برای استفاده از تلفن را دوباره بساز.",
-      "selectionReason": "بازسازی پرسش، تشخیص کاربرد را به تولید هدایت‌شده تبدیل می‌کند.",
+      "type": "fill_blank",
+      "instructionFa": "پرسش محل اتاق پرو را کامل کن.",
+      "selectionReason": "واژهٔ کلیدیِ خدمت فروشگاه در قالب پرسش واقعی تثبیت می‌شود.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-services"
+        "src-wikibooks-german-print-shopping-service"
       ],
       "learningTargets": [
-        "پرسش سادهٔ اجازه را بازسازی کند."
+        "محل اتاق پرو را بپرسد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Kann ich Ihr Telefon benutzen?",
-        "sourceTextFa": "می‌توانم از تلفن شما استفاده کنم؟",
-        "tokens": [
-          "Kann",
-          "ich",
-          "Ihr",
-          "Telefon",
-          "benutzen?"
+        "sourceText": "Danke. Wo ist die Umkleidekabine?",
+        "sourceTextFa": "ممنون. اتاق پرو کجاست؟",
+        "blankedText": "Danke. Wo ist die ___?",
+        "blankedTextFa": "ممنون. ___ کجاست؟",
+        "choices": [
+          "Umkleidekabine",
+          "Größe",
+          "Rock"
         ],
-        "answer": [
-          "Kann",
-          "ich",
-          "Ihr",
-          "Telefon",
-          "benutzen?"
-        ]
+        "choicesFa": [
+          "اتاق پرو",
+          "سایز",
+          "دامن"
+        ],
+        "answer": "Umkleidekabine"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

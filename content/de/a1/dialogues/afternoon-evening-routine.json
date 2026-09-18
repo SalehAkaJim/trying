@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-afternoon-evening-routine",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-022-daily-routine"
+  ],
+  "scenario": "آیریس دربارهٔ کارهای بعدازظهر و شب پاول می‌پرسد؛ پاسخ‌ها خرید روزانه و فعالیت‌های شبانه را پوشش می‌دهند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-afternoon-evening-routine-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was machen Sie nachmittags?",
+      "translationFa": "بعدازظهرها چه کار می‌کنید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-022-daily-routine"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-afternoon-evening-routine-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Nachmittags gehe ich in die Stadt und mache Einkäufe.",
+      "translationFa": "بعدازظهرها به شهر می‌روم و خرید می‌کنم.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-022-daily-routine"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-afternoon-evening-routine-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was machen Sie abends?",
+      "translationFa": "شب‌ها چه کار می‌کنید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-022-daily-routine"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-afternoon-evening-routine-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Abends höre ich Radio, sehe fern und lese Zeitung.",
+      "translationFa": "شب‌ها رادیو گوش می‌دهم، تلویزیون می‌بینم و روزنامه می‌خوانم.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-022-daily-routine"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "دو بخش استفاده‌نشدهٔ تمرین روتین روزانه برای گسترش دامنه از صبح/مدرسه به بعدازظهر و شب انتخاب شده‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}

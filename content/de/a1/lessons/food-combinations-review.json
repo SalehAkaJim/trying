@@ -4,11 +4,11 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-expanded-food-order",
-  "titleFa": "سفارش را کامل‌تر کن",
+  "titleFa": "نداریم؛ این چطور؟",
   "learningTargets": [
-    "ترکیب‌های پرتکرار مقدار و خوراکی یا نوشیدنی را تشخیص دهد.",
-    "افزودن یک قلم دیگر به سفارش را دنبال کند.",
-    "جملهٔ افزودن نوشیدنی به سفارش را بازسازی کند."
+    "دربارهٔ موجودبودن یک خوراکی یا نوشیدنی سؤال کند.",
+    "پاسخ «نه، اما ... هست» را بفهمد.",
+    "جایگزین پیشنهادی را برای چند گروه غذایی تشخیص دهد."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-007-food-order"
@@ -16,24 +16,24 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس واحدهای سرو و اضافه‌کردن قلم دوم را جداگانه تثبیت می‌کند تا سفارش چندمرحله‌ای از یک جملهٔ حفظی فراتر برود.",
-    "sequenceRationale": "از سفارش کامل به تشخیص ترکیب‌ها و سپس ساخت جملهٔ افزودن نوشیدنی می‌رسد.",
-    "templateSignature": "conversation_speaking>matching>word_order"
+    "activitySelectionRationale": "این درس مهارت تازهٔ مدیریت ناموجودبودن یک قلم را اضافه می‌کند؛ زبان‌آموز فقط سفارش حفظ‌شده نمی‌دهد و باید جایگزین را بفهمد.",
+    "sequenceRationale": "مکالمه الگوی سؤال/جایگزین را معرفی می‌کند، تطبیق چهار جفت دامنه را گسترش می‌دهد و تکمیل جمله ساختار aber es gibt را تثبیت می‌کند.",
+    "templateSignature": "conversation_speaking>matching>fill_blank"
   },
   "activities": [
     {
       "id": "act-de-a1-food-combinations-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "سفارش را دوباره اجرا کن و روی اضافه‌کردن قلم دوم تمرکز کن.",
-      "selectionReason": "گفت‌وگوی منبع‌دار الگوی سفارش چندمرحله‌ای را در بافت نگه می‌دارد.",
+      "instructionFa": "بپرس چه چیزی موجود است و جایگزین پیشنهادی را بفهم.",
+      "selectionReason": "دو جفت پرسش‌وپاسخ منبع‌دار الگوی نبودن یک قلم و وجود جایگزین را در بافت سفارش نشان می‌دهند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "افزودن قلم دیگر را در گفت‌وگو دنبال کند."
+        "موجودبودن و جایگزین را در مکالمه بفهمد."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-expanded-food-order",
+      "dialogueRef": "dlg-de-a1-food-substitutes",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "app"
@@ -48,41 +48,41 @@
     {
       "id": "act-de-a1-food-combinations-review-matching",
       "type": "matching",
-      "instructionFa": "ترکیب‌های سفارش را به معنی درست وصل کن.",
-      "selectionReason": "چهار ترکیب منبع‌دار تکه، فنجان و افزودنی‌ها را تثبیت می‌کنند.",
+      "instructionFa": "هر قلم ناموجود را به جایگزین منبع‌دارش وصل کن.",
+      "selectionReason": "چهار جفت مختلف نشان می‌دهند الگو به یک خوراکی محدود نیست.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "ترکیب‌های مقدار و خوراکی یا نوشیدنی را تشخیص دهد."
+        "جایگزین چند گروه غذایی را تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "pairs": [
           {
-            "left": "ein Stück Kuchen",
-            "leftFa": "یک تکه کیک",
-            "right": "یک تکه کیک",
-            "rightFa": "یک تکه کیک"
+            "left": "Käse",
+            "leftFa": "پنیر",
+            "right": "Wurst",
+            "rightFa": "سوسیس"
           },
           {
-            "left": "eine Tasse Kaffee",
-            "leftFa": "یک فنجان قهوه",
-            "right": "یک فنجان قهوه",
-            "rightFa": "یک فنجان قهوه"
+            "left": "Gemüse",
+            "leftFa": "سبزیجات",
+            "right": "Obst",
+            "rightFa": "میوه"
           },
           {
-            "left": "drei Stück Kuchen",
-            "leftFa": "سه تکه کیک",
-            "right": "سه تکه کیک",
-            "rightFa": "سه تکه کیک"
+            "left": "Milch",
+            "leftFa": "شیر",
+            "right": "Tee",
+            "rightFa": "چای"
           },
           {
-            "left": "eine Tasse Kaffee mit Milch und Zucker",
-            "leftFa": "یک فنجان قهوه با شیر و شکر",
-            "right": "قهوه با شیر و شکر",
-            "rightFa": "قهوه با شیر و شکر"
+            "left": "Wasser",
+            "leftFa": "آب",
+            "right": "Kakao",
+            "rightFa": "کاکائو"
           }
         ]
       },
@@ -94,41 +94,36 @@
     },
     {
       "id": "act-de-a1-food-combinations-review-order",
-      "type": "word_order",
-      "instructionFa": "جملهٔ اضافه‌کردن قهوه را دوباره بساز.",
-      "selectionReason": "تولید هدایت‌شدهٔ قلم دوم، الگوی سفارش چندمرحله‌ای را تثبیت می‌کند.",
+      "type": "fill_blank",
+      "instructionFa": "پاسخ جایگزین را کامل کن.",
+      "selectionReason": "تکمیل aber es gibt ساختار کاربردی پاسخ به نبودن یک قلم را فعال می‌کند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "جملهٔ افزودن نوشیدنی را بازسازی کند."
+        "جملهٔ معرفی جایگزین را تکمیل کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Ich möchte auch noch eine Tasse Kaffee.",
-        "sourceTextFa": "یک فنجان قهوه هم می‌خواهم.",
-        "tokens": [
-          "Ich",
-          "möchte",
-          "auch",
-          "noch",
-          "eine",
-          "Tasse",
-          "Kaffee."
+        "sourceText": "Nein, aber es gibt Tee.",
+        "sourceTextFa": "نه، اما چای هست.",
+        "blankedText": "Nein, aber es gibt ___.",
+        "blankedTextFa": "نه، اما ___ هست.",
+        "choices": [
+          "Tee",
+          "Milch",
+          "Wasser"
         ],
-        "answer": [
-          "Ich",
-          "möchte",
-          "auch",
-          "noch",
-          "eine",
-          "Tasse",
-          "Kaffee."
-        ]
+        "choicesFa": [
+          "چای",
+          "شیر",
+          "آب"
+        ],
+        "answer": "Tee"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

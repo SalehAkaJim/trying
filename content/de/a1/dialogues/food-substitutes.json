@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-food-substitutes",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-food-order"
+  ],
+  "scenario": "مشتری موجودبودن دو گروه غذایی را می‌پرسد و پاسخ جایگزین موجود را معرفی می‌کند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-food-substitutes-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Gibt es Käse?",
+      "translationFa": "پنیر هست؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-food-substitutes-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Nein, aber es gibt Wurst.",
+      "translationFa": "نه، اما سوسیس هست.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-food-substitutes-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Gibt es Gemüse?",
+      "translationFa": "سبزیجات هست؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-food-substitutes-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Nein, aber es gibt Obst.",
+      "translationFa": "نه، اما میوه هست.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "دو جفت سؤال‌وجواب منبع‌دارِ «موجود نیست، اما جایگزین هست» برای مهارت مدیریت نبودن یک قلم انتخاب شده‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}

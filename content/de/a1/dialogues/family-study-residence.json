@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-family-study-residence",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-family"
+  ],
+  "scenario": "مکس از پاول دربارهٔ محل تحصیل برادر و محل زندگی خواهر خانواده می‌پرسد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-max",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-family-study-residence-1",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wo studiert euer Bruder?",
+      "translationFa": "برادرتان کجا درس می‌خواند؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-family-study-residence-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Unser Bruder studiert in Berlin.",
+      "translationFa": "برادر ما در برلین درس می‌خواند.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-family-study-residence-3",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wo wohnt eure Schwester?",
+      "translationFa": "خواهرتان کجا زندگی می‌کند؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-family-study-residence-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Unsere Schwester wohnt in Hamburg.",
+      "translationFa": "خواهر ما در هامبورگ زندگی می‌کند.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "دو جفت پرسش‌وپاسخ از تمرین خانواده بدون بازنویسی متن آلمانی کنار هم قرار گرفته‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}

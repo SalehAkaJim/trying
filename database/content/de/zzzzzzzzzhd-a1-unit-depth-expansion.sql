@@ -8,8 +8,8 @@ SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_lev
 
 -- Move every current A1 slot out of the target range before deterministic reordering.
 UPDATE lessons
-SET sequence_index=sequence_index+1000,
-    position_in_unit=CASE WHEN position_in_unit IS NULL THEN NULL ELSE position_in_unit+100 END
+SET sequence_index=sequence_index+2000000,
+    position_in_unit=CASE WHEN position_in_unit IS NULL THEN NULL ELSE position_in_unit+200000 END
 WHERE language_level_id=@level;
 
 SET @unit := (SELECT id FROM units WHERE unit_key='de-a1-unit-extended-introduction' AND language_level_id=@level LIMIT 1);
@@ -26,7 +26,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-intro-review-conversation',@lesson,1,'conversation_speaking','گفت‌وگوی شغل و زبان را دوباره اجرا کن و این بار اطلاعات معرفی را یک‌جا دنبال کن.','مکالمهٔ منبع‌دار شغل و زبان برای بازیابی فاصله‌دار دوباره استفاده می‌شود.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-work-and-languages' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"app"}' AS JSON),CAST('["other","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-intro-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -34,7 +34,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-intro-review-choice',@lesson,2,'multiple_choice','کدام جمله دربارهٔ شغل است؟','سه جملهٔ منبع‌دار شغل، یادگیری زبان و صحبت‌کردن را از هم جدا می‌کنند.',NULL,CAST('{"options":[{"textTarget":"Nein, ich arbeite als Journalist.","translationFa":"نه، من به‌عنوان روزنامه‌نگار کار می‌کنم.","correct":true},{"textTarget":"Ich lerne Deutsch und Französisch.","translationFa":"من آلمانی و فرانسوی یاد می‌گیرم.","correct":false},{"textTarget":"Ich spreche Englisch und Französisch.","translationFa":"من انگلیسی و فرانسوی صحبت می‌کنم.","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-intro-review-choice' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -42,7 +42,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-intro-review-order',@lesson,3,'word_order','پرسش شغل را دوباره بساز.','بازسازی پرسش، مرور معرفی را با بازیابی فعال پایان می‌دهد.',NULL,CAST('{"sourceText":"Was ist er von Beruf?","sourceTextFa":"شغل او چیست؟","tokens":["Was","ist","er","von","Beruf?"],"answer":["Was","ist","er","von","Beruf?"]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-intro-review-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -63,7 +63,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-family-review-conversation',@lesson,1,'conversation_speaking','گفت‌وگوی پدر و مادر را دوباره انجام بده و اطلاعات هر نفر را دنبال کن.','صحنهٔ منبع‌دار والدین برای مرور چند نوع اطلاعات خانوادگی استفاده می‌شود.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-family-parents-profile' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"app"}' AS JSON),CAST('["other","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-family-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -71,7 +71,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-family-review-matching',@lesson,2,'matching','اعضای خانواده را به معنی درست وصل کن.','چهار رابطهٔ خانوادگی پایه پیش از تولید پرسش دوباره فعال می‌شوند.',NULL,CAST('{"pairs":[{"left":"Bruder","leftFa":"برادر","right":"برادر","rightFa":"برادر"},{"left":"Schwester","leftFa":"خواهر","right":"خواهر","rightFa":"خواهر"},{"left":"Mutter","leftFa":"مادر","right":"مادر","rightFa":"مادر"},{"left":"Vater","leftFa":"پدر","right":"پدر","rightFa":"پدر"}]}' AS JSON),CAST('["source_items_grouped_for_matching","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-family-review-matching' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -79,7 +79,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-family-review-order',@lesson,3,'word_order','پرسش نام برادر را دوباره بساز.','پرسش منبع‌دار نام، واژگان خانواده را به یک کاربرد واقعی برمی‌گرداند.',NULL,CAST('{"sourceText":"Wie heißt euer Bruder?","sourceTextFa":"اسم برادرتان چیست؟","tokens":["Wie","heißt","euer","Bruder?"],"answer":["Wie","heißt","euer","Bruder?"]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-family-review-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -100,7 +100,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-home-review-conversation',@lesson,1,'conversation_speaking','گفت‌وگوی جای وسایل را دوباره اجرا کن و به موقعیت‌ها دقت کن.','مکالمهٔ منبع‌دار موقعیت، نام وسایل را به توصیف فضا وصل می‌کند.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-room-position' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"app"}' AS JSON),CAST('["verbatim_dialogue","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-home-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -108,7 +108,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-home-review-matching',@lesson,2,'matching','هر موقعیت را به معنی درست وصل کن.','چهار قید مکانی منبع‌دار برای توصیف اتاق دوباره بازیابی می‌شوند.',NULL,CAST('{"pairs":[{"left":"rechts","leftFa":"سمت راست","right":"راست","rightFa":"راست"},{"left":"links","leftFa":"سمت چپ","right":"چپ","rightFa":"چپ"},{"left":"hinten","leftFa":"عقب","right":"عقب","rightFa":"عقب"},{"left":"vorn","leftFa":"جلو","right":"جلو","rightFa":"جلو"}]}' AS JSON),CAST('["source_items_grouped_for_matching","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-home-review-matching' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -116,7 +116,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-home-review-order',@lesson,3,'word_order','پرسش جای صندلی را دوباره بساز.','بازیابی پرسش موقعیت، مرور واژگان را به کاربرد فعال وصل می‌کند.',NULL,CAST('{"sourceText":"Steht der Stuhl hinten?","sourceTextFa":"آیا صندلی عقب قرار دارد؟","tokens":["Steht","der","Stuhl","hinten?"],"answer":["Steht","der","Stuhl","hinten?"]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-home-review-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -137,7 +137,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-daily-review-conversation',@lesson,1,'conversation_speaking','روتین صبح و پیش از ظهر را دوباره اجرا کن و ترتیب روز را نگه دار.','گفت‌وگوی منبع‌دار چهارچوب زمانی روز را برای مرور فعال می‌کند.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-daily-routine-work' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"app"}' AS JSON),CAST('["verbatim_dialogue","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-daily-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -145,7 +145,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-daily-review-matching',@lesson,2,'matching','هر جمله را به بخش درست روز وصل کن.','چهار پاسخ منبع‌دار نمای کامل صبح تا بعدازظهر را می‌سازند.',NULL,CAST('{"pairs":[{"left":"Morgens trinke ich Kaffee.","leftFa":"صبح‌ها قهوه می‌نوشم.","right":"صبح","rightFa":"صبح"},{"left":"Vormittags arbeite ich im Betrieb.","leftFa":"پیش از ظهرها در محل کار کار می‌کنم.","right":"پیش از ظهر","rightFa":"پیش از ظهر"},{"left":"Mittags esse ich in einem Restaurant.","leftFa":"ظهرها در یک رستوران غذا می‌خورم.","right":"ظهر","rightFa":"ظهر"},{"left":"Nachmittags gehe ich nach Hause.","leftFa":"بعدازظهرها به خانه می‌روم.","right":"بعدازظهر","rightFa":"بعدازظهر"}]}' AS JSON),CAST('["source_items_grouped_for_matching","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-daily-review-matching' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -153,7 +153,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-daily-review-response',@lesson,3,'choose_response','برای پرسش بعدازظهر پاسخ مناسب را انتخاب کن.','پاسخ‌های منبع‌دار نشان می‌دهند زبان‌آموز باید بخش درست روز را به پرسش وصل کند.',NULL,CAST('{"promptTarget":"Was machen Sie nachmittags?","promptFa":"بعدازظهرها چه کار می‌کنید؟","options":[{"textTarget":"Nachmittags gehe ich nach Hause.","translationFa":"بعدازظهرها به خانه می‌روم.","correct":true},{"textTarget":"Morgens trinke ich Kaffee.","translationFa":"صبح‌ها قهوه می‌نوشم.","correct":false},{"textTarget":"Mittags esse ich in einem Restaurant.","translationFa":"ظهرها در یک رستوران غذا می‌خورم.","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-daily-review-response' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -174,7 +174,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-shopping-price-review-conversation',@lesson,1,'conversation_speaking','گفت‌وگوی خرید را اجرا کن و این بار روی قیمت تمرکز کن.','تراکنش کامل، پرسش قیمت را در بافت واقعی نگه می‌دارد.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-shopping-quantity-payment' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"learner"}' AS JSON),CAST('["verbatim_dialogue","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-shopping-price-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -182,7 +182,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-shopping-price-review-matching',@lesson,2,'matching','هر مقدار کالا را به قیمت درست وصل کن.','چهار نمونهٔ منبع‌دار باعث می‌شوند قیمت به یک کالا محدود نماند.',NULL,CAST('{"pairs":[{"left":"300 g Wurst","leftFa":"۳۰۰ گرم سوسیس","right":"5,99 Euro","rightFa":"۵٫۹۹ یورو"},{"left":"250 g Butter","leftFa":"۲۵۰ گرم کره","right":"3,95 Euro","rightFa":"۳٫۹۵ یورو"},{"left":"zwei Flaschen Milch","leftFa":"دو بطری شیر","right":"2,99 Euro","rightFa":"۲٫۹۹ یورو"},{"left":"fünf Eier","leftFa":"پنج تخم‌مرغ","right":"2,67 Euro","rightFa":"۲٫۶۷ یورو"}]}' AS JSON),CAST('["source_items_grouped_for_matching","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-shopping-price-review-matching' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -190,7 +190,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-shopping-price-review-order',@lesson,3,'word_order','پرسش قیمت گوشت را دوباره بساز.','پس از خواندن چند قیمت، پرسش اصلی به بازیابی فعال منتقل می‌شود.',NULL,CAST('{"sourceText":"Wie viel kostet dieses Fleisch?","sourceTextFa":"این گوشت چقدر قیمت دارد؟","tokens":["Wie","viel","kostet","dieses","Fleisch?"],"answer":["Wie","viel","kostet","dieses","Fleisch?"]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-shopping-price-review-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -211,7 +211,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-shopping-checkout-review-conversation',@lesson,1,'conversation_speaking','گفت‌وگوی خرید را دوباره اجرا کن و این بار روی پایان سفارش و صندوق تمرکز کن.','صحنهٔ کامل، مرحلهٔ بستن سفارش و پرداخت را در جای طبیعی آن نگه می‌دارد.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-shopping-quantity-payment' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"learner"}' AS JSON),CAST('["verbatim_dialogue","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-shopping-checkout-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -219,7 +219,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-shopping-checkout-review-response',@lesson,2,'choose_response','فروشنده مقدار را می‌پرسد؛ پاسخ درست را انتخاب کن.','تمایز پاسخ مقدار از «چیز دیگری؟» و پایان سفارش، ترتیب تراکنش را روشن می‌کند.',NULL,CAST('{"promptTarget":"Wie viel möchten Sie?","promptFa":"چه مقدار می‌خواهید؟","options":[{"textTarget":"Bitte 250 Gramm.","translationFa":"لطفاً ۲۵۰ گرم.","correct":true},{"textTarget":"Noch etwas?","translationFa":"چیز دیگری؟","correct":false},{"textTarget":"Danke, das ist alles.","translationFa":"ممنون، همین کافی است.","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-shopping-checkout-review-response' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -227,7 +227,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-shopping-checkout-review-order',@lesson,3,'word_order','دستور پرداخت را دوباره بساز.','بازیابی جملهٔ پرداخت مرحلهٔ پایانی خرید را تثبیت می‌کند.',NULL,CAST('{"sourceText":"Bezahlen Sie bitte dort.","sourceTextFa":"لطفاً آنجا پرداخت کنید.","tokens":["Bezahlen","Sie","bitte","dort."],"answer":["Bezahlen","Sie","bitte","dort."]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-shopping-checkout-review-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -248,7 +248,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-food-preference-review-conversation',@lesson,1,'conversation_speaking','سفارش را دوباره اجرا کن و به انتخاب‌ها دقت کن.','گفت‌وگوی سفارش، ترجیح را در یک موقعیت واقعی فعال می‌کند.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-expanded-food-order' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"app"}' AS JSON),CAST('["verbatim_dialogue","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-food-preference-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -256,7 +256,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-food-preference-review-choice',@lesson,2,'multiple_choice','کدام جمله می‌گوید قهوه می‌خواهم، اما شیر نمی‌خواهم؟','سه جملهٔ منبع‌دار الگوی ترجیح مثبت و منفی را مقایسه می‌کنند.',NULL,CAST('{"options":[{"textTarget":"Ich möchte Kaffee, aber keine Milch.","translationFa":"قهوه می‌خواهم، اما شیر نمی‌خواهم.","correct":true},{"textTarget":"Ich möchte Kuchen, aber keine Brötchen.","translationFa":"کیک می‌خواهم، اما نان گرد نمی‌خواهم.","correct":false},{"textTarget":"Ich möchte Reis, aber keine Suppe.","translationFa":"برنج می‌خواهم، اما سوپ نمی‌خواهم.","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-food-preference-review-choice' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -264,7 +264,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-food-preference-review-order',@lesson,3,'word_order','جملهٔ قهوه بدون شیر را دوباره بساز.','بازسازی جمله، تشخیص ترجیح را به تولید هدایت‌شده تبدیل می‌کند.',NULL,CAST('{"sourceText":"Ich möchte Kaffee, aber keine Milch.","sourceTextFa":"قهوه می‌خواهم، اما شیر نمی‌خواهم.","tokens":["Ich","möchte","Kaffee,","aber","keine","Milch."],"answer":["Ich","möchte","Kaffee,","aber","keine","Milch."]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-food-preference-review-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -285,7 +285,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-food-combinations-review-conversation',@lesson,1,'conversation_speaking','سفارش را دوباره اجرا کن و روی اضافه‌کردن قلم دوم تمرکز کن.','گفت‌وگوی منبع‌دار الگوی سفارش چندمرحله‌ای را در بافت نگه می‌دارد.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-expanded-food-order' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"app"}' AS JSON),CAST('["verbatim_dialogue","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-food-combinations-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -293,7 +293,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-food-combinations-review-matching',@lesson,2,'matching','ترکیب‌های سفارش را به معنی درست وصل کن.','چهار ترکیب منبع‌دار تکه، فنجان و افزودنی‌ها را تثبیت می‌کنند.',NULL,CAST('{"pairs":[{"left":"ein Stück Kuchen","leftFa":"یک تکه کیک","right":"یک تکه کیک","rightFa":"یک تکه کیک"},{"left":"eine Tasse Kaffee","leftFa":"یک فنجان قهوه","right":"یک فنجان قهوه","rightFa":"یک فنجان قهوه"},{"left":"drei Stück Kuchen","leftFa":"سه تکه کیک","right":"سه تکه کیک","rightFa":"سه تکه کیک"},{"left":"eine Tasse Kaffee mit Milch und Zucker","leftFa":"یک فنجان قهوه با شیر و شکر","right":"قهوه با شیر و شکر","rightFa":"قهوه با شیر و شکر"}]}' AS JSON),CAST('["source_items_grouped_for_matching","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-food-combinations-review-matching' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -301,7 +301,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-food-combinations-review-order',@lesson,3,'word_order','جملهٔ اضافه‌کردن قهوه را دوباره بساز.','تولید هدایت‌شدهٔ قلم دوم، الگوی سفارش چندمرحله‌ای را تثبیت می‌کند.',NULL,CAST('{"sourceText":"Ich möchte auch noch eine Tasse Kaffee.","sourceTextFa":"یک فنجان قهوه هم می‌خواهم.","tokens":["Ich","möchte","auch","noch","eine","Tasse","Kaffee."],"answer":["Ich","möchte","auch","noch","eine","Tasse","Kaffee."]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-food-combinations-review-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -322,7 +322,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-time-review-conversation',@lesson,1,'conversation_speaking','گفت‌وگوی قرار را دوباره انجام بده و روی زمان جایگزین تمرکز کن.','صحنهٔ منبع‌دار دعوت و تغییر زمان، ساعت را به تصمیم واقعی وصل می‌کند.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-time-simple-appointment' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"app"}' AS JSON),CAST('["verbatim_dialogue","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-time-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -330,7 +330,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-time-review-matching',@lesson,2,'matching','هر عبارت را به معنی درست وصل کن.','چهار عبارت منبع‌دارِ زمان و قرار در یک شبکهٔ واحد مرور می‌شوند.',NULL,CAST('{"pairs":[{"left":"einen Termin","leftFa":"یک قرار / وقت ملاقات","right":"قرار","rightFa":"قرار"},{"left":"heute Abend","leftFa":"امشب","right":"امشب","rightFa":"امشب"},{"left":"morgen","leftFa":"فردا","right":"فردا","rightFa":"فردا"},{"left":"um 12 Uhr","leftFa":"ساعت ۱۲","right":"ساعت ۱۲","rightFa":"ساعت ۱۲"}]}' AS JSON),CAST('["source_items_grouped_for_matching","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-time-review-matching' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -338,7 +338,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-time-review-order',@lesson,3,'word_order','جملهٔ دعوت به کنسرت را دوباره بساز.','بازسازی دعوت، مرور زمان و قرار را با تولید هدایت‌شده پایان می‌دهد.',NULL,CAST('{"sourceText":"Darf ich Sie ins Konzert einladen?","sourceTextFa":"می‌توانم شما را به کنسرت دعوت کنم؟","tokens":["Darf","ich","Sie","ins","Konzert","einladen?"],"answer":["Darf","ich","Sie","ins","Konzert","einladen?"]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-time-review-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -359,7 +359,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-directions-places-review-conversation',@lesson,1,'conversation_speaking','مسیر شهرداری را دوباره بپرس و این بار روی مقصدها تمرکز کن.','گفت‌وگوی منبع‌دار مسیر، واژگان مکان را در نقش مقصد نگه می‌دارد.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-ask-and-follow-directions' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"learner"}' AS JSON),CAST('["verbatim_dialogue","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-directions-places-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -367,7 +367,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-directions-places-review-matching',@lesson,2,'matching','مکان‌های عمومی را به معنی درست وصل کن.','چهار مقصد پرتکرار پایهٔ انتقال مهارت مسیر به مکان‌های مختلف هستند.',NULL,CAST('{"pairs":[{"left":"Bahnhof","leftFa":"ایستگاه قطار","right":"ایستگاه قطار","rightFa":"ایستگاه قطار"},{"left":"Bushaltestelle","leftFa":"ایستگاه اتوبوس","right":"ایستگاه اتوبوس","rightFa":"ایستگاه اتوبوس"},{"left":"Flughafen","leftFa":"فرودگاه","right":"فرودگاه","rightFa":"فرودگاه"},{"left":"Stadtmitte","leftFa":"مرکز شهر","right":"مرکز شهر","rightFa":"مرکز شهر"}]}' AS JSON),CAST('["source_items_grouped_for_matching","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-directions-places-review-matching' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -375,7 +375,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-directions-places-review-order',@lesson,3,'word_order','پرسش مسیر شهرداری را دوباره بساز.','پس از مرور مقصدها، پرسش مسیر به بازیابی فعال منتقل می‌شود.',NULL,CAST('{"sourceText":"Wie komme ich zum Rathaus?","sourceTextFa":"چطور به شهرداری برسم؟","tokens":["Wie","komme","ich","zum","Rathaus?"],"answer":["Wie","komme","ich","zum","Rathaus?"]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-directions-places-review-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -396,7 +396,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-directions-sequence-review-conversation',@lesson,1,'conversation_speaking','گفت‌وگوی مسیر را دوباره اجرا کن و ترتیب حرکت را دنبال کن.','صحنهٔ منبع‌دار این بار برای تمرکز بر راست و سپس مستقیم استفاده می‌شود.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-ask-and-follow-directions' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"learner"}' AS JSON),CAST('["verbatim_dialogue","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-directions-sequence-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -404,7 +404,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-directions-sequence-review-choice',@lesson,2,'multiple_choice','کدام عبارت یعنی مستقیم به جلو؟','سه عبارت منبع‌دار تفاوت مستقیم، چپ و راست را می‌سنجند.',NULL,CAST('{"options":[{"textTarget":"geradeaus","translationFa":"مستقیم به جلو","correct":true},{"textTarget":"Links abbiegen.","translationFa":"به چپ بپیچید.","correct":false},{"textTarget":"Rechts abbiegen.","translationFa":"به راست بپیچید.","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-directions-sequence-review-choice' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -412,7 +412,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-directions-sequence-review-fill',@lesson,3,'fill_blank','جملهٔ مسیر را با عبارت درست کامل کن.','تکمیل جملهٔ کامل، فهم جهت را در جای واقعی آن می‌سنجد.',NULL,CAST('{"sourceText":"Rechts um die Ecke und dann immer geradeaus – ungefähr ein Kilometer.","sourceTextFa":"سرِ پیچ به راست بپیچید و بعد مستقیم ادامه بدهید؛ حدود یک کیلومتر.","blankedText":"Rechts um die Ecke und dann immer ___ – ungefähr ein Kilometer.","blankedTextFa":"سرِ پیچ به راست بپیچید و بعد ___ ادامه بدهید؛ حدود یک کیلومتر.","choices":["geradeaus","links","rechts"],"choicesFa":["مستقیم","چپ","راست"],"answer":"geradeaus"}' AS JSON),CAST('["source_sentence_blank_created","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-directions-sequence-review-fill' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -433,7 +433,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-services-permission-review-conversation',@lesson,1,'conversation_speaking','گفت‌وگوی خدماتی را دوباره اجرا کن و روی درخواست مؤدبانه تمرکز کن.','صحنهٔ روشن‌سازی، بافت خدماتی را پیش از تمرین اجازه فعال می‌کند.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-clarify-slowly' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"app"}' AS JSON),CAST('["other","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-services-permission-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -441,7 +441,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-services-permission-review-choice',@lesson,2,'multiple_choice','کدام عبارت برای اجازه گرفتنِ استفاده از تلفن است؟','سه عبارت منبع‌دار اجازه گرفتن را از پرسش مکان و زبان جدا می‌کنند.',NULL,CAST('{"options":[{"textTarget":"Kann ich Ihr Telefon benutzen?","translationFa":"می‌توانم از تلفن شما استفاده کنم؟","correct":true},{"textTarget":"Wo ist die Toilette, bitte?","translationFa":"سرویس بهداشتی کجاست، لطفاً؟","correct":false},{"textTarget":"Sprechen Sie Englisch?","translationFa":"انگلیسی صحبت می‌کنید؟","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-services-permission-review-choice' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -449,7 +449,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-services-permission-review-order',@lesson,3,'word_order','پرسش اجازه برای استفاده از تلفن را دوباره بساز.','بازسازی پرسش، تشخیص کاربرد را به تولید هدایت‌شده تبدیل می‌کند.',NULL,CAST('{"sourceText":"Kann ich Ihr Telefon benutzen?","sourceTextFa":"می‌توانم از تلفن شما استفاده کنم؟","tokens":["Kann","ich","Ihr","Telefon","benutzen?"],"answer":["Kann","ich","Ihr","Telefon","benutzen?"]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-services-permission-review-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -470,7 +470,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-services-help-review-conversation',@lesson,1,'conversation_speaking','اگر چیزی را نفهمیدی، گفت‌وگو را مدیریت کن و درخواست روشن‌سازی بده.','صحنهٔ منبع‌دار راهبرد ادامه‌دادن تعامل در صورت نفهمیدن را فعال می‌کند.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-clarify-slowly' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"app"}' AS JSON),CAST('["other","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-services-help-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -478,7 +478,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-services-help-review-response',@lesson,2,'choose_response','در پاسخ به «چه چیزی لازم دارید؟» جملهٔ مربوط به کمک را انتخاب کن.','انتخاب پاسخ درست، نیاز مشخص را از جمله‌های نزدیک با کارکرد دیگر جدا می‌کند.',NULL,CAST('{"promptTarget":"Was brauchen Sie?","promptFa":"چه چیزی لازم دارید؟","options":[{"textTarget":"Ich brauche Ihre Hilfe.","translationFa":"به کمک شما نیاز دارم.","correct":true},{"textTarget":"Ich verstehe das nicht.","translationFa":"این را نمی‌فهمم.","correct":false},{"textTarget":"Wo ist die Toilette, bitte?","translationFa":"سرویس بهداشتی کجاست، لطفاً؟","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-services-help-review-response' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -486,7 +486,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-services-help-review-matching',@lesson,3,'matching','واژه‌های خدماتی را به معنی درست وصل کن.','شبکهٔ چهار واژهٔ خدماتی دامنهٔ کاربرد واحد را تثبیت می‌کند.',NULL,CAST('{"pairs":[{"left":"Hilfe","leftFa":"کمک","right":"کمک","rightFa":"کمک"},{"left":"Telefon","leftFa":"تلفن","right":"تلفن","rightFa":"تلفن"},{"left":"Toilette","leftFa":"سرویس بهداشتی","right":"سرویس بهداشتی","rightFa":"سرویس بهداشتی"},{"left":"Apotheke","leftFa":"داروخانه","right":"داروخانه","rightFa":"داروخانه"}]}' AS JSON),CAST('["source_items_grouped_for_matching","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-services-help-review-matching' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -507,7 +507,7 @@ SELECT @lesson,curriculum_target_id,'review' FROM unit_targets WHERE unit_id=@un
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-forms-review-conversation',@lesson,1,'conversation_speaking','گفت‌وگوی اطلاعات شخصی را دوباره اجرا کن و به اطلاعات فرم دقت کن.','گفت‌وگوی منبع‌دار اطلاعات لازم برای فرم را پیش از خواندن محیطی فعال می‌کند.',(SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-personal-form-review' LIMIT 1),CAST('{"interaction":"read_aloud_exchange","openingInitiator":"app"}' AS JSON),CAST('["other","persian_translation_added","character_metadata_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-forms-review-conversation' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -515,7 +515,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-forms-review-signs',@lesson,2,'matching','تابلوهای کوتاه را به معنی درست وصل کن.','چهار تابلو باید در پایان A1 به‌صورت سریع و مستقل قابل تشخیص باشند.',NULL,CAST('{"pairs":[{"left":"Offen","leftFa":"باز","right":"باز","rightFa":"باز"},{"left":"Geschlossen","leftFa":"بسته","right":"بسته","rightFa":"بسته"},{"left":"Eingang","leftFa":"ورودی","right":"ورودی","rightFa":"ورودی"},{"left":"Ausgang","leftFa":"خروجی","right":"خروجی","rightFa":"خروجی"}]}' AS JSON),CAST('["source_items_grouped_for_matching","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-forms-review-signs' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
@@ -523,7 +523,7 @@ SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
 INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
 VALUES('act-de-a1-forms-review-message-order',@lesson,3,'word_order','پیام کوتاه تماس برای بعدازظهر را دوباره بساز.','بازسازی پیام، خواندن محیطی را با نوشتن هدایت‌شده جمع می‌کند.',NULL,CAST('{"sourceText":"Rufen Sie bitte am Nachmittag noch einmal an.","sourceTextFa":"لطفاً بعدازظهر دوباره تماس بگیرید.","tokens":["Rufen","Sie","bitte","am","Nachmittag","noch","einmal","an."],"answer":["Rufen","Sie","bitte","am","Nachmittag","noch","einmal","an."]}' AS JSON),CAST('["sentence_tokenized_for_word_order","persian_translation_added"]' AS JSON),NULL,'not_required')
 ON DUPLICATE KEY UPDATE
- lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ lesson_id=VALUES(lesson_id),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=NULL;
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-forms-review-message-order' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)

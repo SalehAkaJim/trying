@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-spell-personal-data",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-form-spelling"
+  ],
+  "scenario": "در یک فرم، از زبان‌آموز خواسته می‌شود نام و نام خانوادگی نمونهٔ منبع را حرف‌به‌حرف هجی کند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-max"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-spell-personal-data-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Buchstabieren Sie Ihren Vornamen.",
+      "translationFa": "نام کوچک‌تان را هجی کنید.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-form-spelling"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-spell-personal-data-2",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "M-A-R-C-U-S.",
+      "translationFa": "م ـ ا ـ ر ـ ک ـ و ـ س.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-form-spelling"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-spell-personal-data-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Buchstabieren Sie Ihren Familiennamen.",
+      "translationFa": "نام خانوادگی‌تان را هجی کنید.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-form-spelling"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-spell-personal-data-4",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "C-L-I-N-T-O-N.",
+      "translationFa": "ک ـ ل ـ ی ـ ن ـ ت ـ و ـ ن.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-form-spelling"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "دستورها و دو نام نمونه از تمرین ۲۹۸ منبع گرفته شده‌اند؛ نمایش حرف‌به‌حرف فقط تبدیل مکانیکی همان دو نمونه برای تمرین هجی‌کردن است.",
+  "learnerCharacterId": "char-de-max"
+}

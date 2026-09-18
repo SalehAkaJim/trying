@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-hotel-restaurant-location",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-german-print-directions"
+  ],
+  "scenario": "مسافر ابتدا هتل را پیدا می‌کند و بعد می‌پرسد آیا رستورانی در آن هست.",
+  "openingInitiator": "learner",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-hotel-restaurant-location-1",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Entschuldigen Sie bitte. Wo ist hier ein Hotel?",
+      "translationFa": "ببخشید. اینجا یک هتل کجاست؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-hotel-restaurant-location-2",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Gleich dort drüben. Das ist das Hotel \"Zur Post\".",
+      "translationFa": "همین آن طرف. آن هتل «Zur Post» است.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-hotel-restaurant-location-3",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Gibt es ein Restaurant darin?",
+      "translationFa": "داخلش رستوران هست؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-hotel-restaurant-location-4",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ja gewiss! Ein Restaurant mit einfacher Küche, besonders zum Abendessen. Aber ich könnte Ihnen ein anderes Restaurant empfehlen. Es heißt 'Alt-Wien', und es gibt dort das beste Frühstück. Das Restaurant ist links neben dem Hotel, um die Ecke.",
+      "translationFa": "بله، حتماً! یک رستوران با غذای ساده، مخصوصاً برای شام. اما می‌توانم رستوران دیگری پیشنهاد کنم. اسمش «Alt-Wien» است و آنجا بهترین صبحانه را دارند. رستوران سمت چپ هتل، سرِ پیچ است.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "چهار نوبت نخست گفت‌وگوی ۵-۲ منبع بدون ساخت جملهٔ تازه استفاده شده و موقعیت نسبی رستوران نسبت به هتل را آموزش می‌دهد.",
+  "learnerCharacterId": "char-de-paul"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-coffee-customization",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-food-order"
+  ],
+  "scenario": "در کافه، مشتری قهوه سفارش می‌دهد و مشخص می‌کند آن را فقط با شکر می‌خواهد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-coffee-customization-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was möchten Sie?",
+      "translationFa": "چه میل دارید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-coffee-customization-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Bitte eine Tasse Kaffee.",
+      "translationFa": "لطفاً یک فنجان قهوه.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-coffee-customization-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Mit Milch und Zucker?",
+      "translationFa": "با شیر و شکر؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-coffee-customization-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Bitte nur mit Zucker.",
+      "translationFa": "لطفاً فقط با شکر.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "چهار نوبت پیوسته از سفارش قهوه در منبع انتخاب شده‌اند؛ هدف تازه، شخصی‌سازی سفارش است.",
+  "learnerCharacterId": "char-de-paul"
+}

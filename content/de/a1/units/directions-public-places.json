@@ -14,11 +14,13 @@
     "de-a1-lesson-ask-and-follow-directions",
     "de-a1-lesson-directions-sequence-review"
   ],
-  "groupingRationale": "واحد ابتدا مقصدهای عمومی را تثبیت می‌کند، سپس پرسیدن و دنبال‌کردن مسیر را در گفت‌وگو تمرین می‌کند و در پایان توالی جهت‌ها را به‌صورت متمرکز بازیابی می‌کند.",
+  "groupingRationale": "واحد سه نیاز مکانی متفاوت دارد: پیدا کردن هتل و موقعیت رستوران نسبت به آن، پرسیدن و دنبال‌کردن مسیر شهری، و سفر با قطار شامل زمان رسیدن و پیدا کردن ایستگاه.",
   "sourceRefs": [
     "src-wikibooks-german-print-directions",
-    "src-wikivoyage-german-phrasebook-directions"
+    "src-wikivoyage-german-phrasebook-directions",
+    "src-wikibooks-de-lesson-006-where-when",
+    "src-wikibooks-de-lesson-024-short-messages"
   ],
   "status": "final",
-  "notes": "در بازبینی عمق A1، این واحد به سه درس رسید. تعداد درس‌ها بر اساس پوشش و نیاز به بازیابی انتخاب شده است و در صورت کشف شکاف واقعی می‌تواند در بازهٔ تعریف‌شده گسترش پیدا کند."
+  "notes": "دو درس تازه، تکرار راست/چپِ درس مسیر نیستند؛ یکی موقعیت نسبی هتل/رستوران و دیگری زمان قطار/ایستگاه را پوشش می‌دهد."
 }

@@ -4,39 +4,39 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-shopping-quantity-payment",
-  "titleFa": "خرید را ببند و پرداخت کن",
+  "titleFa": "قیمت دقیق و جمع خرید",
   "learningTargets": [
-    "پایان سفارش را در یک تراکنش تشخیص دهد.",
-    "پاسخ مقدار را از پایان خرید تشخیص دهد.",
-    "دستور سادهٔ پرداخت را بازسازی کند."
+    "دو صورت رایج پرسیدن قیمت را بفهمد.",
+    "قیمت‌های یورو و سنت را دقیق بخواند.",
+    "پرسش دربارهٔ جمع کل را از پرسش قیمت یک کالا تشخیص دهد."
   ],
   "sourceRefs": [
-    "src-wikibooks-de-lesson-009-shopping"
+    "src-wikibooks-de-lesson-004"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس بخش پایانی تراکنش را جداگانه تثبیت می‌کند: تعیین مقدار، پایان سفارش و پرداخت.",
-    "sequenceRationale": "تراکنش کامل فعال می‌شود، سپس نوبت مناسب انتخاب و جملهٔ پرداخت بازیابی می‌شود.",
-    "templateSignature": "conversation_speaking>choose_response>word_order"
+    "activitySelectionRationale": "به‌جای تکرار صندوقِ درس اصلی، این درس خواندن دقیق یورو/سنت و تفاوت قیمت یک کالا با جمع کل را آموزش می‌دهد.",
+    "sequenceRationale": "مکالمه دو صورت پرسش قیمت را معرفی می‌کند، انتخاب چند صورت پرسش را مقایسه می‌کند و در پایان جمع کل با عدد دقیق تکمیل می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>fill_blank"
   },
   "activities": [
     {
       "id": "act-de-a1-shopping-checkout-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "گفت‌وگوی خرید را دوباره اجرا کن و این بار روی پایان سفارش و صندوق تمرکز کن.",
-      "selectionReason": "صحنهٔ کامل، مرحلهٔ بستن سفارش و پرداخت را در جای طبیعی آن نگه می‌دارد.",
+      "instructionFa": "دو روش پرسیدن قیمت و پاسخ یورو/سنت را اجرا کن.",
+      "selectionReason": "جمله‌های منبع‌دار مهارت خواندن قیمت دقیق را مستقل از مقدار کالا تمرین می‌دهند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-009-shopping"
+        "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "پایان یک خرید کوتاه را در گفت‌وگو دنبال کند."
+        "پرسش و پاسخ قیمت دقیق را بفهمد."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-shopping-quantity-payment",
+      "dialogueRef": "dlg-de-a1-shopping-price-total",
       "data": {
         "interaction": "read_aloud_exchange",
-        "openingInitiator": "learner"
+        "openingInitiator": "app"
       },
       "transformations": [
         "verbatim_dialogue",
@@ -47,34 +47,32 @@
     },
     {
       "id": "act-de-a1-shopping-checkout-review-response",
-      "type": "choose_response",
-      "instructionFa": "فروشنده مقدار را می‌پرسد؛ پاسخ درست را انتخاب کن.",
-      "selectionReason": "تمایز پاسخ مقدار از «چیز دیگری؟» و پایان سفارش، ترتیب تراکنش را روشن می‌کند.",
+      "type": "multiple_choice",
+      "instructionFa": "کدام پرسش دربارهٔ جمع کل خرید است؟",
+      "selectionReason": "تفاوت kostet با macht در کاربرد فروشگاهی به‌صورت معنایی سنجیده می‌شود.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-009-shopping"
+        "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "پاسخ مناسب به پرسش مقدار را انتخاب کند."
+        "پرسش جمع کل را تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "promptTarget": "Wie viel möchten Sie?",
-        "promptFa": "چه مقدار می‌خواهید؟",
         "options": [
           {
-            "textTarget": "Bitte 250 Gramm.",
-            "translationFa": "لطفاً ۲۵۰ گرم.",
+            "textTarget": "Wie viel macht das bitte?",
+            "translationFa": "جمعش لطفاً چقدر می‌شود؟",
             "correct": true
           },
           {
-            "textTarget": "Noch etwas?",
-            "translationFa": "چیز دیگری؟",
+            "textTarget": "Wie viel kostet das?",
+            "translationFa": "این چقدر قیمت دارد؟",
             "correct": false
           },
           {
-            "textTarget": "Danke, das ist alles.",
-            "translationFa": "ممنون، همین کافی است.",
+            "textTarget": "Was kostet das?",
+            "translationFa": "قیمت این چقدر است؟",
             "correct": false
           }
         ]
@@ -87,35 +85,36 @@
     },
     {
       "id": "act-de-a1-shopping-checkout-review-order",
-      "type": "word_order",
-      "instructionFa": "دستور پرداخت را دوباره بساز.",
-      "selectionReason": "بازیابی جملهٔ پرداخت مرحلهٔ پایانی خرید را تثبیت می‌کند.",
+      "type": "fill_blank",
+      "instructionFa": "جمع کل را با عدد درست کامل کن.",
+      "selectionReason": "تمرین عدد دقیق یورو و سنت، فهم شنیداری/خواندنی قیمت را به بازیابی هدایت‌شده وصل می‌کند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-009-shopping"
+        "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "دستور سادهٔ پرداخت را بازسازی کند."
+        "جمع کل یورو و سنت را تکمیل کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Bezahlen Sie bitte dort.",
-        "sourceTextFa": "لطفاً آنجا پرداخت کنید.",
-        "tokens": [
-          "Bezahlen",
-          "Sie",
-          "bitte",
-          "dort."
+        "sourceText": "Das macht 63 Euro und 10 Cent.",
+        "sourceTextFa": "جمعش ۶۳ یورو و ۱۰ سنت می‌شود.",
+        "blankedText": "Das macht ___.",
+        "blankedTextFa": "جمعش ___ می‌شود.",
+        "choices": [
+          "63 Euro und 10 Cent",
+          "35 Euro und 15 Cent",
+          "70 Euro und 92 Cent"
         ],
-        "answer": [
-          "Bezahlen",
-          "Sie",
-          "bitte",
-          "dort."
-        ]
+        "choicesFa": [
+          "۶۳ یورو و ۱۰ سنت",
+          "۳۵ یورو و ۱۵ سنت",
+          "۷۰ یورو و ۹۲ سنت"
+        ],
+        "answer": "63 Euro und 10 Cent"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

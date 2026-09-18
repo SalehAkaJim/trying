@@ -15,13 +15,16 @@
     "de-a1-lesson-services-permission-review",
     "de-a1-lesson-services-help-review"
   ],
-  "groupingRationale": "واحد ابتدا راهبرد روشن‌سازی را در یک گفت‌وگوی خدماتی فعال می‌کند، سپس اجازه گرفتن و بیان نیاز مشخص را جداگانه تمرین می‌کند تا زبان‌آموز چند راه واقعی برای مدیریت موقعیت خدماتی داشته باشد.",
+  "groupingRationale": "واحد از روشن‌سازی و اجازه/کمک پایه به دو موقعیت خدماتی مشخص می‌رود: درخواست کمک برای پیدا کردن سایز و اتاق پرو، و بیان نیاز فوری همراه با پرسیدن محل پزشک.",
   "sourceRefs": [
     "src-wikibooks-de-lesson-002-service-clarification",
     "src-wikivoyage-german-phrasebook-services",
     "src-wiktionary-de-ja",
-    "src-wikibooks-de-lesson-004"
+    "src-wikibooks-de-lesson-004",
+    "src-wikibooks-german-print-shopping-service",
+    "src-wikibooks-de-lesson-006-where-when",
+    "src-wikibooks-german-print-directions"
   ],
   "status": "final",
-  "notes": "در بازبینی عمق A1، این واحد به سه درس رسید. تعداد درس‌ها بر اساس پوشش و نیاز به بازیابی انتخاب شده است و در صورت کشف شکاف واقعی می‌تواند در بازهٔ تعریف‌شده گسترش پیدا کند."
+  "notes": "دو درس تازه خدمات را به کار واقعی وصل می‌کنند و دیگر همان گفت‌وگو روشن‌سازی را با تمرین‌های متفاوت تکرار نمی‌کنند."
 }

@@ -1,0 +1,81 @@
+{
+  "id": "dlg-de-a1-urgent-service-help",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-services",
+    "src-wikibooks-de-lesson-006-where-when",
+    "src-wikibooks-german-print-directions",
+    "src-wikibooks-german-print-shopping-service"
+  ],
+  "scenario": "پاول می‌گوید کمک لازم دارد و بعد محل پیدا کردن پزشک را می‌پرسد؛ آیریس جهت کلی را نشان می‌دهد.",
+  "openingInitiator": "learner",
+  "characterRefs": [
+    "char-de-paul",
+    "char-de-iris"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-urgent-service-help-1",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich brauche Hilfe.",
+      "translationFa": "کمک لازم دارم.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-urgent-service-help-2",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Natürlich.",
+      "translationFa": "البته.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-shopping-service"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-urgent-service-help-3",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wo finde ich einen Arzt?",
+      "translationFa": "کجا می‌توانم یک پزشک پیدا کنم؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-006-where-when"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-urgent-service-help-4",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Gleich dort drüben.",
+      "translationFa": "همین آن طرف.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "جمله‌ها همگی مستقیماً از منابع ثبت‌شده آمده‌اند؛ فقط برای ساخت یک سناریوی خدمات ضروری کنار هم قرار گرفته‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}
