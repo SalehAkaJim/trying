@@ -11,7 +11,7 @@
     "یک هماهنگی کوتاه دربارهٔ تماس دوباره و تحویل گرفتن را در گفت‌وگو بفهمد.",
     "پیام کوتاه درخواست تماس دوباره را از راه شنیدن بفهمد.",
     "چند پیام کوتاه تماس را بر اساس زمان آن‌ها بخواند و از هم تشخیص دهد.",
-    "یک پیام کوتاه تماس را به‌صورت هدایت‌شده بازسازی کند."
+    "یک پیام کوتاه تماس را به‌صورت هدایت‌شده کامل و بازسازی کند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-024-short-messages"
@@ -28,9 +28,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو هماهنگی کوتاه را می‌سازد؛ سپس یک پیام مستقل شنیده می‌شود، چهار پیام زمانی خوانده و تطبیق داده می‌شوند و در پایان یک پیام دیگر بازسازی می‌شود.",
-    "sequenceRationale": "درس از تعامل به دریافت شنیداری، سپس خواندن چند نمونه و در پایان تولید هدایت‌شدهٔ پیام کوتاه حرکت می‌کند.",
-    "templateSignature": "conversation_speaking>listen_choose>matching>word_order"
+    "activitySelectionRationale": "گفت‌وگو هماهنگی کوتاه را می‌سازد؛ سپس یک پیام مستقل شنیده می‌شود، چهار پیام زمانی خوانده و تطبیق داده می‌شوند، یک پیام با انتخاب زمان مناسب کامل می‌شود و در پایان یک پیام دیگر بازسازی می‌شود.",
+    "sequenceRationale": "درس از تعامل به دریافت شنیداری، سپس خواندن چند نمونه، تکمیل هدایت‌شدهٔ پیام و در پایان بازسازی کامل یک پیام کوتاه حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>listen_choose>matching>fill_blank>word_order"
   },
   "activities": [
     {
@@ -156,6 +156,49 @@
       },
       "transformations": [
         "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-message-write-fill",
+      "type": "fill_blank",
+      "instructionFa": "پیام تماس برای بعدازظهر را با عبارت زمانی درست کامل کن.",
+      "selectionReason": "جملهٔ کامل و همهٔ عبارت‌های زمانی از پاسخ‌های منبع‌دار بخش ۱۰۰۷ می‌آیند؛ زبان‌آموز یک پیام واقعی را با انتخاب زمان مناسب کامل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "learningTargets": [
+        "تکمیل هدایت‌شدهٔ یک پیام کوتاه تماس."
+      ],
+      "lexemeRefs": [
+        "lex-de-anrufen",
+        "lex-de-nachmittag",
+        "lex-de-montag",
+        "lex-de-uebermorgen",
+        "lex-de-noch-einmal"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Rufen Sie bitte am Nachmittag noch einmal an.",
+        "sourceTextFa": "لطفاً بعدازظهر دوباره تماس بگیرید.",
+        "blankedText": "Rufen Sie bitte ___ noch einmal an.",
+        "blankedTextFa": "لطفاً ___ دوباره تماس بگیرید.",
+        "choices": [
+          "am Nachmittag",
+          "am Montag",
+          "übermorgen"
+        ],
+        "choicesFa": [
+          "بعدازظهر",
+          "دوشنبه",
+          "پس‌فردا"
+        ],
+        "answer": "am Nachmittag"
+      },
+      "transformations": [
+        "source_sentence_blank_created",
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
