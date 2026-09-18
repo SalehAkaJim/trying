@@ -5,8 +5,8 @@ SET time_zone = '+00:00';
 START TRANSACTION;
 SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
 SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='A1' LIMIT 1);
-SET @iris := (SELECT id FROM characters WHERE character_key='char-de-iris' LIMIT 1);
-SET @paul := (SELECT id FROM characters WHERE character_key='char-de-paul' LIMIT 1);
+SET @mia := (SELECT id FROM characters WHERE character_key='char-de-mia' LIMIT 1);
+SET @max := (SELECT id FROM characters WHERE character_key='char-de-max' LIMIT 1);
 
 INSERT INTO sources(source_key,title,title_fa,organization_or_author,language_code,source_type,url,locator,locator_fa,published_or_updated_at,modernity_status,currency_evidence,license_name,license_url,attribution_text,reuse_status,retrieved_at,notes) VALUES
 ('src-wikibooks-de-lesson-021-time-appointment','Deutschkurs für Anfänger/Lektion 021','زمان‌بندی و قرار روزمره','Wikibooks contributors','de','course','https://en.wikibooks.org/wiki/Deutschkurs_f%C3%BCr_Anf%C3%A4nger/Lektion_021','Selected items 850, 851, 853, 862, 885, 886 and 887: schedule duration, appointment language, invitation, alternate day and clock-time response.','بخش‌های ۸۵۰، ۸۵۱، ۸۵۳، ۸۶۲، ۸۸۵، ۸۸۶ و ۸۸۷؛ بازهٔ زمانی، دعوت، زمان قرار و پاسخ به پیشنهاد.','2021-03-30','contemporary_verified','صفحهٔ زندهٔ ویکی‌بوکس در ۱۸ سپتامبر ۲۰۲۶ دوباره بررسی شد. آخرین ویرایش صفحه ۳۰ مارس ۲۰۲۱ است؛ فقط جمله‌های ساده و پایدار آلمانی معیار دربارهٔ بازهٔ زمانی، دعوت، زمان قرار، موافقت یا رد و برنامهٔ روز بعد انتخاب شدند و در بازبینی فعلی همچنان طبیعی و قابل‌استفاده‌اند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wikibooks contributors — Deutschkurs für Anfänger/Lektion 021','reuse_with_attribution','2026-09-18','استفاده فقط به بخش‌های مشخص ۸۵۰، ۸۵۱، ۸۵۳، ۸۶۲، ۸۸۵، ۸۸۶ و ۸۸۷ محدود است. بخش‌های دیگر صفحه که برای هدف زمان و قرار لازم نیستند وارد محتوای آموزشی نمی‌شوند.')
@@ -90,16 +90,16 @@ INSERT IGNORE INTO lesson_lexemes(lesson_id,lexeme_id,is_primary,role) VALUES
 (@l2,@x_termin,TRUE,'introduce'),(@l2,@x_duerfen,TRUE,'introduce'),(@l2,@x_konzert,TRUE,'introduce'),(@l2,@x_einladen,TRUE,'introduce'),(@l2,@x_kino,TRUE,'introduce'),(@l2,@x_warten,TRUE,'introduce'),(@l2,@x_vielleicht,TRUE,'introduce'),(@l2,@x_heute,FALSE,'review'),(@l2,@x_abend,FALSE,'review'),(@l2,@x_uhr,FALSE,'review');
 
 INSERT INTO dialogues(dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES
-('dlg-de-a1-time-class-schedule',@level,'آیریس و پاول دربارهٔ مدت کلاس و اینکه تا چه ساعتی در مدرسه می‌مانند صحبت می‌کنند.','app','چهار نوبت آغاز بخش ۸۵۰ بدون بازنویسی حفظ شده‌اند و یک گفت‌وگوی کامل دربارهٔ بازهٔ کلاس و زمان ماندن می‌سازند.'),
+('dlg-de-a1-time-class-schedule',@level,'میا از هم‌کلاسی‌اش مکس دربارهٔ مدت کلاس و اینکه تا چه ساعتی در مدرسه می‌ماند می‌پرسد.','app','چهار نوبت آغاز بخش ۸۵۰ بدون بازنویسی حفظ شده‌اند. خطاب «du» با رابطهٔ هم‌کلاسی و غیررسمی میا و مکس سازگار است و یک گفت‌وگوی طبیعی دربارهٔ بازهٔ کلاس و زمان ماندن می‌سازد.'),
 ('dlg-de-a1-time-simple-appointment',@level,'آیریس پاول را برای امشب به کنسرت دعوت می‌کند. پاول نمی‌تواند و آیریس فردا را پیشنهاد می‌دهد.','app','چهار نوبت بخش ۸۸۷ بدون بازنویسی حفظ شده‌اند و یک دعوت، رد مؤدبانه و پیشنهاد روز جایگزین را به‌صورت طبیعی پوشش می‌دهند.')
 ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),scenario=VALUES(scenario),opening_initiator=VALUES(opening_initiator),scene_quality_rationale=VALUES(scene_quality_rationale);
 SET @d1 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-time-class-schedule'); SET @d2 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-time-simple-appointment');
 
 INSERT INTO dialogue_turns(turn_key,dialogue_id,position_index,speaker_character_id,speaker_identity_origin,speaker_gender_evidence,text_target,translation_fa,learner_turn,audio_status) VALUES
-('turn-de-a1-time-schedule-1',@d1,1,@iris,'app_assigned','unspecified','Wie lange hast du heute Unterricht?','امروز چند ساعت کلاس داری؟',FALSE,'blocked_until_level_final'),
-('turn-de-a1-time-schedule-2',@d1,2,@paul,'app_assigned','unspecified','Von 7.30 Uhr bis 12.00 Uhr.','از ساعت ۷:۳۰ تا ۱۲.',TRUE,'blocked_until_level_final'),
-('turn-de-a1-time-schedule-3',@d1,3,@iris,'app_assigned','unspecified','Und bis wann bleibst du dann noch in der Schule?','و بعد تا چه زمانی در مدرسه می‌مانی؟',FALSE,'blocked_until_level_final'),
-('turn-de-a1-time-schedule-4',@d1,4,@paul,'app_assigned','unspecified','Bis 13.00 Uhr bleibe ich noch hier.','تا ساعت ۱۳ اینجا می‌مانم.',TRUE,'blocked_until_level_final'),
+('turn-de-a1-time-schedule-1',@d1,1,@mia,'app_assigned','unspecified','Wie lange hast du heute Unterricht?','امروز چند ساعت کلاس داری؟',FALSE,'blocked_until_level_final'),
+('turn-de-a1-time-schedule-2',@d1,2,@max,'app_assigned','unspecified','Von 7.30 Uhr bis 12.00 Uhr.','از ساعت ۷:۳۰ تا ۱۲.',TRUE,'blocked_until_level_final'),
+('turn-de-a1-time-schedule-3',@d1,3,@mia,'app_assigned','unspecified','Und bis wann bleibst du dann noch in der Schule?','و بعد تا چه زمانی در مدرسه می‌مانی؟',FALSE,'blocked_until_level_final'),
+('turn-de-a1-time-schedule-4',@d1,4,@max,'app_assigned','unspecified','Bis 13.00 Uhr bleibe ich noch hier.','تا ساعت ۱۳ اینجا می‌مانم.',TRUE,'blocked_until_level_final'),
 ('turn-de-a1-appointment-1',@d2,1,@iris,'app_assigned','unspecified','Was machen Sie heute Abend? Darf ich Sie ins Konzert einladen?','امشب چه کار می‌کنید؟ می‌توانم شما را به کنسرت دعوت کنم؟',FALSE,'blocked_until_level_final'),
 ('turn-de-a1-appointment-2',@d2,2,@paul,'app_assigned','unspecified','Heute? Das tut mir leid, heute geht es leider nicht.','امروز؟ متأسفم، امروز متأسفانه نمی‌شود.',TRUE,'blocked_until_level_final'),
 ('turn-de-a1-appointment-3',@d2,3,@iris,'app_assigned','unspecified','Und morgen?','و فردا؟',FALSE,'blocked_until_level_final'),

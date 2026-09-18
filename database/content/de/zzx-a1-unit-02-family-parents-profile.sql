@@ -6,7 +6,7 @@ SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
 SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='A1' LIMIT 1);
 SET @unit := (SELECT id FROM units WHERE unit_key='de-a1-unit-family-and-close-people' LIMIT 1);
 SET @src := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-007-family' LIMIT 1);
-SET @iris := (SELECT id FROM characters WHERE character_key='char-de-iris' LIMIT 1);
+SET @max := (SELECT id FROM characters WHERE character_key='char-de-max' LIMIT 1);
 SET @paul := (SELECT id FROM characters WHERE character_key='char-de-paul' LIMIT 1);
 
 INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,source_text_hash,notes) VALUES
@@ -39,13 +39,13 @@ SET @lesson := (SELECT id FROM lessons WHERE lesson_key='de-a1-lesson-family-par
 INSERT IGNORE INTO lesson_targets(lesson_id,curriculum_target_id,coverage_role) VALUES(@lesson,@t_family,'practice'),(@lesson,@t_family_sit,'practice'),(@lesson,@t_personal,'review'),(@lesson,@t_core,'practice'),(@lesson,@t_questions,'practice');
 INSERT IGNORE INTO lesson_lexemes(lesson_id,lexeme_id,is_primary,role) VALUES(@lesson,@x_mutter,TRUE,'practice'),(@lesson,@x_vater,TRUE,'practice'),(@lesson,@x_bruder,FALSE,'review'),(@lesson,@x_schwester,FALSE,'review'),(@lesson,@x_lehrer,TRUE,'introduce');
 
-INSERT INTO dialogues(dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES('dlg-de-a1-family-parents-profile',@level,'آیریس در حضور پاول و میا دربارهٔ سن مادر و پدر مشترکشان می‌پرسد و پاول از طرف هر دو پاسخ می‌دهد.','app','دو جفت پرسش و پاسخ سن مادر و پدر عیناً از پاسخ تمرین ۲۷۷ آمده‌اند. همان صحنهٔ خواهر و برادری پاول و میا حفظ می‌شود تا خطاب و پاسخ جمع منبع بدون تغییر طبیعی بماند.')
+INSERT INTO dialogues(dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES('dlg-de-a1-family-parents-profile',@level,'مکس در حضور هم‌کلاسی‌اش میا و برادر او پاول دربارهٔ سن مادر و پدر مشترکشان می‌پرسد و پاول از طرف هر دو پاسخ می‌دهد.','app','دو جفت پرسش و پاسخ سن مادر و پدر عیناً از پاسخ تمرین ۲۷۷ آمده‌اند. همان صحنهٔ خواهر و برادری پاول و میا حفظ می‌شود تا خطاب و پاسخ جمع منبع بدون تغییر طبیعی بماند.')
 ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),scenario=VALUES(scenario),opening_initiator=VALUES(opening_initiator),scene_quality_rationale=VALUES(scene_quality_rationale);
 SET @dialogue := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-family-parents-profile');
 INSERT INTO dialogue_turns(turn_key,dialogue_id,position_index,speaker_character_id,speaker_identity_origin,speaker_gender_evidence,text_target,translation_fa,learner_turn,audio_status) VALUES
-('turn-de-a1-family-parents-1',@dialogue,1,@iris,'app_assigned','unspecified','Wie alt ist eure Mutter?','مادرتان چند ساله است؟',FALSE,'blocked_until_level_final'),
+('turn-de-a1-family-parents-1',@dialogue,1,@max,'app_assigned','unspecified','Wie alt ist eure Mutter?','مادرتان چند ساله است؟',FALSE,'blocked_until_level_final'),
 ('turn-de-a1-family-parents-2',@dialogue,2,@paul,'app_assigned','unspecified','Unsere Mutter ist 66 Jahre alt.','مادر ما ۶۶ ساله است.',TRUE,'blocked_until_level_final'),
-('turn-de-a1-family-parents-3',@dialogue,3,@iris,'app_assigned','unspecified','Wie alt ist euer Vater?','پدرتان چند ساله است؟',FALSE,'blocked_until_level_final'),
+('turn-de-a1-family-parents-3',@dialogue,3,@max,'app_assigned','unspecified','Wie alt ist euer Vater?','پدرتان چند ساله است؟',FALSE,'blocked_until_level_final'),
 ('turn-de-a1-family-parents-4',@dialogue,4,@paul,'app_assigned','unspecified','Unser Vater ist 56 Jahre alt.','پدر ما ۵۶ ساله است.',TRUE,'blocked_until_level_final')
 ON DUPLICATE KEY UPDATE dialogue_id=VALUES(dialogue_id),position_index=VALUES(position_index),speaker_character_id=VALUES(speaker_character_id),speaker_identity_origin=VALUES(speaker_identity_origin),speaker_gender_evidence=VALUES(speaker_gender_evidence),text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn);
 

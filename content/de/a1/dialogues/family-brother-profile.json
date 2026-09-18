@@ -1,17 +1,111 @@
 {
-  "id":"dlg-de-a1-family-brother-profile",
-  "languageId":"de",
-  "level":"A1",
-  "sourceRefs":["src-wikibooks-de-lesson-007-family"],
-  "scenario":"آیریس با پاول و میا که خواهر و برادرند صحبت می‌کند و دربارهٔ برادر کوچک‌تر مشترکشان دو سؤال ساده می‌پرسد؛ پاول از طرف هر دو پاسخ می‌دهد.",
-  "openingInitiator":"app",
-  "characterRefs":["char-de-iris","char-de-paul","char-de-mia"],
-  "turns":[
-    {"id":"turn-de-a1-family-brother-1","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Wie alt ist euer Bruder?","translationFa":"برادرتان چند ساله است؟","learnerTurn":false,"lexemeRefs":["lex-de-bruder"],"lexemeOccurrences":[{"surface":"Bruder","lexemeId":"lex-de-bruder","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-family"],"audioRef":null},
-    {"id":"turn-de-a1-family-brother-2","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Unser Bruder ist 19 Jahre alt.","translationFa":"برادر ما ۱۹ ساله است.","learnerTurn":true,"lexemeRefs":["lex-de-bruder"],"lexemeOccurrences":[{"surface":"Bruder","lexemeId":"lex-de-bruder","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-family"],"audioRef":null},
-    {"id":"turn-de-a1-family-brother-3","speakerCharacterId":"char-de-iris","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Wie heißt euer Bruder?","translationFa":"اسم برادرتان چیست؟","learnerTurn":false,"lexemeRefs":["lex-de-bruder"],"lexemeOccurrences":[{"surface":"Bruder","lexemeId":"lex-de-bruder","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-family"],"audioRef":null},
-    {"id":"turn-de-a1-family-brother-4","speakerCharacterId":"char-de-paul","speakerIdentityOrigin":"app_assigned","speakerGenderEvidence":"unspecified","textTarget":"Unser Bruder heißt Uwe.","translationFa":"اسم برادر ما اووه است.","learnerTurn":true,"lexemeRefs":["lex-de-bruder"],"lexemeOccurrences":[{"surface":"Bruder","lexemeId":"lex-de-bruder","lexemeFormId":null}],"sourceRefs":["src-wikibooks-de-lesson-007-family"],"audioRef":null}
+  "id": "dlg-de-a1-family-brother-profile",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-family"
   ],
-  "sceneQualityRationale":"دو جفت پرسش و پاسخ عیناً از پاسخ تمرین ۲۷۷ گرفته شده‌اند. چون متن منبع خطاب جمع و پاسخ جمع دارد، میا در صحنه کنار پاول حضور دارد و رابطهٔ خانوادگی این دو در دادهٔ شخصیت‌ها ثبت شده است؛ بنابراین هیچ تغییر دستوری یا بازنویسی آلمانی لازم نیست.",
-  "learnerCharacterId":"char-de-paul"
+  "scenario": "مکس با هم‌کلاسی‌اش میا و برادر او پاول دوستانه صحبت می‌کند و دربارهٔ برادر کوچک‌تر مشترک میا و پاول دو سؤال ساده می‌پرسد؛ پاول از طرف هر دو پاسخ می‌دهد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-max",
+    "char-de-paul",
+    "char-de-mia"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-family-brother-1",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie alt ist euer Bruder?",
+      "translationFa": "برادرتان چند ساله است؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-bruder"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Bruder",
+          "lexemeId": "lex-de-bruder",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-family-brother-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Unser Bruder ist 19 Jahre alt.",
+      "translationFa": "برادر ما ۱۹ ساله است.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-bruder"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Bruder",
+          "lexemeId": "lex-de-bruder",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-family-brother-3",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie heißt euer Bruder?",
+      "translationFa": "اسم برادرتان چیست؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-bruder"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Bruder",
+          "lexemeId": "lex-de-bruder",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-family-brother-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Unser Bruder heißt Uwe.",
+      "translationFa": "اسم برادر ما اووه است.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-bruder"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Bruder",
+          "lexemeId": "lex-de-bruder",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "صورت جمعِ غیررسمی «euer» عین منبع حفظ شده است. مکس با میا هم‌کلاسی است و در این صحنه میا و برادرش پاول را با خطاب دوستانهٔ جمع مخاطب قرار می‌دهد؛ بنابراین register با رابطهٔ صحنه سازگار است.",
+  "learnerCharacterId": "char-de-paul"
 }

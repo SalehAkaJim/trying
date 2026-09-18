@@ -5,16 +5,16 @@
   "sourceRefs": [
     "src-wikibooks-de-lesson-021-time-appointment"
   ],
-  "scenario": "آیریس و پاول دربارهٔ مدت کلاس و اینکه تا چه ساعتی در مدرسه می‌مانند صحبت می‌کنند.",
+  "scenario": "میا از هم‌کلاسی‌اش مکس دربارهٔ مدت کلاس و اینکه تا چه ساعتی در مدرسه می‌ماند می‌پرسد.",
   "openingInitiator": "app",
   "characterRefs": [
-    "char-de-iris",
-    "char-de-paul"
+    "char-de-mia",
+    "char-de-max"
   ],
   "turns": [
     {
       "id": "turn-de-a1-time-schedule-1",
-      "speakerCharacterId": "char-de-iris",
+      "speakerCharacterId": "char-de-mia",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Wie lange hast du heute Unterricht?",
@@ -37,7 +37,7 @@
     },
     {
       "id": "turn-de-a1-time-schedule-2",
-      "speakerCharacterId": "char-de-paul",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Von 7.30 Uhr bis 12.00 Uhr.",
@@ -72,7 +72,7 @@
     },
     {
       "id": "turn-de-a1-time-schedule-3",
-      "speakerCharacterId": "char-de-iris",
+      "speakerCharacterId": "char-de-mia",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Und bis wann bleibst du dann noch in der Schule?",
@@ -107,7 +107,7 @@
     },
     {
       "id": "turn-de-a1-time-schedule-4",
-      "speakerCharacterId": "char-de-paul",
+      "speakerCharacterId": "char-de-max",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
       "textTarget": "Bis 13.00 Uhr bleibe ich noch hier.",
@@ -141,6 +141,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "چهار نوبت آغاز بخش ۸۵۰ بدون بازنویسی حفظ شده‌اند و یک گفت‌وگوی کامل دربارهٔ بازهٔ کلاس و زمان ماندن می‌سازند.",
-  "learnerCharacterId": "char-de-paul"
+  "sceneQualityRationale": "چهار نوبت آغاز بخش ۸۵۰ بدون بازنویسی حفظ شده‌اند. خطاب «du» با رابطهٔ هم‌کلاسی و غیررسمی میا و مکس سازگار است و یک گفت‌وگوی طبیعی دربارهٔ بازهٔ کلاس و زمان ماندن می‌سازد.",
+  "learnerCharacterId": "char-de-max"
 }

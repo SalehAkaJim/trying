@@ -7,7 +7,7 @@ SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
 SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='A1' LIMIT 1);
 SET @unit := (SELECT id FROM units WHERE unit_key='de-a1-unit-family-and-close-people' LIMIT 1);
 SET @src := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-007-family' LIMIT 1);
-SET @iris := (SELECT id FROM characters WHERE character_key='char-de-iris' LIMIT 1);
+SET @max := (SELECT id FROM characters WHERE character_key='char-de-max' LIMIT 1);
 SET @paul := (SELECT id FROM characters WHERE character_key='char-de-paul' LIMIT 1);
 SET @mia := (SELECT id FROM characters WHERE character_key='char-de-mia' LIMIT 1);
 
@@ -49,13 +49,13 @@ SET @lesson := (SELECT id FROM lessons WHERE lesson_key='de-a1-lesson-family-bro
 INSERT IGNORE INTO lesson_targets(lesson_id,curriculum_target_id,coverage_role) VALUES(@lesson,@t_family,'introduce'),(@lesson,@t_family_sit,'introduce'),(@lesson,@t_personal,'review'),(@lesson,@t_core,'introduce'),(@lesson,@t_questions,'practice');
 INSERT IGNORE INTO lesson_lexemes(lesson_id,lexeme_id,is_primary,role) VALUES(@lesson,@x_bruder,TRUE,'introduce'),(@lesson,@x_schwester,TRUE,'introduce'),(@lesson,@x_mutter,TRUE,'introduce'),(@lesson,@x_vater,TRUE,'introduce');
 
-INSERT INTO dialogues(dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES('dlg-de-a1-family-brother-profile',@level,'آیریس با پاول و میا که خواهر و برادرند صحبت می‌کند و دربارهٔ برادر کوچک‌تر مشترکشان دو سؤال ساده می‌پرسد؛ پاول از طرف هر دو پاسخ می‌دهد.','app','دو جفت پرسش و پاسخ عیناً از پاسخ تمرین ۲۷۷ گرفته شده‌اند. چون متن منبع خطاب جمع و پاسخ جمع دارد، میا در صحنه کنار پاول حضور دارد و رابطهٔ خانوادگی این دو در دادهٔ شخصیت‌ها ثبت شده است؛ بنابراین هیچ تغییر دستوری یا بازنویسی آلمانی لازم نیست.')
+INSERT INTO dialogues(dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES('dlg-de-a1-family-brother-profile',@level,'مکس با هم‌کلاسی‌اش میا و برادر او پاول دوستانه صحبت می‌کند و دربارهٔ برادر کوچک‌تر مشترک میا و پاول دو سؤال ساده می‌پرسد؛ پاول از طرف هر دو پاسخ می‌دهد.','app','دو جفت پرسش و پاسخ عیناً از پاسخ تمرین ۲۷۷ گرفته شده‌اند. چون متن منبع خطاب جمع و پاسخ جمع دارد، میا در صحنه کنار پاول حضور دارد و رابطهٔ خانوادگی این دو در دادهٔ شخصیت‌ها ثبت شده است؛ بنابراین هیچ تغییر دستوری یا بازنویسی آلمانی لازم نیست.')
 ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),scenario=VALUES(scenario),opening_initiator=VALUES(opening_initiator),scene_quality_rationale=VALUES(scene_quality_rationale);
 SET @dialogue := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-family-brother-profile');
 INSERT INTO dialogue_turns(turn_key,dialogue_id,position_index,speaker_character_id,speaker_identity_origin,speaker_gender_evidence,text_target,translation_fa,learner_turn,audio_status) VALUES
-('turn-de-a1-family-brother-1',@dialogue,1,@iris,'app_assigned','unspecified','Wie alt ist euer Bruder?','برادرتان چند ساله است؟',FALSE,'blocked_until_level_final'),
+('turn-de-a1-family-brother-1',@dialogue,1,@max,'app_assigned','unspecified','Wie alt ist euer Bruder?','برادرتان چند ساله است؟',FALSE,'blocked_until_level_final'),
 ('turn-de-a1-family-brother-2',@dialogue,2,@paul,'app_assigned','unspecified','Unser Bruder ist 19 Jahre alt.','برادر ما ۱۹ ساله است.',TRUE,'blocked_until_level_final'),
-('turn-de-a1-family-brother-3',@dialogue,3,@iris,'app_assigned','unspecified','Wie heißt euer Bruder?','اسم برادرتان چیست؟',FALSE,'blocked_until_level_final'),
+('turn-de-a1-family-brother-3',@dialogue,3,@max,'app_assigned','unspecified','Wie heißt euer Bruder?','اسم برادرتان چیست؟',FALSE,'blocked_until_level_final'),
 ('turn-de-a1-family-brother-4',@dialogue,4,@paul,'app_assigned','unspecified','Unser Bruder heißt Uwe.','اسم برادر ما اووه است.',TRUE,'blocked_until_level_final')
 ON DUPLICATE KEY UPDATE dialogue_id=VALUES(dialogue_id),position_index=VALUES(position_index),speaker_character_id=VALUES(speaker_character_id),speaker_identity_origin=VALUES(speaker_identity_origin),speaker_gender_evidence=VALUES(speaker_gender_evidence),text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn);
 

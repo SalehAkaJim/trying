@@ -120,7 +120,7 @@
       "id": "act-de-a1-specific-help-response",
       "type": "choose_response",
       "instructionFa": "در پاسخ به «چه چیزی لازم دارید؟» کدام جمله مستقیم می‌گوید به کمک نیاز داری؟",
-      "selectionReason": "پرسش «چه چیزی لازم دارید؟» از منبع پیشین نیاز/خرید reuse می‌شود؛ پاسخ رسمیِ درخواست کمک و دو گزینهٔ مقایسه‌ای از منابع خدماتی ثبت‌شده می‌آیند.",
+      "selectionReason": "پرسش «چه چیزی لازم دارید؟» از منبع پیشین نیاز/خرید بازاستفاده می‌شود؛ پاسخ رسمیِ درخواست کمک و دو گزینهٔ مقایسه‌ای از منابع خدماتی ثبت‌شده می‌آیند.",
       "sourceRefs": [
         "src-wikivoyage-german-phrasebook-services",
         "src-wikibooks-de-lesson-004"
