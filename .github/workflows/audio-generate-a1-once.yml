@@ -1,0 +1,143 @@
+name: One-time German A1 Audio Generation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/audio-generate-a1-once.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: curriculum-audio-de-A1
+  cancel-in-progress: false
+
+jobs:
+  audio:
+    runs-on: ubuntu-latest
+    env:
+      AUDIO_LANGUAGE: de
+      AUDIO_LEVEL: A1
+      AUDIO_CONFIRM_PAID: 'true'
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      AUDIO_DB_HOST: 127.0.0.1
+      AUDIO_DB_PORT: '3306'
+      AUDIO_DB_USER: root
+      AUDIO_DB_PASSWORD: root
+      AUDIO_DB_NAME: language_content_test
+      AUDIO_MYSQL_IMAGE: mysql:9.0.1
+
+    services:
+      mysql:
+        image: mysql:9.0.1
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: language_content_test
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
+          --health-interval=10s --health-timeout=5s --health-retries=12
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install JSON Schema validator
+        run: python -m pip install --disable-pip-version-check jsonschema
+
+      - name: Validate project and audio contracts
+        run: |
+          python scripts/validate_json_schemas.py
+          python scripts/sync_fa_labels.py
+          python scripts/validate_source_localization.py
+          python scripts/validate_persian_coverage.py
+          python scripts/apply_mysql_localization.py --check
+          python scripts/validate_project_contracts.py
+          python scripts/validate_audio_contracts.py
+
+      - name: Build canonical MySQL state
+        run: bash scripts/validate_mysql_content.sh
+
+      - name: Require ElevenLabs key
+        shell: bash
+        run: |
+          if [ -z "$ELEVENLABS_API_KEY" ]; then
+            echo 'Missing GitHub Actions secret ELEVENLABS_API_KEY.' >&2
+            exit 2
+          fi
+
+      - name: Resolve and lock voices
+        run: python scripts/audio_pipeline.py resolve-voices --language "$AUDIO_LANGUAGE"
+
+      - name: Rebuild MySQL with voice lock
+        run: bash scripts/validate_mysql_content.sh
+
+      - name: Verify resolved audio plan
+        run: >-
+          python scripts/audio_pipeline.py plan
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
+
+      - name: Require explicit paid-generation confirmation
+        shell: bash
+        run: |
+          if [ "$AUDIO_CONFIRM_PAID" != 'true' ]; then
+            echo 'Paid generation was not confirmed.' >&2
+            exit 2
+          fi
+
+      - name: Generate audio assets
+        run: >-
+          python scripts/audio_pipeline.py generate
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
+          --confirm-paid-generation
+
+      - name: Make activity audio mapping safe for final lessons
+        run: >-
+          python scripts/make_audio_mapping_final_safe.py
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
+
+      - name: Validate audio assets
+        run: >-
+          python scripts/audio_pipeline.py validate-assets
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
+
+      - name: Validate audio mapping on MySQL 9.0.1
+        run: |
+          bash scripts/validate_mysql_content.sh
+          python scripts/audio_pipeline.py plan --language "$AUDIO_LANGUAGE" --level "$AUDIO_LEVEL" > /tmp/audio-plan-summary.json
+          python - <<'PY'
+          import json
+          data=json.load(open('/tmp/audio-plan-summary.json',encoding='utf-8'))
+          if data['needsGeneration'] != 0 or data['unresolvedVoices'] != 0:
+              raise SystemExit(f"Audio is not fully current: {data}")
+          print('Audio is fully current in MySQL.')
+          PY
+
+      - name: Sync aggregate level status after generation
+        run: >-
+          python scripts/sync_audio_level_status.py
+          --language "$AUDIO_LANGUAGE"
+          --level "$AUDIO_LEVEL"
+
+      - name: Commit generated assets
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for path in config/audio-voice-locks database/audio audio; do
+            if [ -e "$path" ]; then git add -A "$path"; fi
+          done
+          git add -A "content/$AUDIO_LANGUAGE"/*/level.json
+          if git diff --cached --quiet; then
+            echo 'No audio changes to commit.'
+          else
+            git commit -m "Audio generate: de A1"
+            git push
+          fi
