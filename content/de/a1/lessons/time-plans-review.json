@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-time-plans-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-time-plans-appointment",
+  "titleFa": "زمان و قرار را جمع‌بندی کن",
+  "learningTargets": [
+    "عبارت‌های زمان و قرار را از هم تشخیص دهد.",
+    "به یک پرسش دربارهٔ ساعت مشخص پاسخ مناسب بدهد.",
+    "جملهٔ دعوت ساده را بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-021-time-appointment"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "این درس بازهٔ زمانی و هماهنگی قرار را در یک مرور ترکیبی جمع می‌کند تا زمان فقط به خواندن ساعت محدود نماند.",
+    "sequenceRationale": "از گفت‌وگوی قرار به شبکهٔ عبارت‌های زمانی و سپس تولید هدایت‌شدهٔ دعوت حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-time-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی قرار را دوباره انجام بده و روی زمان جایگزین تمرکز کن.",
+      "selectionReason": "صحنهٔ منبع‌دار دعوت و تغییر زمان، ساعت را به تصمیم واقعی وصل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "زمان جایگزین را در گفت‌وگوی قرار دنبال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-time-simple-appointment",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-time-review-matching",
+      "type": "matching",
+      "instructionFa": "هر عبارت را به معنی درست وصل کن.",
+      "selectionReason": "چهار عبارت منبع‌دارِ زمان و قرار در یک شبکهٔ واحد مرور می‌شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "عبارت‌های زمان و قرار را سریع تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "einen Termin",
+            "leftFa": "یک قرار / وقت ملاقات",
+            "right": "قرار",
+            "rightFa": "قرار"
+          },
+          {
+            "left": "heute Abend",
+            "leftFa": "امشب",
+            "right": "امشب",
+            "rightFa": "امشب"
+          },
+          {
+            "left": "morgen",
+            "leftFa": "فردا",
+            "right": "فردا",
+            "rightFa": "فردا"
+          },
+          {
+            "left": "um 12 Uhr",
+            "leftFa": "ساعت ۱۲",
+            "right": "ساعت ۱۲",
+            "rightFa": "ساعت ۱۲"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-time-review-order",
+      "type": "word_order",
+      "instructionFa": "جملهٔ دعوت به کنسرت را دوباره بساز.",
+      "selectionReason": "بازسازی دعوت، مرور زمان و قرار را با تولید هدایت‌شده پایان می‌دهد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "یک دعوت ساده را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Darf ich Sie ins Konzert einladen?",
+        "sourceTextFa": "می‌توانم شما را به کنسرت دعوت کنم؟",
+        "tokens": [
+          "Darf",
+          "ich",
+          "Sie",
+          "ins",
+          "Konzert",
+          "einladen?"
+        ],
+        "answer": [
+          "Darf",
+          "ich",
+          "Sie",
+          "ins",
+          "Konzert",
+          "einladen?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

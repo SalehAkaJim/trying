@@ -4,7 +4,7 @@
   "languageId": "de",
   "level": "A1",
   "status": "final",
-  "structureRationale": "A1 از توانایی‌های تثبیت‌شدهٔ سطح پیشین عبور می‌کند و زبان‌آموز را به ارتباط ساده اما مستقل‌تر در موقعیت‌های روزمره می‌رساند. ساختار واحدها و درس‌ها تا زمانی که پوشش CEFR، پیش‌نیازها، منابع قابل‌بازاستفاده و نیاز واقعی به تمرین مشخص نشده‌اند سهمیه‌بندی عددی نمی‌شود.",
+  "structureRationale": "A1 نیازمحور باقی می‌ماند، اما از این سطح به بعد هر واحد نهایی باید بین ۳ تا ۱۲ درس داشته باشد. تعداد دقیق داخل این بازه بر اساس گسترهٔ موضوع، پیش‌نیازها، تنوع مهارتی، بازیابی و کاربرد واقعی تعیین می‌شود؛ نه بر اساس پرکردن سهمیه.",
   "coverage": {
     "communicativeTargets": [
       "فهم و استفاده از عبارت‌ها و جمله‌های ساده و پرتکرار در موقعیت‌های آشنای روزمره",
@@ -90,25 +90,39 @@
   "lessonRefs": [
     "de-a1-lesson-profession-profile",
     "de-a1-lesson-work-and-languages",
+    "de-a1-lesson-integrated-introduction-review",
     "de-a1-lesson-family-brother-profile",
     "de-a1-lesson-family-parents-profile",
+    "de-a1-lesson-family-profile-review",
     "de-a1-lesson-room-table-lamp",
     "de-a1-lesson-room-position",
+    "de-a1-lesson-home-description-review",
     "de-a1-lesson-daily-routine-work",
     "de-a1-lesson-daily-routine-school",
+    "de-a1-lesson-daily-routine-day-review",
+    "de-a1-lesson-shopping-price-review",
     "de-a1-lesson-shopping-quantity-payment",
+    "de-a1-lesson-shopping-checkout-review",
+    "de-a1-lesson-food-preference-review",
     "de-a1-lesson-expanded-food-order",
+    "de-a1-lesson-food-combinations-review",
     "de-a1-lesson-time-class-schedule",
     "de-a1-lesson-time-simple-appointment",
+    "de-a1-lesson-time-plans-review",
+    "de-a1-lesson-directions-public-places-review",
     "de-a1-lesson-ask-and-follow-directions",
+    "de-a1-lesson-directions-sequence-review",
     "de-a1-lesson-clarify-permission-help",
+    "de-a1-lesson-services-permission-review",
+    "de-a1-lesson-services-help-review",
     "de-a1-lesson-personal-form-signs",
-    "de-a1-lesson-short-phone-message"
+    "de-a1-lesson-short-phone-message",
+    "de-a1-lesson-forms-signs-message-review"
   ],
-  "notes": "این سطح از نظر محتوایی و فنی نهایی شده است: هر ۱۰ واحد و هر ۱۶ درس نهایی‌اند، همهٔ ۳۷ هدف الزامی پوشش و ارزیابی شده‌اند و شکاف الزامی باز باقی نمانده است. هر ۱۶۷ فایل صوتی لازم تولید شده‌اند، نگاشت‌ها و دارایی‌ها اعتبارسنجی شده‌اند و وضعیت صوت آماده است؛ بازبینی شنیداری انسانی برای کنترل کیفیت نهایی باقی مانده است.",
+  "notes": "A1 از نظر محتوایی نهایی است: ۱۰ واحد دارد و هر واحد اکنون ۳ درس هدفمند دارد؛ در مجموع ۳۰ درس. همهٔ ۳۷ هدف الزامی بدون شکاف باز پوشش دارند. درس‌های تقویتی تازه از صحنه‌ها و مواد منبع‌دار موجود استفاده می‌کنند و هدف صوتی مستقل تازه‌ای اضافه نمی‌کنند؛ بنابراین وضعیت صوتی بر پایهٔ دارایی‌های فعلی آماده باقی می‌ماند.",
   "audioStatus": "ready",
   "completionAssessment": {
-    "reviewedAt": "2026-09-18T05:02:00Z",
+    "reviewedAt": "2026-09-18T05:05:00Z",
     "cefrCoverageComplete": true,
     "progressionComplete": true,
     "practiceAndRetrievalComplete": true,
@@ -126,13 +140,14 @@
         "learnerSupportAndClarity": 9.1,
         "qaIntegrity": 9.3
       },
-      "rationale": "پوشش همهٔ ۳۷ هدف الزامی به شواهد واقعی درس و فعالیت متصل است؛ ۱۰ واحد و ۱۶ درس چند دور بازبینی ساختاری، زبانی، منبعی و ترجمه‌ای را گذرانده‌اند. ایرادهای پیدا‌شده در پوشش حرف تعریف، ردیابی منبع، نوع خطاب شخصیت‌ها، چند ترجمهٔ فارسی و تولید نوشتاری هدایت‌شده اصلاح شدند. هر ۱۶۷ فایل صوتی لازم نیز تولید و از نظر دارایی، نگاشت و سازگاری با پایگاه داده اعتبارسنجی شده‌اند؛ تنها بازبینی شنیداری انسانی برای کنترل کیفیت ادراکی باقی مانده است.",
+      "rationale": "پوشش همهٔ ۳۷ هدف الزامی به شواهد واقعی درس و فعالیت متصل است. پس از بازبینی عمق واحدها، ساختار A1 از ۱۶ درس به ۳۰ درس گسترش یافت تا هر یک از ۱۰ واحد حداقل سه مرحلهٔ آموزشی داشته باشد: معرفی یا کاربرد اصلی، تمرین متمرکز و بازیابی یا یکپارچه‌سازی. درس‌های افزوده‌شده متن آلمانی تازهٔ آزاد تولید نمی‌کنند و از همان مواد منبع‌دار و گفت‌وگوهای تأییدشده برای تمرین فاصله‌دار و انتقال مهارت استفاده می‌کنند.",
       "strengths": [
         "همهٔ هدف‌های الزامی A1 نگاشت واقعی به واحد، درس یا فعالیت دارند.",
         "متن آلمانی زبان‌آموز از منابع قابل‌بازاستفاده و بررسی‌شده می‌آید و متن آزادِ ساخته‌شده به محتوای آموزشی وارد نشده است.",
         "ترتیب فعالیت‌ها عمدتاً از فهم و تشخیص به بازیابی و تولید هدایت‌شده حرکت می‌کند.",
         "گفت‌وگوها از نظر نوع خطاب و رابطهٔ شخصیت‌ها بازبینی و اصلاح شده‌اند.",
-        "خواندن، شنیدن، گفتار، فرم، تابلو، پیام کوتاه و تلفظ در سطح توزیع شده‌اند."
+        "خواندن، شنیدن، گفتار، فرم، تابلو، پیام کوتاه و تلفظ در سطح توزیع شده‌اند.",
+        "هر ۱۰ واحد A1 اکنون سه درس هدفمند دارد و هیچ واحد نهایی زیر حد عمق تعریف‌شده نیست."
       ],
       "remainingWeaknesses": [
         "تولید نوشتاری در ساختار فعلی برنامه هدایت‌شده است و ورودی آزاد تایپی ندارد.",

@@ -123,6 +123,68 @@ if expected != actual:
 print('Authoring/MySQL manifests are synchronized:', expected)
 PY
 
+# Authoring/MySQL unit lesson membership and ordering must be identical.
+python - <<'PY' > /tmp/expected_unit_lessons.tsv
+import json, pathlib
+rows=[]
+for path in pathlib.Path('content').glob('*/*/units/*.json'):
+    data=json.loads(path.read_text(encoding='utf-8'))
+    rows.append((data['languageId'],data['level'],data['id'],data.get('status',''),'|'.join(data.get('lessonRefs',[]))))
+for row in sorted(rows):
+    print('\t'.join(map(str,row)))
+PY
+
+mysql_cmd -e "
+  SELECT lang.code,ll.cefr_level,u.unit_key,u.status,
+         COALESCE(GROUP_CONCAT(l.lesson_key ORDER BY l.position_in_unit SEPARATOR '|'),'')
+  FROM units u
+  JOIN language_levels ll ON ll.id=u.language_level_id
+  JOIN languages lang ON lang.id=ll.language_id
+  LEFT JOIN lessons l ON l.unit_id=u.id
+  GROUP BY lang.code,ll.cefr_level,u.id,u.unit_key,u.status
+  ORDER BY lang.code,FIELD(ll.cefr_level,'Pre-A1','A1','A2','B1','B2','C1','C2'),u.sequence_index,u.unit_key;
+" > /tmp/actual_unit_lessons.tsv
+
+python - <<'PY'
+import json, pathlib, sys
+def read(path):
+    membership={}
+    statuses={}
+    for line in pathlib.Path(path).read_text(encoding='utf-8').splitlines():
+        if not line.strip():
+            continue
+        lang,level,unit,status,refs=line.split('\t')
+        key=(lang,level,unit)
+        membership[key]=refs
+        statuses[key]=status
+    return membership,statuses
+expected,expected_status=read('/tmp/expected_unit_lessons.tsv')
+actual,actual_status=read('/tmp/actual_unit_lessons.tsv')
+if expected != actual:
+    print('Authoring/MySQL unit lesson membership mismatch')
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+    sys.exit(1)
+bounds=json.loads(pathlib.Path('config/unit-lesson-count-bounds.json').read_text(encoding='utf-8')).get('levels',{})
+bad=[]
+for key,refs in sorted(actual.items()):
+    if actual_status.get(key) != 'final':
+        continue
+    rule=bounds.get(key[1])
+    if not rule:
+        continue
+    count=0 if not refs else len(refs.split('|'))
+    minimum=rule['minLessons']; maximum=rule['maxLessons']
+    if not minimum <= count <= maximum:
+        bad.append((key,count,minimum,maximum))
+if bad:
+    print('Final MySQL units outside configured lesson-count bounds:')
+    for key,count,minimum,maximum in bad:
+        print(f'- {key}: {count}, expected {minimum}-{maximum}')
+    sys.exit(1)
+print(f'Authoring/MySQL unit lesson membership is synchronized for {len(expected)} units.')
+PY
+
 # Authoring lesson activity counts and MySQL activity counts must be identical.
 python - <<'PY' > /tmp/expected_lesson_activities.tsv
 import json, pathlib

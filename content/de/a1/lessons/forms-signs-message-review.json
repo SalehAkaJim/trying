@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-forms-signs-message-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-forms-signs-messages",
+  "titleFa": "فرم، تابلو و پیام را به هم وصل کن",
+  "learningTargets": [
+    "اطلاعات شخصی لازم برای فرم را در گفت‌وگو تشخیص دهد.",
+    "تابلوهای کوتاه روزمره را سریع بخواند.",
+    "یک پیام کوتاه تماس را بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-residence-origin",
+    "src-wikivoyage-german-phrasebook-signs",
+    "src-wikibooks-de-lesson-024-short-messages"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس جمع‌بندی واحد سه قالب واقعی بیرون از گفت‌وگوی آزاد را کنار هم می‌آورد: اطلاعات فرم، تابلو و پیام کوتاه.",
+    "sequenceRationale": "اطلاعات شخصی در گفت‌وگو فعال می‌شود، سپس خواندن سریع تابلوها و در پایان بازسازی پیام کوتاه تمرین می‌شود.",
+    "templateSignature": "conversation_speaking>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-forms-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی اطلاعات شخصی را دوباره اجرا کن و به اطلاعات فرم دقت کن.",
+      "selectionReason": "گفت‌وگوی منبع‌دار اطلاعات لازم برای فرم را پیش از خواندن محیطی فعال می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin"
+      ],
+      "learningTargets": [
+        "اطلاعات شخصی لازم برای فرم را در گفت‌وگو تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-personal-form-review",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-forms-review-signs",
+      "type": "matching",
+      "instructionFa": "تابلوهای کوتاه را به معنی درست وصل کن.",
+      "selectionReason": "چهار تابلو باید در پایان A1 به‌صورت سریع و مستقل قابل تشخیص باشند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-signs"
+      ],
+      "learningTargets": [
+        "تابلوهای بسیار کوتاه روزمره را بخواند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Offen",
+            "leftFa": "باز",
+            "right": "باز",
+            "rightFa": "باز"
+          },
+          {
+            "left": "Geschlossen",
+            "leftFa": "بسته",
+            "right": "بسته",
+            "rightFa": "بسته"
+          },
+          {
+            "left": "Eingang",
+            "leftFa": "ورودی",
+            "right": "ورودی",
+            "rightFa": "ورودی"
+          },
+          {
+            "left": "Ausgang",
+            "leftFa": "خروجی",
+            "right": "خروجی",
+            "rightFa": "خروجی"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-forms-review-message-order",
+      "type": "word_order",
+      "instructionFa": "پیام کوتاه تماس برای بعدازظهر را دوباره بساز.",
+      "selectionReason": "بازسازی پیام، خواندن محیطی را با نوشتن هدایت‌شده جمع می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "learningTargets": [
+        "یک پیام کوتاه تماس را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Rufen Sie bitte am Nachmittag noch einmal an.",
+        "sourceTextFa": "لطفاً بعدازظهر دوباره تماس بگیرید.",
+        "tokens": [
+          "Rufen",
+          "Sie",
+          "bitte",
+          "am",
+          "Nachmittag",
+          "noch",
+          "einmal",
+          "an."
+        ],
+        "answer": [
+          "Rufen",
+          "Sie",
+          "bitte",
+          "am",
+          "Nachmittag",
+          "noch",
+          "einmal",
+          "an."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

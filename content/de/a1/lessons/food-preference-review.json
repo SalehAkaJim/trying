@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-food-preference-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-expanded-food-order",
+  "titleFa": "چی می‌خواهی و چی نه؟",
+  "learningTargets": [
+    "ترجیح مثبت و منفی ساده را تشخیص دهد.",
+    "ترجیح را در بافت سفارش دنبال کند.",
+    "یک جملهٔ ترجیح ساده را بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-food-order"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "این درس بخش ترجیح را از سفارش چندقلمی جدا می‌کند تا خواستن یک مورد و نخواستن مورد دیگر به‌صورت فعال تمرین شود.",
+    "sequenceRationale": "ترجیح ابتدا در بافت دیده می‌شود، سپس تشخیص داده و در پایان بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-food-preference-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "سفارش را دوباره اجرا کن و به انتخاب‌ها دقت کن.",
+      "selectionReason": "گفت‌وگوی سفارش، ترجیح را در یک موقعیت واقعی فعال می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "learningTargets": [
+        "ترجیح را در بافت سفارش دنبال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-expanded-food-order",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-food-preference-review-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله می‌گوید قهوه می‌خواهم، اما شیر نمی‌خواهم؟",
+      "selectionReason": "سه جملهٔ منبع‌دار الگوی ترجیح مثبت و منفی را مقایسه می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "learningTargets": [
+        "ترجیح مثبت و منفی را از نمونه‌های مشابه تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Ich möchte Kaffee, aber keine Milch.",
+            "translationFa": "قهوه می‌خواهم، اما شیر نمی‌خواهم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich möchte Kuchen, aber keine Brötchen.",
+            "translationFa": "کیک می‌خواهم، اما نان گرد نمی‌خواهم.",
+            "correct": false
+          },
+          {
+            "textTarget": "Ich möchte Reis, aber keine Suppe.",
+            "translationFa": "برنج می‌خواهم، اما سوپ نمی‌خواهم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-food-preference-review-order",
+      "type": "word_order",
+      "instructionFa": "جملهٔ قهوه بدون شیر را دوباره بساز.",
+      "selectionReason": "بازسازی جمله، تشخیص ترجیح را به تولید هدایت‌شده تبدیل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "learningTargets": [
+        "جملهٔ ترجیح ساده را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich möchte Kaffee, aber keine Milch.",
+        "sourceTextFa": "قهوه می‌خواهم، اما شیر نمی‌خواهم.",
+        "tokens": [
+          "Ich",
+          "möchte",
+          "Kaffee,",
+          "aber",
+          "keine",
+          "Milch."
+        ],
+        "answer": [
+          "Ich",
+          "möchte",
+          "Kaffee,",
+          "aber",
+          "keine",
+          "Milch."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

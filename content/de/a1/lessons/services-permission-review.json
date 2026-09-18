@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-services-permission-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-requests-services-help",
+  "titleFa": "اجازه بگیر و درخواست کن",
+  "learningTargets": [
+    "درخواست اجازه را از پرسش‌های خدماتی دیگر تشخیص دهد.",
+    "درخواست مؤدبانه را در بافت خدماتی دنبال کند.",
+    "پرسش اجازه برای استفاده از تلفن را بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002-service-clarification",
+    "src-wikivoyage-german-phrasebook-services"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "این درس اجازه گرفتن را به‌عنوان یک کارکرد مستقل خدماتی از تشخیص به تولید می‌رساند.",
+    "sequenceRationale": "بافت خدماتی ابتدا فعال می‌شود، سپس کاربرد عبارت تشخیص داده و در پایان همان پرسش بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-services-permission-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی خدماتی را دوباره اجرا کن و روی درخواست مؤدبانه تمرکز کن.",
+      "selectionReason": "صحنهٔ روشن‌سازی، بافت خدماتی را پیش از تمرین اجازه فعال می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002-service-clarification",
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "learningTargets": [
+        "درخواست مؤدبانه را در بافت خدماتی دنبال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-clarify-slowly",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-services-permission-review-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام عبارت برای اجازه گرفتنِ استفاده از تلفن است؟",
+      "selectionReason": "سه عبارت منبع‌دار اجازه گرفتن را از پرسش مکان و زبان جدا می‌کنند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "learningTargets": [
+        "درخواست اجازه را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Kann ich Ihr Telefon benutzen?",
+            "translationFa": "می‌توانم از تلفن شما استفاده کنم؟",
+            "correct": true
+          },
+          {
+            "textTarget": "Wo ist die Toilette, bitte?",
+            "translationFa": "سرویس بهداشتی کجاست، لطفاً؟",
+            "correct": false
+          },
+          {
+            "textTarget": "Sprechen Sie Englisch?",
+            "translationFa": "انگلیسی صحبت می‌کنید؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-services-permission-review-order",
+      "type": "word_order",
+      "instructionFa": "پرسش اجازه برای استفاده از تلفن را دوباره بساز.",
+      "selectionReason": "بازسازی پرسش، تشخیص کاربرد را به تولید هدایت‌شده تبدیل می‌کند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "learningTargets": [
+        "پرسش سادهٔ اجازه را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Kann ich Ihr Telefon benutzen?",
+        "sourceTextFa": "می‌توانم از تلفن شما استفاده کنم؟",
+        "tokens": [
+          "Kann",
+          "ich",
+          "Ihr",
+          "Telefon",
+          "benutzen?"
+        ],
+        "answer": [
+          "Kann",
+          "ich",
+          "Ihr",
+          "Telefon",
+          "benutzen?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-directions-sequence-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-directions-public-places",
+  "titleFa": "مسیر را قدم‌به‌قدم دنبال کن",
+  "learningTargets": [
+    "راست، چپ و مستقیم را از هم تشخیص دهد.",
+    "توالی یک راهنمایی کوتاه را دنبال کند.",
+    "بخش کلیدی جملهٔ مسیر را بازیابی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-german-print-directions",
+    "src-wikivoyage-german-phrasebook-directions"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "این درس تمرکز را از نام مقصد به دنبال‌کردن توالی جهت‌ها منتقل می‌کند و جملهٔ اصلی مسیر را فعالانه بازیابی می‌کند.",
+    "sequenceRationale": "توالی در گفت‌وگو دنبال می‌شود، جهت‌ها از هم جدا می‌شوند و در پایان جهت کلیدی داخل جملهٔ کامل بازیابی می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>fill_blank"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-directions-sequence-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی مسیر را دوباره اجرا کن و ترتیب حرکت را دنبال کن.",
+      "selectionReason": "صحنهٔ منبع‌دار این بار برای تمرکز بر راست و سپس مستقیم استفاده می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "learningTargets": [
+        "توالی کوتاه جهت‌ها را در گفت‌وگو دنبال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-ask-and-follow-directions",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-directions-sequence-review-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام عبارت یعنی مستقیم به جلو؟",
+      "selectionReason": "سه عبارت منبع‌دار تفاوت مستقیم، چپ و راست را می‌سنجند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-directions"
+      ],
+      "learningTargets": [
+        "سه جهت پایه را از هم تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "geradeaus",
+            "translationFa": "مستقیم به جلو",
+            "correct": true
+          },
+          {
+            "textTarget": "Links abbiegen.",
+            "translationFa": "به چپ بپیچید.",
+            "correct": false
+          },
+          {
+            "textTarget": "Rechts abbiegen.",
+            "translationFa": "به راست بپیچید.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-directions-sequence-review-fill",
+      "type": "fill_blank",
+      "instructionFa": "جملهٔ مسیر را با عبارت درست کامل کن.",
+      "selectionReason": "تکمیل جملهٔ کامل، فهم جهت را در جای واقعی آن می‌سنجد.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "learningTargets": [
+        "جهت کلیدی را در جملهٔ مسیر بازیابی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Rechts um die Ecke und dann immer geradeaus – ungefähr ein Kilometer.",
+        "sourceTextFa": "سرِ پیچ به راست بپیچید و بعد مستقیم ادامه بدهید؛ حدود یک کیلومتر.",
+        "blankedText": "Rechts um die Ecke und dann immer ___ – ungefähr ein Kilometer.",
+        "blankedTextFa": "سرِ پیچ به راست بپیچید و بعد ___ ادامه بدهید؛ حدود یک کیلومتر.",
+        "choices": [
+          "geradeaus",
+          "links",
+          "rechts"
+        ],
+        "choicesFa": [
+          "مستقیم",
+          "چپ",
+          "راست"
+        ],
+        "answer": "geradeaus"
+      },
+      "transformations": [
+        "source_sentence_blank_created",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

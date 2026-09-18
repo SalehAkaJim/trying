@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-food-combinations-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-expanded-food-order",
+  "titleFa": "سفارش را کامل‌تر کن",
+  "learningTargets": [
+    "ترکیب‌های پرتکرار مقدار و خوراکی یا نوشیدنی را تشخیص دهد.",
+    "افزودن یک قلم دیگر به سفارش را دنبال کند.",
+    "جملهٔ افزودن نوشیدنی به سفارش را بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-food-order"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "این درس واحدهای سرو و اضافه‌کردن قلم دوم را جداگانه تثبیت می‌کند تا سفارش چندمرحله‌ای از یک جملهٔ حفظی فراتر برود.",
+    "sequenceRationale": "از سفارش کامل به تشخیص ترکیب‌ها و سپس ساخت جملهٔ افزودن نوشیدنی می‌رسد.",
+    "templateSignature": "conversation_speaking>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-food-combinations-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "سفارش را دوباره اجرا کن و روی اضافه‌کردن قلم دوم تمرکز کن.",
+      "selectionReason": "گفت‌وگوی منبع‌دار الگوی سفارش چندمرحله‌ای را در بافت نگه می‌دارد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "learningTargets": [
+        "افزودن قلم دیگر را در گفت‌وگو دنبال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-expanded-food-order",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-food-combinations-review-matching",
+      "type": "matching",
+      "instructionFa": "ترکیب‌های سفارش را به معنی درست وصل کن.",
+      "selectionReason": "چهار ترکیب منبع‌دار تکه، فنجان و افزودنی‌ها را تثبیت می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "learningTargets": [
+        "ترکیب‌های مقدار و خوراکی یا نوشیدنی را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "ein Stück Kuchen",
+            "leftFa": "یک تکه کیک",
+            "right": "یک تکه کیک",
+            "rightFa": "یک تکه کیک"
+          },
+          {
+            "left": "eine Tasse Kaffee",
+            "leftFa": "یک فنجان قهوه",
+            "right": "یک فنجان قهوه",
+            "rightFa": "یک فنجان قهوه"
+          },
+          {
+            "left": "drei Stück Kuchen",
+            "leftFa": "سه تکه کیک",
+            "right": "سه تکه کیک",
+            "rightFa": "سه تکه کیک"
+          },
+          {
+            "left": "eine Tasse Kaffee mit Milch und Zucker",
+            "leftFa": "یک فنجان قهوه با شیر و شکر",
+            "right": "قهوه با شیر و شکر",
+            "rightFa": "قهوه با شیر و شکر"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-food-combinations-review-order",
+      "type": "word_order",
+      "instructionFa": "جملهٔ اضافه‌کردن قهوه را دوباره بساز.",
+      "selectionReason": "تولید هدایت‌شدهٔ قلم دوم، الگوی سفارش چندمرحله‌ای را تثبیت می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-food-order"
+      ],
+      "learningTargets": [
+        "جملهٔ افزودن نوشیدنی را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich möchte auch noch eine Tasse Kaffee.",
+        "sourceTextFa": "یک فنجان قهوه هم می‌خواهم.",
+        "tokens": [
+          "Ich",
+          "möchte",
+          "auch",
+          "noch",
+          "eine",
+          "Tasse",
+          "Kaffee."
+        ],
+        "answer": [
+          "Ich",
+          "möchte",
+          "auch",
+          "noch",
+          "eine",
+          "Tasse",
+          "Kaffee."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

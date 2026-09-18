@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-shopping-price-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-shopping-quantity-payment",
+  "titleFa": "قیمت‌ها را سریع پیدا کن",
+  "learningTargets": [
+    "پرسش قیمت را در تراکنش فروشگاهی تشخیص دهد.",
+    "چند مقدار و قیمت را به هم وصل کند.",
+    "پرسش پایهٔ قیمت را بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-009-shopping"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "این درس قیمت را به‌عنوان یک زیرمهارت مستقل در خرید تثبیت می‌کند تا تشخیص عدد و ساخت پرسش به‌اندازهٔ کافی تمرین شود.",
+    "sequenceRationale": "از قیمت در گفت‌وگو به مقایسهٔ چند قیمت و سپس بازسازی پرسش می‌رسد.",
+    "templateSignature": "conversation_speaking>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-shopping-price-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی خرید را اجرا کن و این بار روی قیمت تمرکز کن.",
+      "selectionReason": "تراکنش کامل، پرسش قیمت را در بافت واقعی نگه می‌دارد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-shopping"
+      ],
+      "learningTargets": [
+        "پرسش و پاسخ قیمت را در گفت‌وگو تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-shopping-quantity-payment",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-shopping-price-review-matching",
+      "type": "matching",
+      "instructionFa": "هر مقدار کالا را به قیمت درست وصل کن.",
+      "selectionReason": "چهار نمونهٔ منبع‌دار باعث می‌شوند قیمت به یک کالا محدود نماند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-shopping"
+      ],
+      "learningTargets": [
+        "مقدار کالا و قیمت را به هم وصل کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "300 g Wurst",
+            "leftFa": "۳۰۰ گرم سوسیس",
+            "right": "5,99 Euro",
+            "rightFa": "۵٫۹۹ یورو"
+          },
+          {
+            "left": "250 g Butter",
+            "leftFa": "۲۵۰ گرم کره",
+            "right": "3,95 Euro",
+            "rightFa": "۳٫۹۵ یورو"
+          },
+          {
+            "left": "zwei Flaschen Milch",
+            "leftFa": "دو بطری شیر",
+            "right": "2,99 Euro",
+            "rightFa": "۲٫۹۹ یورو"
+          },
+          {
+            "left": "fünf Eier",
+            "leftFa": "پنج تخم‌مرغ",
+            "right": "2,67 Euro",
+            "rightFa": "۲٫۶۷ یورو"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-shopping-price-review-order",
+      "type": "word_order",
+      "instructionFa": "پرسش قیمت گوشت را دوباره بساز.",
+      "selectionReason": "پس از خواندن چند قیمت، پرسش اصلی به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-shopping"
+      ],
+      "learningTargets": [
+        "پرسش قیمت را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wie viel kostet dieses Fleisch?",
+        "sourceTextFa": "این گوشت چقدر قیمت دارد؟",
+        "tokens": [
+          "Wie",
+          "viel",
+          "kostet",
+          "dieses",
+          "Fleisch?"
+        ],
+        "answer": [
+          "Wie",
+          "viel",
+          "kostet",
+          "dieses",
+          "Fleisch?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

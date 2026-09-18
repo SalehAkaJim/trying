@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-home-description-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-home-and-nearby",
+  "titleFa": "اتاق و جای وسایل را توصیف کن",
+  "learningTargets": [
+    "واژگان وسایل اتاق و موقعیت را در کنار هم بازیابی کند.",
+    "راست، چپ، جلو و عقب را از هم تشخیص دهد.",
+    "پرسش ساده دربارهٔ موقعیت یک وسیله را بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-room-objects",
+    "src-wikibooks-de-lesson-009-room-position"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "این درس نام وسایل و واژگان موقعیت را به یک توصیف کاربردی از فضای نزدیک وصل می‌کند.",
+    "sequenceRationale": "از فهم موقعیت در گفت‌وگو به تشخیص جهت‌های داخل فضا و سپس ساخت پرسش مکانی می‌رسد.",
+    "templateSignature": "conversation_speaking>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-home-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی جای وسایل را دوباره اجرا کن و به موقعیت‌ها دقت کن.",
+      "selectionReason": "مکالمهٔ منبع‌دار موقعیت، نام وسایل را به توصیف فضا وصل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-room-position"
+      ],
+      "learningTargets": [
+        "موقعیت سادهٔ وسایل را در گفت‌وگو بفهمد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-room-position",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-home-review-matching",
+      "type": "matching",
+      "instructionFa": "هر موقعیت را به معنی درست وصل کن.",
+      "selectionReason": "چهار قید مکانی منبع‌دار برای توصیف اتاق دوباره بازیابی می‌شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-room-position"
+      ],
+      "learningTargets": [
+        "چهار واژهٔ موقعیت را از هم تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "rechts",
+            "leftFa": "سمت راست",
+            "right": "راست",
+            "rightFa": "راست"
+          },
+          {
+            "left": "links",
+            "leftFa": "سمت چپ",
+            "right": "چپ",
+            "rightFa": "چپ"
+          },
+          {
+            "left": "hinten",
+            "leftFa": "عقب",
+            "right": "عقب",
+            "rightFa": "عقب"
+          },
+          {
+            "left": "vorn",
+            "leftFa": "جلو",
+            "right": "جلو",
+            "rightFa": "جلو"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-home-review-order",
+      "type": "word_order",
+      "instructionFa": "پرسش جای صندلی را دوباره بساز.",
+      "selectionReason": "بازیابی پرسش موقعیت، مرور واژگان را به کاربرد فعال وصل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-room-position"
+      ],
+      "learningTargets": [
+        "پرسش دربارهٔ موقعیت وسیله را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Steht der Stuhl hinten?",
+        "sourceTextFa": "آیا صندلی عقب قرار دارد؟",
+        "tokens": [
+          "Steht",
+          "der",
+          "Stuhl",
+          "hinten?"
+        ],
+        "answer": [
+          "Steht",
+          "der",
+          "Stuhl",
+          "hinten?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

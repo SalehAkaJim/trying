@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-services-help-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-requests-services-help",
+  "titleFa": "کمک لازم را روشن بگو",
+  "learningTargets": [
+    "نیاز به کمک را مستقیم تشخیص دهد.",
+    "واژگان پایهٔ خدمات روزمره را سریع بازیابی کند.",
+    "راهبرد روشن‌سازی را در کنار درخواست کمک به کار ببرد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002-service-clarification",
+    "src-wikivoyage-german-phrasebook-services",
+    "src-wikibooks-de-lesson-004"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس سوم واحد، بیان نیاز مشخص و راهبرد روشن‌سازی را کنار هم نگه می‌دارد تا زبان‌آموز بتواند تعامل خدماتی را ادامه دهد.",
+    "sequenceRationale": "گفت‌وگو راهبرد بقا را فعال می‌کند، سپس نیاز مشخص و واژگان خدماتی بازیابی می‌شوند.",
+    "templateSignature": "conversation_speaking>choose_response>matching"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-services-help-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "اگر چیزی را نفهمیدی، گفت‌وگو را مدیریت کن و درخواست روشن‌سازی بده.",
+      "selectionReason": "صحنهٔ منبع‌دار راهبرد ادامه‌دادن تعامل در صورت نفهمیدن را فعال می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002-service-clarification",
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "learningTargets": [
+        "درخواست روشن‌سازی را در موقعیت خدماتی به کار ببرد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-clarify-slowly",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-services-help-review-response",
+      "type": "choose_response",
+      "instructionFa": "در پاسخ به «چه چیزی لازم دارید؟» جملهٔ مربوط به کمک را انتخاب کن.",
+      "selectionReason": "انتخاب پاسخ درست، نیاز مشخص را از جمله‌های نزدیک با کارکرد دیگر جدا می‌کند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-services",
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "نیاز به کمک را مستقیم تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Was brauchen Sie?",
+        "promptFa": "چه چیزی لازم دارید؟",
+        "options": [
+          {
+            "textTarget": "Ich brauche Ihre Hilfe.",
+            "translationFa": "به کمک شما نیاز دارم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich verstehe das nicht.",
+            "translationFa": "این را نمی‌فهمم.",
+            "correct": false
+          },
+          {
+            "textTarget": "Wo ist die Toilette, bitte?",
+            "translationFa": "سرویس بهداشتی کجاست، لطفاً؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-services-help-review-matching",
+      "type": "matching",
+      "instructionFa": "واژه‌های خدماتی را به معنی درست وصل کن.",
+      "selectionReason": "شبکهٔ چهار واژهٔ خدماتی دامنهٔ کاربرد واحد را تثبیت می‌کند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "learningTargets": [
+        "واژگان خدمات روزمره را سریع تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Hilfe",
+            "leftFa": "کمک",
+            "right": "کمک",
+            "rightFa": "کمک"
+          },
+          {
+            "left": "Telefon",
+            "leftFa": "تلفن",
+            "right": "تلفن",
+            "rightFa": "تلفن"
+          },
+          {
+            "left": "Toilette",
+            "leftFa": "سرویس بهداشتی",
+            "right": "سرویس بهداشتی",
+            "rightFa": "سرویس بهداشتی"
+          },
+          {
+            "left": "Apotheke",
+            "leftFa": "داروخانه",
+            "right": "داروخانه",
+            "rightFa": "داروخانه"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-shopping-checkout-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-shopping-quantity-payment",
+  "titleFa": "خرید را ببند و پرداخت کن",
+  "learningTargets": [
+    "پایان سفارش را در یک تراکنش تشخیص دهد.",
+    "پاسخ مقدار را از پایان خرید تشخیص دهد.",
+    "دستور سادهٔ پرداخت را بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-009-shopping"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "این درس بخش پایانی تراکنش را جداگانه تثبیت می‌کند: تعیین مقدار، پایان سفارش و پرداخت.",
+    "sequenceRationale": "تراکنش کامل فعال می‌شود، سپس نوبت مناسب انتخاب و جملهٔ پرداخت بازیابی می‌شود.",
+    "templateSignature": "conversation_speaking>choose_response>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-shopping-checkout-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی خرید را دوباره اجرا کن و این بار روی پایان سفارش و صندوق تمرکز کن.",
+      "selectionReason": "صحنهٔ کامل، مرحلهٔ بستن سفارش و پرداخت را در جای طبیعی آن نگه می‌دارد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-shopping"
+      ],
+      "learningTargets": [
+        "پایان یک خرید کوتاه را در گفت‌وگو دنبال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-shopping-quantity-payment",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-shopping-checkout-review-response",
+      "type": "choose_response",
+      "instructionFa": "فروشنده مقدار را می‌پرسد؛ پاسخ درست را انتخاب کن.",
+      "selectionReason": "تمایز پاسخ مقدار از «چیز دیگری؟» و پایان سفارش، ترتیب تراکنش را روشن می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-shopping"
+      ],
+      "learningTargets": [
+        "پاسخ مناسب به پرسش مقدار را انتخاب کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Wie viel möchten Sie?",
+        "promptFa": "چه مقدار می‌خواهید؟",
+        "options": [
+          {
+            "textTarget": "Bitte 250 Gramm.",
+            "translationFa": "لطفاً ۲۵۰ گرم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Noch etwas?",
+            "translationFa": "چیز دیگری؟",
+            "correct": false
+          },
+          {
+            "textTarget": "Danke, das ist alles.",
+            "translationFa": "ممنون، همین کافی است.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-shopping-checkout-review-order",
+      "type": "word_order",
+      "instructionFa": "دستور پرداخت را دوباره بساز.",
+      "selectionReason": "بازیابی جملهٔ پرداخت مرحلهٔ پایانی خرید را تثبیت می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-009-shopping"
+      ],
+      "learningTargets": [
+        "دستور سادهٔ پرداخت را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Bezahlen Sie bitte dort.",
+        "sourceTextFa": "لطفاً آنجا پرداخت کنید.",
+        "tokens": [
+          "Bezahlen",
+          "Sie",
+          "bitte",
+          "dort."
+        ],
+        "answer": [
+          "Bezahlen",
+          "Sie",
+          "bitte",
+          "dort."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

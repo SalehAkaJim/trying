@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-directions-public-places-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-directions-public-places",
+  "titleFa": "مقصدت کجاست؟",
+  "learningTargets": [
+    "نام مکان‌های عمومی پرتکرار را تشخیص دهد.",
+    "پرسش مسیر یک مقصد را در بافت واقعی دنبال کند.",
+    "پرسش سادهٔ مسیر را بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-german-print-directions",
+    "src-wikivoyage-german-phrasebook-directions"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "این درس مقصدها را پیش از تمرکز روی توالی جهت‌ها تثبیت می‌کند تا الگوی پرسش مسیر به مکان‌های مختلف منتقل شود.",
+    "sequenceRationale": "گفت‌وگوی مسیر، مرور مقصدها و بازسازی پرسش سه مرحلهٔ فهم، گسترش و بازیابی را می‌سازند.",
+    "templateSignature": "conversation_speaking>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-directions-places-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "مسیر شهرداری را دوباره بپرس و این بار روی مقصدها تمرکز کن.",
+      "selectionReason": "گفت‌وگوی منبع‌دار مسیر، واژگان مکان را در نقش مقصد نگه می‌دارد.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "learningTargets": [
+        "پرسش مسیر یک مکان عمومی را در گفت‌وگو بفهمد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-ask-and-follow-directions",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-directions-places-review-matching",
+      "type": "matching",
+      "instructionFa": "مکان‌های عمومی را به معنی درست وصل کن.",
+      "selectionReason": "چهار مقصد پرتکرار پایهٔ انتقال مهارت مسیر به مکان‌های مختلف هستند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-directions"
+      ],
+      "learningTargets": [
+        "مکان‌های عمومی پرتکرار را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Bahnhof",
+            "leftFa": "ایستگاه قطار",
+            "right": "ایستگاه قطار",
+            "rightFa": "ایستگاه قطار"
+          },
+          {
+            "left": "Bushaltestelle",
+            "leftFa": "ایستگاه اتوبوس",
+            "right": "ایستگاه اتوبوس",
+            "rightFa": "ایستگاه اتوبوس"
+          },
+          {
+            "left": "Flughafen",
+            "leftFa": "فرودگاه",
+            "right": "فرودگاه",
+            "rightFa": "فرودگاه"
+          },
+          {
+            "left": "Stadtmitte",
+            "leftFa": "مرکز شهر",
+            "right": "مرکز شهر",
+            "rightFa": "مرکز شهر"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-directions-places-review-order",
+      "type": "word_order",
+      "instructionFa": "پرسش مسیر شهرداری را دوباره بساز.",
+      "selectionReason": "پس از مرور مقصدها، پرسش مسیر به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "learningTargets": [
+        "پرسش سادهٔ مسیر را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wie komme ich zum Rathaus?",
+        "sourceTextFa": "چطور به شهرداری برسم؟",
+        "tokens": [
+          "Wie",
+          "komme",
+          "ich",
+          "zum",
+          "Rathaus?"
+        ],
+        "answer": [
+          "Wie",
+          "komme",
+          "ich",
+          "zum",
+          "Rathaus?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

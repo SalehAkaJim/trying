@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-family-profile-review",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-family-and-close-people",
+  "titleFa": "خانواده را یک‌جا مرور کن",
+  "learningTargets": [
+    "اعضای پایهٔ خانواده را سریع تشخیص دهد.",
+    "اطلاعات مربوط به چند عضو خانواده را در یک گفت‌وگو دنبال کند.",
+    "پرسش دربارهٔ نام یک عضو خانواده را بازسازی کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-family"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس سوم واحد، رابطه‌های خانوادگی و اطلاعات شخصی اعضا را از حالت تمرین‌های جدا به یک مرور منسجم تبدیل می‌کند.",
+    "sequenceRationale": "گفت‌وگو اطلاعات را فعال می‌کند، تطبیق رابطه‌ها را تثبیت می‌کند و بازسازی پرسش تولید هدایت‌شده را تمرین می‌دهد.",
+    "templateSignature": "conversation_speaking>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-family-review-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی پدر و مادر را دوباره انجام بده و اطلاعات هر نفر را دنبال کن.",
+      "selectionReason": "صحنهٔ منبع‌دار والدین برای مرور چند نوع اطلاعات خانوادگی استفاده می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "learningTargets": [
+        "اطلاعات چند عضو خانواده را در گفت‌وگو دنبال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-family-parents-profile",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-family-review-matching",
+      "type": "matching",
+      "instructionFa": "اعضای خانواده را به معنی درست وصل کن.",
+      "selectionReason": "چهار رابطهٔ خانوادگی پایه پیش از تولید پرسش دوباره فعال می‌شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "learningTargets": [
+        "چهار عضو پایهٔ خانواده را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Bruder",
+            "leftFa": "برادر",
+            "right": "برادر",
+            "rightFa": "برادر"
+          },
+          {
+            "left": "Schwester",
+            "leftFa": "خواهر",
+            "right": "خواهر",
+            "rightFa": "خواهر"
+          },
+          {
+            "left": "Mutter",
+            "leftFa": "مادر",
+            "right": "مادر",
+            "rightFa": "مادر"
+          },
+          {
+            "left": "Vater",
+            "leftFa": "پدر",
+            "right": "پدر",
+            "rightFa": "پدر"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-family-review-order",
+      "type": "word_order",
+      "instructionFa": "پرسش نام برادر را دوباره بساز.",
+      "selectionReason": "پرسش منبع‌دار نام، واژگان خانواده را به یک کاربرد واقعی برمی‌گرداند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "learningTargets": [
+        "پرسش نام یک عضو خانواده را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wie heißt euer Bruder?",
+        "sourceTextFa": "اسم برادرتان چیست؟",
+        "tokens": [
+          "Wie",
+          "heißt",
+          "euer",
+          "Bruder?"
+        ],
+        "answer": [
+          "Wie",
+          "heißt",
+          "euer",
+          "Bruder?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}
