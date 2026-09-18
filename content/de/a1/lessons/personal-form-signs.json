@@ -68,8 +68,8 @@
     {
       "id": "act-de-a1-form-fields-matching",
       "type": "matching",
-      "instructionFa": "هر برچسب فرم را به معنی درستش وصل کن.",
-      "selectionReason": "چهار برچسب مستقیم از بخش فرم و واژگان منبع انتخاب شده‌اند.",
+      "instructionFa": "هر اسمِ فرم را همراه با حرف تعریفش به معنی درست وصل کن.",
+      "selectionReason": "چهار ترکیب اسم و حرف تعریف مستقیماً از بخش فرم و واژگان منبع گرفته شده‌اند تا جنس و برچسب فرم هم‌زمان در بافت کاربردی مرور شوند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-form-spelling"
       ],
@@ -86,28 +86,28 @@
       "data": {
         "pairs": [
           {
-            "left": "Vorname",
+            "left": "der Vorname",
             "leftFa": "نام کوچک",
-            "right": "نام کوچک",
-            "rightFa": "نام کوچک"
+            "right": "نام کوچک، مذکر",
+            "rightFa": "نام کوچک، مذکر"
           },
           {
-            "left": "Familienname",
+            "left": "der Familienname",
             "leftFa": "نام خانوادگی",
-            "right": "نام خانوادگی",
-            "rightFa": "نام خانوادگی"
+            "right": "نام خانوادگی، مذکر",
+            "rightFa": "نام خانوادگی، مذکر"
           },
           {
-            "left": "Adresse",
+            "left": "die Adresse",
             "leftFa": "نشانی",
-            "right": "نشانی",
-            "rightFa": "نشانی"
+            "right": "نشانی، مؤنث",
+            "rightFa": "نشانی، مؤنث"
           },
           {
-            "left": "Stadt",
+            "left": "die Stadt",
             "leftFa": "شهر",
-            "right": "شهر",
-            "rightFa": "شهر"
+            "right": "شهر، مؤنث",
+            "rightFa": "شهر، مؤنث"
           }
         ]
       },

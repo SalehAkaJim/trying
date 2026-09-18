@@ -17,7 +17,8 @@
   "sourceRefs": [
     "src-wikibooks-de-lesson-002-service-clarification",
     "src-wikivoyage-german-phrasebook-services",
-    "src-wiktionary-de-ja"
+    "src-wiktionary-de-ja",
+    "src-wikibooks-de-lesson-004"
   ],
   "lexemeRefs": [
     "lex-de-langsam",
@@ -119,9 +120,10 @@
       "id": "act-de-a1-specific-help-response",
       "type": "choose_response",
       "instructionFa": "در پاسخ به «چه چیزی لازم دارید؟» کدام جمله مستقیم می‌گوید به کمک نیاز داری؟",
-      "selectionReason": "عبارت رسمی درخواست کمک از منبع خدمات با دو عبارت نامرتبط همان منبع مقایسه می‌شود.",
+      "selectionReason": "پرسش «چه چیزی لازم دارید؟» از منبع پیشین نیاز/خرید reuse می‌شود؛ پاسخ رسمیِ درخواست کمک و دو گزینهٔ مقایسه‌ای از منابع خدماتی ثبت‌شده می‌آیند.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-services"
+        "src-wikivoyage-german-phrasebook-services",
+        "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
         "تشخیص درخواست مستقیم کمک."

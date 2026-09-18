@@ -77,7 +77,8 @@
     "src-wikibooks-de-residence-origin",
     "src-wikibooks-de-lesson-007-form-spelling",
     "src-wikivoyage-german-phrasebook-signs",
-    "src-wikibooks-de-lesson-024-short-messages"
+    "src-wikibooks-de-lesson-024-short-messages",
+    "src-wikibooks-de-lesson-004"
   ],
   "unitRefs": [
     "de-a1-unit-extended-introduction",
@@ -109,6 +110,6 @@
     "de-a1-lesson-personal-form-signs",
     "de-a1-lesson-short-phone-message"
   ],
-  "notes": "A1 وارد مرحلهٔ بازبینی سراسری شده است. ده واحد و ۱۶ درس ساخته شده‌اند و همهٔ ۳۷ هدف الزامی نگاشت واقعی دارند. این تغییر به معنی نهایی‌شدن محتوا نیست؛ مرحلهٔ بعد کنترل کیفیت سراسری و رفع فقط ایرادهای واقعی است. صوت تا نهایی‌شدن سطح مسدود می‌ماند.",
+  "notes": "A1 در مرحلهٔ بازبینی سراسری است. ده واحد و ۱۶ درس ساخته شده‌اند و همهٔ ۳۷ هدف الزامی نگاشت واقعی دارند. دور نخست بازبینی، پوشش حرف تعریف در فرم و ردیابی منبع درخواست کمک را دقیق‌تر کرد. صوت تا نهایی‌شدن سطح مسدود می‌ماند.",
   "audioStatus": "blocked_until_level_final"
 }
