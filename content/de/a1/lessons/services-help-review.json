@@ -27,7 +27,7 @@
     {
       "id": "act-de-a1-services-help-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "بگو کمک لازم داری و محل پزشک را بپرس.",
+      "instructionFa": "خودت گفت‌وگو را شروع کن: بگو کمک لازم داری و محل پزشک را بپرس.",
       "selectionReason": "جمله‌های کوتاه از منابع معتبر در یک سناریوی خدمات ضروری کنار هم قرار گرفته‌اند.",
       "sourceRefs": [
         "src-wikivoyage-german-phrasebook-services",
