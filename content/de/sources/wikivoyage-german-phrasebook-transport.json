@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-wikivoyage-german-phrasebook-transport",
+  "title": "German phrasebook — Bus and Train",
+  "organizationOrAuthor": "Wikivoyage contributors",
+  "language": "de",
+  "sourceType": "website",
+  "url": "https://en.wikivoyage.org/wiki/German_phrasebook",
+  "locator": "Transportation — Bus and Train: ticket requests, destination, stops, departure/arrival, platform, station and stop vocabulary.",
+  "publishedOrUpdatedAt": null,
+  "modernityStatus": "maintained_current",
+  "currencyEvidence": "بخش زندهٔ حمل‌ونقل در عبارت‌نامهٔ آلمانی ویکی‌ویاژ در ۱۸ سپتامبر ۲۰۲۶ بررسی شد. عبارت‌های بلیت، قطار و اتوبوس، زمان حرکت و رسیدن و شمارهٔ سکو در نسخهٔ فعلی صفحه حضور دارند.",
+  "licenseName": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attributionText": "Wikivoyage contributors — German phrasebook",
+  "reuseStatus": "reuse_with_attribution",
+  "retrievedAt": "2026-09-18",
+  "notes": "در مثال‌های دارای جای خالی مقصد، نام Berlin به‌عنوان مقدار نمونهٔ آموزشی جایگزین می‌شود و این تبدیل در فعالیت یا گفت‌وگو با transformation نوع other ثبت می‌شود.",
+  "titleFa": "بلیت و حمل‌ونقل عمومی",
+  "locatorFa": "بخش حمل‌ونقل، اتوبوس و قطار؛ بلیت، مقصد، توقف، زمان حرکت و رسیدن، سکو و ایستگاه."
+}
