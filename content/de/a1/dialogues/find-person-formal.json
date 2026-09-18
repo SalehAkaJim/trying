@@ -1,0 +1,93 @@
+{
+  "id": "dlg-de-a1-find-person-formal",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-bll-a1-lesson-2"
+  ],
+  "scenario": "دو نفر برای نخستین بار رسمی با هم آشنا می‌شوند؛ یکی دنبال لیزا مولر است و بعد دربارهٔ نام، مبدأ و محل زندگی صحبت می‌کنند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-max",
+    "char-de-mia"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-find-person-formal-1",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Guten Tag! Ich suche Lisa Müller. Sind Sie Lisa Müller?",
+      "translationFa": "روز بخیر! دنبال لیزا مولر می‌گردم. شما لیزا مولر هستید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-bll-a1-lesson-2"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-find-person-formal-2",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ja, und Sie? Wie heißen Sie?",
+      "translationFa": "بله، و شما؟ اسمتان چیست؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-bll-a1-lesson-2"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-find-person-formal-3",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich heiße Lutz Schmidt.",
+      "translationFa": "اسم من لوتس اشمیت است.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-bll-a1-lesson-2"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-find-person-formal-4",
+      "speakerCharacterId": "char-de-mia",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Woher kommen Sie? Kommen Sie aus Österreich?",
+      "translationFa": "اهل کجا هستید؟ از اتریش می‌آیید؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-bll-a1-lesson-2"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-find-person-formal-5",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Nein, ich komme aus Deutschland und ich wohne hier in Bern.",
+      "translationFa": "نه، من از آلمان می‌آیم و اینجا در برن زندگی می‌کنم.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-bll-a1-lesson-2"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "همهٔ جمله‌های آلمانی از متن اصلی منبع گرفته شده‌اند؛ شخصیت‌های برنامه فقط نقش‌های صحنه را اجرا می‌کنند.",
+  "learnerCharacterId": "char-de-mia"
+}
