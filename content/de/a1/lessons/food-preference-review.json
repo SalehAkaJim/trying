@@ -4,11 +4,11 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-expanded-food-order",
-  "titleFa": "چی می‌خواهی و چی نه؟",
+  "titleFa": "قهوه‌ات رو چطور می‌خوای؟",
   "learningTargets": [
-    "ترجیح مثبت و منفی ساده را تشخیص دهد.",
-    "ترجیح را در بافت سفارش دنبال کند.",
-    "یک جملهٔ ترجیح ساده را بازسازی کند."
+    "یک نوشیدنی را با واحد ساده سفارش دهد.",
+    "به پرسش دربارهٔ شیر و شکر پاسخ مشخص بدهد.",
+    "با nur یک ترجیح محدود و روشن در سفارش بیان کند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-007-food-order"
@@ -16,24 +16,24 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس بخش ترجیح را از سفارش چندقلمی جدا می‌کند تا خواستن یک مورد و نخواستن مورد دیگر به‌صورت فعال تمرین شود.",
-    "sequenceRationale": "ترجیح ابتدا در بافت دیده می‌شود، سپس تشخیص داده و در پایان بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "این درس به‌جای مرور دوست‌داشتن/نداشتن، مهارت تازهٔ شخصی‌سازی سفارش را اضافه می‌کند؛ چیزی که در سفارش واقعی بسیار پرتکرار است.",
+    "sequenceRationale": "از سفارش پایه به انتخاب افزودنی و سپس پرسیدن موجودبودن قلم دیگر می‌رسد.",
+    "templateSignature": "conversation_speaking>choose_response>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-food-preference-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "سفارش را دوباره اجرا کن و به انتخاب‌ها دقت کن.",
-      "selectionReason": "گفت‌وگوی سفارش، ترجیح را در یک موقعیت واقعی فعال می‌کند.",
+      "instructionFa": "قهوه سفارش بده و دقیق بگو چه چیزی داخلش می‌خواهی.",
+      "selectionReason": "چهار نوبت منبع‌دار سفارش و شخصی‌سازی نوشیدنی را به‌صورت پیوسته تمرین می‌کنند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "ترجیح را در بافت سفارش دنبال کند."
+        "سفارش نوشیدنی را شخصی‌سازی کند."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-expanded-food-order",
+      "dialogueRef": "dlg-de-a1-coffee-customization",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "app"
@@ -47,32 +47,34 @@
     },
     {
       "id": "act-de-a1-food-preference-review-choice",
-      "type": "multiple_choice",
-      "instructionFa": "کدام جمله می‌گوید قهوه می‌خواهم، اما شیر نمی‌خواهم؟",
-      "selectionReason": "سه جملهٔ منبع‌دار الگوی ترجیح مثبت و منفی را مقایسه می‌کنند.",
+      "type": "choose_response",
+      "instructionFa": "برای «Mit Milch und Zucker?» پاسخ درست را انتخاب کن.",
+      "selectionReason": "پاسخ فقط با شکر مستقیماً مهارت تعیین ترجیح در سفارش را می‌سنجد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "ترجیح مثبت و منفی را از نمونه‌های مشابه تشخیص دهد."
+        "به پرسش افزودنی‌های نوشیدنی پاسخ مناسب بدهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "promptTarget": "Mit Milch und Zucker?",
+        "promptFa": "با شیر و شکر؟",
         "options": [
           {
-            "textTarget": "Ich möchte Kaffee, aber keine Milch.",
-            "translationFa": "قهوه می‌خواهم، اما شیر نمی‌خواهم.",
+            "textTarget": "Bitte nur mit Zucker.",
+            "translationFa": "لطفاً فقط با شکر.",
             "correct": true
           },
           {
-            "textTarget": "Ich möchte Kuchen, aber keine Brötchen.",
-            "translationFa": "کیک می‌خواهم، اما نان گرد نمی‌خواهم.",
+            "textTarget": "Bitte eine Tasse Kaffee.",
+            "translationFa": "لطفاً یک فنجان قهوه.",
             "correct": false
           },
           {
-            "textTarget": "Ich möchte Reis, aber keine Suppe.",
-            "translationFa": "برنج می‌خواهم، اما سوپ نمی‌خواهم.",
+            "textTarget": "Gibt es auch Kuchen?",
+            "translationFa": "کیک هم دارید؟",
             "correct": false
           }
         ]
@@ -86,34 +88,30 @@
     {
       "id": "act-de-a1-food-preference-review-order",
       "type": "word_order",
-      "instructionFa": "جملهٔ قهوه بدون شیر را دوباره بساز.",
-      "selectionReason": "بازسازی جمله، تشخیص ترجیح را به تولید هدایت‌شده تبدیل می‌کند.",
+      "instructionFa": "بعد از نوشیدنی بپرس آیا کیک هم هست.",
+      "selectionReason": "این پرسش سفارش را از یک قلم به بررسی قلم دوم گسترش می‌دهد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "جملهٔ ترجیح ساده را بازسازی کند."
+        "دربارهٔ موجودبودن قلم دیگر سؤال کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Ich möchte Kaffee, aber keine Milch.",
-        "sourceTextFa": "قهوه می‌خواهم، اما شیر نمی‌خواهم.",
+        "sourceText": "Gibt es auch Kuchen?",
+        "sourceTextFa": "کیک هم هست؟",
         "tokens": [
-          "Ich",
-          "möchte",
-          "Kaffee,",
-          "aber",
-          "keine",
-          "Milch."
+          "Gibt",
+          "es",
+          "auch",
+          "Kuchen?"
         ],
         "answer": [
-          "Ich",
-          "möchte",
-          "Kaffee,",
-          "aber",
-          "keine",
-          "Milch."
+          "Gibt",
+          "es",
+          "auch",
+          "Kuchen?"
         ]
       },
       "transformations": [
