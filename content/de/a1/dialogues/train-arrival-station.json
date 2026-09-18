@@ -1,0 +1,80 @@
+{
+  "id": "dlg-de-a1-train-arrival-station",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-024-short-messages",
+    "src-wikibooks-de-lesson-006-where-when",
+    "src-wikibooks-german-print-directions"
+  ],
+  "scenario": "مسافر زمان رسیدن قطار و محل ایستگاه را می‌پرسد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-paul",
+    "char-de-iris"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-train-arrival-station-1",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wann kommt der Zug an?",
+      "translationFa": "قطار چه زمانی می‌رسد؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-train-arrival-station-2",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Der Zug kommt 16.20 Uhr an.",
+      "translationFa": "قطار ساعت ۱۶:۲۰ می‌رسد.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-train-arrival-station-3",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wo ist der Bahnhof?",
+      "translationFa": "ایستگاه قطار کجاست؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-006-where-when"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-train-arrival-station-4",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Gleich dort drüben.",
+      "translationFa": "همین آن طرف.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-directions"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "دو جفت کاربردیِ زمان رسیدن و پیدا کردن ایستگاه از منابع جدا اما سازگار در یک سناریوی سفر کوتاه ترکیب شده‌اند.",
+  "learnerCharacterId": "char-de-iris"
+}
