@@ -5,12 +5,12 @@ DB="language_content_test"
 MYSQL_IMAGE="mysql:9.0.1"
 
 mysql_cmd() {
-  docker run --rm --network host "$MYSQL_IMAGE" mysql -N -s -h127.0.0.1 -uroot -proot "$DB" "$@"
+  docker run --rm --network host "$MYSQL_IMAGE" mysql --default-character-set=utf8mb4 -N -s -h127.0.0.1 -uroot -proot "$DB" "$@"
 }
 
 mysql_file() {
   local file="$1"
-  docker run --rm -i --network host "$MYSQL_IMAGE" mysql -h127.0.0.1 -uroot -proot "$DB" < "$file"
+  docker run --rm -i --network host "$MYSQL_IMAGE" mysql --default-character-set=utf8mb4 -h127.0.0.1 -uroot -proot "$DB" < "$file"
 }
 
 compact_query() {
