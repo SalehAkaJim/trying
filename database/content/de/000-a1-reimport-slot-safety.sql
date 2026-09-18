@@ -9,7 +9,7 @@ START TRANSACTION;
 SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
 SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='A1' LIMIT 1);
 UPDATE lessons
-SET sequence_index=sequence_index+1000,
-    position_in_unit=CASE WHEN position_in_unit IS NULL THEN NULL ELSE position_in_unit+100 END
+SET sequence_index=sequence_index+1000000,
+    position_in_unit=CASE WHEN position_in_unit IS NULL THEN NULL ELSE position_in_unit+100000 END
 WHERE language_level_id=@level;
 COMMIT;
