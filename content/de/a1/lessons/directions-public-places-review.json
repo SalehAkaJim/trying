@@ -4,37 +4,36 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-directions-public-places",
-  "titleFa": "مقصدت کجاست؟",
+  "titleFa": "هتل کجاست؟ رستورانش کجاست؟",
   "learningTargets": [
-    "نام مکان‌های عمومی پرتکرار را تشخیص دهد.",
-    "پرسش مسیر یک مقصد را در بافت واقعی دنبال کند.",
-    "پرسش سادهٔ مسیر را بازسازی کند."
+    "دربارهٔ محل یک هتل سؤال کند.",
+    "وجود یک رستوران داخل هتل را بپرسد.",
+    "موقعیت نسبی «سمت چپ هتل، سر پیچ» را بفهمد."
   ],
   "sourceRefs": [
-    "src-wikibooks-german-print-directions",
-    "src-wikivoyage-german-phrasebook-directions"
+    "src-wikibooks-german-print-directions"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس مقصدها را پیش از تمرکز روی توالی جهت‌ها تثبیت می‌کند تا الگوی پرسش مسیر به مکان‌های مختلف منتقل شود.",
-    "sequenceRationale": "گفت‌وگوی مسیر، مرور مقصدها و بازسازی پرسش سه مرحلهٔ فهم، گسترش و بازیابی را می‌سازند.",
-    "templateSignature": "conversation_speaking>matching>word_order"
+    "activitySelectionRationale": "این درس به‌جای فهرست‌کردن مقصدها، یک مسئلهٔ مکانی تازه را پوشش می‌دهد: پیدا کردن هتل و سپس مکان رستوران نسبت به آن.",
+    "sequenceRationale": "مکالمه مکان را در بافت واقعی معرفی می‌کند، تمرین جهت نسبی را می‌سنجد و بازسازی پرسش محل هتل تولید هدایت‌شده می‌دهد.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-directions-places-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "مسیر شهرداری را دوباره بپرس و این بار روی مقصدها تمرکز کن.",
-      "selectionReason": "گفت‌وگوی منبع‌دار مسیر، واژگان مکان را در نقش مقصد نگه می‌دارد.",
+      "instructionFa": "هتل را پیدا کن و بعد دربارهٔ رستوران داخل یا کنار آن بپرس.",
+      "selectionReason": "چهار نوبت نخست گفت‌وگوی منبع یک زنجیرهٔ واقعیِ مقصد → امکان → موقعیت نسبی می‌سازند.",
       "sourceRefs": [
         "src-wikibooks-german-print-directions"
       ],
       "learningTargets": [
-        "پرسش مسیر یک مکان عمومی را در گفت‌وگو بفهمد."
+        "هتل و رستوران را در یک گفت‌وگوی مکانی پیدا کند."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-ask-and-follow-directions",
+      "dialogueRef": "dlg-de-a1-hotel-restaurant-location",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "learner"
@@ -48,47 +47,38 @@
     },
     {
       "id": "act-de-a1-directions-places-review-matching",
-      "type": "matching",
-      "instructionFa": "مکان‌های عمومی را به معنی درست وصل کن.",
-      "selectionReason": "چهار مقصد پرتکرار پایهٔ انتقال مهارت مسیر به مکان‌های مختلف هستند.",
+      "type": "multiple_choice",
+      "instructionFa": "رستوران «Alt-Wien» نسبت به هتل کجاست؟",
+      "selectionReason": "پاسخ از جملهٔ منبع‌دار استخراج می‌شود و فهم موقعیت نسبی را می‌سنجد.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-directions"
+        "src-wikibooks-german-print-directions"
       ],
       "learningTargets": [
-        "مکان‌های عمومی پرتکرار را تشخیص دهد."
+        "موقعیت نسبی رستوران را تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "pairs": [
+        "options": [
           {
-            "left": "Bahnhof",
-            "leftFa": "ایستگاه قطار",
-            "right": "ایستگاه قطار",
-            "rightFa": "ایستگاه قطار"
+            "textTarget": "links neben dem Hotel, um die Ecke",
+            "translationFa": "سمت چپ هتل، سرِ پیچ",
+            "correct": true
           },
           {
-            "left": "Bushaltestelle",
-            "leftFa": "ایستگاه اتوبوس",
-            "right": "ایستگاه اتوبوس",
-            "rightFa": "ایستگاه اتوبوس"
+            "textTarget": "Rechts um die Ecke",
+            "translationFa": "سرِ پیچ سمت راست",
+            "correct": false
           },
           {
-            "left": "Flughafen",
-            "leftFa": "فرودگاه",
-            "right": "فرودگاه",
-            "rightFa": "فرودگاه"
-          },
-          {
-            "left": "Stadtmitte",
-            "leftFa": "مرکز شهر",
-            "right": "مرکز شهر",
-            "rightFa": "مرکز شهر"
+            "textTarget": "immer geradeaus",
+            "translationFa": "همیشه مستقیم",
+            "correct": false
           }
         ]
       },
       "transformations": [
-        "source_items_grouped_for_matching",
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
@@ -96,32 +86,32 @@
     {
       "id": "act-de-a1-directions-places-review-order",
       "type": "word_order",
-      "instructionFa": "پرسش مسیر شهرداری را دوباره بساز.",
-      "selectionReason": "پس از مرور مقصدها، پرسش مسیر به بازیابی فعال منتقل می‌شود.",
+      "instructionFa": "پرسش محل هتل را بساز.",
+      "selectionReason": "پرسش Wo ist hier ... الگوی مستقیم پیدا کردن یک مکان را فعال می‌کند.",
       "sourceRefs": [
         "src-wikibooks-german-print-directions"
       ],
       "learningTargets": [
-        "پرسش سادهٔ مسیر را بازسازی کند."
+        "پرسش محل یک مکان را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wie komme ich zum Rathaus?",
-        "sourceTextFa": "چطور به شهرداری برسم؟",
+        "sourceText": "Wo ist hier ein Hotel?",
+        "sourceTextFa": "اینجا یک هتل کجاست؟",
         "tokens": [
-          "Wie",
-          "komme",
-          "ich",
-          "zum",
-          "Rathaus?"
+          "Wo",
+          "ist",
+          "hier",
+          "ein",
+          "Hotel?"
         ],
         "answer": [
-          "Wie",
-          "komme",
-          "ich",
-          "zum",
-          "Rathaus?"
+          "Wo",
+          "ist",
+          "hier",
+          "ein",
+          "Hotel?"
         ]
       },
       "transformations": [
