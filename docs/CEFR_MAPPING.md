@@ -39,7 +39,7 @@ For each language and level:
 11. Continue until unresolved required coverage no longer justifies additional content.
 12. Run a formal level-completion audit covering CEFR ability coverage, language-specific prerequisites, progression, practice/retrieval, reinforcement, skill/mode balance and unresolved gaps.
 13. Run the holistic 0–10 quality review and revise any material weakness that prevents the level from being close to 10/10.
-14. Finalize the level only when the educational completion audit passes, material gaps are resolved, and the quality review supports release.
+14. Freeze a release as `final` only when CEFR coverage and progression are approved and the quality review supports release. Practice/retrieval or skill-mode deficits that remain must stay explicit in their completion flags and `requiredGaps`; do not turn those flags true merely to unlock release or audio.
 
 At every stage, unit and lesson counts are derived from the current approved structure.
 
@@ -131,7 +131,9 @@ Activity-count bounds are an explicit lesson-quality guardrail rather than a cur
 
 ## Completion rule
 
-A level is complete when:
+The manifest separates **release status** from **educational completeness**. `status: final` means the current release is approved/frozen and can enter the canonical audio pipeline. It does not automatically make every completion dimension true.
+
+A level is educationally complete when:
 - the CEFR abilities intended for that level and product scope are adequately covered;
 - required communicative targets are adequately covered;
 - major language-specific prerequisites are covered;
@@ -148,7 +150,7 @@ The end point must be justified against CEFR descriptors and sound language-teac
 
 ## Level quality review: 0–10
 
-Before a level can become `final`, perform a holistic quality review on a 0–10 scale. The desired release state is **close to 10/10**.
+Before a level release becomes `final`, perform a holistic quality review on a 0–10 scale. The desired release state is **close to 10/10**, but the score must describe the evidence rather than hide known deficits.
 
 The review must consider at minimum:
 - CEFR coverage and completeness;
@@ -160,7 +162,7 @@ The review must consider at minimum:
 - learner clarity/support, including Persian support where required;
 - QA integrity and absence of unresolved material issues.
 
-The overall score is a summary of evidence, not a replacement for it. A high score cannot make an incomplete level complete. Any material unresolved gap blocks finalization regardless of the arithmetic score.
+The overall score is a summary of evidence, not a replacement for it. A high score cannot make an incomplete level educationally complete. Any unresolved practice/retrieval or skill-mode gap must remain visible in the corresponding false completion flag and in `requiredGaps`, even when the release itself is frozen as `final`.
 
 The score must not be improved artificially by adding extra lessons, activities, turns or repetitions. Add content only when a specific educational deficiency or the configured minimum practice floor justifies it; remove/revise content when that improves clarity, progression or learning value.
 

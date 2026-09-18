@@ -122,7 +122,8 @@
             "right": "Ihre Bücher sind hier.",
             "rightFa": "کتاب‌های شما اینجاست."
           }
-        ]
+        ],
+        "pairMode": "target_to_target"
       },
       "transformations": [
         "source_items_grouped_for_matching",

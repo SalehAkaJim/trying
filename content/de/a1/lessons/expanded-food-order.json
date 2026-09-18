@@ -5,49 +5,41 @@
   "level": "A1",
   "unitRef": "de-a1-unit-expanded-food-order",
   "titleFa": "چیز دیگری هم؟",
-  "sourceTitle": "Was möchten Sie? / Noch was bitte?",
-  "sourceTitleFa": "چه میل دارید؟ / چیز دیگری هم؟",
+  "sourceTitle": "Noch etwas bitte?",
+  "sourceTitleFa": "چیز دیگری هم؟",
   "learningTargets": [
-    "یک سفارش دو مرحله‌ای خوراکی و نوشیدنی را بفهمد و نوبت‌های مشتری را پاسخ دهد.",
-    "جملهٔ بیان ترجیح ساده با رد یک مورد را از جمله‌های مشابه تشخیص دهد.",
-    "ترکیب‌های پرتکرار تکهٔ کیک و فنجان قهوه را در نمونه‌های منبع تشخیص دهد و یک پاسخ سفارش را بازسازی کند."
+    "پرسش «چیز دیگری هم؟» را در بافت سفارش بفهمد.",
+    "دربارهٔ موجودبودن یک خوراکی سؤال کند.",
+    "پاسخ نبودن یک خوراکی و پیشنهاد جایگزین را بفهمد.",
+    "دربارهٔ قیمت خوراکی سؤال کند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-007-food-order"
   ],
   "lexemeRefs": [
     "lex-de-kuchen",
-    "lex-de-stueck",
-    "lex-de-milch",
-    "lex-de-noch-was-bitte",
-    "lex-de-moegen",
-    "lex-de-tasse",
     "lex-de-kaffee"
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو سفارش دو مرحله‌ای را می‌سازد؛ سپس ترجیح ساده با سه جملهٔ منبع‌دار سنجیده می‌شود، چهار ترکیب سفارش به معنی فارسی وصل می‌شوند و در پایان پاسخ افزودن قهوه بازسازی می‌شود.",
-    "sequenceRationale": "درس از تعامل کامل به تمایز ترجیح، شناخت ترکیب‌های سفارش و بازیابی فعال نوبت مشتری حرکت می‌کند و نسبت به درس خرید قبلی الگوی فعالیت متفاوتی دارد.",
-    "templateSignature": "conversation_speaking>multiple_choice>matching>word_order"
+    "activitySelectionRationale": "گفت‌وگو یک سفارش واقعی را از «چیز دیگری هم؟» تا موجودی و قیمت پیش می‌برد؛ سپس شنیدن، تکمیل هدایت‌شده و بازسازی پرسش قیمت اضافه می‌شوند.",
+    "sequenceRationale": "از تعامل کامل به شنیدن مستقل، تکمیل سفارش و بازیابی پرسش قیمت حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>listen_choose>fill_blank>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-expanded-food-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "یک تکه کیک سفارش بده و بعد قهوه را هم به سفارشت اضافه کن.",
-      "selectionReason": "چهار نوبت پیوستهٔ منبع، سفارش چندقلمی و پرسش رایج فروشنده برای قلم دیگر را بدون جمله‌سازی آزاد پوشش می‌دهند.",
+      "instructionFa": "گفت‌وگوی سفارش را ادامه بده: دربارهٔ کیک و قیمت نان‌ها بپرس.",
+      "selectionReason": "چهار نوبت پیوسته از بخش ۲۸۲ منبع هستند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "پاسخ دادن در سفارش دو مرحله‌ای خوراکی و نوشیدنی."
+        "سؤال موجودی و قیمت را در یک گفت‌وگوی سفارش دنبال کند."
       ],
       "lexemeRefs": [
         "lex-de-kuchen",
-        "lex-de-stueck",
-        "lex-de-noch-was-bitte",
-        "lex-de-moegen",
-        "lex-de-tasse",
         "lex-de-kaffee"
       ],
       "dialogueRef": "dlg-de-a1-expanded-food-order",
@@ -63,38 +55,34 @@
       "audioStatus": "not_required"
     },
     {
-      "id": "act-de-a1-food-preference-choice",
-      "type": "multiple_choice",
-      "instructionFa": "کدام جمله می‌گوید قهوه می‌خواهم، اما شیر نمی‌خواهم؟",
-      "selectionReason": "سه جملهٔ کامل و منبع‌دار یک الگوی سادهٔ ترجیح و رد را با خوراکی‌های متفاوت مقایسه می‌کنند.",
+      "id": "act-de-a1-expanded-food-listen",
+      "type": "listen_choose",
+      "instructionFa": "عبارت را گوش کن و همان پرسش فروشنده را انتخاب کن.",
+      "selectionReason": "عبارت صوتی و گزینه‌ها همگی عین بخش ۲۸۲ منبع‌اند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "تشخیص ترجیح سادهٔ قهوه بدون شیر."
+        "پرسش «چیز دیگری هم؟» را از راه شنیدن تشخیص دهد."
       ],
-      "lexemeRefs": [
-        "lex-de-moegen",
-        "lex-de-kaffee",
-        "lex-de-milch",
-        "lex-de-kuchen"
-      ],
+      "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "چیز دیگری هم؟",
         "options": [
           {
-            "textTarget": "Ich möchte Kaffee, aber keine Milch.",
-            "translationFa": "قهوه می‌خواهم، اما شیر نمی‌خواهم.",
+            "text": "Noch etwas bitte?",
+            "translationFa": "چیز دیگری هم؟",
             "correct": true
           },
           {
-            "textTarget": "Ich möchte Kuchen, aber keine Brötchen.",
-            "translationFa": "کیک می‌خواهم، اما نان گرد نمی‌خواهم.",
+            "text": "Gibt es auch Kuchen?",
+            "translationFa": "کیک هم هست؟",
             "correct": false
           },
           {
-            "textTarget": "Ich möchte Reis, aber keine Suppe.",
-            "translationFa": "برنج می‌خواهم، اما سوپ نمی‌خواهم.",
+            "text": "Wie viel kosten die Brötchen?",
+            "translationFa": "نان‌ها چقدر قیمت دارند؟",
             "correct": false
           }
         ]
@@ -103,98 +91,75 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Noch etwas bitte?"
     },
     {
-      "id": "act-de-a1-food-combinations-matching",
-      "type": "matching",
-      "instructionFa": "هر ترکیب سفارش را به معنی درستش وصل کن.",
-      "selectionReason": "چهار ترکیب از نمونه‌های بخش ۲۸۸ تکه، فنجان و افزودنی‌های ساده را در بافت سفارش تثبیت می‌کنند.",
+      "id": "act-de-a1-expanded-food-fill",
+      "type": "fill_blank",
+      "instructionFa": "سفارش دو نان با سوسیس را کامل کن.",
+      "selectionReason": "جمله و واژه‌های انتخابی همگی در همان بخش منبع وجود دارند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "تشخیص ترکیب‌های مقدار و خوراکی یا نوشیدنی در سفارش."
+        "یک سفارش کوتاه خوراکی را کامل کند."
       ],
-      "lexemeRefs": [
-        "lex-de-kuchen",
-        "lex-de-stueck",
-        "lex-de-milch",
-        "lex-de-tasse",
-        "lex-de-kaffee"
-      ],
+      "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "pairs": [
-          {
-            "left": "ein Stück Kuchen",
-            "leftFa": "یک تکه کیک",
-            "right": "یک تکه کیک",
-            "rightFa": "یک تکه کیک"
-          },
-          {
-            "left": "eine Tasse Kaffee",
-            "leftFa": "یک فنجان قهوه",
-            "right": "یک فنجان قهوه",
-            "rightFa": "یک فنجان قهوه"
-          },
-          {
-            "left": "drei Stück Kuchen",
-            "leftFa": "سه تکه کیک",
-            "right": "سه تکه کیک",
-            "rightFa": "سه تکه کیک"
-          },
-          {
-            "left": "eine Tasse Kaffee mit Milch und Zucker",
-            "leftFa": "یک فنجان قهوه با شیر و شکر",
-            "right": "قهوه با شیر و شکر",
-            "rightFa": "قهوه با شیر و شکر"
-          }
-        ]
+        "sourceText": "Bitte zwei Brötchen mit Wurst.",
+        "sourceTextFa": "لطفاً دو نان گرد با سوسیس.",
+        "blankedText": "Bitte zwei Brötchen mit ___.",
+        "blankedTextFa": "لطفاً دو نان گرد با ___.",
+        "choices": [
+          "Wurst",
+          "Käse",
+          "Milch"
+        ],
+        "choicesFa": [
+          "سوسیس",
+          "پنیر",
+          "شیر"
+        ],
+        "answer": "Wurst"
       },
       "transformations": [
-        "source_items_grouped_for_matching",
+        "source_sentence_blank_created",
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
     },
     {
-      "id": "act-de-a1-food-add-coffee-order",
+      "id": "act-de-a1-expanded-food-order-price",
       "type": "word_order",
-      "instructionFa": "جملهٔ اضافه کردن قهوه به سفارش را دوباره بساز.",
-      "selectionReason": "آخرین نوبت مشتری پس از فهم و تشخیص به بازیابی فعال منتقل می‌شود.",
+      "instructionFa": "پرسش قیمت نان‌ها را بساز.",
+      "selectionReason": "پرسش عین منبع است و فقط قطعه‌بندی شده است.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "بازسازی پاسخ منبع‌دار برای اضافه کردن یک فنجان قهوه."
+        "پرسش قیمت خوراکی را بازسازی کند."
       ],
-      "lexemeRefs": [
-        "lex-de-moegen",
-        "lex-de-tasse",
-        "lex-de-kaffee"
-      ],
+      "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Ich möchte auch noch eine Tasse Kaffee.",
-        "sourceTextFa": "یک فنجان قهوه هم می‌خواهم.",
+        "sourceText": "Wie viel kosten die Brötchen?",
+        "sourceTextFa": "نان‌ها چقدر قیمت دارند؟",
         "tokens": [
-          "Ich",
-          "möchte",
-          "auch",
-          "noch",
-          "eine",
-          "Tasse",
-          "Kaffee."
+          "Wie",
+          "viel",
+          "kosten",
+          "die",
+          "Brötchen?"
         ],
         "answer": [
-          "Ich",
-          "möchte",
-          "auch",
-          "noch",
-          "eine",
-          "Tasse",
-          "Kaffee."
+          "Wie",
+          "viel",
+          "kosten",
+          "die",
+          "Brötchen?"
         ]
       },
       "transformations": [
@@ -205,5 +170,5 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "stale"
 }

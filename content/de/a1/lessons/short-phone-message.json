@@ -152,7 +152,8 @@
             "right": "ساعت ده",
             "rightFa": "ساعت ده"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",

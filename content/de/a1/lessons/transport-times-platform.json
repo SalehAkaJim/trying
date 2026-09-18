@@ -17,8 +17,8 @@
   "grammarNoteRefs": [],
   "activityDesign": {
     "activitySelectionRationale": "درس قبلی پاسخ زمانِ ضعیف و پوشش صوری سکو داشت؛ این درس کامل با یک گفت‌وگوی جاری و منبع‌دار دربارهٔ توقف، زمان و سکو جایگزین شده است.",
-    "sequenceRationale": "مکالمهٔ واقعی ابتدا توقف اتوبوس و سپس زمان و سکوی قطار را می‌دهد؛ بعد اطلاعات زمان/سکو تشخیص داده و پرسش قطار بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "sequenceRationale": "مکالمه اطلاعات توقف، زمان و سکو را می‌دهد؛ انتخاب چندگزینه‌ای استخراج اطلاعات را می‌سنجد، شنیدن مستقل همان مهارت را صوتی می‌کند و در پایان پرسش قطار بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>listen_choose>word_order"
   },
   "activities": [
     {
@@ -84,6 +84,46 @@
       "audioStatus": "not_required"
     },
     {
+      "id": "act-de-a1-transport-arrival-listen",
+      "type": "listen_choose",
+      "instructionFa": "اطلاعات حرکت را گوش کن و پاسخی را انتخاب کن که زمان و سکو را با هم می‌گوید.",
+      "selectionReason": "عبارت صوتی و گزینه‌ها از همان گفت‌وگوی منبع‌دار حمل‌ونقل انتخاب شده‌اند.",
+      "sourceRefs": [
+        "src-wikibooks-de-transport-dialogue-current"
+      ],
+      "learningTargets": [
+        "زمان حرکت و شمارهٔ سکو را از راه شنیدن استخراج کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "audioTextTargetFa": "۲۰ دقیقهٔ دیگر از سکوی ۳.",
+        "options": [
+          {
+            "text": "In 20 Minuten von Gleis 3.",
+            "translationFa": "۲۰ دقیقهٔ دیگر از سکوی ۳.",
+            "correct": true
+          },
+          {
+            "text": "Ja, das ist die nächste Haltestelle.",
+            "translationFa": "بله، ایستگاه بعدی است.",
+            "correct": false
+          },
+          {
+            "text": "Gleich dort, neben der Treppe.",
+            "translationFa": "همان‌جا، کنار پله‌ها.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "stale",
+      "audioTextTarget": "In 20 Minuten von Gleis 3."
+    },
+    {
       "id": "act-de-a1-transport-arrival-order",
       "type": "word_order",
       "instructionFa": "پرسش زمان حرکت قطار بعدی را بساز.",
@@ -126,7 +166,7 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitle": "Wann fährt der nächste Zug nach Budapest? / In 20 Minuten von Gleis 3.",
   "sourceTitleFa": "قطار بعدی به بوداپست چه زمانی حرکت می‌کند؟ / ۲۰ دقیقهٔ دیگر از سکوی ۳."
 }

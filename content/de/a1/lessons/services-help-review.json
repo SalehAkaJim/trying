@@ -4,39 +4,40 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-requests-services-help",
-  "titleFa": "کمک لازم دارم؛ پزشک کجاست؟",
+  "titleFa": "پزشک را کجا پیدا کنم؟",
+  "sourceTitle": "Wo finde ich einen Arzt?",
+  "sourceTitleFa": "کجا می‌توانم یک پزشک پیدا کنم؟",
   "learningTargets": [
-    "نیاز فوری به کمک را مستقیم بیان کند.",
-    "دربارهٔ محل پیدا کردن پزشک سؤال کند.",
-    "پرسش خدمات ضروری را از پرسش‌های خرید یا حمل‌ونقل تشخیص دهد."
+    "محل پزشک را با یک پرسش کوتاه بپرسد.",
+    "پاسخ بسیار کوتاه مکانی را بفهمد.",
+    "تشکر و پاسخ به تشکر را در پایان گفت‌وگو تشخیص دهد.",
+    "پاسخ مکانی کوتاه را از راه شنیدن تشخیص دهد."
   ],
   "sourceRefs": [
-    "src-wikivoyage-german-phrasebook-services",
     "src-wikibooks-de-lesson-006-where-when",
-    "src-wikibooks-german-print-directions",
-    "src-wikibooks-german-print-shopping-service"
+    "src-coerll-dib-directions",
+    "src-wiktionary-de-bitte"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس کمک را از عبارت کلی به یک نیاز مشخص و قابل‌اقدام می‌برد: اعلام نیاز و پیدا کردن پزشک.",
-    "sequenceRationale": "مکالمه نیاز را به مقصد خدماتی وصل می‌کند، سپس تشخیص پرسش مناسب و بازسازی عبارت کمک تمرین می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "وابستگی‌های ضعیف قبلی حذف شده‌اند و هر چهار نوبت گفت‌وگو از منابع مستقلِ قابل‌بازاستفاده می‌آیند.",
+    "sequenceRationale": "از پرسش خدمت ضروری به پاسخ مکانی و پایان مؤدبانه می‌رسد؛ سپس پاسخ مکانی مستقل شنیده و پرسش اصلی بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>listen_choose>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-services-help-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "خودت گفت‌وگو را شروع کن: بگو کمک لازم داری و محل پزشک را بپرس.",
-      "selectionReason": "جمله‌های کوتاه از منابع معتبر در یک سناریوی خدمات ضروری کنار هم قرار گرفته‌اند.",
+      "instructionFa": "خودت گفت‌وگو را شروع کن: محل پزشک را بپرس و با تشکر پایان بده.",
+      "selectionReason": "هر نوبت عین یکی از منابع ثبت‌شده است.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-services",
         "src-wikibooks-de-lesson-006-where-when",
-        "src-wikibooks-german-print-directions",
-        "src-wikibooks-german-print-shopping-service"
+        "src-coerll-dib-directions",
+        "src-wiktionary-de-bitte"
       ],
       "learningTargets": [
-        "نیاز به کمک و پزشک را در مکالمه بیان کند."
+        "یک گفت‌وگوی کوتاه برای پیدا کردن پزشک را انجام دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": "dlg-de-a1-urgent-service-help",
@@ -52,34 +53,35 @@
       "audioStatus": "not_required"
     },
     {
-      "id": "act-de-a1-services-help-review-response",
-      "type": "multiple_choice",
-      "instructionFa": "اگر دنبال پزشک هستی، کدام پرسش را می‌گویی؟",
-      "selectionReason": "سه پرسش منبع‌دار از حوزه‌های مختلف، انتخاب هدف ارتباطی درست را می‌سنجند.",
+      "id": "act-de-a1-services-help-review-matching",
+      "type": "listen_choose",
+      "instructionFa": "پاسخ مکانی را گوش کن و همان عبارت را انتخاب کن.",
+      "selectionReason": "گزینه‌ها همگی عبارت‌های ثبت‌شده در منابع هستند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-006-where-when",
-        "src-wikibooks-de-lesson-004"
+        "src-coerll-dib-directions",
+        "src-wiktionary-de-bitte"
       ],
       "learningTargets": [
-        "پرسش مربوط به پزشک را تشخیص دهد."
+        "پاسخ کوتاه مکانی را از راه شنیدن بفهمد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "همین آن طرف.",
         "options": [
           {
-            "textTarget": "Wo finde ich einen Arzt?",
-            "translationFa": "کجا می‌توانم یک پزشک پیدا کنم؟",
+            "text": "Gleich da drüben.",
+            "translationFa": "همین آن طرف.",
             "correct": true
           },
           {
-            "textTarget": "Wo ist der Bahnhof?",
-            "translationFa": "ایستگاه قطار کجاست؟",
+            "text": "Vielen Dank.",
+            "translationFa": "خیلی ممنون.",
             "correct": false
           },
           {
-            "textTarget": "Was brauchen Sie?",
-            "translationFa": "چه چیزی لازم دارید؟",
+            "text": "Bitte.",
+            "translationFa": "خواهش می‌کنم.",
             "correct": false
           }
         ]
@@ -88,33 +90,38 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Gleich da drüben."
     },
     {
-      "id": "act-de-a1-services-help-review-matching",
+      "id": "act-de-a1-services-help-review-order",
       "type": "word_order",
-      "instructionFa": "عبارت درخواست کمک را بساز.",
-      "selectionReason": "یک عبارت بقای بسیار کوتاه و مستقیم به بازیابی فعال منتقل می‌شود.",
+      "instructionFa": "پرسش محل پزشک را بساز.",
+      "selectionReason": "پرسش عین منبع است و فقط قطعه‌بندی شده است.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-services"
+        "src-wikibooks-de-lesson-006-where-when"
       ],
       "learningTargets": [
-        "درخواست مستقیم کمک را بازسازی کند."
+        "پرسش خدمت ضروری را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Ich brauche Hilfe.",
-        "sourceTextFa": "کمک لازم دارم.",
+        "sourceText": "Wo finde ich einen Arzt?",
+        "sourceTextFa": "کجا می‌توانم یک پزشک پیدا کنم؟",
         "tokens": [
-          "Ich",
-          "brauche",
-          "Hilfe."
+          "Wo",
+          "finde",
+          "ich",
+          "einen",
+          "Arzt?"
         ],
         "answer": [
-          "Ich",
-          "brauche",
-          "Hilfe."
+          "Wo",
+          "finde",
+          "ich",
+          "einen",
+          "Arzt?"
         ]
       },
       "transformations": [
@@ -125,7 +132,5 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
-  "sourceTitle": "Ich brauche Hilfe. / Wo finde ich einen Arzt?",
-  "sourceTitleFa": "کمک لازم دارم. / کجا می‌توانم یک پزشک پیدا کنم؟"
+  "audioStatus": "stale"
 }

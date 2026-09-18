@@ -3,9 +3,10 @@
   "languageId": "de",
   "level": "A1",
   "sourceRefs": [
-    "src-wikibooks-german-print-weather"
+    "src-wikibooks-de-weather-appendix",
+    "src-coerll-dib-weather"
   ],
-  "scenario": "آیریس دربارهٔ هوای فعلی و سپس پیش‌بینی کوتاه می‌پرسد؛ پاول پاسخ‌های مستقیم منبع را می‌دهد.",
+  "scenario": "دو وضعیت سادهٔ هوای فعلی، باد و گرما، در پاسخ به یک پرسش شهری تمرین می‌شوند.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-iris",
@@ -17,13 +18,13 @@
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Wie ist denn das Wetter in Berlin?",
+      "textTarget": "Wie ist das Wetter in Berlin?",
       "translationFa": "هوا در برلین چطور است؟",
       "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "audioRef": null
     },
@@ -32,13 +33,13 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "In Berlin scheint die Sonne.",
-      "translationFa": "در برلین خورشید می‌تابد.",
+      "textTarget": "Es ist windig.",
+      "translationFa": "هوا باد می‌آید / بادی است.",
       "learnerTurn": true,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-coerll-dib-weather"
       ],
       "audioRef": null
     },
@@ -47,13 +48,13 @@
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Wie wird das Wetter?",
-      "translationFa": "هوا چطور خواهد شد؟",
+      "textTarget": "Wie ist das Wetter in Berlin?",
+      "translationFa": "هوا در برلین چطور است؟",
       "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "audioRef": null
     },
@@ -62,17 +63,17 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Es soll heute regnen.",
-      "translationFa": "قرار است امروز باران ببارد.",
+      "textTarget": "Es ist heiß draußen!",
+      "translationFa": "بیرون هوا گرم است!",
       "learnerTurn": true,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-coerll-dib-weather"
       ],
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "دو پرسش و دو پاسخ از بخش هوا و گفت‌وگوی همان درس انتخاب شده‌اند؛ وضعیت فعلی و پیش‌بینی را از هم جدا می‌کنند.",
+  "sceneQualityRationale": "پرسش و هر دو پاسخ از منابع باز انتخاب شده‌اند و ساختار پیش‌بینی سنگین درس قبلی حذف شده است.",
   "learnerCharacterId": "char-de-paul"
 }

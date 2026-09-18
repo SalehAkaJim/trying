@@ -13,7 +13,7 @@ EDITORIAL_KEYS = {
 }
 EDITORIAL_LIST_KEYS={'learningTargets','scopeExclusions','requiredGaps','strengths','remainingWeaknesses','choicesFa'}
 TARGET_KEYS={'surface','lemma','textTarget','sourceText','promptTarget','audioTextTarget','patternTarget','exampleSourceText','blankedText','sourceTitle'}
-ALLOWED={'CEFR','MySQL','SQL','JSON','API','URL','ElevenLabs','OGL','CC','BY','SA','Pre','A1','A2','B1','B2','C1','C2','Wikibooks','Wiktionary','Oak','National','Academy','LIBRA','Mia','Iris','Lori','Hope'}
+ALLOWED={'CEFR','MySQL','SQL','JSON','API','URL','ElevenLabs','OGL','CC','BY','SA','Pre','A1','A2','B1','B2','C1','C2','Wikibooks','Wiktionary','Oak','National','Academy','LIBRA','Mia','Iris','Lori','Hope','COERLL','Goethe','Deutsch','im','Blick','telc'}
 errors=[]
 tax=json.loads((ROOT/'config/fa-taxonomy.json').read_text(encoding='utf-8'))['domains']
 

@@ -6,10 +6,15 @@ START TRANSACTION;
 
 SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
 SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='A1' LIMIT 1);
+SET @a1_reimport := COALESCE(
+  (SELECT is_reimport FROM __a1_reimport_guard WHERE id=1 LIMIT 1),
+  0
+);
 
 UPDATE curriculum_targets
 SET status='covered'
 WHERE language_level_id=@level
+  AND COALESCE(@a1_reimport,0)=0
   AND required_for_completion=TRUE
   AND status='review';
 
@@ -19,6 +24,7 @@ WHERE language_level_id=@level
 UPDATE lessons
 SET status='qa'
 WHERE language_level_id=@level
+  AND COALESCE(@a1_reimport,0)=0
   AND status='final';
 
 UPDATE lessons
@@ -26,7 +32,8 @@ SET audio_status=CASE
       WHEN audio_status='blocked_until_level_final' THEN 'pending'
       ELSE audio_status
     END
-WHERE language_level_id=@level;
+WHERE language_level_id=@level
+  AND COALESCE(@a1_reimport,0)=0;
 
 UPDATE dialogue_turns dt
 JOIN dialogues d ON d.id=dt.dialogue_id
@@ -34,7 +41,8 @@ SET dt.audio_status=CASE
       WHEN dt.audio_status='blocked_until_level_final' THEN 'pending'
       ELSE dt.audio_status
     END
-WHERE d.language_level_id=@level;
+WHERE d.language_level_id=@level
+  AND COALESCE(@a1_reimport,0)=0;
 
 UPDATE activities a
 JOIN lessons l ON l.id=a.lesson_id
@@ -43,12 +51,21 @@ SET a.audio_status=CASE
        AND a.audio_status='blocked_until_level_final' THEN 'pending'
       ELSE a.audio_status
     END
-WHERE l.language_level_id=@level;
+WHERE l.language_level_id=@level
+  AND COALESCE(@a1_reimport,0)=0;
 
-UPDATE lessons
-SET status='final'
-WHERE language_level_id=@level
-  AND status='qa';
+UPDATE lessons l
+SET l.status='final'
+WHERE l.language_level_id=@level
+  AND l.status='qa'
+  AND COALESCE(@a1_reimport,0)=0
+  AND EXISTS (
+    SELECT 1
+    FROM activities a
+    WHERE a.lesson_id=l.id
+      AND a.position_index=1
+      AND a.activity_type='conversation_speaking'
+  );
 
 UPDATE lexemes
 SET audio_status=CASE
@@ -56,11 +73,13 @@ SET audio_status=CASE
       ELSE audio_status
     END
 WHERE language_id=@de
-  AND cefr_level='A1';
+  AND cefr_level='A1'
+  AND COALESCE(@a1_reimport,0)=0;
 
 UPDATE units
 SET status='final'
-WHERE language_level_id=@level;
+WHERE language_level_id=@level
+  AND COALESCE(@a1_reimport,0)=0;
 
 UPDATE language_levels
 SET status='final',
@@ -103,6 +122,7 @@ SET status='final',
       )
     ),
     notes='A1 از نظر محتوایی نهایی شده است: هر ۱۰ واحد و هر ۱۶ درس نهایی‌اند، همهٔ ۳۷ هدف الزامی پوشش و ارزیابی شده‌اند و شکاف الزامی باز باقی نمانده است. صوت اکنون از حالت مسدود خارج شده و در وضعیت انتظار قرار دارد؛ هنوز هیچ تولید صوت پولی انجام نشده است.'
-WHERE id=@level;
+WHERE id=@level
+  AND COALESCE(@a1_reimport,0)=0;
 
 COMMIT;

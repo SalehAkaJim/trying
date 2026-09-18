@@ -4,33 +4,39 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-weather-temperature",
-  "titleFa": "هوا امروز چطوره؟",
+  "titleFa": "هوا در برلین چطوره؟",
+  "sourceTitle": "Wie ist das Wetter in Berlin?",
+  "sourceTitleFa": "هوا در برلین چطور است؟",
   "learningTargets": [
-    "دربارهٔ هوای یک شهر سؤال کند.",
-    "پاسخ سادهٔ آفتابی‌بودن هوا را بفهمد.",
-    "هوای فعلی را از پیش‌بینی آینده تشخیص دهد."
+    "دربارهٔ هوای فعلی یک شهر سؤال کند.",
+    "باد و گرمای فعلی را در پاسخ‌های کوتاه بفهمد.",
+    "وضعیت بادی را از راه شنیدن تشخیص دهد.",
+    "تفاوت دیداری و شنیداری دو همخوان مشخص‌شده در نمونهٔ منبع را تمرین کند."
   ],
   "sourceRefs": [
-    "src-wikibooks-german-print-weather"
+    "src-wikibooks-de-weather-appendix",
+    "src-coerll-dib-weather",
+    "src-coerll-dib-pronunciation-consonants"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس نخست آب‌وهوا فقط روی وضعیت فعلی تمرکز می‌کند و یک الگوی سادهٔ پرسش و پاسخ شهری می‌سازد.",
-    "sequenceRationale": "از مکالمه به تشخیص وضعیت فعلی و سپس بازسازی پرسش هوا می‌رسد.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "ساختار پیش‌بینی درس قبلی کامل حذف شده و درس فقط روی وضعیت فعلی هوا و یک تمرین کوتاه تلفظی منبع‌دار تمرکز می‌کند.",
+    "sequenceRationale": "مکالمه دو وضعیت فعلی را معرفی می‌کند، یک وضعیت مستقل شنیده می‌شود، پرسش هوا بازسازی می‌شود و در پایان یک تمایز تلفظی کوتاه تمرین می‌شود.",
+    "templateSignature": "conversation_speaking>listen_choose>word_order>pronunciation_read"
   },
   "activities": [
     {
       "id": "act-de-a1-weather-current-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "دربارهٔ هوای فعلی و پیش‌بینی کوتاه گفت‌وگو کن.",
-      "selectionReason": "دو پرسش و پاسخ منبع‌دار تفاوت وضعیت اکنون و پیش‌بینی را نشان می‌دهند.",
+      "instructionFa": "دربارهٔ هوای فعلی برلین گفت‌وگو کن.",
+      "selectionReason": "پرسش و پاسخ‌ها از دو منبع باز و قابل‌بازاستفاده انتخاب شده‌اند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix",
+        "src-coerll-dib-weather"
       ],
       "learningTargets": [
-        "هوای فعلی را در گفت‌وگو بفهمد."
+        "باد و گرما را در گفت‌وگوی هوای فعلی بفهمد."
       ],
       "lexemeRefs": [],
       "dialogueRef": "dlg-de-a1-weather-current",
@@ -39,7 +45,7 @@
         "openingInitiator": "app"
       },
       "transformations": [
-        "verbatim_dialogue",
+        "other",
         "persian_translation_added",
         "character_metadata_added"
       ],
@@ -47,32 +53,33 @@
     },
     {
       "id": "act-de-a1-weather-current-choice",
-      "type": "multiple_choice",
-      "instructionFa": "کدام جمله دربارهٔ هوای همین حالاست؟",
-      "selectionReason": "پاسخ آفتابی با جملهٔ پیش‌بینی باران مقایسه می‌شود.",
+      "type": "listen_choose",
+      "instructionFa": "عبارت هوا را گوش کن و همان وضعیت را انتخاب کن.",
+      "selectionReason": "عبارت صوتی و گزینه‌ها عین منبع Deutsch im Blick هستند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-coerll-dib-weather"
       ],
       "learningTargets": [
-        "وضعیت فعلی هوا را تشخیص دهد."
+        "وضعیت بادی را از راه شنیدن تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "هوا بادی است.",
         "options": [
           {
-            "textTarget": "In Berlin scheint die Sonne.",
-            "translationFa": "در برلین خورشید می‌تابد.",
+            "text": "Es ist windig.",
+            "translationFa": "هوا بادی است.",
             "correct": true
           },
           {
-            "textTarget": "Es soll heute regnen.",
-            "translationFa": "قرار است امروز باران ببارد.",
+            "text": "Es ist sonnig.",
+            "translationFa": "هوا آفتابی است.",
             "correct": false
           },
           {
-            "textTarget": "Wie wird das Wetter?",
-            "translationFa": "هوا چطور خواهد شد؟",
+            "text": "Es ist bewölkt.",
+            "translationFa": "هوا ابری است.",
             "correct": false
           }
         ]
@@ -81,28 +88,28 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Es ist windig."
     },
     {
       "id": "act-de-a1-weather-current-order",
       "type": "word_order",
       "instructionFa": "پرسش هوای برلین را بساز.",
-      "selectionReason": "بازسازی پرسش، زبان لازم برای سؤال دربارهٔ هوا را فعال می‌کند.",
+      "selectionReason": "پرسش عین منبع است و فقط قطعه‌بندی شده است.",
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "learningTargets": [
-        "دربارهٔ هوای یک شهر سؤال کند."
+        "پرسش هوای یک شهر را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wie ist denn das Wetter in Berlin?",
+        "sourceText": "Wie ist das Wetter in Berlin?",
         "sourceTextFa": "هوا در برلین چطور است؟",
         "tokens": [
           "Wie",
           "ist",
-          "denn",
           "das",
           "Wetter",
           "in",
@@ -111,7 +118,6 @@
         "answer": [
           "Wie",
           "ist",
-          "denn",
           "das",
           "Wetter",
           "in",
@@ -123,10 +129,33 @@
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-weather-current-pronunciation",
+      "type": "pronunciation_read",
+      "instructionFa": "این جفت منبع‌دار را با دقت به تفاوت دو همخوان بخوان.",
+      "selectionReason": "این جفت کمینه عین بخش تلفظ همخوان‌های Deutsch im Blick است.",
+      "sourceRefs": [
+        "src-coerll-dib-pronunciation-consonants"
+      ],
+      "learningTargets": [
+        "تفاوت دو همخوان را در یک جفت کوتاه تمرین کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "lines": [
+          "Vetter - Wetter"
+        ],
+        "audioTextTargetFa": "جفت تلفظی Vetter و Wetter."
+      },
+      "transformations": [
+        "source_items_grouped_for_pronunciation"
+      ],
+      "audioStatus": "stale",
+      "audioTextTarget": "Vetter - Wetter"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
-  "sourceTitle": "Wie ist denn das Wetter in Berlin? / Wie wird das Wetter?",
-  "sourceTitleFa": "هوا در برلین چطور است؟ / هوا چطور خواهد شد؟"
+  "audioStatus": "stale"
 }

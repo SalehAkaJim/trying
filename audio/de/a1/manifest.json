@@ -5,14 +5,14 @@
   "level": "A1",
   "modelId": "eleven_multilingual_v2",
   "outputFormat": "mp3_44100_128",
-  "generatedAt": "2026-09-18T09:45:43Z",
-  "assetCount": 264,
+  "generatedAt": "2026-09-18T13:19:23Z",
+  "assetCount": 269,
   "assets": [
     {
       "ownerType": "activity",
       "ownerKey": "act-de-a1-alphabet-pronunciation",
-      "audioText": "A B C D E F\nG H I J K L\nM N O P Q\nR S T\nU V W\nX Y Z",
-      "expectedSourceHash": "c7ca51a474649ed7a96bdfac4983e6df76653e91bf6efbe653dc8a78b1d6e684",
+      "audioText": "A, Ä, B, C, D, E, F, G, H, I, J, K, L, M, N, O, Ö, P, Q, R, S, ß, T, U, Ü, V, W, X, Y, Z",
+      "expectedSourceHash": "de670efd34eaa9ad639194c52c7bbbc0cce6e335181a0f8cf796b666f67b38c8",
       "voiceAssignmentKey": "standalone",
       "voiceName": "Hope - upbeat and clear",
       "voiceId": "tnSpp4vdxKPjI9w0GnoV",
@@ -23,9 +23,85 @@
       "needsGeneration": false,
       "path": "audio/de/a1/activity/act-de-a1-alphabet-pronunciation.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-alphabet-pronunciation.mp3",
-      "audioSha256": "0d56cf33285b4b7791b0b2945eb5adbb131f34e4377d87565ee7076cf9a876eb",
-      "byteSize": 141314,
-      "reused": true
+      "audioSha256": "8ff7f647417db0259207e107dc9d728a95ad639073b01ca942127124f9c70d88",
+      "byteSize": 311005,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-directions-places-review-matching",
+      "audioText": "Gehen Sie nach rechts.",
+      "expectedSourceHash": "2ef329f395b69af0b3ec9b1a635666dc6d4ce936682bda40007f77dc02de0434",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-directions-places-review-matching.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-directions-places-review-matching.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-directions-places-review-matching.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-directions-places-review-matching.mp3",
+      "audioSha256": "3f380661f1221495de46b0bdb2bf5d2a472c4dac5b19586dbce4d629de166cca",
+      "byteSize": 21777,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-expanded-food-listen",
+      "audioText": "Noch etwas bitte?",
+      "expectedSourceHash": "2d713a059e1b1fcd8f69123500e84fd709f42eeefef625e9b67775581eab33bc",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-expanded-food-listen.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-expanded-food-listen.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-expanded-food-listen.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-expanded-food-listen.mp3",
+      "audioSha256": "b6206f2f2dd122a216731bd8822e0bae51505e8b10cc636d56a540fd24b53490",
+      "byteSize": 20942,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-food-preference-umlaut",
+      "audioText": "die Körbe\nich möchte\ndie Bücher\ndie Küche",
+      "expectedSourceHash": "cc54b96d3d1cead3e371eb92aeae97fd3965b9fd012f9540ba7edbf1d399c45a",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-food-preference-umlaut.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-food-preference-umlaut.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-food-preference-umlaut.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-food-preference-umlaut.mp3",
+      "audioSha256": "cb0454c8de9b50477f035d474ab46eca81b73bf911fc2a722b00ba0cb060dbf3",
+      "byteSize": 43511,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-health-recovery-listen",
+      "audioText": "Nein, ich habe kein Fieber mehr.",
+      "expectedSourceHash": "875cc4e7806341350fbd8efbab7804856d88913af0972c071e6d7c7378ccf215",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-health-recovery-listen.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-health-recovery-listen.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-health-recovery-listen.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-health-recovery-listen.mp3",
+      "audioSha256": "47e4ee0bee829d79e5fc543784ff4a3a958a2ee7e5367704358801da0ee7a983",
+      "byteSize": 34316,
+      "reused": false
     },
     {
       "ownerType": "activity",
@@ -45,6 +121,139 @@
       "audioSha256": "b8c63e24ed1248e7850e41bff52108cff23369c0b90f03f48cdba36c8e89b989",
       "byteSize": 38914,
       "reused": true
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-profession-listen",
+      "audioText": "Was ist er?",
+      "expectedSourceHash": "5010adc2fc25b16b4b3fcb1409b55fd9499f385f4323f7cab64b2de90a7352bd",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-profession-listen.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-profession-listen.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-profession-listen.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-profession-listen.mp3",
+      "audioSha256": "b3987e30f138c501219b7321c595ac3dc0571968d1e8484233f06049c54312af",
+      "byteSize": 16762,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-public-places-matching",
+      "audioText": "Gleich da drüben.",
+      "expectedSourceHash": "c99f2e7ea34ff63ba35a0688b1fa302dc2faf6fdb5fb9ce14ba31c0a70e72b2f",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-public-places-matching.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-public-places-matching.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-public-places-matching.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-public-places-matching.mp3",
+      "audioSha256": "866a8a3956fe1368bb192aaaba171832a918c9dd0e1b385eb6fd62e9355608c0",
+      "byteSize": 20942,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-services-help-review-matching",
+      "audioText": "Gleich da drüben.",
+      "expectedSourceHash": "c99f2e7ea34ff63ba35a0688b1fa302dc2faf6fdb5fb9ce14ba31c0a70e72b2f",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-services-help-review-matching.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-services-help-review-matching.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-services-help-review-matching.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-services-help-review-matching.mp3",
+      "audioSha256": "fe060ccca777c5b1e7e04c4b865bf1ecd245b95890495e5eb57c755873c8b444",
+      "byteSize": 19688,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-services-permission-review-choice",
+      "audioText": "Welche Farbe möchten Sie?",
+      "expectedSourceHash": "da7a6230d94125196238fbead0e8fa76e34d5d26c22f441bea79ca9983e2ca0c",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-services-permission-review-choice.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-services-permission-review-choice.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-services-permission-review-choice.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-services-permission-review-choice.mp3",
+      "audioSha256": "2fad8979b370732bc8b9f69082c72535d90fcd31bb06ce7ca3dd54d094cf55c1",
+      "byteSize": 27211,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-transport-arrival-listen",
+      "audioText": "In 20 Minuten von Gleis 3.",
+      "expectedSourceHash": "3794eb86017b2e85ec8b76d490161ffd6e3d8728d210e28989498099e6629e4b",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-transport-arrival-listen.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-transport-arrival-listen.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-transport-arrival-listen.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-transport-arrival-listen.mp3",
+      "audioSha256": "6d3962742d0956fd08c22eafd44c02f437d8becf465e35502a74fa10327e4d9f",
+      "byteSize": 32226,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-weather-current-choice",
+      "audioText": "Es ist windig.",
+      "expectedSourceHash": "c21c9fd96db66e59054a997e2832cc7f1621b36f976cd3c9e089699b0ba41220",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-weather-current-choice.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-weather-current-choice.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-weather-current-choice.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-weather-current-choice.mp3",
+      "audioSha256": "5b073c6142291838e0b01e32fc7e142ffa57773b00a39cafda53283455e69539",
+      "byteSize": 18852,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-a1-weather-current-pronunciation",
+      "audioText": "Vetter - Wetter",
+      "expectedSourceHash": "0f7249a625152ce4e32933ff7ddb93ebf5a4eba631f3152877e6e62240812afb",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-weather-current-pronunciation.mp3",
+      "audioStoragePath": "audio/de/a1/activity/act-de-a1-weather-current-pronunciation.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/activity/act-de-a1-weather-current-pronunciation.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/activity/act-de-a1-weather-current-pronunciation.mp3",
+      "audioSha256": "ccee1c3439244551fb3f73df84d60a876da0d9eec2f81fd3838a04f4edfd682d",
+      "byteSize": 24285,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -200,12 +409,88 @@
     },
     {
       "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-clothing-store-help-1",
-      "audioText": "Darf ich Ihnen helfen?",
-      "expectedSourceHash": "abfc625f61915e45771da6ac06bf17e4fa9197dbcb7652b0e5343d5647a208ef",
+      "ownerKey": "turn-de-a1-ask-and-follow-directions-1",
+      "audioText": "Wo ist der Zoo?",
+      "expectedSourceHash": "592e7bc3828adb0608bce2f8bb2bef47471bec84149b6c1d9f8a34649c440219",
+      "voiceAssignmentKey": "char-de-paul",
+      "voiceName": "Hyun - Friendly and Natural",
+      "voiceId": "70DeQK5Ztp7WmEGGysLT",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-1.mp3",
+      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-1.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-1.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-1.mp3",
+      "audioSha256": "c5d60217851f017b0b711e58f10d9e18921d3348c74c0294027b664d0db6f275",
+      "byteSize": 18852,
+      "reused": false
+    },
+    {
+      "ownerType": "dialogue_turn",
+      "ownerKey": "turn-de-a1-ask-and-follow-directions-2",
+      "audioText": "Gleich da drüben.",
+      "expectedSourceHash": "c99f2e7ea34ff63ba35a0688b1fa302dc2faf6fdb5fb9ce14ba31c0a70e72b2f",
       "voiceAssignmentKey": "char-de-iris",
       "voiceName": "Lucy Fennek -  Friendly and Open",
       "voiceId": "KXxZd16DiBqt82nbarJx",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-2.mp3",
+      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-2.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-2.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-2.mp3",
+      "audioSha256": "5f36aa9ae8dc391d5003093151d5b4e96f950acb911dccf582aacbde0c067bdf",
+      "byteSize": 18852,
+      "reused": false
+    },
+    {
+      "ownerType": "dialogue_turn",
+      "ownerKey": "turn-de-a1-ask-and-follow-directions-3",
+      "audioText": "Wie komme ich zum Zoo?",
+      "expectedSourceHash": "5e8522f46e1c588c9ca6976406abba1eff2c997d7641f09d5f6e447b7d74521b",
+      "voiceAssignmentKey": "char-de-paul",
+      "voiceName": "Hyun - Friendly and Natural",
+      "voiceId": "70DeQK5Ztp7WmEGGysLT",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-3.mp3",
+      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-3.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-3.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-3.mp3",
+      "audioSha256": "bf5644934c99b8be34fd97b2c7fb170d8f5ff28cc027b544e0d2354efcb03725",
+      "byteSize": 22613,
+      "reused": false
+    },
+    {
+      "ownerType": "dialogue_turn",
+      "ownerKey": "turn-de-a1-ask-and-follow-directions-4",
+      "audioText": "Gehen Sie geradeaus",
+      "expectedSourceHash": "21eaa76a1af2090cf162edafc4591ecea14223a023030e5736962ab75cfec6f7",
+      "voiceAssignmentKey": "char-de-iris",
+      "voiceName": "Lucy Fennek -  Friendly and Open",
+      "voiceId": "KXxZd16DiBqt82nbarJx",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-4.mp3",
+      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-4.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-4.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-ask-and-follow-directions-4.mp3",
+      "audioSha256": "b6688df16eb20d4a280b0f1527545c88ffc5ef46b59fd24e14f3b9e95ce9a080",
+      "byteSize": 20524,
+      "reused": false
+    },
+    {
+      "ownerType": "dialogue_turn",
+      "ownerKey": "turn-de-a1-clothing-store-help-1",
+      "audioText": "Entschuldigen Sie. Ich brauche Schuhe. Wo sind sie?",
+      "expectedSourceHash": "bd1e4b9bb003904692d99c77c1dea8ddcf4e5226bf7de8ca213c225a99f14559",
+      "voiceAssignmentKey": "char-de-paul",
+      "voiceName": "Hyun - Friendly and Natural",
+      "voiceId": "70DeQK5Ztp7WmEGGysLT",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-1.mp3",
       "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-1.mp3",
@@ -213,18 +498,18 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-1.mp3",
-      "audioSha256": "72de1153fe61480b183d82e971923dded1f8e71b8ca9a5ef0b5a900a4c99015d",
-      "byteSize": 20942,
-      "reused": true
+      "audioSha256": "1383d4864c00fe4843ebf9ecb1a2803934b15931632434aa80f19d650db21f5d",
+      "byteSize": 56886,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-clothing-store-help-2",
-      "audioText": "Ja, können Sie mir helfen, diesen Rock in meiner Größe zu finden?",
-      "expectedSourceHash": "65e0e817c0c3c250a0718c0a521f8f7162d7cdf36bda7a619fe7335d91fd1967",
-      "voiceAssignmentKey": "char-de-paul",
-      "voiceName": "Hyun - Friendly and Natural",
-      "voiceId": "70DeQK5Ztp7WmEGGysLT",
+      "audioText": "Wir haben viele Schuhe. Welche Farbe möchten Sie?",
+      "expectedSourceHash": "53782397dfff7c778b7b71f8c0ed30e06ad8858a6bc57400e1d01c36c472a417",
+      "voiceAssignmentKey": "char-de-iris",
+      "voiceName": "Lucy Fennek -  Friendly and Open",
+      "voiceId": "KXxZd16DiBqt82nbarJx",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-2.mp3",
       "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-2.mp3",
@@ -232,18 +517,18 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-2.mp3",
-      "audioSha256": "c6be4069a2429a2c62e57afe65a471d852a336e8320c30de35c74b747a71bbea",
-      "byteSize": 64409,
-      "reused": true
+      "audioSha256": "769f369b588a4fa33b861ee38f2362f50295fdff73bc0d2ef75311722bb2d938",
+      "byteSize": 41839,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-clothing-store-help-3",
-      "audioText": "Natürlich.",
-      "expectedSourceHash": "0a41b066fcdc62c0d089d0936410c401e15d786e66eeaebfc74a2a605e37cbaf",
-      "voiceAssignmentKey": "char-de-iris",
-      "voiceName": "Lucy Fennek -  Friendly and Open",
-      "voiceId": "KXxZd16DiBqt82nbarJx",
+      "audioText": "Ein Paar Schuhe in Weiß, bitte.",
+      "expectedSourceHash": "5968a1cad8ad981d9c22bf2fe02898354c28bf8d53eb1c149ebafe1f679d43b9",
+      "voiceAssignmentKey": "char-de-paul",
+      "voiceName": "Hyun - Friendly and Natural",
+      "voiceId": "70DeQK5Ztp7WmEGGysLT",
       "audioStatus": "ready",
       "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-3.mp3",
       "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-3.mp3",
@@ -251,15 +536,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-3.mp3",
-      "audioSha256": "da24f9859a621b56d0279cf26a26e1a11ac5dc583d72cd99b7d9427fa53c9bc0",
-      "byteSize": 14254,
-      "reused": true
+      "audioSha256": "0886db4f802943b581d5713a9c925bf8e557c5c959ad767dc01f14228e285550",
+      "byteSize": 31391,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-clothing-store-help-4",
-      "audioText": "Hier ist der Rock in Ihrer Größe.",
-      "expectedSourceHash": "52ebbc373ef574b7bdfd04a033199c0f1e2092ca79ce6e4bb4e0fc73ff910533",
+      "audioText": "Da drüben.",
+      "expectedSourceHash": "b5e3cf8af672532c8d3fb681019bc7c8a712e7fb8f1e9aa42bc3bdfabac7ca4f",
       "voiceAssignmentKey": "char-de-iris",
       "voiceName": "Lucy Fennek -  Friendly and Open",
       "voiceId": "KXxZd16DiBqt82nbarJx",
@@ -270,47 +555,9 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-4.mp3",
-      "audioSha256": "9073c97abf6b7d753693ca1324b609a4e6745c2429106960bdb83e8e954faacc",
-      "byteSize": 30137,
-      "reused": true
-    },
-    {
-      "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-clothing-store-help-5",
-      "audioText": "Danke. Wo ist die Umkleidekabine?",
-      "expectedSourceHash": "4224e0f4aedd72b8666b9aebfe3a81e0b6f081253849a3ba151acd084f94fa0b",
-      "voiceAssignmentKey": "char-de-paul",
-      "voiceName": "Hyun - Friendly and Natural",
-      "voiceId": "70DeQK5Ztp7WmEGGysLT",
-      "audioStatus": "ready",
-      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-5.mp3",
-      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-5.mp3",
-      "audioIsCurrent": true,
-      "needsGeneration": false,
-      "path": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-5.mp3",
-      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-5.mp3",
-      "audioSha256": "7baaaede3ff51b485a11e38583b7058dc3207b166ea956d20b5480e13e06683d",
-      "byteSize": 37660,
-      "reused": true
-    },
-    {
-      "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-clothing-store-help-6",
-      "audioText": "Dort drüben.",
-      "expectedSourceHash": "b955cdbc28b7013accec5cd3bf00e58585db65f74212506b775424f49a1d63a9",
-      "voiceAssignmentKey": "char-de-iris",
-      "voiceName": "Lucy Fennek -  Friendly and Open",
-      "voiceId": "KXxZd16DiBqt82nbarJx",
-      "audioStatus": "ready",
-      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-6.mp3",
-      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-6.mp3",
-      "audioIsCurrent": true,
-      "needsGeneration": false,
-      "path": "audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-6.mp3",
-      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-clothing-store-help-6.mp3",
-      "audioSha256": "a8842b6753fd618cfb8c71a93a53363ff358fa1e3a79879d017892bab52f90f7",
-      "byteSize": 15926,
-      "reused": true
+      "audioSha256": "489521c563207ade5a63f96e83e1acaa1932b8488a63aac444a9c413965f3d7d",
+      "byteSize": 15090,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -538,82 +785,6 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-daily-routine-work-4.mp3",
       "audioSha256": "26bdf2cc6c06b6e2ca4d70fb878070eff123853b83d47354e11f9d90e013af70",
       "byteSize": 35988,
-      "reused": true
-    },
-    {
-      "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-directions-1",
-      "audioText": "Danke sehr. Und können Sie mir sagen, wo das Rathaus von St. Pölten ist?",
-      "expectedSourceHash": "38a2a1a600e9c1250b83de9efe35e0486416a537dcb1a87bc0f6723ea1a3a803",
-      "voiceAssignmentKey": "char-de-paul",
-      "voiceName": "Hyun - Friendly and Natural",
-      "voiceId": "70DeQK5Ztp7WmEGGysLT",
-      "audioStatus": "ready",
-      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-directions-1.mp3",
-      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-directions-1.mp3",
-      "audioIsCurrent": true,
-      "needsGeneration": false,
-      "path": "audio/de/a1/dialogue_turn/turn-de-a1-directions-1.mp3",
-      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-directions-1.mp3",
-      "audioSha256": "b0ddcc4e7109bfd38ac4f1251f53f25d89b7768fd5e66e7f729ffdafa2869969",
-      "byteSize": 92413,
-      "reused": true
-    },
-    {
-      "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-directions-2",
-      "audioText": "Wie bitte?",
-      "expectedSourceHash": "073435d05fbcd32e30531fcc0553e6906945d4dcd7089ad7222244efbc84fb91",
-      "voiceAssignmentKey": "char-de-iris",
-      "voiceName": "Lucy Fennek -  Friendly and Open",
-      "voiceId": "KXxZd16DiBqt82nbarJx",
-      "audioStatus": "ready",
-      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-directions-2.mp3",
-      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-directions-2.mp3",
-      "audioIsCurrent": true,
-      "needsGeneration": false,
-      "path": "audio/de/a1/dialogue_turn/turn-de-a1-directions-2.mp3",
-      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-directions-2.mp3",
-      "audioSha256": "9ddd6297c7ce71d4bcf4c58dc14109d8d8efa5f983160713ade7cdafa00f0bf5",
-      "byteSize": 14254,
-      "reused": true
-    },
-    {
-      "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-directions-3",
-      "audioText": "Wie komme ich zum Rathaus?",
-      "expectedSourceHash": "0c852a56e295d67329ff66f2ce8bf78c3b1be45c1e593cc467c5940e8c0bebea",
-      "voiceAssignmentKey": "char-de-paul",
-      "voiceName": "Hyun - Friendly and Natural",
-      "voiceId": "70DeQK5Ztp7WmEGGysLT",
-      "audioStatus": "ready",
-      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-directions-3.mp3",
-      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-directions-3.mp3",
-      "audioIsCurrent": true,
-      "needsGeneration": false,
-      "path": "audio/de/a1/dialogue_turn/turn-de-a1-directions-3.mp3",
-      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-directions-3.mp3",
-      "audioSha256": "6874e523fcf1ba7a28ce3ab7b66c29de84aae95eba0b2a9688ca63a97d0ed34c",
-      "byteSize": 25539,
-      "reused": true
-    },
-    {
-      "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-directions-4",
-      "audioText": "Rechts um die Ecke und dann immer geradeaus – ungefähr ein Kilometer.",
-      "expectedSourceHash": "4095ac9be34f5c85f4a5218e06da9893a8f5fa00c4d51fb3a8ec4c6fe674bc49",
-      "voiceAssignmentKey": "char-de-iris",
-      "voiceName": "Lucy Fennek -  Friendly and Open",
-      "voiceId": "KXxZd16DiBqt82nbarJx",
-      "audioStatus": "ready",
-      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-directions-4.mp3",
-      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-directions-4.mp3",
-      "audioIsCurrent": true,
-      "needsGeneration": false,
-      "path": "audio/de/a1/dialogue_turn/turn-de-a1-directions-4.mp3",
-      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-directions-4.mp3",
-      "audioSha256": "f86a42e142908ac41a747ef085438d934183f05bea92ef867cdf6d6ad3f259ee",
-      "byteSize": 57722,
       "reused": true
     },
     {
@@ -1018,8 +1189,8 @@
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-food-order-1",
-      "audioText": "Was möchten Sie?",
-      "expectedSourceHash": "93579e7b5a1bfc00be9518405c8020d84add4fea5510bb90b16e30020003fa15",
+      "audioText": "Hier ist ihr Kaffee. Noch etwas bitte?",
+      "expectedSourceHash": "bda5eaa136a93ed9b2f03fd5218cf34231f5a3f434e215fe9291acbf677b0793",
       "voiceAssignmentKey": "char-de-jonas",
       "voiceName": "Leon - Soothing and Grounded",
       "voiceId": "MJ0RnG71ty4LH3dvNfSd",
@@ -1030,15 +1201,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-food-order-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-food-order-1.mp3",
-      "audioSha256": "3939a0f0e1272dc66fdcf3c9f456efc90e7f0b45edd05865444ca84fb482610c",
-      "byteSize": 20942,
-      "reused": true
+      "audioSha256": "a0e7e3a92de91d80f8386a1c324225578064a57b673150ce1cd9e5f4c29df2ba",
+      "byteSize": 60648,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-food-order-2",
-      "audioText": "Ich möchte ein Stück Kuchen.",
-      "expectedSourceHash": "8afac9fae25a16da8c79ec5c73cd2c528b1e6fb9361cb44178da0a30b9553d1f",
+      "audioText": "Gibt es auch Kuchen?",
+      "expectedSourceHash": "d95e7c69e0ae76d64eaa9cd29293d888733eb9c9e8cd3f89cc58736ff0b40028",
       "voiceAssignmentKey": "char-de-lena",
       "voiceName": "Cécile – Interactive Customer Support",
       "voiceId": "yatuMX0k4Dh41R64sbGj",
@@ -1049,15 +1220,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-food-order-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-food-order-2.mp3",
-      "audioSha256": "dc9f617feb38fabba8e07683bf33e4595dcda9b46a7918cbad5640fbf618c453",
-      "byteSize": 27211,
-      "reused": true
+      "audioSha256": "0864a12dd8abb66056642c8a929b3949357da9736f74ca27f65db45725896587",
+      "byteSize": 22613,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-food-order-3",
-      "audioText": "Noch was bitte?",
-      "expectedSourceHash": "a5cf4be6b95c1ce6dd8e3aa8e186a457ffa1226dff09080bef9e0b65072ce743",
+      "audioText": "Nein, Kuchen gibt es heute nicht, aber Brötchen mit Wurst oder mit Käse.",
+      "expectedSourceHash": "9341311a75ebfc181b925f6a9543557da5c17d7b6eeaa9cd4e21789d28de9f5d",
       "voiceAssignmentKey": "char-de-jonas",
       "voiceName": "Leon - Soothing and Grounded",
       "voiceId": "MJ0RnG71ty4LH3dvNfSd",
@@ -1068,15 +1239,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-food-order-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-food-order-3.mp3",
-      "audioSha256": "cc397003aeea087412c40999e47f422bf393772d43b7cb625e6d392b4a005687",
-      "byteSize": 20524,
-      "reused": true
+      "audioSha256": "9eb7abcbfda9592800b5f076a96a41335f48c5944ff04ca3d62981cc69711f6a",
+      "byteSize": 111639,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-food-order-4",
-      "audioText": "Ich möchte auch noch eine Tasse Kaffee.",
-      "expectedSourceHash": "5cc6717052f4f0861975c19b61a4dd03abab088933c7f73848c951a155a87067",
+      "audioText": "Wie viel kosten die Brötchen?",
+      "expectedSourceHash": "f0007a4c654eb120f9ce4f66bcdb75461baf84f96b616f5dd117ee3cd583ddcb",
       "voiceAssignmentKey": "char-de-lena",
       "voiceName": "Cécile – Interactive Customer Support",
       "voiceId": "yatuMX0k4Dh41R64sbGj",
@@ -1087,9 +1258,9 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-food-order-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-food-order-4.mp3",
-      "audioSha256": "6bace7e2096d90d2636fa998b052b176d76e4b3eac33c5ac18e6d2ec066fbf49",
-      "byteSize": 33898,
-      "reused": true
+      "audioSha256": "66565eec1fc5d71238aaecf76644e4823b7df95a2f85a169a832eefe2e65c7e6",
+      "byteSize": 29301,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1512,8 +1683,8 @@
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-hotel-restaurant-location-1",
-      "audioText": "Entschuldigen Sie bitte. Wo ist hier ein Hotel?",
-      "expectedSourceHash": "725ff43461627e81e7d02106c976cac0c08c7f1362e4980e05899ed448c4c168",
+      "audioText": "Wo ist die Apotheke?",
+      "expectedSourceHash": "e4f9db039019564a96372c6ca49ba3d4685bad369e89aa304cf20635ca54ab3b",
       "voiceAssignmentKey": "char-de-paul",
       "voiceName": "Hyun - Friendly and Natural",
       "voiceId": "70DeQK5Ztp7WmEGGysLT",
@@ -1524,15 +1695,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-hotel-restaurant-location-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-hotel-restaurant-location-1.mp3",
-      "audioSha256": "414509c80174bd8e79d928e3bf5171bbaec971e8c5b770e7723389a26287db8b",
-      "byteSize": 45601,
-      "reused": true
+      "audioSha256": "8fa686c4e015acc13e2b20ba03791d514a4e523fc2f071cafd9917d90463f4d6",
+      "byteSize": 23449,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-hotel-restaurant-location-2",
-      "audioText": "Gleich dort drüben. Das ist das Hotel \"Zur Post\".",
-      "expectedSourceHash": "b91fb93b845191b6232b13f4c868da976468cb4e63f4bc7b52aa653fe4f29cae",
+      "audioText": "Gehen Sie nach links.",
+      "expectedSourceHash": "329a1351f4ec8bbb0497e47ef4f61efe39cd0d060fa4086afc2a6ae1c8034959",
       "voiceAssignmentKey": "char-de-iris",
       "voiceName": "Lucy Fennek -  Friendly and Open",
       "voiceId": "KXxZd16DiBqt82nbarJx",
@@ -1543,15 +1714,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-hotel-restaurant-location-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-hotel-restaurant-location-2.mp3",
-      "audioSha256": "c0baebb207033731bfd03525b595744488cb8df1fd959ca105c594a0cd54486c",
-      "byteSize": 40586,
-      "reused": true
+      "audioSha256": "8842770eee3730461b22868a415ec942d7602e4462475e6813e280460af329c8",
+      "byteSize": 20524,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-hotel-restaurant-location-3",
-      "audioText": "Gibt es ein Restaurant darin?",
-      "expectedSourceHash": "2af381133ba8e5ccea6022d59646d61a8fa58447005b9742f8c7bb2ba838099d",
+      "audioText": "Wo ist das Geschäft?",
+      "expectedSourceHash": "955c31820868d0c5bdc73fa99e5aa5a13eab83ef39201e3650505dac4b2b0a51",
       "voiceAssignmentKey": "char-de-paul",
       "voiceName": "Hyun - Friendly and Natural",
       "voiceId": "70DeQK5Ztp7WmEGGysLT",
@@ -1562,15 +1733,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-hotel-restaurant-location-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-hotel-restaurant-location-3.mp3",
-      "audioSha256": "23ca94605721c883dfb34756ade6f2617a404fc1634bd06ef485f485a390dc82",
-      "byteSize": 26375,
-      "reused": true
+      "audioSha256": "49a3fb0637ce97042767334af29b41c6bf80e9115cbdf6fdd93140373638be3f",
+      "byteSize": 20524,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-hotel-restaurant-location-4",
-      "audioText": "Ja gewiss! Ein Restaurant mit einfacher Küche, besonders zum Abendessen. Aber ich könnte Ihnen ein anderes Restaurant empfehlen. Es heißt 'Alt-Wien', und es gibt dort das beste Frühstück. Das Restaurant ist links neben dem Hotel, um die Ecke.",
-      "expectedSourceHash": "ab101c2097a4ed9935dfd108d7922bcb99a32a9ebed6a12e5dc144c15ced245d",
+      "audioText": "Gehen Sie nach rechts.",
+      "expectedSourceHash": "2ef329f395b69af0b3ec9b1a635666dc6d4ce936682bda40007f77dc02de0434",
       "voiceAssignmentKey": "char-de-iris",
       "voiceName": "Lucy Fennek -  Friendly and Open",
       "voiceId": "KXxZd16DiBqt82nbarJx",
@@ -1581,9 +1752,9 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-hotel-restaurant-location-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-hotel-restaurant-location-4.mp3",
-      "audioSha256": "2a016d785c10a4999ef868fb1682c019c4aafc248ce5f56977fa0f672d143549",
-      "byteSize": 226995,
-      "reused": true
+      "audioSha256": "075e1ba264d250aea33156faefec9d7fc5d6b2be088b73a6c401a202f8e22baa",
+      "byteSize": 20524,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1664,8 +1835,8 @@
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-profession-1",
-      "audioText": "Wer ist das?",
-      "expectedSourceHash": "2307ddf6671cdc36c23f7ccee97b95fc5a5385bf3788c6858a308d03b1de3c82",
+      "audioText": "Was ist er?",
+      "expectedSourceHash": "5010adc2fc25b16b4b3fcb1409b55fd9499f385f4323f7cab64b2de90a7352bd",
       "voiceAssignmentKey": "char-de-jonas",
       "voiceName": "Leon - Soothing and Grounded",
       "voiceId": "MJ0RnG71ty4LH3dvNfSd",
@@ -1676,15 +1847,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-profession-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-1.mp3",
-      "audioSha256": "f106c0b58995b8bdf5aa07f10212e31fb27518211c8bb9db895fcdac858cf1d4",
-      "byteSize": 21777,
-      "reused": true
+      "audioSha256": "68a12de89af79e114ae57e0f58a5af2b2eceaa0d8c8ff11f7bce04e095583b50",
+      "byteSize": 19688,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-profession-2",
-      "audioText": "Das ist Herr Werner.",
-      "expectedSourceHash": "95d7eb1e3469f9ba0f63ccc3bc30c3dbac75eafbf00e46b061a291619dae28bd",
+      "audioText": "Er ist Student.",
+      "expectedSourceHash": "261f24d4618f4c9a513a340a30269b11d0c4c262476a93acfe02bb74b664abbd",
       "voiceAssignmentKey": "char-de-lena",
       "voiceName": "Cécile – Interactive Customer Support",
       "voiceId": "yatuMX0k4Dh41R64sbGj",
@@ -1695,15 +1866,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-profession-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-2.mp3",
-      "audioSha256": "48760cf59c04f95d170f3d01c187506aac80efc80fcaf16c80b4245ba8a79ebf",
-      "byteSize": 20942,
-      "reused": true
+      "audioSha256": "9b841bb32adda97d262ec9a3ba1e4f63bae25b2566c67a20fd176608846b9293",
+      "byteSize": 23449,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-profession-3",
-      "audioText": "Ist er Amerikaner?",
-      "expectedSourceHash": "5139b7629bf3f445fd1f70257559fe4312f4b1c8c85022d4381d8cb9df6bd9b7",
+      "audioText": "Was ist sie?",
+      "expectedSourceHash": "0c0f636913d0b623405e1a9f65ab33baabfea0e2931680ece608397c4097f8f2",
       "voiceAssignmentKey": "char-de-jonas",
       "voiceName": "Leon - Soothing and Grounded",
       "voiceId": "MJ0RnG71ty4LH3dvNfSd",
@@ -1714,15 +1885,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-profession-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-3.mp3",
-      "audioSha256": "f8b9e0e9743ae338a5dace4f584b443e0cb10b99944c6d94ba689efbcaa61fcc",
-      "byteSize": 29301,
-      "reused": true
+      "audioSha256": "3641903ae87fd620eeb59957b294681c8c918cde046a4d58f00294dde459a9fb",
+      "byteSize": 17598,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-profession-4",
-      "audioText": "Nein, er ist Deutscher.",
-      "expectedSourceHash": "70e766834c74544f01862ac020376cc665a61d7056c583f76d746688ad6d0e2d",
+      "audioText": "Sie ist Studentin.",
+      "expectedSourceHash": "a15301fc76c605d0d2b54e3050dc5651997587ac0ac20c5097b2997c2439642f",
       "voiceAssignmentKey": "char-de-lena",
       "voiceName": "Cécile – Interactive Customer Support",
       "voiceId": "yatuMX0k4Dh41R64sbGj",
@@ -1733,85 +1904,9 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-profession-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-4.mp3",
-      "audioSha256": "53143cab9d83842f071ede0c5bbf190e5abd1f63f47c43fa30f105c545e3208e",
-      "byteSize": 24285,
-      "reused": true
-    },
-    {
-      "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-profession-5",
-      "audioText": "Ist er jetzt in Hamburg?",
-      "expectedSourceHash": "e86bd8d474969724f6134ae3af56b1fbeef91181cf7f35add325bdc8ee9d5e1f",
-      "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Leon - Soothing and Grounded",
-      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
-      "audioStatus": "ready",
-      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-5.mp3",
-      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-profession-5.mp3",
-      "audioIsCurrent": true,
-      "needsGeneration": false,
-      "path": "audio/de/a1/dialogue_turn/turn-de-a1-profession-5.mp3",
-      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-5.mp3",
-      "audioSha256": "da319d52f7c770d8090abbedf8193da1b13f97fe72974c78a2ec279220fd6b50",
-      "byteSize": 28465,
-      "reused": true
-    },
-    {
-      "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-profession-6",
-      "audioText": "Nein, er ist in Berlin.",
-      "expectedSourceHash": "b5254a9f9b92ed836fb3b7cf1494ff740966b9176d8228e0822cde8dacd0da9e",
-      "voiceAssignmentKey": "char-de-lena",
-      "voiceName": "Cécile – Interactive Customer Support",
-      "voiceId": "yatuMX0k4Dh41R64sbGj",
-      "audioStatus": "ready",
-      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-6.mp3",
-      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-profession-6.mp3",
-      "audioIsCurrent": true,
-      "needsGeneration": false,
-      "path": "audio/de/a1/dialogue_turn/turn-de-a1-profession-6.mp3",
-      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-6.mp3",
-      "audioSha256": "06f4b305ee28644cf9f94843a18b76302a9495a594fa146d3022ca5fde280cec",
-      "byteSize": 24285,
-      "reused": true
-    },
-    {
-      "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-profession-7",
-      "audioText": "Was ist er von Beruf?",
-      "expectedSourceHash": "d13609d5ba9785523d1939184344405b42af59cf45d5fb8680ec635089d6c64b",
-      "voiceAssignmentKey": "char-de-jonas",
-      "voiceName": "Leon - Soothing and Grounded",
-      "voiceId": "MJ0RnG71ty4LH3dvNfSd",
-      "audioStatus": "ready",
-      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-7.mp3",
-      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-profession-7.mp3",
-      "audioIsCurrent": true,
-      "needsGeneration": false,
-      "path": "audio/de/a1/dialogue_turn/turn-de-a1-profession-7.mp3",
-      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-7.mp3",
-      "audioSha256": "4577b33ceac8cf4d5fb87046868944f388dd6be796168f50da40d0e2fd1fedac",
-      "byteSize": 27211,
-      "reused": true
-    },
-    {
-      "ownerType": "dialogue_turn",
-      "ownerKey": "turn-de-a1-profession-8",
-      "audioText": "Er ist Kraftfahrer.",
-      "expectedSourceHash": "73a8e7f270872b66b5fac6f7db084d9224c49f3852c0fb606ccd4e3010dfbcda",
-      "voiceAssignmentKey": "char-de-lena",
-      "voiceName": "Cécile – Interactive Customer Support",
-      "voiceId": "yatuMX0k4Dh41R64sbGj",
-      "audioStatus": "ready",
-      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-8.mp3",
-      "audioStoragePath": "audio/de/a1/dialogue_turn/turn-de-a1-profession-8.mp3",
-      "audioIsCurrent": true,
-      "needsGeneration": false,
-      "path": "audio/de/a1/dialogue_turn/turn-de-a1-profession-8.mp3",
-      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-profession-8.mp3",
-      "audioSha256": "56458e6013b744fc1e54e55768326196070430111f21586c2bcbc20d0b7bd70e",
-      "byteSize": 23449,
-      "reused": true
+      "audioSha256": "f07ecc5d71c7aefa3c1b06b729050e2c2567d14425cfc88aefd31555620d97cd",
+      "byteSize": 21777,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -1830,7 +1925,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-reschedule-exact-time-1.mp3",
       "audioSha256": "dc6b95082b1fe03b99a7cefa597456a6b569d261a8bc6ee81487f1f32f660bb5",
       "byteSize": 44347,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1849,7 +1944,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-reschedule-exact-time-2.mp3",
       "audioSha256": "e0f98363a3fbaf7cde267678879b56ec8779692b931f4c45460c221f09c5ddf6",
       "byteSize": 27211,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1868,7 +1963,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-reschedule-exact-time-3.mp3",
       "audioSha256": "44f0335127069bf65fa5f7599240af044b5686141759ca7017bbc1fa61ec7053",
       "byteSize": 42675,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1887,7 +1982,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-reschedule-exact-time-4.mp3",
       "audioSha256": "af1146228a94575249993381a2c839c585fe6bfec2407a6d65c9bbdb62ab9cd1",
       "byteSize": 22613,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2590,7 +2685,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-train-arrival-station-1.mp3",
       "audioSha256": "64928ca0fa65fe27594435d78de3749b651e4a913a01420d71cc527962fb94f1",
       "byteSize": 25539,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2609,7 +2704,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-train-arrival-station-2.mp3",
       "audioSha256": "0783edab097d99049c4988a04c5429664e58150f6923300ff7c79a92185fa9b4",
       "byteSize": 18016,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2628,7 +2723,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-train-arrival-station-3.mp3",
       "audioSha256": "7c7c2a6af5656efbf692f58cb21a116f634dc40eec02c7271666e306e5f6283d",
       "byteSize": 24703,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2647,7 +2742,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-train-arrival-station-4.mp3",
       "audioSha256": "9a2300d085f80f06170e24b22a195074810d225d398732204ffe55d03f1747ec",
       "byteSize": 16762,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2666,7 +2761,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-transport-arrival-1.mp3",
       "audioSha256": "11ad150b6197e195c31f24dfcdda4e12fcc27458cfdd2f8a014c7d87aa841bcc",
       "byteSize": 47273,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2685,7 +2780,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-transport-arrival-2.mp3",
       "audioSha256": "41e9ba57606a08a7a1db904ed4f0e49f305c45f04c006aa2dbf75e22a7f9a062",
       "byteSize": 31391,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2704,7 +2799,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-transport-arrival-3.mp3",
       "audioSha256": "1854cebc9ee1a5995371a597589bdb7d2a888f86a11639bef58e59b2f3c67a47",
       "byteSize": 15926,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2723,7 +2818,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-transport-arrival-4.mp3",
       "audioSha256": "9574a0bd742d8b9e593b9017193d7d5184060e4344d56fc4959a37b5a86f2182",
       "byteSize": 35988,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2742,7 +2837,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-transport-arrival-5.mp3",
       "audioSha256": "7982ee7b945b5fa40753540d1cf44c7301b0d360a942f1e2581c1db1ba638134",
       "byteSize": 26375,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2761,7 +2856,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-transport-arrival-6.mp3",
       "audioSha256": "bbc9aa3ba79c31f09c8515fa9f4a60158ae3747aee3cef89e9bb9959f0fc678a",
       "byteSize": 39750,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -2918,8 +3013,8 @@
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-urgent-service-help-1",
-      "audioText": "Ich brauche Hilfe.",
-      "expectedSourceHash": "da4092712b6cb476ca50287c86e010e50fc0c594a26688835da8e8a74d3ed507",
+      "audioText": "Wo finde ich einen Arzt?",
+      "expectedSourceHash": "75d67f7ee0cf433b070f01eb004fccf2f208c731102e2efa73083dfcc2a87661",
       "voiceAssignmentKey": "char-de-paul",
       "voiceName": "Hyun - Friendly and Natural",
       "voiceId": "70DeQK5Ztp7WmEGGysLT",
@@ -2930,15 +3025,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-urgent-service-help-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-urgent-service-help-1.mp3",
-      "audioSha256": "2bca79ed0b67397dd71e7ba5863929e629495b03651f6d0f50a06eb5d44df907",
-      "byteSize": 23449,
-      "reused": true
+      "audioSha256": "4abd8a06312f026b19ea56b5774f9653232f5686435bf2f1f87e925532477e6a",
+      "byteSize": 26375,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-urgent-service-help-2",
-      "audioText": "Natürlich.",
-      "expectedSourceHash": "0a41b066fcdc62c0d089d0936410c401e15d786e66eeaebfc74a2a605e37cbaf",
+      "audioText": "Gleich da drüben.",
+      "expectedSourceHash": "c99f2e7ea34ff63ba35a0688b1fa302dc2faf6fdb5fb9ce14ba31c0a70e72b2f",
       "voiceAssignmentKey": "char-de-iris",
       "voiceName": "Lucy Fennek -  Friendly and Open",
       "voiceId": "KXxZd16DiBqt82nbarJx",
@@ -2949,15 +3044,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-urgent-service-help-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-urgent-service-help-2.mp3",
-      "audioSha256": "be63bd6a78170f683fbbcf895edd2a83c24597b34f7d224baf1bbb29acb96dae",
-      "byteSize": 14254,
-      "reused": true
+      "audioSha256": "826be686aba56bdd5e844c243fb326e59057fa528ee0c4c8c73413f7db4d7f49",
+      "byteSize": 18852,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-urgent-service-help-3",
-      "audioText": "Wo finde ich einen Arzt?",
-      "expectedSourceHash": "75d67f7ee0cf433b070f01eb004fccf2f208c731102e2efa73083dfcc2a87661",
+      "audioText": "Vielen Dank.",
+      "expectedSourceHash": "3597f1b16eb05848004ced21224c226df7ed43773540b3a5928267857b48d767",
       "voiceAssignmentKey": "char-de-paul",
       "voiceName": "Hyun - Friendly and Natural",
       "voiceId": "70DeQK5Ztp7WmEGGysLT",
@@ -2968,15 +3063,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-urgent-service-help-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-urgent-service-help-3.mp3",
-      "audioSha256": "dd3373db24777584c44f2696ea8b41e2e29c2ebf9c89584cf2b9eaace3e78774",
-      "byteSize": 26375,
-      "reused": true
+      "audioSha256": "fc7129180dd23100205e615d1e5349f497aacf59a55e78de8a3772db68660515",
+      "byteSize": 17598,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-urgent-service-help-4",
-      "audioText": "Gleich dort drüben.",
-      "expectedSourceHash": "6600e96a6fed87f07968c980644061d753edcc28500e7591c95cda2d2779910b",
+      "audioText": "Bitte.",
+      "expectedSourceHash": "0a48ee3eb8603502e959a6bd4c67e7d45fcb63136261db721a6d2a4afa12daa5",
       "voiceAssignmentKey": "char-de-iris",
       "voiceName": "Lucy Fennek -  Friendly and Open",
       "voiceId": "KXxZd16DiBqt82nbarJx",
@@ -2987,15 +3082,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-urgent-service-help-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-urgent-service-help-4.mp3",
-      "audioSha256": "e9eac8b6d7ba6a0e899c94d7b9a0e3bad5c1e3b410928355ac7181c064aacdb6",
-      "byteSize": 19688,
-      "reused": true
+      "audioSha256": "77dd27c0af116000cfef424560567ea1d8c09791a3e47d80eb27b4f45d72ee53",
+      "byteSize": 12164,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-weather-current-1",
-      "audioText": "Wie ist denn das Wetter in Berlin?",
-      "expectedSourceHash": "7ba4c6f4385e20f3bb3b0e94dd3225b5ea97dfeec6f81d3fef5e5412ef64ff9c",
+      "audioText": "Wie ist das Wetter in Berlin?",
+      "expectedSourceHash": "389eb3ffae091a2da357769b444d62015c65296926ca882fdfa89584b1ef9a4e",
       "voiceAssignmentKey": "char-de-iris",
       "voiceName": "Lucy Fennek -  Friendly and Open",
       "voiceId": "KXxZd16DiBqt82nbarJx",
@@ -3006,15 +3101,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-weather-current-1.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-current-1.mp3",
-      "audioSha256": "582238e270f65fc2b77251aa7f824f9c849c3b312305b5eb9116d4389864eaa4",
-      "byteSize": 27629,
-      "reused": true
+      "audioSha256": "ba59b32a2fae21141f445d2c9279ea3703095ed113c60fcb6bf1c15a569cf9b1",
+      "byteSize": 24703,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-weather-current-2",
-      "audioText": "In Berlin scheint die Sonne.",
-      "expectedSourceHash": "a6d286125bda0046259e51191db0d35aa9493ab27528985b6ab85bff32c96ad8",
+      "audioText": "Es ist windig.",
+      "expectedSourceHash": "c21c9fd96db66e59054a997e2832cc7f1621b36f976cd3c9e089699b0ba41220",
       "voiceAssignmentKey": "char-de-paul",
       "voiceName": "Hyun - Friendly and Natural",
       "voiceId": "70DeQK5Ztp7WmEGGysLT",
@@ -3025,15 +3120,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-weather-current-2.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-current-2.mp3",
-      "audioSha256": "e2fececbb1579e566dcae781dcc1f80667693b49eeec704715dbb41628791c62",
-      "byteSize": 24285,
-      "reused": true
+      "audioSha256": "36c3407402326d76f62d204deeec4e285e69f518462d8e21a20a1e9f3eb7b652",
+      "byteSize": 19688,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-weather-current-3",
-      "audioText": "Wie wird das Wetter?",
-      "expectedSourceHash": "a697675d34bde1fd52e4d784b0ca3b87175c9a68ab6ef5399f3b7eef7decb8b9",
+      "audioText": "Wie ist das Wetter in Berlin?",
+      "expectedSourceHash": "389eb3ffae091a2da357769b444d62015c65296926ca882fdfa89584b1ef9a4e",
       "voiceAssignmentKey": "char-de-iris",
       "voiceName": "Lucy Fennek -  Friendly and Open",
       "voiceId": "KXxZd16DiBqt82nbarJx",
@@ -3044,15 +3139,15 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-weather-current-3.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-current-3.mp3",
-      "audioSha256": "df96c666c7749bf8bdccd870b0f5da2c61a3385a07ed45a7d1c0abb8de7e2354",
-      "byteSize": 18852,
-      "reused": true
+      "audioSha256": "6c677727d91f557255fc00d2b30895ed883ddca68a96fefb267c78b4c9111cbd",
+      "byteSize": 24703,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
       "ownerKey": "turn-de-a1-weather-current-4",
-      "audioText": "Es soll heute regnen.",
-      "expectedSourceHash": "e165958195dad1fe59c873835098b65d1d917d967e4cc4e0d0797e2b48ddb252",
+      "audioText": "Es ist heiß draußen!",
+      "expectedSourceHash": "2a60c9a1de6c3df8c31c3028929e638a2af241b2ed5022ef1aec559b9f1980dc",
       "voiceAssignmentKey": "char-de-paul",
       "voiceName": "Hyun - Friendly and Natural",
       "voiceId": "70DeQK5Ztp7WmEGGysLT",
@@ -3063,9 +3158,9 @@
       "needsGeneration": false,
       "path": "audio/de/a1/dialogue_turn/turn-de-a1-weather-current-4.mp3",
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-current-4.mp3",
-      "audioSha256": "4130fc9ec198ce89e93aecda8599f82548f59b6c2b01c9c7ac770f6f60a55d28",
-      "byteSize": 24285,
-      "reused": true
+      "audioSha256": "4b0770acfff9c91861b07b929228fdea11753753ef788063ac7e8f98b7fc4a6b",
+      "byteSize": 22613,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -3084,7 +3179,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-rain-plan-1.mp3",
       "audioSha256": "dc9f55f50a540660c09a7b412a4a8792a8bed89abfbe03bd744646c395d03ebb",
       "byteSize": 24703,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -3103,7 +3198,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-rain-plan-2.mp3",
       "audioSha256": "4bd5f1a8abd0263b17e30d18760dcb548533ca026cc523b283a67f0621217139",
       "byteSize": 20524,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -3122,7 +3217,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-rain-plan-3.mp3",
       "audioSha256": "9a1f38f71fd34b027ac601074f1bc43aeac42e784798e7283a833c9bafc20ca0",
       "byteSize": 24703,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -3141,7 +3236,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-rain-plan-4.mp3",
       "audioSha256": "6d6fe6e8273f953a75775659eb5a4c091d204bf555cf7e4d63cb74ba3fcd1d2b",
       "byteSize": 19688,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -3160,7 +3255,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-temperature-1.mp3",
       "audioSha256": "26f0646ba422935acd3b753a9cefe03e22f865e5f4f2773e7b738497ac958460",
       "byteSize": 24703,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -3179,7 +3274,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-temperature-2.mp3",
       "audioSha256": "ff0dc24b59771eea4f25baf0af9e36a6785cd19452d8a8745f37919f8f15e69f",
       "byteSize": 17598,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -3198,7 +3293,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-temperature-3.mp3",
       "audioSha256": "4d623418933b140e1ede2ef1b2598370b5319b9fe463be0f68edb07022f7834f",
       "byteSize": 24703,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -3217,7 +3312,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/a1/dialogue_turn/turn-de-a1-weather-temperature-4.mp3",
       "audioSha256": "7a97cb1f07f0b67051d63661253d77ee3b5ba12c314493f8cbc2f5c6e118ae0d",
       "byteSize": 16762,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",

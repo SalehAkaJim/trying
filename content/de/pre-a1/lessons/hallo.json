@@ -146,7 +146,8 @@
             "right": "پاسخ به تشکر",
             "rightFa": "پاسخ به تشکر"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",

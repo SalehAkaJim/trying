@@ -5,8 +5,8 @@
   "level": "A1",
   "unitRef": "de-a1-unit-time-plans-appointment",
   "titleFa": "تا چه ساعتی کلاس داری؟",
-  "sourceTitle": "Wie lange hast du heute Unterricht? / Bis wann bleibst du?",
-  "sourceTitleFa": "امروز چند ساعت کلاس داری؟ / تا چه زمانی می‌مانی؟",
+  "sourceTitle": "Wie lange hast du heute Unterricht? / Und bis wann bleibst du dann noch in der Schule?",
+  "sourceTitleFa": "امروز چند ساعت کلاس داری؟ / و بعد تا چه زمانی در مدرسه می‌مانی؟",
   "learningTargets": [
     "بازهٔ شروع و پایان یک برنامهٔ روزانه را با «von ... bis ...» بفهمد.",
     "پرسش «تا چه زمانی؟» و پاسخ با ساعت مشخص را در یک گفت‌وگوی کوتاه بفهمد.",
@@ -105,7 +105,8 @@
             "right": "Von 20.00 Uhr bis 21.45 Uhr.",
             "rightFa": "از ساعت ۲۰ تا ۲۱:۴۵."
           }
-        ]
+        ],
+        "pairMode": "target_to_target"
       },
       "transformations": [
         "source_items_grouped_for_matching",

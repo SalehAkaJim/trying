@@ -8,14 +8,14 @@
   "url": "https://en.wikibooks.org/wiki/German/Print_version",
   "locator": "Level one shopping dialogue, boutique section: offer of help, finding a skirt in the right size, and locating the fitting room.",
   "publishedOrUpdatedAt": "2024-06-05",
-  "modernityStatus": "contemporary_verified",
-  "currencyEvidence": "نسخهٔ زندهٔ صفحهٔ چاپی دورهٔ آلمانی ویکی‌بوکس در ۱۸ سپتامبر ۲۰۲۶ بررسی شد. گفت‌وگوی بوتیک در نسخهٔ فعلی صفحه وجود دارد و درخواست کمک، سایز و اتاق پرو برای کاربرد روزمرهٔ معاصر مناسب است.",
+  "modernityStatus": "needs_currency_review",
+  "currencyEvidence": "این منبع در بازبینی کیفیت ۱۸ سپتامبر ۲۰۲۶ برای استفادهٔ مستقیم در محتوای آموزشی فعال کنار گذاشته شد. به‌دلیل ناهمگونی سطح، سبک و کیفیت آموزشیِ نسخهٔ چاپی و وجود منابع بازِ مناسب‌تر، تا بازبینی مستقل بعدی فقط برای تحلیل و مقایسه نگه‌داری می‌شود.",
   "licenseName": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "attributionText": "Wikibooks contributors — German/Print version",
-  "reuseStatus": "reuse_with_attribution",
+  "reuseStatus": "analysis_only",
   "retrievedAt": "2026-09-18",
-  "notes": "فقط شش نوبت پیوستهٔ بخش بوتیک، از «Darf ich Ihnen helfen?» تا «Dort drüben.»، برای درس خدمات A1 استفاده می‌شود.",
+  "notes": "برای محتوای آموزشی جدید استفاده نشود. جایگزین‌های اولویت‌دار، منابع باز Deutsch im Blick از COERLL و بخش‌های دقیق‌تر ویکی‌بوکس و ویکی‌ویاژ هستند که در فهرست منابع ثبت شده‌اند.",
   "titleFa": "درخواست کمک در فروشگاه لباس",
   "locatorFa": "گفت‌وگوی خرید، بخش بوتیک؛ پیشنهاد کمک، پیدا کردن سایز مناسب و پرسیدن محل اتاق پرو."
 }

@@ -113,7 +113,8 @@
             "right": "2,67 Euro",
             "rightFa": "۲٫۶۷ یورو"
           }
-        ]
+        ],
+        "pairMode": "target_to_target"
       },
       "transformations": [
         "source_items_grouped_for_matching",

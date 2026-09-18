@@ -5,20 +5,21 @@
   "level": "A1",
   "unitRef": "de-a1-unit-forms-signs-messages",
   "titleFa": "فرم را پر کن، تابلو را بخوان",
-  "sourceTitle": "Vorname / Familienname / Adresse / Stadt / Offen / Geschlossen",
+  "sourceTitle": "der Vorname / der Familienname / die Adresse / die Stadt / Offen / Geschlossen",
   "sourceTitleFa": "نام کوچک / نام خانوادگی / نشانی / شهر / باز / بسته",
   "learningTargets": [
     "اطلاعات شخصی پایه را در یک گفت‌وگوی کوتاه بازیابی کند.",
     "برچسب‌های نام کوچک، نام خانوادگی، نشانی و شهر را در فرم تشخیص دهد.",
     "یک فیلد سادهٔ فرم را با نمونهٔ منبع‌دار کامل کند.",
     "چهار تابلوی بسیار کوتاه روزمره را بخواند و معنی کند.",
-    "گروه‌های پایهٔ حروف الفبا را واضح بخواند تا برای هجی‌کردن آماده شود.",
+    "الفبای کامل آلمانی، شامل Ä، Ö، Ü و ß، را برای هجی‌کردن واضح بخواند.",
     "اسم‌های پرتکرار فرم را همراه با جنس و حرف تعریفِ منبع‌دار در حد تشخیص کاربردی مرور کند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-residence-origin",
     "src-wikibooks-de-lesson-007-form-spelling",
-    "src-wikivoyage-german-phrasebook-signs"
+    "src-wikivoyage-german-phrasebook-signs",
+    "src-coerll-dib-pronunciation-alphabet"
   ],
   "lexemeRefs": [
     "lex-de-vorname",
@@ -109,7 +110,8 @@
             "right": "شهر، مؤنث",
             "rightFa": "شهر، مؤنث"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",
@@ -199,7 +201,8 @@
             "right": "خروجی",
             "rightFa": "خروجی"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",
@@ -211,9 +214,9 @@
       "id": "act-de-a1-alphabet-pronunciation",
       "type": "pronunciation_read",
       "instructionFa": "گروه‌های حروف را واضح و با صدای بلند بخوان.",
-      "selectionReason": "شش خط الفبا عین بخش ۲۹۴ هستند و تمرین تلفظ را مستقیماً به نیاز هجی‌کردن فرم وصل می‌کنند.",
+      "selectionReason": "الفبای کامل عین منبع تلفظ Deutsch im Blick است و Ä، Ö، Ü و ß را هم در تمرین مستقیم وارد می‌کند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-007-form-spelling"
+        "src-coerll-dib-pronunciation-alphabet"
       ],
       "learningTargets": [
         "خواندن واضح گروه‌های پایهٔ حروف برای هجی‌کردن."
@@ -224,22 +227,17 @@
       "dialogueRef": null,
       "data": {
         "lines": [
-          "A B C D E F",
-          "G H I J K L",
-          "M N O P Q",
-          "R S T",
-          "U V W",
-          "X Y Z"
+          "A, Ä, B, C, D, E, F, G, H, I, J, K, L, M, N, O, Ö, P, Q, R, S, ß, T, U, Ü, V, W, X, Y, Z"
         ],
-        "audioTextTargetFa": "حروف الفبا در شش گروه."
+        "audioTextTargetFa": "الفبای کامل آلمانی همراه با Ä، Ö، Ü و ß."
       },
       "transformations": [
-        "other"
+        "source_items_grouped_for_pronunciation"
       ],
-      "audioStatus": "pending",
-      "audioTextTarget": "A B C D E F\nG H I J K L\nM N O P Q\nR S T\nU V W\nX Y Z"
+      "audioStatus": "stale",
+      "audioTextTarget": "A, Ä, B, C, D, E, F, G, H, I, J, K, L, M, N, O, Ö, P, Q, R, S, ß, T, U, Ü, V, W, X, Y, Z"
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "stale"
 }

@@ -297,13 +297,13 @@
                 "const": true
               },
               "practiceAndRetrievalComplete": {
-                "const": true
+                "type": "boolean"
               },
               "skillModeCoverageComplete": {
-                "const": true
+                "type": "boolean"
               },
               "requiredGaps": {
-                "maxItems": 0
+                "type": "array"
               }
             }
           }

@@ -6,25 +6,25 @@
   "titleFa": "درخواست، اجازه و خدمات روزمره",
   "learningTargets": [
     "درخواست تکرار و آهسته‌تر گفتن کند.",
-    "یک اجازهٔ ساده در خدمات روزمره را بفهمد.",
     "نیاز به کمک را مستقیم بیان یا تشخیص دهد.",
-    "واژگان پایهٔ چند خدمت روزمره را تشخیص دهد."
+    "در یک خرید ساده نیاز و رنگ موردنظر را بیان کند.",
+    "محل پزشک را با پرسش کوتاه بپرسد و پاسخ مکانی ساده را بفهمد."
   ],
   "lessonRefs": [
     "de-a1-lesson-clarify-permission-help",
     "de-a1-lesson-services-permission-review",
     "de-a1-lesson-services-help-review"
   ],
-  "groupingRationale": "واحد از روشن‌سازی و اجازه/کمک پایه به دو موقعیت خدماتی مشخص می‌رود: درخواست کمک برای پیدا کردن سایز و اتاق پرو، و بیان نیاز فوری همراه با پرسیدن محل پزشک.",
+  "groupingRationale": "واحد از روشن‌سازی و کمک پایه به دو موقعیت خدماتی ساده می‌رود: خرید کفش با نیاز/رنگ، و پیدا کردن پزشک با پاسخ مکانی کوتاه. ساختارهای سنگین فروشگاه لباس حذف شده‌اند.",
   "sourceRefs": [
     "src-wikibooks-de-lesson-002-service-clarification",
     "src-wikivoyage-german-phrasebook-services",
     "src-wiktionary-de-ja",
-    "src-wikibooks-de-lesson-004",
-    "src-wikibooks-german-print-shopping-service",
+    "src-wikibooks-german-lesson-9-clothing",
     "src-wikibooks-de-lesson-006-where-when",
-    "src-wikibooks-german-print-directions"
+    "src-coerll-dib-directions",
+    "src-wiktionary-de-bitte"
   ],
   "status": "final",
-  "notes": "دو درس تازه خدمات را به کار واقعی وصل می‌کنند و دیگر همان گفت‌وگو روشن‌سازی را با تمرین‌های متفاوت تکرار نمی‌کنند."
+  "notes": "دو درس خدماتی در بازبینی ۱۸ سپتامبر ۲۰۲۶ به منابع ساده‌تر و قابل‌بازاستفاده منتقل شدند؛ نسخهٔ چاپی قدیمی ویکی‌بوکس دیگر منبع فعال این واحد نیست."
 }

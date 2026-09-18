@@ -21,9 +21,10 @@
 - Do not pad/split/merge curriculum to resemble neighboring content.
 
 ## CEFR completion
-- A level ends only when CEFR abilities, prerequisites, progression, practice/retrieval, skill modes and QA are sufficiently complete.
-- Before `final`, run the documented 0–10 review; intended release quality is close to 10/10.
-- A high score never overrides a material gap.
+- `status: final` means the current release is approved, frozen and eligible for canonical audio generation.
+- Educational completeness remains explicit in `completionAssessment`; final status never forces `practiceAndRetrievalComplete` or `skillModeCoverageComplete` to true.
+- When either of those flags is false, `requiredGaps` must state the remaining work and the quality score must reflect it.
+- Before `final`, run the documented 0–10 review. A high score never overrides or conceals a material gap.
 
 ## Opening conversation
 - Every finalized lesson starts with `conversation_speaking`.

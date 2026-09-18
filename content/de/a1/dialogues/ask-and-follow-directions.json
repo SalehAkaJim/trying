@@ -3,9 +3,9 @@
   "languageId": "de",
   "level": "A1",
   "sourceRefs": [
-    "src-wikibooks-german-print-directions"
+    "src-coerll-dib-directions"
   ],
-  "scenario": "پاول در سنت پولتن از آیریس مسیر شهرداری را می‌پرسد. آیریس ابتدا درخواست تکرار می‌کند و سپس مسیر ساده را می‌گوید.",
+  "scenario": "زبان‌آموز محل باغ‌وحش و راه رسیدن به آن را می‌پرسد و دو پاسخ کوتاه منبع‌دار می‌شنود.",
   "openingInitiator": "learner",
   "characterRefs": [
     "char-de-paul",
@@ -13,102 +13,66 @@
   ],
   "turns": [
     {
-      "id": "turn-de-a1-directions-1",
+      "id": "turn-de-a1-ask-and-follow-directions-1",
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Danke sehr. Und können Sie mir sagen, wo das Rathaus von St. Pölten ist?",
-      "translationFa": "خیلی ممنون. می‌توانید به من بگویید شهرداری سنت پولتن کجاست؟",
+      "textTarget": "Wo ist der Zoo?",
+      "translationFa": "باغ‌وحش کجاست؟",
       "learnerTurn": true,
-      "lexemeRefs": [
-        "lex-de-rathaus"
-      ],
-      "lexemeOccurrences": [
-        {
-          "surface": "Rathaus",
-          "lexemeId": "lex-de-rathaus",
-          "lexemeFormId": null
-        }
-      ],
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-coerll-dib-directions"
       ],
       "audioRef": null
     },
     {
-      "id": "turn-de-a1-directions-2",
+      "id": "turn-de-a1-ask-and-follow-directions-2",
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Wie bitte?",
-      "translationFa": "ببخشید؟",
+      "textTarget": "Gleich da drüben.",
+      "translationFa": "همین آن طرف.",
       "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-coerll-dib-directions"
       ],
       "audioRef": null
     },
     {
-      "id": "turn-de-a1-directions-3",
+      "id": "turn-de-a1-ask-and-follow-directions-3",
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Wie komme ich zum Rathaus?",
-      "translationFa": "چطور به شهرداری برسم؟",
+      "textTarget": "Wie komme ich zum Zoo?",
+      "translationFa": "چطور به باغ‌وحش برسم؟",
       "learnerTurn": true,
-      "lexemeRefs": [
-        "lex-de-rathaus"
-      ],
-      "lexemeOccurrences": [
-        {
-          "surface": "Rathaus",
-          "lexemeId": "lex-de-rathaus",
-          "lexemeFormId": null
-        }
-      ],
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-coerll-dib-directions"
       ],
       "audioRef": null
     },
     {
-      "id": "turn-de-a1-directions-4",
+      "id": "turn-de-a1-ask-and-follow-directions-4",
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Rechts um die Ecke und dann immer geradeaus – ungefähr ein Kilometer.",
-      "translationFa": "سرِ پیچ به راست بپیچید و بعد مستقیم ادامه بدهید؛ حدود یک کیلومتر.",
+      "textTarget": "Gehen Sie geradeaus",
+      "translationFa": "مستقیم بروید.",
       "learnerTurn": false,
-      "lexemeRefs": [
-        "lex-de-rechts",
-        "lex-de-ecke",
-        "lex-de-geradeaus"
-      ],
-      "lexemeOccurrences": [
-        {
-          "surface": "Rechts",
-          "lexemeId": "lex-de-rechts",
-          "lexemeFormId": null
-        },
-        {
-          "surface": "Ecke",
-          "lexemeId": "lex-de-ecke",
-          "lexemeFormId": null
-        },
-        {
-          "surface": "geradeaus",
-          "lexemeId": "lex-de-geradeaus",
-          "lexemeFormId": null
-        }
-      ],
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-coerll-dib-directions"
       ],
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "چهار نوبت پیوسته از گفت‌وگوی منبع بدون بازنویسی حفظ شده‌اند: پرسش نخست، درخواست تکرار، پرسش مستقیم‌تر و راهنمایی مسیر. نقش‌های مسافر و فرد محلی فقط به شخصیت‌های برنامه نسبت داده شده‌اند.",
+  "sceneQualityRationale": "چهار نوبت از بخش‌های پرسیدن مسیر و راهنمایی مسیر Deutsch im Blick انتخاب شده‌اند؛ عبارت آلمانی جدیدی ساخته نشده است.",
   "learnerCharacterId": "char-de-paul"
 }

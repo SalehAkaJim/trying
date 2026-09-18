@@ -2,7 +2,8 @@
 
 ## Hard failures
 - finalized lesson lacks a non-empty target-language `sourceTitle` or Persian `sourceTitleFa`;
-- for German lessons, `sourceTitle` contains Persian instead of German/Latin-script target text;
+- for German lessons, `sourceTitle` must contain target-language text and no Persian; from A1 onward it may not use ellipsis/compressed German and each title segment must be an exact source-backed string already present in that lesson/dialogue;
+- a `matching` activity omits `pairMode` or its declared target/Persian side does not match the actual script;
 - finalized lesson does not begin with `conversation_speaking`;
 - finalized lesson activity count falls outside the CEFR-level range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 3–6 total activities;
 - `matching` activity contains fewer than 4 or more than 8 pairs;
@@ -71,4 +72,6 @@ Before accepting a batch, run the shared project contract validator, CEFR activi
 Rules that apply across languages must be tested generically. Do not solve a cross-language defect with a German-only test.
 
 ## CEFR completion
-Before finalizing, verify CEFR coverage, prerequisites, progression, practice/retrieval, relevant skill modes, modern source integrity and unresolved gaps. Run 0–10 quality review; aim close to 10 but any material gap blocks finalization.
+Before a release is frozen, verify CEFR coverage, prerequisites, progression, practice/retrieval, relevant skill modes, modern source integrity and unresolved gaps. Run the 0–10 quality review and record every known gap explicitly.
+
+`status: final` means the current release is structurally approved, frozen and eligible for the audio pipeline. It does **not** by itself mean every pedagogical completion flag is true. A finalized level with `practiceAndRetrievalComplete: false` or `skillModeCoverageComplete: false` must keep those flags false and list the remaining work in `requiredGaps`. Educational completeness is claimed only when the relevant completion flags are true and `requiredGaps` is empty.

@@ -84,6 +84,7 @@
           "source_sentence_blank_created",
           "source_items_grouped_for_matching",
           "options_selected_from_source_material",
+          "source_items_grouped_for_pronunciation",
           "character_metadata_added",
           "cefr_level_assigned_by_app",
           "other"
@@ -180,6 +181,7 @@
           "data": {
             "type": "object",
             "required": [
+              "pairMode",
               "pairs"
             ],
             "properties": {
@@ -191,7 +193,9 @@
                   "type": "object",
                   "required": [
                     "left",
-                    "right"
+                    "leftFa",
+                    "right",
+                    "rightFa"
                   ],
                   "properties": {
                     "left": {
@@ -201,9 +205,25 @@
                     "right": {
                       "type": "string",
                       "minLength": 1
+                    },
+                    "leftFa": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "[\\u0600-\\u06FF]"
+                    },
+                    "rightFa": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "[\\u0600-\\u06FF]"
                     }
                   }
                 }
+              },
+              "pairMode": {
+                "enum": [
+                  "target_to_persian",
+                  "target_to_target"
+                ]
               }
             }
           }

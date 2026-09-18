@@ -11,6 +11,9 @@ Every finalized lesson begins with `conversation_speaking`; everything after it 
 
 ## matching
 - Display between **4 and 8 pairs**.
+- Every matching payload declares `pairMode`.
+- `target_to_persian`: `left` is target-language content and `right` is the Persian answer/category; both `leftFa` and `rightFa` remain explicit Persian companions.
+- `target_to_target`: both `left` and `right` are target-language content; `leftFa` and `rightFa` provide Persian companions.
 - Each left value and each right value must be non-empty and unique inside the activity.
 - `Pre-A1` uses **exactly 4 pairs**.
 - Levels above `Pre-A1` may use 4–8 pairs when the learning need justifies the extra load.

@@ -3,12 +3,11 @@
   "languageId": "de",
   "level": "A1",
   "sourceRefs": [
-    "src-wikivoyage-german-phrasebook-services",
     "src-wikibooks-de-lesson-006-where-when",
-    "src-wikibooks-german-print-directions",
-    "src-wikibooks-german-print-shopping-service"
+    "src-coerll-dib-directions",
+    "src-wiktionary-de-bitte"
   ],
-  "scenario": "پاول می‌گوید کمک لازم دارد و بعد محل پیدا کردن پزشک را می‌پرسد؛ آیریس جهت کلی را نشان می‌دهد.",
+  "scenario": "زبان‌آموز محل پزشک را می‌پرسد، جهت کوتاه می‌شنود و با تشکر گفت‌وگو را پایان می‌دهد.",
   "openingInitiator": "learner",
   "characterRefs": [
     "char-de-paul",
@@ -17,36 +16,6 @@
   "turns": [
     {
       "id": "turn-de-a1-urgent-service-help-1",
-      "speakerCharacterId": "char-de-paul",
-      "speakerIdentityOrigin": "app_assigned",
-      "speakerGenderEvidence": "unspecified",
-      "textTarget": "Ich brauche Hilfe.",
-      "translationFa": "کمک لازم دارم.",
-      "learnerTurn": true,
-      "lexemeRefs": [],
-      "lexemeOccurrences": [],
-      "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-services"
-      ],
-      "audioRef": null
-    },
-    {
-      "id": "turn-de-a1-urgent-service-help-2",
-      "speakerCharacterId": "char-de-iris",
-      "speakerIdentityOrigin": "app_assigned",
-      "speakerGenderEvidence": "unspecified",
-      "textTarget": "Natürlich.",
-      "translationFa": "البته.",
-      "learnerTurn": false,
-      "lexemeRefs": [],
-      "lexemeOccurrences": [],
-      "sourceRefs": [
-        "src-wikibooks-german-print-shopping-service"
-      ],
-      "audioRef": null
-    },
-    {
-      "id": "turn-de-a1-urgent-service-help-3",
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
@@ -61,21 +30,51 @@
       "audioRef": null
     },
     {
-      "id": "turn-de-a1-urgent-service-help-4",
+      "id": "turn-de-a1-urgent-service-help-2",
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Gleich dort drüben.",
+      "textTarget": "Gleich da drüben.",
       "translationFa": "همین آن طرف.",
       "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-coerll-dib-directions"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-urgent-service-help-3",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Vielen Dank.",
+      "translationFa": "خیلی ممنون.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-coerll-dib-directions"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-urgent-service-help-4",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Bitte.",
+      "translationFa": "خواهش می‌کنم.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wiktionary-de-bitte"
       ],
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "جمله‌ها همگی مستقیماً از منابع ثبت‌شده آمده‌اند؛ فقط برای ساخت یک سناریوی خدمات ضروری کنار هم قرار گرفته‌اند.",
+  "sceneQualityRationale": "هر نوبت عین یکی از منابع قابل‌بازاستفاده است؛ فقط نقش شخصیت‌ها و ترجمهٔ فارسی اضافه شده‌اند.",
   "learnerCharacterId": "char-de-paul"
 }

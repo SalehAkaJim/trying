@@ -8,17 +8,19 @@
   "learningTargets": [
     "یک نوشیدنی را با واحد ساده سفارش دهد.",
     "به پرسش دربارهٔ شیر و شکر پاسخ مشخص بدهد.",
-    "با nur یک ترجیح محدود و روشن در سفارش بیان کند."
+    "با nur یک ترجیح محدود و روشن در سفارش بیان کند.",
+    "Ö و Ü را در چند واژه و عبارت کوتاه منبع‌دار واضح بخواند."
   ],
   "sourceRefs": [
-    "src-wikibooks-de-lesson-007-food-order"
+    "src-wikibooks-de-lesson-007-food-order",
+    "src-coerll-dib-pronunciation-umlauts"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
     "activitySelectionRationale": "این درس به‌جای مرور دوست‌داشتن/نداشتن، مهارت تازهٔ شخصی‌سازی سفارش را اضافه می‌کند؛ چیزی که در سفارش واقعی بسیار پرتکرار است.",
-    "sequenceRationale": "از سفارش پایه به انتخاب افزودنی و سپس پرسیدن موجودبودن قلم دیگر می‌رسد.",
-    "templateSignature": "conversation_speaking>choose_response>word_order"
+    "sequenceRationale": "پس از سفارش و انتخاب پاسخ، جملهٔ کاربردی بازسازی می‌شود و در پایان Ö و Ü با نمونه‌های دقیق منبع تمرین می‌شوند.",
+    "templateSignature": "conversation_speaking>choose_response>word_order>pronunciation_read"
   },
   "activities": [
     {
@@ -119,10 +121,38 @@
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-food-preference-umlaut",
+      "type": "pronunciation_read",
+      "instructionFa": "این چهار نمونهٔ منبع‌دار را با تمرکز روی Ö و Ü با صدای بلند بخوان.",
+      "selectionReason": "نمونه‌ها عین بخش تلفظ واکه‌های دگرگون‌شده در Deutsch im Blick هستند و تمرین تلفظ را به واژگان آشنای همان منبع وصل می‌کنند.",
+      "sourceRefs": [
+        "src-coerll-dib-pronunciation-umlauts"
+      ],
+      "learningTargets": [
+        "Ö و Ü را در چند نمونهٔ کوتاه منبع‌دار تمرین کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "lines": [
+          "die Körbe",
+          "ich möchte",
+          "die Bücher",
+          "die Küche"
+        ],
+        "audioTextTargetFa": "چهار نمونهٔ تلفظی برای Ö و Ü."
+      },
+      "transformations": [
+        "source_items_grouped_for_pronunciation"
+      ],
+      "audioStatus": "stale",
+      "audioTextTarget": "die Körbe\nich möchte\ndie Bücher\ndie Küche"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitle": "Was möchten Sie? / Mit Milch und Zucker?",
   "sourceTitleFa": "چه میل دارید؟ / با شیر و شکر؟"
 }

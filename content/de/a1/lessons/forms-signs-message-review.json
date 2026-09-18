@@ -11,14 +11,17 @@
     "درخواست آهسته هجی‌کردن را بفهمد و بازسازی کند."
   ],
   "sourceRefs": [
-    "src-wikibooks-de-lesson-007-form-spelling"
+    "src-wikibooks-de-lesson-007-form-spelling",
+    "src-wikibooks-de-lesson-004",
+    "src-wikibooks-de-lesson-007-family",
+    "src-coerll-dib-directions"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
     "activitySelectionRationale": "درس اول فقط الفبا و فیلدهای فرم را آماده کرده بود؛ این درس مهارت عملیِ بعدی یعنی هجی‌کردن واقعی اطلاعات شخصی را اضافه می‌کند.",
-    "sequenceRationale": "مکالمه هجی نام را اجرا می‌کند، تطبیق فیلدهای فرم با نمونه‌ها دامنه را گسترش می‌دهد و در پایان درخواست آهسته‌هجی‌کردن بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>matching>word_order"
+    "sequenceRationale": "هجی‌کردن در گفت‌وگو اجرا می‌شود، فیلدهای فرم و درخواست آهسته‌هجی‌کردن تمرین می‌شوند و در پایان یک بازیابی بین‌واحدی اضافه می‌شود.",
+    "templateSignature": "conversation_speaking>matching>word_order>multiple_choice"
   },
   "activities": [
     {
@@ -84,7 +87,8 @@
             "right": "Werdau",
             "rightFa": "ورداو"
           }
-        ]
+        ],
+        "pairMode": "target_to_target"
       },
       "transformations": [
         "source_items_grouped_for_matching",
@@ -127,6 +131,46 @@
       },
       "transformations": [
         "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-forms-cross-unit-retrieval",
+      "type": "multiple_choice",
+      "instructionFa": "کدام پرسش مربوط به خرید است؟",
+      "selectionReason": "گزینه‌ها از سه واحد قبلی انتخاب شده‌اند تا بازیابی خرید، خانواده و مسیر در پایان واحد فرم فعال شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004",
+        "src-wikibooks-de-lesson-007-family",
+        "src-coerll-dib-directions"
+      ],
+      "learningTargets": [
+        "پرسش خرید را از پرسش خانواده و مسیر تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Was kaufen Sie?",
+            "translationFa": "چه چیزی می‌خرید؟",
+            "correct": true
+          },
+          {
+            "textTarget": "Wo wohnt eure Schwester?",
+            "translationFa": "خواهرتان کجا زندگی می‌کند؟",
+            "correct": false
+          },
+          {
+            "textTarget": "Wie komme ich zum Zoo?",
+            "translationFa": "چطور به باغ‌وحش برسم؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

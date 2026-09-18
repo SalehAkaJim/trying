@@ -11,14 +11,16 @@
     "راهنمایی بسیار کوتاهِ راست و مستقیم را بفهمد."
   ],
   "sourceRefs": [
-    "src-wikivoyage-german-phrasebook-directions"
+    "src-wikivoyage-german-phrasebook-directions",
+    "src-wikibooks-de-lesson-007-family",
+    "src-wikibooks-de-lesson-004"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
     "activitySelectionRationale": "درس قبلی با حمل‌ونقل عمومی هم‌پوشانی داشت و به نمونهٔ زمانی ضعیف متکی بود؛ این جایگزین فقط مهارت مسیر و مکان عمومی را با عبارت‌نامهٔ فعلی پوشش می‌دهد.",
-    "sequenceRationale": "از دو پرسش مسیر و دو پاسخ کوتاه شروع می‌شود، سپس جهت درست تشخیص داده می‌شود و در پایان یک پرسش مسیر بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "sequenceRationale": "مسیر ایستگاه و فرودگاه تمرین می‌شود، سپس پرسش مسیر بازسازی می‌شود و در پایان یک بازیابی بین‌واحدی خانواده/خرید/مسیر اضافه می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order>multiple_choice"
   },
   "activities": [
     {
@@ -116,6 +118,46 @@
       },
       "transformations": [
         "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-directions-cross-unit-retrieval",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله مربوط به خانواده است، نه خرید یا مسیر؟",
+      "selectionReason": "سه جمله عین منابع واحدهای قبلی‌اند و بازیابی فاصله‌دار بین خانواده، خرید و مسیر را می‌سنجند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family",
+        "src-wikibooks-de-lesson-004",
+        "src-wikivoyage-german-phrasebook-directions"
+      ],
+      "learningTargets": [
+        "یک جملهٔ خانوادگی را از جمله‌های خرید و مسیر تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Unsere Schwester wohnt in Hamburg.",
+            "translationFa": "خواهر ما در هامبورگ زندگی می‌کند.",
+            "correct": true
+          },
+          {
+            "textTarget": "Was brauchen Sie?",
+            "translationFa": "چه چیزی لازم دارید؟",
+            "correct": false
+          },
+          {
+            "textTarget": "Wie komme ich zum Flughafen?",
+            "translationFa": "چطور به فرودگاه برسم؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

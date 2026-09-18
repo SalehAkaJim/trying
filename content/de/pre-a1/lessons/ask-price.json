@@ -99,7 +99,8 @@
             "right": "پاسخ قیمت ۳۵ یورو و ۱۵ سنت",
             "rightFa": "پاسخ قیمت ۳۵ یورو و ۱۵ سنت"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",

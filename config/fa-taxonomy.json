@@ -217,7 +217,8 @@
       "options_selected_from_source_material": "گزینه‌ها از محتوای منبع انتخاب شده‌اند",
       "character_metadata_added": "فرادادهٔ شخصیت افزوده شده",
       "cefr_level_assigned_by_app": "سطح CEFR توسط اپلیکیشن تعیین شده",
-      "other": "سایر"
+      "other": "سایر",
+      "source_items_grouped_for_pronunciation": "موارد منبع برای تمرین تلفظ گروه‌بندی شده‌اند"
     },
     "activity_transformation": {
       "verbatim_dialogue": "گفت‌وگو عیناً از منبع استفاده شده",
@@ -228,7 +229,8 @@
       "options_selected_from_source_material": "گزینه‌ها از محتوای منبع انتخاب شده‌اند",
       "character_metadata_added": "فرادادهٔ شخصیت افزوده شده",
       "cefr_level_assigned_by_app": "سطح CEFR توسط اپلیکیشن تعیین شده",
-      "other": "سایر"
+      "other": "سایر",
+      "source_items_grouped_for_pronunciation": "موارد منبع برای تمرین تلفظ گروه‌بندی شده‌اند"
     },
     "character_role": {
       "learner": "زبان‌آموز",

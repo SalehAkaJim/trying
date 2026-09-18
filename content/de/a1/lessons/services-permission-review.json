@@ -4,39 +4,42 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-requests-services-help",
-  "titleFa": "سایزم رو پیدا می‌کنید؟",
+  "titleFa": "کفش‌ها کجاست؟",
+  "sourceTitle": "Entschuldigen Sie. Ich brauche Schuhe. Wo sind sie?",
+  "sourceTitleFa": "ببخشید. کفش لازم دارم. کجا هستند؟",
   "learningTargets": [
-    "پیشنهاد کمک فروشنده را بفهمد.",
-    "برای پیدا کردن کالای مناسبِ سایز خود درخواست کمک کند.",
-    "محل اتاق پرو را بپرسد."
+    "در فروشگاه نیاز خود به کفش را بیان کند.",
+    "پرسش دربارهٔ رنگ موردنظر را بفهمد.",
+    "یک رنگ ساده را در پاسخ خرید بیان کند.",
+    "پرسش رنگ را از راه شنیدن تشخیص دهد."
   ],
   "sourceRefs": [
-    "src-wikibooks-german-print-shopping-service"
+    "src-wikibooks-german-lesson-9-clothing"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس به‌جای تکرار اجازهٔ تلفن، یک خدمت واقعی تازه را آموزش می‌دهد: درخواست کمک مشخص از کارمند فروشگاه و پیدا کردن اتاق پرو.",
-    "sequenceRationale": "مکالمهٔ کامل خدماتی اجرا می‌شود، سپس پاسخ مناسب به پیشنهاد کمک و پرسش محل اتاق پرو تمرین می‌شوند.",
-    "templateSignature": "conversation_speaking>choose_response>fill_blank"
+    "activitySelectionRationale": "درس قبلی به‌دلیل بار دستوری بالا کامل جایگزین شده و چهار نوبت نخست گفت‌وگوی سادهٔ خرید کفش مستقیماً از منبع استفاده می‌شوند.",
+    "sequenceRationale": "مکالمه نیاز، رنگ و محل کالا را می‌دهد؛ سپس پرسش رنگ شنیده می‌شود و در پایان پاسخ کوتاه خرید بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>listen_choose>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-services-permission-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "از کارمند فروشگاه برای پیدا کردن سایز مناسب کمک بگیر و اتاق پرو را پیدا کن.",
-      "selectionReason": "گفت‌وگوی پیوستهٔ منبع یک تعامل خدماتی کامل و طبیعی ارائه می‌کند.",
+      "instructionFa": "خودت گفت‌وگو را شروع کن: بگو کفش لازم داری و رنگ موردنظرت را مشخص کن.",
+      "selectionReason": "چهار نوبت نخست گفت‌وگوی خرید کفش عین منبع هستند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-shopping-service"
+        "src-wikibooks-german-lesson-9-clothing"
       ],
       "learningTargets": [
-        "درخواست کمک مشخص در فروشگاه را انجام دهد."
+        "یک تعامل کوتاه خرید کفش را انجام دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": "dlg-de-a1-clothing-store-help",
       "data": {
         "interaction": "read_aloud_exchange",
-        "openingInitiator": "app"
+        "openingInitiator": "learner"
       },
       "transformations": [
         "verbatim_dialogue",
@@ -47,34 +50,33 @@
     },
     {
       "id": "act-de-a1-services-permission-review-choice",
-      "type": "choose_response",
-      "instructionFa": "به «Darf ich Ihnen helfen?» پاسخ مناسب را انتخاب کن.",
-      "selectionReason": "پاسخ درست دقیقاً درخواست کمک مشخص برای سایز مناسب است.",
+      "type": "listen_choose",
+      "instructionFa": "پرسش را گوش کن و پاسخ مناسب را انتخاب کن.",
+      "selectionReason": "پرسش و هر سه پاسخ از همان گفت‌وگوی منبع انتخاب شده‌اند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-shopping-service"
+        "src-wikibooks-german-lesson-9-clothing"
       ],
       "learningTargets": [
-        "به پیشنهاد کمک فروشنده پاسخ مناسب بدهد."
+        "پرسش رنگ موردنظر را از راه شنیدن بفهمد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "promptTarget": "Darf ich Ihnen helfen?",
-        "promptFa": "می‌توانم کمکتان کنم؟",
+        "audioTextTargetFa": "چه رنگی می‌خواهید؟",
         "options": [
           {
-            "textTarget": "Ja, können Sie mir helfen, diesen Rock in meiner Größe zu finden?",
-            "translationFa": "بله، می‌توانید کمکم کنید این دامن را در سایز من پیدا کنم؟",
+            "text": "Ein Paar Schuhe in Weiß, bitte.",
+            "translationFa": "لطفاً یک جفت کفش سفید.",
             "correct": true
           },
           {
-            "textTarget": "Danke. Wo ist die Umkleidekabine?",
-            "translationFa": "ممنون. اتاق پرو کجاست؟",
+            "text": "Nein, sie sind zu klein.",
+            "translationFa": "نه، خیلی کوچک‌اند.",
             "correct": false
           },
           {
-            "textTarget": "Dort drüben.",
-            "translationFa": "آن طرف.",
+            "text": "Ja, danke.",
+            "translationFa": "بله، ممنون.",
             "correct": false
           }
         ]
@@ -83,47 +85,49 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Welche Farbe möchten Sie?"
     },
     {
       "id": "act-de-a1-services-permission-review-order",
-      "type": "fill_blank",
-      "instructionFa": "پرسش محل اتاق پرو را کامل کن.",
-      "selectionReason": "واژهٔ کلیدیِ خدمت فروشگاه در قالب پرسش واقعی تثبیت می‌شود.",
+      "type": "word_order",
+      "instructionFa": "پاسخ سفارش کفش سفید را بساز.",
+      "selectionReason": "پاسخ عین منبع است و فقط برای بازیابی قطعه‌بندی می‌شود.",
       "sourceRefs": [
-        "src-wikibooks-german-print-shopping-service"
+        "src-wikibooks-german-lesson-9-clothing"
       ],
       "learningTargets": [
-        "محل اتاق پرو را بپرسد."
+        "یک پاسخ کوتاه خرید را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Danke. Wo ist die Umkleidekabine?",
-        "sourceTextFa": "ممنون. اتاق پرو کجاست؟",
-        "blankedText": "Danke. Wo ist die ___?",
-        "blankedTextFa": "ممنون. ___ کجاست؟",
-        "choices": [
-          "Umkleidekabine",
-          "Größe",
-          "Rock"
+        "sourceText": "Ein Paar Schuhe in Weiß, bitte.",
+        "sourceTextFa": "لطفاً یک جفت کفش سفید.",
+        "tokens": [
+          "Ein",
+          "Paar",
+          "Schuhe",
+          "in",
+          "Weiß,",
+          "bitte."
         ],
-        "choicesFa": [
-          "اتاق پرو",
-          "سایز",
-          "دامن"
-        ],
-        "answer": "Umkleidekabine"
+        "answer": [
+          "Ein",
+          "Paar",
+          "Schuhe",
+          "in",
+          "Weiß,",
+          "bitte."
+        ]
       },
       "transformations": [
-        "source_sentence_blank_created",
+        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
-  "sourceTitle": "Darf ich Ihnen helfen? / Ja, können Sie mir helfen, diesen Rock in meiner Größe zu finden?",
-  "sourceTitleFa": "می‌توانم کمکتان کنم؟ / بله، می‌توانید کمکم کنید این دامن را در سایز من پیدا کنم؟"
+  "audioStatus": "stale"
 }

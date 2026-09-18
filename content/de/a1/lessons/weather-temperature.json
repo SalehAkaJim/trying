@@ -11,14 +11,16 @@
     "دو وضعیت سادهٔ باران و برف را از هم تشخیص دهد."
   ],
   "sourceRefs": [
-    "src-wikibooks-de-weather-appendix"
+    "src-wikibooks-de-weather-appendix",
+    "src-wikibooks-de-lesson-018-health",
+    "src-wikibooks-de-transport-dialogue-current"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
     "activitySelectionRationale": "عبارت‌های دماسنجِ مصنوعی درس قبلی کنار گذاشته شده‌اند؛ این درس کامل با دو وضعیت بسیار ساده و منبع‌دار باران و برف جایگزین شده است.",
-    "sequenceRationale": "مکالمه دو وضعیت را معرفی می‌کند، سپس معنی باران تشخیص داده می‌شود و در پایان عبارت برف بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "sequenceRationale": "باران و برف در گفت‌وگو و بازسازی تمرین می‌شوند و در پایان یک بازیابی بین‌واحدی سلامت/آب‌وهوا/حمل‌ونقل اضافه می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order>multiple_choice"
   },
   "activities": [
     {
@@ -110,6 +112,46 @@
       },
       "transformations": [
         "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-weather-cross-unit-retrieval",
+      "type": "multiple_choice",
+      "instructionFa": "کدام پرسش مربوط به سلامت است؟",
+      "selectionReason": "سه پرسش عین منابع سلامت، آب‌وهوا و حمل‌ونقل‌اند و بازیابی فاصله‌دار چند واحد را در پایان A1 تمرین می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health",
+        "src-wikibooks-de-weather-appendix",
+        "src-wikibooks-de-transport-dialogue-current"
+      ],
+      "learningTargets": [
+        "پرسش سلامت را از آب‌وهوا و حمل‌ونقل تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Was fehlt Ihnen?",
+            "translationFa": "چه مشکلی دارید؟",
+            "correct": true
+          },
+          {
+            "textTarget": "Wie ist das Wetter in Berlin?",
+            "translationFa": "هوا در برلین چطور است؟",
+            "correct": false
+          },
+          {
+            "textTarget": "Wann fährt der nächste Zug nach Budapest?",
+            "translationFa": "قطار بعدی به بوداپست چه زمانی حرکت می‌کند؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

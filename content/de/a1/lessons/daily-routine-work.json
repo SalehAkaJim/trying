@@ -114,7 +114,8 @@
             "right": "بعدازظهر",
             "rightFa": "بعدازظهر"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",

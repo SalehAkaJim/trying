@@ -99,7 +99,8 @@
             "right": "صندلی",
             "rightFa": "صندلی"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",

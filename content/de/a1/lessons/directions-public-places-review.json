@@ -4,33 +4,35 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-directions-public-places",
-  "titleFa": "هتل کجاست؟ رستورانش کجاست؟",
+  "titleFa": "داروخانه و فروشگاه کجاست؟",
+  "sourceTitle": "Wo ist die Apotheke?",
+  "sourceTitleFa": "داروخانه کجاست؟",
   "learningTargets": [
-    "دربارهٔ محل یک هتل سؤال کند.",
-    "وجود یک رستوران داخل هتل را بپرسد.",
-    "موقعیت نسبی «سمت چپ هتل، سر پیچ» را بفهمد."
+    "محل یک مکان عمومی را با پرسش بسیار کوتاه بپرسد.",
+    "دستور کوتاه حرکت به چپ و راست را بفهمد.",
+    "در شنیدن، جهت راست را از عبارت‌های کوتاه دیگر تشخیص دهد."
   ],
   "sourceRefs": [
-    "src-wikibooks-german-print-directions"
+    "src-wikibooks-german-appendix-phrasebook"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس به‌جای فهرست‌کردن مقصدها، یک مسئلهٔ مکانی تازه را پوشش می‌دهد: پیدا کردن هتل و سپس مکان رستوران نسبت به آن.",
-    "sequenceRationale": "مکالمه مکان را در بافت واقعی معرفی می‌کند، تمرین جهت نسبی را می‌سنجد و بازسازی پرسش محل هتل تولید هدایت‌شده می‌دهد.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "درس سنگین قبلی کامل کنار گذاشته شده و با چهار عبارت کوتاه و منبع‌دار برای مکان و جهت جایگزین شده است.",
+    "sequenceRationale": "مکالمه دو مکان و دو جهت را وارد می‌کند؛ سپس جهت به‌صورت مستقل شنیده می‌شود و در پایان یک پرسش مکان بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>listen_choose>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-directions-places-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "خودت گفت‌وگو را شروع کن: هتل را پیدا کن و بعد دربارهٔ رستوران داخل یا کنار آن بپرس.",
-      "selectionReason": "چهار نوبت نخست گفت‌وگوی منبع یک زنجیرهٔ واقعیِ مقصد → امکان → موقعیت نسبی می‌سازند.",
+      "instructionFa": "خودت گفت‌وگو را شروع کن: محل داروخانه و فروشگاه را بپرس.",
+      "selectionReason": "چهار نوبت عین بخش مکان‌های عبارت‌نامه‌اند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-wikibooks-german-appendix-phrasebook"
       ],
       "learningTargets": [
-        "هتل و رستوران را در یک گفت‌وگوی مکانی پیدا کند."
+        "دو پرسش مکان و دو پاسخ جهت را در گفت‌وگو بفهمد."
       ],
       "lexemeRefs": [],
       "dialogueRef": "dlg-de-a1-hotel-restaurant-location",
@@ -47,32 +49,33 @@
     },
     {
       "id": "act-de-a1-directions-places-review-matching",
-      "type": "multiple_choice",
-      "instructionFa": "رستوران «Alt-Wien» نسبت به هتل کجاست؟",
-      "selectionReason": "پاسخ از جملهٔ منبع‌دار استخراج می‌شود و فهم موقعیت نسبی را می‌سنجد.",
+      "type": "listen_choose",
+      "instructionFa": "عبارت را گوش کن و همان جهت را انتخاب کن.",
+      "selectionReason": "عبارت صوتی و هر سه گزینه عین منبع‌اند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-wikibooks-german-appendix-phrasebook"
       ],
       "learningTargets": [
-        "موقعیت نسبی رستوران را تشخیص دهد."
+        "جهت راست را از شنیدن تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "به راست بروید.",
         "options": [
           {
-            "textTarget": "links neben dem Hotel, um die Ecke",
-            "translationFa": "سمت چپ هتل، سرِ پیچ",
+            "text": "Gehen Sie nach rechts.",
+            "translationFa": "به راست بروید.",
             "correct": true
           },
           {
-            "textTarget": "Rechts um die Ecke",
-            "translationFa": "سرِ پیچ سمت راست",
+            "text": "Gehen Sie nach links.",
+            "translationFa": "به چپ بروید.",
             "correct": false
           },
           {
-            "textTarget": "immer geradeaus",
-            "translationFa": "همیشه مستقیم",
+            "text": "Wo ist die Apotheke?",
+            "translationFa": "داروخانه کجاست؟",
             "correct": false
           }
         ]
@@ -81,37 +84,36 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Gehen Sie nach rechts."
     },
     {
       "id": "act-de-a1-directions-places-review-order",
       "type": "word_order",
-      "instructionFa": "پرسش محل هتل را بساز.",
-      "selectionReason": "پرسش Wo ist hier ... الگوی مستقیم پیدا کردن یک مکان را فعال می‌کند.",
+      "instructionFa": "پرسش محل فروشگاه را بساز.",
+      "selectionReason": "پرسش عین منبع است و فقط به قطعه‌های واژگانی تقسیم می‌شود.",
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-wikibooks-german-appendix-phrasebook"
       ],
       "learningTargets": [
-        "پرسش محل یک مکان را بازسازی کند."
+        "پرسش کوتاه محل یک مکان را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wo ist hier ein Hotel?",
-        "sourceTextFa": "اینجا یک هتل کجاست؟",
+        "sourceText": "Wo ist das Geschäft?",
+        "sourceTextFa": "فروشگاه کجاست؟",
         "tokens": [
           "Wo",
           "ist",
-          "hier",
-          "ein",
-          "Hotel?"
+          "das",
+          "Geschäft?"
         ],
         "answer": [
           "Wo",
           "ist",
-          "hier",
-          "ein",
-          "Hotel?"
+          "das",
+          "Geschäft?"
         ]
       },
       "transformations": [
@@ -122,7 +124,5 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
-  "sourceTitle": "Entschuldigen Sie bitte. Wo ist hier ein Hotel? / Gibt es ein Restaurant darin?",
-  "sourceTitleFa": "ببخشید. اینجا یک هتل کجاست؟ / داخلش رستوران هست؟"
+  "audioStatus": "stale"
 }

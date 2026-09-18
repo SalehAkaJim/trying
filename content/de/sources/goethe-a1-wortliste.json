@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-goethe-a1-wortliste",
+  "title": "Start Deutsch 1 — Wortliste",
+  "organizationOrAuthor": "Goethe-Institut / telc GmbH",
+  "language": "de",
+  "sourceType": "book",
+  "url": "https://www.goethe.de/pro/relaunch/prf/sr/A1_SD1_Wortliste_02.pdf",
+  "locator": "Official Start Deutsch 1 vocabulary list and thematic vocabulary groups.",
+  "publishedOrUpdatedAt": "2012",
+  "modernityStatus": "maintained_current",
+  "currencyEvidence": "فهرست رسمی واژگان سطح A1 همچنان از سوی مؤسسهٔ گوته به‌عنوان مرجع آماده‌سازی این سطح ارائه می‌شود و در ۱۸ سپتامبر ۲۰۲۶ از دامنهٔ رسمی گوته بازیابی شد.",
+  "licenseName": null,
+  "licenseUrl": null,
+  "attributionText": "Goethe-Institut / telc GmbH — Start Deutsch 1 Wortliste",
+  "reuseStatus": "analysis_only",
+  "retrievedAt": "2026-09-18",
+  "notes": "فقط برای ممیزی پوشش واژگان و مقایسهٔ مجموعهٔ واژگان استفاده می‌شود؛ متن یا مثال‌های دارای حق نشر مستقیماً وارد محتوای آموزشی نمی‌شوند.",
+  "titleFa": "فهرست رسمی واژگان سطح A1 مؤسسهٔ گوته",
+  "locatorFa": "فهرست رسمی واژگان و گروه‌های موضوعی سطح A1."
+}

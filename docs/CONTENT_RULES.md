@@ -29,4 +29,4 @@ Current learner content is text/audio-only and independently solvable without im
 Activities reinforce lesson content. `word_order` and `fill_blank` reconstruct sourced text; choices/matching must not introduce fabricated teaching claims; grammar is sourced. If a lesson is below the configured minimum, add a distinct useful retrieval/practice mode rather than filler or a near-duplicate exercise.
 
 ## Level completion
-A level becomes final only when CEFR coverage, prerequisites, progression, practice/retrieval, skill modes and QA are complete. Run the 0–10 review and aim close to 10 without padding.
+`status: final` is the release-freeze/audio-eligibility state, not a shortcut for pedagogical completeness. CEFR coverage and progression must be approved before finalization. Practice/retrieval and skill-mode completion are recorded independently; if either is incomplete, its flag stays false and `requiredGaps` must explain the remaining work. Run the 0–10 review without padding or inflating scores.

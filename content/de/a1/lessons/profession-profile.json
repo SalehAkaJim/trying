@@ -5,45 +5,44 @@
   "level": "A1",
   "unitRef": "de-a1-unit-extended-introduction",
   "titleFa": "شغلش چیه؟",
-  "sourceTitle": "Wer ist das? / Was ist er von Beruf?",
-  "sourceTitleFa": "این کیه؟ / شغلش چیه؟",
+  "sourceTitle": "Was ist er?",
+  "sourceTitleFa": "شغل او چیست؟",
   "learningTargets": [
-    "در یک معرفی کوتاهِ شخص سوم، اطلاعات آشنای هویت و مکان را بازیابی کند و پرسش تازهٔ «Was ist er von Beruf?» را بفهمد.",
-    "چند واژهٔ شغلی منبع‌دار را از هم تشخیص دهد.",
-    "پاسخ منبع‌دار «Er ist Kraftfahrer.» را در بافت درست تشخیص دهد و بازسازی کند."
+    "پرسش ساده دربارهٔ شغل را بفهمد.",
+    "Student/Studentin و Polizist/Polizistin را از هم تشخیص دهد.",
+    "یک پاسخ کوتاه شغلی را از راه شنیدن بفهمد.",
+    "یک پاسخ کوتاه شغلی را بازسازی کند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-002-professions"
   ],
   "lexemeRefs": [
-    "lex-de-beruf",
     "lex-de-student",
     "lex-de-studentin",
     "lex-de-polizist",
-    "lex-de-polizistin",
-    "lex-de-kraftfahrer"
+    "lex-de-polizistin"
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس با یک گفت‌وگوی هشت‌نوبتی پیوسته شروع می‌شود که اطلاعات آشنای هویت و مکان را به پرسش شغل وصل می‌کند؛ سپس واژه‌های شغلی تفکیک می‌شوند، پرسش شغل بازسازی می‌شود و در پایان پاسخ درست از میان جمله‌های منبع‌دار انتخاب می‌شود.",
-    "sequenceRationale": "مسیر از فهم بافت و بازیابی آموخته‌های قبلی به تشخیص واژه، بازسازی پرسش و در نهایت انتخاب پاسخ شغلی می‌رود؛ بنابراین هدف تازه بدون توضیح دستوری انتزاعی تثبیت می‌شود.",
-    "templateSignature": "conversation_speaking>matching>word_order>multiple_choice"
+    "activitySelectionRationale": "درس با دو جفت پرسش‌وپاسخ سادهٔ شغلی شروع می‌شود؛ سپس شنیدن مستقل، تطبیق و بازسازی پاسخ، همان واژگان رایج را در سه شیوهٔ تمرین تکرار می‌کنند.",
+    "sequenceRationale": "از مکالمه به شنیدن، تطبیق واژه و بازیابی فعال حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>listen_choose>matching>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-profession-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "با یوناس اطلاعات آقای ورنر را مرور کن و تا سؤال شغل پیش برو.",
-      "selectionReason": "گفت‌وگوی منبع دقیقاً هشت نوبت پیوسته دارد و با دانسته‌های قبلی شروع می‌شود و در دو نوبت پایانی هدف تازهٔ شغل را وارد می‌کند.",
+      "instructionFa": "دو پرسش کوتاه شغل را در گفت‌وگو پاسخ بده.",
+      "selectionReason": "چهار نوبت عین بخش ۰۷۰ منبع هستند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-002-professions"
       ],
       "learningTargets": [
-        "فهم پرسش شغل در ادامهٔ یک معرفی کوتاه و پیوسته."
+        "پرسش و پاسخ شغلی کوتاه را در بافت بفهمد."
       ],
       "lexemeRefs": [
-        "lex-de-beruf",
-        "lex-de-kraftfahrer"
+        "lex-de-student",
+        "lex-de-studentin"
       ],
       "dialogueRef": "dlg-de-a1-profession-profile",
       "data": {
@@ -53,21 +52,64 @@
       "transformations": [
         "verbatim_dialogue",
         "persian_translation_added",
-        "character_metadata_added",
-        "cefr_level_assigned_by_app"
+        "character_metadata_added"
       ],
       "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-profession-listen",
+      "type": "listen_choose",
+      "instructionFa": "پرسش را گوش کن و یک پاسخ شغلی درست را انتخاب کن.",
+      "selectionReason": "پرسش و هر سه گزینه عین بخش شغل منبع هستند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002-professions"
+      ],
+      "learningTargets": [
+        "پرسش شغل را از راه شنیدن بفهمد."
+      ],
+      "lexemeRefs": [
+        "lex-de-student",
+        "lex-de-studentin",
+        "lex-de-polizist"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "audioTextTargetFa": "شغل او چیست؟",
+        "options": [
+          {
+            "text": "Er ist Student.",
+            "translationFa": "او دانشجوی مرد است.",
+            "correct": true
+          },
+          {
+            "text": "Er ist Polizist.",
+            "translationFa": "او پلیس مرد است.",
+            "correct": false
+          },
+          {
+            "text": "Sie ist Studentin.",
+            "translationFa": "او دانشجوی زن است.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "stale",
+      "audioTextTarget": "Was ist er?"
     },
     {
       "id": "act-de-a1-profession-matching",
       "type": "matching",
       "instructionFa": "هر شغل را به معنی درستش وصل کن.",
-      "selectionReason": "چهار واژهٔ شغلیِ عیناً ثبت‌شده در منبع، تفاوت واژگانی و شکل‌های مردانه و زنانه را بدون افزودن مثال ساختگی تثبیت می‌کنند.",
+      "selectionReason": "چهار واژهٔ رایج و مستقیم منبع انتخاب شده‌اند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-002-professions"
       ],
       "learningTargets": [
-        "تشخیص چهار واژهٔ شغلی پایه."
+        "چهار واژهٔ شغلی پایه را تشخیص دهد."
       ],
       "lexemeRefs": [
         "lex-de-student",
@@ -77,6 +119,7 @@
       ],
       "dialogueRef": null,
       "data": {
+        "pairMode": "target_to_persian",
         "pairs": [
           {
             "left": "Student",
@@ -113,34 +156,30 @@
     {
       "id": "act-de-a1-profession-word-order",
       "type": "word_order",
-      "instructionFa": "پرسش شغل را دوباره بساز.",
-      "selectionReason": "بعد از فهم گفت‌وگو و واژه‌ها، بازسازی پرسش اصلی یادگیری را از تشخیص به بازیابی فعال می‌برد.",
+      "instructionFa": "پاسخ شغلی را دوباره بساز.",
+      "selectionReason": "پاسخ عین منبع است و فقط به قطعه‌های واژگانی تقسیم می‌شود.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-002-professions"
       ],
       "learningTargets": [
-        "بازسازی «Was ist er von Beruf?»."
+        "یک پاسخ شغلی کوتاه را بازسازی کند."
       ],
       "lexemeRefs": [
-        "lex-de-beruf"
+        "lex-de-polizistin"
       ],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Was ist er von Beruf?",
-        "sourceTextFa": "شغل او چیست؟",
+        "sourceText": "Sie ist Polizistin.",
+        "sourceTextFa": "او پلیس زن است.",
         "tokens": [
-          "Was",
+          "Sie",
           "ist",
-          "er",
-          "von",
-          "Beruf?"
+          "Polizistin."
         ],
         "answer": [
-          "Was",
+          "Sie",
           "ist",
-          "er",
-          "von",
-          "Beruf?"
+          "Polizistin."
         ]
       },
       "transformations": [
@@ -148,50 +187,8 @@
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
-    },
-    {
-      "id": "act-de-a1-profession-choice",
-      "type": "multiple_choice",
-      "instructionFa": "طبق گفت‌وگو، شغل آقای ورنر چیست؟",
-      "selectionReason": "مرحلهٔ پایانی پاسخ دقیق گفت‌وگو را در برابر دو جملهٔ شغلی دیگر که آن‌ها هم عیناً در همان منبع آمده‌اند بازیابی می‌کند.",
-      "sourceRefs": [
-        "src-wikibooks-de-lesson-002-professions"
-      ],
-      "learningTargets": [
-        "تشخیص پاسخ درست به پرسش شغل در بافت آقای ورنر."
-      ],
-      "lexemeRefs": [
-        "lex-de-kraftfahrer",
-        "lex-de-student",
-        "lex-de-polizist"
-      ],
-      "dialogueRef": null,
-      "data": {
-        "options": [
-          {
-            "textTarget": "Er ist Kraftfahrer.",
-            "translationFa": "او راننده است.",
-            "correct": true
-          },
-          {
-            "textTarget": "Er ist Student.",
-            "translationFa": "او دانشجوی مرد است.",
-            "correct": false
-          },
-          {
-            "textTarget": "Er ist Polizist.",
-            "translationFa": "او پلیس مرد است.",
-            "correct": false
-          }
-        ]
-      },
-      "transformations": [
-        "options_selected_from_source_material",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "stale"
 }

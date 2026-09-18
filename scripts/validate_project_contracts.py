@@ -56,6 +56,23 @@ SCHEMA_ENUM_DOMAINS = {
 }
 errors = []
 
+TARGET_TEXT_KEYS = {"textTarget", "promptTarget", "sourceText", "audioTextTarget", "left", "right"}
+
+def collect_target_strings(value, out):
+    if isinstance(value, dict):
+        for key, child in value.items():
+            if key in TARGET_TEXT_KEYS and isinstance(child, str) and child.strip() and not FA.search(child):
+                out.add(child.strip())
+            elif key in {"lines", "choices", "tokens", "answer"} and isinstance(child, list):
+                for item in child:
+                    if isinstance(item, str) and item.strip() and not FA.search(item):
+                        out.add(item.strip())
+            collect_target_strings(child, out)
+    elif isinstance(value, list):
+        for child in value:
+            collect_target_strings(child, out)
+
+
 
 def load(path):
     try:
@@ -228,6 +245,21 @@ for path, data in all_json:
                     errors.append(f"{path}: German sourceTitle must not contain Persian text: {source_title!r}")
                 if not re.search(r"[A-Za-zÄÖÜäöüß]", source_title):
                     errors.append(f"{path}: German sourceTitle must contain German/Latin-script target text: {source_title!r}")
+                if data.get("level") != "Pre-A1":
+                    if "..." in source_title or "…" in source_title:
+                        errors.append(f"{path}: German A1+ sourceTitle may not use ellipsis/compressed German: {source_title!r}")
+                    candidates=set()
+                    collect_target_strings(data.get("activities") or [], candidates)
+                    for activity in data.get("activities") or []:
+                        dialogue_ref=activity.get("dialogueRef")
+                        if dialogue_ref and dialogue_ref in dialogues:
+                            for turn in dialogues[dialogue_ref][1].get("turns") or []:
+                                text_target=turn.get("textTarget")
+                                if isinstance(text_target, str) and text_target.strip():
+                                    candidates.add(text_target.strip())
+                    for segment in [part.strip() for part in source_title.split(" / ") if part.strip()]:
+                        if segment not in candidates:
+                            errors.append(f"{path}: German A1+ sourceTitle segment is not an exact learner-facing source-backed string in this lesson/dialogue: {segment!r}")
         activities = data.get("activities", [])
         if activities and activities[0].get("type") != "conversation_speaking":
             errors.append(f"{path}: first activity must be conversation_speaking")
@@ -301,8 +333,18 @@ for language_id, manifests in levels_by_language.items():
         if (level.get("coverage") or {}).get("gaps"):
             errors.append(f"{level_path}: final level coverage.gaps must be empty")
         assessment=level.get("completionAssessment") or {}
-        if assessment.get("requiredGaps"):
-            errors.append(f"{level_path}: final level requiredGaps must be empty")
+        incomplete_dimensions = [
+            key for key in ("practiceAndRetrievalComplete", "skillModeCoverageComplete")
+            if assessment.get(key) is False
+        ]
+        if incomplete_dimensions and not assessment.get("requiredGaps"):
+            errors.append(
+                f"{level_path}: false completion flags {incomplete_dimensions!r} require explicit requiredGaps"
+            )
+        if not incomplete_dimensions and assessment.get("requiredGaps"):
+            errors.append(
+                f"{level_path}: requiredGaps must be empty when practice/retrieval and skill-mode coverage are both complete"
+            )
         if "scopeExclusions" not in assessment:
             errors.append(f"{level_path}: final level must explicitly record scopeExclusions (empty is allowed)")
         if level.get("audioStatus") == "blocked_until_level_final":

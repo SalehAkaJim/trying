@@ -5,8 +5,8 @@
   "level": "A1",
   "unitRef": "de-a1-unit-requests-services-help",
   "titleFa": "لطفاً یک بار دیگر، آهسته",
-  "sourceTitle": "Noch einmal, bitte langsam. / Kann ich Ihr Telefon benutzen?",
-  "sourceTitleFa": "یک بار دیگر، لطفاً آهسته / می‌توانم از تلفن شما استفاده کنم؟",
+  "sourceTitle": "Wie bitte? Noch einmal, bitte langsam. / Kann ich Ihr Telefon benutzen?",
+  "sourceTitleFa": "ببخشید؟ یک بار دیگر، لطفاً آهسته. / می‌توانم از تلفن شما استفاده کنم؟",
   "learningTargets": [
     "وقتی جمله‌ای را نفهمید، درخواست تکرار و آهسته‌تر گفتن کند.",
     "یک اجازهٔ ساده برای استفاده از تلفن را تشخیص دهد.",
@@ -206,7 +206,8 @@
             "right": "داروخانه",
             "rightFa": "داروخانه"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",

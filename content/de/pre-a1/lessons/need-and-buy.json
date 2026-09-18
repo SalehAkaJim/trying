@@ -101,7 +101,8 @@
             "right": "پاسخ دربارهٔ خرید",
             "rightFa": "پاسخ دربارهٔ خرید"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",

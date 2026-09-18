@@ -5,8 +5,8 @@
   "level": "A1",
   "unitRef": "de-a1-unit-extended-introduction",
   "titleFa": "کارت چیه؟ چه زبانی یاد می‌گیری؟",
-  "sourceTitle": "Arbeiten Sie ...? / Welche Sprachen lernen Sie?",
-  "sourceTitleFa": "چه کاری می‌کنید؟ / چه زبان‌هایی یاد می‌گیرید؟",
+  "sourceTitle": "Welche Sprachen lernen Sie?",
+  "sourceTitleFa": "چه زبان‌هایی یاد می‌گیرید؟",
   "learningTargets": [
     "در یک گفت‌وگوی مؤدبانه پرسش ساده دربارهٔ شغل را بفهمد و پاسخ منبع‌دار بدهد.",
     "پرسش دربارهٔ زبان‌های در حال یادگیری را بفهمد و پاسخ کوتاه منبع‌دار را تشخیص دهد.",
@@ -162,7 +162,8 @@
             "right": "یادگیری یک زبان",
             "rightFa": "یادگیری یک زبان"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",

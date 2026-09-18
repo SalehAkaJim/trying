@@ -5,8 +5,8 @@
   "level": "A1",
   "unitRef": "de-a1-unit-time-plans-appointment",
   "titleFa": "امشب نمی‌شود؛ فردا چطور؟",
-  "sourceTitle": "Was machen Sie heute Abend? / Und morgen?",
-  "sourceTitleFa": "امشب چه کار می‌کنید؟ / و فردا؟",
+  "sourceTitle": "Was machen Sie heute Abend? Darf ich Sie ins Konzert einladen? / Und morgen?",
+  "sourceTitleFa": "امشب چه کار می‌کنید؟ می‌توانم شما را به کنسرت دعوت کنم؟ / و فردا؟",
   "learningTargets": [
     "یک دعوت ساده برای برنامهٔ روزمره را بفهمد و رد مؤدبانهٔ آن را تشخیص دهد.",
     "پیشنهاد روز جایگزین و پاسخ غیرقطعی را در گفت‌وگو بفهمد.",
@@ -155,7 +155,8 @@
             "right": "ساعت ۱۲",
             "rightFa": "ساعت ۱۲"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",

@@ -84,7 +84,8 @@
             "right": "وسیلهٔ جاده‌ای",
             "rightFa": "وسیلهٔ جاده‌ای"
           }
-        ]
+        ],
+        "pairMode": "target_to_persian"
       },
       "transformations": [
         "source_items_grouped_for_matching",

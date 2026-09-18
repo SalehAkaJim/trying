@@ -17,8 +17,8 @@
   "grammarNoteRefs": [],
   "activityDesign": {
     "activitySelectionRationale": "درس سوم یک مهارت مستقل و طبیعی اضافه می‌کند: پیگیری حال بیمار و گفتن اینکه یک علامت دیگر وجود ندارد.",
-    "sequenceRationale": "مکالمه الگوی پیگیری را معرفی می‌کند، تشخیص معنای بهترشدن را می‌سنجد و در پایان پاسخ منفی بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>choose_response>word_order"
+    "sequenceRationale": "گفت‌وگو بهترشدن را در بافت می‌آورد، انتخاب پاسخ فهم معنا را می‌سنجد، شنیدن مستقل دریافت صوتی را اضافه می‌کند و در پایان پاسخ دیگری بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>choose_response>listen_choose>word_order"
   },
   "activities": [
     {
@@ -86,6 +86,46 @@
       "audioStatus": "not_required"
     },
     {
+      "id": "act-de-a1-health-recovery-listen",
+      "type": "listen_choose",
+      "instructionFa": "پاسخ را گوش کن و جمله‌ای را انتخاب کن که می‌گوید تب دیگر ادامه ندارد.",
+      "selectionReason": "عبارت صوتی و گزینه‌ها همگی از محتوای منبع‌دار همین درس هستند و یک دریافت شنیداری مستقل اضافه می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "learningTargets": [
+        "بهبود یک علامت را از راه شنیدن تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "audioTextTargetFa": "نه، دیگر تب ندارم.",
+        "options": [
+          {
+            "text": "Nein, ich habe kein Fieber mehr.",
+            "translationFa": "نه، دیگر تب ندارم.",
+            "correct": true
+          },
+          {
+            "text": "Ich habe Fieber.",
+            "translationFa": "تب دارم.",
+            "correct": false
+          },
+          {
+            "text": "Ich habe Husten.",
+            "translationFa": "سرفه دارم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "stale",
+      "audioTextTarget": "Nein, ich habe kein Fieber mehr."
+    },
+    {
       "id": "act-de-a1-health-recovery-order",
       "type": "word_order",
       "instructionFa": "پاسخ «دیگر سرفه ندارم» را بساز.",
@@ -126,7 +166,7 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitle": "Haben Sie noch Fieber? / Haben Sie noch Husten?",
   "sourceTitleFa": "هنوز تب دارید؟ / هنوز سرفه دارید؟"
 }

@@ -4,63 +4,45 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-directions-public-places",
-  "titleFa": "چطور به شهرداری برسم؟",
-  "sourceTitle": "Wie komme ich zum Rathaus? / Rechts ... geradeaus",
-  "sourceTitleFa": "چطور به شهرداری برسم؟ / راست و بعد مستقیم",
+  "titleFa": "چطور به باغ‌وحش برسم؟",
+  "sourceTitle": "Wie komme ich zum Zoo?",
+  "sourceTitleFa": "چطور به باغ‌وحش برسم؟",
   "learningTargets": [
-    "یک پرسش ساده دربارهٔ مسیر یک مکان عمومی را بفهمد و بیان کند.",
-    "راهنمایی بسیار ساده با راست و مستقیم را در گفت‌وگو بفهمد.",
-    "نام چند مکان عمومی پرتکرار را در بافت مسیر تشخیص دهد.",
-    "عبارت‌های پایهٔ چپ، راست و مستقیم را از هم تشخیص دهد.",
-    "الگوی منبع‌دارِ رسیدن به یک مقصد را در پرسش مسیر بفهمد، بدون آموزش انتزاعی حالت دستوری."
+    "محل یک مقصد را بپرسد.",
+    "دربارهٔ راه رسیدن به یک مقصد سؤال کند.",
+    "پاسخ کوتاه «همین آن طرف» و راهنمایی مستقیم را بفهمد.",
+    "یک پاسخ کوتاه مسیر را از راه شنیدن تشخیص دهد."
   ],
   "sourceRefs": [
-    "src-wikibooks-german-print-directions",
-    "src-wikivoyage-german-phrasebook-directions"
+    "src-coerll-dib-directions"
   ],
-  "lexemeRefs": [
-    "lex-de-rathaus",
-    "lex-de-ecke",
-    "lex-de-bahnhof",
-    "lex-de-bushaltestelle",
-    "lex-de-flughafen",
-    "lex-de-stadtmitte",
-    "lex-de-abbiegen",
-    "lex-de-geradeaus",
-    "lex-de-links",
-    "lex-de-rechts"
-  ],
+  "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی واقعی پرسیدن مسیر شهرداری را وارد می‌کند؛ سپس چهار مکان عمومی تثبیت می‌شوند، سه جهت پایه از هم تشخیص داده می‌شوند و در پایان پرسش اصلی مسیر بازسازی می‌شود.",
-    "sequenceRationale": "درس از فهم یک تعامل کامل به شبکهٔ مکان‌ها، تمایز جهت‌ها و بازیابی فعال پرسش مسیر حرکت می‌کند.",
-    "templateSignature": "conversation_speaking>matching>multiple_choice>word_order"
+    "activitySelectionRationale": "گفت‌وگوی پیچیدهٔ قبلی کامل حذف شده و فقط عبارت‌های کوتاه پرسیدن و دادن مسیر از منبع باز دانشگاهی استفاده می‌شوند.",
+    "sequenceRationale": "مکالمه از «کجاست؟» به «چطور برسم؟» می‌رود؛ سپس یک پاسخ کوتاه شنیده و در پایان پرسش اصلی بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>listen_choose>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-directions-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "مسیر شهرداری را بپرس و پاسخ راهنمایی را دنبال کن.",
-      "selectionReason": "چهار نوبت پیوستهٔ منبع یک موقعیت واقعی پرسیدن مسیر، درخواست تکرار و پاسخ جهت را می‌سازند.",
+      "instructionFa": "خودت گفت‌وگو را شروع کن: محل باغ‌وحش و راه رسیدن به آن را بپرس.",
+      "selectionReason": "هر چهار نوبت از بخش‌های پرسیدن و دادن مسیر Deutsch im Blick انتخاب شده‌اند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-coerll-dib-directions"
       ],
       "learningTargets": [
-        "پرسیدن و فهم مسیر سادهٔ یک مکان عمومی."
+        "پرسیدن محل و راه رسیدن به یک مقصد."
       ],
-      "lexemeRefs": [
-        "lex-de-rathaus",
-        "lex-de-ecke",
-        "lex-de-geradeaus",
-        "lex-de-rechts"
-      ],
+      "lexemeRefs": [],
       "dialogueRef": "dlg-de-a1-ask-and-follow-directions",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "learner"
       },
       "transformations": [
-        "verbatim_dialogue",
+        "other",
         "persian_translation_added",
         "character_metadata_added"
       ],
@@ -68,89 +50,33 @@
     },
     {
       "id": "act-de-a1-public-places-matching",
-      "type": "matching",
-      "instructionFa": "هر مکان عمومی را به معنی درستش وصل کن.",
-      "selectionReason": "چهار مقصد پرتکرار از بخش مسیرهای ویکی‌ویاژ انتخاب شده‌اند تا واژگان مکان از راهنمایی جهت جداگانه تثبیت شود.",
+      "type": "listen_choose",
+      "instructionFa": "پاسخ کوتاه را گوش کن و همان عبارت را انتخاب کن.",
+      "selectionReason": "عبارت صوتی و گزینه‌ها عین منبع‌اند و نیاز به تولید متن جدید ندارند.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-directions"
+        "src-coerll-dib-directions"
       ],
       "learningTargets": [
-        "تشخیص چهار مکان عمومی پرتکرار."
+        "پاسخ کوتاه مسیر را از راه شنیدن تشخیص دهد."
       ],
-      "lexemeRefs": [
-        "lex-de-bahnhof",
-        "lex-de-bushaltestelle",
-        "lex-de-flughafen",
-        "lex-de-stadtmitte"
-      ],
+      "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "pairs": [
-          {
-            "left": "Bahnhof",
-            "leftFa": "ایستگاه قطار",
-            "right": "ایستگاه قطار",
-            "rightFa": "ایستگاه قطار"
-          },
-          {
-            "left": "Bushaltestelle",
-            "leftFa": "ایستگاه اتوبوس",
-            "right": "ایستگاه اتوبوس",
-            "rightFa": "ایستگاه اتوبوس"
-          },
-          {
-            "left": "Flughafen",
-            "leftFa": "فرودگاه",
-            "right": "فرودگاه",
-            "rightFa": "فرودگاه"
-          },
-          {
-            "left": "Stadtmitte",
-            "leftFa": "مرکز شهر",
-            "right": "مرکز شهر",
-            "rightFa": "مرکز شهر"
-          }
-        ]
-      },
-      "transformations": [
-        "source_items_grouped_for_matching",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
-    },
-    {
-      "id": "act-de-a1-direction-choice",
-      "type": "multiple_choice",
-      "instructionFa": "کدام عبارت یعنی مستقیم به جلو؟",
-      "selectionReason": "سه عبارت جهت عین بخش مسیرهای منبع‌اند و تفاوت مستقیم، چپ و راست را می‌سنجند.",
-      "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-directions"
-      ],
-      "learningTargets": [
-        "تشخیص مستقیم از چپ و راست."
-      ],
-      "lexemeRefs": [
-        "lex-de-geradeaus",
-        "lex-de-abbiegen",
-        "lex-de-links",
-        "lex-de-rechts"
-      ],
-      "dialogueRef": null,
-      "data": {
+        "audioTextTargetFa": "همین آن طرف.",
         "options": [
           {
-            "textTarget": "geradeaus",
-            "translationFa": "مستقیم به جلو",
+            "text": "Gleich da drüben.",
+            "translationFa": "همین آن طرف.",
             "correct": true
           },
           {
-            "textTarget": "Links abbiegen.",
-            "translationFa": "به چپ بپیچید.",
+            "text": "Wo ist der Zoo?",
+            "translationFa": "باغ‌وحش کجاست؟",
             "correct": false
           },
           {
-            "textTarget": "Rechts abbiegen.",
-            "translationFa": "به راست بپیچید.",
+            "text": "Vielen Dank.",
+            "translationFa": "خیلی ممنون.",
             "correct": false
           }
         ]
@@ -159,39 +85,38 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Gleich da drüben."
     },
     {
       "id": "act-de-a1-directions-question-order",
       "type": "word_order",
-      "instructionFa": "پرسش مسیر شهرداری را دوباره بساز.",
-      "selectionReason": "پرسش اصلی پس از فهم مسیر و واژگان مکان به بازیابی فعال منتقل می‌شود.",
+      "instructionFa": "پرسش راه رسیدن به باغ‌وحش را بساز.",
+      "selectionReason": "پرسش عین منبع است و فقط به‌صورت مکانیکی به قطعه‌های واژگانی تقسیم شده است.",
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-coerll-dib-directions"
       ],
       "learningTargets": [
-        "بازسازی پرسش منبع‌دار برای رسیدن به یک مکان."
+        "پرسش مسیر را بازسازی کند."
       ],
-      "lexemeRefs": [
-        "lex-de-rathaus"
-      ],
+      "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wie komme ich zum Rathaus?",
-        "sourceTextFa": "چطور به شهرداری برسم؟",
+        "sourceText": "Wie komme ich zum Zoo?",
+        "sourceTextFa": "چطور به باغ‌وحش برسم؟",
         "tokens": [
           "Wie",
           "komme",
           "ich",
           "zum",
-          "Rathaus?"
+          "Zoo?"
         ],
         "answer": [
           "Wie",
           "komme",
           "ich",
           "zum",
-          "Rathaus?"
+          "Zoo?"
         ]
       },
       "transformations": [
@@ -202,5 +127,5 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "stale"
 }

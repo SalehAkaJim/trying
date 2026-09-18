@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-coerll-dib-pronunciation-umlauts",
+  "title": "Deutsch im Blick — Kapitel 2 — Aussprache: Der Umlaut",
+  "organizationOrAuthor": "Dr. Zsuzsanna Abrams / COERLL, University of Texas at Austin",
+  "language": "de",
+  "sourceType": "course",
+  "url": "https://coerll.utexas.edu/dib/pho.php?k=2",
+  "locator": "Kapitel 2 pronunciation: Ä/ä, Ö/ö and Ü/ü with recorded sample vocabulary.",
+  "publishedOrUpdatedAt": "2017",
+  "modernityStatus": "maintained_current",
+  "currencyEvidence": "بخش تلفظ واکه‌های دگرگون‌شده در منبع باز COERLL در ۱۸ سپتامبر ۲۰۲۶ فعال بود و نمونه‌های صوتی آن برای آموزش تلفظ پایهٔ آلمانی همچنان معتبرند.",
+  "licenseName": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "attributionText": "Zsuzsanna Abrams / COERLL, University of Texas at Austin — Deutsch im Blick",
+  "reuseStatus": "reuse_with_attribution",
+  "retrievedAt": "2026-09-18",
+  "notes": "برای افزودن تمرین مستقیم Ä، Ö و Ü بدون تولید مثال آلمانی جدید استفاده می‌شود.",
+  "titleFa": "Deutsch im Blick — تلفظ واکه‌های دگرگون‌شدهٔ آلمانی",
+  "locatorFa": "فصل ۲؛ بخش تلفظ Ä، Ö و Ü."
+}

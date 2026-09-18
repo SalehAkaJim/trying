@@ -29,6 +29,15 @@ There is no arbitrary global publication-year cutoff. Currency is evaluated from
 
 For static books and documents, prefer current/recent editions and current official educational materials. If source currency cannot be established, mark it `needs_currency_review` and do not use it in active learner-facing content until reviewed.
 
+## Preferred German source catalog
+
+For new German learner-facing work, prefer the reusable sources already cataloged in `content/de/sources/`, especially:
+- Deutsch im Blick / COERLL (CC BY 4.0) for contemporary first-year vocabulary, directions, weather and pronunciation;
+- maintained Wikibooks/Wikivoyage pages with a precise locator and CC BY-SA reuse;
+- Goethe-Institut A1 profile, practice materials and Wortliste for analysis/coverage calibration only unless reuse rights for a specific item are separately established.
+
+The legacy `German/Print version` source records are analysis-only after the 2026-09-18 A1 quality audit and must not feed new learner-facing content unless they are independently re-reviewed and re-approved.
+
 ## Source priority
 
 Among modern sources, prefer sources that allow reliable reuse of the actual instructional material, especially:

@@ -8,10 +8,12 @@ minimum runtime requirements for the interactive activity types used by the cont
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LESSON_FILES = sorted(ROOT.glob("content/**/lessons/*.json"))
+FA_RE = re.compile(r"[\u0600-\u06FF]")
 
 
 def has_text(value: object) -> bool:
@@ -74,9 +76,12 @@ def validate_fill_blank(errors: list[str], path: Path, activity: dict) -> None:
             add_error(errors, path, activity_id, "fill_blank choicesFa entries must be non-empty")
 
 
-def validate_matching(errors: list[str], path: Path, activity: dict, lesson_level: str | None) -> None:
+def validate_matching(errors: list[str], path: Path, activity: dict, lesson_level: str | None, language_id: str | None) -> None:
     activity_id = activity.get("id", "<missing-id>")
     data = activity.get("data") or {}
+    pair_mode = data.get("pairMode")
+    if pair_mode not in {"target_to_persian", "target_to_target"}:
+        add_error(errors, path, activity_id, "matching requires data.pairMode = target_to_persian or target_to_target")
     pairs = data.get("pairs")
     if not isinstance(pairs, list) or not 4 <= len(pairs) <= 8:
         add_error(errors, path, activity_id, "matching requires 4 to 8 pairs")
@@ -91,7 +96,19 @@ def validate_matching(errors: list[str], path: Path, activity: dict, lesson_leve
             add_error(errors, path, activity_id, f"matching pair {index} must be an object")
             continue
         left = pair.get("left")
+        left_fa = pair.get("leftFa")
         right = pair.get("right")
+        right_fa = pair.get("rightFa")
+        if not has_text(left_fa) or not FA_RE.search(str(left_fa)):
+            add_error(errors, path, activity_id, f"matching pair {index} requires Persian leftFa")
+        if not has_text(right_fa) or not FA_RE.search(str(right_fa)):
+            add_error(errors, path, activity_id, f"matching pair {index} requires Persian rightFa")
+        if language_id == "de" and has_text(left) and FA_RE.search(str(left)):
+            add_error(errors, path, activity_id, f"matching pair {index} German left must not contain Persian")
+        if pair_mode == "target_to_persian" and has_text(right) and not FA_RE.search(str(right)):
+            add_error(errors, path, activity_id, f"matching pair {index} target_to_persian right must contain Persian")
+        if pair_mode == "target_to_target" and language_id == "de" and has_text(right) and FA_RE.search(str(right)):
+            add_error(errors, path, activity_id, f"matching pair {index} target_to_target right must not contain Persian")
         if not has_text(left):
             add_error(errors, path, activity_id, f"matching pair {index} requires non-empty left")
         else:
@@ -150,7 +167,7 @@ def main() -> int:
             elif activity_type == "fill_blank":
                 validate_fill_blank(errors, path, activity)
             elif activity_type == "matching":
-                validate_matching(errors, path, activity, lesson_level)
+                validate_matching(errors, path, activity, lesson_level, lesson.get("languageId"))
             elif activity_type == "word_order":
                 validate_word_order(errors, path, activity)
             elif activity_type == "true_false":
