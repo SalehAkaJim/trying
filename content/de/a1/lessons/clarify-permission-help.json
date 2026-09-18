@@ -15,7 +15,8 @@
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-002-service-clarification",
-    "src-wikivoyage-german-phrasebook-services"
+    "src-wikivoyage-german-phrasebook-services",
+    "src-wiktionary-de-ja"
   ],
   "lexemeRefs": [
     "lex-de-langsam",
@@ -27,7 +28,8 @@
     "lex-de-hilfe",
     "lex-de-toilette",
     "lex-de-sprechen",
-    "lex-de-englisch"
+    "lex-de-englisch",
+    "lex-de-ja"
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
@@ -40,10 +42,11 @@
       "id": "act-de-a1-service-conversation",
       "type": "conversation_speaking",
       "instructionFa": "اگر پرسش را نفهمیدی، بخواه یک بار دیگر و آهسته گفته شود.",
-      "selectionReason": "سه نوبت منبع‌دار یک چرخهٔ طبیعی پرسش، درخواست تکرار و تکرار همان پرسش را می‌سازند.",
+      "selectionReason": "چهار نوبت منبع‌دار یک چرخهٔ طبیعی پرسش، درخواست تکرار، تکرار همان پرسش و پاسخ مثبت کوتاه را می‌سازند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-002-service-clarification",
-        "src-wikivoyage-german-phrasebook-services"
+        "src-wikivoyage-german-phrasebook-services",
+        "src-wiktionary-de-ja"
       ],
       "learningTargets": [
         "درخواست تکرار و آهسته‌تر گفتن در گفت‌وگوی کوتاه."
@@ -52,7 +55,8 @@
         "lex-de-langsam",
         "lex-de-noch-einmal",
         "lex-de-sprechen",
-        "lex-de-englisch"
+        "lex-de-englisch",
+        "lex-de-ja"
       ],
       "dialogueRef": "dlg-de-a1-clarify-slowly",
       "data": {
