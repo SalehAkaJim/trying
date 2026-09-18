@@ -4,11 +4,11 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-time-plans-appointment",
-  "titleFa": "زمان و قرار را جمع‌بندی کن",
+  "titleFa": "این ساعت نمی‌شه؛ ساعت دیگه چطور؟",
   "learningTargets": [
-    "عبارت‌های زمان و قرار را از هم تشخیص دهد.",
-    "به یک پرسش دربارهٔ ساعت مشخص پاسخ مناسب بدهد.",
-    "جملهٔ دعوت ساده را بازسازی کند."
+    "یک زمان دقیق را مؤدبانه رد کند.",
+    "زمان و محل جایگزین را در پیشنهاد بفهمد.",
+    "مناسب‌بودن زمان پیشنهادی را تأیید کند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-021-time-appointment"
@@ -16,30 +16,30 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس بازهٔ زمانی و هماهنگی قرار را در یک مرور ترکیبی جمع می‌کند تا زمان فقط به خواندن ساعت محدود نماند.",
-    "sequenceRationale": "از گفت‌وگوی قرار به شبکهٔ عبارت‌های زمانی و سپس تولید هدایت‌شدهٔ دعوت حرکت می‌کند.",
-    "templateSignature": "conversation_speaking>matching>word_order"
+    "activitySelectionRationale": "دو درس قبلی بازهٔ برنامه و دعوت را پوشش می‌دهند؛ این درس مذاکرهٔ واقعی روی ساعت دقیق و تأیید زمان/محل را اضافه می‌کند.",
+    "sequenceRationale": "رد یک ساعت در مکالمه به پیشنهاد ساعت تازه می‌رسد، سپس تشخیص معنای توافق و بازسازی پرسش زمان تمرین می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-time-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "گفت‌وگوی قرار را دوباره انجام بده و روی زمان جایگزین تمرکز کن.",
-      "selectionReason": "صحنهٔ منبع‌دار دعوت و تغییر زمان، ساعت را به تصمیم واقعی وصل می‌کند.",
+      "instructionFa": "یک ساعت نامناسب را رد کن و زمان جایگزین را تأیید کن.",
+      "selectionReason": "جفت‌های منبع‌دار ساعت ۱۲ و ۱۹:۴۵، چرخهٔ رد → پیشنهاد → تأیید را کامل می‌کنند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-021-time-appointment"
       ],
       "learningTargets": [
-        "زمان جایگزین را در گفت‌وگوی قرار دنبال کند."
+        "زمان دقیق را مذاکره و تأیید کند."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-time-simple-appointment",
+      "dialogueRef": "dlg-de-a1-reschedule-exact-time",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "app"
       },
       "transformations": [
-        "verbatim_dialogue",
+        "other",
         "persian_translation_added",
         "character_metadata_added"
       ],
@@ -47,47 +47,38 @@
     },
     {
       "id": "act-de-a1-time-review-matching",
-      "type": "matching",
-      "instructionFa": "هر عبارت را به معنی درست وصل کن.",
-      "selectionReason": "چهار عبارت منبع‌دارِ زمان و قرار در یک شبکهٔ واحد مرور می‌شوند.",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله یعنی «این زمان برای من مناسبه»؟",
+      "selectionReason": "زبان‌آموز باید پاسخ توافق را از رد زمان تشخیص دهد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-021-time-appointment"
       ],
       "learningTargets": [
-        "عبارت‌های زمان و قرار را سریع تشخیص دهد."
+        "تأیید مناسب‌بودن زمان را تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "pairs": [
+        "options": [
           {
-            "left": "einen Termin",
-            "leftFa": "یک قرار / وقت ملاقات",
-            "right": "قرار",
-            "rightFa": "قرار"
+            "textTarget": "Ja, das passt mir.",
+            "translationFa": "بله، برایم مناسب است.",
+            "correct": true
           },
           {
-            "left": "heute Abend",
-            "leftFa": "امشب",
-            "right": "امشب",
-            "rightFa": "امشب"
+            "textTarget": "Es tut mir leid, um 12 Uhr geht es nicht.",
+            "translationFa": "متأسفم، ساعت ۱۲ نمی‌شود.",
+            "correct": false
           },
           {
-            "left": "morgen",
-            "leftFa": "فردا",
-            "right": "فردا",
-            "rightFa": "فردا"
-          },
-          {
-            "left": "um 12 Uhr",
-            "leftFa": "ساعت ۱۲",
-            "right": "ساعت ۱۲",
-            "rightFa": "ساعت ۱۲"
+            "textTarget": "Morgen geht es vielleicht.",
+            "translationFa": "فردا شاید بشود.",
+            "correct": false
           }
         ]
       },
       "transformations": [
-        "source_items_grouped_for_matching",
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
@@ -95,34 +86,36 @@
     {
       "id": "act-de-a1-time-review-order",
       "type": "word_order",
-      "instructionFa": "جملهٔ دعوت به کنسرت را دوباره بساز.",
-      "selectionReason": "بازسازی دعوت، مرور زمان و قرار را با تولید هدایت‌شده پایان می‌دهد.",
+      "instructionFa": "پرسش قرار ساعت ۱۲ را بساز.",
+      "selectionReason": "بازسازی پرسش، الگوی um + ساعت را در یک درخواست واقعی تثبیت می‌کند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-021-time-appointment"
       ],
       "learningTargets": [
-        "یک دعوت ساده را بازسازی کند."
+        "پرسش با ساعت دقیق را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Darf ich Sie ins Konzert einladen?",
-        "sourceTextFa": "می‌توانم شما را به کنسرت دعوت کنم؟",
+        "sourceText": "Warten Sie um 12 Uhr auf mich?",
+        "sourceTextFa": "ساعت ۱۲ منتظر من می‌مانید؟",
         "tokens": [
-          "Darf",
-          "ich",
+          "Warten",
           "Sie",
-          "ins",
-          "Konzert",
-          "einladen?"
+          "um",
+          "12",
+          "Uhr",
+          "auf",
+          "mich?"
         ],
         "answer": [
-          "Darf",
-          "ich",
+          "Warten",
           "Sie",
-          "ins",
-          "Konzert",
-          "einladen?"
+          "um",
+          "12",
+          "Uhr",
+          "auf",
+          "mich?"
         ]
       },
       "transformations": [
