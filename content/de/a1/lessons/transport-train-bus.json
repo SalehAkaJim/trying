@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-transport-train-bus",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-public-transport-tickets",
+  "titleFa": "این قطار در برلین توقف می‌کند؟",
+  "learningTargets": [
+    "دربارهٔ توقف قطار در مقصد سؤال کند.",
+    "واژگان قطار، اتوبوس و ایستگاه را از هم تشخیص دهد.",
+    "پاسخ کوتاه مثبت یا منفی به پرسش توقف را بفهمد."
+  ],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-transport"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس دوم بعد از گرفتن بلیت روی انتخاب وسیلهٔ درست و اطمینان از توقف در مقصد تمرکز می‌کند.",
+    "sequenceRationale": "مکالمه پرسش توقف را معرفی می‌کند، واژگان وسیله و ایستگاه را تفکیک می‌کند و در پایان پرسش بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-transport-stop-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "بپرس آیا این قطار در مقصد موردنظر توقف می‌کند.",
+      "selectionReason": "پرسش توقف یک نیاز واقعی و مستقل از خرید بلیت است.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "learningTargets": [
+        "دربارهٔ توقف قطار در مقصد سؤال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-transport-stop",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-transport-stop-matching",
+      "type": "matching",
+      "instructionFa": "هر واژه را به معنی درستش وصل کن.",
+      "selectionReason": "واژگان قطار و اتوبوس در یک شبکهٔ سادهٔ حمل‌ونقل تثبیت می‌شوند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "learningTargets": [
+        "وسایل و ایستگاه‌های حمل‌ونقل را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Zug",
+            "leftFa": "قطار",
+            "right": "قطار",
+            "rightFa": "قطار"
+          },
+          {
+            "left": "Bus",
+            "leftFa": "اتوبوس",
+            "right": "اتوبوس",
+            "rightFa": "اتوبوس"
+          },
+          {
+            "left": "Bahnhof",
+            "leftFa": "ایستگاه قطار",
+            "right": "ایستگاه قطار",
+            "rightFa": "ایستگاه قطار"
+          },
+          {
+            "left": "Bushaltestelle",
+            "leftFa": "ایستگاه اتوبوس",
+            "right": "ایستگاه اتوبوس",
+            "rightFa": "ایستگاه اتوبوس"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-transport-stop-order",
+      "type": "word_order",
+      "instructionFa": "پرسش توقف قطار در برلین را بساز.",
+      "selectionReason": "بازسازی پرسش توقف، مهارت انتخاب مسیر را فعال می‌کند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "learningTargets": [
+        "پرسش توقف را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Hält dieser Zug in Berlin?",
+        "sourceTextFa": "این قطار در برلین توقف می‌کند؟",
+        "tokens": [
+          "Hält",
+          "dieser",
+          "Zug",
+          "in",
+          "Berlin?"
+        ],
+        "answer": [
+          "Hält",
+          "dieser",
+          "Zug",
+          "in",
+          "Berlin?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}
