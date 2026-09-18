@@ -236,10 +236,10 @@
       "transformations": [
         "other"
       ],
-      "audioStatus": "blocked_until_level_final",
+      "audioStatus": "pending",
       "audioTextTarget": "A B C D E F\nG H I J K L\nM N O P Q\nR S T\nU V W\nX Y Z"
     }
   ],
   "status": "final",
-  "audioStatus": "blocked_until_level_final"
+  "audioStatus": "pending"
 }

@@ -1,3 +1,23 @@
 {
-  "schemaVersion":"1.0.0","id":"lex-de-fenster","languageId":"de","type":"word","surface":"Fenster","lemma":"Fenster","partOfSpeech":"noun","partOfSpeechFa":"اسم","level":"A1","translationFa":"پنجره","usageNoteFa":"از اجزای پایهٔ اتاق و خانه است.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-de-lesson-009-room-position"],"formRefs":[],"flashcardEligible":true,"audioStatus":"blocked_until_level_final","audioRef":null,"audioVoice":null
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-fenster",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Fenster",
+  "lemma": "Fenster",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "پنجره",
+  "usageNoteFa": "از اجزای پایهٔ اتاق و خانه است.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-009-room-position"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null
 }

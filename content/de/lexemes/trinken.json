@@ -12,10 +12,14 @@
   "usageNoteFa": "برای گفتن نوشیدنی‌ای که فرد در یک موقعیت روزمره می‌نوشد استفاده می‌شود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-lesson-022-daily-routine"],
-  "formRefs": ["lexform-de-trinken-trinke"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-022-daily-routine"
+  ],
+  "formRefs": [
+    "lexform-de-trinken-trinke"
+  ],
   "flashcardEligible": true,
-  "audioStatus": "blocked_until_level_final",
+  "audioStatus": "pending",
   "audioRef": null,
   "audioVoice": null
 }

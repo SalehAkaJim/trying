@@ -1,3 +1,26 @@
 {
-  "schemaVersion":"1.0.0","id":"lex-de-lernen","languageId":"de","type":"word","surface":"lernen","lemma":"lernen","partOfSpeech":"verb","partOfSpeechFa":"فعل","level":"A1","translationFa":"یاد گرفتن / یادگیری کردن","usageNoteFa":"در این واحد برای گفتن زبانی که فرد در حال یادگیری آن است به کار می‌رود.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-bll-a1-lesson-1","src-wikibooks-bll-a1-lesson-2"],"formRefs":["lexform-de-lernen-lerne"],"flashcardEligible":true,"audioStatus":"blocked_until_level_final","audioRef":null,"audioVoice":null
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-lernen",
+  "languageId": "de",
+  "type": "word",
+  "surface": "lernen",
+  "lemma": "lernen",
+  "partOfSpeech": "verb",
+  "partOfSpeechFa": "فعل",
+  "level": "A1",
+  "translationFa": "یاد گرفتن / یادگیری کردن",
+  "usageNoteFa": "در این واحد برای گفتن زبانی که فرد در حال یادگیری آن است به کار می‌رود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-bll-a1-lesson-1",
+    "src-wikibooks-bll-a1-lesson-2"
+  ],
+  "formRefs": [
+    "lexform-de-lernen-lerne"
+  ],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null
 }

@@ -1,3 +1,23 @@
 {
-  "schemaVersion":"1.0.0","id":"lex-de-bruder","languageId":"de","type":"word","surface":"Bruder","lemma":"Bruder","partOfSpeech":"noun","partOfSpeechFa":"اسم","level":"A1","translationFa":"برادر","usageNoteFa":"برای اشاره به برادر در گفت‌وگوهای سادهٔ خانوادگی استفاده می‌شود.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-de-lesson-007-family"],"formRefs":[],"flashcardEligible":true,"audioStatus":"blocked_until_level_final","audioRef":null,"audioVoice":null
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-bruder",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Bruder",
+  "lemma": "Bruder",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "برادر",
+  "usageNoteFa": "برای اشاره به برادر در گفت‌وگوهای سادهٔ خانوادگی استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-family"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null
 }

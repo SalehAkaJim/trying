@@ -105,7 +105,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "blocked_until_level_final",
+      "audioStatus": "pending",
       "audioTextTarget": "Rufen Sie bitte am Montag noch einmal an."
     },
     {
@@ -252,5 +252,5 @@
     }
   ],
   "status": "final",
-  "audioStatus": "blocked_until_level_final"
+  "audioStatus": "pending"
 }

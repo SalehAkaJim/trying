@@ -1,3 +1,23 @@
 {
-  "schemaVersion":"1.0.0","id":"lex-de-milch","languageId":"de","type":"word","surface":"Milch","lemma":"Milch","partOfSpeech":"noun","partOfSpeechFa":"اسم","level":"A1","translationFa":"شیر","usageNoteFa":"در سفارش نوشیدنی و در بیان ترجیح ساده دربارهٔ داشتن یا نداشتن شیر استفاده می‌شود.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-de-lesson-007-food-order"],"formRefs":[],"flashcardEligible":true,"audioStatus":"blocked_until_level_final","audioRef":null,"audioVoice":null
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-milch",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Milch",
+  "lemma": "Milch",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "شیر",
+  "usageNoteFa": "در سفارش نوشیدنی و در بیان ترجیح ساده دربارهٔ داشتن یا نداشتن شیر استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-007-food-order"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null
 }

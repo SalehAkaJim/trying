@@ -12,10 +12,12 @@
   "usageNoteFa": "برای بیان کارهایی که در بعدازظهر انجام می‌شوند استفاده می‌شود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-lesson-022-daily-routine"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-022-daily-routine"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
-  "audioStatus": "blocked_until_level_final",
+  "audioStatus": "pending",
   "audioRef": null,
   "audioVoice": null
 }

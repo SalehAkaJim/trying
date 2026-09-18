@@ -1,3 +1,23 @@
 {
-  "schemaVersion":"1.0.0","id":"lex-de-wurst","languageId":"de","type":"word","surface":"Wurst","lemma":"Wurst","partOfSpeech":"noun","partOfSpeechFa":"اسم","level":"A1","translationFa":"سوسیس / کالباس","usageNoteFa":"در گفت‌وگوی منبع به‌عنوان کالای دیگری که مشتری به خرید اضافه می‌کند استفاده می‌شود.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-de-lesson-009-shopping"],"formRefs":[],"flashcardEligible":true,"audioStatus":"blocked_until_level_final","audioRef":null,"audioVoice":null
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-wurst",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Wurst",
+  "lemma": "Wurst",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "سوسیس / کالباس",
+  "usageNoteFa": "در گفت‌وگوی منبع به‌عنوان کالای دیگری که مشتری به خرید اضافه می‌کند استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-009-shopping"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null
 }

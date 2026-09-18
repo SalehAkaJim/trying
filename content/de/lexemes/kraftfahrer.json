@@ -12,10 +12,12 @@
   "usageNoteFa": "در گفت‌وگوی منبع‌دار بخش ۰۷۲ به‌عنوان شغل آقای ورنر آمده است.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-lesson-002-professions"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002-professions"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
-  "audioStatus": "blocked_until_level_final",
+  "audioStatus": "pending",
   "audioRef": null,
   "audioVoice": null
 }

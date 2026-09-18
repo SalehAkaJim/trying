@@ -1,3 +1,24 @@
 {
-  "schemaVersion":"1.0.0","id":"lex-de-fremdenfuhrer","languageId":"de","type":"word","surface":"Fremdenführer","lemma":"Fremdenführer","partOfSpeech":"noun","partOfSpeechFa":"اسم","level":"A1","translationFa":"راهنمای گردشگری مرد","usageNoteFa":"شکل مردانهٔ شغل راهنمای گردشگری است؛ منبع درس ۱ آن را صریحاً به‌عنوان شکل مردانه ثبت کرده است.","grammarNoteRefs":[],"exampleRefs":[],"sourceRefs":["src-wikibooks-bll-a1-lesson-1","src-wikibooks-bll-a1-lesson-2"],"formRefs":[],"flashcardEligible":true,"audioStatus":"blocked_until_level_final","audioRef":null,"audioVoice":null
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-fremdenfuhrer",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Fremdenführer",
+  "lemma": "Fremdenführer",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "راهنمای گردشگری مرد",
+  "usageNoteFa": "شکل مردانهٔ شغل راهنمای گردشگری است؛ منبع درس ۱ آن را صریحاً به‌عنوان شکل مردانه ثبت کرده است.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-bll-a1-lesson-1",
+    "src-wikibooks-bll-a1-lesson-2"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "pending",
+  "audioRef": null,
+  "audioVoice": null
 }
