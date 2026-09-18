@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-transport-ticket",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-public-transport-tickets",
+  "titleFa": "یک بلیت برای برلین لطفاً",
+  "learningTargets": [
+    "در باجه یک بلیت برای مقصد مشخص بخواهد.",
+    "عبارت سادهٔ درخواست بلیت را در گفت‌وگو تشخیص دهد.",
+    "نام بلیت، ایستگاه و قطار را از هم تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-transport"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس نخست سفر با حمل‌ونقل عمومی از کار واقعیِ خرید خدمت شروع می‌کند: درخواست بلیت برای یک مقصد مشخص.",
+    "sequenceRationale": "از مکالمهٔ باجه به واژگان اصلی و سپس بازسازی درخواست بلیت می‌رسد.",
+    "templateSignature": "conversation_speaking>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-transport-ticket-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "در باجه بلیت بخواه و گفت‌وگوی کوتاه را کامل کن.",
+      "selectionReason": "درخواست بلیت در یک تبادل کوتاه سلام، درخواست و تشکر قرار می‌گیرد.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "learningTargets": [
+        "برای مقصد مشخص بلیت بخواهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-transport-ticket",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-transport-ticket-matching",
+      "type": "matching",
+      "instructionFa": "هر واژه را به معنی درستش وصل کن.",
+      "selectionReason": "سه واژهٔ پایهٔ سفر با قطار برای ادامهٔ واحد لازم‌اند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "learningTargets": [
+        "واژگان پایهٔ بلیت و قطار را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Fahrkarte",
+            "leftFa": "بلیت",
+            "right": "بلیت سفر",
+            "rightFa": "بلیت سفر"
+          },
+          {
+            "left": "Bahnhof",
+            "leftFa": "ایستگاه قطار",
+            "right": "محل قطار",
+            "rightFa": "محل قطار"
+          },
+          {
+            "left": "Zug",
+            "leftFa": "قطار",
+            "right": "وسیلهٔ سفر",
+            "rightFa": "وسیلهٔ سفر"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-transport-ticket-order",
+      "type": "word_order",
+      "instructionFa": "درخواست بلیت به برلین را بساز.",
+      "selectionReason": "عبارت درخواست بلیت به بازیابی مستقیم منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "learningTargets": [
+        "درخواست بلیت را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Bitte eine Fahrkarte nach Berlin.",
+        "sourceTextFa": "لطفاً یک بلیت به برلین.",
+        "tokens": [
+          "Bitte",
+          "eine",
+          "Fahrkarte",
+          "nach",
+          "Berlin."
+        ],
+        "answer": [
+          "Bitte",
+          "eine",
+          "Fahrkarte",
+          "nach",
+          "Berlin."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}
