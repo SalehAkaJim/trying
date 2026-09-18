@@ -24,7 +24,7 @@
     {
       "id": "act-de-a1-directions-places-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "هتل را پیدا کن و بعد دربارهٔ رستوران داخل یا کنار آن بپرس.",
+      "instructionFa": "خودت گفت‌وگو را شروع کن: هتل را پیدا کن و بعد دربارهٔ رستوران داخل یا کنار آن بپرس.",
       "selectionReason": "چهار نوبت نخست گفت‌وگوی منبع یک زنجیرهٔ واقعیِ مقصد → امکان → موقعیت نسبی می‌سازند.",
       "sourceRefs": [
         "src-wikibooks-german-print-directions"
