@@ -4,37 +4,36 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-home-and-nearby",
-  "titleFa": "اتاق و جای وسایل را توصیف کن",
+  "titleFa": "وسایلم کجاست؟",
   "learningTargets": [
-    "واژگان وسایل اتاق و موقعیت را در کنار هم بازیابی کند.",
-    "راست، چپ، جلو و عقب را از هم تشخیص دهد.",
-    "پرسش ساده دربارهٔ موقعیت یک وسیله را بازسازی کند."
+    "دربارهٔ محل یک وسیلهٔ شخصی سؤال کند.",
+    "پاسخ مؤدبانهٔ Ihr/Ihre را برای وسیلهٔ مفرد بفهمد.",
+    "تفاوت مفرد و جمع را در پرسش و پاسخ دربارهٔ وسایل تشخیص دهد."
   ],
   "sourceRefs": [
-    "src-wikibooks-de-lesson-007-room-objects",
-    "src-wikibooks-de-lesson-009-room-position"
+    "src-wikibooks-de-lesson-007-room-objects"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس نام وسایل و واژگان موقعیت را به یک توصیف کاربردی از فضای نزدیک وصل می‌کند.",
-    "sequenceRationale": "از فهم موقعیت در گفت‌وگو به تشخیص جهت‌های داخل فضا و سپس ساخت پرسش مکانی می‌رسد.",
-    "templateSignature": "conversation_speaking>matching>word_order"
+    "activitySelectionRationale": "به‌جای مرور جهت‌های اتاق، این درس یک نیاز واقعی تازه را پوشش می‌دهد: پیدا کردن وسایل شخصی و پاسخ‌دادن با شکل مؤدبانهٔ مالکیت.",
+    "sequenceRationale": "مکالمه مفرد را معرفی می‌کند، تمرین تشخیص مفرد/جمع را گسترش می‌دهد و تطبیق چند وسیله دامنه را وسیع‌تر می‌کند.",
+    "templateSignature": "conversation_speaking>multiple_choice>matching"
   },
   "activities": [
     {
       "id": "act-de-a1-home-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "گفت‌وگوی جای وسایل را دوباره اجرا کن و به موقعیت‌ها دقت کن.",
-      "selectionReason": "مکالمهٔ منبع‌دار موقعیت، نام وسایل را به توصیف فضا وصل می‌کند.",
+      "instructionFa": "وسایل گم‌شده را بپرس و پاسخ محل آن‌ها را بده.",
+      "selectionReason": "مکالمهٔ منبع‌دار mein/meine و Ihr/Ihre را در موقعیت پیدا کردن وسایل فعال می‌کند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-009-room-position"
+        "src-wikibooks-de-lesson-007-room-objects"
       ],
       "learningTargets": [
-        "موقعیت سادهٔ وسایل را در گفت‌وگو بفهمد."
+        "محل وسایل شخصی را بپرسد و پاسخ دهد."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-room-position",
+      "dialogueRef": "dlg-de-a1-find-belongings",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "app"
@@ -47,83 +46,86 @@
       "audioStatus": "not_required"
     },
     {
-      "id": "act-de-a1-home-review-matching",
-      "type": "matching",
-      "instructionFa": "هر موقعیت را به معنی درست وصل کن.",
-      "selectionReason": "چهار قید مکانی منبع‌دار برای توصیف اتاق دوباره بازیابی می‌شوند.",
+      "id": "act-de-a1-home-review-order",
+      "type": "multiple_choice",
+      "instructionFa": "اگر دربارهٔ چند کتاب صحبت می‌کنیم، کدام پاسخ درست است؟",
+      "selectionReason": "مفرد و جمع با پاسخ‌های واقعی همان تمرین از هم تفکیک می‌شوند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-009-room-position"
+        "src-wikibooks-de-lesson-007-room-objects"
       ],
       "learningTargets": [
-        "چهار واژهٔ موقعیت را از هم تشخیص دهد."
+        "شکل جمع را در پاسخ محل وسایل تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Ihre Bücher sind hier.",
+            "translationFa": "کتاب‌های شما اینجاست.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ihr Heft ist hier.",
+            "translationFa": "دفتر شما اینجاست.",
+            "correct": false
+          },
+          {
+            "textTarget": "Ihre Tasche ist hier.",
+            "translationFa": "کیف شما اینجاست.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-home-review-matching",
+      "type": "matching",
+      "instructionFa": "هر سؤال را به پاسخ درستش وصل کن.",
+      "selectionReason": "چهار جفت منبع‌دار دامنه را از دفتر و کیف به مداد و کتاب‌ها گسترش می‌دهند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-room-objects"
+      ],
+      "learningTargets": [
+        "پرسش و پاسخ محل چند نوع وسیله را به هم وصل کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "pairs": [
           {
-            "left": "rechts",
-            "leftFa": "سمت راست",
-            "right": "راست",
-            "rightFa": "راست"
+            "left": "Wo ist mein Heft?",
+            "leftFa": "دفترم کجاست؟",
+            "right": "Ihr Heft ist hier.",
+            "rightFa": "دفتر شما اینجاست."
           },
           {
-            "left": "links",
-            "leftFa": "سمت چپ",
-            "right": "چپ",
-            "rightFa": "چپ"
+            "left": "Wo ist mein Bleistift?",
+            "leftFa": "مدادم کجاست؟",
+            "right": "Ihr Bleistift ist hier.",
+            "rightFa": "مداد شما اینجاست."
           },
           {
-            "left": "hinten",
-            "leftFa": "عقب",
-            "right": "عقب",
-            "rightFa": "عقب"
+            "left": "Wo ist meine Tasche?",
+            "leftFa": "کیفم کجاست؟",
+            "right": "Ihre Tasche ist hier.",
+            "rightFa": "کیف شما اینجاست."
           },
           {
-            "left": "vorn",
-            "leftFa": "جلو",
-            "right": "جلو",
-            "rightFa": "جلو"
+            "left": "Wo sind meine Bücher?",
+            "leftFa": "کتاب‌هایم کجاست؟",
+            "right": "Ihre Bücher sind hier.",
+            "rightFa": "کتاب‌های شما اینجاست."
           }
         ]
       },
       "transformations": [
         "source_items_grouped_for_matching",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
-    },
-    {
-      "id": "act-de-a1-home-review-order",
-      "type": "word_order",
-      "instructionFa": "پرسش جای صندلی را دوباره بساز.",
-      "selectionReason": "بازیابی پرسش موقعیت، مرور واژگان را به کاربرد فعال وصل می‌کند.",
-      "sourceRefs": [
-        "src-wikibooks-de-lesson-009-room-position"
-      ],
-      "learningTargets": [
-        "پرسش دربارهٔ موقعیت وسیله را بازسازی کند."
-      ],
-      "lexemeRefs": [],
-      "dialogueRef": null,
-      "data": {
-        "sourceText": "Steht der Stuhl hinten?",
-        "sourceTextFa": "آیا صندلی عقب قرار دارد؟",
-        "tokens": [
-          "Steht",
-          "der",
-          "Stuhl",
-          "hinten?"
-        ],
-        "answer": [
-          "Steht",
-          "der",
-          "Stuhl",
-          "hinten?"
-        ]
-      },
-      "transformations": [
-        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
