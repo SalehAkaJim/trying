@@ -77,6 +77,12 @@
             "leftFa": "داروخانه",
             "right": "محل گرفتن دارو",
             "rightFa": "محل گرفتن دارو"
+          },
+          {
+            "left": "Medikamente",
+            "leftFa": "داروها",
+            "right": "دارو",
+            "rightFa": "دارو"
           }
         ]
       },
