@@ -4,11 +4,11 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-family-and-close-people",
-  "titleFa": "خانواده را یک‌جا مرور کن",
+  "titleFa": "برادرت کجا درس می‌خونه؟ خواهرت کجا زندگی می‌کنه؟",
   "learningTargets": [
-    "اعضای پایهٔ خانواده را سریع تشخیص دهد.",
-    "اطلاعات مربوط به چند عضو خانواده را در یک گفت‌وگو دنبال کند.",
-    "پرسش دربارهٔ نام یک عضو خانواده را بازسازی کند."
+    "دربارهٔ محل تحصیل یک عضو خانواده سؤال کند و پاسخ را بفهمد.",
+    "دربارهٔ محل زندگی یک عضو خانواده سؤال کند و پاسخ را بفهمد.",
+    "studieren و wohnen را در اطلاعات خانوادگی از هم تشخیص دهد."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-007-family"
@@ -16,30 +16,30 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس سوم واحد، رابطه‌های خانوادگی و اطلاعات شخصی اعضا را از حالت تمرین‌های جدا به یک مرور منسجم تبدیل می‌کند.",
-    "sequenceRationale": "گفت‌وگو اطلاعات را فعال می‌کند، تطبیق رابطه‌ها را تثبیت می‌کند و بازسازی پرسش تولید هدایت‌شده را تمرین می‌دهد.",
-    "templateSignature": "conversation_speaking>matching>word_order"
+    "activitySelectionRationale": "این درس محور تازهٔ مکان را به واحد خانواده اضافه می‌کند؛ دو درس قبلی بیشتر روی نام، سن و شغل متمرکز بودند.",
+    "sequenceRationale": "مکالمه دو کاربرد مکان را معرفی می‌کند، تمرین تشخیص فعل‌ها را جدا می‌کند و بازسازی پرسشِ محل زندگی تولید هدایت‌شده می‌دهد.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-family-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "گفت‌وگوی پدر و مادر را دوباره انجام بده و اطلاعات هر نفر را دنبال کن.",
-      "selectionReason": "صحنهٔ منبع‌دار والدین برای مرور چند نوع اطلاعات خانوادگی استفاده می‌شود.",
+      "instructionFa": "دربارهٔ محل تحصیل برادر و محل زندگی خواهر گفت‌وگو کن.",
+      "selectionReason": "دو جفت پرسش‌وپاسخ منبع‌دار اطلاعات مکانی تازه‌ای به پروفایل خانواده اضافه می‌کنند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-family"
       ],
       "learningTargets": [
-        "اطلاعات چند عضو خانواده را در گفت‌وگو دنبال کند."
+        "محل تحصیل و محل زندگی اعضای خانواده را بفهمد."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-family-parents-profile",
+      "dialogueRef": "dlg-de-a1-family-study-residence",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "app"
       },
       "transformations": [
-        "other",
+        "verbatim_dialogue",
         "persian_translation_added",
         "character_metadata_added"
       ],
@@ -47,47 +47,38 @@
     },
     {
       "id": "act-de-a1-family-review-matching",
-      "type": "matching",
-      "instructionFa": "اعضای خانواده را به معنی درست وصل کن.",
-      "selectionReason": "چهار رابطهٔ خانوادگی پایه پیش از تولید پرسش دوباره فعال می‌شوند.",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله دربارهٔ محل تحصیل برادر است؟",
+      "selectionReason": "تمرین تفاوت studieren و wohnen را در همان بافت خانواده می‌سنجد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-family"
       ],
       "learningTargets": [
-        "چهار عضو پایهٔ خانواده را تشخیص دهد."
+        "محل تحصیل را از محل زندگی تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "pairs": [
+        "options": [
           {
-            "left": "Bruder",
-            "leftFa": "برادر",
-            "right": "برادر",
-            "rightFa": "برادر"
+            "textTarget": "Unser Bruder studiert in Berlin.",
+            "translationFa": "برادر ما در برلین درس می‌خواند.",
+            "correct": true
           },
           {
-            "left": "Schwester",
-            "leftFa": "خواهر",
-            "right": "خواهر",
-            "rightFa": "خواهر"
+            "textTarget": "Unsere Schwester wohnt in Hamburg.",
+            "translationFa": "خواهر ما در هامبورگ زندگی می‌کند.",
+            "correct": false
           },
           {
-            "left": "Mutter",
-            "leftFa": "مادر",
-            "right": "مادر",
-            "rightFa": "مادر"
-          },
-          {
-            "left": "Vater",
-            "leftFa": "پدر",
-            "right": "پدر",
-            "rightFa": "پدر"
+            "textTarget": "Unser Vater ist LKW-Fahrer.",
+            "translationFa": "پدر ما رانندهٔ کامیون است.",
+            "correct": false
           }
         ]
       },
       "transformations": [
-        "source_items_grouped_for_matching",
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
@@ -95,30 +86,30 @@
     {
       "id": "act-de-a1-family-review-order",
       "type": "word_order",
-      "instructionFa": "پرسش نام برادر را دوباره بساز.",
-      "selectionReason": "پرسش منبع‌دار نام، واژگان خانواده را به یک کاربرد واقعی برمی‌گرداند.",
+      "instructionFa": "پرسش محل زندگی خواهر را بساز.",
+      "selectionReason": "پرسش Wo + wohnen برای انتقال مهارت از فهم به تولید هدایت‌شده انتخاب شده است.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-family"
       ],
       "learningTargets": [
-        "پرسش نام یک عضو خانواده را بازسازی کند."
+        "پرسش محل زندگی عضو خانواده را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wie heißt euer Bruder?",
-        "sourceTextFa": "اسم برادرتان چیست؟",
+        "sourceText": "Wo wohnt eure Schwester?",
+        "sourceTextFa": "خواهرتان کجا زندگی می‌کند؟",
         "tokens": [
-          "Wie",
-          "heißt",
-          "euer",
-          "Bruder?"
+          "Wo",
+          "wohnt",
+          "eure",
+          "Schwester?"
         ],
         "answer": [
-          "Wie",
-          "heißt",
-          "euer",
-          "Bruder?"
+          "Wo",
+          "wohnt",
+          "eure",
+          "Schwester?"
         ]
       },
       "transformations": [
