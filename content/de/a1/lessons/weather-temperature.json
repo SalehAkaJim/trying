@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-weather-temperature",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-weather-temperature",
+  "titleFa": "دماسنج چند درجه نشان می‌دهد؟",
+  "learningTargets": [
+    "دربارهٔ دمای دماسنج سؤال کند.",
+    "دمای مثبت را در پاسخ کوتاه بفهمد.",
+    "دمای منفی را از دمای مثبت تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-german-print-weather"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس سوم عدد و دما را به واحد هوا اضافه می‌کند و تفاوت مقدار مثبت و منفی را در یک الگوی ثابت تمرین می‌دهد.",
+    "sequenceRationale": "مکالمه دو دمای متضاد را معرفی می‌کند، تشخیص عدد انجام می‌شود و در پایان پرسش دما بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-weather-temperature-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "دو دمای مثبت و منفی را در گفت‌وگو بخوان.",
+      "selectionReason": "تکرار یک پرسش ثابت با دو پاسخ متضاد تمرکز را روی عدد و علامت دما نگه می‌دارد.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "learningTargets": [
+        "دمای مثبت و منفی را بفهمد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-weather-temperature",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-weather-temperature-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام پاسخ دمای زیر صفر را نشان می‌دهد؟",
+      "selectionReason": "دو مقدار هم‌اندازه با علامت متفاوت برای تشخیص منفی انتخاب شده‌اند.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "learningTargets": [
+        "دمای منفی را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Das Thermometer zeigt minus 15 Grad (Celsius) an.",
+            "translationFa": "دماسنج منفی ۱۵ درجهٔ سانتی‌گراد نشان می‌دهد.",
+            "correct": true
+          },
+          {
+            "textTarget": "Das Thermometer zeigt 15 Grad (Celsius) an.",
+            "translationFa": "دماسنج ۱۵ درجهٔ سانتی‌گراد نشان می‌دهد.",
+            "correct": false
+          },
+          {
+            "textTarget": "In Berlin scheint die Sonne.",
+            "translationFa": "در برلین خورشید می‌تابد.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-weather-temperature-order",
+      "type": "word_order",
+      "instructionFa": "پرسش دمای دماسنج را بساز.",
+      "selectionReason": "پرسش اصلی درس به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "learningTargets": [
+        "دربارهٔ دما سؤال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wie viel Grad zeigt das Thermometer an?",
+        "sourceTextFa": "دماسنج چند درجه نشان می‌دهد؟",
+        "tokens": [
+          "Wie",
+          "viel",
+          "Grad",
+          "zeigt",
+          "das",
+          "Thermometer",
+          "an?"
+        ],
+        "answer": [
+          "Wie",
+          "viel",
+          "Grad",
+          "zeigt",
+          "das",
+          "Thermometer",
+          "an?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

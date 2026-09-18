@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-health-symptoms",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-018-health"
+  ],
+  "scenario": "آیریس در نقش پزشک دو بار دربارهٔ مشکل می‌پرسد و پاول دو علامت رایج را کوتاه و مستقیم بیان می‌کند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-health-symptoms-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was fehlt Ihnen?",
+      "translationFa": "چه مشکلی دارید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-health-symptoms-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich habe Husten.",
+      "translationFa": "سرفه دارم.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-health-symptoms-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was fehlt Ihnen?",
+      "translationFa": "چه مشکلی دارید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-health-symptoms-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich habe Fieber.",
+      "translationFa": "تب دارم.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "جفت‌های پرسش و پاسخ از تمرین ۷۵۱ عیناً حفظ شده‌اند و فقط به شخصیت‌های ثابت برنامه نسبت داده شده‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}

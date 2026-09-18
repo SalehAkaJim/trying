@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-weather-rain-plan",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-weather-temperature",
+  "titleFa": "چتر بردار؛ بارون میاد",
+  "learningTargets": [
+    "دربارهٔ باران یا خوب‌ماندن هوا سؤال کند.",
+    "پیش‌بینی سادهٔ بدی هوا را بفهمد.",
+    "توصیهٔ همراه‌داشتن چتر را تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-german-print-weather"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس دوم هوا را به یک تصمیم روزمره وصل می‌کند: آیا باران می‌آید و آیا باید چتر برداشت.",
+    "sequenceRationale": "مکالمه پیش‌بینی و توصیه را در بافت قرار می‌دهد، سپس انتخاب پاسخ و بازسازی پرسش انجام می‌شود.",
+    "templateSignature": "conversation_speaking>choose_response>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-weather-rain-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "خودت گفت‌وگو را شروع کن: دربارهٔ باران بپرس و توصیهٔ مربوط به چتر را بفهم.",
+      "selectionReason": "مکالمهٔ منبع‌دار هوا را مستقیماً به تصمیم روزانه وصل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "learningTargets": [
+        "پیش‌بینی باران و توصیهٔ چتر را بفهمد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-weather-rain-plan",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-weather-rain-response",
+      "type": "choose_response",
+      "instructionFa": "اگر امروز باران پیش‌بینی شده، کدام جملهٔ منبع به چتر اشاره می‌کند؟",
+      "selectionReason": "توصیهٔ کاربردی از جمله‌های صرفاً توصیفی جدا می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "learningTargets": [
+        "توصیهٔ همراه‌داشتن چتر را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Es soll heute regnen.",
+        "promptFa": "قرار است امروز باران ببارد.",
+        "options": [
+          {
+            "textTarget": "Nimm bitte deinen Regenschirm mit!",
+            "translationFa": "لطفاً چترت را با خودت ببر!",
+            "correct": true
+          },
+          {
+            "textTarget": "In Berlin scheint die Sonne.",
+            "translationFa": "در برلین خورشید می‌تابد.",
+            "correct": false
+          },
+          {
+            "textTarget": "Wie wird das Wetter?",
+            "translationFa": "هوا چطور خواهد شد؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-weather-rain-order",
+      "type": "word_order",
+      "instructionFa": "پرسش «باران می‌آید یا هوا خوب می‌ماند؟» را بساز.",
+      "selectionReason": "پرسش کلیدی تصمیم‌گیری روزانه به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "learningTargets": [
+        "دربارهٔ باران سؤال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wird es regnen, oder bleibt es schön?",
+        "sourceTextFa": "باران می‌آید یا هوا خوب می‌ماند؟",
+        "tokens": [
+          "Wird",
+          "es",
+          "regnen,",
+          "oder",
+          "bleibt",
+          "es",
+          "schön?"
+        ],
+        "answer": [
+          "Wird",
+          "es",
+          "regnen,",
+          "oder",
+          "bleibt",
+          "es",
+          "schön?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

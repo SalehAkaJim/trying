@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-transport-times-platform",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-public-transport-tickets",
+  "titleFa": "قطار چه ساعتی می‌رسد؟",
+  "learningTargets": [
+    "زمان رسیدن قطار را بپرسد و پاسخ ساعت را بفهمد.",
+    "پرسش‌های حرکت و رسیدن را از هم تشخیص دهد.",
+    "واژهٔ سکو را در اطلاعات سفر تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-transport",
+    "src-wikibooks-de-lesson-024-short-messages"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس سوم اطلاعات اجرایی سفر را پوشش می‌دهد: زمان رسیدن یا حرکت و سکوی مربوط.",
+    "sequenceRationale": "مکالمه زمان رسیدن را معرفی می‌کند، پرسش‌های حرکت و رسیدن مقایسه می‌شوند و در پایان پرسش زمان بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-transport-arrival-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "خودت گفت‌وگو را شروع کن: زمان رسیدن قطار را بپرس.",
+      "selectionReason": "پرسش زمان رسیدن و پاسخ ساعت یک نیاز مستقل در سفر هستند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport",
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "learningTargets": [
+        "زمان رسیدن قطار را بپرسد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-transport-arrival",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-transport-arrival-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام پرسش دربارهٔ زمان رسیدن است؟",
+      "selectionReason": "زبان‌آموز باید رسیدن را از حرکت و سکو تشخیص دهد.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "learningTargets": [
+        "پرسش زمان رسیدن را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Wann kommt dieser Zug in Berlin an?",
+            "translationFa": "این قطار چه زمانی به برلین می‌رسد؟",
+            "correct": true
+          },
+          {
+            "textTarget": "Wann fährt der Zug ab?",
+            "translationFa": "قطار چه زمانی حرکت می‌کند؟",
+            "correct": false
+          },
+          {
+            "textTarget": "Von welchem Bahnsteig fährt der Zug ab?",
+            "translationFa": "قطار از کدام سکو حرکت می‌کند؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-transport-arrival-order",
+      "type": "word_order",
+      "instructionFa": "پرسش زمان رسیدن را دوباره بساز.",
+      "selectionReason": "پرسش کلیدی درس در پایان به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "learningTargets": [
+        "پرسش زمان رسیدن قطار را بازسازی کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wann kommt dieser Zug in Berlin an?",
+        "sourceTextFa": "این قطار چه زمانی به برلین می‌رسد؟",
+        "tokens": [
+          "Wann",
+          "kommt",
+          "dieser",
+          "Zug",
+          "in",
+          "Berlin",
+          "an?"
+        ],
+        "answer": [
+          "Wann",
+          "kommt",
+          "dieser",
+          "Zug",
+          "in",
+          "Berlin",
+          "an?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

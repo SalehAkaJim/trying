@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-weather-current",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-weather-temperature",
+  "titleFa": "هوا امروز چطوره؟",
+  "learningTargets": [
+    "دربارهٔ هوای یک شهر سؤال کند.",
+    "پاسخ سادهٔ آفتابی‌بودن هوا را بفهمد.",
+    "هوای فعلی را از پیش‌بینی آینده تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-german-print-weather"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس نخست آب‌وهوا فقط روی وضعیت فعلی تمرکز می‌کند و یک الگوی سادهٔ پرسش و پاسخ شهری می‌سازد.",
+    "sequenceRationale": "از مکالمه به تشخیص وضعیت فعلی و سپس بازسازی پرسش هوا می‌رسد.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-weather-current-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "دربارهٔ هوای فعلی و پیش‌بینی کوتاه گفت‌وگو کن.",
+      "selectionReason": "دو پرسش و پاسخ منبع‌دار تفاوت وضعیت اکنون و پیش‌بینی را نشان می‌دهند.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "learningTargets": [
+        "هوای فعلی را در گفت‌وگو بفهمد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-weather-current",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-weather-current-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله دربارهٔ هوای همین حالاست؟",
+      "selectionReason": "پاسخ آفتابی با جملهٔ پیش‌بینی باران مقایسه می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "learningTargets": [
+        "وضعیت فعلی هوا را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "In Berlin scheint die Sonne.",
+            "translationFa": "در برلین خورشید می‌تابد.",
+            "correct": true
+          },
+          {
+            "textTarget": "Es soll heute regnen.",
+            "translationFa": "قرار است امروز باران ببارد.",
+            "correct": false
+          },
+          {
+            "textTarget": "Wie wird das Wetter?",
+            "translationFa": "هوا چطور خواهد شد؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-weather-current-order",
+      "type": "word_order",
+      "instructionFa": "پرسش هوای برلین را بساز.",
+      "selectionReason": "بازسازی پرسش، زبان لازم برای سؤال دربارهٔ هوا را فعال می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "learningTargets": [
+        "دربارهٔ هوای یک شهر سؤال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wie ist denn das Wetter in Berlin?",
+        "sourceTextFa": "هوا در برلین چطور است؟",
+        "tokens": [
+          "Wie",
+          "ist",
+          "denn",
+          "das",
+          "Wetter",
+          "in",
+          "Berlin?"
+        ],
+        "answer": [
+          "Wie",
+          "ist",
+          "denn",
+          "das",
+          "Wetter",
+          "in",
+          "Berlin?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

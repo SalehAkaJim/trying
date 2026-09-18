@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-health-medicine-pharmacy",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-018-health"
+  ],
+  "scenario": "مکس از پاول دربارهٔ داروهای بیمار و محل گرفتن آن‌ها می‌پرسد و پاول پاسخ‌های کوتاه منبع را می‌دهد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-max",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-health-medicine-pharmacy-1",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Welche Medikamente bekommt Herr Berger?",
+      "translationFa": "آقای برگر چه داروهایی می‌گیرد؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-health-medicine-pharmacy-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Er bekommt Tabletten und Tropfen.",
+      "translationFa": "قرص و قطره می‌گیرد.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-health-medicine-pharmacy-3",
+      "speakerCharacterId": "char-de-max",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wo bekommt er sie?",
+      "translationFa": "آن‌ها را کجا می‌گیرد؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-health-medicine-pharmacy-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Er bekommt die Medikamente in der Apotheke.",
+      "translationFa": "داروها را از داروخانه می‌گیرد.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "دو جفت پرسش و پاسخ بخش ۷۴۸ بدون بازنویسی متن آلمانی استفاده شده‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}

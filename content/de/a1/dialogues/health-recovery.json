@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-health-recovery",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-018-health"
+  ],
+  "scenario": "آیریس در پیگیری حال پاول دربارهٔ باقی‌ماندن تب و سرفه می‌پرسد و پاول می‌گوید دیگر آن علائم را ندارد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-health-recovery-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Haben Sie noch Fieber?",
+      "translationFa": "هنوز تب دارید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-health-recovery-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Nein, ich habe kein Fieber mehr.",
+      "translationFa": "نه، دیگر تب ندارم.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-health-recovery-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Haben Sie noch Husten?",
+      "translationFa": "هنوز سرفه دارید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-health-recovery-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Nein, ich habe keinen Husten mehr.",
+      "translationFa": "نه، دیگر سرفه ندارم.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "دو جفت پرسش و پاسخ بخش ۷۵۳ عین منبع نگه داشته شده‌اند و الگوی سادهٔ بهترشدن را نشان می‌دهند.",
+  "learnerCharacterId": "char-de-paul"
+}

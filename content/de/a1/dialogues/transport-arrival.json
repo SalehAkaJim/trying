@@ -1,0 +1,79 @@
+{
+  "id": "dlg-de-a1-transport-arrival",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-transport",
+    "src-wikibooks-de-lesson-024-short-messages"
+  ],
+  "scenario": "پاول گفت‌وگو را با پرسیدن زمان رسیدن قطار به برلین شروع می‌کند و آیریس پاسخ ساعت منبع‌دار را می‌دهد.",
+  "openingInitiator": "learner",
+  "characterRefs": [
+    "char-de-paul",
+    "char-de-iris"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-transport-arrival-1",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wann kommt dieser Zug in Berlin an?",
+      "translationFa": "این قطار چه زمانی به برلین می‌رسد؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-arrival-2",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Der Zug kommt 16.20 Uhr an.",
+      "translationFa": "قطار ساعت ۱۶:۲۰ می‌رسد.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-arrival-3",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Danke.",
+      "translationFa": "ممنون.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-arrival-4",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Bitte schön!",
+      "translationFa": "خواهش می‌کنم.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "پرسش زمان رسیدن از الگوی جاری عبارت‌نامه با مقصد برلین و پاسخ ساعت از نمونهٔ منبع‌دار درس ۰۲۴ ترکیب شده‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}

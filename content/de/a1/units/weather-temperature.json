@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-unit-weather-temperature",
+  "languageId": "de",
+  "level": "A1",
+  "titleFa": "آب‌وهوا و دما",
+  "learningTargets": [
+    "دربارهٔ هوای فعلی یک شهر سؤال کند و پاسخ ساده را بفهمد.",
+    "پیش‌بینی سادهٔ باران یا بدی هوا را بفهمد و توصیهٔ همراه‌داشتن چتر را تشخیص دهد.",
+    "دمای مثبت و منفی را در یک پرسش و پاسخ کوتاه بفهمد."
+  ],
+  "lessonRefs": [
+    "de-a1-lesson-weather-current",
+    "de-a1-lesson-weather-rain-plan",
+    "de-a1-lesson-weather-temperature"
+  ],
+  "groupingRationale": "واحد از توصیف هوای فعلی به پیش‌بینی کوتاه و سپس عدد دما می‌رود. سه درس به‌ترتیب وضعیت اکنون، تصمیم روزانه بر اساس پیش‌بینی و خواندن دما را پوشش می‌دهند.",
+  "sourceRefs": [
+    "src-wikibooks-german-print-weather"
+  ],
+  "status": "final",
+  "notes": "واژگان تخصصی هواشناسی کنار گذاشته شده‌اند و فقط عبارت‌های روزمره و قابل‌استفادهٔ سطح A1 نگه داشته شده‌اند."
+}

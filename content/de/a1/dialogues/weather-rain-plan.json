@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-weather-rain-plan",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-german-print-weather"
+  ],
+  "scenario": "پاول گفت‌وگو را با پرسش دربارهٔ باران شروع می‌کند و آیریس پیش‌بینی بدی هوا و توصیهٔ برداشتن چتر را می‌گوید.",
+  "openingInitiator": "learner",
+  "characterRefs": [
+    "char-de-paul",
+    "char-de-iris"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-weather-rain-plan-1",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wird es regnen, oder bleibt es schön?",
+      "translationFa": "باران می‌آید یا هوا خوب می‌ماند؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-weather-rain-plan-2",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Es wird heute schlechtes Wetter erwartet. Nimm bitte deinen Regenschirm mit!",
+      "translationFa": "امروز هوای بد پیش‌بینی شده. لطفاً چترت را با خودت ببر!",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-weather-rain-plan-3",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie wird das Wetter?",
+      "translationFa": "هوا چطور خواهد شد؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-weather-rain-plan-4",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Es soll heute regnen.",
+      "translationFa": "قرار است امروز باران ببارد.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-german-print-weather"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "چهار عبارت منبع‌دار بدون ساخت جملهٔ تازه در یک سناریوی تصمیم روزانه دربارهٔ باران کنار هم قرار گرفته‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}

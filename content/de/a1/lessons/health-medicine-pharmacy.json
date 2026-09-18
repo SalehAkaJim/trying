@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-health-medicine-pharmacy",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-health-doctor-pharmacy",
+  "titleFa": "دارو را از کجا می‌گیری؟",
+  "learningTargets": [
+    "نام دو شکل سادهٔ دارو را در پاسخ بفهمد.",
+    "دربارهٔ محل گرفتن دارو سؤال کند.",
+    "داروخانه را به‌عنوان محل گرفتن دارو تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-018-health"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس دوم مسیر بعد از تشخیص بیماری را پوشش می‌دهد: دارو چیست و از کجا گرفته می‌شود.",
+    "sequenceRationale": "ابتدا مکالمهٔ دارو و داروخانه می‌آید، سپس واژگان دارو تثبیت می‌شوند و در پایان پرسش محل بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-health-medicine-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "دربارهٔ دارو و محل گرفتن آن گفت‌وگو کن.",
+      "selectionReason": "دو جفت پرسش و پاسخ منبع‌دار، دارو و داروخانه را در یک زنجیرهٔ کاربردی قرار می‌دهند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "learningTargets": [
+        "دارو و محل گرفتن آن را بفهمد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-health-medicine-pharmacy",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-health-medicine-matching",
+      "type": "matching",
+      "instructionFa": "هر واژه را به معنی درستش وصل کن.",
+      "selectionReason": "سه واژهٔ اصلی این موقعیت بدون افزودن بار دستوری تازه تثبیت می‌شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "learningTargets": [
+        "واژگان پایهٔ دارو و داروخانه را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Tabletten",
+            "leftFa": "قرص‌ها",
+            "right": "قرص",
+            "rightFa": "قرص"
+          },
+          {
+            "left": "Tropfen",
+            "leftFa": "قطره‌ها",
+            "right": "قطره",
+            "rightFa": "قطره"
+          },
+          {
+            "left": "Apotheke",
+            "leftFa": "داروخانه",
+            "right": "محل گرفتن دارو",
+            "rightFa": "محل گرفتن دارو"
+          },
+          {
+            "left": "Medikamente",
+            "leftFa": "داروها",
+            "right": "دارو",
+            "rightFa": "دارو"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-health-medicine-order",
+      "type": "word_order",
+      "instructionFa": "پرسش «کجا آن‌ها را می‌گیرد؟» را بساز.",
+      "selectionReason": "پرسش مکان، زبان‌آموز را از فهم پاسخ به تولید هدایت‌شده می‌رساند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "learningTargets": [
+        "دربارهٔ محل گرفتن دارو سؤال کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wo bekommt er sie?",
+        "sourceTextFa": "آن‌ها را کجا می‌گیرد؟",
+        "tokens": [
+          "Wo",
+          "bekommt",
+          "er",
+          "sie?"
+        ],
+        "answer": [
+          "Wo",
+          "bekommt",
+          "er",
+          "sie?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-health-recovery",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-health-doctor-pharmacy",
+  "titleFa": "دیگه بهتر شدی؟",
+  "learningTargets": [
+    "پرسش ساده دربارهٔ ادامه‌داشتن یک علامت را بفهمد.",
+    "بیان کند که دیگر یک علامت را ندارد.",
+    "پاسخ بهترشدن تب و سرفه را از پاسخ داشتن علامت تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-018-health"
+  ],
+  "lexemeRefs": [],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "درس سوم یک مهارت مستقل و طبیعی اضافه می‌کند: پیگیری حال بیمار و گفتن اینکه یک علامت دیگر وجود ندارد.",
+    "sequenceRationale": "مکالمه الگوی پیگیری را معرفی می‌کند، تشخیص معنای بهترشدن را می‌سنجد و در پایان پاسخ منفی بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>choose_response>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-health-recovery-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "در پیگیری حال بیمار بگو آیا تب یا سرفه هنوز ادامه دارد.",
+      "selectionReason": "دو جفت پرسش و پاسخ منبع‌دار الگوی سادهٔ بهترشدن را نشان می‌دهند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "learningTargets": [
+        "به پرسش پیگیری علائم پاسخ دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": "dlg-de-a1-health-recovery",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-health-recovery-response",
+      "type": "choose_response",
+      "instructionFa": "برای پرسش «هنوز تب دارید؟» پاسخ مناسبِ بهترشدن را انتخاب کن.",
+      "selectionReason": "پاسخ درست باید روشن کند علامت دیگر وجود ندارد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "learningTargets": [
+        "پاسخ مناسبِ بهترشدن را انتخاب کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Haben Sie noch Fieber?",
+        "promptFa": "هنوز تب دارید؟",
+        "options": [
+          {
+            "textTarget": "Nein, ich habe kein Fieber mehr.",
+            "translationFa": "نه، دیگر تب ندارم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich habe Fieber.",
+            "translationFa": "تب دارم.",
+            "correct": false
+          },
+          {
+            "textTarget": "Ich habe Husten.",
+            "translationFa": "سرفه دارم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-health-recovery-order",
+      "type": "word_order",
+      "instructionFa": "پاسخ «دیگر سرفه ندارم» را بساز.",
+      "selectionReason": "بازسازی پاسخ منفی، مهارت پیگیری حال را به بازیابی فعال می‌رساند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-018-health"
+      ],
+      "learningTargets": [
+        "بیان کند که یک علامت دیگر وجود ندارد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Nein, ich habe keinen Husten mehr.",
+        "sourceTextFa": "نه، دیگر سرفه ندارم.",
+        "tokens": [
+          "Nein,",
+          "ich",
+          "habe",
+          "keinen",
+          "Husten",
+          "mehr."
+        ],
+        "answer": [
+          "Nein,",
+          "ich",
+          "habe",
+          "keinen",
+          "Husten",
+          "mehr."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "pending"
+}
