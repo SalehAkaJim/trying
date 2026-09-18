@@ -4,35 +4,33 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-public-transport-tickets",
-  "titleFa": "قطار چه ساعتی می‌رسد؟",
+  "titleFa": "ایستگاه بعدی و سکوی قطار",
   "learningTargets": [
-    "زمان رسیدن قطار را بپرسد و پاسخ ساعت را بفهمد.",
-    "پرسش‌های حرکت و رسیدن را از هم تشخیص دهد.",
-    "واژهٔ سکو را در اطلاعات سفر تشخیص دهد."
+    "دربارهٔ توقف اتوبوس در ایستگاه مرکزی سؤال کند.",
+    "زمان حرکت قطار بعدی را در پاسخ کوتاه بفهمد.",
+    "شمارهٔ سکو را از اطلاعات حرکت قطار استخراج کند."
   ],
   "sourceRefs": [
-    "src-wikivoyage-german-phrasebook-transport",
-    "src-wikibooks-de-lesson-024-short-messages"
+    "src-wikibooks-de-transport-dialogue-current"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس سوم اطلاعات اجرایی سفر را پوشش می‌دهد: زمان رسیدن یا حرکت و سکوی مربوط.",
-    "sequenceRationale": "مکالمه زمان رسیدن را معرفی می‌کند، پرسش‌های حرکت و رسیدن مقایسه می‌شوند و در پایان پرسش زمان بازسازی می‌شود.",
+    "activitySelectionRationale": "درس قبلی پاسخ زمانِ ضعیف و پوشش صوری سکو داشت؛ این درس کامل با یک گفت‌وگوی جاری و منبع‌دار دربارهٔ توقف، زمان و سکو جایگزین شده است.",
+    "sequenceRationale": "مکالمهٔ واقعی ابتدا توقف اتوبوس و سپس زمان و سکوی قطار را می‌دهد؛ بعد اطلاعات زمان/سکو تشخیص داده و پرسش قطار بازسازی می‌شود.",
     "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-transport-arrival-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "خودت گفت‌وگو را شروع کن: زمان رسیدن قطار را بپرس.",
-      "selectionReason": "پرسش زمان رسیدن و پاسخ ساعت یک نیاز مستقل در سفر هستند.",
+      "instructionFa": "خودت گفت‌وگو را شروع کن و اطلاعات توقف، زمان و سکو را بگیر.",
+      "selectionReason": "شش نوبت عین گفت‌وگوی حمل‌ونقل منبع هستند و هیچ پاسخ آلمانی برای پرکردن صحنه ساخته نشده است.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-transport",
-        "src-wikibooks-de-lesson-024-short-messages"
+        "src-wikibooks-de-transport-dialogue-current"
       ],
       "learningTargets": [
-        "زمان رسیدن قطار را بپرسد."
+        "اطلاعات توقف، زمان حرکت و سکو را در گفت‌وگو بفهمد."
       ],
       "lexemeRefs": [],
       "dialogueRef": "dlg-de-a1-transport-arrival",
@@ -41,7 +39,7 @@
         "openingInitiator": "learner"
       },
       "transformations": [
-        "other",
+        "verbatim_dialogue",
         "persian_translation_added",
         "character_metadata_added"
       ],
@@ -50,31 +48,31 @@
     {
       "id": "act-de-a1-transport-arrival-choice",
       "type": "multiple_choice",
-      "instructionFa": "کدام پرسش دربارهٔ زمان رسیدن است؟",
-      "selectionReason": "زبان‌آموز باید رسیدن را از حرکت و سکو تشخیص دهد.",
+      "instructionFa": "کدام پاسخ هم زمان و هم شمارهٔ سکو را می‌دهد؟",
+      "selectionReason": "گزینه‌ها همگی عین Dialog 3 منبع هستند.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-transport"
+        "src-wikibooks-de-transport-dialogue-current"
       ],
       "learningTargets": [
-        "پرسش زمان رسیدن را تشخیص دهد."
+        "زمان و سکو را از پاسخ کوتاه استخراج کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "options": [
           {
-            "textTarget": "Wann kommt dieser Zug in Berlin an?",
-            "translationFa": "این قطار چه زمانی به برلین می‌رسد؟",
+            "textTarget": "In 20 Minuten von Gleis 3.",
+            "translationFa": "۲۰ دقیقهٔ دیگر از سکوی ۳.",
             "correct": true
           },
           {
-            "textTarget": "Wann fährt der Zug ab?",
-            "translationFa": "قطار چه زمانی حرکت می‌کند؟",
+            "textTarget": "Ja, das ist die nächste Haltestelle.",
+            "translationFa": "بله، ایستگاه بعدی است.",
             "correct": false
           },
           {
-            "textTarget": "Von welchem Bahnsteig fährt der Zug ab?",
-            "translationFa": "قطار از کدام سکو حرکت می‌کند؟",
+            "textTarget": "Gleich dort, neben der Treppe.",
+            "translationFa": "همان‌جا، کنار پله‌ها.",
             "correct": false
           }
         ]
@@ -88,36 +86,36 @@
     {
       "id": "act-de-a1-transport-arrival-order",
       "type": "word_order",
-      "instructionFa": "پرسش زمان رسیدن را دوباره بساز.",
-      "selectionReason": "پرسش کلیدی درس در پایان به بازیابی فعال منتقل می‌شود.",
+      "instructionFa": "پرسش زمان حرکت قطار بعدی را بساز.",
+      "selectionReason": "پرسش عین گفت‌وگوی منبع است و به بازیابی هدایت‌شده منتقل می‌شود.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-transport"
+        "src-wikibooks-de-transport-dialogue-current"
       ],
       "learningTargets": [
-        "پرسش زمان رسیدن قطار را بازسازی کند."
+        "دربارهٔ زمان حرکت قطار سؤال کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wann kommt dieser Zug in Berlin an?",
-        "sourceTextFa": "این قطار چه زمانی به برلین می‌رسد؟",
+        "sourceText": "Wann fährt der nächste Zug nach Budapest?",
+        "sourceTextFa": "قطار بعدی به بوداپست چه زمانی حرکت می‌کند؟",
         "tokens": [
           "Wann",
-          "kommt",
-          "dieser",
+          "fährt",
+          "der",
+          "nächste",
           "Zug",
-          "in",
-          "Berlin",
-          "an?"
+          "nach",
+          "Budapest?"
         ],
         "answer": [
           "Wann",
-          "kommt",
-          "dieser",
+          "fährt",
+          "der",
+          "nächste",
           "Zug",
-          "in",
-          "Berlin",
-          "an?"
+          "nach",
+          "Budapest?"
         ]
       },
       "transformations": [

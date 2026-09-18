@@ -4,44 +4,39 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-directions-public-places",
-  "titleFa": "قطار چه ساعتی می‌رسه؟ ایستگاه کجاست؟",
+  "titleFa": "ایستگاه و فرودگاه کدام طرف‌اند؟",
   "learningTargets": [
-    "زمان رسیدن قطار را بپرسد و پاسخ ساعت را بفهمد.",
-    "محل ایستگاه قطار را بپرسد.",
-    "چند مکان حمل‌ونقل عمومی را از هم تشخیص دهد."
+    "مسیر ایستگاه قطار را به شکل ساده بپرسد.",
+    "مسیر فرودگاه را به شکل ساده بپرسد.",
+    "راهنمایی بسیار کوتاهِ راست و مستقیم را بفهمد."
   ],
   "sourceRefs": [
-    "src-wikibooks-de-lesson-024-short-messages",
-    "src-wikibooks-de-lesson-006-where-when",
-    "src-wikibooks-german-print-directions",
     "src-wikivoyage-german-phrasebook-directions"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس جهت‌های چپ/راستِ درس اصلی را تکرار نمی‌کند؛ واحد را به یک نیاز سفر تازه یعنی زمان رسیدن قطار و پیدا کردن ایستگاه گسترش می‌دهد.",
-    "sequenceRationale": "مکالمه زمان و مکان را ترکیب می‌کند، تطبیق واژگان حمل‌ونقل دامنه را باز می‌کند و بازسازی پرسش رسیدن قطار تولید هدایت‌شده می‌دهد.",
-    "templateSignature": "conversation_speaking>matching>word_order"
+    "activitySelectionRationale": "درس قبلی با حمل‌ونقل عمومی هم‌پوشانی داشت و به نمونهٔ زمانی ضعیف متکی بود؛ این جایگزین فقط مهارت مسیر و مکان عمومی را با phrasebook فعلی پوشش می‌دهد.",
+    "sequenceRationale": "از دو پرسش مسیر و دو پاسخ کوتاه شروع می‌شود، سپس جهت درست تشخیص داده می‌شود و در پایان یک پرسش مسیر بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-directions-sequence-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "زمان رسیدن قطار را بپرس و بعد ایستگاه را پیدا کن.",
-      "selectionReason": "دو مسئلهٔ واقعی سفر در یک مکالمهٔ کوتاه و منبع‌دار ترکیب شده‌اند.",
+      "instructionFa": "خودت گفت‌وگو را شروع کن: مسیر ایستگاه و فرودگاه را بپرس.",
+      "selectionReason": "پرسش‌ها از الگوی مقصد در منبع و پاسخ‌ها از عبارت‌های جهت همان منبع می‌آیند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-024-short-messages",
-        "src-wikibooks-de-lesson-006-where-when",
-        "src-wikibooks-german-print-directions"
+        "src-wikivoyage-german-phrasebook-directions"
       ],
       "learningTargets": [
-        "زمان قطار و محل ایستگاه را بفهمد."
+        "برای دو مکان عمومی مسیر بپرسد."
       ],
       "lexemeRefs": [],
       "dialogueRef": "dlg-de-a1-train-arrival-station",
       "data": {
         "interaction": "read_aloud_exchange",
-        "openingInitiator": "app"
+        "openingInitiator": "learner"
       },
       "transformations": [
         "other",
@@ -52,47 +47,38 @@
     },
     {
       "id": "act-de-a1-directions-sequence-review-choice",
-      "type": "matching",
-      "instructionFa": "هر مکان حمل‌ونقل را به معنی درست وصل کن.",
-      "selectionReason": "چهار مقصد پرتکرار، واژگان سفر شهری را فراتر از یک ایستگاه گسترش می‌دهند.",
+      "type": "multiple_choice",
+      "instructionFa": "کدام عبارت یعنی «به راست بپیچید»؟",
+      "selectionReason": "سه گزینه همگی عین عبارت‌های مسیر در منبع هستند.",
       "sourceRefs": [
         "src-wikivoyage-german-phrasebook-directions"
       ],
       "learningTargets": [
-        "مکان‌های حمل‌ونقل عمومی را تشخیص دهد."
+        "راهنمایی راست را تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "pairs": [
+        "options": [
           {
-            "left": "Bahnhof",
-            "leftFa": "ایستگاه قطار",
-            "right": "ایستگاه قطار",
-            "rightFa": "ایستگاه قطار"
+            "textTarget": "Rechts abbiegen.",
+            "translationFa": "به راست بپیچید.",
+            "correct": true
           },
           {
-            "left": "Bushaltestelle",
-            "leftFa": "ایستگاه اتوبوس",
-            "right": "ایستگاه اتوبوس",
-            "rightFa": "ایستگاه اتوبوس"
+            "textTarget": "Links abbiegen.",
+            "translationFa": "به چپ بپیچید.",
+            "correct": false
           },
           {
-            "left": "Flughafen",
-            "leftFa": "فرودگاه",
-            "right": "فرودگاه",
-            "rightFa": "فرودگاه"
-          },
-          {
-            "left": "Stadtmitte",
-            "leftFa": "مرکز شهر",
-            "right": "مرکز شهر",
-            "rightFa": "مرکز شهر"
+            "textTarget": "geradeaus",
+            "translationFa": "مستقیم.",
+            "correct": false
           }
         ]
       },
       "transformations": [
-        "source_items_grouped_for_matching",
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
@@ -100,32 +86,32 @@
     {
       "id": "act-de-a1-directions-sequence-review-fill",
       "type": "word_order",
-      "instructionFa": "پرسش زمان رسیدن قطار را بساز.",
-      "selectionReason": "فعل جداشدنیِ رسیدن در یک جملهٔ کوتاه و واقعی به‌صورت هدایت‌شده بازیابی می‌شود.",
+      "instructionFa": "پرسش مسیر فرودگاه را بساز.",
+      "selectionReason": "جمله از الگوی مقصد و نمونهٔ فرودگاهِ خود منبع ساخته شده و فقط tokenized می‌شود.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-024-short-messages"
+        "src-wikivoyage-german-phrasebook-directions"
       ],
       "learningTargets": [
-        "پرسش زمان رسیدن قطار را بازسازی کند."
+        "پرسش مسیر یک مکان عمومی را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wann kommt der Zug an?",
-        "sourceTextFa": "قطار چه زمانی می‌رسد؟",
+        "sourceText": "Wie komme ich zum Flughafen?",
+        "sourceTextFa": "چطور به فرودگاه برسم؟",
         "tokens": [
-          "Wann",
-          "kommt",
-          "der",
-          "Zug",
-          "an?"
+          "Wie",
+          "komme",
+          "ich",
+          "zum",
+          "Flughafen?"
         ],
         "answer": [
-          "Wann",
-          "kommt",
-          "der",
-          "Zug",
-          "an?"
+          "Wie",
+          "komme",
+          "ich",
+          "zum",
+          "Flughafen?"
         ]
       },
       "transformations": [

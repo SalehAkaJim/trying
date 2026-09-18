@@ -4,11 +4,11 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-time-plans-appointment",
-  "titleFa": "این ساعت نمی‌شه؛ ساعت دیگه چطور؟",
+  "titleFa": "این برنامه براتون مناسبه؟",
   "learningTargets": [
-    "یک زمان دقیق را مؤدبانه رد کند.",
-    "زمان و محل جایگزین را در پیشنهاد بفهمد.",
-    "مناسب‌بودن زمان پیشنهادی را تأیید کند."
+    "پرسش دربارهٔ مناسب‌بودن یک برنامه را بفهمد.",
+    "موافقت روشن با یک پیشنهاد را تشخیص دهد.",
+    "یک پاسخ کوتاه موافقت را بازسازی کند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-021-time-appointment"
@@ -16,21 +16,21 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "دو درس قبلی بازهٔ برنامه و دعوت را پوشش می‌دهند؛ این درس مذاکرهٔ واقعی روی ساعت دقیق و تأیید زمان/محل را اضافه می‌کند.",
-    "sequenceRationale": "رد یک ساعت در مکالمه به پیشنهاد ساعت تازه می‌رسد، سپس تشخیص معنای توافق و بازسازی پرسش زمان تمرین می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "به‌جای دستکاری جملهٔ آلمانی مشکل‌دار قبلی، کل درس با نمونه‌های صحیح و عیناً منبع‌دارِ موافقت با برنامه جایگزین شده است.",
+    "sequenceRationale": "مکالمه دو نمونهٔ موافقت را در بافت می‌آورد، سپس پاسخ مناسب انتخاب می‌شود و در پایان یک پاسخ کوتاه بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>choose_response>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-time-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "یک ساعت نامناسب را رد کن و زمان جایگزین را تأیید کن.",
-      "selectionReason": "جفت‌های منبع‌دار ساعت ۱۲ و ۱۹:۴۵، چرخهٔ رد → پیشنهاد → تأیید را کامل می‌کنند.",
+      "instructionFa": "در دو برنامهٔ کوتاه، مناسب‌بودن پیشنهاد را بفهم و موافقت کن.",
+      "selectionReason": "چهار نوبت عین بخش موافقت منبع هستند و خطای جملهٔ قبلی را بدون بازنویسی آلمانی حذف می‌کنند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-021-time-appointment"
       ],
       "learningTargets": [
-        "زمان دقیق را مذاکره و تأیید کند."
+        "پرسش و پاسخ موافقت را در گفت‌وگو بفهمد."
       ],
       "lexemeRefs": [],
       "dialogueRef": "dlg-de-a1-reschedule-exact-time",
@@ -39,7 +39,7 @@
         "openingInitiator": "app"
       },
       "transformations": [
-        "other",
+        "verbatim_dialogue",
         "persian_translation_added",
         "character_metadata_added"
       ],
@@ -47,27 +47,29 @@
     },
     {
       "id": "act-de-a1-time-review-matching",
-      "type": "multiple_choice",
-      "instructionFa": "کدام جمله یعنی «این زمان برای من مناسبه»؟",
-      "selectionReason": "زبان‌آموز باید پاسخ توافق را از رد زمان تشخیص دهد.",
+      "type": "choose_response",
+      "instructionFa": "برای این پیشنهاد، پاسخ موافقت را انتخاب کن.",
+      "selectionReason": "گزینهٔ درست و گزینه‌های دیگر همگی از نمونه‌های همان منبع انتخاب شده‌اند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-021-time-appointment"
       ],
       "learningTargets": [
-        "تأیید مناسب‌بودن زمان را تشخیص دهد."
+        "پاسخ موافقت را از رد یا تعویق تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "promptTarget": "Ich begleite Sie noch ein Stück. Ist Ihnen das recht?",
+        "promptFa": "کمی دیگر همراهتان می‌آیم. برایتان مناسب است؟",
         "options": [
           {
-            "textTarget": "Ja, das passt mir.",
-            "translationFa": "بله، برایم مناسب است.",
+            "textTarget": "Ja, ich bin einverstanden.",
+            "translationFa": "بله، موافقم.",
             "correct": true
           },
           {
-            "textTarget": "Es tut mir leid, um 12 Uhr geht es nicht.",
-            "translationFa": "متأسفم، ساعت ۱۲ نمی‌شود.",
+            "textTarget": "Es tut mir leid, heute geht es nicht.",
+            "translationFa": "متأسفم، امروز نمی‌شود.",
             "correct": false
           },
           {
@@ -86,36 +88,32 @@
     {
       "id": "act-de-a1-time-review-order",
       "type": "word_order",
-      "instructionFa": "پرسش قرار ساعت ۱۲ را بساز.",
-      "selectionReason": "بازسازی پرسش، الگوی um + ساعت را در یک درخواست واقعی تثبیت می‌کند.",
+      "instructionFa": "پاسخ کوتاه موافقت را بساز.",
+      "selectionReason": "این پاسخ عین نمونهٔ منبع است و به بازیابی فعال منتقل می‌شود.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-021-time-appointment"
       ],
       "learningTargets": [
-        "پرسش با ساعت دقیق را بازسازی کند."
+        "پاسخ موافقت را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Warten Sie um 12 Uhr auf mich?",
-        "sourceTextFa": "ساعت ۱۲ منتظر من می‌مانید؟",
+        "sourceText": "Ja, das ist mir recht.",
+        "sourceTextFa": "بله، برای من مناسب است.",
         "tokens": [
-          "Warten",
-          "Sie",
-          "um",
-          "12",
-          "Uhr",
-          "auf",
-          "mich?"
+          "Ja,",
+          "das",
+          "ist",
+          "mir",
+          "recht."
         ],
         "answer": [
-          "Warten",
-          "Sie",
-          "um",
-          "12",
-          "Uhr",
-          "auf",
-          "mich?"
+          "Ja,",
+          "das",
+          "ist",
+          "mir",
+          "recht."
         ]
       },
       "transformations": [

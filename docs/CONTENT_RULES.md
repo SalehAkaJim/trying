@@ -3,6 +3,10 @@
 ## Source-first
 Target-language teaching content is source-driven and traceable. Do not invent target-language dialogue/examples merely to fill gaps.
 
+## No assistant-authored German
+
+For German learner-facing content, the assistant must never author, correct, normalize, or rewrite German text. If a German string is wrong, unnatural, outdated, or too difficult, replace the whole affected lesson/item with eligible source-backed German. Direct edits are allowed only for Persian translation/support/editorial metadata. Mechanical transformations explicitly licensed by the source structure, such as placeholder substitution or tokenization, must be logged.
+
 ## Persian editorial prose
 Project-authored learner support and curriculum/editorial prose must be Persian. Exact target-language text, proper names, IDs/enums, source titles, bibliographic/license metadata and URLs are exempt.
 

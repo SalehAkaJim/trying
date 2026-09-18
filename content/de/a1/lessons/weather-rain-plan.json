@@ -4,39 +4,39 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-weather-temperature",
-  "titleFa": "چتر بردار؛ بارون میاد",
+  "titleFa": "آفتابی یا ابری؟",
   "learningTargets": [
-    "دربارهٔ باران یا خوب‌ماندن هوا سؤال کند.",
-    "پیش‌بینی سادهٔ بدی هوا را بفهمد.",
-    "توصیهٔ همراه‌داشتن چتر را تشخیص دهد."
+    "دربارهٔ هوای یک شهر سؤال کند.",
+    "آفتابی‌بودن هوا را در پاسخ کوتاه بفهمد.",
+    "ابری‌بودن هوا را در پاسخ کوتاه بفهمد."
   ],
   "sourceRefs": [
-    "src-wikibooks-german-print-weather"
+    "src-wikibooks-de-weather-appendix"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس دوم هوا را به یک تصمیم روزمره وصل می‌کند: آیا باران می‌آید و آیا باید چتر برداشت.",
-    "sequenceRationale": "مکالمه پیش‌بینی و توصیه را در بافت قرار می‌دهد، سپس انتخاب پاسخ و بازسازی پرسش انجام می‌شود.",
-    "templateSignature": "conversation_speaking>choose_response>word_order"
+    "activitySelectionRationale": "ساختارهای سنگین پیش‌بینی و توصیهٔ درس قبلی حذف شده‌اند؛ این جایگزین فقط عبارت‌های ساده و عیناً منبع‌دارِ وضعیت فعلی هوا را تمرین می‌دهد.",
+    "sequenceRationale": "مکالمه دو وضعیت ساده را می‌آورد، سپس وضعیت درست تشخیص داده می‌شود و پرسش پایهٔ هوا بازسازی می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-weather-rain-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "خودت گفت‌وگو را شروع کن: دربارهٔ باران بپرس و توصیهٔ مربوط به چتر را بفهم.",
-      "selectionReason": "مکالمهٔ منبع‌دار هوا را مستقیماً به تصمیم روزانه وصل می‌کند.",
+      "instructionFa": "دو وضعیت سادهٔ آفتابی و ابری را در گفت‌وگو دنبال کن.",
+      "selectionReason": "چهار نوبت فقط از پرسش و پاسخ‌های سادهٔ منبع تشکیل شده‌اند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "learningTargets": [
-        "پیش‌بینی باران و توصیهٔ چتر را بفهمد."
+        "آفتابی و ابری بودن هوا را بفهمد."
       ],
       "lexemeRefs": [],
       "dialogueRef": "dlg-de-a1-weather-rain-plan",
       "data": {
         "interaction": "read_aloud_exchange",
-        "openingInitiator": "learner"
+        "openingInitiator": "app"
       },
       "transformations": [
         "verbatim_dialogue",
@@ -47,34 +47,32 @@
     },
     {
       "id": "act-de-a1-weather-rain-response",
-      "type": "choose_response",
-      "instructionFa": "اگر امروز باران پیش‌بینی شده، کدام جملهٔ منبع به چتر اشاره می‌کند؟",
-      "selectionReason": "توصیهٔ کاربردی از جمله‌های صرفاً توصیفی جدا می‌شود.",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله یعنی هوا ابری است؟",
+      "selectionReason": "سه گزینه عین عبارت‌های وضعیت هوا در منبع هستند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "learningTargets": [
-        "توصیهٔ همراه‌داشتن چتر را تشخیص دهد."
+        "وضعیت ابری را تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "promptTarget": "Es soll heute regnen.",
-        "promptFa": "قرار است امروز باران ببارد.",
         "options": [
           {
-            "textTarget": "Nimm bitte deinen Regenschirm mit!",
-            "translationFa": "لطفاً چترت را با خودت ببر!",
+            "textTarget": "Es ist bewölkt",
+            "translationFa": "هوا ابری است.",
             "correct": true
           },
           {
-            "textTarget": "In Berlin scheint die Sonne.",
-            "translationFa": "در برلین خورشید می‌تابد.",
+            "textTarget": "Es ist sonnig",
+            "translationFa": "هوا آفتابی است.",
             "correct": false
           },
           {
-            "textTarget": "Wie wird das Wetter?",
-            "translationFa": "هوا چطور خواهد شد؟",
+            "textTarget": "Es ist regnerisch",
+            "translationFa": "هوا بارانی است.",
             "correct": false
           }
         ]
@@ -88,36 +86,34 @@
     {
       "id": "act-de-a1-weather-rain-order",
       "type": "word_order",
-      "instructionFa": "پرسش «باران می‌آید یا هوا خوب می‌ماند؟» را بساز.",
-      "selectionReason": "پرسش کلیدی تصمیم‌گیری روزانه به بازیابی فعال منتقل می‌شود.",
+      "instructionFa": "پرسش سادهٔ هوا در برلین را بساز.",
+      "selectionReason": "پرسش عین منبع است و فقط برای بازسازی tokenized شده است.",
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "learningTargets": [
-        "دربارهٔ باران سؤال کند."
+        "دربارهٔ هوای یک شهر سؤال کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wird es regnen, oder bleibt es schön?",
-        "sourceTextFa": "باران می‌آید یا هوا خوب می‌ماند؟",
+        "sourceText": "Wie ist das Wetter in Berlin?",
+        "sourceTextFa": "هوا در برلین چطور است؟",
         "tokens": [
-          "Wird",
-          "es",
-          "regnen,",
-          "oder",
-          "bleibt",
-          "es",
-          "schön?"
+          "Wie",
+          "ist",
+          "das",
+          "Wetter",
+          "in",
+          "Berlin?"
         ],
         "answer": [
-          "Wird",
-          "es",
-          "regnen,",
-          "oder",
-          "bleibt",
-          "es",
-          "schön?"
+          "Wie",
+          "ist",
+          "das",
+          "Wetter",
+          "in",
+          "Berlin?"
         ]
       },
       "transformations": [

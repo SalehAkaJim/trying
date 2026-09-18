@@ -3,9 +3,9 @@
   "languageId": "de",
   "level": "A1",
   "sourceRefs": [
-    "src-wikibooks-german-print-weather"
+    "src-wikibooks-de-weather-appendix"
   ],
-  "scenario": "آیریس دو بار دمای دماسنج را می‌پرسد و پاول یک نمونهٔ مثبت و یک نمونهٔ منفی را می‌خواند.",
+  "scenario": "دو پاسخ بسیار سادهٔ وضعیت فعلی هوا برای باران و برف تمرین می‌شوند.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-iris",
@@ -17,13 +17,13 @@
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Wie viel Grad zeigt das Thermometer an?",
-      "translationFa": "دماسنج چند درجه نشان می‌دهد؟",
+      "textTarget": "Wie ist das Wetter in Berlin?",
+      "translationFa": "هوا در برلین چطور است؟",
       "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "audioRef": null
     },
@@ -32,13 +32,13 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Das Thermometer zeigt 15 Grad (Celsius) an.",
-      "translationFa": "دماسنج ۱۵ درجهٔ سانتی‌گراد نشان می‌دهد.",
+      "textTarget": "Es regnet",
+      "translationFa": "باران می‌بارد.",
       "learnerTurn": true,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "audioRef": null
     },
@@ -47,13 +47,13 @@
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Wie viel Grad zeigt das Thermometer an?",
-      "translationFa": "دماسنج چند درجه نشان می‌دهد؟",
+      "textTarget": "Wie ist das Wetter in Berlin?",
+      "translationFa": "هوا در برلین چطور است؟",
       "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "audioRef": null
     },
@@ -62,17 +62,17 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Das Thermometer zeigt minus 15 Grad (Celsius) an.",
-      "translationFa": "دماسنج منفی ۱۵ درجهٔ سانتی‌گراد نشان می‌دهد.",
+      "textTarget": "Es schneit",
+      "translationFa": "برف می‌بارد.",
       "learnerTurn": true,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "پرسش دما و هر دو پاسخ مثبت و منفی عین بخش عبارت‌های رایج هوا هستند.",
+  "sceneQualityRationale": "پرسش و هر دو پاسخ عین بخش واژگان آب‌وهوای منبع‌اند و متن آلمانی دستکاری نشده است.",
   "learnerCharacterId": "char-de-paul"
 }

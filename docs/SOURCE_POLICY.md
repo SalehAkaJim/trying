@@ -4,6 +4,10 @@
 
 The course should be built from identifiable external language-learning sources rather than newly authored target-language teaching content.
 
+## German authorship restriction
+
+For German learner-facing content, source-first is absolute: the assistant may not create, repair, paraphrase, normalize, or otherwise rewrite German. A defective German item must be replaced from an eligible reusable source rather than edited. Persian translations and editorial metadata may be corrected directly. Mechanical transformations such as tokenization or source-provided placeholder substitution are allowed only when traceable and logged.
+
 ## Modern-source requirement
 
 Learner-facing instructional content must come from **modern, contemporary sources**.

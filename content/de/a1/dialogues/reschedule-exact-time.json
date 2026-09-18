@@ -5,7 +5,7 @@
   "sourceRefs": [
     "src-wikibooks-de-lesson-021-time-appointment"
   ],
-  "scenario": "یک زمان مشخص رد می‌شود و بعد یک زمان و محل دقیق جایگزین تأیید می‌شود.",
+  "scenario": "دو نفر دربارهٔ مناسب‌بودن دو برنامهٔ ساده صحبت می‌کنند و موافقت خود را با دو پاسخ منبع‌دار بیان می‌کنند.",
   "openingInitiator": "app",
   "characterRefs": [
     "char-de-iris",
@@ -17,8 +17,8 @@
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Warten Sie um 12 Uhr auf mich?",
-      "translationFa": "ساعت ۱۲ منتظر من می‌مانید؟",
+      "textTarget": "Ich begleite Sie noch ein Stück. Ist Ihnen das recht?",
+      "translationFa": "کمی دیگر همراهتان می‌آیم. برایتان مناسب است؟",
       "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
@@ -32,8 +32,8 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Es tut mir leid, um 12 Uhr geht es nicht.",
-      "translationFa": "متأسفم، ساعت ۱۲ نمی‌شود.",
+      "textTarget": "Ja, ich bin einverstanden.",
+      "translationFa": "بله، موافقم.",
       "learnerTurn": true,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
@@ -47,8 +47,8 @@
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Dann warte ich morgen am Kino 19.45 Uhr. Ist Ihnen das Recht?",
-      "translationFa": "پس فردا ساعت ۱۹:۴۵ جلوی سینما منتظرتان می‌مانم. برایتان مناسب است؟",
+      "textTarget": "Wir gehen nicht ins Theater. Ist Ihnen das recht?",
+      "translationFa": "به تئاتر نمی‌رویم. برایتان مناسب است؟",
       "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
@@ -62,8 +62,8 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Ja, das passt mir. Gut, morgen Abend am Kino.",
-      "translationFa": "بله، برایم مناسب است. خوب، فردا شب جلوی سینما.",
+      "textTarget": "Ja, das ist mir recht.",
+      "translationFa": "بله، برای من مناسب است.",
       "learnerTurn": true,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
@@ -73,6 +73,6 @@
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "پاسخ رد ساعت از تمرین ۸۸۶ و جفت توافق زمان/مکان از گفت‌وگوی ۸۷۷ عین منبع حفظ شده‌اند.",
+  "sceneQualityRationale": "چهار نوبت عین نمونه‌های موافقت در بخش ۸۸۵ منبع انتخاب شده‌اند؛ متن آلمانی بازنویسی نشده است.",
   "learnerCharacterId": "char-de-paul"
 }

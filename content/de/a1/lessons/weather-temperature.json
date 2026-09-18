@@ -4,33 +4,33 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-weather-temperature",
-  "titleFa": "دماسنج چند درجه نشان می‌دهد؟",
+  "titleFa": "باران یا برف؟",
   "learningTargets": [
-    "دربارهٔ دمای دماسنج سؤال کند.",
-    "دمای مثبت را در پاسخ کوتاه بفهمد.",
-    "دمای منفی را از دمای مثبت تشخیص دهد."
+    "بارانی‌بودن هوا را در پاسخ کوتاه بفهمد.",
+    "برفی‌بودن هوا را در پاسخ کوتاه بفهمد.",
+    "دو وضعیت سادهٔ باران و برف را از هم تشخیص دهد."
   ],
   "sourceRefs": [
-    "src-wikibooks-german-print-weather"
+    "src-wikibooks-de-weather-appendix"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس سوم عدد و دما را به واحد هوا اضافه می‌کند و تفاوت مقدار مثبت و منفی را در یک الگوی ثابت تمرین می‌دهد.",
-    "sequenceRationale": "مکالمه دو دمای متضاد را معرفی می‌کند، تشخیص عدد انجام می‌شود و در پایان پرسش دما بازسازی می‌شود.",
+    "activitySelectionRationale": "عبارت‌های دماسنجِ مصنوعی درس قبلی کنار گذاشته شده‌اند؛ این درس کامل با دو وضعیت بسیار ساده و منبع‌دار باران و برف جایگزین شده است.",
+    "sequenceRationale": "مکالمه دو وضعیت را معرفی می‌کند، سپس معنی باران تشخیص داده می‌شود و در پایان عبارت برف بازسازی می‌شود.",
     "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-weather-temperature-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "دو دمای مثبت و منفی را در گفت‌وگو بخوان.",
-      "selectionReason": "تکرار یک پرسش ثابت با دو پاسخ متضاد تمرکز را روی عدد و علامت دما نگه می‌دارد.",
+      "instructionFa": "دو وضعیت سادهٔ باران و برف را در گفت‌وگو دنبال کن.",
+      "selectionReason": "چهار نوبت عین پرسش و پاسخ‌های بخش واژگان آب‌وهوا هستند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "learningTargets": [
-        "دمای مثبت و منفی را بفهمد."
+        "باران و برف را در گفت‌وگو بفهمد."
       ],
       "lexemeRefs": [],
       "dialogueRef": "dlg-de-a1-weather-temperature",
@@ -48,31 +48,31 @@
     {
       "id": "act-de-a1-weather-temperature-choice",
       "type": "multiple_choice",
-      "instructionFa": "کدام پاسخ دمای زیر صفر را نشان می‌دهد؟",
-      "selectionReason": "دو مقدار هم‌اندازه با علامت متفاوت برای تشخیص منفی انتخاب شده‌اند.",
+      "instructionFa": "کدام جمله یعنی باران می‌بارد؟",
+      "selectionReason": "سه گزینه همگی عین عبارت‌های منبع هستند.",
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "learningTargets": [
-        "دمای منفی را تشخیص دهد."
+        "عبارت باران را تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "options": [
           {
-            "textTarget": "Das Thermometer zeigt minus 15 Grad (Celsius) an.",
-            "translationFa": "دماسنج منفی ۱۵ درجهٔ سانتی‌گراد نشان می‌دهد.",
+            "textTarget": "Es regnet",
+            "translationFa": "باران می‌بارد.",
             "correct": true
           },
           {
-            "textTarget": "Das Thermometer zeigt 15 Grad (Celsius) an.",
-            "translationFa": "دماسنج ۱۵ درجهٔ سانتی‌گراد نشان می‌دهد.",
+            "textTarget": "Es schneit",
+            "translationFa": "برف می‌بارد.",
             "correct": false
           },
           {
-            "textTarget": "In Berlin scheint die Sonne.",
-            "translationFa": "در برلین خورشید می‌تابد.",
+            "textTarget": "Es nieselt",
+            "translationFa": "نم‌نم باران می‌بارد.",
             "correct": false
           }
         ]
@@ -86,36 +86,26 @@
     {
       "id": "act-de-a1-weather-temperature-order",
       "type": "word_order",
-      "instructionFa": "پرسش دمای دماسنج را بساز.",
-      "selectionReason": "پرسش اصلی درس به بازیابی فعال منتقل می‌شود.",
+      "instructionFa": "عبارت «برف می‌بارد» را بساز.",
+      "selectionReason": "عبارت عین منبع است و فقط برای بازیابی tokenized شده است.",
       "sourceRefs": [
-        "src-wikibooks-german-print-weather"
+        "src-wikibooks-de-weather-appendix"
       ],
       "learningTargets": [
-        "دربارهٔ دما سؤال کند."
+        "عبارت برف را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wie viel Grad zeigt das Thermometer an?",
-        "sourceTextFa": "دماسنج چند درجه نشان می‌دهد؟",
+        "sourceText": "Es schneit",
+        "sourceTextFa": "برف می‌بارد.",
         "tokens": [
-          "Wie",
-          "viel",
-          "Grad",
-          "zeigt",
-          "das",
-          "Thermometer",
-          "an?"
+          "Es",
+          "schneit"
         ],
         "answer": [
-          "Wie",
-          "viel",
-          "Grad",
-          "zeigt",
-          "das",
-          "Thermometer",
-          "an?"
+          "Es",
+          "schneit"
         ]
       },
       "transformations": [

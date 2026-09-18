@@ -3,12 +3,10 @@
   "languageId": "de",
   "level": "A1",
   "sourceRefs": [
-    "src-wikibooks-de-lesson-024-short-messages",
-    "src-wikibooks-de-lesson-006-where-when",
-    "src-wikibooks-german-print-directions"
+    "src-wikivoyage-german-phrasebook-directions"
   ],
-  "scenario": "مسافر زمان رسیدن قطار و محل ایستگاه را می‌پرسد.",
-  "openingInitiator": "app",
+  "scenario": "مسافر مسیر ایستگاه قطار و فرودگاه را می‌پرسد و دو راهنمایی بسیار کوتاه را می‌شنود.",
+  "openingInitiator": "learner",
   "characterRefs": [
     "char-de-paul",
     "char-de-iris"
@@ -19,13 +17,13 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Wann kommt der Zug an?",
-      "translationFa": "قطار چه زمانی می‌رسد؟",
-      "learnerTurn": false,
+      "textTarget": "Wie komme ich zum Bahnhof?",
+      "translationFa": "چطور به ایستگاه قطار برسم؟",
+      "learnerTurn": true,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-de-lesson-024-short-messages"
+        "src-wikivoyage-german-phrasebook-directions"
       ],
       "audioRef": null
     },
@@ -34,13 +32,13 @@
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Der Zug kommt 16.20 Uhr an.",
-      "translationFa": "قطار ساعت ۱۶:۲۰ می‌رسد.",
-      "learnerTurn": true,
+      "textTarget": "Rechts abbiegen.",
+      "translationFa": "به راست بپیچید.",
+      "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-de-lesson-024-short-messages"
+        "src-wikivoyage-german-phrasebook-directions"
       ],
       "audioRef": null
     },
@@ -49,13 +47,13 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Wo ist der Bahnhof?",
-      "translationFa": "ایستگاه قطار کجاست؟",
-      "learnerTurn": false,
+      "textTarget": "Wie komme ich zum Flughafen?",
+      "translationFa": "چطور به فرودگاه برسم؟",
+      "learnerTurn": true,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-de-lesson-006-where-when"
+        "src-wikivoyage-german-phrasebook-directions"
       ],
       "audioRef": null
     },
@@ -64,17 +62,17 @@
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Gleich dort drüben.",
-      "translationFa": "همین آن طرف.",
-      "learnerTurn": true,
+      "textTarget": "geradeaus",
+      "translationFa": "مستقیم.",
+      "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-wikivoyage-german-phrasebook-directions"
       ],
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "دو جفت کاربردیِ زمان رسیدن و پیدا کردن ایستگاه از منابع جدا اما سازگار در یک سناریوی سفر کوتاه ترکیب شده‌اند.",
-  "learnerCharacterId": "char-de-iris"
+  "sceneQualityRationale": "پرسش‌های مسیر با جای‌گذاری مستقیم مقصد در الگوی خود منبع ساخته شده‌اند و پاسخ‌های جهت نیز عین عبارت‌های phrasebook هستند.",
+  "learnerCharacterId": "char-de-paul"
 }

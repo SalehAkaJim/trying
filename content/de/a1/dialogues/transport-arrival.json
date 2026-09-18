@@ -3,10 +3,9 @@
   "languageId": "de",
   "level": "A1",
   "sourceRefs": [
-    "src-wikivoyage-german-phrasebook-transport",
-    "src-wikibooks-de-lesson-024-short-messages"
+    "src-wikibooks-de-transport-dialogue-current"
   ],
-  "scenario": "پاول گفت‌وگو را با پرسیدن زمان رسیدن قطار به برلین شروع می‌کند و آیریس پاسخ ساعت منبع‌دار را می‌دهد.",
+  "scenario": "مسافر ابتدا دربارهٔ توقف اتوبوس در ایستگاه مرکزی و سپس زمان حرکت و سکوی قطار سؤال می‌کند.",
   "openingInitiator": "learner",
   "characterRefs": [
     "char-de-paul",
@@ -18,13 +17,13 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Wann kommt dieser Zug in Berlin an?",
-      "translationFa": "این قطار چه زمانی به برلین می‌رسد؟",
+      "textTarget": "Entschuldigung, hält dieser Bus am Hauptbahnhof?",
+      "translationFa": "ببخشید، این اتوبوس در ایستگاه مرکزی توقف می‌کند؟",
       "learnerTurn": true,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-transport"
+        "src-wikibooks-de-transport-dialogue-current"
       ],
       "audioRef": null
     },
@@ -33,13 +32,13 @@
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Der Zug kommt 16.20 Uhr an.",
-      "translationFa": "قطار ساعت ۱۶:۲۰ می‌رسد.",
+      "textTarget": "Ja, das ist die nächste Haltestelle.",
+      "translationFa": "بله، ایستگاه بعدی است.",
       "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikibooks-de-lesson-024-short-messages"
+        "src-wikibooks-de-transport-dialogue-current"
       ],
       "audioRef": null
     },
@@ -48,32 +47,62 @@
       "speakerCharacterId": "char-de-paul",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Danke.",
-      "translationFa": "ممنون.",
+      "textTarget": "Vielen Dank.",
+      "translationFa": "خیلی ممنون.",
       "learnerTurn": true,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-transport"
+        "src-wikibooks-de-transport-dialogue-current"
       ],
       "audioRef": null
     },
     {
       "id": "turn-de-a1-transport-arrival-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wann fährt der nächste Zug nach Budapest?",
+      "translationFa": "قطار بعدی به بوداپست چه زمانی حرکت می‌کند؟",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-transport-dialogue-current"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-arrival-5",
       "speakerCharacterId": "char-de-iris",
       "speakerIdentityOrigin": "app_assigned",
       "speakerGenderEvidence": "unspecified",
-      "textTarget": "Bitte schön!",
-      "translationFa": "خواهش می‌کنم.",
+      "textTarget": "In 20 Minuten von Gleis 3.",
+      "translationFa": "۲۰ دقیقهٔ دیگر از سکوی ۳.",
       "learnerTurn": false,
       "lexemeRefs": [],
       "lexemeOccurrences": [],
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-transport"
+        "src-wikibooks-de-transport-dialogue-current"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-arrival-6",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Perfekt, danke für die Information.",
+      "translationFa": "عالی، ممنون بابت اطلاعات.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-transport-dialogue-current"
       ],
       "audioRef": null
     }
   ],
-  "sceneQualityRationale": "پرسش زمان رسیدن از الگوی جاری عبارت‌نامه با مقصد برلین و پاسخ ساعت از نمونهٔ منبع‌دار درس ۰۲۴ ترکیب شده‌اند.",
+  "sceneQualityRationale": "شش نوبت عین Dialog 3 منبع نگه داشته شده‌اند و هیچ جملهٔ آلمانی برای اتصال صحنه ساخته نشده است.",
   "learnerCharacterId": "char-de-paul"
 }
