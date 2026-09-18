@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "provider": "elevenlabs",
   "language": "de",
-  "resolvedAt": "2026-09-18T08:41:10Z",
+  "resolvedAt": "2026-09-18T09:45:04Z",
   "standalone": {
     "voiceId": "tnSpp4vdxKPjI9w0GnoV",
     "voiceName": "Hope - upbeat and clear",
@@ -12,11 +12,11 @@
       "category": "professional",
       "labels": {
         "gender": "female",
-        "accent": "american",
-        "descriptive": "upbeat",
         "age": "young",
-        "use_case": "social_media",
-        "language": "en"
+        "descriptive": "upbeat",
+        "accent": "american",
+        "language": "en",
+        "use_case": "social_media"
       },
       "verifiedLanguages": [
         {
@@ -187,10 +187,10 @@
         "category": "professional",
         "labels": {
           "gender": "female",
+          "language": "de",
+          "age": "young",
           "accent": "standard",
           "descriptive": "confident",
-          "age": "young",
-          "language": "de",
           "use_case": "conversational"
         },
         "verifiedLanguages": [
@@ -480,11 +480,11 @@
       "providerMetadata": {
         "category": "professional",
         "labels": {
+          "descriptive": "calm",
+          "language": "de",
           "gender": "male",
           "accent": "standard",
-          "descriptive": "calm",
           "age": "middle_aged",
-          "language": "de",
           "use_case": "informative_educational"
         },
         "verifiedLanguages": [
@@ -754,10 +754,10 @@
         "category": "professional",
         "labels": {
           "gender": "female",
+          "language": "fr",
+          "age": "young",
           "accent": "standard",
           "descriptive": "pleasant",
-          "age": "young",
-          "language": "fr",
           "use_case": "conversational"
         },
         "verifiedLanguages": [
@@ -1041,11 +1041,11 @@
         "category": "professional",
         "labels": {
           "gender": "male",
-          "accent": "standard",
-          "descriptive": "upbeat",
           "age": "young",
-          "use_case": "conversational",
-          "language": "de"
+          "descriptive": "upbeat",
+          "accent": "standard",
+          "language": "de",
+          "use_case": "conversational"
         },
         "verifiedLanguages": [
           {
@@ -1272,11 +1272,11 @@
         "category": "professional",
         "labels": {
           "gender": "female",
-          "accent": "standard",
+          "language": "de",
           "descriptive": "casual",
+          "accent": "standard",
           "age": "young",
-          "use_case": "conversational",
-          "language": "de"
+          "use_case": "conversational"
         },
         "verifiedLanguages": [
           {
@@ -1545,11 +1545,11 @@
         "category": "professional",
         "labels": {
           "gender": "male",
-          "accent": "seoul",
-          "descriptive": "casual",
           "age": "young",
-          "use_case": "conversational",
-          "language": "ko"
+          "descriptive": "casual",
+          "accent": "seoul",
+          "language": "ko",
+          "use_case": "conversational"
         },
         "verifiedLanguages": [
           {
@@ -1557,42 +1557,42 @@
             "model_id": "eleven_v4",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzE4NDAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzIyMDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "ko",
             "model_id": "eleven_v4_hq",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzE4NDAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzIyMDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "ko",
             "model_id": "eleven_multilingual_v2",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzE4NDAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzIyMDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "ko",
             "model_id": "eleven_turbo_v2_5",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzE4NDAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzIyMDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "ko",
             "model_id": "eleven_v2_5_flash",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzE4NDAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzIyMDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "ko",
             "model_id": "eleven_flash_v2_5",
             "accent": "seoul",
             "locale": "ko-KR",
-            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzE4NDAwMDAwMDAwfQ%3D%3D"
+            "preview_url": "https://api.us.elevenlabs.io/v1/voices/70DeQK5Ztp7WmEGGysLT/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ3b3Jrc3BhY2VfaWQiOiIxZGEwNmVhNjc5YTU0OTc1YWQ5NmEyMjIxZmU2NTMwZCIsImZpbGVuYW1lIjoiRmx0UkppVzM5QTlWaDhvdmlJUkUubXAzIiwidGltZXN0YW1wIjoxNzg5NzIyMDAwMDAwMDAwfQ%3D%3D"
           },
           {
             "language": "no",
