@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-transport-ticket",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-transport"
+  ],
+  "scenario": "پاول در باجهٔ بلیت یک بلیت برای برلین می‌خواهد و تعامل کوتاه را با تشکر پایان می‌دهد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-transport-ticket-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Guten Tag.",
+      "translationFa": "روز بخیر.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-ticket-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Bitte eine Fahrkarte nach Berlin.",
+      "translationFa": "لطفاً یک بلیت به برلین.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-ticket-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Bitte schön!",
+      "translationFa": "بفرمایید.",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-transport-ticket-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Danke.",
+      "translationFa": "ممنون.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "سلام و تشکر از بخش پایهٔ همان عبارت‌نامه و الگوی درخواست بلیت از بخش حمل‌ونقل آمده‌اند؛ فقط جای خالی مقصد با Berlin پر شده است.",
+  "learnerCharacterId": "char-de-paul"
+}
