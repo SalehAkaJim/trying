@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-wikibooks-german-print-weather",
+  "title": "German/Print version — Weather",
+  "organizationOrAuthor": "Wikibooks contributors",
+  "language": "de",
+  "sourceType": "course",
+  "url": "https://en.wikibooks.org/wiki/German/Print_version",
+  "locator": "Weather lesson — Common Phrases: current weather, forecast, rain/umbrella and thermometer temperature.",
+  "publishedOrUpdatedAt": "2024-06-05",
+  "modernityStatus": "contemporary_verified",
+  "currencyEvidence": "صفحهٔ زندهٔ نسخهٔ چاپی دورهٔ آلمانی ویکی‌بوکس در ۱۸ سپتامبر ۲۰۲۶ بررسی شد. عبارت‌های انتخاب‌شده دربارهٔ هوای فعلی، پیش‌بینی، باران و دما در نسخهٔ فعلی حضور دارند و برای ارتباط روزمره مناسب‌اند.",
+  "licenseName": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attributionText": "Wikibooks contributors — German/Print version",
+  "reuseStatus": "reuse_with_attribution",
+  "retrievedAt": "2026-09-18",
+  "notes": "فقط بخش عبارت‌های رایج هوا استفاده می‌شود؛ واژگان تخصصی یا منطقه‌ای هواشناسی وارد مسیر A1 نمی‌شوند.",
+  "titleFa": "هوا، پیش‌بینی و دما",
+  "locatorFa": "بخش هوا و عبارت‌های رایج؛ هوای فعلی، پیش‌بینی، باران و چتر و دمای دماسنج."
+}
