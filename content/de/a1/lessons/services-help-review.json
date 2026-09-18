@@ -4,42 +4,45 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-requests-services-help",
-  "titleFa": "کمک لازم را روشن بگو",
+  "titleFa": "کمک لازم دارم؛ پزشک کجاست؟",
   "learningTargets": [
-    "نیاز به کمک را مستقیم تشخیص دهد.",
-    "واژگان پایهٔ خدمات روزمره را سریع بازیابی کند.",
-    "راهبرد روشن‌سازی را در کنار درخواست کمک به کار ببرد."
+    "نیاز فوری به کمک را مستقیم بیان کند.",
+    "دربارهٔ محل پیدا کردن پزشک سؤال کند.",
+    "پرسش خدمات ضروری را از پرسش‌های خرید یا حمل‌ونقل تشخیص دهد."
   ],
   "sourceRefs": [
-    "src-wikibooks-de-lesson-002-service-clarification",
     "src-wikivoyage-german-phrasebook-services",
-    "src-wikibooks-de-lesson-004"
+    "src-wikibooks-de-lesson-006-where-when",
+    "src-wikibooks-german-print-directions",
+    "src-wikibooks-german-print-shopping-service"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس سوم واحد، بیان نیاز مشخص و راهبرد روشن‌سازی را کنار هم نگه می‌دارد تا زبان‌آموز بتواند تعامل خدماتی را ادامه دهد.",
-    "sequenceRationale": "گفت‌وگو راهبرد بقا را فعال می‌کند، سپس نیاز مشخص و واژگان خدماتی بازیابی می‌شوند.",
-    "templateSignature": "conversation_speaking>choose_response>matching"
+    "activitySelectionRationale": "این درس کمک را از عبارت کلی به یک نیاز مشخص و قابل‌اقدام می‌برد: اعلام نیاز و پیدا کردن پزشک.",
+    "sequenceRationale": "مکالمه نیاز را به مقصد خدماتی وصل می‌کند، سپس تشخیص پرسش مناسب و بازسازی عبارت کمک تمرین می‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-services-help-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "اگر چیزی را نفهمیدی، گفت‌وگو را مدیریت کن و درخواست روشن‌سازی بده.",
-      "selectionReason": "صحنهٔ منبع‌دار راهبرد ادامه‌دادن تعامل در صورت نفهمیدن را فعال می‌کند.",
+      "instructionFa": "بگو کمک لازم داری و محل پزشک را بپرس.",
+      "selectionReason": "جمله‌های کوتاه از منابع معتبر در یک سناریوی خدمات ضروری کنار هم قرار گرفته‌اند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-002-service-clarification",
-        "src-wikivoyage-german-phrasebook-services"
+        "src-wikivoyage-german-phrasebook-services",
+        "src-wikibooks-de-lesson-006-where-when",
+        "src-wikibooks-german-print-directions",
+        "src-wikibooks-german-print-shopping-service"
       ],
       "learningTargets": [
-        "درخواست روشن‌سازی را در موقعیت خدماتی به کار ببرد."
+        "نیاز به کمک و پزشک را در مکالمه بیان کند."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-clarify-slowly",
+      "dialogueRef": "dlg-de-a1-urgent-service-help",
       "data": {
         "interaction": "read_aloud_exchange",
-        "openingInitiator": "app"
+        "openingInitiator": "learner"
       },
       "transformations": [
         "other",
@@ -50,35 +53,33 @@
     },
     {
       "id": "act-de-a1-services-help-review-response",
-      "type": "choose_response",
-      "instructionFa": "در پاسخ به «چه چیزی لازم دارید؟» جملهٔ مربوط به کمک را انتخاب کن.",
-      "selectionReason": "انتخاب پاسخ درست، نیاز مشخص را از جمله‌های نزدیک با کارکرد دیگر جدا می‌کند.",
+      "type": "multiple_choice",
+      "instructionFa": "اگر دنبال پزشک هستی، کدام پرسش را می‌گویی؟",
+      "selectionReason": "سه پرسش منبع‌دار از حوزه‌های مختلف، انتخاب هدف ارتباطی درست را می‌سنجند.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-services",
+        "src-wikibooks-de-lesson-006-where-when",
         "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "نیاز به کمک را مستقیم تشخیص دهد."
+        "پرسش مربوط به پزشک را تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "promptTarget": "Was brauchen Sie?",
-        "promptFa": "چه چیزی لازم دارید؟",
         "options": [
           {
-            "textTarget": "Ich brauche Ihre Hilfe.",
-            "translationFa": "به کمک شما نیاز دارم.",
+            "textTarget": "Wo finde ich einen Arzt?",
+            "translationFa": "کجا می‌توانم یک پزشک پیدا کنم؟",
             "correct": true
           },
           {
-            "textTarget": "Ich verstehe das nicht.",
-            "translationFa": "این را نمی‌فهمم.",
+            "textTarget": "Wo ist der Bahnhof?",
+            "translationFa": "ایستگاه قطار کجاست؟",
             "correct": false
           },
           {
-            "textTarget": "Wo ist die Toilette, bitte?",
-            "translationFa": "سرویس بهداشتی کجاست، لطفاً؟",
+            "textTarget": "Was brauchen Sie?",
+            "translationFa": "چه چیزی لازم دارید؟",
             "correct": false
           }
         ]
@@ -91,47 +92,33 @@
     },
     {
       "id": "act-de-a1-services-help-review-matching",
-      "type": "matching",
-      "instructionFa": "واژه‌های خدماتی را به معنی درست وصل کن.",
-      "selectionReason": "شبکهٔ چهار واژهٔ خدماتی دامنهٔ کاربرد واحد را تثبیت می‌کند.",
+      "type": "word_order",
+      "instructionFa": "عبارت درخواست کمک را بساز.",
+      "selectionReason": "یک عبارت بقای بسیار کوتاه و مستقیم به بازیابی فعال منتقل می‌شود.",
       "sourceRefs": [
         "src-wikivoyage-german-phrasebook-services"
       ],
       "learningTargets": [
-        "واژگان خدمات روزمره را سریع تشخیص دهد."
+        "درخواست مستقیم کمک را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "pairs": [
-          {
-            "left": "Hilfe",
-            "leftFa": "کمک",
-            "right": "کمک",
-            "rightFa": "کمک"
-          },
-          {
-            "left": "Telefon",
-            "leftFa": "تلفن",
-            "right": "تلفن",
-            "rightFa": "تلفن"
-          },
-          {
-            "left": "Toilette",
-            "leftFa": "سرویس بهداشتی",
-            "right": "سرویس بهداشتی",
-            "rightFa": "سرویس بهداشتی"
-          },
-          {
-            "left": "Apotheke",
-            "leftFa": "داروخانه",
-            "right": "داروخانه",
-            "rightFa": "داروخانه"
-          }
+        "sourceText": "Ich brauche Hilfe.",
+        "sourceTextFa": "کمک لازم دارم.",
+        "tokens": [
+          "Ich",
+          "brauche",
+          "Hilfe."
+        ],
+        "answer": [
+          "Ich",
+          "brauche",
+          "Hilfe."
         ]
       },
       "transformations": [
-        "source_items_grouped_for_matching",
+        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
