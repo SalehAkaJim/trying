@@ -4,38 +4,36 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-forms-signs-messages",
-  "titleFa": "فرم، تابلو و پیام را به هم وصل کن",
+  "titleFa": "اسم و آدرست را هجی کن",
   "learningTargets": [
-    "اطلاعات شخصی لازم برای فرم را در گفت‌وگو تشخیص دهد.",
-    "تابلوهای کوتاه روزمره را سریع بخواند.",
-    "یک پیام کوتاه تماس را بازسازی کند."
+    "درخواست هجی‌کردن نام کوچک و نام خانوادگی را بفهمد.",
+    "یک نام نمونه را حرف‌به‌حرف ارائه کند.",
+    "درخواست آهسته هجی‌کردن را بفهمد و بازسازی کند."
   ],
   "sourceRefs": [
-    "src-wikibooks-de-residence-origin",
-    "src-wikivoyage-german-phrasebook-signs",
-    "src-wikibooks-de-lesson-024-short-messages"
+    "src-wikibooks-de-lesson-007-form-spelling"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس جمع‌بندی واحد سه قالب واقعی بیرون از گفت‌وگوی آزاد را کنار هم می‌آورد: اطلاعات فرم، تابلو و پیام کوتاه.",
-    "sequenceRationale": "اطلاعات شخصی در گفت‌وگو فعال می‌شود، سپس خواندن سریع تابلوها و در پایان بازسازی پیام کوتاه تمرین می‌شود.",
+    "activitySelectionRationale": "درس اول فقط الفبا و فیلدهای فرم را آماده کرده بود؛ این درس مهارت عملیِ بعدی یعنی هجی‌کردن واقعی اطلاعات شخصی را اضافه می‌کند.",
+    "sequenceRationale": "مکالمه هجی نام را اجرا می‌کند، تطبیق فیلدهای فرم با نمونه‌ها دامنه را گسترش می‌دهد و در پایان درخواست آهسته‌هجی‌کردن بازسازی می‌شود.",
     "templateSignature": "conversation_speaking>matching>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-forms-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "گفت‌وگوی اطلاعات شخصی را دوباره اجرا کن و به اطلاعات فرم دقت کن.",
-      "selectionReason": "گفت‌وگوی منبع‌دار اطلاعات لازم برای فرم را پیش از خواندن محیطی فعال می‌کند.",
+      "instructionFa": "نام و نام خانوادگی نمونه را حرف‌به‌حرف هجی کن.",
+      "selectionReason": "دو دستور و دو نمونهٔ تمرین ۲۹۸ به یک نقش‌آفرینی فرم تبدیل شده‌اند.",
       "sourceRefs": [
-        "src-wikibooks-de-residence-origin"
+        "src-wikibooks-de-lesson-007-form-spelling"
       ],
       "learningTargets": [
-        "اطلاعات شخصی لازم برای فرم را در گفت‌وگو تشخیص دهد."
+        "نام و نام خانوادگی را در پاسخ به درخواست هجی کند."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-personal-form-review",
+      "dialogueRef": "dlg-de-a1-spell-personal-data",
       "data": {
         "interaction": "read_aloud_exchange",
         "openingInitiator": "app"
@@ -48,43 +46,43 @@
       "audioStatus": "not_required"
     },
     {
-      "id": "act-de-a1-forms-review-signs",
+      "id": "act-de-a1-forms-review-matching",
       "type": "matching",
-      "instructionFa": "تابلوهای کوتاه را به معنی درست وصل کن.",
-      "selectionReason": "چهار تابلو باید در پایان A1 به‌صورت سریع و مستقل قابل تشخیص باشند.",
+      "instructionFa": "هر فیلد را به نمونهٔ درست منبع وصل کن.",
+      "selectionReason": "چهار نمونهٔ همان تمرین نشان می‌دهند هجی‌کردن فقط برای نام کوچک نیست.",
       "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-signs"
+        "src-wikibooks-de-lesson-007-form-spelling"
       ],
       "learningTargets": [
-        "تابلوهای بسیار کوتاه روزمره را بخواند."
+        "فیلدهای اطلاعات شخصی را با نمونهٔ درست مرتبط کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "pairs": [
           {
-            "left": "Offen",
-            "leftFa": "باز",
-            "right": "باز",
-            "rightFa": "باز"
+            "left": "Vorname",
+            "leftFa": "نام کوچک",
+            "right": "Marcus",
+            "rightFa": "مارکوس"
           },
           {
-            "left": "Geschlossen",
-            "leftFa": "بسته",
-            "right": "بسته",
-            "rightFa": "بسته"
+            "left": "Familienname",
+            "leftFa": "نام خانوادگی",
+            "right": "Clinton",
+            "rightFa": "کلینتون"
           },
           {
-            "left": "Eingang",
-            "leftFa": "ورودی",
-            "right": "ورودی",
-            "rightFa": "ورودی"
+            "left": "Straßenname",
+            "leftFa": "نام خیابان",
+            "right": "Hauptstraße",
+            "rightFa": "هاوپت‌اشتراسه"
           },
           {
-            "left": "Ausgang",
-            "leftFa": "خروجی",
-            "right": "خروجی",
-            "rightFa": "خروجی"
+            "left": "Stadt",
+            "leftFa": "شهر",
+            "right": "Werdau",
+            "rightFa": "ورداو"
           }
         ]
       },
@@ -95,40 +93,36 @@
       "audioStatus": "not_required"
     },
     {
-      "id": "act-de-a1-forms-review-message-order",
+      "id": "act-de-a1-forms-review-order",
       "type": "word_order",
-      "instructionFa": "پیام کوتاه تماس برای بعدازظهر را دوباره بساز.",
-      "selectionReason": "بازسازی پیام، خواندن محیطی را با نوشتن هدایت‌شده جمع می‌کند.",
+      "instructionFa": "درخواست «لطفاً آهسته هجی کنید» را بساز.",
+      "selectionReason": "این جمله مستقیماً مهارت هجی‌کردن را به مدیریت سرعت گفتار وصل می‌کند.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-024-short-messages"
+        "src-wikibooks-de-lesson-007-form-spelling"
       ],
       "learningTargets": [
-        "یک پیام کوتاه تماس را بازسازی کند."
+        "درخواست آهسته هجی‌کردن را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Rufen Sie bitte am Nachmittag noch einmal an.",
-        "sourceTextFa": "لطفاً بعدازظهر دوباره تماس بگیرید.",
+        "sourceText": "Können Sie das bitte langsam buchstabieren?",
+        "sourceTextFa": "می‌توانید لطفاً آن را آهسته هجی کنید؟",
         "tokens": [
-          "Rufen",
+          "Können",
           "Sie",
+          "das",
           "bitte",
-          "am",
-          "Nachmittag",
-          "noch",
-          "einmal",
-          "an."
+          "langsam",
+          "buchstabieren?"
         ],
         "answer": [
-          "Rufen",
+          "Können",
           "Sie",
+          "das",
           "bitte",
-          "am",
-          "Nachmittag",
-          "noch",
-          "einmal",
-          "an."
+          "langsam",
+          "buchstabieren?"
         ]
       },
       "transformations": [
