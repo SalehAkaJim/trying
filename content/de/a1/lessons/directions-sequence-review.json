@@ -4,43 +4,47 @@
   "languageId": "de",
   "level": "A1",
   "unitRef": "de-a1-unit-directions-public-places",
-  "titleFa": "مسیر را قدم‌به‌قدم دنبال کن",
+  "titleFa": "قطار چه ساعتی می‌رسه؟ ایستگاه کجاست؟",
   "learningTargets": [
-    "راست، چپ و مستقیم را از هم تشخیص دهد.",
-    "توالی یک راهنمایی کوتاه را دنبال کند.",
-    "بخش کلیدی جملهٔ مسیر را بازیابی کند."
+    "زمان رسیدن قطار را بپرسد و پاسخ ساعت را بفهمد.",
+    "محل ایستگاه قطار را بپرسد.",
+    "چند مکان حمل‌ونقل عمومی را از هم تشخیص دهد."
   ],
   "sourceRefs": [
+    "src-wikibooks-de-lesson-024-short-messages",
+    "src-wikibooks-de-lesson-006-where-when",
     "src-wikibooks-german-print-directions",
     "src-wikivoyage-german-phrasebook-directions"
   ],
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس تمرکز را از نام مقصد به دنبال‌کردن توالی جهت‌ها منتقل می‌کند و جملهٔ اصلی مسیر را فعالانه بازیابی می‌کند.",
-    "sequenceRationale": "توالی در گفت‌وگو دنبال می‌شود، جهت‌ها از هم جدا می‌شوند و در پایان جهت کلیدی داخل جملهٔ کامل بازیابی می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>fill_blank"
+    "activitySelectionRationale": "این درس جهت‌های چپ/راستِ درس اصلی را تکرار نمی‌کند؛ واحد را به یک نیاز سفر تازه یعنی زمان رسیدن قطار و پیدا کردن ایستگاه گسترش می‌دهد.",
+    "sequenceRationale": "مکالمه زمان و مکان را ترکیب می‌کند، تطبیق واژگان حمل‌ونقل دامنه را باز می‌کند و بازسازی پرسش رسیدن قطار تولید هدایت‌شده می‌دهد.",
+    "templateSignature": "conversation_speaking>matching>word_order"
   },
   "activities": [
     {
       "id": "act-de-a1-directions-sequence-review-conversation",
       "type": "conversation_speaking",
-      "instructionFa": "گفت‌وگوی مسیر را دوباره اجرا کن و ترتیب حرکت را دنبال کن.",
-      "selectionReason": "صحنهٔ منبع‌دار این بار برای تمرکز بر راست و سپس مستقیم استفاده می‌شود.",
+      "instructionFa": "زمان رسیدن قطار را بپرس و بعد ایستگاه را پیدا کن.",
+      "selectionReason": "دو مسئلهٔ واقعی سفر در یک مکالمهٔ کوتاه و منبع‌دار ترکیب شده‌اند.",
       "sourceRefs": [
+        "src-wikibooks-de-lesson-024-short-messages",
+        "src-wikibooks-de-lesson-006-where-when",
         "src-wikibooks-german-print-directions"
       ],
       "learningTargets": [
-        "توالی کوتاه جهت‌ها را در گفت‌وگو دنبال کند."
+        "زمان قطار و محل ایستگاه را بفهمد."
       ],
       "lexemeRefs": [],
-      "dialogueRef": "dlg-de-a1-ask-and-follow-directions",
+      "dialogueRef": "dlg-de-a1-train-arrival-station",
       "data": {
         "interaction": "read_aloud_exchange",
-        "openingInitiator": "learner"
+        "openingInitiator": "app"
       },
       "transformations": [
-        "verbatim_dialogue",
+        "other",
         "persian_translation_added",
         "character_metadata_added"
       ],
@@ -48,74 +52,84 @@
     },
     {
       "id": "act-de-a1-directions-sequence-review-choice",
-      "type": "multiple_choice",
-      "instructionFa": "کدام عبارت یعنی مستقیم به جلو؟",
-      "selectionReason": "سه عبارت منبع‌دار تفاوت مستقیم، چپ و راست را می‌سنجند.",
+      "type": "matching",
+      "instructionFa": "هر مکان حمل‌ونقل را به معنی درست وصل کن.",
+      "selectionReason": "چهار مقصد پرتکرار، واژگان سفر شهری را فراتر از یک ایستگاه گسترش می‌دهند.",
       "sourceRefs": [
         "src-wikivoyage-german-phrasebook-directions"
       ],
       "learningTargets": [
-        "سه جهت پایه را از هم تشخیص دهد."
+        "مکان‌های حمل‌ونقل عمومی را تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "options": [
+        "pairs": [
           {
-            "textTarget": "geradeaus",
-            "translationFa": "مستقیم به جلو",
-            "correct": true
+            "left": "Bahnhof",
+            "leftFa": "ایستگاه قطار",
+            "right": "ایستگاه قطار",
+            "rightFa": "ایستگاه قطار"
           },
           {
-            "textTarget": "Links abbiegen.",
-            "translationFa": "به چپ بپیچید.",
-            "correct": false
+            "left": "Bushaltestelle",
+            "leftFa": "ایستگاه اتوبوس",
+            "right": "ایستگاه اتوبوس",
+            "rightFa": "ایستگاه اتوبوس"
           },
           {
-            "textTarget": "Rechts abbiegen.",
-            "translationFa": "به راست بپیچید.",
-            "correct": false
+            "left": "Flughafen",
+            "leftFa": "فرودگاه",
+            "right": "فرودگاه",
+            "rightFa": "فرودگاه"
+          },
+          {
+            "left": "Stadtmitte",
+            "leftFa": "مرکز شهر",
+            "right": "مرکز شهر",
+            "rightFa": "مرکز شهر"
           }
         ]
       },
       "transformations": [
-        "options_selected_from_source_material",
+        "source_items_grouped_for_matching",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
     },
     {
       "id": "act-de-a1-directions-sequence-review-fill",
-      "type": "fill_blank",
-      "instructionFa": "جملهٔ مسیر را با عبارت درست کامل کن.",
-      "selectionReason": "تکمیل جملهٔ کامل، فهم جهت را در جای واقعی آن می‌سنجد.",
+      "type": "word_order",
+      "instructionFa": "پرسش زمان رسیدن قطار را بساز.",
+      "selectionReason": "فعل جداشدنی ankommen در یک جملهٔ کوتاه و واقعی به‌صورت هدایت‌شده بازیابی می‌شود.",
       "sourceRefs": [
-        "src-wikibooks-german-print-directions"
+        "src-wikibooks-de-lesson-024-short-messages"
       ],
       "learningTargets": [
-        "جهت کلیدی را در جملهٔ مسیر بازیابی کند."
+        "پرسش زمان رسیدن قطار را بازسازی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Rechts um die Ecke und dann immer geradeaus – ungefähr ein Kilometer.",
-        "sourceTextFa": "سرِ پیچ به راست بپیچید و بعد مستقیم ادامه بدهید؛ حدود یک کیلومتر.",
-        "blankedText": "Rechts um die Ecke und dann immer ___ – ungefähr ein Kilometer.",
-        "blankedTextFa": "سرِ پیچ به راست بپیچید و بعد ___ ادامه بدهید؛ حدود یک کیلومتر.",
-        "choices": [
-          "geradeaus",
-          "links",
-          "rechts"
+        "sourceText": "Wann kommt der Zug an?",
+        "sourceTextFa": "قطار چه زمانی می‌رسد؟",
+        "tokens": [
+          "Wann",
+          "kommt",
+          "der",
+          "Zug",
+          "an?"
         ],
-        "choicesFa": [
-          "مستقیم",
-          "چپ",
-          "راست"
-        ],
-        "answer": "geradeaus"
+        "answer": [
+          "Wann",
+          "kommt",
+          "der",
+          "Zug",
+          "an?"
+        ]
       },
       "transformations": [
-        "source_sentence_blank_created",
+        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
