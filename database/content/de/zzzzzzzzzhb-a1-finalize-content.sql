@@ -13,9 +13,16 @@ WHERE language_level_id=@level
   AND required_for_completion=TRUE
   AND status='review';
 
+-- Activity metadata on final lessons is protected by a trigger.
+-- Reopen the A1 lessons only inside this transaction, update audio metadata,
+-- then restore every lesson to final before committing.
 UPDATE lessons
-SET status='final',
-    audio_status=CASE
+SET status='qa'
+WHERE language_level_id=@level
+  AND status='final';
+
+UPDATE lessons
+SET audio_status=CASE
       WHEN audio_status='blocked_until_level_final' THEN 'pending'
       ELSE audio_status
     END
@@ -37,6 +44,11 @@ SET a.audio_status=CASE
       ELSE a.audio_status
     END
 WHERE l.language_level_id=@level;
+
+UPDATE lessons
+SET status='final'
+WHERE language_level_id=@level
+  AND status='qa';
 
 UPDATE lexemes
 SET audio_status=CASE
