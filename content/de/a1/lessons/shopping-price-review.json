@@ -63,26 +63,26 @@
           {
             "left": "Ich brauche eine Tasche.",
             "leftFa": "یک کیف لازم دارم.",
-            "right": "نیاز",
-            "rightFa": "نیاز"
+            "right": "نیاز: Tasche",
+            "rightFa": "نیاز: کیف"
           },
           {
             "left": "Ich brauche eine Hose.",
             "leftFa": "یک شلوار لازم دارم.",
-            "right": "نیاز",
-            "rightFa": "نیاز"
+            "right": "نیاز: Hose",
+            "rightFa": "نیاز: شلوار"
           },
           {
             "left": "Ich kaufe eine Tasche.",
             "leftFa": "یک کیف می‌خرم.",
-            "right": "خرید",
-            "rightFa": "خرید"
+            "right": "خرید: Tasche",
+            "rightFa": "خرید: کیف"
           },
           {
             "left": "Ich kaufe ein Paar Schuhe.",
             "leftFa": "یک جفت کفش می‌خرم.",
-            "right": "خرید",
-            "rightFa": "خرید"
+            "right": "خرید: Schuhe",
+            "rightFa": "خرید: کفش"
           }
         ]
       },
