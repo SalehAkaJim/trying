@@ -200,6 +200,6 @@
       "audioStatus": "not_required"
     }
   ],
-  "status": "qa",
+  "status": "final",
   "audioStatus": "blocked_until_level_final"
 }
