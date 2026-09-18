@@ -87,7 +87,7 @@
       "id": "act-de-a1-weather-rain-order",
       "type": "word_order",
       "instructionFa": "پرسش سادهٔ هوا در برلین را بساز.",
-      "selectionReason": "پرسش عین منبع است و فقط برای بازسازی tokenized شده است.",
+      "selectionReason": "پرسش عین منبع است و فقط برای بازسازی به قطعه‌های واژگانی تقسیم شده است.",
       "sourceRefs": [
         "src-wikibooks-de-weather-appendix"
       ],

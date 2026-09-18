@@ -16,7 +16,7 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس قبلی با حمل‌ونقل عمومی هم‌پوشانی داشت و به نمونهٔ زمانی ضعیف متکی بود؛ این جایگزین فقط مهارت مسیر و مکان عمومی را با phrasebook فعلی پوشش می‌دهد.",
+    "activitySelectionRationale": "درس قبلی با حمل‌ونقل عمومی هم‌پوشانی داشت و به نمونهٔ زمانی ضعیف متکی بود؛ این جایگزین فقط مهارت مسیر و مکان عمومی را با عبارت‌نامهٔ فعلی پوشش می‌دهد.",
     "sequenceRationale": "از دو پرسش مسیر و دو پاسخ کوتاه شروع می‌شود، سپس جهت درست تشخیص داده می‌شود و در پایان یک پرسش مسیر بازسازی می‌شود.",
     "templateSignature": "conversation_speaking>multiple_choice>word_order"
   },
@@ -87,7 +87,7 @@
       "id": "act-de-a1-directions-sequence-review-fill",
       "type": "word_order",
       "instructionFa": "پرسش مسیر فرودگاه را بساز.",
-      "selectionReason": "جمله از الگوی مقصد و نمونهٔ فرودگاهِ خود منبع ساخته شده و فقط tokenized می‌شود.",
+      "selectionReason": "جمله از الگوی مقصد و نمونهٔ فرودگاهِ خود منبع ساخته شده و فقط به قطعه‌های واژگانی تقسیم می‌شود.",
       "sourceRefs": [
         "src-wikivoyage-german-phrasebook-directions"
       ],

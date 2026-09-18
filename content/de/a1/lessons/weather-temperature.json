@@ -87,7 +87,7 @@
       "id": "act-de-a1-weather-temperature-order",
       "type": "word_order",
       "instructionFa": "عبارت «برف می‌بارد» را بساز.",
-      "selectionReason": "عبارت عین منبع است و فقط برای بازیابی tokenized شده است.",
+      "selectionReason": "عبارت عین منبع است و فقط برای بازیابی به قطعه‌های واژگانی تقسیم شده است.",
       "sourceRefs": [
         "src-wikibooks-de-weather-appendix"
       ],

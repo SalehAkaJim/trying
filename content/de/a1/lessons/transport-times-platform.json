@@ -49,7 +49,7 @@
       "id": "act-de-a1-transport-arrival-choice",
       "type": "multiple_choice",
       "instructionFa": "کدام پاسخ هم زمان و هم شمارهٔ سکو را می‌دهد؟",
-      "selectionReason": "گزینه‌ها همگی عین Dialog 3 منبع هستند.",
+      "selectionReason": "گزینه‌ها همگی عین گفت‌وگوی ۳ منبع هستند.",
       "sourceRefs": [
         "src-wikibooks-de-transport-dialogue-current"
       ],
