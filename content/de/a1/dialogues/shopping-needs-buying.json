@@ -1,0 +1,78 @@
+{
+  "id": "dlg-de-a1-shopping-needs-buying",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-004"
+  ],
+  "scenario": "فروشنده می‌پرسد مشتری چه چیزی لازم دارد و در نهایت چه چیزی می‌خرد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-shopping-needs-buying-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was brauchen Sie?",
+      "translationFa": "چه چیزی لازم دارید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-shopping-needs-buying-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich brauche eine Tasche.",
+      "translationFa": "یک کیف لازم دارم.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-shopping-needs-buying-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was kaufen Sie?",
+      "translationFa": "چه چیزی می‌خرید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-shopping-needs-buying-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Ich kaufe eine Tasche.",
+      "translationFa": "یک کیف می‌خرم.",
+      "learnerTurn": true,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "دو الگوی مستقل brauchen و kaufen از بخش خرید منبع کنار هم قرار گرفته‌اند تا نیاز و تصمیم خرید از هم تفکیک شوند.",
+  "learnerCharacterId": "char-de-paul"
+}
