@@ -259,5 +259,5 @@ ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(positi
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id) SELECT a.id,ut.curriculum_target_id FROM activities a JOIN unit_targets ut ON ut.unit_id=@unit WHERE a.lesson_id=@lesson;
 UPDATE lessons SET status='final',audio_status='pending' WHERE id=@lesson;
 
-UPDATE language_levels SET audio_status='pending' WHERE id=@level;
+UPDATE language_levels SET audio_status='stale' WHERE id=@level;
 COMMIT;
