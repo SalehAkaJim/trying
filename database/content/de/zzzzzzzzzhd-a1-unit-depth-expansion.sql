@@ -8,8 +8,8 @@ SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_lev
 
 -- Move every current A1 slot out of the target range before deterministic reordering.
 UPDATE lessons
-SET sequence_index=sequence_index+1000,
-    position_in_unit=CASE WHEN position_in_unit IS NULL THEN NULL ELSE position_in_unit+100 END
+SET sequence_index=sequence_index+2000000,
+    position_in_unit=CASE WHEN position_in_unit IS NULL THEN NULL ELSE position_in_unit+200000 END
 WHERE language_level_id=@level;
 
 SET @unit := (SELECT id FROM units WHERE unit_key='de-a1-unit-extended-introduction' AND language_level_id=@level LIMIT 1);
