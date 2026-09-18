@@ -234,7 +234,8 @@
       "transformations": [
         "other"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "blocked_until_level_final",
+      "audioTextTarget": "A B C D E F\nG H I J K L\nM N O P Q\nR S T\nU V W\nX Y Z"
     }
   ],
   "status": "draft",
