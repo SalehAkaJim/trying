@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-noch-einmal",
+  "languageId": "de",
+  "type": "phrase",
+  "surface": "noch einmal",
+  "lemma": null,
+  "partOfSpeech": null,
+  "partOfSpeechFa": null,
+  "level": "A1",
+  "translationFa": "یک بار دیگر / دوباره",
+  "usageNoteFa": "در درخواست کوتاه برای تکرار دوباره استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002-service-clarification"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

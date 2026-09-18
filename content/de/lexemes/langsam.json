@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-langsam",
+  "languageId": "de",
+  "type": "word",
+  "surface": "langsam",
+  "lemma": "langsam",
+  "partOfSpeech": "adverb",
+  "partOfSpeechFa": "قید",
+  "level": "A1",
+  "translationFa": "آهسته",
+  "usageNoteFa": "در درخواست منبع‌دار برای آهسته‌تر تکرار کردن استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002-service-clarification"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

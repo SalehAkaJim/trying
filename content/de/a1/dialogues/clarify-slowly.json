@@ -1,0 +1,106 @@
+{
+  "id": "dlg-de-a1-clarify-slowly",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002-service-clarification",
+    "src-wikivoyage-german-phrasebook-services"
+  ],
+  "scenario": "آیریس یک پرسش ساده به پاول می‌گوید؛ پاول درخواست می‌کند دوباره و آهسته‌تر گفته شود و آیریس همان پرسش منبع‌دار را تکرار می‌کند.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-service-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Sprechen Sie Englisch?",
+      "translationFa": "انگلیسی صحبت می‌کنید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-sprechen",
+        "lex-de-englisch"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Sprechen",
+          "lexemeId": "lex-de-sprechen",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "Englisch",
+          "lexemeId": "lex-de-englisch",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-service-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Wie bitte? Noch einmal, bitte langsam.",
+      "translationFa": "ببخشید؟ یک بار دیگر، لطفاً آهسته.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-noch-einmal",
+        "lex-de-langsam"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Noch einmal",
+          "lexemeId": "lex-de-noch-einmal",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "langsam",
+          "lexemeId": "lex-de-langsam",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002-service-clarification"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-service-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Sprechen Sie Englisch?",
+      "translationFa": "انگلیسی صحبت می‌کنید؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-sprechen",
+        "lex-de-englisch"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Sprechen",
+          "lexemeId": "lex-de-sprechen",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "Englisch",
+          "lexemeId": "lex-de-englisch",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "تکرار دقیق پرسش پس از درخواست «یک بار دیگر، لطفاً آهسته» بخشی طبیعی از خود سناریوی روشن‌سازی است. هیچ جملهٔ آلمانی تازه ساخته نشده و دو منبع فقط در یک تعامل کوتاه کنار هم قرار گرفته‌اند.",
+  "learnerCharacterId": "char-de-paul"
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-telefon",
+  "languageId": "de",
+  "type": "word",
+  "surface": "Telefon",
+  "lemma": "Telefon",
+  "partOfSpeech": "noun",
+  "partOfSpeechFa": "اسم",
+  "level": "A1",
+  "translationFa": "تلفن",
+  "usageNoteFa": "در پرسش اجازهٔ استفاده از تلفن آمده است.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-services"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

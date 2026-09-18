@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "src-wikivoyage-german-phrasebook-services",
+  "title": "German phrasebook — Basics and Problems",
+  "organizationOrAuthor": "Wikivoyage contributors",
+  "language": "de",
+  "sourceType": "website",
+  "url": "https://en.wikivoyage.org/wiki/German_phrasebook",
+  "locator": "Basics and Problems sections: English question, understanding, help, phone permission, toilet and pharmacy.",
+  "publishedOrUpdatedAt": null,
+  "modernityStatus": "maintained_current",
+  "currencyEvidence": "بخش‌های پایه و مشکلات در عبارت‌نامهٔ آلمانی ویکی‌ویاژ در ۱۸ سپتامبر ۲۰۲۶ بررسی شدند. پرسش دربارهٔ انگلیسی، بیان نفهمیدن، درخواست کمک، اجازهٔ استفاده از تلفن، سرویس بهداشتی و داروخانه در نسخهٔ فعلی صفحه حضور دارند.",
+  "licenseName": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attributionText": "Wikivoyage contributors — German phrasebook",
+  "reuseStatus": "reuse_with_attribution",
+  "retrievedAt": "2026-09-18",
+  "notes": "در گزینه‌هایی که منبع دو شکل دوستانه و رسمی را کنار هم نوشته، این واحد فقط شکل رسمی را انتخاب می‌کند و این انتخاب در ردگیری منبع ثبت می‌شود.",
+  "titleFa": "عبارت‌های خدمات، کمک و اجازه",
+  "locatorFa": "بخش‌های پایه و مشکلات؛ زبان، فهم، کمک، تلفن، سرویس بهداشتی و داروخانه."
+}

@@ -1,0 +1,255 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-clarify-permission-help",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-requests-services-help",
+  "titleFa": "لطفاً یک بار دیگر، آهسته",
+  "sourceTitle": "Noch einmal, bitte langsam. / Kann ich Ihr Telefon benutzen?",
+  "sourceTitleFa": "یک بار دیگر، لطفاً آهسته / می‌توانم از تلفن شما استفاده کنم؟",
+  "learningTargets": [
+    "وقتی جمله‌ای را نفهمید، درخواست تکرار و آهسته‌تر گفتن کند.",
+    "یک اجازهٔ ساده برای استفاده از تلفن را تشخیص دهد.",
+    "نیاز به کمک را با یک عبارت مستقیم و مؤدبانه بیان یا تشخیص دهد.",
+    "چند واژهٔ پایهٔ خدمات روزمره را تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002-service-clarification",
+    "src-wikivoyage-german-phrasebook-services"
+  ],
+  "lexemeRefs": [
+    "lex-de-langsam",
+    "lex-de-noch-einmal",
+    "lex-de-telefon",
+    "lex-de-benutzen",
+    "lex-de-apotheke",
+    "lex-de-verstehen",
+    "lex-de-hilfe",
+    "lex-de-toilette",
+    "lex-de-sprechen",
+    "lex-de-englisch"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "گفت‌وگو درخواست تکرار را در بافت واقعی تمرین می‌کند؛ سپس اجازهٔ استفاده از تلفن، درخواست کمک، واژگان خدمات و در پایان بازسازی عبارت تکرار پوشش داده می‌شوند.",
+    "sequenceRationale": "درس از یک مشکل فهم واقعی به تشخیص اجازه و کمک، تثبیت واژگان خدمات و بازیابی فعال درخواست روشن‌سازی حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>multiple_choice>choose_response>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-service-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "اگر پرسش را نفهمیدی، بخواه یک بار دیگر و آهسته گفته شود.",
+      "selectionReason": "سه نوبت منبع‌دار یک چرخهٔ طبیعی پرسش، درخواست تکرار و تکرار همان پرسش را می‌سازند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002-service-clarification",
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "learningTargets": [
+        "درخواست تکرار و آهسته‌تر گفتن در گفت‌وگوی کوتاه."
+      ],
+      "lexemeRefs": [
+        "lex-de-langsam",
+        "lex-de-noch-einmal",
+        "lex-de-sprechen",
+        "lex-de-englisch"
+      ],
+      "dialogueRef": "dlg-de-a1-clarify-slowly",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "other",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-phone-permission-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام عبارت برای اجازه گرفتنِ استفاده از تلفن است؟",
+      "selectionReason": "شکل رسمی از گزینهٔ رسمی منبع انتخاب شده و با دو پرسش خدماتی دیگر مقایسه می‌شود.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "learningTargets": [
+        "تشخیص یک درخواست اجازهٔ ساده."
+      ],
+      "lexemeRefs": [
+        "lex-de-telefon",
+        "lex-de-benutzen",
+        "lex-de-toilette",
+        "lex-de-englisch"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Kann ich Ihr Telefon benutzen?",
+            "translationFa": "می‌توانم از تلفن شما استفاده کنم؟",
+            "correct": true
+          },
+          {
+            "textTarget": "Wo ist die Toilette, bitte?",
+            "translationFa": "سرویس بهداشتی کجاست، لطفاً؟",
+            "correct": false
+          },
+          {
+            "textTarget": "Sprechen Sie Englisch?",
+            "translationFa": "انگلیسی صحبت می‌کنید؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "other",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-specific-help-response",
+      "type": "choose_response",
+      "instructionFa": "در پاسخ به «چه چیزی لازم دارید؟» کدام جمله مستقیم می‌گوید به کمک نیاز داری؟",
+      "selectionReason": "عبارت رسمی درخواست کمک از منبع خدمات با دو عبارت نامرتبط همان منبع مقایسه می‌شود.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "learningTargets": [
+        "تشخیص درخواست مستقیم کمک."
+      ],
+      "lexemeRefs": [
+        "lex-de-hilfe",
+        "lex-de-verstehen",
+        "lex-de-toilette"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Was brauchen Sie?",
+        "promptFa": "چه چیزی لازم دارید؟",
+        "options": [
+          {
+            "textTarget": "Ich brauche Ihre Hilfe.",
+            "translationFa": "به کمک شما نیاز دارم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich verstehe das nicht.",
+            "translationFa": "این را نمی‌فهمم.",
+            "correct": false
+          },
+          {
+            "textTarget": "Wo ist die Toilette, bitte?",
+            "translationFa": "سرویس بهداشتی کجاست، لطفاً؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "other",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-service-words-matching",
+      "type": "matching",
+      "instructionFa": "هر واژهٔ خدماتی را به معنی درستش وصل کن.",
+      "selectionReason": "دو واژهٔ آشنا و دو واژهٔ تازه در یک شبکهٔ خدمات روزمره تثبیت می‌شوند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-services"
+      ],
+      "learningTargets": [
+        "تشخیص واژگان خدمات پایه."
+      ],
+      "lexemeRefs": [
+        "lex-de-hilfe",
+        "lex-de-telefon",
+        "lex-de-toilette",
+        "lex-de-apotheke"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Hilfe",
+            "leftFa": "کمک",
+            "right": "کمک",
+            "rightFa": "کمک"
+          },
+          {
+            "left": "Telefon",
+            "leftFa": "تلفن",
+            "right": "تلفن",
+            "rightFa": "تلفن"
+          },
+          {
+            "left": "Toilette",
+            "leftFa": "سرویس بهداشتی",
+            "right": "سرویس بهداشتی",
+            "rightFa": "سرویس بهداشتی"
+          },
+          {
+            "left": "Apotheke",
+            "leftFa": "داروخانه",
+            "right": "داروخانه",
+            "rightFa": "داروخانه"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-repeat-slowly-order",
+      "type": "word_order",
+      "instructionFa": "درخواست تکرار و آهسته‌تر گفتن را دوباره بساز.",
+      "selectionReason": "عبارت کلیدی گفت‌وگو در پایان به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002-service-clarification"
+      ],
+      "learningTargets": [
+        "بازسازی درخواست منبع‌دار برای تکرار و آهسته‌تر گفتن."
+      ],
+      "lexemeRefs": [
+        "lex-de-noch-einmal",
+        "lex-de-langsam"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Wie bitte? Noch einmal, bitte langsam.",
+        "sourceTextFa": "ببخشید؟ یک بار دیگر، لطفاً آهسته.",
+        "tokens": [
+          "Wie",
+          "bitte?",
+          "Noch",
+          "einmal,",
+          "bitte",
+          "langsam."
+        ],
+        "answer": [
+          "Wie",
+          "bitte?",
+          "Noch",
+          "einmal,",
+          "bitte",
+          "langsam."
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_level_final"
+}

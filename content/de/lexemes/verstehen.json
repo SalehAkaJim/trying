@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-verstehen",
+  "languageId": "de",
+  "type": "word",
+  "surface": "verstehen",
+  "lemma": "verstehen",
+  "partOfSpeech": "verb",
+  "partOfSpeechFa": "فعل",
+  "level": "A1",
+  "translationFa": "فهمیدن",
+  "usageNoteFa": "برای گفتن اینکه چیزی را نمی‌فهمیم استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikivoyage-german-phrasebook-services"
+  ],
+  "formRefs": [],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}
