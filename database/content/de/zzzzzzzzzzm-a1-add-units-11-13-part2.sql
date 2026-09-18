@@ -16,7 +16,7 @@ INSERT IGNORE INTO lesson_targets(lesson_id,curriculum_target_id,coverage_role)
 SELECT @lesson,curriculum_target_id,'practice' FROM unit_targets WHERE unit_id=@unit;
 
 INSERT INTO dialogues(dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES
-('dlg-de-a1-transport-arrival',@level,'پاول گفت‌وگو را با پرسیدن زمان رسیدن قطار به برلین شروع می‌کند و آیریس پاسخ ساعت منبع‌دار را می‌دهد.','learner','پرسش زمان رسیدن از الگوی جاری عبارت‌نامه با مقصد Berlin و پاسخ ساعت از نمونهٔ منبع‌دار درس ۰۲۴ ترکیب شده‌اند.')
+('dlg-de-a1-transport-arrival',@level,'پاول گفت‌وگو را با پرسیدن زمان رسیدن قطار به برلین شروع می‌کند و آیریس پاسخ ساعت منبع‌دار را می‌دهد.','learner','پرسش زمان رسیدن از الگوی جاری عبارت‌نامه با مقصد برلین و پاسخ ساعت از نمونهٔ منبع‌دار درس ۰۲۴ ترکیب شده‌اند.')
 ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),scenario=VALUES(scenario),opening_initiator=VALUES(opening_initiator),scene_quality_rationale=VALUES(scene_quality_rationale);
 SET @dlg := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-a1-transport-arrival' LIMIT 1);
 INSERT INTO dialogue_turns(turn_key,dialogue_id,position_index,speaker_character_id,speaker_identity_origin,speaker_gender_evidence,text_target,translation_fa,learner_turn,audio_status) VALUES
