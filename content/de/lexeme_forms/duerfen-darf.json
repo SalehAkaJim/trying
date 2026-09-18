@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lexform-de-duerfen-darf",
+  "lexemeId": "lex-de-duerfen",
+  "surface": "darf",
+  "formType": "inflected",
+  "formTypeFa": "صرف‌شده",
+  "features": {
+    "tense": "present",
+    "mood": "indicative",
+    "person": "1",
+    "number": "singular"
+  },
+  "featuresFa": {
+    "tense": "حال",
+    "mood": "اخباری",
+    "person": "اول‌شخص",
+    "number": "مفرد"
+  },
+  "origin": "source_attested",
+  "originFa": "ثبت‌شده در منبع",
+  "reviewStatus": "approved",
+  "reviewStatusFa": "تأییدشده",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-021-time-appointment"
+  ],
+  "notes": "این صورت صرفی عیناً در جملهٔ منبع‌دار این واحد آمده است."
+}

@@ -1,0 +1,126 @@
+{
+  "id": "dlg-de-a1-time-simple-appointment",
+  "languageId": "de",
+  "level": "A1",
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-021-time-appointment"
+  ],
+  "scenario": "آیریس پاول را برای امشب به کنسرت دعوت می‌کند. پاول نمی‌تواند و آیریس فردا را پیشنهاد می‌دهد.",
+  "openingInitiator": "app",
+  "characterRefs": [
+    "char-de-iris",
+    "char-de-paul"
+  ],
+  "turns": [
+    {
+      "id": "turn-de-a1-appointment-1",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Was machen Sie heute Abend? Darf ich Sie ins Konzert einladen?",
+      "translationFa": "امشب چه کار می‌کنید؟ می‌توانم شما را به کنسرت دعوت کنم؟",
+      "learnerTurn": false,
+      "lexemeRefs": [
+        "lex-de-heute",
+        "lex-de-abend",
+        "lex-de-duerfen",
+        "lex-de-konzert",
+        "lex-de-einladen"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "heute",
+          "lexemeId": "lex-de-heute",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "Abend",
+          "lexemeId": "lex-de-abend",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "Darf",
+          "lexemeId": "lex-de-duerfen",
+          "lexemeFormId": "lexform-de-duerfen-darf"
+        },
+        {
+          "surface": "Konzert",
+          "lexemeId": "lex-de-konzert",
+          "lexemeFormId": null
+        },
+        {
+          "surface": "einladen",
+          "lexemeId": "lex-de-einladen",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-appointment-2",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Heute? Das tut mir leid, heute geht es leider nicht.",
+      "translationFa": "امروز؟ متأسفم، امروز متأسفانه نمی‌شود.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-heute"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "Heute",
+          "lexemeId": "lex-de-heute",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-appointment-3",
+      "speakerCharacterId": "char-de-iris",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Und morgen?",
+      "translationFa": "و فردا؟",
+      "learnerTurn": false,
+      "lexemeRefs": [],
+      "lexemeOccurrences": [],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "audioRef": null
+    },
+    {
+      "id": "turn-de-a1-appointment-4",
+      "speakerCharacterId": "char-de-paul",
+      "speakerIdentityOrigin": "app_assigned",
+      "speakerGenderEvidence": "unspecified",
+      "textTarget": "Morgen geht es vielleicht.",
+      "translationFa": "فردا شاید بشود.",
+      "learnerTurn": true,
+      "lexemeRefs": [
+        "lex-de-vielleicht"
+      ],
+      "lexemeOccurrences": [
+        {
+          "surface": "vielleicht",
+          "lexemeId": "lex-de-vielleicht",
+          "lexemeFormId": null
+        }
+      ],
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "audioRef": null
+    }
+  ],
+  "sceneQualityRationale": "چهار نوبت بخش ۸۸۷ بدون بازنویسی حفظ شده‌اند و یک دعوت، رد مؤدبانه و پیشنهاد روز جایگزین را به‌صورت طبیعی پوشش می‌دهند.",
+  "learnerCharacterId": "char-de-paul"
+}

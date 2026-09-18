@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-duerfen",
+  "languageId": "de",
+  "type": "word",
+  "surface": "dürfen",
+  "lemma": "dürfen",
+  "partOfSpeech": "verb",
+  "partOfSpeechFa": "فعل",
+  "level": "A1",
+  "translationFa": "اجازه داشتن / می‌توانم؟",
+  "usageNoteFa": "در دعوت مؤدبانهٔ منبع‌دار «Darf ich ...?» ظاهر می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-021-time-appointment"
+  ],
+  "formRefs": [
+    "lexform-de-duerfen-darf"
+  ],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}

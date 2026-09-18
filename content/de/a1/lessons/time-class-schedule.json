@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-time-class-schedule",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-time-plans-appointment",
+  "titleFa": "تا چه ساعتی کلاس داری؟",
+  "sourceTitle": "Wie lange hast du heute Unterricht? / Bis wann bleibst du?",
+  "sourceTitleFa": "امروز چند ساعت کلاس داری؟ / تا چه زمانی می‌مانی؟",
+  "learningTargets": [
+    "بازهٔ شروع و پایان یک برنامهٔ روزانه را با «von ... bis ...» بفهمد.",
+    "پرسش «تا چه زمانی؟» و پاسخ با ساعت مشخص را در یک گفت‌وگوی کوتاه بفهمد.",
+    "چند بازهٔ زمانی ساده را از نمونه‌های منبع‌دار تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-021-time-appointment"
+  ],
+  "lexemeRefs": [
+    "lex-de-unterricht",
+    "lex-de-schule",
+    "lex-de-bleiben",
+    "lex-de-von",
+    "lex-de-bis",
+    "lex-de-uhr"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "گفت‌وگوی اصلی یک بازهٔ کلاس و زمان پایان ماندن را می‌سازد؛ سپس چهار جفت پرسش و پاسخ زمانی وصل می‌شوند، پرسش کلیدی بازسازی می‌شود و در پایان پاسخ ساعت ۱۳ از دو پاسخ زمانی دیگر تشخیص داده می‌شود.",
+    "sequenceRationale": "درس از فهم تعامل کامل به تشخیص چند بازه، بازیابی فعال پرسش و سپس تمایز پاسخ زمانی حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>matching>word_order>multiple_choice"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-time-schedule-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "دربارهٔ مدت کلاس و ساعتی که تا آن زمان می‌مانی جواب بده.",
+      "selectionReason": "چهار نوبت منبع‌دار بخش ۸۵۰ یک تعامل کامل با «از ... تا ...» و «تا چه زمانی» می‌سازند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "فهم و پاسخ‌دادن دربارهٔ بازهٔ زمانی کلاس."
+      ],
+      "lexemeRefs": [
+        "lex-de-unterricht",
+        "lex-de-schule",
+        "lex-de-bleiben",
+        "lex-de-von",
+        "lex-de-bis",
+        "lex-de-uhr"
+      ],
+      "dialogueRef": "dlg-de-a1-time-class-schedule",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-time-ranges-matching",
+      "type": "matching",
+      "instructionFa": "هر پرسش زمانی را به پاسخ درستش وصل کن.",
+      "selectionReason": "چهار جفت کامل از بخش ۸۵۳ چند بازهٔ روزمره را بدون ساخت جملهٔ تازه تمرین می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "تشخیص بازه‌های زمانی با «از ... تا ...»."
+      ],
+      "lexemeRefs": [
+        "lex-de-von",
+        "lex-de-bis",
+        "lex-de-uhr"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Wie lange haben Sie Unterricht?",
+            "leftFa": "چند ساعت کلاس دارید؟",
+            "right": "Von 7.30 bis 12.00 Uhr.",
+            "rightFa": "از ۷:۳۰ تا ۱۲."
+          },
+          {
+            "left": "Wie lange arbeitet Herr Müller?",
+            "leftFa": "آقای مولر چه مدت کار می‌کند؟",
+            "right": "Von 7.00 Uhr bis 16.00 Uhr.",
+            "rightFa": "از ساعت ۷ تا ۱۶."
+          },
+          {
+            "left": "Wie lange üben Sie am Nachmittag?",
+            "leftFa": "بعدازظهر چه مدت تمرین می‌کنید؟",
+            "right": "Von 14.00 Uhr bis 16.30 Uhr.",
+            "rightFa": "از ساعت ۱۴ تا ۱۶:۳۰."
+          },
+          {
+            "left": "Wie lange waren Sie im Kino?",
+            "leftFa": "چه مدت در سینما بودید؟",
+            "right": "Von 20.00 Uhr bis 21.45 Uhr.",
+            "rightFa": "از ساعت ۲۰ تا ۲۱:۴۵."
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-time-bis-wann-order",
+      "type": "word_order",
+      "instructionFa": "پرسش «تا چه زمانی در مدرسه می‌مانی؟» را دوباره بساز.",
+      "selectionReason": "پرسش اصلی گفت‌وگو پس از فهم بازهٔ زمانی به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "بازسازی پرسش منبع‌دار دربارهٔ زمان پایان."
+      ],
+      "lexemeRefs": [
+        "lex-de-bis",
+        "lex-de-bleiben",
+        "lex-de-schule"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Und bis wann bleibst du dann noch in der Schule?",
+        "sourceTextFa": "و بعد تا چه زمانی در مدرسه می‌مانی؟",
+        "tokens": [
+          "Und",
+          "bis",
+          "wann",
+          "bleibst",
+          "du",
+          "dann",
+          "noch",
+          "in",
+          "der",
+          "Schule?"
+        ],
+        "answer": [
+          "Und",
+          "bis",
+          "wann",
+          "bleibst",
+          "du",
+          "dann",
+          "noch",
+          "in",
+          "der",
+          "Schule?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-time-until-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام پاسخ می‌گوید تا ساعت ۱۳ اینجا می‌مانم؟",
+      "selectionReason": "یک پاسخ کامل گفت‌وگو با دو پاسخ کوتاه زمانی از همان بخش مقایسه می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "تشخیص پاسخ با ساعت پایان مشخص."
+      ],
+      "lexemeRefs": [
+        "lex-de-bis",
+        "lex-de-bleiben",
+        "lex-de-uhr"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Bis 13.00 Uhr bleibe ich noch hier.",
+            "translationFa": "تا ساعت ۱۳ اینجا می‌مانم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Bis 12.30 Uhr.",
+            "translationFa": "تا ساعت ۱۲:۳۰.",
+            "correct": false
+          },
+          {
+            "textTarget": "Bis übermorgen.",
+            "translationFa": "تا پس‌فردا.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_level_final"
+}

@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-a1-lesson-time-simple-appointment",
+  "languageId": "de",
+  "level": "A1",
+  "unitRef": "de-a1-unit-time-plans-appointment",
+  "titleFa": "امشب نمی‌شود؛ فردا چطور؟",
+  "sourceTitle": "Was machen Sie heute Abend? / Und morgen?",
+  "sourceTitleFa": "امشب چه کار می‌کنید؟ / و فردا؟",
+  "learningTargets": [
+    "یک دعوت ساده برای برنامهٔ روزمره را بفهمد و رد مؤدبانهٔ آن را تشخیص دهد.",
+    "پیشنهاد روز جایگزین و پاسخ غیرقطعی را در گفت‌وگو بفهمد.",
+    "یک پرسش دربارهٔ انتظار در ساعت مشخص و پاسخ مناسب به آن را تشخیص دهد.",
+    "واژهٔ «قرار» و چند عبارت زمانی رایج را در بافت منبع‌دار تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-021-time-appointment"
+  ],
+  "lexemeRefs": [
+    "lex-de-termin",
+    "lex-de-duerfen",
+    "lex-de-konzert",
+    "lex-de-einladen",
+    "lex-de-kino",
+    "lex-de-warten",
+    "lex-de-vielleicht",
+    "lex-de-heute",
+    "lex-de-abend",
+    "lex-de-uhr"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "گفت‌وگو دعوت امشب و پیشنهاد فردا را پوشش می‌دهد؛ سپس پاسخ مناسب به یک زمان دقیق انتخاب می‌شود، چهار عبارت زمانی و قرار تثبیت می‌شوند و در پایان جملهٔ دعوت بازسازی می‌شود.",
+    "sequenceRationale": "درس از فهم پیشنهاد و تغییر برنامه به تشخیص پاسخ ساعت مشخص، تثبیت واژگان زمان و قرار و بازیابی فعال دعوت حرکت می‌کند.",
+    "templateSignature": "conversation_speaking>choose_response>matching>word_order"
+  },
+  "activities": [
+    {
+      "id": "act-de-a1-appointment-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "به دعوت امشب پاسخ بده و پیشنهاد فردا را دنبال کن.",
+      "selectionReason": "چهار نوبت بخش ۸۸۷ یک دعوت طبیعی، رد مؤدبانه و پیشنهاد روز جایگزین را بدون جمله‌سازی آزاد پوشش می‌دهند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "فهم و پاسخ‌دادن به دعوت ساده و پیشنهاد روز دیگر."
+      ],
+      "lexemeRefs": [
+        "lex-de-duerfen",
+        "lex-de-konzert",
+        "lex-de-einladen",
+        "lex-de-vielleicht",
+        "lex-de-heute",
+        "lex-de-abend"
+      ],
+      "dialogueRef": "dlg-de-a1-time-simple-appointment",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "verbatim_dialogue",
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-appointment-time-response",
+      "type": "choose_response",
+      "instructionFa": "اگر از تو بپرسند ساعت ۱۲ منتظر می‌مانی، کدام پاسخ منبع‌دار مناسب است؟",
+      "selectionReason": "پرسش و پاسخ ساعت مشخص از بخش ۸۸۶ با دو پاسخ واقعی دیگر همان صفحه مقایسه می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "تشخیص پاسخ مناسب به پیشنهاد یک ساعت مشخص."
+      ],
+      "lexemeRefs": [
+        "lex-de-warten",
+        "lex-de-uhr",
+        "lex-de-vielleicht"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Warten Sie um 12 Uhr auf mich?",
+        "promptFa": "ساعت ۱۲ منتظر من می‌مانید؟",
+        "options": [
+          {
+            "textTarget": "Es tut mir leid, um 12 Uhr geht es nicht.",
+            "translationFa": "متأسفم، ساعت ۱۲ نمی‌شود.",
+            "correct": true
+          },
+          {
+            "textTarget": "Morgen geht es vielleicht.",
+            "translationFa": "فردا شاید بشود.",
+            "correct": false
+          },
+          {
+            "textTarget": "Ja, ich bin einverstanden.",
+            "translationFa": "بله، موافقم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-appointment-time-phrases",
+      "type": "matching",
+      "instructionFa": "هر عبارت مربوط به زمان یا قرار را به معنی درستش وصل کن.",
+      "selectionReason": "چهار عبارت مستقیماً از بخش‌های ۸۶۲، ۸۸۶ و ۸۸۷ گرفته شده‌اند و واژگان کاربردی زمان و قرار را تثبیت می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "تشخیص واژهٔ قرار و عبارت‌های زمانی امشب، فردا و ساعت ۱۲."
+      ],
+      "lexemeRefs": [
+        "lex-de-termin",
+        "lex-de-heute",
+        "lex-de-abend",
+        "lex-de-uhr"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "einen Termin",
+            "leftFa": "یک قرار / وقت ملاقات",
+            "right": "یک قرار / وقت ملاقات",
+            "rightFa": "یک قرار / وقت ملاقات"
+          },
+          {
+            "left": "heute Abend",
+            "leftFa": "امشب",
+            "right": "امشب",
+            "rightFa": "امشب"
+          },
+          {
+            "left": "morgen",
+            "leftFa": "فردا",
+            "right": "فردا",
+            "rightFa": "فردا"
+          },
+          {
+            "left": "um 12 Uhr",
+            "leftFa": "ساعت ۱۲",
+            "right": "ساعت ۱۲",
+            "rightFa": "ساعت ۱۲"
+          }
+        ]
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-appointment-invite-order",
+      "type": "word_order",
+      "instructionFa": "جملهٔ دعوت به کنسرت را دوباره بساز.",
+      "selectionReason": "دعوت اصلی پس از فهم سناریو و زمان به بازیابی فعال منتقل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-021-time-appointment"
+      ],
+      "learningTargets": [
+        "بازسازی دعوت مؤدبانهٔ منبع‌دار."
+      ],
+      "lexemeRefs": [
+        "lex-de-duerfen",
+        "lex-de-konzert",
+        "lex-de-einladen"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Darf ich Sie ins Konzert einladen?",
+        "sourceTextFa": "می‌توانم شما را به کنسرت دعوت کنم؟",
+        "tokens": [
+          "Darf",
+          "ich",
+          "Sie",
+          "ins",
+          "Konzert",
+          "einladen?"
+        ],
+        "answer": [
+          "Darf",
+          "ich",
+          "Sie",
+          "ins",
+          "Konzert",
+          "einladen?"
+        ]
+      },
+      "transformations": [
+        "sentence_tokenized_for_word_order",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "draft",
+  "audioStatus": "blocked_until_level_final"
+}

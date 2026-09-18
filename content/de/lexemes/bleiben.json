@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lex-de-bleiben",
+  "languageId": "de",
+  "type": "word",
+  "surface": "bleiben",
+  "lemma": "bleiben",
+  "partOfSpeech": "verb",
+  "partOfSpeechFa": "فعل",
+  "level": "A1",
+  "translationFa": "ماندن",
+  "usageNoteFa": "برای گفتن اینکه فرد تا زمان مشخصی در یک مکان می‌ماند استفاده می‌شود.",
+  "grammarNoteRefs": [],
+  "exampleRefs": [],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-021-time-appointment"
+  ],
+  "formRefs": [
+    "lexform-de-bleiben-bleibst",
+    "lexform-de-bleiben-bleibe"
+  ],
+  "flashcardEligible": true,
+  "audioStatus": "blocked_until_level_final",
+  "audioRef": null,
+  "audioVoice": null
+}
