@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-review-personal-info",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-cumulative-review",
+  "titleFa": "جمع‌بندی اطلاعات شخصی",
+  "sourceTitle": "Wie heißen Sie? / Wo wohnen Sie? / Wie alt sind Sie?",
+  "sourceTitleFa": "اسمتان چیست؟ / کجا زندگی می‌کنید؟ / چند سالتان است؟",
+  "learningTargets": [
+    "نام، محل زندگی و سن را در یک گفت‌وگوی آشنا دوباره بازیابی کند.",
+    "پرسش و پاسخ مربوط به روز و ساعت را از هم تشخیص دهد.",
+    "الگوی گفتن سن را با یک عدد آشنا کامل کند.",
+    "تاریخ تولد، شماره تلفن و سؤال اطلاعاتی ساده را در میان نمونه‌های قبلی تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-age-time",
+    "src-wikibooks-de-birthday",
+    "src-wikibooks-de-birthday-question",
+    "src-wikibooks-de-phone-example",
+    "src-wikibooks-de-basic-object"
+  ],
+  "lexemeRefs": [
+    "lex-de-wohnen",
+    "lex-de-oesterreich",
+    "lex-de-alt",
+    "lex-de-jahr",
+    "lex-de-zwanzig",
+    "lex-de-uhr",
+    "lex-de-geburtstag",
+    "lex-de-telefonnummer",
+    "lex-de-buch"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "چهار مرحلهٔ مرور، مکالمهٔ چندهدفه، تطبیق روز و ساعت، تکمیل الگوی سن و بازیابی تاریخ/تلفن/سؤال اطلاعاتی را پوشش می‌دهد؛ این چهار مرحله شکاف‌های اصلی این خوشه را می‌بندند.",
+    "sequenceRationale": "ابتدا اطلاعات شخصی در تعامل بازیابی می‌شود، بعد روز و ساعت از هم تفکیک می‌شوند، الگوی سن فعالانه تکمیل می‌شود و در پایان چند نوع اطلاعات شخصی و روزمره با هم مخلوط می‌شوند.",
+    "templateSignature": "conversation_speaking>matching>fill_blank>review"
+  },
+  "activities": [
+    {
+      "id": "act-de-review-personal-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "نام، محل زندگی و سن را در گفت‌وگوی آشنا دوباره مرور کن.",
+      "selectionReason": "گفت‌وگوی هشت نوبتیِ مرور شخصی قبلاً منبع‌دار و آماده است و سه هدف مهم را بدون ساختن متن تازه یکجا بازیابی می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin",
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "نام، محل زندگی و سن را یکجا بازیابی کند."
+      ],
+      "lexemeRefs": [
+        "lex-de-wohnen",
+        "lex-de-oesterreich",
+        "lex-de-alt",
+        "lex-de-jahr",
+        "lex-de-zwanzig"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-personal-review",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-personal-time",
+      "type": "matching",
+      "instructionFa": "هر عبارت را به نقش درستش وصل کن.",
+      "selectionReason": "روز و ساعت پس از فاصله از درس اصلی دوباره کنار هم قرار می‌گیرند تا پرسش و پاسخ هرکدام از حافظه بازیابی شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "پرسش و پاسخ روز و ساعت را از هم تشخیص دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-heute",
+        "lex-de-dienstag",
+        "lex-de-uhr"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Welcher Tag ist heute?",
+            "leftFa": "امروز چه روزی است؟",
+            "right": "پرسش دربارهٔ روز",
+            "rightFa": "پرسش دربارهٔ روز"
+          },
+          {
+            "left": "Heute ist Dienstag.",
+            "leftFa": "امروز سه‌شنبه است.",
+            "right": "پاسخ دربارهٔ روز",
+            "rightFa": "پاسخ دربارهٔ روز"
+          },
+          {
+            "left": "Wie spät ist es?",
+            "leftFa": "ساعت چنده؟",
+            "right": "پرسش دربارهٔ ساعت",
+            "rightFa": "پرسش دربارهٔ ساعت"
+          },
+          {
+            "left": "Es ist 6.30 Uhr.",
+            "leftFa": "ساعت ۶:۳۰ است.",
+            "right": "پاسخ دربارهٔ ساعت",
+            "rightFa": "پاسخ دربارهٔ ساعت"
+          }
+        ],
+        "pairMode": "target_to_persian"
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-personal-age",
+      "type": "fill_blank",
+      "instructionFa": "جملهٔ سن را با عدد درست کامل کن.",
+      "selectionReason": "الگوی سن باید بعد از فاصلهٔ زمانی دوباره فعال شود؛ دو عدد آشنای همین سطح انتخاب واقعی ایجاد می‌کنند.",
+      "sourceRefs": [
+        "src-wikibooks-de-age-time"
+      ],
+      "learningTargets": [
+        "الگوی «Ich bin ... Jahre alt.» را با عدد آشنا کامل کند."
+      ],
+      "lexemeRefs": [
+        "lex-de-alt",
+        "lex-de-jahr",
+        "lex-de-achtzehn",
+        "lex-de-zwanzig"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich bin 20 Jahre alt.",
+        "sourceTextFa": "من ۲۰ ساله هستم.",
+        "blankedText": "Ich bin ___ Jahre alt.",
+        "blankedTextFa": "من ___ ساله هستم.",
+        "choices": [
+          "20",
+          "18"
+        ],
+        "choicesFa": [
+          "۲۰",
+          "۱۸"
+        ],
+        "answer": "20"
+      },
+      "transformations": [
+        "source_sentence_blank_created",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-personal-mix",
+      "type": "review",
+      "instructionFa": "هر نمونه را به نوع اطلاعاتی که منتقل می‌کند ربط بده.",
+      "selectionReason": "تاریخ تولد، شماره تلفن و سؤال اطلاعاتی ساده از درس‌های جدا کنار هم می‌آیند تا تشخیص آن‌ها مستقل از ترتیب درس‌ها شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-birthday-question",
+        "src-wikibooks-de-phone-example",
+        "src-wikibooks-de-basic-object"
+      ],
+      "learningTargets": [
+        "تاریخ تولد، شماره تلفن و سؤال اطلاعاتی ساده را دوباره تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "items": [
+          {
+            "textTarget": "Wann hast du Geburtstag?",
+            "translationFa": "تولدت کیه؟",
+            "categoryFa": "تاریخ تولد"
+          },
+          {
+            "textTarget": "Meine Telefonnummer ist: 692-267-752.",
+            "translationFa": "شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.",
+            "categoryFa": "شماره تلفن"
+          },
+          {
+            "textTarget": "Was ist das?",
+            "translationFa": "این چیه؟",
+            "categoryFa": "سؤال اطلاعاتی ساده"
+          },
+          {
+            "textTarget": "Das ist ein Buch.",
+            "translationFa": "این یک کتاب است.",
+            "categoryFa": "پاسخ اطلاعاتی ساده"
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "ready"
+}

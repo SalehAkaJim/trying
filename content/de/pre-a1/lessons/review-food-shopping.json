@@ -1,0 +1,248 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-review-food-shopping",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-cumulative-review",
+  "titleFa": "مرور غذا، سفارش و خرید",
+  "sourceTitle": "Was gibt es heute? / Was möchten Sie bitte? / Wie viel kostet das?",
+  "sourceTitleFa": "امروز چی داریم؟ / لطفاً چی میل دارید؟ / این چقدر قیمت دارد؟",
+  "learningTargets": [
+    "غذای موجود و چیزی که فرد می‌خورد را دوباره در گفت‌وگو تشخیص دهد.",
+    "پاسخ مناسب به پرسش سفارش را انتخاب کند.",
+    "نیاز و خرید را با چهار عبارت آشنا از هم تفکیک کند.",
+    "دو قیمت منبع‌دار را دقیق از هم تشخیص دهد.",
+    "غذا، سفارش، نیاز و قیمت را در یک مرور ترکیبی از هم جدا کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002",
+    "src-wikibooks-de-lesson-004"
+  ],
+  "lexemeRefs": [
+    "lex-de-heute",
+    "lex-de-suppe",
+    "lex-de-essen",
+    "lex-de-reis",
+    "lex-de-bitte",
+    "lex-de-tasse",
+    "lex-de-kaffee",
+    "lex-de-brauchen",
+    "lex-de-hose",
+    "lex-de-kaufen",
+    "lex-de-kosten",
+    "lex-de-euro",
+    "lex-de-cent"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "پنج مرحله لازم است چون این خوشه چهار تمایز جدا دارد: غذای موجود/خورده‌شده، سفارش، نیاز/خرید و قیمت؛ مرحلهٔ پنجم این حوزه‌ها را مخلوط می‌کند تا مرور فقط بلوکی نباشد.",
+    "sequenceRationale": "مکالمهٔ غذا نقطهٔ شروع است، سپس سفارش، نیاز/خرید و قیمت جداگانه بازیابی می‌شوند و در پایان چهار کاربرد در یک مرور ترکیبی کنار هم می‌آیند.",
+    "templateSignature": "conversation_speaking>choose_response>matching>multiple_choice>review"
+  },
+  "activities": [
+    {
+      "id": "act-de-review-food-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "به سؤال‌های مربوط به غذای امروز دوباره پاسخ بده.",
+      "selectionReason": "گفت‌وگوی قبلی غذا دو مفهوم نزدیک را در چهار نوبت بازیابی می‌کند و شروع مناسبی برای ورود به مرور خرید و سفارش است.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "غذای موجود و چیزی که فرد می‌خورد را در گفت‌وگو بازیابی کند."
+      ],
+      "lexemeRefs": [
+        "lex-de-heute",
+        "lex-de-suppe",
+        "lex-de-essen",
+        "lex-de-reis"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-food-today",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-order-response",
+      "type": "choose_response",
+      "instructionFa": "به پرسش سفارش پاسخ مناسب بده.",
+      "selectionReason": "پرسش رسمی سفارش بعد از فاصله از درس اصلی دوباره به پاسخ کاربردی‌اش وصل می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "پاسخ سفارش کوتاه را در برابر یک سلام ساده تشخیص دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-bitte",
+        "lex-de-tasse",
+        "lex-de-kaffee"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Was möchten Sie bitte?",
+        "promptFa": "لطفاً چی میل دارید؟",
+        "options": [
+          {
+            "textTarget": "Eine Tasse Kaffee bitte!",
+            "translationFa": "یک فنجان قهوه لطفاً!",
+            "correct": true
+          },
+          {
+            "textTarget": "Guten Tag!",
+            "translationFa": "روز بخیر!",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-need-buy",
+      "type": "matching",
+      "instructionFa": "هر عبارت را به نقش درستش وصل کن.",
+      "selectionReason": "نیاز و خرید دوباره در قالب چهار نقش مستقل مرور می‌شوند تا «brauchen» و «kaufen» فقط با ترتیب قبلی درس به یاد نیایند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "پرسش و پاسخ نیاز و خرید را از هم تشخیص دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hose",
+        "lex-de-kaufen",
+        "lex-de-hemd",
+        "lex-de-schuhe"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Was brauchen Sie?",
+            "leftFa": "چه چیزی لازم دارید؟",
+            "right": "پرسش دربارهٔ نیاز",
+            "rightFa": "پرسش دربارهٔ نیاز"
+          },
+          {
+            "left": "Ich brauche eine Hose.",
+            "leftFa": "من یک شلوار لازم دارم.",
+            "right": "پاسخ دربارهٔ نیاز",
+            "rightFa": "پاسخ دربارهٔ نیاز"
+          },
+          {
+            "left": "Und was kaufen Sie?",
+            "leftFa": "و چه چیزی می‌خرید؟",
+            "right": "پرسش دربارهٔ خرید",
+            "rightFa": "پرسش دربارهٔ خرید"
+          },
+          {
+            "left": "Ich kaufe ein Hemd und ein Paar Schuhe.",
+            "leftFa": "من یک پیراهن و یک جفت کفش می‌خرم.",
+            "right": "پاسخ دربارهٔ خرید",
+            "rightFa": "پاسخ دربارهٔ خرید"
+          }
+        ],
+        "pairMode": "target_to_persian"
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-price-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله قیمت ۳۵ یورو و ۱۵ سنت را می‌گوید؟",
+      "selectionReason": "دو پاسخ قیمتِ نزدیک و هر دو منبع‌دار دوباره مقایسه می‌شوند تا عددها با دقت خوانده شوند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "قیمت ۳۵ یورو و ۱۵ سنت را از قیمت نزدیک دیگر تشخیص دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-kosten",
+        "lex-de-euro",
+        "lex-de-cent"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Das kostet 35 Euro und 15 Cent.",
+            "translationFa": "این ۳۵ یورو و ۱۵ سنت قیمت دارد.",
+            "correct": true
+          },
+          {
+            "textTarget": "Das kostet 70 Euro und 92 Cent.",
+            "translationFa": "این ۷۰ یورو و ۹۲ سنت قیمت دارد.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-food-shopping-mix",
+      "type": "review",
+      "instructionFa": "کاربرد هر عبارت را بدون توجه به درس اصلی‌اش مشخص کن.",
+      "selectionReason": "چهار حوزهٔ این خوشه در یک فعالیت مخلوط می‌شوند تا انتقال بین موقعیت‌ها تمرین شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002",
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "غذا، سفارش، نیاز و قیمت را از روی عبارت آشنا تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "items": [
+          {
+            "textTarget": "Was gibt es heute?",
+            "translationFa": "امروز چی داریم؟",
+            "categoryFa": "غذای موجود"
+          },
+          {
+            "textTarget": "Eine Tasse Kaffee bitte!",
+            "translationFa": "یک فنجان قهوه لطفاً!",
+            "categoryFa": "سفارش"
+          },
+          {
+            "textTarget": "Ich brauche eine Hose.",
+            "translationFa": "من یک شلوار لازم دارم.",
+            "categoryFa": "نیاز"
+          },
+          {
+            "textTarget": "Wie viel kostet das?",
+            "translationFa": "این چقدر قیمت دارد؟",
+            "categoryFa": "پرسش قیمت"
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "ready"
+}

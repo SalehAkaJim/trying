@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-unit-cumulative-review",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "titleFa": "مرور نهایی پیش از A1",
+  "learningTargets": [
+    "عبارت‌های پایهٔ سلام، خداحافظی، احوال‌پرسی، تشکر و عذرخواهی را دوباره بازیابی کند.",
+    "اطلاعات شخصی، روز، ساعت، تاریخ تولد و شماره تلفن را در مرور ترکیبی تشخیص دهد.",
+    "غذا، سفارش، نیاز، خرید و قیمت را در چند بافت آشنا از هم تفکیک کند.",
+    "عبارت‌های ضروری برای پیدا کردن مکان و درخواست کمک را دوباره بازیابی کند.",
+    "در پایان، هدف‌های اصلی سطح را به‌صورت ترکیبی و بدون معرفی زبان تازه از هم تشخیص دهد."
+  ],
+  "lessonRefs": [
+    "de-pre-a1-lesson-review-social-basics",
+    "de-pre-a1-lesson-review-personal-info",
+    "de-pre-a1-lesson-review-food-shopping",
+    "de-pre-a1-lesson-review-survival",
+    "de-pre-a1-lesson-review-final-mix"
+  ],
+  "groupingRationale": "پس از پایان چهار واحد آموزشی، یک واحد جدا برای بازیابی فاصله‌دار لازم است تا زبان‌آموز مطالب را نه در ترتیب آموزش، بلکه در خوشه‌های کاربردی دوباره به یاد بیاورد. چهار درس نخست هرکدام یک حوزهٔ بزرگ را جمع‌بندی می‌کنند و درس پنجم حوزه‌ها را با هم مخلوط می‌کند؛ این پنج درس از نیاز مرور و ترکیب مهارت‌ها به‌دست آمده‌اند و برای رسیدن به عدد خاصی انتخاب نشده‌اند.",
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-wiktionary-de-guten-morgen",
+    "src-wikibooks-de-basic-greetings",
+    "src-wiktionary-de-danke",
+    "src-wiktionary-de-bitte",
+    "src-wiktionary-de-entschuldigung",
+    "src-wiktionary-de-kein-problem",
+    "src-wiktionary-de-nein",
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-age-time",
+    "src-wikibooks-de-birthday",
+    "src-wikibooks-de-birthday-question",
+    "src-wikibooks-de-phone-example",
+    "src-wikibooks-de-basic-object",
+    "src-wikibooks-de-lesson-002",
+    "src-wikibooks-de-lesson-004",
+    "src-wikibooks-de-phrasebook"
+  ],
+  "status": "final",
+  "notes": "این واحد فقط مطالب منبع‌دار قبلی را دوباره ترکیب می‌کند و هیچ هدف زبانی تازه‌ای به سطح اضافه نمی‌کند."
+}

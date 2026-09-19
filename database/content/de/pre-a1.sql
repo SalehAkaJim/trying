@@ -3194,3 +3194,209 @@ DROP TEMPORARY TABLE _prea1_new_audio_lesson_status;
 COMMIT;
 
 -- ===== END zzzzzzzzzzzz-pre-a1-new-audio-unblock-2026-09-19.sql =====
+
+
+-- ===== BEGIN zzzzzzzzzzzzz-pre-a1-cumulative-review-unit-2026-09-19.sql =====
+-- Dedicated cumulative review unit for German Pre-A1.
+-- All German strings below are reused from existing source-backed Pre-A1 content.
+
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @prea1 := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);
+
+INSERT INTO units(unit_key,language_level_id,sequence_index,title_fa,grouping_rationale,status,metadata,notes)
+VALUES(
+ 'de-pre-a1-unit-cumulative-review',@prea1,5,'مرور نهایی پیش از A1',
+ 'پس از پایان چهار واحد آموزشی، یک واحد جدا برای بازیابی فاصله‌دار لازم است تا زبان‌آموز مطالب را نه در ترتیب آموزش، بلکه در خوشه‌های کاربردی دوباره به یاد بیاورد. چهار درس نخست هرکدام یک حوزهٔ بزرگ را جمع‌بندی می‌کنند و درس پنجم حوزه‌ها را با هم مخلوط می‌کند؛ این پنج درس از نیاز مرور و ترکیب مهارت‌ها به‌دست آمده‌اند و برای رسیدن به عدد خاصی انتخاب نشده‌اند.',
+ 'final',JSON_OBJECT('dynamicStructure',TRUE,'cumulativeReview',TRUE),
+ 'این واحد فقط مطالب منبع‌دار قبلی را دوباره ترکیب می‌کند و هیچ هدف زبانی تازه‌ای به سطح اضافه نمی‌کند.'
+)
+ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),sequence_index=VALUES(sequence_index),title_fa=VALUES(title_fa),grouping_rationale=VALUES(grouping_rationale),status=VALUES(status),metadata=VALUES(metadata),notes=VALUES(notes);
+SET @u_review := (SELECT id FROM units WHERE unit_key='de-pre-a1-unit-cumulative-review' LIMIT 1);
+
+SET @d_wellbeing := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-wellbeing' LIMIT 1);
+SET @d_personal_review := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-personal-review' LIMIT 1);
+SET @d_food_today := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-food-today' LIMIT 1);
+SET @d_find_toilet := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-find-toilet' LIMIT 1);
+SET @d_simple_order := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-simple-order' LIMIT 1);
+
+INSERT INTO lessons
+(lesson_key,language_level_id,unit_id,sequence_index,position_in_unit,title_fa,source_title,source_title_fa,status,activity_selection_rationale,sequence_rationale,template_signature,audio_status,notes)
+VALUES
+('de-pre-a1-lesson-review-social-basics',@prea1,@u_review,23,1,'مرور ارتباط‌های پایه','Hallo! / Wie geht''s? / Guten Morgen! / Tschüss!','سلام! / حالت چطوره؟ / صبح بخیر! / خداحافظ!','qa',
+ 'چهار مرحلهٔ مرور، مکالمهٔ آشنا، تشخیص نقش چهار عبارت اجتماعی، پاسخ به عذرخواهی و در پایان بازیابی چند عبارت پایه را پوشش می‌دهد؛ برای این خوشه تمرین اضافه ارزش آموزشی مستقلی ندارد.',
+ 'مرور از تعامل آشنا شروع می‌شود، سپس نقش عبارت‌های اجتماعی تفکیک می‌شود، پاسخ مناسب انتخاب می‌شود و در پایان چند عبارت از درس‌های جدا کنار هم بازیابی می‌شوند.',
+ 'conversation_speaking>matching>choose_response>review','ready',NULL),
+('de-pre-a1-lesson-review-personal-info',@prea1,@u_review,24,2,'جمع‌بندی اطلاعات شخصی','Wie heißen Sie? / Wo wohnen Sie? / Wie alt sind Sie?','اسمتان چیست؟ / کجا زندگی می‌کنید؟ / چند سالتان است؟','qa',
+ 'چهار مرحلهٔ مرور، مکالمهٔ چندهدفه، تطبیق روز و ساعت، تکمیل الگوی سن و بازیابی تاریخ/تلفن/سؤال اطلاعاتی را پوشش می‌دهد؛ این چهار مرحله شکاف‌های اصلی این خوشه را می‌بندند.',
+ 'ابتدا اطلاعات شخصی در تعامل بازیابی می‌شود، بعد روز و ساعت از هم تفکیک می‌شوند، الگوی سن فعالانه تکمیل می‌شود و در پایان چند نوع اطلاعات شخصی و روزمره با هم مخلوط می‌شوند.',
+ 'conversation_speaking>matching>fill_blank>review','ready',NULL),
+('de-pre-a1-lesson-review-food-shopping',@prea1,@u_review,25,3,'مرور غذا، سفارش و خرید','Was gibt es heute? / Was möchten Sie bitte? / Wie viel kostet das?','امروز چی داریم؟ / لطفاً چی میل دارید؟ / این چقدر قیمت دارد؟','qa',
+ 'پنج مرحله لازم است چون این خوشه چهار تمایز جدا دارد: غذای موجود/خورده‌شده، سفارش، نیاز/خرید و قیمت؛ مرحلهٔ پنجم این حوزه‌ها را مخلوط می‌کند تا مرور فقط بلوکی نباشد.',
+ 'مکالمهٔ غذا نقطهٔ شروع است، سپس سفارش، نیاز/خرید و قیمت جداگانه بازیابی می‌شوند و در پایان چهار کاربرد در یک مرور ترکیبی کنار هم می‌آیند.',
+ 'conversation_speaking>choose_response>matching>multiple_choice>review','ready',NULL),
+('de-pre-a1-lesson-review-survival',@prea1,@u_review,26,4,'مرور موقعیت‌های ضروری','Wo ist die Toilette? / Ich brauche Hilfe.','سرویس بهداشتی کجاست؟ / من کمک لازم دارم.','qa',
+ 'چهار مرحلهٔ مرور برای این خوشه کافی است: تعامل موقعیت، فهم پاسخ «نمی‌دانم»، تفکیک درخواست کمک از نیاز خرید و یک بازیابی ترکیبی از عبارت‌های ضروری.',
+ 'از موقعیت واقعی پیدا کردن مکان شروع می‌شود، سپس فهم پاسخ کوتاه و درخواست کمک جداگانه سنجیده می‌شوند و در پایان عبارت‌های ضروری کنار هم قرار می‌گیرند.',
+ 'conversation_speaking>multiple_choice>fill_blank>review','ready',NULL),
+('de-pre-a1-lesson-review-final-mix',@prea1,@u_review,27,5,'مرور نهایی ترکیبی','Wie heißen Sie? / Eine Tasse Kaffee bitte! / Ich brauche Hilfe.','اسمتان چیست؟ / یک فنجان قهوه لطفاً! / من کمک لازم دارم.','qa',
+ 'پنج مرحله برای جمع‌بندی نهایی لازم است: یک تعامل آشنا، یک تطبیق چهاردامنه‌ای، یک مرور مخلوط از اطلاعات دورتر، تمایز کمک/خرید و یک بررسی کوتاه از سؤال اطلاعاتی. هر مرحله پوشش متفاوتی دارد و فعالیت ششم ارزش مستقل اضافه نمی‌کند.',
+ 'درس با یک تعامل روان شروع می‌شود، سپس حوزه‌ها به‌صورت بین‌موضوعی مخلوط می‌شوند و در دو مرحلهٔ آخر دو تمایز مهم و کوتاه تثبیت می‌شوند؛ هیچ ترتیب آموزشی قبلی دوباره کپی نمی‌شود.',
+ 'conversation_speaking>matching>review>multiple_choice>true_false','ready',NULL)
+ON DUPLICATE KEY UPDATE
+ language_level_id=VALUES(language_level_id),unit_id=VALUES(unit_id),sequence_index=VALUES(sequence_index),position_in_unit=VALUES(position_in_unit),
+ title_fa=VALUES(title_fa),source_title=VALUES(source_title),source_title_fa=VALUES(source_title_fa),status=VALUES(status),
+ activity_selection_rationale=VALUES(activity_selection_rationale),sequence_rationale=VALUES(sequence_rationale),template_signature=VALUES(template_signature),
+ audio_status=VALUES(audio_status),notes=VALUES(notes);
+
+SET @l23 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-review-social-basics' LIMIT 1);
+SET @l24 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-review-personal-info' LIMIT 1);
+SET @l25 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-review-food-shopping' LIMIT 1);
+SET @l26 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-review-survival' LIMIT 1);
+SET @l27 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-review-final-mix' LIMIT 1);
+
+INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES
+('act-de-review-social-conversation',@l23,1,'conversation_speaking','گفت‌وگوی سلام و احوال‌پرسی را دوباره انجام بده.','بازگشت به یک گفت‌وگوی چهار نوبتی آشنا، شروع مرور را کم‌فشار نگه می‌دارد و بدون زبان تازه بازیابی گفتاری ایجاد می‌کند.',@d_wellbeing,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-review-social-functions',@l23,2,'matching','هر عبارت را به کاربردش وصل کن.','چهار عبارت اجتماعی از درس‌های مختلف کنار هم قرار می‌گیرند تا زبان‌آموز نقش آن‌ها را بدون کمک ترتیب قبلی درس‌ها بازیابی کند.',NULL,JSON_OBJECT('pairMode','target_to_persian','pairs',JSON_ARRAY(
+ JSON_OBJECT('left','Hallo!','leftFa','سلام!','right','سلام / شروع گفت‌وگو','rightFa','سلام / شروع گفت‌وگو'),
+ JSON_OBJECT('left','Tschüss!','leftFa','خداحافظ!','right','خداحافظی / پایان گفت‌وگو','rightFa','خداحافظی / پایان گفت‌وگو'),
+ JSON_OBJECT('left','Danke!','leftFa','ممنون!','right','تشکر','rightFa','تشکر'),
+ JSON_OBJECT('left','Bitte!','leftFa','خواهش می‌کنم!','right','پاسخ به تشکر','rightFa','پاسخ به تشکر')
+)),JSON_ARRAY('source_items_grouped_for_matching','persian_translation_added'),NULL,'not_required'),
+('act-de-review-social-apology',@l23,3,'choose_response','بعد از عذرخواهی کدام پاسخ مناسب‌تر است؟','پاسخ به عذرخواهی جدا از تشکر سنجیده می‌شود تا دو واکنش اجتماعی نزدیک با هم اشتباه نشوند.',NULL,JSON_OBJECT('promptTarget','Entschuldigung.','promptFa','ببخشید.','options',JSON_ARRAY(
+ JSON_OBJECT('textTarget','Kein Problem.','translationFa','مشکلی نیست.','correct',TRUE),
+ JSON_OBJECT('textTarget','Danke!','translationFa','ممنون!','correct',FALSE)
+)),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+('act-de-review-social-mix',@l23,4,'review','کاربرد هر عبارت را از بین چیزهایی که قبلاً یاد گرفته‌ای به یاد بیاور.','چهار عبارت از درس‌های غیرپیاپی کنار هم آمده‌اند تا بازیابی به ترتیب آموزش وابسته نباشد.',NULL,JSON_OBJECT('items',JSON_ARRAY(
+ JSON_OBJECT('textTarget','Guten Morgen!','translationFa','صبح بخیر!','categoryFa','سلام صبحگاهی'),
+ JSON_OBJECT('textTarget','Wie geht''s?','translationFa','حالت چطوره؟','categoryFa','احوال‌پرسی'),
+ JSON_OBJECT('textTarget','Gut.','translationFa','خوبم.','categoryFa','پاسخ احوال‌پرسی'),
+ JSON_OBJECT('textTarget','Nein!','translationFa','نه!','categoryFa','پاسخ منفی')
+)),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+
+('act-de-review-personal-conversation',@l24,1,'conversation_speaking','نام، محل زندگی و سن را در گفت‌وگوی آشنا دوباره مرور کن.','گفت‌وگوی هشت نوبتیِ مرور شخصی قبلاً منبع‌دار و آماده است و سه هدف مهم را بدون ساختن متن تازه یکجا بازیابی می‌کند.',@d_personal_review,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-review-personal-time',@l24,2,'matching','هر عبارت را به نقش درستش وصل کن.','روز و ساعت پس از فاصله از درس اصلی دوباره کنار هم قرار می‌گیرند تا پرسش و پاسخ هرکدام از حافظه بازیابی شوند.',NULL,JSON_OBJECT('pairMode','target_to_persian','pairs',JSON_ARRAY(
+ JSON_OBJECT('left','Welcher Tag ist heute?','leftFa','امروز چه روزی است؟','right','پرسش دربارهٔ روز','rightFa','پرسش دربارهٔ روز'),
+ JSON_OBJECT('left','Heute ist Dienstag.','leftFa','امروز سه‌شنبه است.','right','پاسخ دربارهٔ روز','rightFa','پاسخ دربارهٔ روز'),
+ JSON_OBJECT('left','Wie spät ist es?','leftFa','ساعت چنده؟','right','پرسش دربارهٔ ساعت','rightFa','پرسش دربارهٔ ساعت'),
+ JSON_OBJECT('left','Es ist 6.30 Uhr.','leftFa','ساعت ۶:۳۰ است.','right','پاسخ دربارهٔ ساعت','rightFa','پاسخ دربارهٔ ساعت')
+)),JSON_ARRAY('source_items_grouped_for_matching','persian_translation_added'),NULL,'not_required'),
+('act-de-review-personal-age',@l24,3,'fill_blank','جملهٔ سن را با عدد درست کامل کن.','الگوی سن باید بعد از فاصلهٔ زمانی دوباره فعال شود؛ دو عدد آشنای همین سطح انتخاب واقعی ایجاد می‌کنند.',NULL,JSON_OBJECT(
+ 'sourceText','Ich bin 20 Jahre alt.','sourceTextFa','من ۲۰ ساله هستم.','blankedText','Ich bin ___ Jahre alt.','blankedTextFa','من ___ ساله هستم.',
+ 'choices',JSON_ARRAY('20','18'),'choicesFa',JSON_ARRAY('۲۰','۱۸'),'answer','20'
+),JSON_ARRAY('source_sentence_blank_created','persian_translation_added'),NULL,'not_required'),
+('act-de-review-personal-mix',@l24,4,'review','هر نمونه را به نوع اطلاعاتی که منتقل می‌کند ربط بده.','تاریخ تولد، شماره تلفن و سؤال اطلاعاتی ساده از درس‌های جدا کنار هم می‌آیند تا تشخیص آن‌ها مستقل از ترتیب درس‌ها شود.',NULL,JSON_OBJECT('items',JSON_ARRAY(
+ JSON_OBJECT('textTarget','Wann hast du Geburtstag?','translationFa','تولدت کیه؟','categoryFa','تاریخ تولد'),
+ JSON_OBJECT('textTarget','Meine Telefonnummer ist: 692-267-752.','translationFa','شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.','categoryFa','شماره تلفن'),
+ JSON_OBJECT('textTarget','Was ist das?','translationFa','این چیه؟','categoryFa','سؤال اطلاعاتی ساده'),
+ JSON_OBJECT('textTarget','Das ist ein Buch.','translationFa','این یک کتاب است.','categoryFa','پاسخ اطلاعاتی ساده')
+)),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+
+('act-de-review-food-conversation',@l25,1,'conversation_speaking','به سؤال‌های مربوط به غذای امروز دوباره پاسخ بده.','گفت‌وگوی قبلی غذا دو مفهوم نزدیک را در چهار نوبت بازیابی می‌کند و شروع مناسبی برای ورود به مرور خرید و سفارش است.',@d_food_today,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-review-order-response',@l25,2,'choose_response','به پرسش سفارش پاسخ مناسب بده.','پرسش رسمی سفارش بعد از فاصله از درس اصلی دوباره به پاسخ کاربردی‌اش وصل می‌شود.',NULL,JSON_OBJECT('promptTarget','Was möchten Sie bitte?','promptFa','لطفاً چی میل دارید؟','options',JSON_ARRAY(
+ JSON_OBJECT('textTarget','Eine Tasse Kaffee bitte!','translationFa','یک فنجان قهوه لطفاً!','correct',TRUE),
+ JSON_OBJECT('textTarget','Guten Tag!','translationFa','روز بخیر!','correct',FALSE)
+)),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+('act-de-review-need-buy',@l25,3,'matching','هر عبارت را به نقش درستش وصل کن.','نیاز و خرید دوباره در قالب چهار نقش مستقل مرور می‌شوند تا «brauchen» و «kaufen» فقط با ترتیب قبلی درس به یاد نیایند.',NULL,JSON_OBJECT('pairMode','target_to_persian','pairs',JSON_ARRAY(
+ JSON_OBJECT('left','Was brauchen Sie?','leftFa','چه چیزی لازم دارید؟','right','پرسش دربارهٔ نیاز','rightFa','پرسش دربارهٔ نیاز'),
+ JSON_OBJECT('left','Ich brauche eine Hose.','leftFa','من یک شلوار لازم دارم.','right','پاسخ دربارهٔ نیاز','rightFa','پاسخ دربارهٔ نیاز'),
+ JSON_OBJECT('left','Und was kaufen Sie?','leftFa','و چه چیزی می‌خرید؟','right','پرسش دربارهٔ خرید','rightFa','پرسش دربارهٔ خرید'),
+ JSON_OBJECT('left','Ich kaufe ein Hemd und ein Paar Schuhe.','leftFa','من یک پیراهن و یک جفت کفش می‌خرم.','right','پاسخ دربارهٔ خرید','rightFa','پاسخ دربارهٔ خرید')
+)),JSON_ARRAY('source_items_grouped_for_matching','persian_translation_added'),NULL,'not_required'),
+('act-de-review-price-choice',@l25,4,'multiple_choice','کدام جمله قیمت ۳۵ یورو و ۱۵ سنت را می‌گوید؟','دو پاسخ قیمتِ نزدیک و هر دو منبع‌دار دوباره مقایسه می‌شوند تا عددها با دقت خوانده شوند.',NULL,JSON_OBJECT('options',JSON_ARRAY(
+ JSON_OBJECT('textTarget','Das kostet 35 Euro und 15 Cent.','translationFa','این ۳۵ یورو و ۱۵ سنت قیمت دارد.','correct',TRUE),
+ JSON_OBJECT('textTarget','Das kostet 70 Euro und 92 Cent.','translationFa','این ۷۰ یورو و ۹۲ سنت قیمت دارد.','correct',FALSE)
+)),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+('act-de-review-food-shopping-mix',@l25,5,'review','کاربرد هر عبارت را بدون توجه به درس اصلی‌اش مشخص کن.','چهار حوزهٔ این خوشه در یک فعالیت مخلوط می‌شوند تا انتقال بین موقعیت‌ها تمرین شود.',NULL,JSON_OBJECT('items',JSON_ARRAY(
+ JSON_OBJECT('textTarget','Was gibt es heute?','translationFa','امروز چی داریم؟','categoryFa','غذای موجود'),
+ JSON_OBJECT('textTarget','Eine Tasse Kaffee bitte!','translationFa','یک فنجان قهوه لطفاً!','categoryFa','سفارش'),
+ JSON_OBJECT('textTarget','Ich brauche eine Hose.','translationFa','من یک شلوار لازم دارم.','categoryFa','نیاز'),
+ JSON_OBJECT('textTarget','Wie viel kostet das?','translationFa','این چقدر قیمت دارد؟','categoryFa','پرسش قیمت')
+)),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+
+('act-de-review-survival-conversation',@l26,1,'conversation_speaking','با عذرخواهی شروع کن و دوباره محل سرویس بهداشتی را بپرس.','گفت‌وگوی قبلی چهار عبارت ضروری و منبع‌دار را در یک موقعیت کوتاه بازیابی می‌کند.',@d_find_toilet,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','learner'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-review-survival-dont-know',@l26,2,'multiple_choice','کدام عبارت یعنی «نمی‌دانم»؟','پاسخ کوتاه دوباره از خود پرسش مکان جدا می‌شود تا فهم مستقیم عبارت سنجیده شود.',NULL,JSON_OBJECT('options',JSON_ARRAY(
+ JSON_OBJECT('textTarget','Ich weiß nicht.','translationFa','نمی‌دانم.','correct',TRUE),
+ JSON_OBJECT('textTarget','Wo ist die Toilette?','translationFa','سرویس بهداشتی کجاست؟','correct',FALSE)
+)),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+('act-de-review-survival-help',@l26,3,'fill_blank','جمله را طوری کامل کن که معنی‌اش «کمک لازم دارم» باشد.','همان تمایز مهم بین درخواست کمک و نیاز خرید بعد از فاصلهٔ زمانی دوباره فعال می‌شود.',NULL,JSON_OBJECT(
+ 'sourceText','Ich brauche Hilfe.','sourceTextFa','من کمک لازم دارم.','blankedText','Ich brauche ___.','blankedTextFa','من ___ لازم دارم.',
+ 'choices',JSON_ARRAY('Hilfe','eine Hose'),'choicesFa',JSON_ARRAY('کمک','یک شلوار'),'answer','Hilfe'
+),JSON_ARRAY('source_sentence_blank_created','options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+('act-de-review-survival-mix',@l26,4,'review','هر عبارت را به کاربردی که قبلاً یاد گرفته‌ای ربط بده.','چهار عبارت ضروری در یک فعالیت ترکیب می‌شوند تا زبان‌آموز بین شروع مؤدبانه، پاسخ، پرسش مکان و درخواست کمک جابه‌جا شود.',NULL,JSON_OBJECT('items',JSON_ARRAY(
+ JSON_OBJECT('textTarget','Entschuldigung!','translationFa','ببخشید!','categoryFa','شروع مؤدبانه'),
+ JSON_OBJECT('textTarget','Bitte?','translationFa','بفرمایید؟','categoryFa','پاسخ به شروع مؤدبانه'),
+ JSON_OBJECT('textTarget','Wo ist die Toilette?','translationFa','سرویس بهداشتی کجاست؟','categoryFa','پرسش مکان'),
+ JSON_OBJECT('textTarget','Ich brauche Hilfe.','translationFa','من کمک لازم دارم.','categoryFa','درخواست کمک')
+)),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+
+('act-de-review-final-conversation',@l27,1,'conversation_speaking','گفت‌وگوی سفارش کوتاه را یک بار دیگر بدون راهنمای درس اصلی انجام بده.','استفادهٔ دوباره از گفت‌وگوی سفارش، شروع نهایی را کاربردی نگه می‌دارد و نیاز به ساختن صحنه یا جملهٔ تازه را از بین می‌برد.',@d_simple_order,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-review-final-domains',@l27,2,'matching','هر پرسش را به حوزهٔ درستش وصل کن.','چهار پرسش از چهار بخش دور از هم انتخاب شده‌اند تا زبان‌آموز مجبور شود کاربرد را از خود عبارت تشخیص دهد، نه از جایگاه آن در دوره.',NULL,JSON_OBJECT('pairMode','target_to_persian','pairs',JSON_ARRAY(
+ JSON_OBJECT('left','Wie heißen Sie?','leftFa','اسمتان چیست؟','right','اطلاعات شخصی','rightFa','اطلاعات شخصی'),
+ JSON_OBJECT('left','Was möchten Sie bitte?','leftFa','لطفاً چی میل دارید؟','right','سفارش','rightFa','سفارش'),
+ JSON_OBJECT('left','Wie viel kostet das?','leftFa','این چقدر قیمت دارد؟','right','قیمت','rightFa','قیمت'),
+ JSON_OBJECT('left','Wo ist die Toilette?','leftFa','سرویس بهداشتی کجاست؟','right','پرسش مکان','rightFa','پرسش مکان')
+)),JSON_ARRAY('source_items_grouped_for_matching','persian_translation_added'),NULL,'not_required'),
+('act-de-review-final-mixed-items',@l27,3,'review','چهار نمونهٔ دور از هم را بخوان و نوع اطلاعات یا کاربرد هرکدام را مشخص کن.','این مرحله دانسته‌های اجتماعی، زمانی، اطلاعات تماس و موقعیت ضروری را عمداً با هم مخلوط می‌کند تا بازیابی بین‌موضوعی انجام شود.',NULL,JSON_OBJECT('items',JSON_ARRAY(
+ JSON_OBJECT('textTarget','Guten Morgen!','translationFa','صبح بخیر!','categoryFa','سلام صبحگاهی'),
+ JSON_OBJECT('textTarget','Es ist 6.30 Uhr.','translationFa','ساعت ۶:۳۰ است.','categoryFa','ساعت'),
+ JSON_OBJECT('textTarget','Meine Telefonnummer ist: 692-267-752.','translationFa','شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.','categoryFa','شماره تلفن'),
+ JSON_OBJECT('textTarget','Ich brauche Hilfe.','translationFa','من کمک لازم دارم.','categoryFa','درخواست کمک')
+)),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+('act-de-review-final-help-choice',@l27,4,'multiple_choice','کدام جمله درخواست کمک است؟','دو جمله با فعل یکسان دوباره مقایسه می‌شوند تا تفاوت موقعیت ضروری و نیاز خرید روشن بماند.',NULL,JSON_OBJECT('options',JSON_ARRAY(
+ JSON_OBJECT('textTarget','Ich brauche Hilfe.','translationFa','من کمک لازم دارم.','correct',TRUE),
+ JSON_OBJECT('textTarget','Ich brauche eine Hose.','translationFa','من یک شلوار لازم دارم.','correct',FALSE)
+)),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+('act-de-review-final-object-check',@l27,5,'true_false','درست یا غلط؟ «Was ist das?» یک پرسش اطلاعاتی ساده است.','این بررسی کوتاه یک هدف کوچک ولی مستقل از واحد اطلاعات شخصی را در پایان دوباره فعال می‌کند تا در مرورهای بزرگ‌تر گم نشود.',NULL,JSON_OBJECT('statementTarget','Was ist das?','statementFa','این یک پرسش اطلاعاتی ساده است.','answer',TRUE),JSON_ARRAY('persian_translation_added'),NULL,'not_required')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
+ selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),
+ audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+
+-- The previous cumulative checkpoint now sits before the dedicated review unit.
+UPDATE lessons
+SET sequence_rationale='عبارت کمک ابتدا در تعامل و سپس به‌صورت شفاهی بازیابی می‌شود؛ بعد معنی واژهٔ کلیدی تثبیت می‌شود و آخرین فعالیت چهار کاربرد مهم از مسیر تا این نقطه را پیش از ورود به واحد مرور نهایی دوباره فعال می‌کند.'
+WHERE lesson_key='de-pre-a1-lesson-need-help';
+UPDATE activities
+SET selection_reason='در پایان واحد موقعیت‌های ضروری و پیش از واحد مرور نهایی، یک بازیابی فاصله‌دار از چهار حوزهٔ جدا—اطلاعات شخصی، سفارش، قیمت و درخواست کمک—لازم است؛ همهٔ عبارت‌ها عین محتوای منبع‌دار قبلی‌اند.'
+WHERE activity_key='act-de-pre-a1-final-review';
+
+SET @t_review := (SELECT id FROM curriculum_targets WHERE language_level_id=@prea1 AND target_key='de.pre_a1.integrated_review' LIMIT 1);
+INSERT IGNORE INTO unit_targets(unit_id,curriculum_target_id) VALUES (@u_review,@t_review);
+INSERT IGNORE INTO lesson_targets(lesson_id,curriculum_target_id) VALUES
+(@l23,@t_review),(@l24,@t_review),(@l25,@t_review),(@l26,@t_review),(@l27,@t_review);
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT a.id,@t_review FROM activities a WHERE a.lesson_id IN (@l23,@l24,@l25,@l26,@l27);
+
+-- Provenance: each new review activity points only to already registered, reusable source items.
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity',a.activity_key,si.id,'options_selected_from_source_material','این فعالیت مرور فقط از عبارت‌های منبع‌دار قبلی استفاده می‌کند.'
+FROM activities a
+JOIN lessons l ON l.id=a.lesson_id
+JOIN source_items si ON si.source_text IN (
+ 'Hallo!','Tschüss!','Danke!','Bitte!','Entschuldigung.','Kein Problem.','Guten Morgen!','Wie geht''s?','Gut.','Nein!',
+ 'Wie heißen Sie?','Wo wohnen Sie?','Wie alt sind Sie?','Welcher Tag ist heute?','Heute ist Dienstag.','Wie spät ist es?','Es ist 6.30 Uhr.',
+ 'Ich bin 20 Jahre alt.','Wann hast du Geburtstag?','Meine Telefonnummer ist: 692-267-752.','Was ist das?','Das ist ein Buch.',
+ 'Was gibt es heute?','Eine Tasse Kaffee bitte!','Was möchten Sie bitte?','Was brauchen Sie?','Ich brauche eine Hose.','Und was kaufen Sie?',
+ 'Ich kaufe ein Hemd und ein Paar Schuhe.','Das kostet 35 Euro und 15 Cent.','Das kostet 70 Euro und 92 Cent.','Wie viel kostet das?',
+ 'Ich weiß nicht.','Wo ist die Toilette?','Ich brauche Hilfe.','Entschuldigung!','Bitte?'
+)
+JOIN sources s ON s.id=si.source_id
+WHERE l.id IN (@l23,@l24,@l25,@l26,@l27)
+  AND s.modernity_status IN ('contemporary_verified','maintained_current')
+  AND s.reuse_status IN ('direct_reuse_allowed','reuse_with_attribution');
+
+UPDATE lessons SET status='final' WHERE id IN (@l23,@l24,@l25,@l26,@l27);
+
+UPDATE language_levels
+SET audio_status='ready',
+    notes='سطح پیش از A1 آلمانی اکنون ۲۷ درس در ۵ واحد و ۱۱۱ فعالیت هدفمند دارد. واحد پنجم یک مرور تجمعی پنج‌درسی است که مطالب چهار واحد قبلی را در خوشه‌های کاربردی و سپس به‌صورت ترکیبی بازیابی می‌کند؛ هیچ متن آلمانی تازه‌ای برای این مرور ساخته نشده و Audioهای گفت‌وگو از دارایی‌های آمادهٔ قبلی بازاستفاده می‌شوند.'
+WHERE id=@prea1;
+
+COMMIT;
+
+-- ===== END zzzzzzzzzzzzz-pre-a1-cumulative-review-unit-2026-09-19.sql =====

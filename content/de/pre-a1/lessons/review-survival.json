@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-review-survival",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-cumulative-review",
+  "titleFa": "مرور موقعیت‌های ضروری",
+  "sourceTitle": "Wo ist die Toilette? / Ich brauche Hilfe.",
+  "sourceTitleFa": "سرویس بهداشتی کجاست؟ / من کمک لازم دارم.",
+  "learningTargets": [
+    "شروع مؤدبانه، پرسش مکان و پاسخ «نمی‌دانم» را دوباره در گفت‌وگو بازیابی کند.",
+    "معنی «Ich weiß nicht.» را دوباره تشخیص دهد.",
+    "درخواست کمک را از نیاز به یک کالا تفکیک کند.",
+    "عبارت‌های ضروری این خوشه را به کاربرد درستشان وصل کند."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-phrasebook",
+    "src-wikibooks-de-lesson-004",
+    "src-wiktionary-de-entschuldigung",
+    "src-wiktionary-de-bitte"
+  ],
+  "lexemeRefs": [
+    "lex-de-toilette",
+    "lex-de-ich-weiss-nicht",
+    "lex-de-entschuldigung",
+    "lex-de-bitte",
+    "lex-de-brauchen",
+    "lex-de-hilfe",
+    "lex-de-hose"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "چهار مرحلهٔ مرور برای این خوشه کافی است: تعامل موقعیت، فهم پاسخ «نمی‌دانم»، تفکیک درخواست کمک از نیاز خرید و یک بازیابی ترکیبی از عبارت‌های ضروری.",
+    "sequenceRationale": "از موقعیت واقعی پیدا کردن مکان شروع می‌شود، سپس فهم پاسخ کوتاه و درخواست کمک جداگانه سنجیده می‌شوند و در پایان عبارت‌های ضروری کنار هم قرار می‌گیرند.",
+    "templateSignature": "conversation_speaking>multiple_choice>fill_blank>review"
+  },
+  "activities": [
+    {
+      "id": "act-de-review-survival-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "با عذرخواهی شروع کن و دوباره محل سرویس بهداشتی را بپرس.",
+      "selectionReason": "گفت‌وگوی قبلی چهار عبارت ضروری و منبع‌دار را در یک موقعیت کوتاه بازیابی می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook"
+      ],
+      "learningTargets": [
+        "شروع مؤدبانه، پرسش مکان و پاسخ کوتاه را دوباره بازیابی کند."
+      ],
+      "lexemeRefs": [
+        "lex-de-toilette",
+        "lex-de-ich-weiss-nicht",
+        "lex-de-entschuldigung",
+        "lex-de-bitte"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-find-toilet",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-survival-dont-know",
+      "type": "multiple_choice",
+      "instructionFa": "کدام عبارت یعنی «نمی‌دانم»؟",
+      "selectionReason": "پاسخ کوتاه دوباره از خود پرسش مکان جدا می‌شود تا فهم مستقیم عبارت سنجیده شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook"
+      ],
+      "learningTargets": [
+        "معنی «Ich weiß nicht.» را تشخیص دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-ich-weiss-nicht",
+        "lex-de-toilette"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Ich weiß nicht.",
+            "translationFa": "نمی‌دانم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Wo ist die Toilette?",
+            "translationFa": "سرویس بهداشتی کجاست؟",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-survival-help",
+      "type": "fill_blank",
+      "instructionFa": "جمله را طوری کامل کن که معنی‌اش «کمک لازم دارم» باشد.",
+      "selectionReason": "همان تمایز مهم بین درخواست کمک و نیاز خرید بعد از فاصلهٔ زمانی دوباره فعال می‌شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook",
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "درخواست کمک را از نیاز به یک کالا تفکیک کند."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hilfe",
+        "lex-de-hose"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ich brauche Hilfe.",
+        "sourceTextFa": "من کمک لازم دارم.",
+        "blankedText": "Ich brauche ___.",
+        "blankedTextFa": "من ___ لازم دارم.",
+        "choices": [
+          "Hilfe",
+          "eine Hose"
+        ],
+        "choicesFa": [
+          "کمک",
+          "یک شلوار"
+        ],
+        "answer": "Hilfe"
+      },
+      "transformations": [
+        "source_sentence_blank_created",
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-survival-mix",
+      "type": "review",
+      "instructionFa": "هر عبارت را به کاربردی که قبلاً یاد گرفته‌ای ربط بده.",
+      "selectionReason": "چهار عبارت ضروری در یک فعالیت ترکیب می‌شوند تا زبان‌آموز بین شروع مؤدبانه، پاسخ، پرسش مکان و درخواست کمک جابه‌جا شود.",
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook"
+      ],
+      "learningTargets": [
+        "چهار عبارت ضروری را از روی کاربردشان تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "items": [
+          {
+            "textTarget": "Entschuldigung!",
+            "translationFa": "ببخشید!",
+            "categoryFa": "شروع مؤدبانه"
+          },
+          {
+            "textTarget": "Bitte?",
+            "translationFa": "بفرمایید؟",
+            "categoryFa": "پاسخ به شروع مؤدبانه"
+          },
+          {
+            "textTarget": "Wo ist die Toilette?",
+            "translationFa": "سرویس بهداشتی کجاست؟",
+            "categoryFa": "پرسش مکان"
+          },
+          {
+            "textTarget": "Ich brauche Hilfe.",
+            "translationFa": "من کمک لازم دارم.",
+            "categoryFa": "درخواست کمک"
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "ready"
+}

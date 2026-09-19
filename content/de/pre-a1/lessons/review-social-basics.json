@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-review-social-basics",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-cumulative-review",
+  "titleFa": "مرور ارتباط‌های پایه",
+  "sourceTitle": "Hallo! / Wie geht's? / Guten Morgen! / Tschüss!",
+  "sourceTitleFa": "سلام! / حالت چطوره؟ / صبح بخیر! / خداحافظ!",
+  "learningTargets": [
+    "سلام، خداحافظی و احوال‌پرسی کوتاه را دوباره بازیابی کند.",
+    "تشکر و پاسخ مؤدبانه را از هم تشخیص دهد.",
+    "عذرخواهی کوتاه و پاسخ مناسب را دوباره تشخیص دهد.",
+    "سلام صبحگاهی و پاسخ مثبت یا منفی کوتاه را در میان عبارت‌های آشنا تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wiktionary-de-hallo",
+    "src-wiktionary-de-guten-morgen",
+    "src-wikibooks-de-basic-greetings",
+    "src-wiktionary-de-danke",
+    "src-wiktionary-de-bitte",
+    "src-wiktionary-de-entschuldigung",
+    "src-wiktionary-de-kein-problem",
+    "src-wiktionary-de-nein"
+  ],
+  "lexemeRefs": [
+    "lex-de-hallo",
+    "lex-de-tschuess",
+    "lex-de-danke",
+    "lex-de-bitte",
+    "lex-de-entschuldigung",
+    "lex-de-kein-problem",
+    "lex-de-wie-gehts",
+    "lex-de-gut"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "چهار مرحلهٔ مرور، مکالمهٔ آشنا، تشخیص نقش چهار عبارت اجتماعی، پاسخ به عذرخواهی و در پایان بازیابی چند عبارت پایه را پوشش می‌دهد؛ برای این خوشه تمرین اضافه ارزش آموزشی مستقلی ندارد.",
+    "sequenceRationale": "مرور از تعامل آشنا شروع می‌شود، سپس نقش عبارت‌های اجتماعی تفکیک می‌شود، پاسخ مناسب انتخاب می‌شود و در پایان چند عبارت از درس‌های جدا کنار هم بازیابی می‌شوند.",
+    "templateSignature": "conversation_speaking>matching>choose_response>review"
+  },
+  "activities": [
+    {
+      "id": "act-de-review-social-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی سلام و احوال‌پرسی را دوباره انجام بده.",
+      "selectionReason": "بازگشت به یک گفت‌وگوی چهار نوبتی آشنا، شروع مرور را کم‌فشار نگه می‌دارد و بدون زبان تازه بازیابی گفتاری ایجاد می‌کند.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-wikibooks-de-basic-greetings"
+      ],
+      "learningTargets": [
+        "سلام و احوال‌پرسی کوتاه را دوباره در گفت‌وگو استفاده کند."
+      ],
+      "lexemeRefs": [
+        "lex-de-hallo",
+        "lex-de-wie-gehts",
+        "lex-de-gut"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-wellbeing",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-social-functions",
+      "type": "matching",
+      "instructionFa": "هر عبارت را به کاربردش وصل کن.",
+      "selectionReason": "چهار عبارت اجتماعی از درس‌های مختلف کنار هم قرار می‌گیرند تا زبان‌آموز نقش آن‌ها را بدون کمک ترتیب قبلی درس‌ها بازیابی کند.",
+      "sourceRefs": [
+        "src-wiktionary-de-hallo",
+        "src-wikibooks-de-basic-greetings",
+        "src-wiktionary-de-danke",
+        "src-wiktionary-de-bitte"
+      ],
+      "learningTargets": [
+        "سلام، خداحافظی، تشکر و پاسخ به تشکر را از هم تشخیص دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-hallo",
+        "lex-de-tschuess",
+        "lex-de-danke",
+        "lex-de-bitte"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Hallo!",
+            "leftFa": "سلام!",
+            "right": "سلام / شروع گفت‌وگو",
+            "rightFa": "سلام / شروع گفت‌وگو"
+          },
+          {
+            "left": "Tschüss!",
+            "leftFa": "خداحافظ!",
+            "right": "خداحافظی / پایان گفت‌وگو",
+            "rightFa": "خداحافظی / پایان گفت‌وگو"
+          },
+          {
+            "left": "Danke!",
+            "leftFa": "ممنون!",
+            "right": "تشکر",
+            "rightFa": "تشکر"
+          },
+          {
+            "left": "Bitte!",
+            "leftFa": "خواهش می‌کنم!",
+            "right": "پاسخ به تشکر",
+            "rightFa": "پاسخ به تشکر"
+          }
+        ],
+        "pairMode": "target_to_persian"
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-social-apology",
+      "type": "choose_response",
+      "instructionFa": "بعد از عذرخواهی کدام پاسخ مناسب‌تر است؟",
+      "selectionReason": "پاسخ به عذرخواهی جدا از تشکر سنجیده می‌شود تا دو واکنش اجتماعی نزدیک با هم اشتباه نشوند.",
+      "sourceRefs": [
+        "src-wiktionary-de-entschuldigung",
+        "src-wiktionary-de-kein-problem",
+        "src-wiktionary-de-danke"
+      ],
+      "learningTargets": [
+        "پاسخ مناسب به «Entschuldigung.» را تشخیص دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-entschuldigung",
+        "lex-de-kein-problem",
+        "lex-de-danke"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Entschuldigung.",
+        "promptFa": "ببخشید.",
+        "options": [
+          {
+            "textTarget": "Kein Problem.",
+            "translationFa": "مشکلی نیست.",
+            "correct": true
+          },
+          {
+            "textTarget": "Danke!",
+            "translationFa": "ممنون!",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-social-mix",
+      "type": "review",
+      "instructionFa": "کاربرد هر عبارت را از بین چیزهایی که قبلاً یاد گرفته‌ای به یاد بیاور.",
+      "selectionReason": "چهار عبارت از درس‌های غیرپیاپی کنار هم آمده‌اند تا بازیابی به ترتیب آموزش وابسته نباشد.",
+      "sourceRefs": [
+        "src-wiktionary-de-guten-morgen",
+        "src-wikibooks-de-basic-greetings",
+        "src-wiktionary-de-nein"
+      ],
+      "learningTargets": [
+        "سلام صبحگاهی، احوال‌پرسی، پاسخ احوال‌پرسی و پاسخ منفی را دوباره تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "items": [
+          {
+            "textTarget": "Guten Morgen!",
+            "translationFa": "صبح بخیر!",
+            "categoryFa": "سلام صبحگاهی"
+          },
+          {
+            "textTarget": "Wie geht's?",
+            "translationFa": "حالت چطوره؟",
+            "categoryFa": "احوال‌پرسی"
+          },
+          {
+            "textTarget": "Gut.",
+            "translationFa": "خوبم.",
+            "categoryFa": "پاسخ احوال‌پرسی"
+          },
+          {
+            "textTarget": "Nein!",
+            "translationFa": "نه!",
+            "categoryFa": "پاسخ منفی"
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "ready"
+}

@@ -1,0 +1,240 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "de-pre-a1-lesson-review-final-mix",
+  "languageId": "de",
+  "level": "Pre-A1",
+  "unitRef": "de-pre-a1-unit-cumulative-review",
+  "titleFa": "مرور نهایی ترکیبی",
+  "sourceTitle": "Wie heißen Sie? / Eine Tasse Kaffee bitte! / Ich brauche Hilfe.",
+  "sourceTitleFa": "اسمتان چیست؟ / یک فنجان قهوه لطفاً! / من کمک لازم دارم.",
+  "learningTargets": [
+    "در یک گفت‌وگوی آشنا، سفارش کوتاه را بدون معرفی زبان تازه دوباره انجام دهد.",
+    "چهار پرسش از حوزه‌های اطلاعات شخصی، سفارش، قیمت و مکان را به کاربرد درستشان وصل کند.",
+    "سلام صبحگاهی، ساعت، شماره تلفن و درخواست کمک را در یک مرور مخلوط تشخیص دهد.",
+    "درخواست کمک را از نیاز خرید تفکیک کند.",
+    "یک سؤال اطلاعاتی ساده را دوباره به‌عنوان پرسش تشخیص دهد."
+  ],
+  "sourceRefs": [
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-age-time",
+    "src-wikibooks-de-phone-example",
+    "src-wikibooks-de-basic-object",
+    "src-wikibooks-de-lesson-002",
+    "src-wikibooks-de-lesson-004",
+    "src-wikibooks-de-phrasebook",
+    "src-wiktionary-de-guten-morgen"
+  ],
+  "lexemeRefs": [
+    "lex-de-bitte",
+    "lex-de-tasse",
+    "lex-de-kaffee",
+    "lex-de-kosten",
+    "lex-de-toilette",
+    "lex-de-brauchen",
+    "lex-de-hilfe",
+    "lex-de-hose",
+    "lex-de-uhr",
+    "lex-de-telefonnummer",
+    "lex-de-buch"
+  ],
+  "grammarNoteRefs": [],
+  "activityDesign": {
+    "activitySelectionRationale": "پنج مرحله برای جمع‌بندی نهایی لازم است: یک تعامل آشنا، یک تطبیق چهاردامنه‌ای، یک مرور مخلوط از اطلاعات دورتر، تمایز کمک/خرید و یک بررسی کوتاه از سؤال اطلاعاتی. هر مرحله پوشش متفاوتی دارد و فعالیت ششم ارزش مستقل اضافه نمی‌کند.",
+    "sequenceRationale": "درس با یک تعامل روان شروع می‌شود، سپس حوزه‌ها به‌صورت بین‌موضوعی مخلوط می‌شوند و در دو مرحلهٔ آخر دو تمایز مهم و کوتاه تثبیت می‌شوند؛ هیچ ترتیب آموزشی قبلی دوباره کپی نمی‌شود.",
+    "templateSignature": "conversation_speaking>matching>review>multiple_choice>true_false"
+  },
+  "activities": [
+    {
+      "id": "act-de-review-final-conversation",
+      "type": "conversation_speaking",
+      "instructionFa": "گفت‌وگوی سفارش کوتاه را یک بار دیگر بدون راهنمای درس اصلی انجام بده.",
+      "selectionReason": "استفادهٔ دوباره از گفت‌وگوی سفارش، شروع نهایی را کاربردی نگه می‌دارد و نیاز به ساختن صحنه یا جملهٔ تازه را از بین می‌برد.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-002"
+      ],
+      "learningTargets": [
+        "یک سفارش کوتاه و مؤدبانه را دوباره در گفت‌وگو انجام دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-bitte",
+        "lex-de-tasse",
+        "lex-de-kaffee"
+      ],
+      "dialogueRef": "dlg-de-pre-a1-simple-order",
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "app"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-final-domains",
+      "type": "matching",
+      "instructionFa": "هر پرسش را به حوزهٔ درستش وصل کن.",
+      "selectionReason": "چهار پرسش از چهار بخش دور از هم انتخاب شده‌اند تا زبان‌آموز مجبور شود کاربرد را از خود عبارت تشخیص دهد، نه از جایگاه آن در دوره.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin",
+        "src-wikibooks-de-lesson-002",
+        "src-wikibooks-de-lesson-004",
+        "src-wikibooks-de-phrasebook"
+      ],
+      "learningTargets": [
+        "پرسش‌های اطلاعات شخصی، سفارش، قیمت و مکان را از هم تشخیص دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-kosten",
+        "lex-de-toilette"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "pairs": [
+          {
+            "left": "Wie heißen Sie?",
+            "leftFa": "اسمتان چیست؟",
+            "right": "اطلاعات شخصی",
+            "rightFa": "اطلاعات شخصی"
+          },
+          {
+            "left": "Was möchten Sie bitte?",
+            "leftFa": "لطفاً چی میل دارید؟",
+            "right": "سفارش",
+            "rightFa": "سفارش"
+          },
+          {
+            "left": "Wie viel kostet das?",
+            "leftFa": "این چقدر قیمت دارد؟",
+            "right": "قیمت",
+            "rightFa": "قیمت"
+          },
+          {
+            "left": "Wo ist die Toilette?",
+            "leftFa": "سرویس بهداشتی کجاست؟",
+            "right": "پرسش مکان",
+            "rightFa": "پرسش مکان"
+          }
+        ],
+        "pairMode": "target_to_persian"
+      },
+      "transformations": [
+        "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-final-mixed-items",
+      "type": "review",
+      "instructionFa": "چهار نمونهٔ دور از هم را بخوان و نوع اطلاعات یا کاربرد هرکدام را مشخص کن.",
+      "selectionReason": "این مرحله دانسته‌های اجتماعی، زمانی، اطلاعات تماس و موقعیت ضروری را عمداً با هم مخلوط می‌کند تا بازیابی بین‌موضوعی انجام شود.",
+      "sourceRefs": [
+        "src-wiktionary-de-guten-morgen",
+        "src-wikibooks-de-age-time",
+        "src-wikibooks-de-phone-example",
+        "src-wikibooks-de-phrasebook"
+      ],
+      "learningTargets": [
+        "سلام صبحگاهی، ساعت، شماره تلفن و درخواست کمک را در یک مجموعهٔ مخلوط تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "items": [
+          {
+            "textTarget": "Guten Morgen!",
+            "translationFa": "صبح بخیر!",
+            "categoryFa": "سلام صبحگاهی"
+          },
+          {
+            "textTarget": "Es ist 6.30 Uhr.",
+            "translationFa": "ساعت ۶:۳۰ است.",
+            "categoryFa": "ساعت"
+          },
+          {
+            "textTarget": "Meine Telefonnummer ist: 692-267-752.",
+            "translationFa": "شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.",
+            "categoryFa": "شماره تلفن"
+          },
+          {
+            "textTarget": "Ich brauche Hilfe.",
+            "translationFa": "من کمک لازم دارم.",
+            "categoryFa": "درخواست کمک"
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-final-help-choice",
+      "type": "multiple_choice",
+      "instructionFa": "کدام جمله درخواست کمک است؟",
+      "selectionReason": "دو جمله با فعل یکسان دوباره مقایسه می‌شوند تا تفاوت موقعیت ضروری و نیاز خرید روشن بماند.",
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook",
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "درخواست کمک را از نیاز به یک کالا تشخیص دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hilfe",
+        "lex-de-hose"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "options": [
+          {
+            "textTarget": "Ich brauche Hilfe.",
+            "translationFa": "من کمک لازم دارم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich brauche eine Hose.",
+            "translationFa": "من یک شلوار لازم دارم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-review-final-object-check",
+      "type": "true_false",
+      "instructionFa": "درست یا غلط؟ «Was ist das?» یک پرسش اطلاعاتی ساده است.",
+      "selectionReason": "این بررسی کوتاه یک هدف کوچک ولی مستقل از واحد اطلاعات شخصی را در پایان دوباره فعال می‌کند تا در مرورهای بزرگ‌تر گم نشود.",
+      "sourceRefs": [
+        "src-wikibooks-de-basic-object"
+      ],
+      "learningTargets": [
+        "«Was ist das?» را دوباره به‌عنوان پرسش اطلاعاتی ساده تشخیص دهد."
+      ],
+      "lexemeRefs": [
+        "lex-de-buch"
+      ],
+      "dialogueRef": null,
+      "data": {
+        "statementTarget": "Was ist das?",
+        "statementFa": "این یک پرسش اطلاعاتی ساده است.",
+        "answer": true
+      },
+      "transformations": [
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    }
+  ],
+  "status": "final",
+  "audioStatus": "ready"
+}
