@@ -3183,7 +3183,7 @@ WHERE activity_key IN (
   AND audio_text_target IS NOT NULL;
 
 UPDATE language_levels
-SET audio_status='pending'
+SET audio_status='stale'
 WHERE id=@prea1;
 
 UPDATE lessons l
