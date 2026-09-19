@@ -10273,7 +10273,7 @@ VALUES('act-de-a1-home-review-possessive-fill',@lesson,4,'fill_blank','برای 
 ON DUPLICATE KEY UPDATE
  lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
  instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
- payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-home-review-possessive-fill' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
 SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
@@ -10310,7 +10310,7 @@ VALUES('act-de-a1-shopping-price-review-question-choice',@lesson,3,'multiple_cho
 ON DUPLICATE KEY UPDATE
  lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
  instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
- payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-shopping-price-review-question-choice' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
 SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
@@ -10344,7 +10344,7 @@ VALUES('act-de-a1-family-review-verb-fill',@lesson,3,'fill_blank','برای بر
 ON DUPLICATE KEY UPDATE
  lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
  instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
- payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-family-review-verb-fill' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
 SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
@@ -10383,7 +10383,7 @@ VALUES('act-de-a1-intro-review-identity-response',@lesson,2,'choose_response','�
 ON DUPLICATE KEY UPDATE
  lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
  instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
- payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-intro-review-identity-response' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
 SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
@@ -10418,7 +10418,7 @@ VALUES('act-de-a1-health-medicine-location-response',@lesson,3,'choose_response'
 ON DUPLICATE KEY UPDATE
  lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
  instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
- payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-health-medicine-location-response' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
 SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
@@ -10452,7 +10452,7 @@ VALUES('act-de-a1-transport-stop-response',@lesson,3,'choose_response','برای
 ON DUPLICATE KEY UPDATE
  lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
  instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
- payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
 SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-transport-stop-response' LIMIT 1);
 INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
 SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
