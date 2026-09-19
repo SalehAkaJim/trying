@@ -11,10 +11,14 @@
   "usageNoteFa": "برای پرسیدن و گفتن چیزی که فرد می‌خورد استفاده می‌شود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-lesson-002"],
-  "formRefs": ["lexform-de-essen-esse"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002"
+  ],
+  "formRefs": [
+    "lexform-de-essen-esse"
+  ],
   "flashcardEligible": true,
-  "audioStatus": "pending",
+  "audioStatus": "ready",
   "audioRef": null,
   "audioVoice": null,
   "partOfSpeechFa": "فعل"

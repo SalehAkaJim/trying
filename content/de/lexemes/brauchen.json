@@ -11,10 +11,14 @@
   "usageNoteFa": "در این سطح فقط در الگوی خیلی سادهٔ نیاز استفاده می‌شود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-lesson-004"],
-  "formRefs": ["lexform-de-brauchen-brauche"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-004"
+  ],
+  "formRefs": [
+    "lexform-de-brauchen-brauche"
+  ],
   "flashcardEligible": true,
-  "audioStatus": "pending",
+  "audioStatus": "ready",
   "audioRef": null,
   "audioVoice": null,
   "partOfSpeechFa": "فعل"

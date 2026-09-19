@@ -83,7 +83,7 @@
         "other",
         "persian_translation_added"
       ],
-      "audioStatus": "pending",
+      "audioStatus": "ready",
       "audioTextTarget": "Eine Tasse Kaffee bitte!"
     },
     {
@@ -187,11 +187,11 @@
         "other",
         "persian_translation_added"
       ],
-      "audioStatus": "pending",
+      "audioStatus": "ready",
       "audioTextTarget": "Eine Tasse Kaffee bitte!"
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitleFa": "لطفاً چی میل دارید؟ / یک فنجان قهوه لطفاً!"
 }

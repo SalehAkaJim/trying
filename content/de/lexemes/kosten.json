@@ -11,10 +11,14 @@
   "usageNoteFa": "در این سطح فقط برای پرسیدن و گفتن قیمت یک چیز در جمله‌های خیلی کوتاه استفاده می‌شود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-lesson-004"],
-  "formRefs": ["lexform-de-kosten-kostet"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-004"
+  ],
+  "formRefs": [
+    "lexform-de-kosten-kostet"
+  ],
   "flashcardEligible": true,
-  "audioStatus": "pending",
+  "audioStatus": "ready",
   "audioRef": null,
   "audioVoice": null,
   "partOfSpeechFa": "فعل"

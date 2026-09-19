@@ -11,10 +11,12 @@
   "usageNoteFa": "به‌صورت یک عبارت ثابت و بسیار کوتاه برای وقتی پاسخ را نمی‌دانیم استفاده می‌شود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-phrasebook"],
+  "sourceRefs": [
+    "src-wikibooks-de-phrasebook"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
-  "audioStatus": "pending",
+  "audioStatus": "ready",
   "audioRef": null,
   "audioVoice": null,
   "partOfSpeechFa": null

@@ -87,7 +87,7 @@
         "other",
         "persian_translation_added"
       ],
-      "audioStatus": "pending",
+      "audioStatus": "ready",
       "audioTextTarget": "Es ist 6.30 Uhr."
     },
     {
@@ -223,6 +223,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "ready",
   "sourceTitleFa": "امروز چه روزیه؟ ساعت چنده؟"
 }

@@ -88,7 +88,7 @@
         "other",
         "persian_translation_added"
       ],
-      "audioStatus": "pending",
+      "audioStatus": "ready",
       "audioTextTarget": "achtzehn"
     },
     {
@@ -169,6 +169,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "ready",
   "sourceTitleFa": "چند سالته؟"
 }

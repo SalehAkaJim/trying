@@ -11,10 +11,14 @@
   "usageNoteFa": "در این سطح فقط برای بیان یک خرید ساده استفاده می‌شود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-lesson-004"],
-  "formRefs": ["lexform-de-kaufen-kaufe"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-004"
+  ],
+  "formRefs": [
+    "lexform-de-kaufen-kaufe"
+  ],
   "flashcardEligible": true,
-  "audioStatus": "pending",
+  "audioStatus": "ready",
   "audioRef": null,
   "audioVoice": null,
   "partOfSpeechFa": "فعل"

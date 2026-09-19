@@ -137,7 +137,7 @@
         "other",
         "persian_translation_added"
       ],
-      "audioStatus": "pending",
+      "audioStatus": "ready",
       "audioTextTarget": "Wo ist die Toilette?"
     },
     {
@@ -208,11 +208,11 @@
         "other",
         "persian_translation_added"
       ],
-      "audioStatus": "pending",
+      "audioStatus": "ready",
       "audioTextTarget": "Wo ist die Toilette?"
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitleFa": "سرویس بهداشتی کجاست؟ / نمی‌دانم."
 }

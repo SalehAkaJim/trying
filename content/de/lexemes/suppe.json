@@ -11,10 +11,12 @@
   "usageNoteFa": "در این واحد به‌عنوان غذای موجود در پاسخ «Heute gibt es Suppe.» استفاده می‌شود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-lesson-002"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-002"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
-  "audioStatus": "pending",
+  "audioStatus": "ready",
   "audioRef": null,
   "audioVoice": null,
   "partOfSpeechFa": "اسم"

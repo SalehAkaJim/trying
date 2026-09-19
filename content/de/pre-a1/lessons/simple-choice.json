@@ -218,11 +218,11 @@
         "other",
         "persian_translation_added"
       ],
-      "audioStatus": "pending",
+      "audioStatus": "ready",
       "audioTextTarget": "Was möchtest du?"
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitleFa": "چی می‌خوای؟"
 }

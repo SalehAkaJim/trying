@@ -223,11 +223,11 @@
         "other",
         "persian_translation_added"
       ],
-      "audioStatus": "pending",
+      "audioStatus": "ready",
       "audioTextTarget": "Das kostet 35 Euro und 15 Cent."
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitleFa": "قیمتش چقدره؟ / این ... یورو و ... سنت قیمت دارد."
 }

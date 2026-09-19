@@ -11,10 +11,12 @@
   "usageNoteFa": "در قیمت‌های ساده همراه «Euro» به کار می‌رود.",
   "grammarNoteRefs": [],
   "exampleRefs": [],
-  "sourceRefs": ["src-wikibooks-de-lesson-004"],
+  "sourceRefs": [
+    "src-wikibooks-de-lesson-004"
+  ],
   "formRefs": [],
   "flashcardEligible": true,
-  "audioStatus": "pending",
+  "audioStatus": "ready",
   "audioRef": null,
   "audioVoice": null,
   "partOfSpeechFa": "اسم"

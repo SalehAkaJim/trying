@@ -5,8 +5,8 @@
   "level": "Pre-A1",
   "modelId": "eleven_multilingual_v2",
   "outputFormat": "mp3_44100_128",
-  "generatedAt": "2026-09-17T16:48:33Z",
-  "assetCount": 149,
+  "generatedAt": "2026-09-19T10:11:59Z",
+  "assetCount": 154,
   "assets": [
     {
       "ownerType": "activity",
@@ -26,6 +26,63 @@
       "audioSha256": "e8aee7d8909bfbcf2f4809c7324f9c228dde4fcf802fd3a33b3ea69ecef62fe5",
       "byteSize": 15090,
       "reused": true
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-hallo-role-match",
+      "audioText": "Tschüss!",
+      "expectedSourceHash": "43f692229732b4a5323689d6dc018a4acb578ca6d48152b78ceb88250d3323fa",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-hallo-role-match.mp3",
+      "audioStoragePath": "audio/de/pre-a1/activity/act-de-hallo-role-match.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/pre-a1/activity/act-de-hallo-role-match.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-hallo-role-match.mp3",
+      "audioSha256": "b1e3e31fed9630af00f5394f249ce7b56b6295cb3a86f26a97e421125640ed20",
+      "byteSize": 15926,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-help-word-order",
+      "audioText": "Ich brauche Hilfe.",
+      "expectedSourceHash": "da4092712b6cb476ca50287c86e010e50fc0c594a26688835da8e8a74d3ed507",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-help-word-order.mp3",
+      "audioStoragePath": "audio/de/pre-a1/activity/act-de-help-word-order.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/pre-a1/activity/act-de-help-word-order.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-help-word-order.mp3",
+      "audioSha256": "3966732598ed33c62d1796733a23c3eebf571186ba72252a19f5b5498c219f50",
+      "byteSize": 23449,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-name-word-order",
+      "audioText": "Ich heiße Iris.",
+      "expectedSourceHash": "0d7650abce6f3d3ea359d6980df27bbb559910d222348b2bb42701ea1b22ce73",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-name-word-order.mp3",
+      "audioStoragePath": "audio/de/pre-a1/activity/act-de-name-word-order.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/pre-a1/activity/act-de-name-word-order.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-name-word-order.mp3",
+      "audioSha256": "6da4d05496a79fad2f0c9a97607ec3e80743151eefd8e2eb931878fd2b6f4be4",
+      "byteSize": 22613,
+      "reused": false
     },
     {
       "ownerType": "activity",
@@ -105,6 +162,25 @@
     },
     {
       "ownerType": "activity",
+      "ownerKey": "act-de-simple-order-word-order",
+      "audioText": "Eine Tasse Kaffee bitte!",
+      "expectedSourceHash": "96258ecedc4fddbf9a57f162b8b2fc00294dd596a55e5afb0617df34a5fbd118",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-simple-order-word-order.mp3",
+      "audioStoragePath": "audio/de/pre-a1/activity/act-de-simple-order-word-order.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/pre-a1/activity/act-de-simple-order-word-order.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-simple-order-word-order.mp3",
+      "audioSha256": "350ea842345abb5ea8d8da379a48d100267cfa85bcdd61d7ed17da8a2b186337",
+      "byteSize": 26375,
+      "reused": false
+    },
+    {
+      "ownerType": "activity",
       "ownerKey": "act-de-time-listen",
       "audioText": "Es ist 6.30 Uhr.",
       "expectedSourceHash": "748dfc000ff6f4d65ed52fb4f52ab33afda0f3cdc1b84ade83996f2c4afbf126",
@@ -140,6 +216,25 @@
       "audioSha256": "c18c915310c764da6e8acf35d056ef9249b5e728b7594c391c71b46274e5b154",
       "byteSize": 21777,
       "reused": true
+    },
+    {
+      "ownerType": "activity",
+      "ownerKey": "act-de-toilet-question-order",
+      "audioText": "Wo ist die Toilette?",
+      "expectedSourceHash": "026bd601c7aef08660946597db1c191301b4d7ad849bfa97da5a764cbdaa6f1e",
+      "voiceAssignmentKey": "standalone",
+      "voiceName": "Hope - upbeat and clear",
+      "voiceId": "tnSpp4vdxKPjI9w0GnoV",
+      "audioStatus": "ready",
+      "audioUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-toilet-question-order.mp3",
+      "audioStoragePath": "audio/de/pre-a1/activity/act-de-toilet-question-order.mp3",
+      "audioIsCurrent": true,
+      "needsGeneration": false,
+      "path": "audio/de/pre-a1/activity/act-de-toilet-question-order.mp3",
+      "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/activity/act-de-toilet-question-order.mp3",
+      "audioSha256": "ae80a1d8c5ca2e180cfd28cb07d117828cb2192cbf9ec6dac12141e5669bf63c",
+      "byteSize": 22613,
+      "reused": false
     },
     {
       "ownerType": "dialogue_turn",
@@ -538,7 +633,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-food-today-1.mp3",
       "audioSha256": "6427aefc840d1a978df3189262fcaa6c07364680c2bfd1eec18ccb3415c77930",
       "byteSize": 20524,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -576,7 +671,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-food-today-3.mp3",
       "audioSha256": "6ed000ea21dc19e8cf82876a4c72006715b837ddcd280a36793563b7e7233b03",
       "byteSize": 16762,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -766,7 +861,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-help-1.mp3",
       "audioSha256": "8dea0ec281ba518dc8b4000045c15b363990b9b2017afb5daab46d01dc294e96",
       "byteSize": 16762,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -804,7 +899,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-help-3.mp3",
       "audioSha256": "0f9493cae8ed58cc65c5d91bf1f971eb2437d8eb643deea510a1a6b317de38e0",
       "byteSize": 20524,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -918,7 +1013,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-name-1.mp3",
       "audioSha256": "b22ee65edd29bfac5d0225b8a41e518cd218368733de4a96a6773cb1f209e7bf",
       "byteSize": 12164,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -975,7 +1070,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-name-4.mp3",
       "audioSha256": "bc6ba41917180c7347f27f6313fc9eceb16c5add46d3061fe7bebb747b10dc56",
       "byteSize": 19688,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -994,7 +1089,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-need-buy-1.mp3",
       "audioSha256": "f54697691f95689cfbaac0a91c16666187694bcceea15a02b1e87177ae763318",
       "byteSize": 18852,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1032,7 +1127,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-need-buy-3.mp3",
       "audioSha256": "d6ec0861e0824023b9e3b9e37581bd89c229a9cbc119d7f3f189f7ae12cac0b3",
       "byteSize": 20524,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1298,7 +1393,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-price-1.mp3",
       "audioSha256": "d4e65db7920373c7b395022a02a4ba18112efb9a59e267c2d00fde741765b18b",
       "byteSize": 20942,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1336,7 +1431,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-price-3.mp3",
       "audioSha256": "de9684a79f18f94c25c62040c852254b497b69bdd8781b14ed9ce6b14240b046",
       "byteSize": 19688,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1374,7 +1469,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-residence-1.mp3",
       "audioSha256": "a5cfaeb658c8c562190977cb7a7f7264ce1d9ac99729c53382663174518713b1",
       "byteSize": 17598,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1431,7 +1526,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-residence-4.mp3",
       "audioSha256": "58d428a836e7221efae560e5d358fe577ea4e9f16c6951806824ef7b76a7bb5b",
       "byteSize": 28465,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1450,7 +1545,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-review-1.mp3",
       "audioSha256": "60effcb1c4928699c68677ef801cd588c9b4a2e879b62d7e5f86a153ab5a88be",
       "byteSize": 15926,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1488,7 +1583,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-review-3.mp3",
       "audioSha256": "00a0ed6c73ec90bbe88cceca4a4f6aca64738ab9f553be7e34d56b9401538001",
       "byteSize": 16762,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1526,7 +1621,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-review-5.mp3",
       "audioSha256": "aa692effd1fd555fc0c5e0fb525e3640c81867c6805f70c6c6e979365ae579d9",
       "byteSize": 17598,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1564,7 +1659,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-review-7.mp3",
       "audioSha256": "9f02ac717d2e0b051b926389aa8240df4d16ec968788ece718914d5ab4767613",
       "byteSize": 18852,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1602,7 +1697,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-simple-order-1.mp3",
       "audioSha256": "79f016c194a8fc36dcb66e8a6717165f69ae448116b404d3f2929fdc2a201bae",
       "byteSize": 15926,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1640,7 +1735,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-simple-order-3.mp3",
       "audioSha256": "0b4679601db35b490497155b575a8feda877cecb1c47fdabbee0add160994190",
       "byteSize": 20942,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1754,7 +1849,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-toilet-1.mp3",
       "audioSha256": "0a315383a9e0478776826fe7906db1a8e79a040114b9e88b5c662c33a8fe41d7",
       "byteSize": 16762,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
@@ -1792,7 +1887,7 @@
       "publicUrl": "https://raw.githubusercontent.com/SalehAkaJim/trying/main/audio/de/pre-a1/dialogue_turn/turn-de-toilet-3.mp3",
       "audioSha256": "2b13773dcc5fdaeb2804814801cf63317ba4fa2aa3fe09fbd7ac061ef25ca95e",
       "byteSize": 18852,
-      "reused": false
+      "reused": true
     },
     {
       "ownerType": "dialogue_turn",
