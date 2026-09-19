@@ -10125,3 +10125,17 @@ SET title_fa='درخواست کمک، خدمات و سلامت',
     notes='واحد خدمات و سلامت برای ساخت توالی آموزشی درخواست کمک تا دریافت خدمت ضروری ادغام شد؛ هیچ متن آلمانی تغییر نکرده است.'
 WHERE language_level_id=@level AND unit_key='de-a1-unit-requests-services-help';
 COMMIT;
+
+-- ===== FINAL PERSIAN DYNAMIC-STRUCTURE RATIONALE SYNC =====
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='A1' LIMIT 1);
+UPDATE language_levels
+SET completion_assessment=JSON_SET(
+  completion_assessment,
+  '$.qualityReview.rationale','این دور اصلاح کیفیت منبع و چند ضعف روشن سطح A1 را بهبود داده است، اما هنوز نباید کامل تلقی شود. از ۱۴۲ فعالیت، تعداد زیادی همچنان در چند قالب تکرارشونده متمرکزند؛ تمرین مستقل شنیداری فقط در ۱۰ فعالیت و تلفظ فقط در ۳ فعالیت وجود دارد و بازیابی تجمعی به سه ایستگاه مرور بین‌واحدی محدود است. منابع ضعیف نسخهٔ چاپی قدیمی از محتوای نمایش‌داده‌شده به زبان‌آموز کنار گذاشته و فقط برای تحلیل نگه‌داری شده‌اند، اما ممیزی موردبه‌مورد واژگان در برابر فهرست رسمی واژگان سطح A1 مؤسسهٔ گوته هنوز انجام نشده است. نوشتن آزاد نیز به‌علت محدودیت ساختار فعلی فعالیت‌ها جزو دامنهٔ این نسخه نیست. ساختار واحد نیز در بازبینی داینامیک از الگوی ۱۳×۳ خارج و به ۹ واحد نیازمحور بازگروه‌بندی شد، بدون افزودن یا دستکاری متن آلمانی.'
+)
+WHERE id=@level;
+COMMIT;
