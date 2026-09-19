@@ -793,7 +793,7 @@ BEGIN
   END IF;
 END$$
 
-DROP TRIGGER IF EXISTS trg_lessons_bu_final_guard$
+DROP TRIGGER IF EXISTS trg_lessons_bu_final_guard$$
 CREATE TRIGGER trg_lessons_bu_final_guard BEFORE UPDATE ON lessons FOR EACH ROW
 BEGIN
   DECLARE opening_count INT DEFAULT 0;
