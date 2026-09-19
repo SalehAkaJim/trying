@@ -3250,7 +3250,7 @@ ON DUPLICATE KEY UPDATE
  language_level_id=VALUES(language_level_id),unit_id=VALUES(unit_id),sequence_index=VALUES(sequence_index),position_in_unit=VALUES(position_in_unit),
  title_fa=VALUES(title_fa),source_title=VALUES(source_title),source_title_fa=VALUES(source_title_fa),status=VALUES(status),
  activity_selection_rationale=VALUES(activity_selection_rationale),sequence_rationale=VALUES(sequence_rationale),template_signature=VALUES(template_signature),
- audio_status=VALUES(audio_status),notes=VALUES(notes);
+ notes=VALUES(notes);
 
 SET @l23 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-review-social-basics' LIMIT 1);
 SET @l24 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-review-personal-info' LIMIT 1);
@@ -3355,7 +3355,7 @@ VALUES
 ON DUPLICATE KEY UPDATE
  lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),
  selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),
- audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+ audio_text_target=VALUES(audio_text_target);
 
 -- The previous cumulative checkpoint now sits before the dedicated review unit.
 UPDATE lessons
