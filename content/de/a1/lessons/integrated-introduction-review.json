@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو برخورد رسمی را در بافت کامل می‌آورد؛ پس از آن یک انتخاب پاسخ، مهارت تأیید هویت را جداگانه می‌سنجد، سپس مبدأ/محل زندگی تشخیص داده می‌شود و در پایان پرسش مبدأ بازسازی می‌شود.",
-    "sequenceRationale": "پس از گفت‌وگو ابتدا پاسخ مناسب به سؤال هویت انتخاب می‌شود، بعد اطلاعات مبدأ و محل زندگی از هم تفکیک می‌شوند و در پایان پرسش «اهل کجا هستید؟» به تولید هدایت‌شده می‌رسد.",
-    "templateSignature": "conversation_speaking>choose_response>multiple_choice>word_order"
+    "activitySelectionRationale": "گفت‌وگو برخورد رسمی را در بافت کامل می‌آورد؛ پس از آن پاسخ مناسبِ تأیید هویت و مبدأ/محل زندگی تشخیص داده می‌شوند و در پایان فعل پرسش مبدأ به‌صورت هدایت‌شده بازیابی می‌شود.",
+    "sequenceRationale": "پس از گفت‌وگو ابتدا پاسخ هویت انتخاب می‌شود، بعد اطلاعات مبدأ و محل زندگی از هم تفکیک می‌شوند و در پایان خودِ فعل پرسش مبدأ بازیابی می‌شود؛ مرتب‌سازی کامل جمله حذف شده است.",
+    "templateSignature": "conversation_speaking>choose_response>multiple_choice>fill_blank"
   },
   "activities": [
     {
@@ -125,33 +125,34 @@
     },
     {
       "id": "act-de-a1-intro-review-order",
-      "type": "word_order",
-      "instructionFa": "پرسش «اهل کجا هستید؟» را بساز.",
-      "selectionReason": "بازسازی پرسش، تفاوت Woher با معرفی صرفِ نام را فعال می‌کند.",
+      "type": "fill_blank",
+      "instructionFa": "پرسش «اهل کجا هستید؟» را با فعل درست کامل کن.",
+      "selectionReason": "هدف این مرحله بازیابی فعل پرسش مبدأ است؛ جای‌خالی روی همان جملهٔ عیناً منبع‌دار تمرکز مستقیم‌تری از مرتب‌سازی کل جمله ایجاد می‌کند.",
       "sourceRefs": [
         "src-wikibooks-bll-a1-lesson-2"
       ],
       "learningTargets": [
-        "پرسش مبدأ را بازسازی کند."
+        "فعل اصلیِ پرسش مبدأ را در جملهٔ منبع‌دار بازیابی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "sourceText": "Woher kommen Sie?",
         "sourceTextFa": "اهل کجا هستید؟",
-        "tokens": [
-          "Woher",
+        "blankedText": "Woher ___ Sie?",
+        "blankedTextFa": "اهل کجا ___؟",
+        "choices": [
           "kommen",
-          "Sie?"
+          "heißen"
         ],
-        "answer": [
-          "Woher",
-          "kommen",
-          "Sie?"
-        ]
+        "choicesFa": [
+          "می‌آیید",
+          "نام دارید"
+        ],
+        "answer": "kommen"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

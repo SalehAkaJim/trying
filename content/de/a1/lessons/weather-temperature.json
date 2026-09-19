@@ -18,9 +18,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "عبارت‌های دماسنجِ مصنوعی درس قبلی کنار گذاشته شده‌اند؛ این درس کامل با دو وضعیت بسیار ساده و منبع‌دار باران و برف جایگزین شده است.",
-    "sequenceRationale": "باران و برف در گفت‌وگو و بازسازی تمرین می‌شوند و در پایان یک بازیابی بین‌واحدی سلامت/آب‌وهوا/حمل‌ونقل اضافه می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order>multiple_choice"
+    "activitySelectionRationale": "دو وضعیت سادهٔ باران و برف در گفت‌وگو می‌آیند؛ سپس باران تشخیص داده می‌شود، فعل برف به‌صورت هدایت‌شده بازیابی می‌شود و در پایان یک retrieval بین‌واحدی سلامت/آب‌وهوا/حمل‌ونقل انجام می‌شود.",
+    "sequenceRationale": "از فهم باران و برف به تشخیص، بازیابی فعل و سپس مرور تجمعی پایان A1 حرکت می‌کند؛ مرتب‌سازی دو واژه با بازیابی معنایی فعل جایگزین شده است.",
+    "templateSignature": "conversation_speaking>multiple_choice>fill_blank>multiple_choice"
   },
   "activities": [
     {
@@ -87,31 +87,36 @@
     },
     {
       "id": "act-de-a1-weather-temperature-order",
-      "type": "word_order",
-      "instructionFa": "عبارت «برف می‌بارد» را بساز.",
-      "selectionReason": "عبارت عین منبع است و فقط برای بازیابی به قطعه‌های واژگانی تقسیم شده است.",
+      "type": "fill_blank",
+      "instructionFa": "عبارت «برف می‌بارد» را با فعل درست کامل کن.",
+      "selectionReason": "هدف، تمایز فعل‌های وضعیت هواست؛ بازیابی فعل در عبارت دوکلمه‌ای منبع‌دار از مرتب‌سازی همان دو واژه ارزش آموزشی بیشتری دارد.",
       "sourceRefs": [
         "src-wikibooks-de-weather-appendix"
       ],
       "learningTargets": [
-        "عبارت برف را بازسازی کند."
+        "فعل مربوط به برف را در عبارت کوتاه بازیابی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "sourceText": "Es schneit",
         "sourceTextFa": "برف می‌بارد.",
-        "tokens": [
-          "Es",
-          "schneit"
+        "blankedText": "Es ___",
+        "blankedTextFa": "___ می‌بارد.",
+        "choices": [
+          "schneit",
+          "regnet",
+          "nieselt"
         ],
-        "answer": [
-          "Es",
-          "schneit"
-        ]
+        "choicesFa": [
+          "برف",
+          "باران",
+          "نم‌نم باران"
+        ],
+        "answer": "schneit"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

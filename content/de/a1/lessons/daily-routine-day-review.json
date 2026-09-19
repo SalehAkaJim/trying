@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "دو درس قبلی صبح، کار، مدرسه و برگشت به خانه را پوشش می‌دهند؛ این درس عمداً دامنه را به خرید بعدازظهر و فعالیت‌های شب گسترش می‌دهد.",
-    "sequenceRationale": "ابتدا دو بخش تازهٔ روز در مکالمه می‌آیند، سپس تشخیص زمان سنجیده می‌شود و در پایان جملهٔ شب بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "دو درس قبلی صبح، کار و مدرسه را پوشش داده‌اند؛ این درس بعدازظهر و شب را گسترش می‌دهد، تمایز آن‌ها را یک بار از راه شنیدن می‌سنجد و سپس فعل آغازینِ جملهٔ شب را بازیابی می‌کند.",
+    "sequenceRationale": "ابتدا دو بخش تازهٔ روز در مکالمه می‌آیند، سپس تشخیص زمان از راه شنیدن سنجیده می‌شود و در پایان بازیابی هدایت‌شدهٔ فعلِ جملهٔ شب انجام می‌شود.",
+    "templateSignature": "conversation_speaking>listen_choose>fill_blank"
   },
   "activities": [
     {
@@ -47,31 +47,32 @@
     },
     {
       "id": "act-de-a1-daily-review-matching",
-      "type": "multiple_choice",
-      "instructionFa": "کدام جمله دربارهٔ بعدازظهر است؟",
-      "selectionReason": "زبان‌آموز باید نشانهٔ زمانی و محتوای فعالیت را هم‌زمان تشخیص دهد.",
+      "type": "listen_choose",
+      "instructionFa": "جمله را گوش کن و گزینه‌ای را انتخاب کن که دربارهٔ فعالیت بعدازظهر است.",
+      "selectionReason": "تمایز بعدازظهر و شب باید در شنیدن هم سنجیده شود؛ جمله و گزینه‌ها همگی عین متن‌های منبع‌دار موجود هستند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-022-daily-routine"
       ],
       "learningTargets": [
-        "فعالیت بعدازظهر را از فعالیت شب تشخیص دهد."
+        "فعالیت بعدازظهر را از راه شنیدن از فعالیت شب تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "بعدازظهرها به شهر می‌روم و خرید می‌کنم.",
         "options": [
           {
-            "textTarget": "Nachmittags gehe ich in die Stadt und mache Einkäufe.",
+            "text": "Nachmittags gehe ich in die Stadt und mache Einkäufe.",
             "translationFa": "بعدازظهرها به شهر می‌روم و خرید می‌کنم.",
             "correct": true
           },
           {
-            "textTarget": "Abends höre ich Radio, sehe fern und lese Zeitung.",
+            "text": "Abends höre ich Radio, sehe fern und lese Zeitung.",
             "translationFa": "شب‌ها رادیو گوش می‌دهم، تلویزیون می‌بینم و روزنامه می‌خوانم.",
             "correct": false
           },
           {
-            "textTarget": "Vormittags arbeite ich im Betrieb.",
+            "text": "Vormittags arbeite ich im Betrieb.",
             "translationFa": "پیش از ظهرها در محل کار کار می‌کنم.",
             "correct": false
           }
@@ -81,56 +82,48 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Nachmittags gehe ich in die Stadt und mache Einkäufe."
     },
     {
       "id": "act-de-a1-daily-review-response",
-      "type": "word_order",
-      "instructionFa": "جملهٔ فعالیت‌های شب را دوباره بساز.",
-      "selectionReason": "بازسازی یک جملهٔ چندفعلی ساده، دامنهٔ روتین را فراتر از یک فعل منفرد می‌برد.",
+      "type": "fill_blank",
+      "instructionFa": "جملهٔ فعالیت‌های شب را با فعل اول درست کامل کن.",
+      "selectionReason": "در جملهٔ زنجیره‌ای شب، بازیابی فعل آغازین همراه با حفظ ادامهٔ جمله بار شناختی مناسب‌تری از مرتب‌سازی همهٔ واژه‌ها دارد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-022-daily-routine"
       ],
       "learningTargets": [
-        "چند فعالیت شبانه را در یک جمله بازسازی کند."
+        "فعل آغازینِ جملهٔ چندفعالیتیِ شب را بازیابی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "sourceText": "Abends höre ich Radio, sehe fern und lese Zeitung.",
         "sourceTextFa": "شب‌ها رادیو گوش می‌دهم، تلویزیون می‌بینم و روزنامه می‌خوانم.",
-        "tokens": [
-          "Abends",
+        "blankedText": "Abends ___ ich Radio, sehe fern und lese Zeitung.",
+        "blankedTextFa": "شب‌ها رادیو ___، تلویزیون می‌بینم و روزنامه می‌خوانم.",
+        "choices": [
           "höre",
-          "ich",
-          "Radio,",
           "sehe",
-          "fern",
-          "und",
-          "lese",
-          "Zeitung."
+          "lese"
         ],
-        "answer": [
-          "Abends",
-          "höre",
-          "ich",
-          "Radio,",
-          "sehe",
-          "fern",
-          "und",
-          "lese",
-          "Zeitung."
-        ]
+        "choicesFa": [
+          "گوش می‌دهم",
+          "می‌بینم",
+          "می‌خوانم"
+        ],
+        "answer": "höre"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitle": "Was machen Sie nachmittags? / Was machen Sie abends?",
   "sourceTitleFa": "بعدازظهرها چه کار می‌کنید؟ / شب‌ها چه کار می‌کنید؟"
 }

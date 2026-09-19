@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو تفاوت «نیاز» و «خرید» را در یک موقعیت واقعی وارد می‌کند؛ سپس تطبیق چند جمله دامنه را گسترش می‌دهد، یک تمرین مستقل تفاوت خودِ پرسش‌های brauchen/kaufen را می‌سنجد و در پایان پرسش نیاز بازسازی می‌شود.",
-    "sequenceRationale": "پس از گفت‌وگو، زبان‌آموز ابتدا جمله‌های نیاز/خرید را دسته‌بندی می‌کند، بعد پرسش خرید را از نیاز و قیمت تشخیص می‌دهد و در پایان یک پرسش پایه را تولید هدایت‌شده می‌کند. این تمرین اضافه شکاف «تشخیص نوع پرسش» را پوشش می‌دهد.",
-    "templateSignature": "conversation_speaking>matching>multiple_choice>word_order"
+    "activitySelectionRationale": "گفت‌وگو تفاوت «نیاز» و «خرید» را وارد می‌کند؛ سپس جمله‌ها دسته‌بندی می‌شوند، خودِ پرسش خرید از راه شنیدن از نیاز و قیمت جدا می‌شود و در پایان فعل پرسش نیاز بازیابی می‌شود.",
+    "sequenceRationale": "پس از گفت‌وگو، زبان‌آموز ابتدا جمله‌های نیاز/خرید را دسته‌بندی می‌کند، بعد تفاوت پرسش‌ها را در شنیدن می‌سنجد و در پایان فعل نیاز را به‌صورت هدایت‌شده بازیابی می‌کند.",
+    "templateSignature": "conversation_speaking>matching>listen_choose>fill_blank"
   },
   "activities": [
     {
@@ -95,31 +95,32 @@
     },
     {
       "id": "act-de-a1-shopping-price-review-question-choice",
-      "type": "multiple_choice",
-      "instructionFa": "کدام پرسش دربارهٔ چیزی است که می‌خری، نه چیزی که لازم داری؟",
-      "selectionReason": "درس باید تفاوت نیاز و تصمیم خرید را نه فقط در جملهٔ خبری، بلکه در خود پرسش‌های فروشگاهی هم بسنجد. هر سه گزینه عین منبع هستند.",
+      "type": "listen_choose",
+      "instructionFa": "پرسش را گوش کن و گزینه‌ای را انتخاب کن که دربارهٔ خرید است، نه نیاز یا قیمت.",
+      "selectionReason": "تمایز brauchen/kaufen فقط دیداری نباشد؛ همان سه پرسش عیناً منبع‌دار به شنیدن مستقل منتقل می‌شوند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "پرسش خرید را از پرسش نیاز و قیمت تشخیص دهد."
+        "پرسش خرید را از راه شنیدن از پرسش نیاز و قیمت تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "چه چیزی می‌خرید؟",
         "options": [
           {
-            "textTarget": "Was kaufen Sie?",
+            "text": "Was kaufen Sie?",
             "translationFa": "چه چیزی می‌خرید؟",
             "correct": true
           },
           {
-            "textTarget": "Was brauchen Sie?",
+            "text": "Was brauchen Sie?",
             "translationFa": "چه چیزی لازم دارید؟",
             "correct": false
           },
           {
-            "textTarget": "Wie viel kostet das?",
+            "text": "Wie viel kostet das?",
             "translationFa": "این چقدر قیمت دارد؟",
             "correct": false
           }
@@ -129,44 +130,48 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Was kaufen Sie?"
     },
     {
       "id": "act-de-a1-shopping-price-review-order",
-      "type": "word_order",
-      "instructionFa": "پرسش «چه چیزی لازم دارید؟» را بساز.",
-      "selectionReason": "پرسش پایهٔ نیاز برای شروع خرید به بازیابی فعال منتقل می‌شود.",
+      "type": "fill_blank",
+      "instructionFa": "پرسش «چه چیزی لازم دارید؟» را با فعل درست کامل کن.",
+      "selectionReason": "پس از شنیدنِ تفاوت خرید/نیاز، جای‌خالیِ همان پرسش نیاز، بازیابی دقیق فعل را بدون تکرار قالب مرتب‌سازی می‌سنجد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "پرسش نیاز را بازسازی کند."
+        "فعل مربوط به نیاز را در پرسش منبع‌دار بازیابی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "sourceText": "Was brauchen Sie?",
         "sourceTextFa": "چه چیزی لازم دارید؟",
-        "tokens": [
-          "Was",
+        "blankedText": "Was ___ Sie?",
+        "blankedTextFa": "چه چیزی ___؟",
+        "choices": [
           "brauchen",
-          "Sie?"
+          "kaufen",
+          "kostet"
         ],
-        "answer": [
-          "Was",
-          "brauchen",
-          "Sie?"
-        ]
+        "choicesFa": [
+          "لازم دارید",
+          "می‌خرید",
+          "قیمت دارد"
+        ],
+        "answer": "brauchen"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitle": "Was brauchen Sie? / Was kaufen Sie?",
   "sourceTitleFa": "چه چیزی لازم دارید؟ / چه چیزی می‌خرید؟"
 }

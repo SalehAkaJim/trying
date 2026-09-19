@@ -11,7 +11,7 @@
     "پرسش ساده دربارهٔ شغل را بفهمد.",
     "Student/Studentin و Polizist/Polizistin را از هم تشخیص دهد.",
     "یک پاسخ کوتاه شغلی را از راه شنیدن بفهمد.",
-    "یک پاسخ کوتاه شغلی را بازسازی کند."
+    "یک پاسخ کوتاه شغلی را از راه شنیدن بازگو کند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-002-professions"
@@ -24,9 +24,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس با دو جفت پرسش‌وپاسخ سادهٔ شغلی شروع می‌شود؛ سپس شنیدن مستقل، تطبیق و بازسازی پاسخ، همان واژگان رایج را در سه شیوهٔ تمرین تکرار می‌کنند.",
-    "sequenceRationale": "از مکالمه به شنیدن، تطبیق واژه و بازیابی فعال حرکت می‌کند.",
-    "templateSignature": "conversation_speaking>listen_choose>matching>word_order"
+    "activitySelectionRationale": "درس با دو جفت پرسش‌وپاسخ سادهٔ شغلی شروع می‌شود؛ سپس شنیدن مستقل، تطبیق واژگان و در پایان شنیدن و بازگویی شفاهی همان پاسخ، دریافت و تولید گفتاری را به هم وصل می‌کنند.",
+    "sequenceRationale": "از مکالمه به شنیدن، تثبیت واژه و سپس بازگویی شفاهی حرکت می‌کند؛ مرتب‌سازی کلمات حذف شده چون برای این هدف از تکرار شنیداری ارزش کمتری داشت.",
+    "templateSignature": "conversation_speaking>listen_choose>matching>listen_repeat"
   },
   "activities": [
     {
@@ -155,38 +155,30 @@
     },
     {
       "id": "act-de-a1-profession-word-order",
-      "type": "word_order",
-      "instructionFa": "پاسخ شغلی را دوباره بساز.",
-      "selectionReason": "پاسخ عین منبع است و فقط به قطعه‌های واژگانی تقسیم می‌شود.",
+      "type": "listen_repeat",
+      "instructionFa": "جملهٔ شغلی را گوش کن و بعد با صدای بلند تکرار کن.",
+      "selectionReason": "همان پاسخ شغلیِ عیناً منبع‌دار به‌جای مرتب‌سازی دوباره، برای پیوند شنیدن و بازگویی شفاهی تمرین می‌شود.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-002-professions"
       ],
       "learningTargets": [
-        "یک پاسخ شغلی کوتاه را بازسازی کند."
+        "یک پاسخ کوتاه شغلی را از راه شنیدن بازگو کند."
       ],
       "lexemeRefs": [
         "lex-de-polizistin"
       ],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Sie ist Polizistin.",
-        "sourceTextFa": "او پلیس زن است.",
-        "tokens": [
-          "Sie",
-          "ist",
-          "Polizistin."
-        ],
-        "answer": [
-          "Sie",
-          "ist",
-          "Polizistin."
-        ]
+        "audioTextTargetFa": "او پلیس زن است.",
+        "repeatTextTarget": "Sie ist Polizistin.",
+        "repeatTextTargetFa": "او پلیس زن است."
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "other",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Sie ist Polizistin."
     }
   ],
   "status": "final",

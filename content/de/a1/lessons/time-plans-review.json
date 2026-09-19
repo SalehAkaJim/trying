@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "به‌جای دستکاری جملهٔ آلمانی مشکل‌دار قبلی، کل درس با نمونه‌های صحیح و عیناً منبع‌دارِ موافقت با برنامه جایگزین شده است.",
-    "sequenceRationale": "مکالمه دو نمونهٔ موافقت را در بافت می‌آورد، سپس پاسخ مناسب انتخاب می‌شود و در پایان یک پاسخ کوتاه بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>choose_response>word_order"
+    "activitySelectionRationale": "گفت‌وگو دو نمونهٔ موافقت را در بافت می‌آورد؛ سپس پاسخ مناسب انتخاب می‌شود و در پایان یک ایستگاه retrieval خانواده، روتین، خرید و برنامه را با فاصلهٔ زمانی دوباره فعال می‌کند.",
+    "sequenceRationale": "از فهم و انتخاب پاسخِ موافقت به بازیابی تجمعی چند حوزهٔ قبلی می‌رسد؛ بازسازی دوبارهٔ همان پاسخ حذف شده چون گفت‌وگو و انتخاب پاسخ آن را از قبل پوشش می‌دهند.",
+    "templateSignature": "conversation_speaking>choose_response>review"
   },
   "activities": [
     {
@@ -87,37 +87,46 @@
     },
     {
       "id": "act-de-a1-time-review-order",
-      "type": "word_order",
-      "instructionFa": "پاسخ کوتاه موافقت را بساز.",
-      "selectionReason": "این پاسخ عین نمونهٔ منبع است و به بازیابی فعال منتقل می‌شود.",
+      "type": "review",
+      "instructionFa": "چهار جمله را از درس‌های قبلی بازیابی کن و موضوع هرکدام را مشخص کن.",
+      "selectionReason": "پس از واحد زمان، مرور باید مطالب دورتر را دوباره فعال کند؛ این فعالیت خانواده، روتین، خرید و موافقت با برنامه را با جمله‌های عیناً منبع‌دار کنار هم می‌آورد.",
       "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family",
+        "src-wikibooks-de-lesson-022-daily-routine",
+        "src-wikibooks-de-lesson-004",
         "src-wikibooks-de-lesson-021-time-appointment"
       ],
       "learningTargets": [
-        "پاسخ موافقت را بازسازی کند."
+        "جمله‌های خانواده، روتین، خرید و برنامه را پس از فاصلهٔ زمانی از هم تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Ja, das ist mir recht.",
-        "sourceTextFa": "بله، برای من مناسب است.",
-        "tokens": [
-          "Ja,",
-          "das",
-          "ist",
-          "mir",
-          "recht."
-        ],
-        "answer": [
-          "Ja,",
-          "das",
-          "ist",
-          "mir",
-          "recht."
+        "items": [
+          {
+            "textTarget": "Wo wohnt eure Schwester?",
+            "translationFa": "خواهرتان کجا زندگی می‌کند؟",
+            "categoryFa": "خانواده"
+          },
+          {
+            "textTarget": "Vormittags gehe ich in die Schule.",
+            "translationFa": "پیش از ظهرها به مدرسه می‌روم.",
+            "categoryFa": "روتین روزانه"
+          },
+          {
+            "textTarget": "Was brauchen Sie?",
+            "translationFa": "چه چیزی لازم دارید؟",
+            "categoryFa": "خرید"
+          },
+          {
+            "textTarget": "Ja, das ist mir recht.",
+            "translationFa": "بله، برای من مناسب است.",
+            "categoryFa": "برنامه و موافقت"
+          }
         ]
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

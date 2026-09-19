@@ -29,9 +29,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو دو بخش نخست روز را در بافت وارد می‌کند؛ سپس چهار جملهٔ منبع‌دار به زمان مناسب وصل می‌شوند، جملهٔ مربوط به کار تشخیص داده می‌شود و در پایان پاسخ صبح بازسازی می‌شود.",
-    "sequenceRationale": "درس از تعامل و فهم زمان روز به دسته‌بندی، تمایز معنایی و بازیابی فعال یک پاسخ کوتاه حرکت می‌کند و الگوی فعالیت آن با درس قبلی متفاوت است.",
-    "templateSignature": "conversation_speaking>matching>multiple_choice>word_order"
+    "activitySelectionRationale": "گفت‌وگو دو بخش نخست روز را در بافت وارد می‌کند؛ سپس چهار جمله به زمان مناسب وصل می‌شوند، جملهٔ مربوط به کار تشخیص داده می‌شود و در پایان فعلِ فعالیت صبح بازیابی می‌شود.",
+    "sequenceRationale": "درس از تعامل و فهم زمان روز به دسته‌بندی، تمایز معنایی و بازیابی فعل در جملهٔ کوتاه حرکت می‌کند؛ مرتب‌سازی کامل جمله حذف شده است.",
+    "templateSignature": "conversation_speaking>matching>multiple_choice>fill_blank"
   },
   "activities": [
     {
@@ -169,14 +169,14 @@
     },
     {
       "id": "act-de-a1-morning-answer-order",
-      "type": "word_order",
-      "instructionFa": "پاسخ مربوط به صبح را دوباره بساز.",
-      "selectionReason": "پاسخ آغاز گفت‌وگو پس از فهم و تمایز به بازیابی فعال منتقل می‌شود.",
+      "type": "fill_blank",
+      "instructionFa": "جملهٔ صبح را با فعل درست کامل کن.",
+      "selectionReason": "هدف، بازیابی فعلِ فعالیت صبح در بافت زمان روز است؛ جای‌خالی این ارتباط را مستقیم‌تر از مرتب‌سازی کل جمله می‌سنجد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-022-daily-routine"
       ],
       "learningTargets": [
-        "بازسازی جملهٔ کوتاه دربارهٔ نوشیدن قهوه در صبح."
+        "فعل فعالیت صبح را در جملهٔ کوتاه بازیابی کند."
       ],
       "lexemeRefs": [
         "lex-de-morgens",
@@ -187,21 +187,22 @@
       "data": {
         "sourceText": "Morgens trinke ich Kaffee.",
         "sourceTextFa": "صبح‌ها قهوه می‌نوشم.",
-        "tokens": [
-          "Morgens",
+        "blankedText": "Morgens ___ ich Kaffee.",
+        "blankedTextFa": "صبح‌ها قهوه ___.",
+        "choices": [
           "trinke",
-          "ich",
-          "Kaffee."
+          "arbeite",
+          "esse"
         ],
-        "answer": [
-          "Morgens",
-          "trinke",
-          "ich",
-          "Kaffee."
-        ]
+        "choicesFa": [
+          "می‌نوشم",
+          "کار می‌کنم",
+          "می‌خورم"
+        ],
+        "answer": "trinke"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

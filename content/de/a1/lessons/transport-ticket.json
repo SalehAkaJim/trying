@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس نخست سفر با حمل‌ونقل عمومی از کار واقعیِ خرید خدمت شروع می‌کند: درخواست بلیت برای یک مقصد مشخص.",
-    "sequenceRationale": "از مکالمهٔ باجه به واژگان اصلی و سپس بازسازی درخواست بلیت می‌رسد.",
-    "templateSignature": "conversation_speaking>matching>word_order"
+    "activitySelectionRationale": "درس از درخواست واقعی بلیت شروع می‌کند؛ سپس واژگان اصلی حمل‌ونقل تثبیت می‌شوند و در پایان همان درخواست به‌صورت شنیدن و بازگویی شفاهی تمرین می‌شود.",
+    "sequenceRationale": "از مکالمهٔ باجه به واژگان و سپس تولید شفاهیِ یک درخواست منبع‌دار می‌رسد؛ مرتب‌سازی کلمات با تمرین نزدیک‌تر به گفتار واقعی جایگزین شده است.",
+    "templateSignature": "conversation_speaking>matching>listen_repeat"
   },
   "activities": [
     {
@@ -95,44 +95,32 @@
     },
     {
       "id": "act-de-a1-transport-ticket-order",
-      "type": "word_order",
-      "instructionFa": "درخواست بلیت به برلین را بساز.",
-      "selectionReason": "عبارت درخواست بلیت به بازیابی مستقیم منتقل می‌شود.",
+      "type": "listen_repeat",
+      "instructionFa": "درخواست بلیت را گوش کن و بعد با صدای بلند تکرار کن.",
+      "selectionReason": "درخواست بلیت یک chunk کاربردی برای گفتار واقعی است؛ شنیدن و تکرار آن آمادگی گفتاری بیشتری از مرتب‌سازی دوبارهٔ همان واژه‌ها ایجاد می‌کند.",
       "sourceRefs": [
         "src-wikivoyage-german-phrasebook-transport"
       ],
       "learningTargets": [
-        "درخواست بلیت را بازسازی کند."
+        "درخواست کوتاه بلیت را از راه شنیدن بازگو کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Bitte eine Fahrkarte nach Berlin.",
-        "sourceTextFa": "لطفاً یک بلیت به برلین.",
-        "tokens": [
-          "Bitte",
-          "eine",
-          "Fahrkarte",
-          "nach",
-          "Berlin."
-        ],
-        "answer": [
-          "Bitte",
-          "eine",
-          "Fahrkarte",
-          "nach",
-          "Berlin."
-        ]
+        "audioTextTargetFa": "لطفاً یک بلیت به برلین.",
+        "repeatTextTarget": "Bitte eine Fahrkarte nach Berlin.",
+        "repeatTextTargetFa": "لطفاً یک بلیت به برلین."
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "other",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Bitte eine Fahrkarte nach Berlin."
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitle": "Bitte eine Fahrkarte nach Berlin.",
   "sourceTitleFa": "لطفاً یک بلیت به برلین."
 }

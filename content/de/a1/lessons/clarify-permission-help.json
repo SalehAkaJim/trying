@@ -35,9 +35,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو درخواست تکرار را در بافت واقعی تمرین می‌کند؛ سپس اجازهٔ استفاده از تلفن، درخواست کمک، واژگان خدمات و در پایان بازسازی عبارت تکرار پوشش داده می‌شوند.",
-    "sequenceRationale": "درس از یک مشکل فهم واقعی به تشخیص اجازه و کمک، تثبیت واژگان خدمات و بازیابی فعال درخواست روشن‌سازی حرکت می‌کند.",
-    "templateSignature": "conversation_speaking>multiple_choice>choose_response>matching>word_order"
+    "activitySelectionRationale": "گفت‌وگو درخواست تکرار را در بافت واقعی تمرین می‌کند؛ سپس اجازهٔ تلفن، درخواست کمک و واژگان خدمات سنجیده می‌شوند و در پایان واژهٔ کلیدیِ درخواست آهسته‌تر گفتن بازیابی می‌شود.",
+    "sequenceRationale": "درس از مشکل فهم واقعی به اجازه و کمک، سپس واژگان خدمات و در پایان بازیابی هدایت‌شدهٔ «langsam» می‌رود؛ تکرار قالب word_order حذف شده است.",
+    "templateSignature": "conversation_speaking>multiple_choice>choose_response>matching>fill_blank"
   },
   "activities": [
     {
@@ -217,14 +217,15 @@
     },
     {
       "id": "act-de-a1-repeat-slowly-order",
-      "type": "word_order",
-      "instructionFa": "درخواست تکرار و آهسته‌تر گفتن را دوباره بساز.",
-      "selectionReason": "عبارت کلیدی گفت‌وگو در پایان به بازیابی فعال منتقل می‌شود.",
+      "type": "fill_blank",
+      "instructionFa": "درخواست تکرار را با واژه‌ای کامل کن که یعنی «آهسته».",
+      "selectionReason": "هدف پایانی بازیابی واژهٔ کلیدیِ درخواست روشن‌سازی است؛ جای‌خالی روی همان عبارت منبع‌دار از مرتب‌سازی شش بخش دقیق‌تر است.",
       "sourceRefs": [
-        "src-wikibooks-de-lesson-002-service-clarification"
+        "src-wikibooks-de-lesson-002-service-clarification",
+        "src-wikivoyage-german-phrasebook-services"
       ],
       "learningTargets": [
-        "بازسازی درخواست منبع‌دار برای تکرار و آهسته‌تر گفتن."
+        "واژهٔ کلیدیِ درخواست آهسته‌تر گفتن را در عبارت منبع‌دار بازیابی کند."
       ],
       "lexemeRefs": [
         "lex-de-noch-einmal",
@@ -234,25 +235,22 @@
       "data": {
         "sourceText": "Wie bitte? Noch einmal, bitte langsam.",
         "sourceTextFa": "ببخشید؟ یک بار دیگر، لطفاً آهسته.",
-        "tokens": [
-          "Wie",
-          "bitte?",
-          "Noch",
-          "einmal,",
-          "bitte",
-          "langsam."
+        "blankedText": "Wie bitte? Noch einmal, bitte ___.",
+        "blankedTextFa": "ببخشید؟ یک بار دیگر، لطفاً ___.",
+        "choices": [
+          "langsam",
+          "Englisch",
+          "Hilfe"
         ],
-        "answer": [
-          "Wie",
-          "bitte?",
-          "Noch",
-          "einmal,",
-          "bitte",
-          "langsam."
-        ]
+        "choicesFa": [
+          "آهسته",
+          "انگلیسی",
+          "کمک"
+        ],
+        "answer": "langsam"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

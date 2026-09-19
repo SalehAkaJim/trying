@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو دارو و محل دریافت آن را در بافت معرفی می‌کند؛ پس از آن واژگان اصلی تثبیت می‌شوند، پاسخ مناسب به پرسش مکان به‌طور مستقل انتخاب می‌شود و در پایان خودِ پرسش مکان بازسازی می‌شود.",
-    "sequenceRationale": "پس از گفت‌وگو، ابتدا واژگان پایه تثبیت می‌شوند، سپس ارتباط پرسش «کجا؟» با پاسخ داروخانه سنجیده می‌شود و در پایان پرسش به تولید هدایت‌شده منتقل می‌شود. تمرین جدید شکاف ارتباط سؤال/جواب را پوشش می‌دهد.",
-    "templateSignature": "conversation_speaking>matching>choose_response>word_order"
+    "activitySelectionRationale": "گفت‌وگو دارو و محل دریافت آن را معرفی می‌کند؛ سپس واژگان اصلی تثبیت می‌شوند، پاسخ مناسبِ محل دارو انتخاب می‌شود و در پایان جزء کلیدیِ پرسش مکان بازیابی می‌شود.",
+    "sequenceRationale": "پس از گفت‌وگو، ابتدا واژگان پایه تثبیت می‌شوند، سپس ارتباط پرسش «کجا؟» با پاسخ داروخانه سنجیده می‌شود و در پایان ضمیرِ پرسش به‌صورت هدایت‌شده بازیابی می‌شود؛ مرتب‌سازی کامل پرسش حذف شده است.",
+    "templateSignature": "conversation_speaking>matching>choose_response>fill_blank"
   },
   "activities": [
     {
@@ -135,35 +135,36 @@
     },
     {
       "id": "act-de-a1-health-medicine-order",
-      "type": "word_order",
-      "instructionFa": "پرسش «کجا آن‌ها را می‌گیرد؟» را بساز.",
-      "selectionReason": "پرسش مکان، زبان‌آموز را از فهم پاسخ به تولید هدایت‌شده می‌رساند.",
+      "type": "fill_blank",
+      "instructionFa": "پرسش «آن‌ها را کجا می‌گیرد؟» را با ضمیر درست کامل کن.",
+      "selectionReason": "هدف این مرحله بازیابی جزء کلیدیِ پرسش مکان است؛ جای‌خالی روی همان جملهٔ منبع‌دار تمرکز مستقیم‌تری از مرتب‌سازی همهٔ واژه‌ها ایجاد می‌کند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-018-health"
       ],
       "learningTargets": [
-        "دربارهٔ محل گرفتن دارو سؤال کند."
+        "ضمیرِ جملهٔ پرسش مکان را در عبارت منبع‌دار بازیابی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "sourceText": "Wo bekommt er sie?",
         "sourceTextFa": "آن‌ها را کجا می‌گیرد؟",
-        "tokens": [
-          "Wo",
-          "bekommt",
-          "er",
-          "sie?"
+        "blankedText": "Wo bekommt er ___?",
+        "blankedTextFa": "___ را کجا می‌گیرد؟",
+        "choices": [
+          "sie",
+          "Tabletten",
+          "Tropfen"
         ],
-        "answer": [
-          "Wo",
-          "bekommt",
-          "er",
-          "sie?"
-        ]
+        "choicesFa": [
+          "آن‌ها",
+          "قرص‌ها",
+          "قطره‌ها"
+        ],
+        "answer": "sie"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

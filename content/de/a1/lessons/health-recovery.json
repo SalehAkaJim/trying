@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس سوم یک مهارت مستقل و طبیعی اضافه می‌کند: پیگیری حال بیمار و گفتن اینکه یک علامت دیگر وجود ندارد.",
-    "sequenceRationale": "گفت‌وگو بهترشدن را در بافت می‌آورد، انتخاب پاسخ فهم معنا را می‌سنجد، شنیدن مستقل دریافت صوتی را اضافه می‌کند و در پایان پاسخ دیگری بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>choose_response>listen_choose>word_order"
+    "activitySelectionRationale": "درس پیگیری حال بیمار را با گفت‌وگو، انتخاب پاسخ و شنیدن مستقل تمرین می‌کند و در پایان یک ایستگاه retrieval مسیر، حمل‌ونقل، خدمات و سلامت را با فاصلهٔ زمانی دوباره فعال می‌کند.",
+    "sequenceRationale": "گفت‌وگو بهترشدن را در بافت می‌آورد، انتخاب پاسخ فهم معنا را می‌سنجد، شنیدن مستقل دریافت صوتی را اضافه می‌کند و مرور تجمعی در پایان مطالب واحدهای قبلی را دوباره فعال می‌کند.",
+    "templateSignature": "conversation_speaking>choose_response>listen_choose>review"
   },
   "activities": [
     {
@@ -127,39 +127,46 @@
     },
     {
       "id": "act-de-a1-health-recovery-order",
-      "type": "word_order",
-      "instructionFa": "پاسخ «دیگر سرفه ندارم» را بساز.",
-      "selectionReason": "بازسازی پاسخ منفی، مهارت پیگیری حال را به بازیابی فعال می‌رساند.",
+      "type": "review",
+      "instructionFa": "چهار جمله را از واحدهای قبلی بازیابی کن و موضوع هرکدام را مشخص کن.",
+      "selectionReason": "پس از واحد خدمات و سلامت، یک مرور فاصله‌دار مسیر، حمل‌ونقل، خدمات و سلامت را دوباره فعال می‌کند؛ همهٔ جمله‌ها عین محتوای منبع‌دار قبلی هستند.",
       "sourceRefs": [
+        "src-coerll-dib-directions",
+        "src-wikivoyage-german-phrasebook-transport",
+        "src-wikivoyage-german-phrasebook-services",
         "src-wikibooks-de-lesson-018-health"
       ],
       "learningTargets": [
-        "بیان کند که یک علامت دیگر وجود ندارد."
+        "جمله‌های مسیر، حمل‌ونقل، خدمات و سلامت را پس از فاصلهٔ زمانی از هم تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Nein, ich habe keinen Husten mehr.",
-        "sourceTextFa": "نه، دیگر سرفه ندارم.",
-        "tokens": [
-          "Nein,",
-          "ich",
-          "habe",
-          "keinen",
-          "Husten",
-          "mehr."
-        ],
-        "answer": [
-          "Nein,",
-          "ich",
-          "habe",
-          "keinen",
-          "Husten",
-          "mehr."
+        "items": [
+          {
+            "textTarget": "Wie komme ich zum Zoo?",
+            "translationFa": "چطور به باغ‌وحش برسم؟",
+            "categoryFa": "مسیر"
+          },
+          {
+            "textTarget": "Hält dieser Zug in Berlin?",
+            "translationFa": "این قطار در برلین توقف می‌کند؟",
+            "categoryFa": "حمل‌ونقل"
+          },
+          {
+            "textTarget": "Kann ich Ihr Telefon benutzen?",
+            "translationFa": "می‌توانم از تلفن شما استفاده کنم؟",
+            "categoryFa": "خدمات و اجازه"
+          },
+          {
+            "textTarget": "Haben Sie noch Fieber?",
+            "translationFa": "هنوز تب دارید؟",
+            "categoryFa": "سلامت"
+          }
         ]
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

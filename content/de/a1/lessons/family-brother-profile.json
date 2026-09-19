@@ -23,9 +23,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس با دو پرسش واقعی دربارهٔ یک برادر شروع می‌شود؛ سپس واژه‌های اعضای خانواده تفکیک می‌شوند، اطلاعات خواهر در یک پرسش و پاسخ دیگر بازیابی می‌شود و در پایان پرسش نام برادر بازسازی می‌شود.",
-    "sequenceRationale": "مسیر از فهم گفت‌وگوی خانوادگی به تشخیص واژه، بازیابی اطلاعات و بازسازی پرسش می‌رود. اطلاعات نام و سن از سطح قبل آشنا هستند و بار تازه روی رابطهٔ خانوادگی و مالکیت در بافت قرار می‌گیرد.",
-    "templateSignature": "conversation_speaking>matching>multiple_choice>word_order"
+    "activitySelectionRationale": "درس با دو پرسش واقعی دربارهٔ یک برادر شروع می‌شود؛ سپس واژه‌های خانواده تفکیک و اطلاعات خواهر بازیابی می‌شوند و در پایان پرسش نام برادر از راه شنیدن و بازگویی شفاهی تثبیت می‌شود.",
+    "sequenceRationale": "مسیر از فهم گفت‌وگوی خانوادگی به تشخیص واژه، بازیابی اطلاعات و بازگویی یک پرسش کاربردی می‌رود؛ تمرین پایانی از مرتب‌سازی به تولید شفاهی نزدیک‌تر شده است.",
+    "templateSignature": "conversation_speaking>matching>multiple_choice>listen_repeat"
   },
   "activities": [
     {
@@ -151,42 +151,32 @@
     },
     {
       "id": "act-de-a1-family-name-order",
-      "type": "word_order",
-      "instructionFa": "پرسش نام برادر را دوباره بساز.",
-      "selectionReason": "در پایان، پرسش آشنای نام با واژهٔ خانوادگی و مالکیت جمع به‌صورت فعال بازیابی می‌شود.",
+      "type": "listen_repeat",
+      "instructionFa": "پرسش نام برادر را گوش کن و با صدای بلند تکرار کن.",
+      "selectionReason": "این پرسش در مکالمه کاربرد مستقیم دارد؛ شنیدن و بازگویی آن تمرین گفتاری مناسب‌تری از مرتب‌سازی دوبارهٔ همان چهار واژه است.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-family"
       ],
       "learningTargets": [
-        "بازسازی پرسش نام یک برادر در بافت خانواده."
+        "پرسش نام یک عضو خانواده را از راه شنیدن بازگو کند."
       ],
       "lexemeRefs": [
         "lex-de-bruder"
       ],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wie heißt euer Bruder?",
-        "sourceTextFa": "اسم برادرتان چیست؟",
-        "tokens": [
-          "Wie",
-          "heißt",
-          "euer",
-          "Bruder?"
-        ],
-        "answer": [
-          "Wie",
-          "heißt",
-          "euer",
-          "Bruder?"
-        ]
+        "audioTextTargetFa": "اسم برادرتان چیست؟",
+        "repeatTextTarget": "Wie heißt euer Bruder?",
+        "repeatTextTargetFa": "اسم برادرتان چیست؟"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "other",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Wie heißt euer Bruder?"
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "stale"
 }

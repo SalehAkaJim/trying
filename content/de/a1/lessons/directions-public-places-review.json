@@ -18,9 +18,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس سنگین قبلی کامل کنار گذاشته شده و با چهار عبارت کوتاه و منبع‌دار برای مکان و جهت جایگزین شده است.",
-    "sequenceRationale": "مکالمه دو مکان و دو جهت را وارد می‌کند؛ سپس جهت به‌صورت مستقل شنیده می‌شود و در پایان یک پرسش مکان بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>listen_choose>word_order"
+    "activitySelectionRationale": "چهار عبارت کوتاه مکان و جهت در گفت‌وگو می‌آیند؛ سپس جهت راست به‌صورت مستقل شنیده می‌شود و در پایان نام مقصد در پرسش مکان بازیابی می‌شود.",
+    "sequenceRationale": "مکالمه دو مکان و دو جهت را وارد می‌کند، شنیدن مستقل جهت را می‌سنجد و سپس بازیابی واژهٔ مقصد در پرسش مکان انجام می‌شود؛ مرتب‌سازی کامل پرسش حذف شده است.",
+    "templateSignature": "conversation_speaking>listen_choose>fill_blank"
   },
   "activities": [
     {
@@ -89,35 +89,34 @@
     },
     {
       "id": "act-de-a1-directions-places-review-order",
-      "type": "word_order",
-      "instructionFa": "پرسش محل فروشگاه را بساز.",
-      "selectionReason": "پرسش عین منبع است و فقط به قطعه‌های واژگانی تقسیم می‌شود.",
+      "type": "fill_blank",
+      "instructionFa": "پرسش محل فروشگاه را با نام مکان درست کامل کن.",
+      "selectionReason": "پس از شنیدن جهت راست، هدف پایانی بازیابی نام مقصد در الگوی پرسش مکان است؛ جای‌خالی روی همان جملهٔ منبع‌دار از مرتب‌سازی کل پرسش مستقیم‌تر است.",
       "sourceRefs": [
         "src-wikibooks-german-appendix-phrasebook"
       ],
       "learningTargets": [
-        "پرسش کوتاه محل یک مکان را بازسازی کند."
+        "نام مکان را در پرسش کوتاه مسیر بازیابی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "sourceText": "Wo ist das Geschäft?",
         "sourceTextFa": "فروشگاه کجاست؟",
-        "tokens": [
-          "Wo",
-          "ist",
-          "das",
-          "Geschäft?"
+        "blankedText": "Wo ist das ___?",
+        "blankedTextFa": "___ کجاست؟",
+        "choices": [
+          "Geschäft",
+          "Apotheke"
         ],
-        "answer": [
-          "Wo",
-          "ist",
-          "das",
-          "Geschäft?"
-        ]
+        "choicesFa": [
+          "فروشگاه",
+          "داروخانه"
+        ],
+        "answer": "Geschäft"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

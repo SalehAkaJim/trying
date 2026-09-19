@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "به‌جای تکرار صندوقِ درس اصلی، این درس خواندن دقیق یورو/سنت و تفاوت قیمت یک کالا با جمع کل را آموزش می‌دهد.",
-    "sequenceRationale": "مکالمه دو صورت پرسش قیمت را معرفی می‌کند، انتخاب چند صورت پرسش را مقایسه می‌کند و در پایان جمع کل با عدد دقیق تکمیل می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>fill_blank"
+    "activitySelectionRationale": "دو صورت پرسیدن قیمت در گفت‌وگو تمرین می‌شوند؛ سپس یک ایستگاه بازیابی بین‌واحدی خانواده، خانه، روتین و خرید را دوباره فعال می‌کند و در پایان جمع کل با عدد دقیق تکمیل می‌شود.",
+    "sequenceRationale": "پس از مکالمهٔ قیمت، مرور فاصله‌دارِ چند حوزهٔ قبلی انجام می‌شود و سپس تمرکز به جمع کل یورو/سنت برمی‌گردد؛ این درس نخستین ایستگاه نظام‌مند retrieval تجمعی در A1 است.",
+    "templateSignature": "conversation_speaking>review>fill_blank"
   },
   "activities": [
     {
@@ -47,33 +47,41 @@
     },
     {
       "id": "act-de-a1-shopping-checkout-review-response",
-      "type": "multiple_choice",
-      "instructionFa": "کدام پرسش دربارهٔ جمع کل خرید است؟",
-      "selectionReason": "تفاوت kostet با macht در کاربرد فروشگاهی به‌صورت معنایی سنجیده می‌شود.",
+      "type": "review",
+      "instructionFa": "چهار جمله را بدون برگشت به درس‌های قبلی بخوان و موضوع هرکدام را مشخص کن.",
+      "selectionReason": "در پایان خوشهٔ خرید، یک بازیابی فاصله‌دار از خانواده، خانه، روتین و خرید اضافه می‌شود تا مرور فقط به محتوای همین درس محدود نماند؛ همهٔ جمله‌ها عین محتوای منبع‌دار قبلی‌اند.",
       "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family",
+        "src-wikibooks-de-lesson-007-room-objects",
+        "src-wikibooks-de-lesson-022-daily-routine",
         "src-wikibooks-de-lesson-004"
       ],
       "learningTargets": [
-        "پرسش جمع کل را تشخیص دهد."
+        "جمله‌های خانواده، خانه، روتین و خرید را پس از فاصلهٔ زمانی از هم تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "options": [
+        "items": [
+          {
+            "textTarget": "Wo wohnt eure Schwester?",
+            "translationFa": "خواهرتان کجا زندگی می‌کند؟",
+            "categoryFa": "خانواده"
+          },
+          {
+            "textTarget": "Wo ist mein Heft?",
+            "translationFa": "دفترم کجاست؟",
+            "categoryFa": "خانه"
+          },
+          {
+            "textTarget": "Vormittags gehe ich in die Schule.",
+            "translationFa": "پیش از ظهرها به مدرسه می‌روم.",
+            "categoryFa": "روتین روزانه"
+          },
           {
             "textTarget": "Wie viel macht das bitte?",
             "translationFa": "جمعش لطفاً چقدر می‌شود؟",
-            "correct": true
-          },
-          {
-            "textTarget": "Wie viel kostet das?",
-            "translationFa": "این چقدر قیمت دارد؟",
-            "correct": false
-          },
-          {
-            "textTarget": "Was kostet das?",
-            "translationFa": "قیمت این چقدر است؟",
-            "correct": false
+            "categoryFa": "خرید و پرداخت"
           }
         ]
       },

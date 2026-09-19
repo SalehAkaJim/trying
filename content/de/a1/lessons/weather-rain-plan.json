@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "ساختارهای سنگین پیش‌بینی و توصیهٔ درس قبلی حذف شده‌اند؛ این جایگزین فقط عبارت‌های ساده و عیناً منبع‌دارِ وضعیت فعلی هوا را تمرین می‌دهد.",
-    "sequenceRationale": "مکالمه دو وضعیت ساده را می‌آورد، سپس وضعیت درست تشخیص داده می‌شود و پرسش پایهٔ هوا بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "گفت‌وگو دو وضعیت آفتابی و ابری را معرفی می‌کند؛ سپس وضعیت ابری از راه شنیدن تشخیص داده می‌شود و در پایان پرسش پایهٔ هوا با شنیدن و تکرار شفاهی تثبیت می‌شود.",
+    "sequenceRationale": "از فهم مکالمه به تشخیص شنیداری و سپس بازگویی شفاهی پرسش اصلی می‌رسد؛ تمرین پایانی از مرتب‌سازی به تولید گفتاری نزدیک‌تر تغییر کرده است.",
+    "templateSignature": "conversation_speaking>listen_choose>listen_repeat"
   },
   "activities": [
     {
@@ -47,31 +47,32 @@
     },
     {
       "id": "act-de-a1-weather-rain-response",
-      "type": "multiple_choice",
-      "instructionFa": "کدام جمله یعنی هوا ابری است؟",
-      "selectionReason": "سه گزینه عین عبارت‌های وضعیت هوا در منبع هستند.",
+      "type": "listen_choose",
+      "instructionFa": "عبارت هوا را گوش کن و گزینه‌ای را انتخاب کن که یعنی هوا ابری است.",
+      "selectionReason": "آفتابی/ابری باید از راه شنیدن هم تفکیک شوند؛ همان سه عبارت عیناً منبع‌دار بدون افزودن متن تازه استفاده می‌شوند.",
       "sourceRefs": [
         "src-wikibooks-de-weather-appendix"
       ],
       "learningTargets": [
-        "وضعیت ابری را تشخیص دهد."
+        "وضعیت ابری را از راه شنیدن تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "هوا ابری است.",
         "options": [
           {
-            "textTarget": "Es ist bewölkt",
+            "text": "Es ist bewölkt",
             "translationFa": "هوا ابری است.",
             "correct": true
           },
           {
-            "textTarget": "Es ist sonnig",
+            "text": "Es ist sonnig",
             "translationFa": "هوا آفتابی است.",
             "correct": false
           },
           {
-            "textTarget": "Es ist regnerisch",
+            "text": "Es ist regnerisch",
             "translationFa": "هوا بارانی است.",
             "correct": false
           }
@@ -81,50 +82,37 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Es ist bewölkt"
     },
     {
       "id": "act-de-a1-weather-rain-order",
-      "type": "word_order",
-      "instructionFa": "پرسش سادهٔ هوا در برلین را بساز.",
-      "selectionReason": "پرسش عین منبع است و فقط برای بازسازی به قطعه‌های واژگانی تقسیم شده است.",
+      "type": "listen_repeat",
+      "instructionFa": "پرسش سادهٔ هوا را گوش کن و با صدای بلند تکرار کن.",
+      "selectionReason": "پرسش پایهٔ هوا یک chunk گفتاری پرتکرار است؛ شنیدن و تکرار آن به تولید شفاهی نزدیک‌تر از مرتب‌سازی دوبارهٔ همان شش واژه است.",
       "sourceRefs": [
         "src-wikibooks-de-weather-appendix"
       ],
       "learningTargets": [
-        "دربارهٔ هوای یک شهر سؤال کند."
+        "پرسش سادهٔ هوا را از راه شنیدن بازگو کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wie ist das Wetter in Berlin?",
-        "sourceTextFa": "هوا در برلین چطور است؟",
-        "tokens": [
-          "Wie",
-          "ist",
-          "das",
-          "Wetter",
-          "in",
-          "Berlin?"
-        ],
-        "answer": [
-          "Wie",
-          "ist",
-          "das",
-          "Wetter",
-          "in",
-          "Berlin?"
-        ]
+        "audioTextTargetFa": "هوا در برلین چطور است؟",
+        "repeatTextTarget": "Wie ist das Wetter in Berlin?",
+        "repeatTextTargetFa": "هوا در برلین چطور است؟"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "other",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Wie ist das Wetter in Berlin?"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitle": "Es ist sonnig / Es ist bewölkt",
   "sourceTitleFa": "هوا آفتابی است / هوا ابری است"
 }

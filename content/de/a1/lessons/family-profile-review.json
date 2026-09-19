@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگو دو کاربرد مکان را در خانواده معرفی می‌کند؛ سپس تشخیص جملهٔ تحصیل، تکمیل هدایت‌شدهٔ فعل‌های مربوط به «درس خواندن/زندگی کردن» و در پایان بازسازی پرسش محل زندگی، سه سطح متفاوت از فهم تا تولید هدایت‌شده را پوشش می‌دهند.",
-    "sequenceRationale": "پس از گفت‌وگو ابتدا معنی جمله تشخیص داده می‌شود، سپس فعل مناسب در یک جملهٔ منبع‌دار بازیابی می‌شود و در پایان پرسش محل زندگی بازسازی می‌شود. تمرین جدید برای انتقال از تشخیص به بازیابی فعل اضافه شده است.",
-    "templateSignature": "conversation_speaking>multiple_choice>fill_blank>word_order"
+    "activitySelectionRationale": "گفت‌وگو دو کاربرد مکان را در خانواده معرفی می‌کند؛ سپس تمایز تحصیل/زندگی به‌صورت شنیداری سنجیده می‌شود، فعل مناسب در جملهٔ منبع‌دار بازیابی می‌شود و در پایان پرسش محل زندگی بازسازی می‌شود.",
+    "sequenceRationale": "پس از گفت‌وگو ابتدا معنی از راه شنیدن تشخیص داده می‌شود، سپس فعل مناسب بازیابی می‌شود و در پایان پرسش محل زندگی به تولید هدایت‌شده می‌رسد.",
+    "templateSignature": "conversation_speaking>listen_choose>fill_blank>word_order"
   },
   "activities": [
     {
@@ -47,31 +47,32 @@
     },
     {
       "id": "act-de-a1-family-review-matching",
-      "type": "multiple_choice",
-      "instructionFa": "کدام جمله دربارهٔ محل تحصیل برادر است؟",
-      "selectionReason": "تمرین تفاوت فعل‌های مربوط به تحصیل و زندگی را در همان بافت خانواده می‌سنجد.",
+      "type": "listen_choose",
+      "instructionFa": "جمله را گوش کن و همان اطلاعات مربوط به محل تحصیل برادر را انتخاب کن.",
+      "selectionReason": "هدف درس تمایز «درس خواندن» و «زندگی کردن» است؛ انتقال همان تمایز به شنیدن مستقل، پوشش مهارتی را از خواندن صرف فراتر می‌برد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-family"
       ],
       "learningTargets": [
-        "محل تحصیل را از محل زندگی تشخیص دهد."
+        "محل تحصیل را از راه شنیدن از محل زندگی تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "برادر ما در برلین درس می‌خواند.",
         "options": [
           {
-            "textTarget": "Unser Bruder studiert in Berlin.",
+            "text": "Unser Bruder studiert in Berlin.",
             "translationFa": "برادر ما در برلین درس می‌خواند.",
             "correct": true
           },
           {
-            "textTarget": "Unsere Schwester wohnt in Hamburg.",
+            "text": "Unsere Schwester wohnt in Hamburg.",
             "translationFa": "خواهر ما در هامبورگ زندگی می‌کند.",
             "correct": false
           },
           {
-            "textTarget": "Unser Vater ist LKW-Fahrer.",
+            "text": "Unser Vater ist LKW-Fahrer.",
             "translationFa": "پدر ما رانندهٔ کامیون است.",
             "correct": false
           }
@@ -81,7 +82,8 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Unser Bruder studiert in Berlin."
     },
     {
       "id": "act-de-a1-family-review-verb-fill",
@@ -155,7 +157,7 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitle": "Wo studiert euer Bruder? / Wo wohnt eure Schwester?",
   "sourceTitleFa": "برادرتان کجا درس می‌خواند؟ / خواهرتان کجا زندگی می‌کند؟"
 }

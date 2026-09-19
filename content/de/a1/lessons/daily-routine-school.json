@@ -28,9 +28,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی چهار نوبتی مدرسه و برگشت به خانه را در دو بخش روز وارد می‌کند؛ سپس جملهٔ مدرسه از گزینه‌های منبع‌دار جدا می‌شود، همان جمله بازسازی می‌شود و در پایان زبان‌آموز پاسخ درستِ پرسش بعدازظهر را انتخاب می‌کند.",
-    "sequenceRationale": "درس از تعامل به تمایز معنایی، بازیابی فعال جمله و انتخاب پاسخ مناسب در بافت می‌رود؛ بنابراین پس از درس قبلی به‌جای تکرار تطبیق زمان‌ها روی مدرسه و حرکت روزانه تمرکز می‌کند.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order>choose_response"
+    "activitySelectionRationale": "گفت‌وگوی چهار نوبتی مدرسه و برگشت به خانه را وارد می‌کند؛ سپس جملهٔ مدرسه تشخیص داده می‌شود، فعل همان فعالیت به‌صورت هدایت‌شده بازیابی می‌شود و در پایان پاسخ درستِ پرسش بعدازظهر انتخاب می‌شود.",
+    "sequenceRationale": "درس از تعامل به تمایز معنایی، بازیابی فعل و انتخاب پاسخ مناسب در بافت می‌رود؛ مرتب‌سازی کامل جمله حذف شده تا تمرین روی نشانهٔ معنایی اصلی متمرکز بماند.",
+    "templateSignature": "conversation_speaking>multiple_choice>fill_blank>choose_response"
   },
   "activities": [
     {
@@ -111,14 +111,14 @@
     },
     {
       "id": "act-de-a1-school-sentence-order",
-      "type": "word_order",
-      "instructionFa": "جملهٔ رفتن به مدرسه را دوباره بساز.",
-      "selectionReason": "پس از تشخیص معنایی، پاسخ مدرسه به بازیابی فعال منتقل می‌شود.",
+      "type": "fill_blank",
+      "instructionFa": "جملهٔ رفتن به مدرسه را با فعل درست کامل کن.",
+      "selectionReason": "هدف اصلی تمایز فعالیت مدرسه از کار و غذاست؛ بازیابی فعل در همان جملهٔ منبع‌دار این تمایز را مستقیم‌تر از مرتب‌سازی شش واژه می‌سنجد.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-022-daily-routine"
       ],
       "learningTargets": [
-        "بازسازی جملهٔ کوتاه دربارهٔ رفتن به مدرسه."
+        "فعل رفتن به مدرسه را در جملهٔ روزمره بازیابی کند."
       ],
       "lexemeRefs": [
         "lex-de-vormittags",
@@ -129,25 +129,22 @@
       "data": {
         "sourceText": "Vormittags gehe ich in die Schule.",
         "sourceTextFa": "پیش از ظهرها به مدرسه می‌روم.",
-        "tokens": [
-          "Vormittags",
+        "blankedText": "Vormittags ___ ich in die Schule.",
+        "blankedTextFa": "پیش از ظهرها به مدرسه ___.",
+        "choices": [
           "gehe",
-          "ich",
-          "in",
-          "die",
-          "Schule."
+          "arbeite",
+          "esse"
         ],
-        "answer": [
-          "Vormittags",
-          "gehe",
-          "ich",
-          "in",
-          "die",
-          "Schule."
-        ]
+        "choicesFa": [
+          "می‌روم",
+          "کار می‌کنم",
+          "می‌خورم"
+        ],
+        "answer": "gehe"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

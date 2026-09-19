@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس نخست واحد سلامت زبان لازم برای بیان مستقیم یک مشکل جسمی را می‌سازد و دامنه را عمداً به علائم بسیار رایج محدود می‌کند.",
-    "sequenceRationale": "از مکالمهٔ کوتاه به تشخیص علامت و سپس بازسازی پاسخ ساده حرکت می‌کند.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "گفت‌وگوی پزشک و بیمار دو علامت رایج را وارد می‌کند؛ سپس تب از راه شنیدن تشخیص داده می‌شود و در پایان واژهٔ سرفه در جملهٔ منبع‌دار بازیابی می‌شود.",
+    "sequenceRationale": "از گفت‌وگو به تشخیص شنیداری و سپس بازیابی واژهٔ علامت حرکت می‌کند؛ این توالی دریافت و یادآوری را با دو علامت پایه پوشش می‌دهد.",
+    "templateSignature": "conversation_speaking>listen_choose>fill_blank"
   },
   "activities": [
     {
@@ -47,31 +47,32 @@
     },
     {
       "id": "act-de-a1-health-symptoms-choice",
-      "type": "multiple_choice",
-      "instructionFa": "کدام پاسخ یعنی «تب دارم»؟",
-      "selectionReason": "سه پاسخ کوتاه باعث می‌شوند زبان‌آموز معنی علامت را مستقیم تشخیص دهد.",
+      "type": "listen_choose",
+      "instructionFa": "پاسخ را گوش کن و جمله‌ای را انتخاب کن که یعنی «تب دارم».",
+      "selectionReason": "برای علائم پایه، تشخیص شنیداری از خواندن صرف مهم‌تر است؛ همان سه پاسخ منبع‌دار بدون افزودن زبان تازه استفاده می‌شوند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-018-health"
       ],
       "learningTargets": [
-        "تب را در پاسخ کوتاه تشخیص دهد."
+        "تب را از راه شنیدن در پاسخ کوتاه تشخیص دهد."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
+        "audioTextTargetFa": "تب دارم.",
         "options": [
           {
-            "textTarget": "Ich habe Fieber.",
+            "text": "Ich habe Fieber.",
             "translationFa": "تب دارم.",
             "correct": true
           },
           {
-            "textTarget": "Ich habe Husten.",
+            "text": "Ich habe Husten.",
             "translationFa": "سرفه دارم.",
             "correct": false
           },
           {
-            "textTarget": "Ich habe kein Fieber mehr.",
+            "text": "Ich habe kein Fieber mehr.",
             "translationFa": "دیگر تب ندارم.",
             "correct": false
           }
@@ -81,44 +82,46 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "stale",
+      "audioTextTarget": "Ich habe Fieber."
     },
     {
       "id": "act-de-a1-health-symptoms-order",
-      "type": "word_order",
-      "instructionFa": "پاسخ «سرفه دارم» را بساز.",
-      "selectionReason": "بازسازی یک پاسخ بسیار کوتاه، الگوی بیان علامت را به بازیابی فعال منتقل می‌کند.",
+      "type": "fill_blank",
+      "instructionFa": "جملهٔ «سرفه دارم» را با علامت درست کامل کن.",
+      "selectionReason": "پس از تشخیص شنیداری تب، بازیابی واژهٔ علامت در همان الگوی منبع‌دار تفاوت Fieber/Husten را فعال‌تر می‌کند.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-018-health"
       ],
       "learningTargets": [
-        "یک علامت را با جملهٔ کوتاه بیان کند."
+        "واژهٔ سرفه را در جملهٔ کوتاه بازیابی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "sourceText": "Ich habe Husten.",
         "sourceTextFa": "سرفه دارم.",
-        "tokens": [
-          "Ich",
-          "habe",
-          "Husten."
+        "blankedText": "Ich habe ___.",
+        "blankedTextFa": "___ دارم.",
+        "choices": [
+          "Husten",
+          "Fieber"
         ],
-        "answer": [
-          "Ich",
-          "habe",
-          "Husten."
-        ]
+        "choicesFa": [
+          "سرفه",
+          "تب"
+        ],
+        "answer": "Husten"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitle": "Was fehlt Ihnen? / Ich habe Fieber.",
   "sourceTitleFa": "چه مشکلی دارید؟ / تب دارم."
 }

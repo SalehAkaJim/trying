@@ -18,9 +18,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس به‌جای مرور دوست‌داشتن/نداشتن، مهارت تازهٔ شخصی‌سازی سفارش را اضافه می‌کند؛ چیزی که در سفارش واقعی بسیار پرتکرار است.",
-    "sequenceRationale": "پس از سفارش و انتخاب پاسخ، جملهٔ کاربردی بازسازی می‌شود و در پایان Ö و Ü با نمونه‌های دقیق منبع تمرین می‌شوند.",
-    "templateSignature": "conversation_speaking>choose_response>word_order>pronunciation_read"
+    "activitySelectionRationale": "درس مهارت شخصی‌سازی سفارش را تمرین می‌کند؛ پس از گفت‌وگو پاسخ مناسب دربارهٔ افزودنی‌ها انتخاب می‌شود، قلمِ پرسش موجودبودن بازیابی می‌شود و در پایان Ö و Ü با نمونه‌های دقیق منبع تمرین می‌شوند.",
+    "sequenceRationale": "از سفارش و انتخاب پاسخ به بازیابی واژه در پرسش کاربردی و سپس تمرین تلفظی Ö/Ü حرکت می‌کند؛ مرتب‌سازی کامل جمله حذف شده است.",
+    "templateSignature": "conversation_speaking>choose_response>fill_blank>pronunciation_read"
   },
   "activities": [
     {
@@ -89,35 +89,36 @@
     },
     {
       "id": "act-de-a1-food-preference-review-order",
-      "type": "word_order",
-      "instructionFa": "بعد از نوشیدنی بپرس آیا کیک هم هست.",
-      "selectionReason": "این پرسش سفارش را از یک قلم به بررسی قلم دوم گسترش می‌دهد.",
+      "type": "fill_blank",
+      "instructionFa": "پرسش موجودبودن کیک را با واژهٔ درست کامل کن.",
+      "selectionReason": "پس از پاسخ‌دادن دربارهٔ شیر و شکر، هدف بعدی بازیابی قلمِ مورد سؤال است؛ جای‌خالی روی همان پرسش منبع‌دار از مرتب‌سازی کامل آن دقیق‌تر است.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-007-food-order"
       ],
       "learningTargets": [
-        "دربارهٔ موجودبودن قلم دیگر سؤال کند."
+        "قلم مورد سؤال را در پرسش موجودبودن خوراکی بازیابی کند."
       ],
       "lexemeRefs": [],
       "dialogueRef": null,
       "data": {
         "sourceText": "Gibt es auch Kuchen?",
         "sourceTextFa": "کیک هم هست؟",
-        "tokens": [
-          "Gibt",
-          "es",
-          "auch",
-          "Kuchen?"
+        "blankedText": "Gibt es auch ___?",
+        "blankedTextFa": "___ هم هست؟",
+        "choices": [
+          "Kuchen",
+          "Milch",
+          "Zucker"
         ],
-        "answer": [
-          "Gibt",
-          "es",
-          "auch",
-          "Kuchen?"
-        ]
+        "choicesFa": [
+          "کیک",
+          "شیر",
+          "شکر"
+        ],
+        "answer": "Kuchen"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "source_sentence_blank_created",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
