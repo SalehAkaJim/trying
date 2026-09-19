@@ -732,6 +732,22 @@ def generate(language: str, level: str, config: dict, db: str, api_key: str, con
     return asset_manifest
 
 
+
+def sync_authoring_from_manifest(language: str, level: str, config: dict) -> dict:
+    manifest_path = asset_manifest_path(language, level, config)
+    if not manifest_path.exists():
+        raise RuntimeError(f"Asset manifest does not exist: {manifest_path.relative_to(ROOT)}")
+    manifest = load_json(manifest_path)
+    assets = manifest.get("assets") or []
+    sync_authoring_lesson_audio_status(language, level, assets)
+    return {
+        "language": language,
+        "level": level,
+        "assetCount": len(assets),
+        "manifest": manifest_path.relative_to(ROOT).as_posix(),
+    }
+
+
 def validate_assets(language: str, level: str, config: dict) -> dict:
     manifest_path = asset_manifest_path(language, level, config)
     if not manifest_path.exists():
@@ -779,7 +795,7 @@ def validate_assets(language: str, level: str, config: dict) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Provider-independent curriculum audio pipeline with ElevenLabs implementation.")
-    parser.add_argument("command", choices=["plan", "resolve-voices", "generate", "validate-assets"])
+    parser.add_argument("command", choices=["plan", "resolve-voices", "generate", "validate-assets", "sync-authoring"])
     parser.add_argument("--language", required=True)
     parser.add_argument("--level", required=False, default="Pre-A1")
     parser.add_argument("--db", default=os.environ.get("AUDIO_DB_NAME", "language_content_test"))
@@ -813,6 +829,10 @@ def main() -> int:
             return 0
         if args.command == "validate-assets":
             result = validate_assets(args.language, args.level, config)
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return 0
+        if args.command == "sync-authoring":
+            result = sync_authoring_from_manifest(args.language, args.level, config)
             print(json.dumps(result, ensure_ascii=False, indent=2))
             return 0
     except Exception as exc:
