@@ -10153,6 +10153,20 @@ SET notes='A1 شامل ۹ واحد و ۳۹ درس است. همهٔ ۳۹ درس �
     completion_assessment='{"reviewedAt":"2026-09-19T07:23:00Z","cefrCoverageComplete":true,"progressionComplete":true,"practiceAndRetrievalComplete":false,"skillModeCoverageComplete":false,"requiredGaps":["تمرین مستقل شنیداری و تلفظ نسبت به قبل بهتر شده، اما در مقیاس ۳۹ درس هنوز پوشش کافی و توزیع گسترده‌ای ندارد.","بازیابی تجمعی اکنون سه ایستگاه مرور بین‌واحدی دارد، اما هنوز به اندازهٔ کافی گسترده و نظام‌مند نیست."],"qualityReview":{"overallScore":8.4,"dimensionScores":{"cefrCoverage":8.8,"pedagogicalProgression":8.6,"practiceAndRetrieval":7.2,"activityQualityAndVariety":8.3,"linguisticAccuracyAndNaturalness":9.2,"sourceQualityAndCurrency":8.2,"learnerSupportAndClarity":8.7,"qaIntegrity":9.4},"rationale":"بازبینی جدید، طراحی تمرین A1 را به یک استثناء ثابت و یک بخش داینامیک تقسیم می‌کند: هر ۳۹ درس با گفت‌وگو آغاز می‌شود و از فعالیت دوم به بعد تعداد و نوع تمرین فقط از نیاز همان درس استخراج می‌شود. هشت تمرین مرتب‌سازی که با گفت‌وگو یا تمرین مجاور هم‌پوشانی نزدیک داشتند حذف شدند؛ تعداد کل فعالیت‌ها از ۱۴۲ به ۱۳۴ و حضور مرتب‌سازی کلمات از ۳۵ درس به ۲۷ درس کاهش یافت، بدون ساخت یا بازنویسی متن آلمانی. ضعف اصلی باقی‌مانده دیگر قالب ثابت پس از گفت‌وگو نیست؛ پوشش شنیدن مستقل، تلفظ و بازیابی تجمعی هنوز نیاز به گسترش منبع‌دار دارد.","strengths":["هر ۳۹ درس با یک گفت‌وگوی منبع‌دار آغاز می‌شود و تنها این جایگاه ساختاری ثابت است.","از فعالیت دوم به بعد، تعداد و نوع تمرین بر اساس هدف آموزشی همان درس انتخاب می‌شود و تمرین تکراری صرفاً برای پرکردن تعداد حذف شده است.","۹ واحد و ۳۹ درس با اندازه‌های متفاوت، موقعیت‌های ارتباطی اصلی A1 را با گروه‌بندی نیازمحور پوشش می‌دهند.","متن آلمانی نمایش‌داده‌شونده به زبان‌آموز فقط از منابع مجاز و قابل‌بازاستفاده یا تبدیل مکانیکی ثبت‌شده می‌آید.","فعالیت تطبیق حالت صریح دارد و زبان هر دو سمت توسط قرارداد محتوایی کنترل می‌شود.","تمرین مستقل شنیداری در چند حوزهٔ متفاوت وجود دارد و تمرین تلفظ از الفبا فراتر رفته است.","سه ایستگاه مرور و بازیابی بین‌واحدی در نیمهٔ دوم سطح A1 وجود دارد."],"remainingWeaknesses":["مرتب‌سازی کلمات هنوز در ۲۷ درس دیده می‌شود، اما دیگر پایان یا الگوی اجباری همهٔ درس‌ها نیست و باید در توسعه‌های بعدی فقط وقتی نیاز آموزشی روشن دارد حفظ شود.","تمرین مستقل شنیداری با ۱۰ فعالیت و تلفظ با ۳ فعالیت برای ۳۹ درس هنوز کم است.","بازیابی تجمعی فقط سه ایستگاه مرور بین‌واحدی دارد و هنوز پوشش نظام‌مند کل مسیر نیست.","نوشتن آزاد در انواع فعالیت فعلی پشتیبانی نمی‌شود و فقط تمرین نوشتاری هدایت‌شده قابل ادعاست.","پوشش واژگان با فهرست رسمی واژگان سطح A1 مؤسسهٔ گوته هنوز به‌صورت موردبه‌مورد ممیزی نشده است."]},"scopeExclusions":["ورودی آزاد تایپی در ساختار فعلی فعالیت‌ها پشتیبانی نمی‌شود؛ تولید نوشتاری سطح A1 در این نسخه هدایت‌شده است.","برابری کامل فهرست واژگان با همهٔ مدخل‌های فهرست رسمی واژگان سطح A1 مؤسسهٔ گوته در این بازبینی ادعا نمی‌شود؛ منبع رسمی برای ممیزی آینده ثبت شده است."]}'
 WHERE id=@level;
 
+UPDATE lessons
+SET status='qa'
+WHERE language_level_id=@level
+  AND lesson_key IN (
+    'de-a1-lesson-directions-sequence-review',
+    'de-a1-lesson-room-position',
+    'de-a1-lesson-room-table-lamp',
+    'de-a1-lesson-time-class-schedule',
+    'de-a1-lesson-transport-times-platform',
+    'de-a1-lesson-work-and-languages',
+    'de-a1-lesson-short-phone-message',
+    'de-a1-lesson-weather-current'
+  );
+
 DELETE FROM provenance_links
 WHERE entity_type='activity'
   AND entity_key IN ('act-de-a1-directions-sequence-review-fill','act-de-a1-chair-position-order','act-de-a1-room-table-order','act-de-a1-time-bis-wann-order','act-de-a1-transport-arrival-order','act-de-a1-language-question-order','act-de-a1-message-write-order','act-de-a1-weather-current-order');
@@ -10221,4 +10235,18 @@ SET activity_selection_rationale='گفت‌وگوی آغازین پرسیدن و
     sequence_rationale='بعد از گفت‌وگو ابتدا فهم شنیداری وضعیت هوا سنجیده می‌شود و سپس یک تمایز تلفظی منبع‌دار تمرین می‌شود. این دو فعالیت برای اهداف باقی‌مانده کافی‌اند و پایان درس به قالب مرتب‌سازی وابسته نیست.',
     template_signature='conversation_speaking>listen_choose>pronunciation_read'
 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-weather-current';
+
+UPDATE lessons
+SET status='final'
+WHERE language_level_id=@level
+  AND lesson_key IN (
+    'de-a1-lesson-directions-sequence-review',
+    'de-a1-lesson-room-position',
+    'de-a1-lesson-room-table-lamp',
+    'de-a1-lesson-time-class-schedule',
+    'de-a1-lesson-transport-times-platform',
+    'de-a1-lesson-work-and-languages',
+    'de-a1-lesson-short-phone-message',
+    'de-a1-lesson-weather-current'
+  );
 COMMIT;
