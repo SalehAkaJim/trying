@@ -3359,11 +3359,13 @@ ON DUPLICATE KEY UPDATE
 
 -- The previous cumulative checkpoint now sits before the dedicated review unit.
 UPDATE lessons
-SET sequence_rationale='عبارت کمک ابتدا در تعامل و سپس به‌صورت شفاهی بازیابی می‌شود؛ بعد معنی واژهٔ کلیدی تثبیت می‌شود و آخرین فعالیت چهار کاربرد مهم از مسیر تا این نقطه را پیش از ورود به واحد مرور نهایی دوباره فعال می‌کند.'
+SET status='qa',
+    sequence_rationale='عبارت کمک ابتدا در تعامل و سپس به‌صورت شفاهی بازیابی می‌شود؛ بعد معنی واژهٔ کلیدی تثبیت می‌شود و آخرین فعالیت چهار کاربرد مهم از مسیر تا این نقطه را پیش از ورود به واحد مرور نهایی دوباره فعال می‌کند.'
 WHERE lesson_key='de-pre-a1-lesson-need-help';
 UPDATE activities
 SET selection_reason='در پایان واحد موقعیت‌های ضروری و پیش از واحد مرور نهایی، یک بازیابی فاصله‌دار از چهار حوزهٔ جدا—اطلاعات شخصی، سفارش، قیمت و درخواست کمک—لازم است؛ همهٔ عبارت‌ها عین محتوای منبع‌دار قبلی‌اند.'
 WHERE activity_key='act-de-pre-a1-final-review';
+UPDATE lessons SET status='final' WHERE lesson_key='de-pre-a1-lesson-need-help';
 
 SET @t_review := (SELECT id FROM curriculum_targets WHERE language_level_id=@prea1 AND target_key='de.pre_a1.integrated_review' LIMIT 1);
 INSERT IGNORE INTO unit_targets(unit_id,curriculum_target_id) VALUES (@u_review,@t_review);
