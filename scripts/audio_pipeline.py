@@ -601,6 +601,27 @@ def sync_authoring_lesson_audio_status(language: str, level: str, assets: list[d
         if changed:
             write_json(lesson_path, lesson)
 
+    # Lexeme authoring files are global per language rather than nested under a
+    # level. Keep their release-facing status aligned with generated assets too,
+    # otherwise a ready manifest can coexist with stale/pending authoring data.
+    lexeme_dir = ROOT / "content" / language / "lexemes"
+    if lexeme_dir.exists():
+        for lexeme_path in lexeme_dir.glob("*.json"):
+            lexeme = load_json(lexeme_path)
+            if lexeme.get("level") != level:
+                continue
+            lexeme_id = lexeme.get("id")
+            surface = lexeme.get("surface")
+            if asset_is_ready("lexeme", lexeme_id, surface):
+                expected = "ready"
+            elif lexeme.get("audioStatus") == "ready":
+                expected = "stale"
+            else:
+                continue
+            if lexeme.get("audioStatus") != expected:
+                lexeme["audioStatus"] = expected
+                write_json(lexeme_path, lexeme)
+
 def generate(language: str, level: str, config: dict, db: str, api_key: str, confirmed: bool) -> dict:
     if config["generation"].get("requirePaidGenerationConfirmation", True) and not confirmed:
         raise RuntimeError("Paid generation was not confirmed.")

@@ -10,7 +10,8 @@
     "پرسش بسیار سادهٔ سفارش «Was möchten Sie bitte?» را در بافت بفهمد.",
     "در پرسش «Was möchten Sie bitte?» خطاب رسمی «Sie» را تشخیص دهد و فرم «möchten» را به مدخل پایهٔ «mögen» مرتبط کند.",
     "با عبارت منبع‌دار «Eine Tasse Kaffee bitte!» یک سفارش خیلی کوتاه و مؤدبانه انجام دهد.",
-    "سفارش کوتاه منبع‌دار را از راه شنیدن تشخیص دهد."
+    "سفارش کوتاه منبع‌دار را از راه شنیدن تشخیص دهد.",
+    "سفارش کوتاه منبع‌دار را پس از شنیدن بازگو کند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-lesson-002"
@@ -23,9 +24,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "پنج مرحله مکالمهٔ سفارش، ساخت عبارت، پاسخ به سؤال رسمی، تشخیص نقش کل سفارش و دریافت شنیداری را پوشش می‌دهد.",
-    "sequenceRationale": "تعامل به ساخت سفارش، بازیابی پاسخ، فهم کاربرد عبارت و در پایان تشخیص شنیداری همان سفارش می‌رسد.",
-    "templateSignature": "conversation_speaking>word_order>choose_response>true_false>listen_choose"
+    "activitySelectionRationale": "پنج مرحله مکالمهٔ سفارش، شنیدن و بازگویی عبارت، پاسخ به سؤال رسمی، تشخیص نقش کل سفارش و دریافت شنیداری مستقل را پوشش می‌دهد.",
+    "sequenceRationale": "تعامل به بازگویی شفاهی سفارش، بازیابی پاسخ، فهم کاربرد عبارت و در پایان تشخیص شنیداری همان سفارش می‌رسد.",
+    "templateSignature": "conversation_speaking>listen_repeat>choose_response>true_false>listen_choose"
   },
   "activities": [
     {
@@ -58,14 +59,14 @@
     },
     {
       "id": "act-de-simple-order-word-order",
-      "type": "word_order",
-      "instructionFa": "سفارش کوتاه را دوباره بساز.",
-      "selectionReason": "بازسازی همان عبارت منبع‌دار جای «Tasse»، «Kaffee» و «bitte» را در یک عبارت کاربردی تثبیت می‌کند.",
+      "type": "listen_repeat",
+      "instructionFa": "سفارش کوتاه را گوش کن و بعد با صدای بلند تکرار کن.",
+      "selectionReason": "این عبارت یک تکه‌زبان کاربردی برای سفارش است؛ شنیدن و بازگویی همان متن منبع‌دار از مرتب‌سازی واژه‌ها برای هدف گفتاری این درس مناسب‌تر است.",
       "sourceRefs": [
         "src-wikibooks-de-lesson-002"
       ],
       "learningTargets": [
-        "بازسازی «Eine Tasse Kaffee bitte!»."
+        "سفارش «Eine Tasse Kaffee bitte!» را از راه شنیدن بازگو کند."
       ],
       "lexemeRefs": [
         "lex-de-bitte",
@@ -74,26 +75,16 @@
       ],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Eine Tasse Kaffee bitte!",
-        "sourceTextFa": "یک فنجان قهوه لطفاً!",
-        "tokens": [
-          "Eine",
-          "Tasse",
-          "Kaffee",
-          "bitte!"
-        ],
-        "answer": [
-          "Eine",
-          "Tasse",
-          "Kaffee",
-          "bitte!"
-        ]
+        "audioTextTargetFa": "یک فنجان قهوه لطفاً!",
+        "repeatTextTarget": "Eine Tasse Kaffee bitte!",
+        "repeatTextTargetFa": "یک فنجان قهوه لطفاً!"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "other",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "pending",
+      "audioTextTarget": "Eine Tasse Kaffee bitte!"
     },
     {
       "id": "act-de-simple-order-response",

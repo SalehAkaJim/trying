@@ -9,14 +9,18 @@
   "learningTargets": [
     "با «Ich brauche Hilfe.» نیاز به کمک را خیلی کوتاه و مستقیم بیان کند.",
     "واژهٔ «Hilfe» را در الگوی آشنای «Ich brauche ...» از واژهٔ کالایی مثل «Hose» تشخیص دهد.",
-    "درخواست کمک را در یک تبادل کوتاه با عذرخواهی و پاسخ آرام تمرین کند."
+    "درخواست کمک را در یک تبادل کوتاه با عذرخواهی و پاسخ آرام تمرین کند.",
+    "درخواست کمک را پس از شنیدن بازگو کند.",
+    "چهار کاربرد اصلی از اطلاعات شخصی، سفارش، قیمت و درخواست کمک را در پایان سطح دوباره تشخیص دهد."
   ],
   "sourceRefs": [
     "src-wikibooks-de-phrasebook",
     "src-wikibooks-de-lesson-004",
     "src-wiktionary-de-entschuldigung",
     "src-wiktionary-de-ja",
-    "src-wiktionary-de-kein-problem"
+    "src-wiktionary-de-kein-problem",
+    "src-wikibooks-de-residence-origin",
+    "src-wikibooks-de-lesson-002"
   ],
   "lexemeRefs": [
     "lex-de-brauchen",
@@ -28,9 +32,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "چهار مرحله مکالمه، بازسازی جمله، جای‌خالی با دو انتخاب واقعی و تشخیص درخواست کمک از نیاز به کالا را پوشش می‌دهد.",
-    "sequenceRationale": "عبارت ابتدا در تعامل دیده و گفته می‌شود، سپس به‌صورت کامل ساخته می‌شود، واژهٔ کلیدی بازیابی می‌شود و در پایان معنای درخواست کمک از نیاز خرید جدا می‌شود.",
-    "templateSignature": "conversation_speaking>word_order>fill_blank>multiple_choice"
+    "activitySelectionRationale": "پنج مرحله مکالمه، شنیدن و بازگویی درخواست کمک، جای‌خالی، تشخیص معنی و در پایان یک مرور تجمعی بین‌واحدی را پوشش می‌دهد.",
+    "sequenceRationale": "عبارت کمک ابتدا در تعامل و سپس به‌صورت شفاهی بازیابی می‌شود؛ بعد معنی واژهٔ کلیدی تثبیت می‌شود و آخرین فعالیت بدون زبان تازه، چهار کاربرد مهم از کل Pre-A1 را دوباره فعال می‌کند.",
+    "templateSignature": "conversation_speaking>listen_repeat>fill_blank>multiple_choice>review"
   },
   "activities": [
     {
@@ -38,55 +42,99 @@
       "type": "conversation_speaking",
       "instructionFa": "مودبانه شروع کن و خیلی کوتاه بگو کمک لازم داری.",
       "selectionReason": "چهار نوبت ساده، عبارت جدید را به عذرخواهی، پاسخ و واکنش آرامی که قبلاً دیده شده‌اند وصل می‌کند.",
-      "sourceRefs": ["src-wikibooks-de-phrasebook", "src-wiktionary-de-entschuldigung", "src-wiktionary-de-ja", "src-wiktionary-de-kein-problem"],
-      "learningTargets": ["درخواست کمک با «Ich brauche Hilfe.» در یک تبادل کوتاه."],
-      "lexemeRefs": ["lex-de-brauchen", "lex-de-hilfe", "lex-de-entschuldigung", "lex-de-ja", "lex-de-kein-problem"],
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook",
+        "src-wiktionary-de-entschuldigung",
+        "src-wiktionary-de-ja",
+        "src-wiktionary-de-kein-problem"
+      ],
+      "learningTargets": [
+        "درخواست کمک با «Ich brauche Hilfe.» در یک تبادل کوتاه."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hilfe",
+        "lex-de-entschuldigung",
+        "lex-de-ja",
+        "lex-de-kein-problem"
+      ],
       "dialogueRef": "dlg-de-pre-a1-need-help",
-      "data": {"interaction": "read_aloud_exchange", "openingInitiator": "learner"},
-      "transformations": ["persian_translation_added", "character_metadata_added"],
+      "data": {
+        "interaction": "read_aloud_exchange",
+        "openingInitiator": "learner"
+      },
+      "transformations": [
+        "persian_translation_added",
+        "character_metadata_added"
+      ],
       "audioStatus": "not_required"
     },
     {
       "id": "act-de-help-word-order",
-      "type": "word_order",
-      "instructionFa": "جملهٔ درخواست کمک را دوباره بساز.",
-      "selectionReason": "بازسازی همان عبارت کوتاه، «brauche» و «Hilfe» را بدون افزودن دستور تازه در یک الگوی قابل‌استفاده تثبیت می‌کند.",
-      "sourceRefs": ["src-wikibooks-de-phrasebook"],
-      "learningTargets": ["بازسازی «Ich brauche Hilfe.»."],
-      "lexemeRefs": ["lex-de-brauchen", "lex-de-hilfe"],
+      "type": "listen_repeat",
+      "instructionFa": "درخواست کمک را گوش کن و بعد با صدای بلند تکرار کن.",
+      "selectionReason": "درخواست کمک باید به‌صورت یک عبارت آمادهٔ قابل‌گفتن بازیابی شود؛ شنیدن و بازگویی متن دقیق منبع از مرتب‌سازی واژه‌ها کاربردی‌تر است.",
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook"
+      ],
+      "learningTargets": [
+        "درخواست «Ich brauche Hilfe.» را از راه شنیدن بازگو کند."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hilfe"
+      ],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Ich brauche Hilfe.",
-        "sourceTextFa": "من کمک لازم دارم.",
-        "tokens": ["Ich", "brauche", "Hilfe."],
-        "answer": ["Ich", "brauche", "Hilfe."],
-        "tokenLexemeMappings": [
-          {"token": "brauche", "lexemeId": "lex-de-brauchen", "lexemeFormId": "lexform-de-brauchen-brauche"},
-          {"token": "Hilfe.", "lexemeId": "lex-de-hilfe", "lexemeFormId": null}
-        ]
+        "audioTextTargetFa": "من کمک لازم دارم.",
+        "repeatTextTarget": "Ich brauche Hilfe.",
+        "repeatTextTargetFa": "من کمک لازم دارم."
       },
-      "transformations": ["sentence_tokenized_for_word_order", "persian_translation_added"],
-      "audioStatus": "not_required"
+      "transformations": [
+        "other",
+        "persian_translation_added"
+      ],
+      "audioStatus": "pending",
+      "audioTextTarget": "Ich brauche Hilfe."
     },
     {
       "id": "act-de-help-fill",
       "type": "fill_blank",
       "instructionFa": "جمله را طوری کامل کن که معنی‌اش «کمک لازم دارم» باشد.",
       "selectionReason": "دو انتخاب واقعی و منبع‌دار، «Hilfe» را از کالای آشنای «eine Hose» جدا می‌کند و باگ تمرین تک‌گزینه‌ای را هم تکرار نمی‌کند.",
-      "sourceRefs": ["src-wikibooks-de-phrasebook", "src-wikibooks-de-lesson-004"],
-      "learningTargets": ["انتخاب «Hilfe» در الگوی «Ich brauche ...»."],
-      "lexemeRefs": ["lex-de-brauchen", "lex-de-hilfe", "lex-de-hose"],
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook",
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "انتخاب «Hilfe» در الگوی «Ich brauche ...»."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hilfe",
+        "lex-de-hose"
+      ],
       "dialogueRef": null,
       "data": {
         "sourceText": "Ich brauche Hilfe.",
         "sourceTextFa": "من کمک لازم دارم.",
         "blankedText": "Ich brauche ___.",
         "blankedTextFa": "من ___ لازم دارم.",
-        "choices": ["Hilfe", "eine Hose"],
-        "choicesFa": ["کمک", "یک شلوار"],
+        "choices": [
+          "Hilfe",
+          "eine Hose"
+        ],
+        "choicesFa": [
+          "کمک",
+          "یک شلوار"
+        ],
         "answer": "Hilfe"
       },
-      "transformations": ["source_sentence_blank_created", "options_selected_from_source_material", "persian_translation_added"],
+      "transformations": [
+        "source_sentence_blank_created",
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
       "audioStatus": "not_required"
     },
     {
@@ -94,21 +142,87 @@
       "type": "multiple_choice",
       "instructionFa": "کدام جمله یعنی به کمک نیاز داری؟",
       "selectionReason": "مقایسهٔ دو جمله با فعل یکسان، توجه را روی معنی «Hilfe» می‌گذارد و تفاوت نیاز فوری با نیاز خرید را روشن می‌کند.",
-      "sourceRefs": ["src-wikibooks-de-phrasebook", "src-wikibooks-de-lesson-004"],
-      "learningTargets": ["تشخیص درخواست کمک از نیاز به یک کالا."],
-      "lexemeRefs": ["lex-de-brauchen", "lex-de-hilfe", "lex-de-hose"],
+      "sourceRefs": [
+        "src-wikibooks-de-phrasebook",
+        "src-wikibooks-de-lesson-004"
+      ],
+      "learningTargets": [
+        "تشخیص درخواست کمک از نیاز به یک کالا."
+      ],
+      "lexemeRefs": [
+        "lex-de-brauchen",
+        "lex-de-hilfe",
+        "lex-de-hose"
+      ],
       "dialogueRef": null,
       "data": {
         "options": [
-          {"textTarget": "Ich brauche Hilfe.", "translationFa": "من کمک لازم دارم.", "correct": true},
-          {"textTarget": "Ich brauche eine Hose.", "translationFa": "من یک شلوار لازم دارم.", "correct": false}
+          {
+            "textTarget": "Ich brauche Hilfe.",
+            "translationFa": "من کمک لازم دارم.",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich brauche eine Hose.",
+            "translationFa": "من یک شلوار لازم دارم.",
+            "correct": false
+          }
         ]
       },
-      "transformations": ["options_selected_from_source_material", "persian_translation_added"],
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-pre-a1-final-review",
+      "type": "review",
+      "instructionFa": "چهار عبارت را بدون برگشت به درس‌های قبلی بخوان و کاربرد هرکدام را مشخص کن.",
+      "selectionReason": "در پایان Pre-A1 یک بازیابی فاصله‌دار از چهار حوزهٔ جدا—اطلاعات شخصی، سفارش، قیمت و درخواست کمک—لازم است تا مرور فقط به محتوای همین درس محدود نماند؛ همهٔ عبارت‌ها عین محتوای منبع‌دار قبلی‌اند.",
+      "sourceRefs": [
+        "src-wikibooks-de-residence-origin",
+        "src-wikibooks-de-lesson-002",
+        "src-wikibooks-de-lesson-004",
+        "src-wikibooks-de-phrasebook"
+      ],
+      "learningTargets": [
+        "چهار کاربرد اصلیِ اطلاعات شخصی، سفارش، قیمت و درخواست کمک را پس از فاصلهٔ زمانی از هم تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "items": [
+          {
+            "textTarget": "Ich heiße Paul Müller.",
+            "translationFa": "اسم من پاول مولر است.",
+            "categoryFa": "اطلاعات شخصی"
+          },
+          {
+            "textTarget": "Eine Tasse Kaffee bitte!",
+            "translationFa": "یک فنجان قهوه لطفاً!",
+            "categoryFa": "سفارش"
+          },
+          {
+            "textTarget": "Wie viel kostet das?",
+            "translationFa": "این چقدر قیمت دارد؟",
+            "categoryFa": "قیمت"
+          },
+          {
+            "textTarget": "Ich brauche Hilfe.",
+            "translationFa": "من کمک لازم دارم.",
+            "categoryFa": "درخواست کمک"
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
       "audioStatus": "not_required"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitleFa": "من کمک لازم دارم."
 }

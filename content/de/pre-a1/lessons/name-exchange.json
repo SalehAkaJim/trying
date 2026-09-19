@@ -9,7 +9,8 @@
   "learningTargets": [
     "با «Wie heißt du?» نام طرف مقابل را بپرسد.",
     "پاسخ سادهٔ «Ich heiße Iris.» را بفهمد.",
-    "شکل‌های «heißt» و «heiße» را به فعل پایهٔ «heißen» مرتبط کند."
+    "شکل‌های «heißt» و «heiße» را به فعل پایهٔ «heißen» مرتبط کند.",
+    "پاسخ معرفی نام را از راه شنیدن بازگو کند."
   ],
   "sourceRefs": [
     "src-wiktionary-de-hallo",
@@ -22,9 +23,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "چهار مرحله پرسیدن نام، بازسازی پاسخ، بازیابی «heiße» و تشخیص پرسش از پاسخ را پوشش می‌دهد.",
-    "sequenceRationale": "کاربرد، ساخت جمله، تمرکز روی فرم و در پایان تشخیص نقش جمله انجام می‌شود.",
-    "templateSignature": "conversation_speaking>word_order>fill_blank>multiple_choice"
+    "activitySelectionRationale": "چهار مرحله پرسیدن نام، شنیدن و بازگویی پاسخ، بازیابی «heiße» و تشخیص پرسش از پاسخ را پوشش می‌دهد.",
+    "sequenceRationale": "کاربرد در مکالمه به بازگویی شفاهی پاسخ، تمرکز روی فرم و در پایان تشخیص نقش جمله می‌رسد.",
+    "templateSignature": "conversation_speaking>listen_repeat>fill_blank>multiple_choice"
   },
   "activities": [
     {
@@ -57,46 +58,31 @@
     },
     {
       "id": "act-de-name-word-order",
-      "type": "word_order",
-      "instructionFa": "پاسخ آیریس را دوباره بساز.",
-      "selectionReason": "بازسازی جملهٔ دقیق منبع، الگوی «Ich heiße ...» و فرم «heiße» را بدون توضیح دستوری سنگین تقویت می‌کند.",
+      "type": "listen_repeat",
+      "instructionFa": "پاسخ آیریس را گوش کن و بعد با صدای بلند تکرار کن.",
+      "selectionReason": "برای معرفی نام در سطح پیش از A1، بازگویی یک پاسخ کوتاهِ عیناً منبع‌دار از مرتب‌سازی دوبارهٔ واژه‌ها ارزش گفتاری بیشتری دارد.",
       "sourceRefs": [
         "src-wikibooks-de-wie-heisst-du",
         "src-wiktionary-de-heissen"
       ],
       "learningTargets": [
-        "بازسازی درست «Ich heiße Iris.»."
+        "پاسخ «Ich heiße Iris.» را از راه شنیدن بازگو کند."
       ],
       "lexemeRefs": [
         "lex-de-heissen"
       ],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Ich heiße Iris.",
-        "sourceTextFa": "اسم من آیریس است.",
-        "tokens": [
-          "Ich",
-          "heiße",
-          "Iris."
-        ],
-        "answer": [
-          "Ich",
-          "heiße",
-          "Iris."
-        ],
-        "tokenLexemeMappings": [
-          {
-            "token": "heiße",
-            "lexemeId": "lex-de-heissen",
-            "lexemeFormId": "lexform-de-heissen-heisse"
-          }
-        ]
+        "audioTextTargetFa": "اسم من آیریس است.",
+        "repeatTextTarget": "Ich heiße Iris.",
+        "repeatTextTargetFa": "اسم من آیریس است."
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "other",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "pending",
+      "audioTextTarget": "Ich heiße Iris."
     },
     {
       "id": "act-de-name-fill-heisse",
@@ -175,6 +161,6 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitleFa": "اسمت چیه؟"
 }

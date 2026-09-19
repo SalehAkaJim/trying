@@ -186,6 +186,9 @@ jobs:
           for path in "content/$AUDIO_LANGUAGE"/*/lessons; do
             if [ -d "$path" ]; then git add -A "$path"; fi
           done
+          if [ -d "content/$AUDIO_LANGUAGE/lexemes" ]; then
+            git add -A "content/$AUDIO_LANGUAGE/lexemes"
+          fi
           if git diff --cached --quiet; then
             echo 'No audio changes to commit.'
           else

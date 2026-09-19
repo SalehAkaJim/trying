@@ -10,7 +10,8 @@
     "با «Wo ist die Toilette?» محل سرویس بهداشتی را بپرسد.",
     "عبارت بسیار کوتاه «Ich weiß nicht.» را در پاسخ بفهمد.",
     "شروع مؤدبانهٔ «Entschuldigung!» و پاسخ «Bitte?» را در یک تبادل کوتاه تشخیص دهد.",
-    "پرسش محل سرویس بهداشتی را از راه شنیدن تشخیص دهد."
+    "پرسش محل سرویس بهداشتی را از راه شنیدن تشخیص دهد.",
+    "پرسش محل سرویس بهداشتی را پس از شنیدن بازگو کند."
   ],
   "sourceRefs": [
     "src-wikibooks-de-phrasebook",
@@ -25,9 +26,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "پنج مرحله مکالمه، تطبیق دو جفت کوتاه، بازسازی پرسش مکان، تشخیص معنی «نمی‌دانم» و دریافت شنیداری پرسش را پوشش می‌دهد.",
-    "sequenceRationale": "پرسش ابتدا در یک تبادل مؤدبانه و کاملاً منبع‌دار دیده می‌شود، سپس ارتباط دو جفت گفت‌وگو تثبیت می‌شود، خود پرسش ساخته می‌شود، پاسخ کوتاه تشخیص داده می‌شود و در پایان پرسش از راه شنیدن بازیابی می‌شود.",
-    "templateSignature": "conversation_speaking>matching>word_order>multiple_choice>listen_choose"
+    "activitySelectionRationale": "پنج مرحله مکالمه، تطبیق دو جفت کوتاه، شنیدن و بازگویی پرسش مکان، تشخیص معنی «نمی‌دانم» و دریافت شنیداری مستقل را پوشش می‌دهد.",
+    "sequenceRationale": "پرسش ابتدا در یک تبادل مؤدبانهٔ منبع‌دار دیده می‌شود، سپس ارتباط جفت‌ها تثبیت می‌شود، خود پرسش از راه شنیدن بازگو می‌شود، پاسخ کوتاه تشخیص داده می‌شود و در پایان همان پرسش در دریافت شنیداری بازیابی می‌شود.",
+    "templateSignature": "conversation_speaking>matching>listen_repeat>multiple_choice>listen_choose"
   },
   "activities": [
     {
@@ -114,40 +115,30 @@
     },
     {
       "id": "act-de-toilet-question-order",
-      "type": "word_order",
-      "instructionFa": "پرسش مکان را دوباره بساز.",
-      "selectionReason": "بازسازی پرسش باعث می‌شود زبان‌آموز عبارت کامل را فعالانه بازیابی کند، نه اینکه فقط معنی آن را تشخیص دهد.",
+      "type": "listen_repeat",
+      "instructionFa": "پرسش محل را گوش کن و بعد با صدای بلند تکرار کن.",
+      "selectionReason": "این پرسش یک عبارت بقای فوری است؛ بازگویی شفاهی متن دقیق منبع برای استفادهٔ واقعی از مرتب‌سازی واژه‌ها مناسب‌تر است.",
       "sourceRefs": [
         "src-wikibooks-de-phrasebook"
       ],
       "learningTargets": [
-        "بازسازی «Wo ist die Toilette?»."
+        "پرسش «Wo ist die Toilette?» را از راه شنیدن بازگو کند."
       ],
       "lexemeRefs": [
         "lex-de-toilette"
       ],
       "dialogueRef": null,
       "data": {
-        "sourceText": "Wo ist die Toilette?",
-        "sourceTextFa": "سرویس بهداشتی کجاست؟",
-        "tokens": [
-          "Wo",
-          "ist",
-          "die",
-          "Toilette?"
-        ],
-        "answer": [
-          "Wo",
-          "ist",
-          "die",
-          "Toilette?"
-        ]
+        "audioTextTargetFa": "سرویس بهداشتی کجاست؟",
+        "repeatTextTarget": "Wo ist die Toilette?",
+        "repeatTextTargetFa": "سرویس بهداشتی کجاست؟"
       },
       "transformations": [
-        "sentence_tokenized_for_word_order",
+        "other",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "pending",
+      "audioTextTarget": "Wo ist die Toilette?"
     },
     {
       "id": "act-de-dont-know-choice",

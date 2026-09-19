@@ -12,21 +12,17 @@
   ],
   "sourceRefs": [
     "src-wiktionary-de-hallo",
-    "src-wikibooks-de-basic-greetings",
-    "src-wiktionary-de-danke",
-    "src-wiktionary-de-bitte"
+    "src-wikibooks-de-basic-greetings"
   ],
   "lexemeRefs": [
     "lex-de-hallo",
-    "lex-de-tschuess",
-    "lex-de-danke",
-    "lex-de-bitte"
+    "lex-de-tschuess"
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "سه مرحلهٔ کوتاه، استفاده در مکالمه، تشخیص خداحافظی و تمایز نقش سلام/خداحافظی را پوشش می‌دهد.",
-    "sequenceRationale": "از کاربرد واقعی به تشخیص و سپس دسته‌بندی نقش دو عبارت می‌رسد.",
-    "templateSignature": "conversation_speaking>multiple_choice>matching"
+    "activitySelectionRationale": "سه مرحلهٔ کوتاه، استفاده در مکالمه، تشخیص خداحافظی و سپس شنیدن و بازگویی همان عبارت پایه را پوشش می‌دهد؛ محتوای درس‌های بعدی زودتر وارد نمی‌شود.",
+    "sequenceRationale": "از کاربرد واقعی به تشخیص نقش و سپس بازگویی شفاهی یکی از همان دو عبارت پایه می‌رسد.",
+    "templateSignature": "conversation_speaking>multiple_choice>listen_repeat"
   },
   "activities": [
     {
@@ -101,62 +97,33 @@
     },
     {
       "id": "act-de-hallo-role-match",
-      "type": "matching",
-      "instructionFa": "هر عبارت را به کاربردش وصل کن.",
-      "selectionReason": "چهار عبارت اجتماعی پایهٔ منبع‌دارِ واحد اول را در یک تطبیق کوتاه از هم جدا می‌کند تا مرحلهٔ وصل‌کردن چهار گزینهٔ معنادار داشته باشد.",
+      "type": "listen_repeat",
+      "instructionFa": "«Tschüss!» را گوش کن و بعد با صدای بلند تکرار کن.",
+      "selectionReason": "درس اول فقط روی سلام و خداحافظی خودش می‌ماند؛ تکرار شنیداری «Tschüss!» به‌جای واردکردن زودهنگام «Danke/Bitte»، تولید شفاهی همان هدف درس را تقویت می‌کند.",
       "sourceRefs": [
-        "src-wiktionary-de-hallo",
-        "src-wikibooks-de-basic-greetings",
-        "src-wiktionary-de-danke",
-        "src-wiktionary-de-bitte"
+        "src-wikibooks-de-basic-greetings"
       ],
       "learningTargets": [
-        "تشخیص نقش چهار عبارت اجتماعی پایه در شروع، پایان، تشکر و پاسخ به تشکر."
+        "عبارت «Tschüss!» را از راه شنیدن بازگو کند."
       ],
       "lexemeRefs": [
-        "lex-de-hallo",
-        "lex-de-tschuess",
-        "lex-de-danke",
-        "lex-de-bitte"
+        "lex-de-tschuess"
       ],
       "dialogueRef": null,
       "data": {
-        "pairs": [
-          {
-            "left": "Hallo!",
-            "leftFa": "سلام!",
-            "right": "سلام / شروع گفت‌وگو",
-            "rightFa": "سلام / شروع گفت‌وگو"
-          },
-          {
-            "left": "Tschüss!",
-            "leftFa": "خداحافظ!",
-            "right": "خداحافظی / پایان گفت‌وگو",
-            "rightFa": "خداحافظی / پایان گفت‌وگو"
-          },
-          {
-            "left": "Danke!",
-            "leftFa": "ممنون!",
-            "right": "تشکر",
-            "rightFa": "تشکر"
-          },
-          {
-            "left": "Bitte!",
-            "leftFa": "خواهش می‌کنم!",
-            "right": "پاسخ به تشکر",
-            "rightFa": "پاسخ به تشکر"
-          }
-        ],
-        "pairMode": "target_to_persian"
+        "audioTextTargetFa": "خداحافظ!",
+        "repeatTextTarget": "Tschüss!",
+        "repeatTextTargetFa": "خداحافظ!"
       },
       "transformations": [
-        "source_items_grouped_for_matching",
+        "other",
         "persian_translation_added"
       ],
-      "audioStatus": "not_required"
+      "audioStatus": "pending",
+      "audioTextTarget": "Tschüss!"
     }
   ],
   "status": "final",
-  "audioStatus": "pending",
+  "audioStatus": "stale",
   "sourceTitleFa": "سلام!"
 }

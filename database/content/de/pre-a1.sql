@@ -3001,3 +3001,139 @@ SET time_zone = '+00:00';
 START TRANSACTION;
 UPDATE lessons SET source_title='Wie heißen Sie? / Wo wohnen Sie? / Wie alt sind Sie?', source_title_fa='اسمتان چیست؟ / کجا زندگی می‌کنید؟ / چند سالتان است؟' WHERE lesson_key='de-pre-a1-lesson-personal-review';
 COMMIT;
+
+
+-- ===== BEGIN zzzzzzzzzzz-pre-a1-audit-rebalance.sql =====
+-- Pre-A1 pedagogical rebalance after the 2026-09-19 audit.
+-- No new German is authored here: every target-language string below already
+-- exists in registered source material or earlier source-backed Pre-A1 content.
+
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @prea1 := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);
+SET @l_hallo := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-hallo' LIMIT 1);
+SET @l_name := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-name-exchange' LIMIT 1);
+SET @l_order := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-simple-order' LIMIT 1);
+SET @l_toilet := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-find-toilet' LIMIT 1);
+SET @l_help := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-need-help' LIMIT 1);
+
+DROP TEMPORARY TABLE IF EXISTS _prea1_audit_lesson_status;
+CREATE TEMPORARY TABLE _prea1_audit_lesson_status AS
+SELECT id AS lesson_id,status AS original_status
+FROM lessons
+WHERE id IN (@l_hallo,@l_name,@l_order,@l_toilet,@l_help);
+
+UPDATE lessons l
+JOIN _prea1_audit_lesson_status s ON s.lesson_id=l.id
+SET l.status='qa'
+WHERE s.original_status='final';
+
+UPDATE activities
+SET activity_type='listen_repeat',
+    instruction_fa='«Tschüss!» را گوش کن و بعد با صدای بلند تکرار کن.',
+    selection_reason='درس اول فقط روی سلام و خداحافظی خودش می‌ماند؛ تکرار شنیداری «Tschüss!» به‌جای واردکردن زودهنگام «Danke/Bitte»، تولید شفاهی همان هدف درس را تقویت می‌کند.',
+    payload=JSON_OBJECT('audioTextTargetFa','خداحافظ!','repeatTextTarget','Tschüss!','repeatTextTargetFa','خداحافظ!'),
+    transformations=JSON_ARRAY('other','persian_translation_added'),
+    audio_text_target='Tschüss!',
+    audio_status='stale'
+WHERE activity_key='act-de-hallo-role-match';
+
+UPDATE activities
+SET activity_type='listen_repeat',
+    instruction_fa='پاسخ آیریس را گوش کن و بعد با صدای بلند تکرار کن.',
+    selection_reason='برای معرفی نام در سطح پیش از A1، بازگویی یک پاسخ کوتاهِ عیناً منبع‌دار از مرتب‌سازی دوبارهٔ واژه‌ها ارزش گفتاری بیشتری دارد.',
+    payload=JSON_OBJECT('audioTextTargetFa','اسم من آیریس است.','repeatTextTarget','Ich heiße Iris.','repeatTextTargetFa','اسم من آیریس است.'),
+    transformations=JSON_ARRAY('other','persian_translation_added'),
+    audio_text_target='Ich heiße Iris.',
+    audio_status='stale'
+WHERE activity_key='act-de-name-word-order';
+
+UPDATE activities
+SET activity_type='listen_repeat',
+    instruction_fa='سفارش کوتاه را گوش کن و بعد با صدای بلند تکرار کن.',
+    selection_reason='این عبارت یک تکه‌زبان کاربردی برای سفارش است؛ شنیدن و بازگویی همان متن منبع‌دار از مرتب‌سازی واژه‌ها برای هدف گفتاری این درس مناسب‌تر است.',
+    payload=JSON_OBJECT('audioTextTargetFa','یک فنجان قهوه لطفاً!','repeatTextTarget','Eine Tasse Kaffee bitte!','repeatTextTargetFa','یک فنجان قهوه لطفاً!'),
+    transformations=JSON_ARRAY('other','persian_translation_added'),
+    audio_text_target='Eine Tasse Kaffee bitte!',
+    audio_status='stale'
+WHERE activity_key='act-de-simple-order-word-order';
+
+UPDATE activities
+SET activity_type='listen_repeat',
+    instruction_fa='پرسش محل را گوش کن و بعد با صدای بلند تکرار کن.',
+    selection_reason='این پرسش یک عبارت بقای فوری است؛ بازگویی شفاهی متن دقیق منبع برای استفادهٔ واقعی از مرتب‌سازی واژه‌ها مناسب‌تر است.',
+    payload=JSON_OBJECT('audioTextTargetFa','سرویس بهداشتی کجاست؟','repeatTextTarget','Wo ist die Toilette?','repeatTextTargetFa','سرویس بهداشتی کجاست؟'),
+    transformations=JSON_ARRAY('other','persian_translation_added'),
+    audio_text_target='Wo ist die Toilette?',
+    audio_status='stale'
+WHERE activity_key='act-de-toilet-question-order';
+
+UPDATE activities
+SET activity_type='listen_repeat',
+    instruction_fa='درخواست کمک را گوش کن و بعد با صدای بلند تکرار کن.',
+    selection_reason='درخواست کمک باید به‌صورت یک عبارت آمادهٔ قابل‌گفتن بازیابی شود؛ شنیدن و بازگویی متن دقیق منبع از مرتب‌سازی واژه‌ها کاربردی‌تر است.',
+    payload=JSON_OBJECT('audioTextTargetFa','من کمک لازم دارم.','repeatTextTarget','Ich brauche Hilfe.','repeatTextTargetFa','من کمک لازم دارم.'),
+    transformations=JSON_ARRAY('other','persian_translation_added'),
+    audio_text_target='Ich brauche Hilfe.',
+    audio_status='stale'
+WHERE activity_key='act-de-help-word-order';
+
+INSERT INTO activities
+(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES
+('act-de-pre-a1-final-review',@l_help,5,'review',
+ 'چهار عبارت را بدون برگشت به درس‌های قبلی بخوان و کاربرد هرکدام را مشخص کن.',
+ 'در پایان Pre-A1 یک بازیابی فاصله‌دار از چهار حوزهٔ جدا—اطلاعات شخصی، سفارش، قیمت و درخواست کمک—لازم است تا مرور فقط به محتوای همین درس محدود نماند؛ همهٔ عبارت‌ها عین محتوای منبع‌دار قبلی‌اند.',
+ NULL,
+ JSON_OBJECT('items',JSON_ARRAY(
+   JSON_OBJECT('textTarget','Ich heiße Paul Müller.','translationFa','اسم من پاول مولر است.','categoryFa','اطلاعات شخصی'),
+   JSON_OBJECT('textTarget','Eine Tasse Kaffee bitte!','translationFa','یک فنجان قهوه لطفاً!','categoryFa','سفارش'),
+   JSON_OBJECT('textTarget','Wie viel kostet das?','translationFa','این چقدر قیمت دارد؟','categoryFa','قیمت'),
+   JSON_OBJECT('textTarget','Ich brauche Hilfe.','translationFa','من کمک لازم دارم.','categoryFa','درخواست کمک')
+ )),
+ JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),
+ NULL,'not_required')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
+ instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+
+UPDATE lessons SET activity_selection_rationale='سه مرحلهٔ کوتاه، استفاده در مکالمه، تشخیص خداحافظی و سپس شنیدن و بازگویی همان عبارت پایه را پوشش می‌دهد؛ محتوای درس‌های بعدی زودتر وارد نمی‌شود.',sequence_rationale='از کاربرد واقعی به تشخیص نقش و سپس بازگویی شفاهی یکی از همان دو عبارت پایه می‌رسد.',template_signature='conversation_speaking>multiple_choice>listen_repeat',audio_status='stale' WHERE id=@l_hallo;
+UPDATE lessons SET activity_selection_rationale='چهار مرحله پرسیدن نام، شنیدن و بازگویی پاسخ، بازیابی «heiße» و تشخیص پرسش از پاسخ را پوشش می‌دهد.',sequence_rationale='کاربرد در مکالمه به بازگویی شفاهی پاسخ، تمرکز روی فرم و در پایان تشخیص نقش جمله می‌رسد.',template_signature='conversation_speaking>listen_repeat>fill_blank>multiple_choice',audio_status='stale' WHERE id=@l_name;
+UPDATE lessons SET activity_selection_rationale='پنج مرحله مکالمهٔ سفارش، شنیدن و بازگویی عبارت، پاسخ به سؤال رسمی، تشخیص نقش کل سفارش و دریافت شنیداری مستقل را پوشش می‌دهد.',sequence_rationale='تعامل به بازگویی شفاهی سفارش، بازیابی پاسخ، فهم کاربرد عبارت و در پایان تشخیص شنیداری همان سفارش می‌رسد.',template_signature='conversation_speaking>listen_repeat>choose_response>true_false>listen_choose',audio_status='stale' WHERE id=@l_order;
+UPDATE lessons SET activity_selection_rationale='پنج مرحله مکالمه، تطبیق دو جفت کوتاه، شنیدن و بازگویی پرسش مکان، تشخیص معنی «نمی‌دانم» و دریافت شنیداری مستقل را پوشش می‌دهد.',sequence_rationale='پرسش ابتدا در یک تبادل مؤدبانهٔ منبع‌دار دیده می‌شود، سپس ارتباط جفت‌ها تثبیت می‌شود، خود پرسش از راه شنیدن بازگو می‌شود، پاسخ کوتاه تشخیص داده می‌شود و در پایان همان پرسش در دریافت شنیداری بازیابی می‌شود.',template_signature='conversation_speaking>matching>listen_repeat>multiple_choice>listen_choose',audio_status='stale' WHERE id=@l_toilet;
+UPDATE lessons SET activity_selection_rationale='پنج مرحله مکالمه، شنیدن و بازگویی درخواست کمک، جای‌خالی، تشخیص معنی و در پایان یک مرور تجمعی بین‌واحدی را پوشش می‌دهد.',sequence_rationale='عبارت کمک ابتدا در تعامل و سپس به‌صورت شفاهی بازیابی می‌شود؛ بعد معنی واژهٔ کلیدی تثبیت می‌شود و آخرین فعالیت بدون زبان تازه، چهار کاربرد مهم از کل Pre-A1 را دوباره فعال می‌کند.',template_signature='conversation_speaking>listen_repeat>fill_blank>multiple_choice>review',audio_status='stale' WHERE id=@l_help;
+
+UPDATE units SET notes='این واحد خوشهٔ اطلاعات شخصی و مرور آن را می‌بندد؛ پس از آن سطح به کاربردهای خرید، سفارش و موقعیت‌های ضروری روزمره ادامه پیدا می‌کند.' WHERE unit_key='de-pre-a1-unit-personal-info';
+UPDATE language_levels SET audio_status='pending',notes='سطح پیش از A1 آلمانی ۲۲ درس در ۴ واحد و ۸۹ فعالیت هدفمند دارد؛ پنج تمرین شنیدن و بازگویی و یک مرور تجمعی پایانی به‌صورت نیازمحور در بازبینی ۲۰۲۶-۰۹-۱۹ تثبیت شدند.' WHERE id=@prea1;
+
+SET @t_review := (SELECT id FROM curriculum_targets WHERE language_level_id=@prea1 AND target_key='de.pre_a1.integrated_review' LIMIT 1);
+SET @a_final_review := (SELECT id FROM activities WHERE activity_key='act-de-pre-a1-final-review' LIMIT 1);
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id) VALUES (@a_final_review,@t_review);
+
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-hallo-role-match',si.id,'other','عبارت تکرار شنیداری عین منبع قبلی است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key='src-wikibooks-de-basic-greetings' AND si.source_text='Tschüss!';
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-name-word-order',si.id,'other','عبارت تکرار شنیداری عین منبع قبلی است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key='src-wikibooks-de-wie-heisst-du' AND si.source_text='Ich heiße Iris.';
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-simple-order-word-order',si.id,'other','عبارت تکرار شنیداری عین منبع قبلی است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key='src-wikibooks-de-lesson-002' AND si.source_text='Eine Tasse Kaffee bitte!';
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-toilet-question-order',si.id,'other','عبارت تکرار شنیداری عین منبع قبلی است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key='src-wikibooks-de-phrasebook' AND si.source_text='Wo ist die Toilette?';
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-help-word-order',si.id,'other','عبارت تکرار شنیداری عین منبع قبلی است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key='src-wikibooks-de-phrasebook' AND si.source_text='Ich brauche Hilfe.';
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-pre-a1-final-review',si.id,'options_selected_from_source_material','عبارت منبع‌دار قبلی برای مرور تجمعی پایان Pre-A1 بازاستفاده شده است.'
+FROM source_items si JOIN sources s ON s.id=si.source_id
+WHERE (s.source_key='src-wikibooks-de-residence-origin' AND si.source_text='Ich heiße Paul Müller.')
+   OR (s.source_key='src-wikibooks-de-lesson-002' AND si.source_text='Eine Tasse Kaffee bitte!')
+   OR (s.source_key='src-wikibooks-de-lesson-004' AND si.source_text='Wie viel kostet das?')
+   OR (s.source_key='src-wikibooks-de-phrasebook' AND si.source_text='Ich brauche Hilfe.');
+
+UPDATE lessons l JOIN _prea1_audit_lesson_status s ON s.lesson_id=l.id SET l.status=s.original_status;
+DROP TEMPORARY TABLE _prea1_audit_lesson_status;
+COMMIT;
+
+-- ===== END zzzzzzzzzzz-pre-a1-audit-rebalance.sql =====
