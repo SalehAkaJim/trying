@@ -15,15 +15,18 @@ Starting the next language should not require repeating the same manual checks o
 9. Apply the beginner opening-dialogue rule: lessons 1–10 of the beginner path use exactly 4 turns; later openings use 4–12 as pedagogically justified.
 10. Allow either app-start or learner-start; learner-start must explicitly instruct the learner to begin and turn 1 must belong to the learner.
 11. Preserve provenance, lexeme/form identity and occurrence mappings.
-12. Export each language × level as one MySQL 9.0.1 content file under `database/content/<language>/<level>.sql`.
-13. Run authoring validation, activity-count validation, taxonomy/localization validation, JSON contract checks, MySQL import twice, idempotency, provenance/source QA, image-free checks and Persian editorial checks.
-14. Finalize a CEFR level only after completion audit and quality review show no material gaps and release quality is close to 10/10.
+12. Run `scripts/audit_dynamic_structure.py` and resolve quota-like risk from learning needs/source/progression rather than by artificial numerical variation.
+13. Export each language × level as one MySQL 9.0.1 content file under `database/content/<language>/<level>.sql`.
+14. Run authoring validation, activity-count validation, dynamic-structure audit, taxonomy/localization validation, JSON contract checks, MySQL import twice, idempotency, provenance/source QA, image-free checks and Persian editorial checks.
+15. Finalize a CEFR level only after completion audit and quality review show no material gaps and release quality is close to 10/10.
 
 ## Automation principles
 - CI rules are cross-language by default; avoid hard-coding German-specific logic when the same rule should apply to future languages.
-- `config/activity-count-bounds.json` is the machine-readable source of CEFR-level activity-count guardrails. Do not hard-code a language-specific range in content validators.
+- `config/activity-count-bounds.json` and `config/unit-lesson-count-bounds.json` define guardrails only.
+- `config/dynamic-structure-policy.json` defines post-design quota-risk thresholds only; none of these thresholds are authoring targets.
+- `scripts/audit_dynamic_structure.py` prints the mandatory structure distribution report and fails unresolved review/final quota-like patterns.
 - `scripts/validate_activity_count_bounds.py` validates finalized lessons generically across languages for every level that has an explicit range.
-- `scripts/validate_mysql_content.sh` is the reusable MySQL 9.0.1 validation entry point. It automatically discovers every `database/content/**/*.sql` file; adding a new language or CEFR level must not require a bespoke database workflow.
+- `scripts/validate_mysql_content.sh` is the reusable MySQL 9.0.1 validation entry point. It derives the exact canonical `database/content/<language>/<level>.sql` files from authoring level manifests, rejects extra/missing level SQL, and imports them in CEFR order.
 - Counts used for consistency checks are derived from manifests/data unless they are explicit quality guardrails such as the configured activity-count range; no exact activity target is inferred from a range.
 - A failed contract test must be fixed at the content/schema/rule source; do not weaken the test merely to make CI green.
 - Repeated manual defects should become permanent regression tests.
@@ -47,7 +50,9 @@ Starting the next language should not require repeating the same manual checks o
 
 ## Minimum automatic gates before a language batch is accepted
 - JSON parses and required schemas are valid.
-- finalized lessons satisfy the configured CEFR-level activity-count range;
+- finalized Units satisfy configured Lesson-count guardrails;
+- finalized Lessons satisfy the configured CEFR-level Activity-count range;
+- dynamic structure audit passes and prints the required distributions/risk report;
 - assistant-authored prose that should be Persian contains Persian text.
 - all semantic codes used by authoring content have canonical Persian taxonomy labels.
 - direct companion Persian fields required by schema match taxonomy.
@@ -56,7 +61,7 @@ Starting the next language should not require repeating the same manual checks o
 - authoring dialogue starters and MySQL relational starters are synchronized.
 - source modernity/reuse rules pass.
 - SQL imports into the real MySQL 9.0.1 runtime and imports a second time without changing row counts unexpectedly.
-- every language-level SQL file is discovered automatically by the generic validation script.
+- exactly one canonical SQL file exists for every authored language × CEFR level and no historical patch chain remains active under `database/content/`.
 - authoring manifests and MySQL lesson counts remain in sync.
 - taxonomy row counts and Persian labels remain synchronized between authoring and MySQL.
 - no invalid learner-facing provenance links remain.

@@ -27,7 +27,10 @@
 - authoring manifests and MySQL output disagree about the content batch;
 - dialogue is padded with invented filler to satisfy the turn envelope;
 - curriculum is padded/split/merged to hit unit or lesson counts;
-- activities are duplicated or padded merely to approach the configured upper activity bound rather than meeting a real learning need.
+- activities are duplicated or padded merely to approach the configured upper activity bound rather than meeting a real learning need;
+- a final Unit lacks a pedagogical `groupingRationale`;
+- a final Lesson lacks `activityDesign.activitySelectionRationale` or `activityDesign.sequenceRationale`;
+- `scripts/audit_dynamic_structure.py` detects an unresolved quota-like distribution risk.
 
 ## Persian localization audit
 Require Persian for `instructionFa`, `translationFa`, `learningTargets`, `selectionReason`, `scenario`, `sceneQualityRationale`, lesson/unit/level rationales, coverage/gaps, editorial notes, character context notes and direct `*Fa` companion fields.
@@ -59,6 +62,14 @@ Exact target language, exact source quotations, proper names, stable IDs/keys, U
 - levels above `Pre-A1` may increase above 4 only when justified by learning need rather than filler;
 - target-language matching items must remain source-backed.
 
+## Dynamic structure QA
+- Run `python scripts/audit_dynamic_structure.py` before accepting a review/final level.
+- The audit must print Unit Lesson counts, both count distributions, top Activity sequences, Units at minimum and Lessons at minimum.
+- Risk thresholds live in `config/dynamic-structure-policy.json` and are detectors only; they must never be used as desired distributions.
+- A suspicious pattern must trigger re-evaluation of learning needs, source inventory, progression and practice design.
+- Do not silence a detector by randomly changing counts, adding filler, splitting coherent content or merging unrelated content.
+- The correct causal order is: learning needs → source inventory → progression → Lesson boundaries → Activity design → counts.
+
 ## Activity-count QA
 - activity-count ranges are configured by CEFR level in `config/activity-count-bounds.json` and apply to finalized lessons across languages;
 - `Pre-A1` finalized lessons contain 3–6 total activities, including the opening conversation;
@@ -67,7 +78,7 @@ Exact target language, exact source quotations, proper names, stable IDs/keys, U
 - future level ranges must be explicitly defined before they are enforced; never infer an unset range from another level.
 
 ## Automation QA
-Before accepting a batch, run the shared project contract validator, CEFR activity-count validator, JSON/schema validation, MySQL 9.0.1 import, second import/idempotency, source/provenance checks, localization checks, image-free checks and manifest/SQL consistency checks.
+Before accepting a batch, run the dynamic-structure audit, shared project contract validator, CEFR activity-count validator, JSON/schema validation, MySQL 9.0.1 import, second import/idempotency, source/provenance checks, localization checks, image-free checks and manifest/SQL consistency checks.
 
 Rules that apply across languages must be tested generically. Do not solve a cross-language defect with a German-only test.
 

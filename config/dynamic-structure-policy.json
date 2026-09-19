@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "descriptionFa": "این اعداد فقط آستانه‌های تشخیص ریسک ساختار سهمیه‌ای در QA هستند و هرگز target یا preferred count تولید محتوا نیستند. تعداد واقعی Unit، Lesson و Activity باید پیش از شمارش از نیاز آموزشی، منبع، progression و طراحی تمرین به‌دست بیاید.",
+  "minimumPopulation": {
+    "units": 4,
+    "lessons": 8
+  },
+  "riskThresholds": {
+    "dominantUnitLessonCountShare": 0.75,
+    "unitsAtMinimumShare": 0.75,
+    "dominantLessonActivityCountShare": 0.75,
+    "lessonsAtMinimumShare": 0.75,
+    "dominantActivitySignatureShare": 0.5,
+    "consecutiveIdenticalActivitySignature": 4
+  }
+}

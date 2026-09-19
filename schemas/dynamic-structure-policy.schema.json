@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dynamic-structure-policy.schema.json",
+  "title": "Dynamic Structure QA Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "descriptionFa",
+    "minimumPopulation",
+    "riskThresholds"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "descriptionFa": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[\\u0600-\\u06FF]"
+    },
+    "minimumPopulation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "units",
+        "lessons"
+      ],
+      "properties": {
+        "units": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "lessons": {
+          "type": "integer",
+          "minimum": 2
+        }
+      }
+    },
+    "riskThresholds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dominantUnitLessonCountShare",
+        "unitsAtMinimumShare",
+        "dominantLessonActivityCountShare",
+        "lessonsAtMinimumShare",
+        "dominantActivitySignatureShare",
+        "consecutiveIdenticalActivitySignature"
+      ],
+      "properties": {
+        "dominantUnitLessonCountShare": {
+          "type": "number",
+          "exclusiveMinimum": 0.5,
+          "maximum": 1
+        },
+        "unitsAtMinimumShare": {
+          "type": "number",
+          "exclusiveMinimum": 0.5,
+          "maximum": 1
+        },
+        "dominantLessonActivityCountShare": {
+          "type": "number",
+          "exclusiveMinimum": 0.5,
+          "maximum": 1
+        },
+        "lessonsAtMinimumShare": {
+          "type": "number",
+          "exclusiveMinimum": 0.5,
+          "maximum": 1
+        },
+        "dominantActivitySignatureShare": {
+          "type": "number",
+          "exclusiveMinimum": 0.25,
+          "maximum": 1
+        },
+        "consecutiveIdenticalActivitySignature": {
+          "type": "integer",
+          "minimum": 2
+        }
+      }
+    }
+  }
+}

@@ -3,19 +3,25 @@
   "id": "de-a1-unit-requests-services-help",
   "languageId": "de",
   "level": "A1",
-  "titleFa": "درخواست، اجازه و خدمات روزمره",
+  "titleFa": "درخواست کمک، خدمات و سلامت",
   "learningTargets": [
     "درخواست تکرار و آهسته‌تر گفتن کند.",
     "نیاز به کمک را مستقیم بیان یا تشخیص دهد.",
     "در یک خرید ساده نیاز و رنگ موردنظر را بیان کند.",
-    "محل پزشک را با پرسش کوتاه بپرسد و پاسخ مکانی ساده را بفهمد."
+    "محل پزشک را با پرسش کوتاه بپرسد و پاسخ مکانی ساده را بفهمد.",
+    "علائم بسیار رایج بیماری را در پرسش و پاسخ کوتاه بیان و تشخیص دهد.",
+    "دارو و محل گرفتن دارو را در یک موقعیت سادهٔ پزشکی بفهمد.",
+    "با الگوی سادهٔ «دیگر ندارم» بهترشدن یک علامت را بیان کند."
   ],
   "lessonRefs": [
     "de-a1-lesson-clarify-permission-help",
     "de-a1-lesson-services-permission-review",
-    "de-a1-lesson-services-help-review"
+    "de-a1-lesson-services-help-review",
+    "de-a1-lesson-health-symptoms",
+    "de-a1-lesson-health-medicine-pharmacy",
+    "de-a1-lesson-health-recovery"
   ],
-  "groupingRationale": "واحد از روشن‌سازی و کمک پایه به دو موقعیت خدماتی ساده می‌رود: خرید کفش با نیاز/رنگ، و پیدا کردن پزشک با پاسخ مکانی کوتاه. ساختارهای سنگین فروشگاه لباس حذف شده‌اند.",
+  "groupingRationale": "این واحد شش درس دارد چون همهٔ درس‌ها حول درخواست کمک و دریافت خدمت در موقعیت واقعی می‌چرخند: روشن‌سازی و اجازه، خدمات روزمره و پیدا کردن پزشک، سپس بیان علامت، دارو و پیگیری حال. بخش سلامت ادامهٔ طبیعیِ نیاز به کمک و خدمات ضروری است و ادغام آن از ساخت دو Unit هم‌اندازه صرفاً به‌خاطر موضوع جلوگیری می‌کند.",
   "sourceRefs": [
     "src-wikibooks-de-lesson-002-service-clarification",
     "src-wikivoyage-german-phrasebook-services",
@@ -23,8 +29,9 @@
     "src-wikibooks-german-lesson-9-clothing",
     "src-wikibooks-de-lesson-006-where-when",
     "src-coerll-dib-directions",
-    "src-wiktionary-de-bitte"
+    "src-wiktionary-de-bitte",
+    "src-wikibooks-de-lesson-018-health"
   ],
   "status": "final",
-  "notes": "دو درس خدماتی در بازبینی ۱۸ سپتامبر ۲۰۲۶ به منابع ساده‌تر و قابل‌بازاستفاده منتقل شدند؛ نسخهٔ چاپی قدیمی ویکی‌بوکس دیگر منبع فعال این واحد نیست."
+  "notes": "واحد خدمات و سلامت برای ساخت progression درخواست کمک تا دریافت خدمت ضروری ادغام شد؛ هیچ متن آلمانی تغییر نکرده است."
 }

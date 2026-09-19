@@ -37,9 +37,10 @@ For each language and level:
 9. Re-run the coverage matrix and QA.
 10. Group lessons into units only when coherent learner-facing clusters emerge.
 11. Continue until unresolved required coverage no longer justifies additional content.
-12. Run a formal level-completion audit covering CEFR ability coverage, language-specific prerequisites, progression, practice/retrieval, reinforcement, skill/mode balance and unresolved gaps.
-13. Run the holistic 0–10 quality review and revise any material weakness that prevents the level from being close to 10/10.
-14. Freeze a release as `final` only when CEFR coverage and progression are approved and the quality review supports release. Practice/retrieval or skill-mode deficits that remain must stay explicit in their completion flags and `requiredGaps`; do not turn those flags true merely to unlock release or audio.
+12. Run `scripts/audit_dynamic_structure.py`; inspect Unit/Lesson/Activity distributions and revisit any quota-like risk from educational first principles rather than manufacturing numerical variety.
+13. Run a formal level-completion audit covering CEFR ability coverage, language-specific prerequisites, progression, practice/retrieval, reinforcement, skill/mode balance and unresolved gaps.
+14. Run the holistic 0–10 quality review and revise any material weakness that prevents the level from being close to 10/10.
+15. Freeze a release as `final` only when CEFR coverage and progression are approved and the quality review supports release. Practice/retrieval or skill-mode deficits that remain must stay explicit in their completion flags and `requiredGaps`; do not turn those flags true merely to unlock release or audio.
 
 At every stage, unit and lesson counts are derived from the current approved structure.
 
@@ -110,7 +111,9 @@ Do not store or treat any of the following as authoritative curriculum targets:
 
 If analytics or UI needs these counts, derive them from the actual approved `unit` and `lesson` records.
 
-Operational estimates, if ever introduced, must be clearly non-binding and must never participate in generation logic or QA pass/fail decisions.
+Operational estimates, if ever introduced, must be clearly non-binding and must never participate in generation logic.
+
+Statistical QA thresholds in `config/dynamic-structure-policy.json` are a separate concept: they detect suspicious quota-like concentration after content has been designed. They are not preferred counts or target distributions and must never feed generation decisions.
 
 ## Activity-count quality envelope
 

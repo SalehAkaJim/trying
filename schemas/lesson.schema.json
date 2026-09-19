@@ -95,16 +95,23 @@
       "properties": {
         "activitySelectionRationale": {
           "type": "string",
-          "description": "Why the selected activities are pedagogically needed. Numeric target counts are not valid rationale."
+          "description": "دلیل آموزشیِ انتخاب همین Activityها و کافی‌بودن همین تعداد؛ ارجاع به target count، minimum، maximum یا هماهنگی عددی قابل قبول نیست.",
+          "minLength": 1
         },
         "sequenceRationale": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "description": "دلیل آموزشی ترتیب Activityها؛ باید progression همان Lesson را توضیح دهد و نه یک template ثابت."
         },
         "templateSignature": {
           "type": "string",
           "description": "Optional derived signature used by QA to detect repetitive neighboring lesson patterns."
         }
-      }
+      },
+      "required": [
+        "activitySelectionRationale",
+        "sequenceRationale"
+      ]
     },
     "activities": {
       "type": "array",
@@ -178,7 +185,8 @@
       "then": {
         "required": [
           "sourceTitle",
-          "sourceTitleFa"
+          "sourceTitleFa",
+          "activityDesign"
         ],
         "properties": {
           "sourceTitle": {

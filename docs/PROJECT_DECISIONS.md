@@ -52,18 +52,24 @@
 ## Image-free baseline
 - Current learner-facing content is text/audio-only and must not contain/reference/depend on instructional images.
 
-## Dynamic lesson/activity design
-- Every finalized lesson begins with `conversation_speaking`.
-- Post-opening activity type and order are dynamic and selected by learning need.
-- The exact activity count is dynamic inside the configured CEFR-level envelope; the minimum is a quality floor, not permission to add filler, and the maximum is a cognitive-load/content-scope ceiling rather than a target.
-- Avoid mechanically cloned neighboring lesson patterns.
+## Dynamic Unit/Lesson/Activity design
+- Unit, Lesson and Activity counts have no target or preferred value.
+- The mandatory causal order is: learning needs → source inventory → progression → Lesson boundaries → Activity design → counts.
+- Every finalized Unit must explain its grouping/boundary in `groupingRationale`; every finalized Lesson must explain Activity selection and sequence.
+- Every finalized Lesson begins with `conversation_speaking`.
+- Post-opening Activity type, order and exact count are selected by learning need.
+- Minimums are quality floors and maximums are load ceilings; neither is a completion target.
+- Equal-looking distributions are not evidence of quality. Mechanically cloned Unit sizes, Lesson sizes or Activity sequences are quota-like risk signals.
+- `config/dynamic-structure-policy.json` defines machine-readable QA risk thresholds only; it must never become a generation target.
+- `scripts/audit_dynamic_structure.py` is mandatory before review/final acceptance and must report distributions before completion is claimed.
+- Never add artificial numerical variety merely to make the audit pass; redesign only from genuine educational reasons.
 
 ## Lexemes/forms
 - Canonical lexical identity is stored in `lexemes`; inflections/variants in `lexeme_forms`.
 - Persist resolved occurrences to lexeme/form IDs; do not rely on runtime string guessing.
 
 ## Automation
-- Cross-language contract validation is mandatory before accepting content batches.
+- Cross-language contract validation and the dynamic-structure audit are mandatory before accepting content batches.
 - Shared rules must be enforced generically across languages rather than reimplemented as German-only checks.
 - Authoring manifests and MySQL output must remain synchronized.
 - MySQL schema/content imports must pass on MySQL 9.0.1 and remain idempotent.

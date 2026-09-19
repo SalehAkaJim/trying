@@ -3,26 +3,34 @@
   "id": "de-a1-unit-directions-public-places",
   "languageId": "de",
   "level": "A1",
-  "titleFa": "مسیر و مکان‌های عمومی",
+  "titleFa": "مسیر، مکان‌های عمومی و حمل‌ونقل",
   "learningTargets": [
     "محل یک مکان عمومی را با پرسش کوتاه بپرسد.",
     "برای رسیدن به یک مقصد ساده مسیر را بپرسد.",
     "راهنمایی کوتاه با چپ، راست و مستقیم را بفهمد.",
-    "مسیر ایستگاه قطار و فرودگاه را در پرسش‌های ساده دنبال کند."
+    "مسیر ایستگاه قطار و فرودگاه را در پرسش‌های ساده دنبال کند.",
+    "برای یک مقصد ساده بلیت بخواهد.",
+    "قطار یا اتوبوس درست را با پرسش دربارهٔ مقصد و توقف تشخیص دهد.",
+    "اطلاعات سادهٔ توقف، زمان حرکت و شمارهٔ سکو را در یک گفت‌وگوی کوتاه بفهمد."
   ],
   "lessonRefs": [
     "de-a1-lesson-directions-public-places-review",
     "de-a1-lesson-ask-and-follow-directions",
-    "de-a1-lesson-directions-sequence-review"
+    "de-a1-lesson-directions-sequence-review",
+    "de-a1-lesson-transport-ticket",
+    "de-a1-lesson-transport-train-bus",
+    "de-a1-lesson-transport-times-platform"
   ],
-  "groupingRationale": "واحد سه کارکرد را تفکیک می‌کند: پرسیدن «کجاست؟» برای مکان‌های نزدیک، پرسیدن «چطور برسم؟» برای یک مقصد، و کاربرد همان الگو برای ایستگاه/فرودگاه همراه با بازیابی بین‌واحدی.",
+  "groupingRationale": "این واحد شش درس دارد چون حرکت در شهر یک توالی واحد می‌سازد: ابتدا پیدا کردن مکان و پرسیدن/فهم مسیر، سپس استفاده از همان دانش مکانی برای بلیت، وسیله، توقف، زمان و سکو. حمل‌ونقل عمومی از نظر پیش‌نیاز به مسیر و مقصد وابسته است؛ بنابراین ادغام این دو خوشه یک progression طبیعی‌تر از «کجا و چگونه بروم» تا «با چه وسیله و چه زمانی بروم» ایجاد می‌کند.",
   "sourceRefs": [
     "src-wikibooks-german-appendix-phrasebook",
     "src-coerll-dib-directions",
     "src-wikivoyage-german-phrasebook-directions",
     "src-wikibooks-de-lesson-007-family",
-    "src-wikibooks-de-lesson-004"
+    "src-wikibooks-de-lesson-004",
+    "src-wikivoyage-german-phrasebook-transport",
+    "src-wikibooks-de-transport-dialogue-current"
   ],
   "status": "final",
-  "notes": "دو درس سنگینِ متکی بر نسخهٔ چاپی قدیمی ویکی‌بوکس کامل جایگزین شدند. منابع فعال این واحد اکنون عبارت‌نامهٔ ویکی‌بوکس، Deutsch im Blick و ویکی‌ویاژ هستند."
+  "notes": "واحد مسیر و حمل‌ونقل بر اساس وابستگی آموزشی ادغام شد؛ متن آلمانی، Dialogue و Activityها دست‌نخورده‌اند."
 }

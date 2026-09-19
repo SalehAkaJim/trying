@@ -1,3 +1,15 @@
+-- ===== CANONICAL DYNAMIC-STRUCTURE REIMPORT PREFLIGHT =====
+-- On re-import, free unit sequence slots before the historical consolidated chain replays.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+SET @__de_dyn := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @__a1_dyn := (SELECT id FROM language_levels WHERE language_id=@__de_dyn AND cefr_level='A1' LIMIT 1);
+UPDATE units
+SET sequence_index=sequence_index+1000
+WHERE language_level_id=@__a1_dyn AND sequence_index IS NOT NULL;
+COMMIT;
+
 -- German A1 canonical SQL — consolidated from the historical migration chain.
 -- Mechanical consolidation only; learner-facing German is unchanged.
 
@@ -9913,3 +9925,166 @@ BEGIN
   END IF;
 END$$
 DELIMITER ;
+
+-- ===== DYNAMIC UNIT REGROUPING — 2026-09-19 =====
+-- Structural/editorial change only. No German learner-facing text is authored or modified.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='A1' LIMIT 1);
+
+UPDATE language_levels
+SET structure_rationale='ساختار A1 از نیاز آموزشی استخراج می‌شود: ابتدا targetها و پیش‌نیازها، سپس منابع، progression، مرز Lesson و طراحی Activity تعیین می‌شوند و تعدادها در پایان از این تصمیم‌ها به‌دست می‌آیند. بازه‌های تعداد فقط guardrail هستند. در بازبینی ساختار داینامیک، Unitهای هم‌موضوع ادغام شدند و سطح اکنون ۹ Unit با اندازه‌های ۶، ۳، ۳، ۶، ۳، ۶، ۶، ۳ و ۳ درس دارد؛ این توزیع نتیجهٔ grouping آموزشی است نه هدف عددی.',
+    notes='A1 شامل ۹ واحد و ۳۹ درس است. چهار جفت Unit هم‌موضوع برای حذف ساختار مصنوعی ۱۳×۳ ادغام شدند؛ هیچ متن آلمانی، Dialogue یا Activity به‌خاطر این تغییر بازنویسی نشد. ضعف‌های باقی‌ماندهٔ تمرین/بازیابی و پوشش شیوه‌های مهارتی همچنان صریح ثبت شده‌اند.',
+    completion_assessment=JSON_SET(
+      completion_assessment,
+      '$.qualityReview.rationale','این دور اصلاح کیفیت منبع و چند ضعف روشن سطح A1 را بهبود داده است، اما هنوز نباید کامل تلقی شود. از ۱۴۲ فعالیت، تعداد زیادی همچنان در چند قالب تکرارشونده متمرکزند؛ تمرین مستقل شنیداری فقط در ۱۰ فعالیت و تلفظ فقط در ۳ فعالیت وجود دارد و بازیابی تجمعی به سه ایستگاه مرور بین‌واحدی محدود است. منابع ضعیف نسخهٔ چاپی قدیمی از محتوای نمایش‌داده‌شده به زبان‌آموز کنار گذاشته و فقط برای تحلیل نگه‌داری شده‌اند، اما ممیزی موردبه‌مورد واژگان در برابر فهرست رسمی واژگان سطح A1 مؤسسهٔ گوته هنوز انجام نشده است. نوشتن آزاد نیز به‌علت محدودیت ساختار فعلی فعالیت‌ها جزو دامنهٔ این نسخه نیست. ساختار Unit نیز در بازبینی داینامیک از الگوی ۱۳×۳ خارج و به ۹ Unit نیازمحور بازگروه‌بندی شد، بدون افزودن یا دستکاری متن آلمانی.',
+      '$.qualityReview.strengths[0]','۹ واحد و ۳۹ درس با اندازه‌های متفاوت، موقعیت‌های ارتباطی اصلی A1 را با grouping نیازمحور پوشش می‌دهند.'
+    )
+WHERE id=@level;
+
+UPDATE units SET sequence_index=sequence_index+2000 WHERE language_level_id=@level AND sequence_index IS NOT NULL;
+UPDATE units SET sequence_index=1 WHERE language_level_id=@level AND unit_key='de-a1-unit-extended-introduction';
+UPDATE units SET sequence_index=2 WHERE language_level_id=@level AND unit_key='de-a1-unit-home-and-nearby';
+UPDATE units SET sequence_index=3 WHERE language_level_id=@level AND unit_key='de-a1-unit-daily-routine-work-school';
+UPDATE units SET sequence_index=4 WHERE language_level_id=@level AND unit_key='de-a1-unit-shopping-quantity-payment';
+UPDATE units SET sequence_index=5 WHERE language_level_id=@level AND unit_key='de-a1-unit-time-plans-appointment';
+UPDATE units SET sequence_index=6 WHERE language_level_id=@level AND unit_key='de-a1-unit-directions-public-places';
+UPDATE units SET sequence_index=7 WHERE language_level_id=@level AND unit_key='de-a1-unit-requests-services-help';
+UPDATE units SET sequence_index=8 WHERE language_level_id=@level AND unit_key='de-a1-unit-forms-signs-messages';
+UPDATE units SET sequence_index=9 WHERE language_level_id=@level AND unit_key='de-a1-unit-weather-temperature';
+
+SET @u_keep := (SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-extended-introduction' LIMIT 1);
+SET @u_absorb := (SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-family-and-close-people' LIMIT 1);
+INSERT IGNORE INTO unit_targets(unit_id,curriculum_target_id)
+SELECT @u_keep,curriculum_target_id FROM unit_targets WHERE unit_id=@u_absorb;
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'unit','de-a1-unit-extended-introduction',source_item_id,transformation,notes
+FROM provenance_links
+WHERE entity_type='unit' AND entity_key='de-a1-unit-family-and-close-people';
+UPDATE units
+SET title_fa='معرفی، کار، زبان‌ها و خانواده',
+    grouping_rationale='این واحد شش درس دارد چون یک مسیر پیوستهٔ «شناخت و معرفی افراد» را می‌سازد: سه درس نخست معرفی فرد، شغل و زبان‌ها را گسترش می‌دهند و سه درس بعد همان اطلاعات شخصی را به خانواده و افراد نزدیک منتقل می‌کنند. جداکردن این دو خوشه مرز آموزشی واقعی ایجاد نمی‌کرد و ادغام آن‌ها بازیابی اطلاعات شخصی را در یک بافت تازه ممکن می‌کند؛ شش درس نتیجهٔ این توالی است، نه هدف عددی.',
+    metadata='{"sourceRefs":["src-wikibooks-bll-a1-lesson-1","src-wikibooks-bll-a1-lesson-2","src-wikibooks-de-lesson-002-professions","src-wikibooks-de-lesson-007-family"],"learningTargets":["اطلاعات قبلیِ نام، محل زندگی و مبدأ را در یک معرفی پیوسته بازیابی کند، بدون اینکه این موارد دوباره به‌عنوان هدف تازه آموزش داده شوند.","کار یا شغل را با الگوهای منبع‌دار بسیار ساده در معرفی شخصی بفهمد و بیان کند.","زبان‌هایی را که فرد صحبت می‌کند یا یاد می‌گیرد در جمله‌های کوتاه و منبع‌دار بفهمد و بیان کند.","یک معرفی کوتاه A1 را به‌عنوان مجموعه‌ای از اطلاعات مرتبط دربارهٔ یک نفر بفهمد، نه چند جملهٔ جدا از هم.","اعضای بسیار پرتکرار خانواده مانند پدر، مادر، برادر و خواهر را در بافت منبع‌دار تشخیص دهد.","اطلاعات سادهٔ یک عضو خانواده مانند نام، سن، محل زندگی یا شغل را بفهمد و در حد A1 دربارهٔ آن پرسش و پاسخ کند.","الگوهای مالکیت لازم برای صحبت دربارهٔ خانواده را فقط در حدی که منابع و سناریوی واقعی درس توجیه می‌کنند به کار ببرد.","اطلاعات مربوط به یک فرد نزدیک را به‌صورت چند جملهٔ مرتبط بفهمد، نه مجموعه‌ای از واژه‌های جدا از هم."]}',
+    notes='واحد معرفی و خانواده در بازبینی ساختار داینامیک ادغام شد؛ هیچ متن آلمانی یا Activity تغییر نکرده است.',
+    status='final'
+WHERE id=@u_keep;
+
+SET @u_keep := (SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-shopping-quantity-payment' LIMIT 1);
+SET @u_absorb := (SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-expanded-food-order' LIMIT 1);
+INSERT IGNORE INTO unit_targets(unit_id,curriculum_target_id)
+SELECT @u_keep,curriculum_target_id FROM unit_targets WHERE unit_id=@u_absorb;
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'unit','de-a1-unit-shopping-quantity-payment',source_item_id,transformation,notes
+FROM provenance_links
+WHERE entity_type='unit' AND entity_key='de-a1-unit-expanded-food-order';
+UPDATE units
+SET title_fa='خرید، پرداخت و سفارش غذا',
+    grouping_rationale='این واحد شش درس دارد چون دو بخش متوالیِ یک مهارت تراکنشی روزمره را پوشش می‌دهد: ابتدا انتخاب کالا، مقدار، قیمت و پرداخت و سپس سفارش و شخصی‌سازی غذا و نوشیدنی. هر شش درس یک زنجیرهٔ کاربردی از درخواست تا انتخاب، مقدار، قیمت و ترجیح را می‌سازند و نگه‌داشتن دو Unit سه‌درسی برای یک خانوادهٔ ارتباطی واحد، مرزبندی مصنوعی ایجاد می‌کرد.',
+    metadata='{"sourceRefs":["src-wikibooks-de-lesson-009-shopping","src-wikibooks-de-lesson-004","src-wikibooks-de-lesson-007-food-order","src-coerll-dib-pronunciation-umlauts"],"learningTargets":["قیمت یک کالا را در گفت‌وگوی کوتاه بپرسد و پاسخ قیمت را بفهمد.","مقدارهای سادهٔ خرید مانند گرم و کیلو را در درخواست و پاسخ تشخیص دهد.","یک کالای دیگر را به خرید اضافه کند و مقدار موردنظر را بفهمد یا بیان کند.","پایان خرید و رفتن به صندوق برای پرداخت را در گفت‌وگوی روزمره بفهمد.","در یک سفارش کوتاه دربارهٔ قلم دیگری، موجودبودن خوراکی و قیمت سؤال کند و پاسخ را بفهمد.","نوشیدنی را با شیر/شکر یا بدون یکی از آن‌ها شخصی‌سازی کند.","وقتی یک قلم موجود نیست، جایگزین پیشنهادی را در پاسخ کوتاه بفهمد.","Ö و Ü را در چند نمونهٔ کوتاه و منبع‌دار واضح بخواند."]}',
+    notes='واحد خرید و سفارش غذا برای حذف مرز سهمیه‌ای ادغام شد؛ Lessonها و محتوای آلمانی بدون تغییر باقی مانده‌اند.',
+    status='final'
+WHERE id=@u_keep;
+
+SET @u_keep := (SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-directions-public-places' LIMIT 1);
+SET @u_absorb := (SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-public-transport-tickets' LIMIT 1);
+INSERT IGNORE INTO unit_targets(unit_id,curriculum_target_id)
+SELECT @u_keep,curriculum_target_id FROM unit_targets WHERE unit_id=@u_absorb;
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'unit','de-a1-unit-directions-public-places',source_item_id,transformation,notes
+FROM provenance_links
+WHERE entity_type='unit' AND entity_key='de-a1-unit-public-transport-tickets';
+UPDATE units
+SET title_fa='مسیر، مکان‌های عمومی و حمل‌ونقل',
+    grouping_rationale='این واحد شش درس دارد چون حرکت در شهر یک توالی واحد می‌سازد: ابتدا پیدا کردن مکان و پرسیدن/فهم مسیر، سپس استفاده از همان دانش مکانی برای بلیت، وسیله، توقف، زمان و سکو. حمل‌ونقل عمومی از نظر پیش‌نیاز به مسیر و مقصد وابسته است؛ بنابراین ادغام این دو خوشه یک progression طبیعی‌تر از «کجا و چگونه بروم» تا «با چه وسیله و چه زمانی بروم» ایجاد می‌کند.',
+    metadata='{"sourceRefs":["src-wikibooks-german-appendix-phrasebook","src-coerll-dib-directions","src-wikivoyage-german-phrasebook-directions","src-wikibooks-de-lesson-007-family","src-wikibooks-de-lesson-004","src-wikivoyage-german-phrasebook-transport","src-wikibooks-de-transport-dialogue-current"],"learningTargets":["محل یک مکان عمومی را با پرسش کوتاه بپرسد.","برای رسیدن به یک مقصد ساده مسیر را بپرسد.","راهنمایی کوتاه با چپ، راست و مستقیم را بفهمد.","مسیر ایستگاه قطار و فرودگاه را در پرسش‌های ساده دنبال کند.","برای یک مقصد ساده بلیت بخواهد.","قطار یا اتوبوس درست را با پرسش دربارهٔ مقصد و توقف تشخیص دهد.","اطلاعات سادهٔ توقف، زمان حرکت و شمارهٔ سکو را در یک گفت‌وگوی کوتاه بفهمد."]}',
+    notes='واحد مسیر و حمل‌ونقل بر اساس وابستگی آموزشی ادغام شد؛ متن آلمانی، Dialogue و Activityها دست‌نخورده‌اند.',
+    status='final'
+WHERE id=@u_keep;
+
+SET @u_keep := (SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-requests-services-help' LIMIT 1);
+SET @u_absorb := (SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-health-doctor-pharmacy' LIMIT 1);
+INSERT IGNORE INTO unit_targets(unit_id,curriculum_target_id)
+SELECT @u_keep,curriculum_target_id FROM unit_targets WHERE unit_id=@u_absorb;
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'unit','de-a1-unit-requests-services-help',source_item_id,transformation,notes
+FROM provenance_links
+WHERE entity_type='unit' AND entity_key='de-a1-unit-health-doctor-pharmacy';
+UPDATE units
+SET title_fa='درخواست کمک، خدمات و سلامت',
+    grouping_rationale='این واحد شش درس دارد چون همهٔ درس‌ها حول درخواست کمک و دریافت خدمت در موقعیت واقعی می‌چرخند: روشن‌سازی و اجازه، خدمات روزمره و پیدا کردن پزشک، سپس بیان علامت، دارو و پیگیری حال. بخش سلامت ادامهٔ طبیعیِ نیاز به کمک و خدمات ضروری است و ادغام آن از ساخت دو Unit هم‌اندازه صرفاً به‌خاطر موضوع جلوگیری می‌کند.',
+    metadata='{"sourceRefs":["src-wikibooks-de-lesson-002-service-clarification","src-wikivoyage-german-phrasebook-services","src-wiktionary-de-ja","src-wikibooks-german-lesson-9-clothing","src-wikibooks-de-lesson-006-where-when","src-coerll-dib-directions","src-wiktionary-de-bitte","src-wikibooks-de-lesson-018-health"],"learningTargets":["درخواست تکرار و آهسته‌تر گفتن کند.","نیاز به کمک را مستقیم بیان یا تشخیص دهد.","در یک خرید ساده نیاز و رنگ موردنظر را بیان کند.","محل پزشک را با پرسش کوتاه بپرسد و پاسخ مکانی ساده را بفهمد.","علائم بسیار رایج بیماری را در پرسش و پاسخ کوتاه بیان و تشخیص دهد.","دارو و محل گرفتن دارو را در یک موقعیت سادهٔ پزشکی بفهمد.","با الگوی سادهٔ «دیگر ندارم» بهترشدن یک علامت را بیان کند."]}',
+    notes='واحد خدمات و سلامت برای ساخت progression درخواست کمک تا دریافت خدمت ضروری ادغام شد؛ هیچ متن آلمانی تغییر نکرده است.',
+    status='final'
+WHERE id=@u_keep;
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-extended-introduction' LIMIT 1), position_in_unit=4 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-family-brother-profile';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-extended-introduction' LIMIT 1), position_in_unit=5 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-family-parents-profile';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-extended-introduction' LIMIT 1), position_in_unit=6 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-family-profile-review';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-shopping-quantity-payment' LIMIT 1), position_in_unit=4 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-food-preference-review';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-shopping-quantity-payment' LIMIT 1), position_in_unit=5 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-expanded-food-order';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-shopping-quantity-payment' LIMIT 1), position_in_unit=6 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-food-combinations-review';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-directions-public-places' LIMIT 1), position_in_unit=4 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-transport-ticket';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-directions-public-places' LIMIT 1), position_in_unit=5 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-transport-train-bus';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-directions-public-places' LIMIT 1), position_in_unit=6 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-transport-times-platform';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-requests-services-help' LIMIT 1), position_in_unit=4 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-health-symptoms';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-requests-services-help' LIMIT 1), position_in_unit=5 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-health-medicine-pharmacy';
+UPDATE lessons SET unit_id=(SELECT id FROM units WHERE language_level_id=@level AND unit_key='de-a1-unit-requests-services-help' LIMIT 1), position_in_unit=6 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-health-recovery';
+
+UPDATE lessons SET sequence_index=sequence_index+2000000 WHERE language_level_id=@level;
+UPDATE lessons SET sequence_index=1 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-profession-profile';
+UPDATE lessons SET sequence_index=2 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-work-and-languages';
+UPDATE lessons SET sequence_index=3 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-integrated-introduction-review';
+UPDATE lessons SET sequence_index=4 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-family-brother-profile';
+UPDATE lessons SET sequence_index=5 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-family-parents-profile';
+UPDATE lessons SET sequence_index=6 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-family-profile-review';
+UPDATE lessons SET sequence_index=7 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-room-table-lamp';
+UPDATE lessons SET sequence_index=8 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-room-position';
+UPDATE lessons SET sequence_index=9 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-home-description-review';
+UPDATE lessons SET sequence_index=10 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-daily-routine-work';
+UPDATE lessons SET sequence_index=11 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-daily-routine-school';
+UPDATE lessons SET sequence_index=12 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-daily-routine-day-review';
+UPDATE lessons SET sequence_index=13 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-shopping-price-review';
+UPDATE lessons SET sequence_index=14 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-shopping-quantity-payment';
+UPDATE lessons SET sequence_index=15 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-shopping-checkout-review';
+UPDATE lessons SET sequence_index=16 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-food-preference-review';
+UPDATE lessons SET sequence_index=17 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-expanded-food-order';
+UPDATE lessons SET sequence_index=18 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-food-combinations-review';
+UPDATE lessons SET sequence_index=19 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-time-class-schedule';
+UPDATE lessons SET sequence_index=20 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-time-simple-appointment';
+UPDATE lessons SET sequence_index=21 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-time-plans-review';
+UPDATE lessons SET sequence_index=22 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-directions-public-places-review';
+UPDATE lessons SET sequence_index=23 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-ask-and-follow-directions';
+UPDATE lessons SET sequence_index=24 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-directions-sequence-review';
+UPDATE lessons SET sequence_index=25 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-transport-ticket';
+UPDATE lessons SET sequence_index=26 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-transport-train-bus';
+UPDATE lessons SET sequence_index=27 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-transport-times-platform';
+UPDATE lessons SET sequence_index=28 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-clarify-permission-help';
+UPDATE lessons SET sequence_index=29 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-services-permission-review';
+UPDATE lessons SET sequence_index=30 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-services-help-review';
+UPDATE lessons SET sequence_index=31 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-health-symptoms';
+UPDATE lessons SET sequence_index=32 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-health-medicine-pharmacy';
+UPDATE lessons SET sequence_index=33 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-health-recovery';
+UPDATE lessons SET sequence_index=34 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-personal-form-signs';
+UPDATE lessons SET sequence_index=35 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-short-phone-message';
+UPDATE lessons SET sequence_index=36 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-forms-signs-message-review';
+UPDATE lessons SET sequence_index=37 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-weather-current';
+UPDATE lessons SET sequence_index=38 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-weather-rain-plan';
+UPDATE lessons SET sequence_index=39 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-weather-temperature';
+
+DELETE FROM provenance_links
+WHERE entity_type='unit' AND entity_key IN (
+  'de-a1-unit-family-and-close-people',
+  'de-a1-unit-expanded-food-order',
+  'de-a1-unit-public-transport-tickets',
+  'de-a1-unit-health-doctor-pharmacy'
+);
+DELETE FROM units
+WHERE language_level_id=@level
+  AND unit_key IN (
+    'de-a1-unit-family-and-close-people',
+    'de-a1-unit-expanded-food-order',
+    'de-a1-unit-public-transport-tickets',
+    'de-a1-unit-health-doctor-pharmacy'
+  );
+COMMIT;

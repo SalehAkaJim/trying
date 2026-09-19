@@ -55,12 +55,12 @@
         "type": "string"
       },
       "uniqueItems": true,
-      "description": "Dynamic-length lesson grouping. For finalized units from A1 onward, project policy requires 3–12 lessons as configured in config/unit-lesson-count-bounds.json; the exact count inside that range is determined by pedagogical need rather than quota filling."
+      "description": "طول این آرایه خروجی طراحی آموزشی است. برای Unit نهایی از A1 به بعد فقط guardrail پیکربندی‌شدهٔ ۳–۱۲ اعمال می‌شود؛ ابتدا learning needs، source inventory و progression تعیین می‌شوند و count در پایان از مرزهای واقعی Lesson استخراج می‌شود."
     },
     "groupingRationale": {
       "type": "string",
       "minLength": 1,
-      "description": "Pedagogical/navigation reason these lessons belong together. The rationale must explain progression and coverage; merely citing the allowed 3–12 lesson range is not sufficient."
+      "description": "دلیل آموزشی/ناوبریِ اینکه دقیقاً همین Lessonها در یک Unit هستند و چرا این مرز Unit در این نقطه قرار دارد. باید progression، پوشش و کافی‌بودن تعداد فعلی Lessonها را توضیح دهد؛ ارجاع به بازهٔ ۳–۱۲، minimum، هماهنگی با Unitهای دیگر یا زیبایی عددی rationale معتبر نیست."
     },
     "sourceRefs": {
       "type": "array",

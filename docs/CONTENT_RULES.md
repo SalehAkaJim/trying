@@ -11,7 +11,13 @@ For German learner-facing content, the assistant must never author, correct, nor
 Project-authored learner support and curriculum/editorial prose must be Persian. Exact target-language text, proper names, IDs/enums, source titles, bibliographic/license metadata and URLs are exempt.
 
 ## Structure
-No target/preferred unit or lesson count exists. Every finalized lesson starts with `conversation_speaking`; post-opening activity type/order are dynamic. Finalized lesson activity count must stay inside the CEFR-level envelope in `config/activity-count-bounds.json`. `Pre-A1` currently requires **3–6 total activities**. The range is a quality guardrail, not a target count: add useful practice to meet the minimum and never pad toward the maximum.
+No target/preferred Unit, Lesson or Activity count exists. Counts are determined only after learning needs, source inventory, progression, Lesson boundaries and Activity design are established.
+
+Configured ranges are guardrails, not targets. Reaching the minimum never means a Unit/Lesson is automatically complete; approaching the maximum is never a goal. Do not equalize neighboring Unit sizes, clone Lesson templates, split/merge content for symmetry, or add/remove Activities merely to make distributions look varied.
+
+Every final Unit must have a pedagogical `groupingRationale`. Every final Lesson must record non-empty `activitySelectionRationale` and `sequenceRationale`. Before a level is accepted, `scripts/audit_dynamic_structure.py` must report its Unit/Lesson/Activity distributions and pass the quota-like risk checks defined in `config/dynamic-structure-policy.json`.
+
+Every finalized Lesson starts with `conversation_speaking`; post-opening Activity type/order are dynamic. Finalized Lesson activity count must stay inside the CEFR-level envelope in `config/activity-count-bounds.json`. `Pre-A1` currently requires **3–6 total Activities**.
 
 ## Opening conversation
 Opening conversations must contain **4–12 turns**. The first 10 lessons of a language's beginner path use exactly 4 turns; when Pre-A1 exists these are the first 10 Pre-A1 lessons. From lesson 11 onward, exact length inside 4–12 is chosen by scene/source/learning need; do not pad toward either boundary.

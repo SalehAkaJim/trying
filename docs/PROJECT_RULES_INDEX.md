@@ -21,7 +21,9 @@ Before starting a new language, a new CEFR level, or a substantial content batch
 11. `docs/AUTOMATION_CONTRACT.md`
 12. `config/fa-taxonomy.json`
 13. `config/activity-count-bounds.json`
-14. relevant JSON Schemas under `schemas/`
+14. `config/unit-lesson-count-bounds.json`
+15. `config/dynamic-structure-policy.json`
+16. relevant JSON Schemas under `schemas/`
 
 ## Rule-change protocol
 Whenever the user makes a durable product/content decision:
@@ -29,7 +31,7 @@ Whenever the user makes a durable product/content decision:
 2. update machine-readable contracts/schema/taxonomy when applicable;
 3. add or update an automated regression test when the rule is testable;
 4. update existing content if the new rule makes current content invalid;
-5. run MySQL 9.0.1 and authoring QA before considering the change complete.
+5. run `scripts/audit_dynamic_structure.py`, authoring QA and MySQL 9.0.1 before considering the change complete.
 
 Do not rely on remembering a decision only from chat.
 
