@@ -237,6 +237,8 @@ for manifest_path in Path("audio").glob("*/*/manifest.json"):
                 )
 
 # Ready authoring records must always have an exact current generated asset.
+# Lexemes are global and can be reused across levels, so their reverse lookup is
+# language-wide; activities and dialogue turns remain level-scoped.
 for (language, level, activity_id), (activity_path, activity) in authoring_activities.items():
     if activity.get("audioStatus") != "ready":
         continue
