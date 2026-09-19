@@ -10849,19 +10849,27 @@ SET notes='A1 شامل ۹ واحد، ۳۹ درس و ۱۴۰ فعالیت است. 
     completion_assessment=CAST('{"reviewedAt":"2026-09-19T09:20:00Z","cefrCoverageComplete":true,"progressionComplete":true,"practiceAndRetrievalComplete":true,"skillModeCoverageComplete":false,"requiredGaps":["ورودی آزاد برای نوشتن متن کوتاه شخصی در موتور فعالیت فعلی پشتیبانی نمی‌شود؛ بنابراین پوشش نوشتن A1 همچنان هدایت‌شده است."],"qualityReview":{"overallScore":8.8,"dimensionScores":{"cefrCoverage":8.8,"pedagogicalProgression":8.8,"practiceAndRetrieval":8.7,"activityQualityAndVariety":9,"linguisticAccuracyAndNaturalness":9.2,"sourceQualityAndCurrency":8.2,"learnerSupportAndClarity":8.8,"qaIntegrity":9.5},"rationale":"بازبینی جدید مشکل تکرار بیش‌ازحد مرتب‌سازی واژه‌ها، کمبود تمرین شنیداری مستقل و پراکندگی کم بازیابی تجمعی را بدون تولید متن آلمانی تازه اصلاح می‌کند. ۱۷ فعالیت مرتب‌سازی واژه‌ها که برای هدف همان درس ارزش افزودهٔ کافی نداشتند به جای‌خالی منبع‌دار، شنیدن و تکرار یا مرور تجمعی تبدیل شدند؛ پنج فعالیت تشخیصی نیز به شنیدن و انتخاب منبع‌دار منتقل شدند. در نتیجه مرتب‌سازی واژه‌ها از ۲۷ درس به ۱۰ درس محدود شده، ۱۵ فعالیت شنیدن و انتخاب، چهار فعالیت شنیدن و تکرار و سه فعالیت خواندن تلفظی در سطح وجود دارد و شش ایستگاه مرور تجمعی پس از خوشه‌های خرید، زمان، مسیر، سلامت، فرم/پیام و پایان A1 توزیع شده‌اند. تعداد کل فعالیت‌ها ۱۴۰ باقی مانده و تغییر تنوع از نیاز آموزشی آمده است، نه از هدف عددی.","strengths":["هر ۳۹ درس با یک گفت‌وگوی منبع‌دار آغاز می‌شود و گفت‌وگوی گفتاری فقط همان یک بار در جایگاه اول ظاهر می‌شود.","از فعالیت دوم به بعد تعداد و نوع تمرین بر اساس نیاز آموزشی همان درس انتخاب می‌شود و تعداد کل فعالیت‌ها برای ایجاد تنوع مصنوعی افزایش داده نشده است.","وابستگی به مرتب‌سازی واژه‌ها به ۱۰ درس کاهش یافته و این نوع تمرین فقط در جاهایی باقی مانده که بازسازی ترتیب واژه با هدف درس هم‌راستاست.","شنیدن مستقل اکنون با ۱۵ فعالیت شنیدن و انتخاب در حوزه‌های مختلف و چهار فعالیت شنیدن و تکرار برای عبارت‌های گفتاری کاربردی توزیع شده است.","سه فعالیت خواندن تلفظی منبع‌دار همچنان الفبا، Ö/Ü و یک تقابل همخوانی را پوشش می‌دهند و شنیدن و تکرار تمرین شفاهی را در چند حوزهٔ دیگر گسترش می‌دهد.","شش ایستگاه بازیابی تجمعی در طول A1 توزیع شده‌اند و موضوعات دورتر را پس از فاصلهٔ زمانی دوباره فعال می‌کنند.","تمرین‌های تازه فقط از متن‌های منبع‌دار موجود یا تبدیل مکانیکی مجاز مانند ایجاد جای‌خالی در جمله استفاده می‌کنند."],"remainingWeaknesses":["نوشتن آزاد در انواع فعالیت فعلی پشتیبانی نمی‌شود و تولید نوشتاری A1 هنوز هدایت‌شده است.","خواندن مستقل هنوز بیشترین تراکم را در واحد فرم، تابلو و پیام دارد و در توسعهٔ آینده می‌تواند در واحدهای دیگر هم گسترده‌تر شود.","پوشش واژگان با فهرست رسمی واژگان A1 مؤسسهٔ گوته هنوز به‌صورت موردبه‌مورد ممیزی نشده است.","دارایی‌های صوتی جدید باید پس از این تغییرات دوباره تولید و سپس از نظر شنیداری انسانی کنترل شوند."]},"scopeExclusions":["ورودی آزاد تایپی در ساختار فعلی فعالیت‌ها پشتیبانی نمی‌شود؛ تولید نوشتاری سطح A1 در این نسخه هدایت‌شده است.","برابری کامل فهرست واژگان با همهٔ مدخل‌های فهرست رسمی واژگان سطح A1 مؤسسهٔ گوته در این بازبینی ادعا نمی‌شود؛ منبع رسمی برای ممیزی آینده ثبت شده است."]}' AS JSON)
 WHERE id=@level;
 
-UPDATE lessons SET sequence_rationale='پس از مکالمهٔ قیمت، مرور فاصله‌دارِ چند حوزهٔ قبلی انجام می‌شود و سپس تمرکز به جمع کل یورو/سنت برمی‌گردد؛ این درس نخستین ایستگاه نظام‌مند بازیابی تجمعی تجمعی در A1 است.'
+UPDATE lessons SET sequence_rationale='پس از مکالمهٔ قیمت، مرور فاصله‌دارِ چند حوزهٔ قبلی انجام می‌شود و سپس تمرکز به جمع کل یورو/سنت برمی‌گردد؛ این درس نخستین ایستگاه نظام‌مند بازیابی تجمعی در A1 است.'
 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-shopping-checkout-review';
 
+UPDATE lessons SET status='qa'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-transport-ticket' AND status='final';
 UPDATE activities a JOIN lessons l ON l.id=a.lesson_id
 SET a.selection_reason='درخواست بلیت یک عبارت ثابت کاربردی برای گفتار واقعی است؛ شنیدن و تکرار آن آمادگی گفتاری بیشتری از مرتب‌سازی دوبارهٔ همان واژه‌ها ایجاد می‌کند.'
 WHERE l.language_level_id=@level AND a.activity_key='act-de-a1-transport-ticket-order';
+UPDATE lessons SET status='final'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-transport-ticket';
 
 UPDATE lessons SET sequence_rationale='درس از مشکل فهم واقعی به اجازه و کمک، سپس واژگان خدمات و در پایان بازیابی هدایت‌شدهٔ «langsam» می‌رود؛ تکرار قالب مرتب‌سازی واژه‌ها حذف شده است.'
 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-clarify-permission-help';
 
+UPDATE lessons SET status='qa'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-weather-rain-plan' AND status='final';
 UPDATE activities a JOIN lessons l ON l.id=a.lesson_id
-SET a.selection_reason='پرسش پایهٔ هوا یک عبارت گفتاری گفتاری پرتکرار است؛ شنیدن و تکرار آن به تولید شفاهی نزدیک‌تر از مرتب‌سازی دوبارهٔ همان شش واژه است.'
+SET a.selection_reason='پرسش پایهٔ هوا یک عبارت گفتاری پرتکرار است؛ شنیدن و تکرار آن به تولید شفاهی نزدیک‌تر از مرتب‌سازی دوبارهٔ همان شش واژه است.'
 WHERE l.language_level_id=@level AND a.activity_key='act-de-a1-weather-rain-order';
+UPDATE lessons SET status='final'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-weather-rain-plan';
 
 UPDATE lessons SET activity_selection_rationale='درس پیگیری حال بیمار را با گفت‌وگو، انتخاب پاسخ و شنیدن مستقل تمرین می‌کند و در پایان یک ایستگاه بازیابی تجمعی مسیر، حمل‌ونقل، خدمات و سلامت را با فاصلهٔ زمانی دوباره فعال می‌کند.'
 WHERE language_level_id=@level AND lesson_key='de-a1-lesson-health-recovery';
