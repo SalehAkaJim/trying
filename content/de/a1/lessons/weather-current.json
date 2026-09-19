@@ -88,7 +88,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Es ist windig."
     },
     {
@@ -113,10 +113,10 @@
       "transformations": [
         "source_items_grouped_for_pronunciation"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Vetter - Wetter"
     }
   ],
   "status": "final",
-  "audioStatus": "stale"
+  "audioStatus": "ready"
 }

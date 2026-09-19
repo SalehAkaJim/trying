@@ -115,12 +115,12 @@
         "other",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Bitte eine Fahrkarte nach Berlin."
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitle": "Bitte eine Fahrkarte nach Berlin.",
   "sourceTitleFa": "لطفاً یک بلیت به برلین."
 }

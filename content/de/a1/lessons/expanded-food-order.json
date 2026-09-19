@@ -91,7 +91,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Noch etwas bitte?"
     },
     {
@@ -170,5 +170,5 @@
     }
   ],
   "status": "final",
-  "audioStatus": "stale"
+  "audioStatus": "ready"
 }

@@ -90,7 +90,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Gleich da drüben."
     },
     {
@@ -132,5 +132,5 @@
     }
   ],
   "status": "final",
-  "audioStatus": "stale"
+  "audioStatus": "ready"
 }

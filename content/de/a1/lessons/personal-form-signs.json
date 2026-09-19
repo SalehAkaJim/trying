@@ -234,10 +234,10 @@
       "transformations": [
         "source_items_grouped_for_pronunciation"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "A, Ä, B, C, D, E, F, G, H, I, J, K, L, M, N, O, Ö, P, Q, R, S, ß, T, U, Ü, V, W, X, Y, Z"
     }
   ],
   "status": "final",
-  "audioStatus": "stale"
+  "audioStatus": "ready"
 }

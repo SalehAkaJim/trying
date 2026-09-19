@@ -120,12 +120,12 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "In 20 Minuten von Gleis 3."
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitle": "Wann fährt der nächste Zug nach Budapest? / In 20 Minuten von Gleis 3.",
   "sourceTitleFa": "قطار بعدی به بوداپست چه زمانی حرکت می‌کند؟ / ۲۰ دقیقهٔ دیگر از سکوی ۳."
 }

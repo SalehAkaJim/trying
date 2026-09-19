@@ -82,7 +82,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Ich habe Fieber."
     },
     {
@@ -121,7 +121,7 @@
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitle": "Was fehlt Ihnen? / Ich habe Fieber.",
   "sourceTitleFa": "چه مشکلی دارید؟ / تب دارم."
 }

@@ -105,7 +105,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "pending",
+      "audioStatus": "ready",
       "audioTextTarget": "Rufen Sie bitte am Montag noch einmal an."
     },
     {
@@ -206,5 +206,5 @@
     }
   ],
   "status": "final",
-  "audioStatus": "pending"
+  "audioStatus": "ready"
 }

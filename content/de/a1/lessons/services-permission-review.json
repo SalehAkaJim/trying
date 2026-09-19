@@ -85,7 +85,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Welche Farbe möchten Sie?"
     },
     {
@@ -129,5 +129,5 @@
     }
   ],
   "status": "final",
-  "audioStatus": "stale"
+  "audioStatus": "ready"
 }

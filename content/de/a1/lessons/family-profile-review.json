@@ -82,7 +82,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Unser Bruder studiert in Berlin."
     },
     {
@@ -157,7 +157,7 @@
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitle": "Wo studiert euer Bruder? / Wo wohnt eure Schwester?",
   "sourceTitleFa": "برادرتان کجا درس می‌خواند؟ / خواهرتان کجا زندگی می‌کند؟"
 }

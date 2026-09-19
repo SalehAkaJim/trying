@@ -130,7 +130,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Was kaufen Sie?"
     },
     {
@@ -171,7 +171,7 @@
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitle": "Was brauchen Sie? / Was kaufen Sie?",
   "sourceTitleFa": "چه چیزی لازم دارید؟ / چه چیزی می‌خرید؟"
 }

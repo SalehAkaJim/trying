@@ -82,7 +82,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Es ist bewölkt"
     },
     {
@@ -107,12 +107,12 @@
         "other",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Wie ist das Wetter in Berlin?"
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitle": "Es ist sonnig / Es ist bewölkt",
   "sourceTitleFa": "هوا آفتابی است / هوا ابری است"
 }

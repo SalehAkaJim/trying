@@ -122,7 +122,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Nein, ich habe kein Fieber mehr."
     },
     {
@@ -173,7 +173,7 @@
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitle": "Haben Sie noch Fieber? / Haben Sie noch Husten?",
   "sourceTitleFa": "هنوز تب دارید؟ / هنوز سرفه دارید؟"
 }

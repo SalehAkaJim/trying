@@ -82,7 +82,7 @@
         "options_selected_from_source_material",
         "persian_translation_added"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "Nachmittags gehe ich in die Stadt und mache Einkäufe."
     },
     {
@@ -123,7 +123,7 @@
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitle": "Was machen Sie nachmittags? / Was machen Sie abends?",
   "sourceTitleFa": "بعدازظهرها چه کار می‌کنید؟ / شب‌ها چه کار می‌کنید؟"
 }

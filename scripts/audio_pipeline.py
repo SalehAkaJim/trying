@@ -525,6 +525,82 @@ def mapping_update(item: dict, *, url: str, storage_path: str, voice_name: str, 
     raise RuntimeError(f"Unsupported audio owner type: {item['ownerType']}")
 
 
+
+def sync_authoring_lesson_audio_status(language: str, level: str, assets: list[dict]) -> None:
+    """Keep lesson/activity authoring audio metadata aligned with generated assets."""
+    level_dir = ROOT / "content" / language / level_slug(language, level)
+    lesson_dir = level_dir / "lessons"
+    dialogue_dir = level_dir / "dialogues"
+    if not lesson_dir.exists():
+        return
+
+    ready_assets = {
+        (asset.get("ownerType"), asset.get("ownerKey")): asset
+        for asset in assets
+    }
+    dialogues = {}
+    if dialogue_dir.exists():
+        for path in dialogue_dir.glob("*.json"):
+            data = load_json(path)
+            if data.get("id"):
+                dialogues[data["id"]] = data
+
+    def asset_is_ready(owner_type: str, owner_key: str | None, text: str | None) -> bool:
+        if not owner_key or not isinstance(text, str) or not text.strip():
+            return False
+        asset = ready_assets.get((owner_type, owner_key))
+        return bool(
+            asset
+            and asset.get("audioStatus") == "ready"
+            and asset.get("audioIsCurrent") is True
+            and asset.get("needsGeneration") is False
+            and asset.get("audioText") == text
+            and asset.get("expectedSourceHash") == sha256_text(text)
+        )
+
+    for lesson_path in lesson_dir.glob("*.json"):
+        lesson = load_json(lesson_path)
+        if lesson.get("level") != level:
+            continue
+
+        changed = False
+        all_ready = True
+        required_audio_found = False
+
+        for activity in lesson.get("activities") or []:
+            audio_text = activity.get("audioTextTarget")
+            if isinstance(audio_text, str) and audio_text.strip():
+                required_audio_found = True
+                expected = "ready" if asset_is_ready("activity", activity.get("id"), audio_text) else "stale"
+                if activity.get("audioStatus") != expected:
+                    activity["audioStatus"] = expected
+                    changed = True
+                if expected != "ready":
+                    all_ready = False
+
+            dialogue_ref = activity.get("dialogueRef")
+            if activity.get("type") == "conversation_speaking" and dialogue_ref:
+                dialogue = dialogues.get(dialogue_ref)
+                if not dialogue:
+                    all_ready = False
+                    continue
+                for turn in dialogue.get("turns") or []:
+                    text_target = turn.get("textTarget")
+                    turn_id = turn.get("id")
+                    if isinstance(text_target, str) and text_target.strip() and turn_id:
+                        required_audio_found = True
+                        if not asset_is_ready("dialogue_turn", turn_id, text_target):
+                            all_ready = False
+
+        if lesson.get("status") == "final":
+            expected_lesson_status = "ready" if required_audio_found and all_ready else "stale"
+            if lesson.get("audioStatus") != expected_lesson_status:
+                lesson["audioStatus"] = expected_lesson_status
+                changed = True
+
+        if changed:
+            write_json(lesson_path, lesson)
+
 def generate(language: str, level: str, config: dict, db: str, api_key: str, confirmed: bool) -> dict:
     if config["generation"].get("requirePaidGenerationConfirmation", True) and not confirmed:
         raise RuntimeError("Paid generation was not confirmed.")
@@ -600,6 +676,7 @@ def generate(language: str, level: str, config: dict, db: str, api_key: str, con
     }
     manifest_path = asset_manifest_path(language, level, config)
     write_json(manifest_path, asset_manifest)
+    sync_authoring_lesson_audio_status(language, level, assets)
 
     mapping_path = mapping_sql_path(language, level)
     mapping_path.parent.mkdir(parents=True, exist_ok=True)

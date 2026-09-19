@@ -148,12 +148,12 @@
       "transformations": [
         "source_items_grouped_for_pronunciation"
       ],
-      "audioStatus": "stale",
+      "audioStatus": "ready",
       "audioTextTarget": "die Körbe\nich möchte\ndie Bücher\ndie Küche"
     }
   ],
   "status": "final",
-  "audioStatus": "stale",
+  "audioStatus": "ready",
   "sourceTitle": "Was möchten Sie? / Mit Milch und Zucker?",
   "sourceTitleFa": "چه میل دارید؟ / با شیر و شکر؟"
 }
