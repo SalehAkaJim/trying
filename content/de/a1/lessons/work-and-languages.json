@@ -30,9 +30,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی چهار نوبتی شغل و زبان‌های در حال یادگیری را در یک تعامل مؤدبانه می‌آورد؛ سپس تفاوت صحبت‌کردن، یادگیری و کار با جمله‌های منبع‌دار سنجیده می‌شود و در پایان پرسش زبان بازسازی می‌شود.",
-    "sequenceRationale": "درس از تعامل و فهم بافت به تمایز معنایی سه فعل، دسته‌بندی جمله‌ها و بازیابی فعال پرسش حرکت می‌کند؛ بنابراین نسبت به درس اول الگوی فعالیت متفاوتی دارد.",
-    "templateSignature": "conversation_speaking>multiple_choice>matching>word_order"
+    "activitySelectionRationale": "گفت‌وگوی آغازین شغل و زبان‌های در حال یادگیری را مستقیماً تمرین می‌کند. پس از آن تشخیص تفاوت سه فعل و دسته‌بندی جمله‌های منبع‌دار دو نیاز باقی‌مانده را پوشش می‌دهند. بازسازی دوبارهٔ پرسش زبان حذف شد چون پرسش از قبل در گفت‌وگو اجرا شده است.",
+    "sequenceRationale": "بعد از گفت‌وگو ابتدا تفاوت معنایی کار، یادگیری و صحبت‌کردن تشخیص داده می‌شود و سپس همان تفاوت در چند جمله دسته‌بندی می‌شود. دو فعالیت پس از گفت‌وگو برای هدف این درس کافی‌اند.",
+    "templateSignature": "conversation_speaking>multiple_choice>matching"
   },
   "activities": [
     {
@@ -167,44 +167,6 @@
       },
       "transformations": [
         "source_items_grouped_for_matching",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
-    },
-    {
-      "id": "act-de-a1-language-question-order",
-      "type": "word_order",
-      "instructionFa": "پرسش دربارهٔ زبان‌های در حال یادگیری را دوباره بساز.",
-      "selectionReason": "در پایان، زبان‌آموز پرسش اصلی را از تشخیص به بازیابی فعال منتقل می‌کند.",
-      "sourceRefs": [
-        "src-wikibooks-bll-a1-lesson-2"
-      ],
-      "learningTargets": [
-        "بازسازی «Welche Sprachen lernen Sie?»."
-      ],
-      "lexemeRefs": [
-        "lex-de-sprache",
-        "lex-de-lernen"
-      ],
-      "dialogueRef": null,
-      "data": {
-        "sourceText": "Welche Sprachen lernen Sie?",
-        "sourceTextFa": "چه زبان‌هایی یاد می‌گیرید؟",
-        "tokens": [
-          "Welche",
-          "Sprachen",
-          "lernen",
-          "Sie?"
-        ],
-        "answer": [
-          "Welche",
-          "Sprachen",
-          "lernen",
-          "Sie?"
-        ]
-      },
-      "transformations": [
-        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

@@ -56,13 +56,16 @@
 - Unit, Lesson and Activity counts have no target or preferred value.
 - The mandatory causal order is: learning needs → source inventory → progression → Lesson boundaries → Activity design → counts.
 - Every finalized Unit must explain its grouping/boundary in `groupingRationale`; every finalized Lesson must explain Activity selection and sequence.
-- Every finalized Lesson begins with `conversation_speaking`.
-- Post-opening Activity type, order and exact count are selected by learning need.
+- There is exactly one fixed Activity rule: Activity 1 is always `conversation_speaking`, backed by opening dialogue turns.
+- `conversation_speaking` appears exactly once per Lesson and never after position 1.
+- The opening conversation is excluded from diversity scoring because its repetition is intentional product structure.
+- From Activity 2 onward, type, order, exact count and stopping point are selected only by learning need and source material.
+- There is no preferred second Activity, final Activity or universal post-opening sequence.
 - Minimums are quality floors and maximums are load ceilings; neither is a completion target.
-- Equal-looking distributions are not evidence of quality. Mechanically cloned Unit sizes, Lesson sizes or Activity sequences are quota-like risk signals.
+- Equal-looking distributions are not evidence of quality. Mechanically cloned Unit sizes, Lesson sizes or post-opening Activity sequences are quota-like risk signals.
 - `config/dynamic-structure-policy.json` defines machine-readable QA risk thresholds only; it must never become a generation target.
-- `scripts/audit_dynamic_structure.py` is mandatory before review/final acceptance and must report distributions before completion is claimed.
-- Never add artificial numerical variety merely to make the audit pass; redesign only from genuine educational reasons.
+- `scripts/audit_dynamic_structure.py` is mandatory before review/final acceptance and must report post-opening distributions/type coverage before completion is claimed.
+- Never add artificial numerical or type variety merely to make the audit pass; redesign only from genuine educational reasons.
 
 ## Lexemes/forms
 - Canonical lexical identity is stored in `lexemes`; inflections/variants in `lexeme_forms`.

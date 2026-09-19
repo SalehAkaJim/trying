@@ -21,9 +21,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "ساختار پیش‌بینی درس قبلی کامل حذف شده و درس فقط روی وضعیت فعلی هوا و یک تمرین کوتاه تلفظی منبع‌دار تمرکز می‌کند.",
-    "sequenceRationale": "مکالمه دو وضعیت فعلی را معرفی می‌کند، یک وضعیت مستقل شنیده می‌شود، پرسش هوا بازسازی می‌شود و در پایان یک تمایز تلفظی کوتاه تمرین می‌شود.",
-    "templateSignature": "conversation_speaking>listen_choose>word_order>pronunciation_read"
+    "activitySelectionRationale": "گفت‌وگوی آغازین پرسیدن و پاسخ‌دادن دربارهٔ هوای فعلی را پوشش می‌دهد. پس از آن شنیدن مستقلِ وضعیت بادی و تمرین تلفظی کوتاه دو نیاز متفاوت این درس هستند. بازسازی دوبارهٔ پرسش هوا حذف شد چون همان پرسش در گفت‌وگو تمرین شده است.",
+    "sequenceRationale": "بعد از گفت‌وگو ابتدا فهم شنیداری وضعیت هوا سنجیده می‌شود و سپس یک تمایز تلفظی منبع‌دار تمرین می‌شود. این دو فعالیت برای اهداف باقی‌مانده کافی‌اند و پایان درس به قالب مرتب‌سازی وابسته نیست.",
+    "templateSignature": "conversation_speaking>listen_choose>pronunciation_read"
   },
   "activities": [
     {
@@ -90,45 +90,6 @@
       ],
       "audioStatus": "stale",
       "audioTextTarget": "Es ist windig."
-    },
-    {
-      "id": "act-de-a1-weather-current-order",
-      "type": "word_order",
-      "instructionFa": "پرسش هوای برلین را بساز.",
-      "selectionReason": "پرسش عین منبع است و فقط قطعه‌بندی شده است.",
-      "sourceRefs": [
-        "src-wikibooks-de-weather-appendix"
-      ],
-      "learningTargets": [
-        "پرسش هوای یک شهر را بازسازی کند."
-      ],
-      "lexemeRefs": [],
-      "dialogueRef": null,
-      "data": {
-        "sourceText": "Wie ist das Wetter in Berlin?",
-        "sourceTextFa": "هوا در برلین چطور است؟",
-        "tokens": [
-          "Wie",
-          "ist",
-          "das",
-          "Wetter",
-          "in",
-          "Berlin?"
-        ],
-        "answer": [
-          "Wie",
-          "ist",
-          "das",
-          "Wetter",
-          "in",
-          "Berlin?"
-        ]
-      },
-      "transformations": [
-        "sentence_tokenized_for_word_order",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
     },
     {
       "id": "act-de-a1-weather-current-pronunciation",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "descriptionFa": "این اعداد فقط آستانه‌های تشخیص ریسک ساختار سهمیه‌ای در QA هستند و هرگز target یا preferred count تولید محتوا نیستند. تعداد واقعی Unit، Lesson و Activity باید پیش از شمارش از نیاز آموزشی، منبع، progression و طراحی تمرین به‌دست بیاید.",
+  "descriptionFa": "این آستانه‌ها فقط برای تشخیص ریسک ساختار سهمیه‌ای پس از طراحی آموزشی هستند و هدف تولید محتوا نیستند. گفت‌وگوی آغازین تنها بخش ثابت هر درس است؛ تعداد و نوع فعالیت‌های بعد از آن باید از نیاز آموزشی، منبع، توالی یادگیری و بار شناختی همان درس به‌دست بیاید.",
   "minimumPopulation": {
     "units": 4,
     "lessons": 8
@@ -10,7 +10,8 @@
     "unitsAtMinimumShare": 0.75,
     "dominantLessonActivityCountShare": 0.75,
     "lessonsAtMinimumShare": 0.75,
-    "dominantActivitySignatureShare": 0.5,
-    "consecutiveIdenticalActivitySignature": 4
+    "dominantPostOpeningSignatureShare": 0.5,
+    "postOpeningTypeLessonShare": 0.75,
+    "consecutiveIdenticalPostOpeningSignature": 4
   }
 }

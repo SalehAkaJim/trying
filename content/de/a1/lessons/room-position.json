@@ -27,9 +27,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی آغازین دو محور مکانی راست و چپ و جلو و عقب را وارد می‌کند؛ سپس ویژگی کوچک بودن خانه تشخیص داده می‌شود، پرسش موقعیت صندلی بازسازی می‌شود و در پایان چهار قید مکانی به معنی درست وصل می‌شوند.",
-    "sequenceRationale": "درس از فهم موقعیت در بافت به تشخیص ویژگی، بازیابی فعال پرسش و تثبیت شبکهٔ واژگان مکانی می‌رود و الگوی آن با درس قبلی متفاوت است.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order>matching"
+    "activitySelectionRationale": "گفت‌وگوی آغازین راست/چپ و جلو/عقب را در بافت اتاق تمرین می‌کند. پس از آن تشخیص یک ویژگی سادهٔ خانه و شبکهٔ چهار قید مکانی دو نیاز متفاوت را پوشش می‌دهند. بازسازی دوبارهٔ پرسش صندلی حذف شد چون همان ساختار در گفت‌وگو حاضر است.",
+    "sequenceRationale": "بعد از گفت‌وگو، یک تمرین تشخیص معنایی و سپس یک تمرین دسته‌بندی واژگانی می‌آید؛ این دو فعالیت برای اهداف باقی‌مانده کافی‌اند و فعالیت سومی صرفاً برای یکسان‌شدن ساختار اضافه نمی‌شود.",
+    "templateSignature": "conversation_speaking>multiple_choice>matching"
   },
   "activities": [
     {
@@ -103,44 +103,6 @@
       },
       "transformations": [
         "options_selected_from_source_material",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
-    },
-    {
-      "id": "act-de-a1-chair-position-order",
-      "type": "word_order",
-      "instructionFa": "پرسش دربارهٔ جای صندلی را دوباره بساز.",
-      "selectionReason": "پرسش مکانیِ گفت‌وگو پس از فهم آن به بازیابی فعال منتقل می‌شود.",
-      "sourceRefs": [
-        "src-wikibooks-de-lesson-009-room-position"
-      ],
-      "learningTargets": [
-        "بازسازی پرسش ساده دربارهٔ موقعیت صندلی."
-      ],
-      "lexemeRefs": [
-        "lex-de-stuhl",
-        "lex-de-hinten"
-      ],
-      "dialogueRef": null,
-      "data": {
-        "sourceText": "Steht der Stuhl hinten?",
-        "sourceTextFa": "آیا صندلی عقب قرار دارد؟",
-        "tokens": [
-          "Steht",
-          "der",
-          "Stuhl",
-          "hinten?"
-        ],
-        "answer": [
-          "Steht",
-          "der",
-          "Stuhl",
-          "hinten?"
-        ]
-      },
-      "transformations": [
-        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

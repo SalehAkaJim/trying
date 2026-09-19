@@ -10139,3 +10139,86 @@ SET completion_assessment=JSON_SET(
 )
 WHERE id=@level;
 COMMIT;
+
+-- ===== FIXED OPENING + DYNAMIC POST-OPENING A1 REVIEW — 2026-09-19 =====
+-- Structural/pedagogical cleanup only. No German learner-facing text is authored or rewritten.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='A1' LIMIT 1);
+
+UPDATE language_levels
+SET notes='A1 شامل ۹ واحد و ۳۹ درس است. همهٔ ۳۹ درس دوباره با قانون «گفت‌وگوی ثابت در جایگاه اول، طراحی نیازمحور از فعالیت دوم به بعد» بازبینی شدند. هشت تمرین مرتب‌سازیِ تکراری که هدفشان از قبل در گفت‌وگو یا تمرین دیگر پوشش داده می‌شد حذف شدند؛ هیچ متن آلمانی ساخته یا بازنویسی نشد.',
+    completion_assessment='{"reviewedAt":"2026-09-19T07:23:00Z","cefrCoverageComplete":true,"progressionComplete":true,"practiceAndRetrievalComplete":false,"skillModeCoverageComplete":false,"requiredGaps":["تمرین مستقل شنیداری و تلفظ نسبت به قبل بهتر شده، اما در مقیاس ۳۹ درس هنوز پوشش کافی و توزیع گسترده‌ای ندارد.","بازیابی تجمعی اکنون سه ایستگاه مرور بین‌واحدی دارد، اما هنوز به اندازهٔ کافی گسترده و نظام‌مند نیست."],"qualityReview":{"overallScore":8.4,"dimensionScores":{"cefrCoverage":8.8,"pedagogicalProgression":8.6,"practiceAndRetrieval":7.2,"activityQualityAndVariety":8.3,"linguisticAccuracyAndNaturalness":9.2,"sourceQualityAndCurrency":8.2,"learnerSupportAndClarity":8.7,"qaIntegrity":9.4},"rationale":"بازبینی جدید، طراحی تمرین A1 را به یک استثناء ثابت و یک بخش داینامیک تقسیم می‌کند: هر ۳۹ درس با گفت‌وگو آغاز می‌شود و از فعالیت دوم به بعد تعداد و نوع تمرین فقط از نیاز همان درس استخراج می‌شود. هشت تمرین مرتب‌سازی که با گفت‌وگو یا تمرین مجاور هم‌پوشانی نزدیک داشتند حذف شدند؛ تعداد کل فعالیت‌ها از ۱۴۲ به ۱۳۴ و حضور مرتب‌سازی کلمات از ۳۵ درس به ۲۷ درس کاهش یافت، بدون ساخت یا بازنویسی متن آلمانی. ضعف اصلی باقی‌مانده دیگر قالب ثابت پس از گفت‌وگو نیست؛ پوشش شنیدن مستقل، تلفظ و بازیابی تجمعی هنوز نیاز به گسترش منبع‌دار دارد.","strengths":["هر ۳۹ درس با یک گفت‌وگوی منبع‌دار آغاز می‌شود و تنها این جایگاه ساختاری ثابت است.","از فعالیت دوم به بعد، تعداد و نوع تمرین بر اساس هدف آموزشی همان درس انتخاب می‌شود و تمرین تکراری صرفاً برای پرکردن تعداد حذف شده است.","۹ واحد و ۳۹ درس با اندازه‌های متفاوت، موقعیت‌های ارتباطی اصلی A1 را با گروه‌بندی نیازمحور پوشش می‌دهند.","متن آلمانی نمایش‌داده‌شونده به زبان‌آموز فقط از منابع مجاز و قابل‌بازاستفاده یا تبدیل مکانیکی ثبت‌شده می‌آید.","فعالیت تطبیق حالت صریح دارد و زبان هر دو سمت توسط قرارداد محتوایی کنترل می‌شود.","تمرین مستقل شنیداری در چند حوزهٔ متفاوت وجود دارد و تمرین تلفظ از الفبا فراتر رفته است.","سه ایستگاه مرور و بازیابی بین‌واحدی در نیمهٔ دوم سطح A1 وجود دارد."],"remainingWeaknesses":["مرتب‌سازی کلمات هنوز در ۲۷ درس دیده می‌شود، اما دیگر پایان یا الگوی اجباری همهٔ درس‌ها نیست و باید در توسعه‌های بعدی فقط وقتی نیاز آموزشی روشن دارد حفظ شود.","تمرین مستقل شنیداری با ۱۰ فعالیت و تلفظ با ۳ فعالیت برای ۳۹ درس هنوز کم است.","بازیابی تجمعی فقط سه ایستگاه مرور بین‌واحدی دارد و هنوز پوشش نظام‌مند کل مسیر نیست.","نوشتن آزاد در انواع فعالیت فعلی پشتیبانی نمی‌شود و فقط تمرین نوشتاری هدایت‌شده قابل ادعاست.","پوشش واژگان با فهرست رسمی واژگان سطح A1 مؤسسهٔ گوته هنوز به‌صورت موردبه‌مورد ممیزی نشده است."]},"scopeExclusions":["ورودی آزاد تایپی در ساختار فعلی فعالیت‌ها پشتیبانی نمی‌شود؛ تولید نوشتاری سطح A1 در این نسخه هدایت‌شده است.","برابری کامل فهرست واژگان با همهٔ مدخل‌های فهرست رسمی واژگان سطح A1 مؤسسهٔ گوته در این بازبینی ادعا نمی‌شود؛ منبع رسمی برای ممیزی آینده ثبت شده است."]}'
+WHERE id=@level;
+
+DELETE FROM provenance_links
+WHERE entity_type='activity'
+  AND entity_key IN ('act-de-a1-directions-sequence-review-fill','act-de-a1-chair-position-order','act-de-a1-room-table-order','act-de-a1-time-bis-wann-order','act-de-a1-transport-arrival-order','act-de-a1-language-question-order','act-de-a1-message-write-order','act-de-a1-weather-current-order');
+
+DELETE FROM lexeme_occurrences
+WHERE owner_type='activity'
+  AND owner_key IN ('act-de-a1-directions-sequence-review-fill','act-de-a1-chair-position-order','act-de-a1-room-table-order','act-de-a1-time-bis-wann-order','act-de-a1-transport-arrival-order','act-de-a1-language-question-order','act-de-a1-message-write-order','act-de-a1-weather-current-order');
+
+DELETE FROM activities
+WHERE activity_key IN ('act-de-a1-directions-sequence-review-fill','act-de-a1-chair-position-order','act-de-a1-room-table-order','act-de-a1-time-bis-wann-order','act-de-a1-transport-arrival-order','act-de-a1-language-question-order','act-de-a1-message-write-order','act-de-a1-weather-current-order');
+
+UPDATE activities a
+JOIN lessons l ON l.id=a.lesson_id
+SET a.position_index=3
+WHERE l.language_level_id=@level AND l.lesson_key='de-a1-lesson-directions-sequence-review' AND a.activity_key='act-de-a1-directions-cross-unit-retrieval';
+UPDATE activities a
+JOIN lessons l ON l.id=a.lesson_id
+SET a.position_index=3
+WHERE l.language_level_id=@level AND l.lesson_key='de-a1-lesson-room-position' AND a.activity_key='act-de-a1-position-words-matching';
+UPDATE activities a
+JOIN lessons l ON l.id=a.lesson_id
+SET a.position_index=3
+WHERE l.language_level_id=@level AND l.lesson_key='de-a1-lesson-time-class-schedule' AND a.activity_key='act-de-a1-time-until-choice';
+UPDATE activities a
+JOIN lessons l ON l.id=a.lesson_id
+SET a.position_index=3
+WHERE l.language_level_id=@level AND l.lesson_key='de-a1-lesson-weather-current' AND a.activity_key='act-de-a1-weather-current-pronunciation';
+
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگوی آغازین پرسیدن مسیر ایستگاه و فرودگاه را در بافت واقعی پوشش می‌دهد. پس از آن فقط دو تمرین مستقل لازم است: تشخیص جهت و بازیابی فاصله‌دار میان خانواده، خرید و مسیر. تمرین مرتب‌سازی پرسش حذف شد چون همان پرسش‌ها در گفت‌وگو تمرین شده‌اند و ارزش آموزشی مستقلی اضافه نمی‌کرد.',
+    sequence_rationale='پس از گفت‌وگو، ابتدا تشخیص مستقیم جهت سنجیده می‌شود و سپس بازیابی بین‌واحدی انجام می‌شود. فعالیت اضافه فقط برای ثابت نگه‌داشتن تعداد یا پایان‌دادن همهٔ درس‌ها با یک قالب مشترک وجود ندارد.',
+    template_signature='conversation_speaking>multiple_choice>multiple_choice'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-directions-sequence-review';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگوی آغازین راست/چپ و جلو/عقب را در بافت اتاق تمرین می‌کند. پس از آن تشخیص یک ویژگی سادهٔ خانه و شبکهٔ چهار قید مکانی دو نیاز متفاوت را پوشش می‌دهند. بازسازی دوبارهٔ پرسش صندلی حذف شد چون همان ساختار در گفت‌وگو حاضر است.',
+    sequence_rationale='بعد از گفت‌وگو، یک تمرین تشخیص معنایی و سپس یک تمرین دسته‌بندی واژگانی می‌آید؛ این دو فعالیت برای اهداف باقی‌مانده کافی‌اند و فعالیت سومی صرفاً برای یکسان‌شدن ساختار اضافه نمی‌شود.',
+    template_signature='conversation_speaking>multiple_choice>matching'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-room-position';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگوی آغازین تعلق میز و چراغ را در بافت واقعی تمرین می‌کند. پس از آن تطبیق واژگان اتاق و انتخاب پاسخ درست دربارهٔ چراغ دو نیاز آموزشی جدا را پوشش می‌دهند. بازسازی دوبارهٔ پرسش میز حذف شد چون پرسش از قبل در گفت‌وگو تمرین شده است.',
+    sequence_rationale='بعد از گفت‌وگو ابتدا واژگان اصلی تثبیت می‌شوند و سپس فهم پاسخ مالکیت سنجیده می‌شود. تعداد فعالیت‌های بعدی از همین دو نیاز به‌دست آمده است، نه از یک قالب ثابت.',
+    template_signature='conversation_speaking>matching>multiple_choice'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-room-table-lamp';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگوی آغازین بازهٔ زمانی و زمان پایان را در بافت کامل می‌آورد. پس از آن تطبیق چند بازهٔ واقعی و تشخیص پاسخ ساعت مشخص برای پوشش اهداف این درس کافی‌اند. بازسازی دوبارهٔ پرسش زمان حذف شد چون همان پرسش در گفت‌وگو تمرین شده است.',
+    sequence_rationale='پس از گفت‌وگو، زبان‌آموز ابتدا چند بازهٔ زمانی را دسته‌بندی می‌کند و سپس یک پاسخ دقیق زمانی را تشخیص می‌دهد. فعالیت اضافی برای رسیدن به تعداد ازپیش‌تعیین‌شده وجود ندارد.',
+    template_signature='conversation_speaking>matching>multiple_choice'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-time-class-schedule';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگوی آغازین توقف، زمان حرکت و سکو را یک‌جا پوشش می‌دهد. پس از آن استخراج اطلاعات از متن و استخراج همان نوع اطلاعات از شنیدن دو مهارت مکمل و کافی هستند. بازسازی پرسش قطار حذف شد چون پرسش در گفت‌وگو تمرین شده و هدف اصلی این درس استخراج اطلاعات است.',
+    sequence_rationale='بعد از گفت‌وگو، فهم خواندنیِ زمان و سکو سنجیده می‌شود و سپس همان مهارت در شنیدن مستقل انتقال پیدا می‌کند. پایان درس بر اساس تکمیل این دو نیاز تعیین می‌شود، نه یک تمرین پایانی ثابت.',
+    template_signature='conversation_speaking>multiple_choice>listen_choose'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-transport-times-platform';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگوی آغازین شغل و زبان‌های در حال یادگیری را مستقیماً تمرین می‌کند. پس از آن تشخیص تفاوت سه فعل و دسته‌بندی جمله‌های منبع‌دار دو نیاز باقی‌مانده را پوشش می‌دهند. بازسازی دوبارهٔ پرسش زبان حذف شد چون پرسش از قبل در گفت‌وگو اجرا شده است.',
+    sequence_rationale='بعد از گفت‌وگو ابتدا تفاوت معنایی کار، یادگیری و صحبت‌کردن تشخیص داده می‌شود و سپس همان تفاوت در چند جمله دسته‌بندی می‌شود. دو فعالیت پس از گفت‌وگو برای هدف این درس کافی‌اند.',
+    template_signature='conversation_speaking>multiple_choice>matching'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-work-and-languages';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگوی آغازین هماهنگی کوتاه را پوشش می‌دهد؛ سپس شنیدن مستقل، خواندن و تطبیق چند پیام و تکمیل هدایت‌شدهٔ یک پیام سه نیاز متفاوت را تمرین می‌کنند. مرتب‌سازی نهایی حذف شد چون همان پیام بعدازظهر در تمرین تکمیل‌شدنی قبلی استفاده شده بود و تکرار نزدیک ایجاد می‌کرد.',
+    sequence_rationale='پس از گفت‌وگو مسیر از شنیدن به خواندن چند نمونه و سپس تکمیل هدایت‌شدهٔ پیام می‌رود. درس پس از رسیدن به تولید هدایت‌شده پایان می‌یابد و یک تمرین چهارم صرفاً برای طول ثابت اضافه نمی‌شود.',
+    template_signature='conversation_speaking>listen_choose>matching>fill_blank'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-short-phone-message';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگوی آغازین پرسیدن و پاسخ‌دادن دربارهٔ هوای فعلی را پوشش می‌دهد. پس از آن شنیدن مستقلِ وضعیت بادی و تمرین تلفظی کوتاه دو نیاز متفاوت این درس هستند. بازسازی دوبارهٔ پرسش هوا حذف شد چون همان پرسش در گفت‌وگو تمرین شده است.',
+    sequence_rationale='بعد از گفت‌وگو ابتدا فهم شنیداری وضعیت هوا سنجیده می‌شود و سپس یک تمایز تلفظی منبع‌دار تمرین می‌شود. این دو فعالیت برای اهداف باقی‌مانده کافی‌اند و پایان درس به قالب مرتب‌سازی وابسته نیست.',
+    template_signature='conversation_speaking>listen_choose>pronunciation_read'
+WHERE language_level_id=@level AND lesson_key='de-a1-lesson-weather-current';
+COMMIT;

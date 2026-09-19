@@ -23,9 +23,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس با دو جفت پرسش و پاسخ دربارهٔ وسایل یک اتاق شروع می‌شود؛ سپس چهار واژهٔ پایهٔ محیط خانه تفکیک می‌شوند، پاسخ درست به پرسش چراغ بازیابی می‌شود و در پایان پرسش میز بازسازی می‌شود.",
-    "sequenceRationale": "مسیر از فهم تعامل و تشخیص شیء به تثبیت واژگان، انتخاب پاسخ و بازیابی فعال پرسش می‌رود. مالکیت در بافت جمله باقی می‌ماند و به توضیح انتزاعی دستور زبان تبدیل نمی‌شود.",
-    "templateSignature": "conversation_speaking>matching>multiple_choice>word_order"
+    "activitySelectionRationale": "گفت‌وگوی آغازین تعلق میز و چراغ را در بافت واقعی تمرین می‌کند. پس از آن تطبیق واژگان اتاق و انتخاب پاسخ درست دربارهٔ چراغ دو نیاز آموزشی جدا را پوشش می‌دهند. بازسازی دوبارهٔ پرسش میز حذف شد چون پرسش از قبل در گفت‌وگو تمرین شده است.",
+    "sequenceRationale": "بعد از گفت‌وگو ابتدا واژگان اصلی تثبیت می‌شوند و سپس فهم پاسخ مالکیت سنجیده می‌شود. تعداد فعالیت‌های بعدی از همین دو نیاز به‌دست آمده است، نه از یک قالب ثابت.",
+    "templateSignature": "conversation_speaking>matching>multiple_choice"
   },
   "activities": [
     {
@@ -146,43 +146,6 @@
       },
       "transformations": [
         "options_selected_from_source_material",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
-    },
-    {
-      "id": "act-de-a1-room-table-order",
-      "type": "word_order",
-      "instructionFa": "پرسش دربارهٔ میز را دوباره بساز.",
-      "selectionReason": "پرسش اصلی درس در پایان از تشخیص به بازیابی فعال منتقل می‌شود.",
-      "sourceRefs": [
-        "src-wikibooks-de-lesson-007-room-objects"
-      ],
-      "learningTargets": [
-        "بازسازی پرسش ساده دربارهٔ یک وسیلهٔ اتاق."
-      ],
-      "lexemeRefs": [
-        "lex-de-tisch"
-      ],
-      "dialogueRef": null,
-      "data": {
-        "sourceText": "Ist das Ihr Tisch?",
-        "sourceTextFa": "آیا این میز شماست؟",
-        "tokens": [
-          "Ist",
-          "das",
-          "Ihr",
-          "Tisch?"
-        ],
-        "answer": [
-          "Ist",
-          "das",
-          "Ihr",
-          "Tisch?"
-        ]
-      },
-      "transformations": [
-        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

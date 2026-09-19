@@ -10,8 +10,8 @@ Starting the next language should not require repeating the same manual checks o
 4. Use only modern/current reusable learner-facing sources.
 5. Store Persian support/editorial text and Persian labels for every semantic code.
 6. Keep the current image-free baseline.
-7. Start every finalized lesson with `conversation_speaking`.
-8. Keep every finalized lesson inside the CEFR-level activity-count range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 3–6 total activities. Treat the range as a quality guardrail, not an exact-count target.
+7. Give every finalized Lesson exactly one `conversation_speaking`, always at Activity 1 and backed by opening dialogue turns; never place `conversation_speaking` later in the Lesson.
+8. From Activity 2 onward choose type, order, exact count and stopping point dynamically from the Lesson's learning need and source material. Keep the total Lesson inside the CEFR-level activity-count range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 3–6 total Activities including the fixed opening conversation.
 9. Apply the beginner opening-dialogue rule: lessons 1–10 of the beginner path use exactly 4 turns; later openings use 4–12 as pedagogically justified.
 10. Allow either app-start or learner-start; learner-start must explicitly instruct the learner to begin and turn 1 must belong to the learner.
 11. Preserve provenance, lexeme/form identity and occurrence mappings.
@@ -23,7 +23,7 @@ Starting the next language should not require repeating the same manual checks o
 ## Automation principles
 - CI rules are cross-language by default; avoid hard-coding German-specific logic when the same rule should apply to future languages.
 - `config/activity-count-bounds.json` and `config/unit-lesson-count-bounds.json` define guardrails only.
-- `config/dynamic-structure-policy.json` defines post-design quota-risk thresholds only; none of these thresholds are authoring targets.
+- `config/dynamic-structure-policy.json` defines post-design quota-risk thresholds only; none of these thresholds are authoring targets. The fixed opening conversation is excluded from diversity scoring, while post-opening type prevalence and sequences are audited.
 - `scripts/audit_dynamic_structure.py` prints the mandatory structure distribution report and fails unresolved review/final quota-like patterns.
 - `scripts/validate_activity_count_bounds.py` validates finalized lessons generically across languages for every level that has an explicit range.
 - `scripts/validate_mysql_content.sh` is the reusable MySQL 9.0.1 validation entry point. It derives the exact canonical `database/content/<language>/<level>.sql` files from authoring level manifests, rejects extra/missing level SQL, and imports them in CEFR order.
@@ -52,7 +52,7 @@ Starting the next language should not require repeating the same manual checks o
 - JSON parses and required schemas are valid.
 - finalized Units satisfy configured Lesson-count guardrails;
 - finalized Lessons satisfy the configured CEFR-level Activity-count range;
-- dynamic structure audit passes and prints the required distributions/risk report;
+- dynamic structure audit passes and prints total/post-opening count distributions, post-opening sequence concentration and post-opening type coverage;
 - assistant-authored prose that should be Persian contains Persian text.
 - all semantic codes used by authoring content have canonical Persian taxonomy labels.
 - direct companion Persian fields required by schema match taxonomy.

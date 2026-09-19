@@ -46,8 +46,9 @@
         "unitsAtMinimumShare",
         "dominantLessonActivityCountShare",
         "lessonsAtMinimumShare",
-        "dominantActivitySignatureShare",
-        "consecutiveIdenticalActivitySignature"
+        "dominantPostOpeningSignatureShare",
+        "postOpeningTypeLessonShare",
+        "consecutiveIdenticalPostOpeningSignature"
       ],
       "properties": {
         "dominantUnitLessonCountShare": {
@@ -70,12 +71,17 @@
           "exclusiveMinimum": 0.5,
           "maximum": 1
         },
-        "dominantActivitySignatureShare": {
+        "dominantPostOpeningSignatureShare": {
           "type": "number",
           "exclusiveMinimum": 0.25,
           "maximum": 1
         },
-        "consecutiveIdenticalActivitySignature": {
+        "postOpeningTypeLessonShare": {
+          "type": "number",
+          "exclusiveMinimum": 0.5,
+          "maximum": 1
+        },
+        "consecutiveIdenticalPostOpeningSignature": {
           "type": "integer",
           "minimum": 2
         }

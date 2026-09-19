@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس قبلی پاسخ زمانِ ضعیف و پوشش صوری سکو داشت؛ این درس کامل با یک گفت‌وگوی جاری و منبع‌دار دربارهٔ توقف، زمان و سکو جایگزین شده است.",
-    "sequenceRationale": "مکالمه اطلاعات توقف، زمان و سکو را می‌دهد؛ انتخاب چندگزینه‌ای استخراج اطلاعات را می‌سنجد، شنیدن مستقل همان مهارت را صوتی می‌کند و در پایان پرسش قطار بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>listen_choose>word_order"
+    "activitySelectionRationale": "گفت‌وگوی آغازین توقف، زمان حرکت و سکو را یک‌جا پوشش می‌دهد. پس از آن استخراج اطلاعات از متن و استخراج همان نوع اطلاعات از شنیدن دو مهارت مکمل و کافی هستند. بازسازی پرسش قطار حذف شد چون پرسش در گفت‌وگو تمرین شده و هدف اصلی این درس استخراج اطلاعات است.",
+    "sequenceRationale": "بعد از گفت‌وگو، فهم خواندنیِ زمان و سکو سنجیده می‌شود و سپس همان مهارت در شنیدن مستقل انتقال پیدا می‌کند. پایان درس بر اساس تکمیل این دو نیاز تعیین می‌شود، نه یک تمرین پایانی ثابت.",
+    "templateSignature": "conversation_speaking>multiple_choice>listen_choose"
   },
   "activities": [
     {
@@ -122,47 +122,6 @@
       ],
       "audioStatus": "stale",
       "audioTextTarget": "In 20 Minuten von Gleis 3."
-    },
-    {
-      "id": "act-de-a1-transport-arrival-order",
-      "type": "word_order",
-      "instructionFa": "پرسش زمان حرکت قطار بعدی را بساز.",
-      "selectionReason": "پرسش عین گفت‌وگوی منبع است و به بازیابی هدایت‌شده منتقل می‌شود.",
-      "sourceRefs": [
-        "src-wikibooks-de-transport-dialogue-current"
-      ],
-      "learningTargets": [
-        "دربارهٔ زمان حرکت قطار سؤال کند."
-      ],
-      "lexemeRefs": [],
-      "dialogueRef": null,
-      "data": {
-        "sourceText": "Wann fährt der nächste Zug nach Budapest?",
-        "sourceTextFa": "قطار بعدی به بوداپست چه زمانی حرکت می‌کند؟",
-        "tokens": [
-          "Wann",
-          "fährt",
-          "der",
-          "nächste",
-          "Zug",
-          "nach",
-          "Budapest?"
-        ],
-        "answer": [
-          "Wann",
-          "fährt",
-          "der",
-          "nächste",
-          "Zug",
-          "nach",
-          "Budapest?"
-        ]
-      },
-      "transformations": [
-        "sentence_tokenized_for_word_order",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
     }
   ],
   "status": "final",

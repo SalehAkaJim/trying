@@ -17,7 +17,7 @@ Configured ranges are guardrails, not targets. Reaching the minimum never means 
 
 Every final Unit must have a pedagogical `groupingRationale`. Every final Lesson must record non-empty `activitySelectionRationale` and `sequenceRationale`. Before a level is accepted, `scripts/audit_dynamic_structure.py` must report its Unit/Lesson/Activity distributions and pass the quota-like risk checks defined in `config/dynamic-structure-policy.json`.
 
-Every finalized Lesson starts with `conversation_speaking`; post-opening Activity type/order are dynamic. Finalized Lesson activity count must stay inside the CEFR-level envelope in `config/activity-count-bounds.json`. `Pre-A1` currently requires **3–6 total Activities**.
+Every finalized Lesson has exactly one `conversation_speaking`, always at activity 1 and backed by dialogue turns. It may not appear again later in the Lesson. This opening is the only fixed activity rule. From activity 2 onward, type, order, exact count and stopping point are dynamic and must be justified by that Lesson's learning need and source material. There is no preferred second/final activity and no universal post-opening template. Finalized Lesson activity count must stay inside the CEFR-level envelope in `config/activity-count-bounds.json`. `Pre-A1` currently requires **3–6 total Activities**, including the fixed opening conversation.
 
 ## Opening conversation
 Opening conversations must contain **4–12 turns**. The first 10 lessons of a language's beginner path use exactly 4 turns; when Pre-A1 exists these are the first 10 Pre-A1 lessons. From lesson 11 onward, exact length inside 4–12 is chosen by scene/source/learning need; do not pad toward either boundary.

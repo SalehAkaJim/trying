@@ -1,6 +1,6 @@
 # Activity Types
 
-Every finalized lesson begins with `conversation_speaking`; everything after it is chosen by learning need.
+Every finalized lesson contains exactly one `conversation_speaking`, always at activity 1. It is backed by the opening dialogue turns and may not appear again later in the lesson. This is the only fixed activity position; everything from activity 2 onward is chosen by learning need.
 
 ## conversation_speaking
 - 4–12 turns overall; the first 10 beginner-path lessons use exactly 4 turns.
@@ -22,4 +22,4 @@ Every finalized lesson begins with `conversation_speaking`; everything after it 
 ## Catalog
 `conversation_speaking`, `listen_choose`, `multiple_choice`, `choose_response`, `word_order`, `fill_blank`, `matching`, `listen_repeat`, `pronunciation_read`, `grammar_focus`, `comprehension`, `true_false`, `review`.
 
-There is no universal post-opening sequence and no preferred exact activity count. Finalized lessons must stay inside the configured CEFR-level activity range; `Pre-A1` currently requires **3–6 total activities**. Inside that range, choose modality and count by learning need and do not add unnecessary exercises merely to approach the upper bound.
+There is no universal post-opening sequence, no preferred second or final activity type, and no preferred exact activity count. The fixed opening conversation is excluded when auditing type/sequence diversity. Finalized lessons must stay inside the configured CEFR-level activity range; `Pre-A1` currently requires **3–6 total activities**. Inside that range, choose modality and count by learning need and do not add unnecessary exercises merely to approach the upper bound.

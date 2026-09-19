@@ -5,6 +5,7 @@
 - for German lessons, `sourceTitle` must contain target-language text and no Persian; from A1 onward it may not use ellipsis/compressed German and each title segment must be an exact source-backed string already present in that lesson/dialogue;
 - a `matching` activity omits `pairMode` or its declared target/Persian side does not match the actual script;
 - finalized lesson does not begin with `conversation_speaking`;
+- `conversation_speaking` appears anywhere except activity 1 or appears more than once in a lesson;
 - finalized lesson activity count falls outside the CEFR-level range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 3–6 total activities;
 - `matching` activity contains fewer than 4 or more than 8 pairs;
 - `Pre-A1` `matching` activity contains anything other than exactly 4 pairs;
@@ -64,9 +65,9 @@ Exact target language, exact source quotations, proper names, stable IDs/keys, U
 
 ## Dynamic structure QA
 - Run `python scripts/audit_dynamic_structure.py` before accepting a review/final level.
-- The audit must print Unit Lesson counts, both count distributions, top Activity sequences, Units at minimum and Lessons at minimum.
-- Risk thresholds live in `config/dynamic-structure-policy.json` and are detectors only; they must never be used as desired distributions.
-- A suspicious pattern must trigger re-evaluation of learning needs, source inventory, progression and practice design.
+- The audit must print Unit Lesson counts, total and post-opening activity-count distributions, top post-opening sequences, post-opening type coverage across Lessons, Units at minimum and Lessons at minimum.
+- The fixed opening conversation is excluded from diversity scoring. Risk thresholds live in `config/dynamic-structure-policy.json` and are detectors only; they must never be used as desired distributions.
+- A suspicious post-opening pattern must trigger re-evaluation of learning needs, source inventory, progression and practice design. In particular, no activity type such as `word_order` may become a de facto universal ending.
 - Do not silence a detector by randomly changing counts, adding filler, splitting coherent content or merging unrelated content.
 - The correct causal order is: learning needs → source inventory → progression → Lesson boundaries → Activity design → counts.
 

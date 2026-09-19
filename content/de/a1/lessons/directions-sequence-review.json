@@ -18,9 +18,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس قبلی با حمل‌ونقل عمومی هم‌پوشانی داشت و به نمونهٔ زمانی ضعیف متکی بود؛ این جایگزین فقط مهارت مسیر و مکان عمومی را با عبارت‌نامهٔ فعلی پوشش می‌دهد.",
-    "sequenceRationale": "مسیر ایستگاه و فرودگاه تمرین می‌شود، سپس پرسش مسیر بازسازی می‌شود و در پایان یک بازیابی بین‌واحدی خانواده/خرید/مسیر اضافه می‌شود.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order>multiple_choice"
+    "activitySelectionRationale": "گفت‌وگوی آغازین پرسیدن مسیر ایستگاه و فرودگاه را در بافت واقعی پوشش می‌دهد. پس از آن فقط دو تمرین مستقل لازم است: تشخیص جهت و بازیابی فاصله‌دار میان خانواده، خرید و مسیر. تمرین مرتب‌سازی پرسش حذف شد چون همان پرسش‌ها در گفت‌وگو تمرین شده‌اند و ارزش آموزشی مستقلی اضافه نمی‌کرد.",
+    "sequenceRationale": "پس از گفت‌وگو، ابتدا تشخیص مستقیم جهت سنجیده می‌شود و سپس بازیابی بین‌واحدی انجام می‌شود. فعالیت اضافه فقط برای ثابت نگه‌داشتن تعداد یا پایان‌دادن همهٔ درس‌ها با یک قالب مشترک وجود ندارد.",
+    "templateSignature": "conversation_speaking>multiple_choice>multiple_choice"
   },
   "activities": [
     {
@@ -81,43 +81,6 @@
       },
       "transformations": [
         "options_selected_from_source_material",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
-    },
-    {
-      "id": "act-de-a1-directions-sequence-review-fill",
-      "type": "word_order",
-      "instructionFa": "پرسش مسیر فرودگاه را بساز.",
-      "selectionReason": "جمله از الگوی مقصد و نمونهٔ فرودگاهِ خود منبع ساخته شده و فقط به قطعه‌های واژگانی تقسیم می‌شود.",
-      "sourceRefs": [
-        "src-wikivoyage-german-phrasebook-directions"
-      ],
-      "learningTargets": [
-        "پرسش مسیر یک مکان عمومی را بازسازی کند."
-      ],
-      "lexemeRefs": [],
-      "dialogueRef": null,
-      "data": {
-        "sourceText": "Wie komme ich zum Flughafen?",
-        "sourceTextFa": "چطور به فرودگاه برسم؟",
-        "tokens": [
-          "Wie",
-          "komme",
-          "ich",
-          "zum",
-          "Flughafen?"
-        ],
-        "answer": [
-          "Wie",
-          "komme",
-          "ich",
-          "zum",
-          "Flughafen?"
-        ]
-      },
-      "transformations": [
-        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

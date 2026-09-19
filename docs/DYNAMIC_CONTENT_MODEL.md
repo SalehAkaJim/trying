@@ -34,14 +34,25 @@ A Unit boundary exists only for a pedagogical/navigation reason such as coherent
 
 ## Activity design
 
-Every finalized Lesson begins with `conversation_speaking`. Post-opening Activity type, order and exact count are selected by learning need.
+There is exactly one fixed activity rule: **activity 1 is always `conversation_speaking` backed by the opening dialogue turns**. That opening conversation is a structural product requirement and is deliberately excluded from activity-diversity scoring.
 
-For `Pre-A1`, finalized Lessons currently contain **3–6 total Activities**; other levels use their configured range in `config/activity-count-bounds.json`.
+`conversation_speaking` appears exactly once in a Lesson and only at position 1.
+
+From **activity 2 onward**, all of the following are dynamic:
+- whether another activity is needed at all;
+- exact number of remaining activities inside the CEFR total-count guardrail;
+- activity type;
+- activity order;
+- stopping point.
+
+There is no preferred second activity, no preferred final activity, and no universal sequence such as ending every Lesson with `word_order`. A type may repeat when the learning need justifies it, but repetition caused by a template is a QA risk.
+
+For `Pre-A1`, finalized Lessons currently contain **3–6 total Activities**, including the fixed opening conversation; other levels use their configured range in `config/activity-count-bounds.json`.
 
 Every final Lesson must record:
-- `activityDesign.activitySelectionRationale`: why these Activities are needed and why this set is sufficient;
-- `activityDesign.sequenceRationale`: why they appear in this order;
-- an optional/derived `templateSignature` for repetition auditing.
+- `activityDesign.activitySelectionRationale`: why the post-opening Activities are needed and why that set is sufficient;
+- `activityDesign.sequenceRationale`: why the post-opening sequence is pedagogically appropriate;
+- a derived `templateSignature` matching the actual full activity sequence.
 
 Filler, near-duplicate Activities, superficial type changes and padding toward a minimum/maximum are forbidden.
 
@@ -57,7 +68,8 @@ The audit prints:
 - Lesson count for every Unit;
 - Unit Lesson-count distribution;
 - Activity-count distribution across Lessons;
-- most frequent Activity sequences;
+- most frequent **post-opening** Activity sequences;
+- how many Lessons contain each post-opening Activity type;
 - number of Units exactly at the configured minimum;
 - number of Lessons exactly at the configured minimum.
 
@@ -68,7 +80,8 @@ Serious warning signals include:
 - many Units stopping exactly at the minimum;
 - one Activity count dominating many Lessons;
 - many Lessons stopping exactly at the minimum;
-- one Activity sequence dominating the level;
+- one post-opening Activity sequence dominating the level;
+- one post-opening Activity type appearing in most Lessons;
 - several consecutive Lessons using the same sequence.
 
 A detected signal is not permission to randomize counts. Re-check the educational design. Fix the structure only when learning needs, source inventory, progression or practice design justify a different boundary/count.

@@ -457,7 +457,7 @@ CREATE TABLE IF NOT EXISTS activities (
   UNIQUE KEY uq_activities_key (activity_key),
   UNIQUE KEY uq_activities_lesson_position (lesson_id,position_index),
   CONSTRAINT chk_activities_position CHECK (position_index>=1),
-  CONSTRAINT chk_activities_opening CHECK (position_index<>1 OR activity_type='conversation_speaking'),
+  CONSTRAINT chk_activities_opening CHECK ((position_index=1 AND activity_type='conversation_speaking') OR (position_index>1 AND activity_type<>'conversation_speaking')),
   CONSTRAINT fk_activities_lesson FOREIGN KEY (lesson_id) REFERENCES lessons(id) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT fk_activities_dialogue FOREIGN KEY (dialogue_id) REFERENCES dialogues(id) ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

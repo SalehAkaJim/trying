@@ -26,9 +26,9 @@
   ],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "گفت‌وگوی اصلی یک بازهٔ کلاس و زمان پایان ماندن را می‌سازد؛ سپس چهار جفت پرسش و پاسخ زمانی وصل می‌شوند، پرسش کلیدی بازسازی می‌شود و در پایان پاسخ ساعت ۱۳ از دو پاسخ زمانی دیگر تشخیص داده می‌شود.",
-    "sequenceRationale": "درس از فهم تعامل کامل به تشخیص چند بازه، بازیابی فعال پرسش و سپس تمایز پاسخ زمانی حرکت می‌کند.",
-    "templateSignature": "conversation_speaking>matching>word_order>multiple_choice"
+    "activitySelectionRationale": "گفت‌وگوی آغازین بازهٔ زمانی و زمان پایان را در بافت کامل می‌آورد. پس از آن تطبیق چند بازهٔ واقعی و تشخیص پاسخ ساعت مشخص برای پوشش اهداف این درس کافی‌اند. بازسازی دوبارهٔ پرسش زمان حذف شد چون همان پرسش در گفت‌وگو تمرین شده است.",
+    "sequenceRationale": "پس از گفت‌وگو، زبان‌آموز ابتدا چند بازهٔ زمانی را دسته‌بندی می‌کند و سپس یک پاسخ دقیق زمانی را تشخیص می‌دهد. فعالیت اضافی برای رسیدن به تعداد ازپیش‌تعیین‌شده وجود ندارد.",
+    "templateSignature": "conversation_speaking>matching>multiple_choice"
   },
   "activities": [
     {
@@ -110,57 +110,6 @@
       },
       "transformations": [
         "source_items_grouped_for_matching",
-        "persian_translation_added"
-      ],
-      "audioStatus": "not_required"
-    },
-    {
-      "id": "act-de-a1-time-bis-wann-order",
-      "type": "word_order",
-      "instructionFa": "پرسش «تا چه زمانی در مدرسه می‌مانی؟» را دوباره بساز.",
-      "selectionReason": "پرسش اصلی گفت‌وگو پس از فهم بازهٔ زمانی به بازیابی فعال منتقل می‌شود.",
-      "sourceRefs": [
-        "src-wikibooks-de-lesson-021-time-appointment"
-      ],
-      "learningTargets": [
-        "بازسازی پرسش منبع‌دار دربارهٔ زمان پایان."
-      ],
-      "lexemeRefs": [
-        "lex-de-bis",
-        "lex-de-bleiben",
-        "lex-de-schule"
-      ],
-      "dialogueRef": null,
-      "data": {
-        "sourceText": "Und bis wann bleibst du dann noch in der Schule?",
-        "sourceTextFa": "و بعد تا چه زمانی در مدرسه می‌مانی؟",
-        "tokens": [
-          "Und",
-          "bis",
-          "wann",
-          "bleibst",
-          "du",
-          "dann",
-          "noch",
-          "in",
-          "der",
-          "Schule?"
-        ],
-        "answer": [
-          "Und",
-          "bis",
-          "wann",
-          "bleibst",
-          "du",
-          "dann",
-          "noch",
-          "in",
-          "der",
-          "Schule?"
-        ]
-      },
-      "transformations": [
-        "sentence_tokenized_for_word_order",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

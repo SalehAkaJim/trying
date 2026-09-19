@@ -296,8 +296,24 @@ for path, data in all_json:
                         if segment not in candidates:
                             errors.append(f"{path}: German A1+ sourceTitle segment is not an exact learner-facing source-backed string in this lesson/dialogue: {segment!r}")
         activities = data.get("activities", [])
-        if activities and activities[0].get("type") != "conversation_speaking":
-            errors.append(f"{path}: first activity must be conversation_speaking")
+        if activities:
+            activity_types = [activity.get("type") for activity in activities]
+            if activity_types[0] != "conversation_speaking":
+                errors.append(f"{path}: first activity must be conversation_speaking")
+            conversation_positions = [i + 1 for i, value in enumerate(activity_types) if value == "conversation_speaking"]
+            if conversation_positions != [1]:
+                errors.append(
+                    f"{path}: conversation_speaking must appear exactly once and only at position 1; "
+                    f"found positions {conversation_positions}"
+                )
+            design = data.get("activityDesign") or {}
+            stored_signature = design.get("templateSignature")
+            actual_signature = ">".join(str(value or "") for value in activity_types)
+            if stored_signature and stored_signature != actual_signature:
+                errors.append(
+                    f"{path}: activityDesign.templateSignature must match the actual activity sequence; "
+                    f"expected {actual_signature!r}, got {stored_signature!r}"
+                )
         for activity in activities:
             aid = activity.get("id", "<activity>")
             require_label("activity_type", activity.get("type"), f"{path}:{aid}")

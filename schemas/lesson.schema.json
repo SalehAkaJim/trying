@@ -95,13 +95,13 @@
       "properties": {
         "activitySelectionRationale": {
           "type": "string",
-          "description": "دلیل آموزشیِ انتخاب همین Activityها و کافی‌بودن همین تعداد؛ ارجاع به target count، minimum، maximum یا هماهنگی عددی قابل قبول نیست.",
+          "description": "دلیل آموزشی انتخاب فعالیت‌های پس از گفت‌وگوی آغازین و کافی‌بودن همین تعداد؛ گفت‌وگوی اول ثابت است اما از فعالیت دوم به بعد هیچ تعداد یا نوع ترجیحی وجود ندارد.",
           "minLength": 1
         },
         "sequenceRationale": {
           "type": "string",
           "minLength": 1,
-          "description": "دلیل آموزشی ترتیب Activityها؛ باید progression همان Lesson را توضیح دهد و نه یک template ثابت."
+          "description": "دلیل آموزشی ترتیب فعالیت‌های پس از گفت‌وگوی آغازین؛ ترتیب باید از نیاز همان درس بیاید و نه از الگوی مشترک درس‌های دیگر."
         },
         "templateSignature": {
           "type": "string",
@@ -116,7 +116,7 @@
     "activities": {
       "type": "array",
       "minItems": 1,
-      "description": "Dynamic-length sequence. Every finalized lesson opens with conversation_speaking and must satisfy the CEFR-level activity-count quality guardrail configured in config/activity-count-bounds.json. Drafts may temporarily be below the configured minimum; there is no preferred exact activity count inside the allowed range.",
+      "description": "Sequence with one fixed exception: activity 1 is always conversation_speaking backed by turns, and conversation_speaking may not appear again in the lesson. From activity 2 onward, type, order, and exact count are dynamic and selected by learning need. Finalized lessons must remain inside the CEFR-level total activity-count guardrail.",
       "prefixItems": [
         {
           "allOf": [
@@ -138,7 +138,19 @@
       ],
       "items": {
         "$ref": "activity.schema.json"
-      }
+      },
+      "contains": {
+        "properties": {
+          "type": {
+            "const": "conversation_speaking"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "minContains": 1,
+      "maxContains": 1
     },
     "status": {
       "enum": [
