@@ -527,7 +527,7 @@ def mapping_update(item: dict, *, url: str, storage_path: str, voice_name: str, 
 
 
 def sync_authoring_lesson_audio_status(language: str, level: str, assets: list[dict]) -> None:
-    """Keep lesson/activity authoring audio metadata aligned with generated assets."""
+    """Keep lesson, activity, and lexeme authoring audio metadata aligned with generated assets."""
     level_dir = ROOT / "content" / language / level_slug(language, level)
     lesson_dir = level_dir / "lessons"
     dialogue_dir = level_dir / "dialogues"

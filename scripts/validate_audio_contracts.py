@@ -156,6 +156,144 @@ for manifest_path in Path("audio").glob("*/*/manifest.json"):
         elif asset.get("voiceId") != expected_voice.get("voiceId") or asset.get("voiceName") != expected_voice.get("voiceName"):
             errors.append(f"{manifest_path}:{owner}: generated voice does not match canonical voice lock")
 
+
+# Authoring metadata must agree with committed generated assets whenever the
+# authoring target still matches the generated text. A changed target is a
+# legitimate stale state; a matching ready asset paired with pending/stale
+# authoring metadata is drift and must fail validation.
+authoring_lessons = {}
+authoring_activities = {}
+authoring_dialogues = {}
+authoring_dialogue_turns = {}
+authoring_lexemes = {}
+
+for lesson_path in Path("content").glob("*/*/lessons/*.json"):
+    lesson = json.loads(lesson_path.read_text(encoding="utf-8"))
+    key = (lesson.get("languageId"), lesson.get("level"))
+    authoring_lessons.setdefault(key, []).append((lesson_path, lesson))
+    for activity in lesson.get("activities") or []:
+        activity_id = activity.get("id")
+        if activity_id:
+            authoring_activities[(key[0], key[1], activity_id)] = (lesson_path, activity)
+
+for dialogue_path in Path("content").glob("*/*/dialogues/*.json"):
+    dialogue = json.loads(dialogue_path.read_text(encoding="utf-8"))
+    key = (dialogue.get("languageId"), dialogue.get("level"))
+    dialogue_id = dialogue.get("id")
+    if dialogue_id:
+        authoring_dialogues[(key[0], key[1], dialogue_id)] = (dialogue_path, dialogue)
+    for turn in dialogue.get("turns") or []:
+        turn_id = turn.get("id")
+        if turn_id:
+            authoring_dialogue_turns[(key[0], key[1], turn_id)] = (dialogue_path, turn)
+
+for lexeme_path in Path("content").glob("*/lexemes/*.json"):
+    lexeme = json.loads(lexeme_path.read_text(encoding="utf-8"))
+    lexeme_id = lexeme.get("id")
+    if lexeme_id:
+        authoring_lexemes[(lexeme.get("languageId"), lexeme_id)] = (lexeme_path, lexeme)
+
+manifests_by_level = {}
+global_lexeme_assets = {}
+for manifest_path in Path("audio").glob("*/*/manifest.json"):
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    language = manifest.get("language")
+    level = manifest.get("level")
+    asset_map = {}
+    for asset in manifest.get("assets") or []:
+        owner_type = asset.get("ownerType")
+        owner_key = asset.get("ownerKey")
+        if owner_type and owner_key:
+            asset_map[(owner_type, owner_key)] = asset
+        if owner_type == "lexeme" and owner_key:
+            global_lexeme_assets.setdefault((language, owner_key), []).append(asset)
+    manifests_by_level[(language, level)] = (manifest_path, asset_map)
+
+    for (owner_type, owner_key), asset in asset_map.items():
+        if owner_type == "activity":
+            rec = authoring_activities.get((language, level, owner_key))
+            if not rec:
+                errors.append(f"{manifest_path}:{owner_key}: generated activity has no authoring activity")
+                continue
+            activity_path, activity = rec
+            authoring_text = activity.get("audioTextTarget")
+            if authoring_text == asset.get("audioText") and activity.get("audioStatus") != "ready":
+                errors.append(
+                    f"{activity_path}:{owner_key}: matching current generated activity audio exists but authoring audioStatus is {activity.get('audioStatus')!r}, expected 'ready'"
+                )
+        elif owner_type == "dialogue_turn":
+            rec = authoring_dialogue_turns.get((language, level, owner_key))
+            if not rec:
+                errors.append(f"{manifest_path}:{owner_key}: generated dialogue turn has no authoring turn")
+        elif owner_type == "lexeme":
+            rec = authoring_lexemes.get((language, owner_key))
+            if not rec:
+                errors.append(f"{manifest_path}:{owner_key}: generated lexeme has no authoring lexeme")
+                continue
+            lexeme_path, lexeme = rec
+            if lexeme.get("surface") == asset.get("audioText") and lexeme.get("audioStatus") != "ready":
+                errors.append(
+                    f"{lexeme_path}:{owner_key}: matching current generated lexeme audio exists but authoring audioStatus is {lexeme.get('audioStatus')!r}, expected 'ready'"
+                )
+
+# Ready authoring records must always have an exact current generated asset.
+for (language, level, activity_id), (activity_path, activity) in authoring_activities.items():
+    if activity.get("audioStatus") != "ready":
+        continue
+    manifest_rec = manifests_by_level.get((language, level))
+    asset = manifest_rec[1].get(("activity", activity_id)) if manifest_rec else None
+    if not asset or asset.get("audioText") != activity.get("audioTextTarget"):
+        errors.append(f"{activity_path}:{activity_id}: authoring activity is ready without an exact current generated asset")
+
+for (language, lexeme_id), (lexeme_path, lexeme) in authoring_lexemes.items():
+    if lexeme.get("audioStatus") != "ready":
+        continue
+    candidates = global_lexeme_assets.get((language, lexeme_id)) or []
+    if not any(asset.get("audioText") == lexeme.get("surface") for asset in candidates):
+        errors.append(f"{lexeme_path}:{lexeme_id}: authoring lexeme is ready without an exact current generated asset")
+
+# Lesson readiness is derived from exact current activity and opening-dialogue
+# assets. This catches aggregate drift without blocking a legitimate stale state.
+for (language, level), lessons in authoring_lessons.items():
+    manifest_rec = manifests_by_level.get((language, level))
+    if not manifest_rec:
+        continue
+    _, asset_map = manifest_rec
+    for lesson_path, lesson in lessons:
+        if lesson.get("status") != "final":
+            continue
+        required_audio_found = False
+        all_ready = True
+        for activity in lesson.get("activities") or []:
+            audio_text = activity.get("audioTextTarget")
+            if isinstance(audio_text, str) and audio_text.strip():
+                required_audio_found = True
+                asset = asset_map.get(("activity", activity.get("id")))
+                if not asset or asset.get("audioText") != audio_text:
+                    all_ready = False
+            if activity.get("type") == "conversation_speaking" and activity.get("dialogueRef"):
+                dialogue_rec = authoring_dialogues.get((language, level, activity.get("dialogueRef")))
+                if not dialogue_rec:
+                    all_ready = False
+                    continue
+                _, dialogue = dialogue_rec
+                for turn in dialogue.get("turns") or []:
+                    turn_text = turn.get("textTarget")
+                    turn_id = turn.get("id")
+                    if isinstance(turn_text, str) and turn_text.strip() and turn_id:
+                        required_audio_found = True
+                        asset = asset_map.get(("dialogue_turn", turn_id))
+                        if not asset or asset.get("audioText") != turn_text:
+                            all_ready = False
+        expected_ready = required_audio_found and all_ready
+        if expected_ready and lesson.get("audioStatus") != "ready":
+            errors.append(
+                f"{lesson_path}: every required current asset exists but lesson audioStatus is {lesson.get('audioStatus')!r}, expected 'ready'"
+            )
+        if lesson.get("audioStatus") == "ready" and not expected_ready:
+            errors.append(f"{lesson_path}: lesson claims ready but at least one required exact current asset is missing")
+
+
 if errors:
     print("Audio contract validation failed:")
     print("\n".join(errors))
