@@ -814,7 +814,7 @@ BEGIN
       SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='A final lesson must begin with conversation_speaking';
     END IF;
   END IF;
-END$
+END$$
 
 DROP TRIGGER IF EXISTS trg_activities_bi_final_guard$$
 CREATE TRIGGER trg_activities_bi_final_guard BEFORE INSERT ON activities FOR EACH ROW
