@@ -36,7 +36,7 @@
   "grammarNoteRefs": [],
   "activityDesign": {
     "activitySelectionRationale": "گفت‌وگو درخواست تکرار را در بافت واقعی تمرین می‌کند؛ سپس اجازهٔ تلفن، درخواست کمک و واژگان خدمات سنجیده می‌شوند و در پایان واژهٔ کلیدیِ درخواست آهسته‌تر گفتن بازیابی می‌شود.",
-    "sequenceRationale": "درس از مشکل فهم واقعی به اجازه و کمک، سپس واژگان خدمات و در پایان بازیابی هدایت‌شدهٔ «langsam» می‌رود؛ تکرار قالب word_order حذف شده است.",
+    "sequenceRationale": "درس از مشکل فهم واقعی به اجازه و کمک، سپس واژگان خدمات و در پایان بازیابی هدایت‌شدهٔ «langsam» می‌رود؛ تکرار قالب مرتب‌سازی واژه‌ها حذف شده است.",
     "templateSignature": "conversation_speaking>multiple_choice>choose_response>matching>fill_blank"
   },
   "activities": [

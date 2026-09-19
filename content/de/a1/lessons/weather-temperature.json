@@ -18,7 +18,7 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "دو وضعیت سادهٔ باران و برف در گفت‌وگو می‌آیند؛ سپس باران تشخیص داده می‌شود، فعل برف به‌صورت هدایت‌شده بازیابی می‌شود و در پایان یک retrieval بین‌واحدی سلامت/آب‌وهوا/حمل‌ونقل انجام می‌شود.",
+    "activitySelectionRationale": "دو وضعیت سادهٔ باران و برف در گفت‌وگو می‌آیند؛ سپس باران تشخیص داده می‌شود، فعل برف به‌صورت هدایت‌شده بازیابی می‌شود و در پایان یک بازیابی تجمعی بین‌واحدی سلامت/آب‌وهوا/حمل‌ونقل انجام می‌شود.",
     "sequenceRationale": "از فهم باران و برف به تشخیص، بازیابی فعل و سپس مرور تجمعی پایان A1 حرکت می‌کند؛ مرتب‌سازی دو واژه با بازیابی معنایی فعل جایگزین شده است.",
     "templateSignature": "conversation_speaking>multiple_choice>fill_blank>multiple_choice"
   },
@@ -122,7 +122,7 @@
       "audioStatus": "not_required"
     },
     {
-      "id": "act-de-a1-weather-cross-unit-retrieval",
+      "id": "act-de-a1-weather-cross-unit-بازیابی تجمعی",
       "type": "multiple_choice",
       "instructionFa": "کدام پرسش مربوط به سلامت است؟",
       "selectionReason": "سه پرسش عین منابع سلامت، آب‌وهوا و حمل‌ونقل‌اند و بازیابی فاصله‌دار چند واحد را در پایان A1 تمرین می‌کنند.",
