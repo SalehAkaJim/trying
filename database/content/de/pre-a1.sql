@@ -3137,3 +3137,60 @@ DROP TEMPORARY TABLE _prea1_audit_lesson_status;
 COMMIT;
 
 -- ===== END zzzzzzzzzzz-pre-a1-audit-rebalance.sql =====
+
+
+-- ===== BEGIN zzzzzzzzzzzz-pre-a1-new-audio-unblock-2026-09-19.sql =====
+-- Reopen only the lessons whose previously non-audio activities became audio-bearing
+-- during the Pre-A1 audit. This late section runs after every historical content
+-- mutation so the new assets end in the intended stale state and are eligible for
+-- regeneration instead of remaining blocked on a final lesson.
+
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @prea1 := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);
+
+DROP TEMPORARY TABLE IF EXISTS _prea1_new_audio_lesson_status;
+CREATE TEMPORARY TABLE _prea1_new_audio_lesson_status AS
+SELECT DISTINCT l.id AS lesson_id,l.status AS original_status
+FROM lessons l
+JOIN activities a ON a.lesson_id=l.id
+WHERE l.language_level_id=@prea1
+  AND a.activity_key IN (
+    'act-de-hallo-role-match',
+    'act-de-name-word-order',
+    'act-de-simple-order-word-order',
+    'act-de-toilet-question-order',
+    'act-de-help-word-order'
+  );
+
+UPDATE lessons l
+JOIN _prea1_new_audio_lesson_status s ON s.lesson_id=l.id
+SET l.status='qa'
+WHERE s.original_status='final';
+
+UPDATE activities
+SET audio_status='stale'
+WHERE activity_key IN (
+    'act-de-hallo-role-match',
+    'act-de-name-word-order',
+    'act-de-simple-order-word-order',
+    'act-de-toilet-question-order',
+    'act-de-help-word-order'
+  )
+  AND audio_text_target IS NOT NULL;
+
+UPDATE language_levels
+SET audio_status='pending'
+WHERE id=@prea1;
+
+UPDATE lessons l
+JOIN _prea1_new_audio_lesson_status s ON s.lesson_id=l.id
+SET l.status=s.original_status;
+
+DROP TEMPORARY TABLE _prea1_new_audio_lesson_status;
+COMMIT;
+
+-- ===== END zzzzzzzzzzzz-pre-a1-new-audio-unblock-2026-09-19.sql =====
