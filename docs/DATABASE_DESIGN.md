@@ -5,11 +5,11 @@ The database remains the canonical target for the language-learning content pipe
 ## Core decisions
 
 - MySQL **9.0.1** is the canonical runtime.
-- Final language deliverables must be exportable as complete MySQL `.sql` files.
+- Final language deliverables use exactly one canonical MySQL content file per language × CEFR level at `database/content/<language>/<level>.sql`; historical patch chains are not active runtime inputs.
 - JSON schemas are authoring/validation contracts; finalized content must also be representable in the relational MySQL model.
 - Curriculum structure is coverage-driven, source-driven and QA-driven.
 - Unit count and lesson count are derived outputs, never authoritative planning inputs.
-- Finalized lesson activity counts obey CEFR-level quality guardrails stored in `config/activity-count-bounds.json`; these bounds are not exact-count quotas. `Pre-A1` currently requires 2–5 total activities.
+- Finalized lesson activity counts obey CEFR-level quality guardrails stored in `config/activity-count-bounds.json`; these bounds are not exact-count quotas. `Pre-A1` currently requires 3–6 total activities.
 - Every finalized lesson begins with `conversation_speaking`; subsequent activity type/order and exact count inside the allowed range are pedagogically dynamic.
 - Units are dynamic organizational clusters, not fixed-capacity containers.
 - A lesson/activity signature may be stored for QA pattern detection; it is not a lesson template requirement.
@@ -50,7 +50,7 @@ Lessons may reference their unit through an ordering/junction relationship depen
 
 Lessons are created from coherent targets and source-backed material. Their number is derived from coverage.
 
-A finalized lesson must have an opening `conversation_speaking` activity and satisfy the configured activity-count range for its CEFR level. For `Pre-A1`, that means 2–5 total activities. The remaining activities are variable in type/order and exact count inside the range, and each must have a pedagogical reason.
+A finalized lesson must have an opening `conversation_speaking` activity and satisfy the configured activity-count range for its CEFR level. For `Pre-A1`, that means 3–6 total activities. The remaining activities are variable in type/order and exact count inside the range, and each must have a pedagogical reason.
 
 The activity minimum is a practice floor: if a lesson would otherwise contain only the opening conversation, add a genuinely useful source-backed retrieval/practice activity. The maximum is a ceiling for lesson scope/cognitive load, not a signal to add more activities.
 

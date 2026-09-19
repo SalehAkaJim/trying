@@ -9,13 +9,13 @@
 ## Database and deliverable
 - MySQL-first; canonical runtime is **MySQL 9.0.1**.
 - JSON schemas are authoring contracts; MySQL is canonical finalized storage.
-- Each language × CEFR level may be one SQL content file.
+- Each language × CEFR level must have exactly one canonical SQL content file at `database/content/<language>/<level>.sql`. Historical patch chains are Git history, not active runtime inputs.
 
 ## Coverage-driven curriculum
 - No fixed/preferred unit or lesson count exists.
 - Unit and lesson counts are outputs, not authoring quotas.
 - Activity count is also not an exact target quota, but finalized lessons must stay inside the CEFR-level quality envelope configured in `config/activity-count-bounds.json`.
-- `Pre-A1` finalized lessons require **2–5 total activities**, including the opening `conversation_speaking` activity.
+- `Pre-A1` finalized lessons require **3–6 total activities**, including the opening `conversation_speaking` activity.
 - Inside a level's allowed activity envelope, add only pedagogically useful practice/retrieval/review and never pad toward the maximum.
 - Future CEFR levels may define larger activity envelopes before production; do not infer or invent an unset range from a neighboring level.
 - Do not pad/split/merge curriculum to resemble neighboring content.

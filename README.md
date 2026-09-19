@@ -20,7 +20,7 @@ Important shared references:
 - Final language deliverables are organized as one MySQL content file per language × CEFR level.
 - Course sizing is coverage-driven, source-driven and QA-driven — never quota-driven.
 - There is no fixed/preferred numeric count for units or lessons.
-- Finalized lesson activity counts use CEFR-level quality guardrails. `Pre-A1` currently requires **2–5 total activities per lesson**. Inside the allowed range, activity type/order/count remain pedagogically chosen rather than quota-driven.
+- Finalized lesson activity counts use CEFR-level quality guardrails. `Pre-A1` currently requires **3–6 total activities per lesson**. Inside the allowed range, activity type/order/count remain pedagogically chosen rather than quota-driven.
 - Every finalized lesson begins with `conversation_speaking`.
 - Opening conversations use 4–12 turns; the first 10 lessons of a language's beginner path use exactly 4 turns.
 - The app or learner may initiate a conversation; learner-start is explicit and turn 1 belongs to the learner.
@@ -47,4 +47,6 @@ Cross-language validation lives in `scripts/validate_project_contracts.py`, `scr
 
 ## Current content status
 
-German `Pre-A1` authoring content is finalized under `content/de/pre-a1/`; audio generation remains the next production stage after all content and database synchronization checks pass.
+German `Pre-A1` and `A1` authoring content are finalized. German A1 audio is generated and current, with 269 required assets marked ready in `audio/de/a1/manifest.json`.
+
+Canonical MySQL content deliverables are one file per finalized language × CEFR level under `database/content/<language>/<level>.sql`. German currently uses `database/content/de/pre-a1.sql` and `database/content/de/a1.sql`; historical patch chains are retained by Git history rather than active runtime files.

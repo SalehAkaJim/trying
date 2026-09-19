@@ -2,7 +2,7 @@
 
 Curriculum sizing is coverage-driven, source-driven and QA-driven. No fixed/preferred unit or lesson count is used. Activity count is dynamic inside the CEFR-level quality envelope configured in `config/activity-count-bounds.json`; the envelope is a guardrail, not a target quota.
 
-For `Pre-A1`, every finalized lesson contains **2–5 total activities**, including the opening `conversation_speaking`. Future levels may use larger ranges only after their own explicit envelope is defined.
+For `Pre-A1`, every finalized lesson contains **3–6 total activities**, including the opening `conversation_speaking`. Future levels may use larger ranges only after their own explicit envelope is defined.
 
 ## Explicit opening-dialogue exception
 Opening `conversation_speaking` scenes must contain **4–12 turns**.

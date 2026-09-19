@@ -25,10 +25,46 @@ echo "MySQL runtime: $version"
 mysql_file database/schema.sql
 mysql_file database/schema.sql
 
-# Every language × level SQL file is discovered automatically.
-mapfile -t content_files < <(find database/content -type f -name '*.sql' | sort)
+# Active content must be exactly one canonical SQL file per authoring language × CEFR level.
+# Historical patch chains belong to Git history, not runtime import order.
+python - <<'PY' > /tmp/content_files.txt
+import json
+import pathlib
+import sys
+
+content_root = pathlib.Path('content')
+db_root = pathlib.Path('database/content')
+level_order = {'Pre-A1': 0, 'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4, 'C1': 5, 'C2': 6}
+
+expected = []
+for manifest in content_root.glob('*/*/level.json'):
+    data = json.loads(manifest.read_text(encoding='utf-8'))
+    language = data['languageId']
+    level = data['level']
+    slug = manifest.parent.name
+    sql_path = db_root / language / f'{slug}.sql'
+    expected.append((language, level_order[level], sql_path))
+
+expected_paths = {path for _, _, path in expected}
+actual_paths = set(db_root.rglob('*.sql'))
+
+if actual_paths != expected_paths:
+    print('Canonical content SQL layout mismatch.', file=sys.stderr)
+    print('Expected exactly:', *sorted(map(str, expected_paths)), sep='\n- ', file=sys.stderr)
+    missing = expected_paths - actual_paths
+    extra = actual_paths - expected_paths
+    if missing:
+        print('Missing:', *sorted(map(str, missing)), sep='\n- ', file=sys.stderr)
+    if extra:
+        print('Extra/non-canonical:', *sorted(map(str, extra)), sep='\n- ', file=sys.stderr)
+    sys.exit(1)
+
+for _, _, path in sorted(expected, key=lambda row: (row[0], row[1])):
+    print(path)
+PY
+mapfile -t content_files < /tmp/content_files.txt
 test "${#content_files[@]}" -gt 0
-printf 'Content SQL files:\n%s\n' "${content_files[@]}"
+printf 'Canonical content SQL files:\n%s\n' "${content_files[@]}"
 
 mapfile -t audio_sql_files < <(find database/audio -type f -name '*.sql' 2>/dev/null | sort || true)
 

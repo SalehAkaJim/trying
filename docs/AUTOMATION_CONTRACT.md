@@ -11,7 +11,7 @@ Starting the next language should not require repeating the same manual checks o
 5. Store Persian support/editorial text and Persian labels for every semantic code.
 6. Keep the current image-free baseline.
 7. Start every finalized lesson with `conversation_speaking`.
-8. Keep every finalized lesson inside the CEFR-level activity-count range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 2–5 total activities. Treat the range as a quality guardrail, not an exact-count target.
+8. Keep every finalized lesson inside the CEFR-level activity-count range configured in `config/activity-count-bounds.json`; `Pre-A1` currently requires 3–6 total activities. Treat the range as a quality guardrail, not an exact-count target.
 9. Apply the beginner opening-dialogue rule: lessons 1–10 of the beginner path use exactly 4 turns; later openings use 4–12 as pedagogically justified.
 10. Allow either app-start or learner-start; learner-start must explicitly instruct the learner to begin and turn 1 must belong to the learner.
 11. Preserve provenance, lexeme/form identity and occurrence mappings.

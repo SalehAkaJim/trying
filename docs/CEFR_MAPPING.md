@@ -116,7 +116,7 @@ Operational estimates, if ever introduced, must be clearly non-binding and must 
 
 Activity-count bounds are an explicit lesson-quality guardrail rather than a curriculum-sizing quota.
 
-- `Pre-A1`: **2–5 total activities per finalized lesson**, including the opening `conversation_speaking`.
+- `Pre-A1`: **3–6 total activities per finalized lesson**, including the opening `conversation_speaking`.
 - `A1`: **3–6 total activities per finalized lesson**.
 - `A2`: **3–7 total activities per finalized lesson**.
 - `B1`: **4–8 total activities per finalized lesson**.

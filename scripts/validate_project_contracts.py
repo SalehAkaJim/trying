@@ -8,6 +8,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
 TAXONOMY_PATH = ROOT / "config" / "fa-taxonomy.json"
 UNIT_BOUNDS_PATH = ROOT / "config" / "unit-lesson-count-bounds.json"
+ACTIVITY_BOUNDS_PATH = ROOT / "config" / "activity-count-bounds.json"
 SCHEMA_PATH = ROOT / "database" / "schema.sql"
 FA = re.compile(r"[\u0600-\u06FF]")
 IMAGE_KEYS = {"image", "imageurl", "imageref", "picture", "photo", "illustration", "thumbnail", "thumbnailurl", "thumbnailref"}
@@ -91,6 +92,40 @@ for level_code, rule in unit_lesson_bounds.items():
     maximum = rule.get("maxLessons") if isinstance(rule, dict) else None
     if not isinstance(minimum, int) or not isinstance(maximum, int) or minimum < 1 or maximum < minimum:
         errors.append(f"{UNIT_BOUNDS_PATH}: invalid lesson bounds for {level_code!r}: {rule!r}")
+
+activity_bounds_config = load(ACTIVITY_BOUNDS_PATH) or {}
+activity_bounds = activity_bounds_config.get("levels", {})
+pre_a1_rule = activity_bounds.get("Pre-A1") or {}
+pre_a1_min = pre_a1_rule.get("minActivities")
+pre_a1_max = pre_a1_rule.get("maxActivities")
+if not isinstance(pre_a1_min, int) or not isinstance(pre_a1_max, int):
+    errors.append(f"{ACTIVITY_BOUNDS_PATH}: Pre-A1 activity bounds are missing or invalid")
+else:
+    documented_bounds = [
+        ROOT / "README.md",
+        ROOT / "docs" / "PROJECT_DECISIONS.md",
+        ROOT / "docs" / "DYNAMIC_CONTENT_MODEL.md",
+        ROOT / "docs" / "CONTENT_RULES.md",
+        ROOT / "docs" / "CEFR_MAPPING.md",
+        ROOT / "docs" / "DATABASE_DESIGN.md",
+        ROOT / "docs" / "QA_RULES.md",
+        ROOT / "docs" / "AUTOMATION_CONTRACT.md",
+        ROOT / "docs" / "ACTIVITY_TYPES.md",
+    ]
+    range_pattern = re.compile(
+        r"Pre-A1.{0,180}?(\d+)\s*[–-]\s*(\d+)\s+(?:total\s+)?activit",
+        flags=re.I | re.S,
+    )
+    for doc_path in documented_bounds:
+        text = doc_path.read_text(encoding="utf-8")
+        for match in range_pattern.finditer(text):
+            found = (int(match.group(1)), int(match.group(2)))
+            expected = (pre_a1_min, pre_a1_max)
+            if found != expected:
+                errors.append(
+                    f"{doc_path}: documented Pre-A1 activity range {found[0]}–{found[1]} "
+                    f"does not match {ACTIVITY_BOUNDS_PATH} {expected[0]}–{expected[1]}"
+                )
 
 
 def require_label(domain, code, where):

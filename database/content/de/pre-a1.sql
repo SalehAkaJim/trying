@@ -1,3 +1,96 @@
+-- German Pre-A1 canonical SQL — consolidated from the historical migration chain.
+-- Mechanical consolidation only; learner-facing German is unchanged.
+
+
+-- ===== BEGIN 00-language-bootstrap.sql =====
+-- Shared German language bootstrap.
+-- Must run before any German level migration so levels do not depend on Pre-A1 file ordering.
+
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+
+INSERT INTO languages (code,name_native,name_fa,status,standalone_audio_voice_name,standalone_audio_voice_id)
+VALUES ('de','Deutsch','آلمانی','building',NULL,NULL)
+ON DUPLICATE KEY UPDATE
+  name_native=VALUES(name_native),
+  name_fa=VALUES(name_fa);
+
+COMMIT;
+
+-- ===== END 00-language-bootstrap.sql =====
+
+-- ===== BEGIN 00-pre-a1-reopen.sql =====
+-- Reopen existing final German Pre-A1 lessons before the base content file is reapplied.
+-- First import: no-op because the lessons do not exist yet.
+-- Re-import: allows the canonical base migration to update activities without violating
+-- the final-lesson activity guard. Later migrations restore the lessons to final.
+-- Quality-fix review activities are temporarily moved out of the canonical range so
+-- the older base migration can safely restore its historical position 3 before the
+-- later quality migration moves the price listening activity back to Lesson 20 and
+-- restores review positions 3 and 4.
+-- Two audio-bearing activities were intentionally changed by the quality pass. Before
+-- the historical base file is reapplied, restore their historical audio text while the
+-- lessons are open, then mark them pending in a second update. This prevents the audio
+-- invalidation trigger from leaving them blocked when the base file finalizes lessons.
+
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+
+UPDATE lessons l
+JOIN language_levels ll ON ll.id=l.language_level_id
+JOIN languages lang ON lang.id=ll.language_id
+SET l.status='qa'
+WHERE lang.code='de'
+  AND ll.cefr_level='Pre-A1'
+  AND l.status='final';
+
+UPDATE activities
+SET position_index=98
+WHERE activity_key='act-de-personal-review-match';
+
+UPDATE activities
+SET position_index=99
+WHERE activity_key='act-de-personal-review-phone-check';
+
+UPDATE activities
+SET audio_text_target='Meine Telefonnummer lautet 789.'
+WHERE activity_key='act-de-phone-listen'
+  AND NOT (audio_text_target <=> 'Meine Telefonnummer lautet 789.');
+
+UPDATE activities
+SET audio_text_target='Die Zeitschrift kostet 7,60 Euro.'
+WHERE activity_key='act-de-price-listen'
+  AND NOT (audio_text_target <=> 'Die Zeitschrift kostet 7,60 Euro.');
+
+UPDATE activities a
+JOIN lessons l ON l.id=a.lesson_id
+JOIN language_levels ll ON ll.id=l.language_level_id
+JOIN languages lang ON lang.id=ll.language_id
+SET a.audio_status='pending'
+WHERE lang.code='de'
+  AND ll.cefr_level='Pre-A1'
+  AND a.activity_key IN ('act-de-phone-listen','act-de-price-listen')
+  AND a.audio_text_target IS NOT NULL
+  AND a.audio_url IS NULL;
+
+UPDATE activities a
+JOIN lessons l ON l.id=a.lesson_id
+JOIN language_levels ll ON ll.id=l.language_level_id
+JOIN languages lang ON lang.id=ll.language_id
+SET a.audio_status='pending'
+WHERE lang.code='de'
+  AND ll.cefr_level='Pre-A1'
+  AND a.audio_text_target IS NOT NULL
+  AND a.audio_status='blocked_until_level_final'
+  AND a.audio_url IS NULL;
+
+COMMIT;
+
+-- ===== END 00-pre-a1-reopen.sql =====
+
+-- ===== BEGIN pre-a1.sql =====
 
 -- German Pre-A1
 -- Canonical runtime: MySQL 9.0.1
@@ -1224,3 +1317,1687 @@ WHERE id IN (@g_l_hallo,@g_l_danke,@g_l_residence,@g_l_object,@g_l_choice);
 
 COMMIT;
 -- END PRE-A1 ACTIVITY COUNT GUARDRAIL SYNC
+
+-- ===== END pre-a1.sql =====
+
+-- ===== BEGIN zz-pre-a1-character-cast.sql =====
+-- German Pre-A1 canonical character cast overlay.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+START TRANSACTION;
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+INSERT INTO characters
+(character_key,language_id,name,origin,gender,age_band,roles,relationship_tags,context_notes,voice_profile,elevenlabs_voice_id,voice_name) VALUES
+('char-de-mia',@de,'Mia','app_created','female','young_adult',JSON_ARRAY('conversation_partner'),JSON_ARRAY('classmate','friend'),'میا ۲۰ ساله است. تاریخ تولد او سیزدهم نوامبر و شمارهٔ تمرینی او 692-267-752 است.',JSON_OBJECT('clarity','high','stressLevel','very_low','aggressiveness','none','toneConsistency','high','ageImpression','young_adult','genderImpression','female'),NULL,NULL),
+('char-de-max',@de,'Max','app_created','male','young_adult',JSON_ARRAY('conversation_partner'),JSON_ARRAY('classmate'),'مکس ۱۸ ساله است. تاریخ تولد او ۱۶ ژوئیه و شمارهٔ تمرینی او 789 است. زبان‌آموز در چند صحنه نقش مکس را بازی می‌کند.',JSON_OBJECT('clarity','high','stressLevel','very_low','aggressiveness','none','toneConsistency','high','ageImpression','young_adult','genderImpression','male'),NULL,NULL),
+('char-de-lena',@de,'Lena','app_created','female','young_adult',JSON_ARRAY('conversation_partner'),JSON_ARRAY('friend','neighbor'),'لنا جوان، دوستانه و آرام است. زبان‌آموز در برخی صحنه‌های روزمره نقش لنا را بازی می‌کند.',JSON_OBJECT('clarity','high','stressLevel','very_low','aggressiveness','none','toneConsistency','high','ageImpression','young_adult','genderImpression','female'),NULL,NULL),
+('char-de-jonas',@de,'Jonas','app_created','male','young_adult',JSON_ARRAY('conversation_partner','cafe_staff'),JSON_ARRAY('neighbor'),'یوناس جوان و خوش‌برخورد است و در یکی از موقعیت‌های انتخاب غذا نقش کارمند کافه را دارد.',JSON_OBJECT('clarity','high','stressLevel','very_low','aggressiveness','none','toneConsistency','high','ageImpression','young_adult','genderImpression','male'),NULL,NULL),
+('char-de-iris',@de,'Iris','app_created','female','young_adult',JSON_ARRAY('conversation_partner'),JSON_ARRAY('acquaintance'),'آیریس یک زن جوان است و در صحنه‌های آشنایی مؤدبانه حضور دارد. در محتوای فعلی می‌گوید اهل آلمان است.',JSON_OBJECT('clarity','high','stressLevel','very_low','aggressiveness','none','toneConsistency','high','ageImpression','young_adult','genderImpression','female'),NULL,NULL),
+('char-de-paul',@de,'Paul Müller','app_created','male','young_adult',JSON_ARRAY('conversation_partner'),JSON_ARRAY('acquaintance'),'پاول مولر ۲۰ ساله است و در محتوای فعلی در اتریش زندگی می‌کند. زبان‌آموز در مرور اطلاعات شخصی نقش پاول را بازی می‌کند.',JSON_OBJECT('clarity','high','stressLevel','very_low','aggressiveness','none','toneConsistency','high','ageImpression','young_adult','genderImpression','male'),NULL,NULL)
+ON DUPLICATE KEY UPDATE language_id=VALUES(language_id),name=VALUES(name),origin=VALUES(origin),gender=VALUES(gender),age_band=VALUES(age_band),roles=VALUES(roles),relationship_tags=VALUES(relationship_tags),context_notes=VALUES(context_notes),voice_profile=VALUES(voice_profile);
+SET @mia:=(SELECT id FROM characters WHERE character_key='char-de-mia' LIMIT 1);
+SET @max:=(SELECT id FROM characters WHERE character_key='char-de-max' LIMIT 1);
+SET @lena:=(SELECT id FROM characters WHERE character_key='char-de-lena' LIMIT 1);
+SET @jonas:=(SELECT id FROM characters WHERE character_key='char-de-jonas' LIMIT 1);
+SET @iris:=(SELECT id FROM characters WHERE character_key='char-de-iris' LIMIT 1);
+SET @paul:=(SELECT id FROM characters WHERE character_key='char-de-paul' LIMIT 1);
+UPDATE dialogue_turns SET speaker_character_id=@iris WHERE turn_key IN ('turn-de-name-1','turn-de-name-4','turn-de-residence-1','turn-de-residence-4','turn-de-review-1','turn-de-review-3','turn-de-review-5','turn-de-review-7');
+UPDATE dialogue_turns SET speaker_character_id=@jonas WHERE turn_key IN ('turn-de-choice-1','turn-de-choice-3','turn-de-danke-bitte-1','turn-de-danke-bitte-3','turn-de-gm-2','turn-de-gm-3','turn-de-name-2','turn-de-name-3','turn-de-time-1','turn-de-time-3');
+UPDATE dialogue_turns SET speaker_character_id=@lena WHERE turn_key IN ('turn-de-danke-bitte-2','turn-de-danke-bitte-4','turn-de-gm-1','turn-de-gm-4','turn-de-object-1','turn-de-object-4','turn-de-wellbeing-2','turn-de-wellbeing-4');
+UPDATE dialogue_turns SET speaker_character_id=@max WHERE turn_key IN ('turn-de-age-2','turn-de-age-3','turn-de-birthday-2','turn-de-birthday-3','turn-de-choice-2','turn-de-choice-4','turn-de-entschuldigung-1','turn-de-entschuldigung-3','turn-de-hallo-2','turn-de-hallo-4','turn-de-ja-1','turn-de-ja-3','turn-de-phone-2','turn-de-phone-3','turn-de-pizza-2','turn-de-pizza-4');
+UPDATE dialogue_turns SET speaker_character_id=@mia WHERE turn_key IN ('turn-de-age-1','turn-de-age-4','turn-de-birthday-1','turn-de-birthday-4','turn-de-entschuldigung-2','turn-de-entschuldigung-4','turn-de-hallo-1','turn-de-hallo-3','turn-de-ja-2','turn-de-ja-4','turn-de-object-2','turn-de-object-3','turn-de-phone-1','turn-de-phone-4','turn-de-pizza-1','turn-de-pizza-3','turn-de-time-2','turn-de-time-4','turn-de-wellbeing-1','turn-de-wellbeing-3');
+UPDATE dialogue_turns SET speaker_character_id=@paul WHERE turn_key IN ('turn-de-residence-2','turn-de-residence-3','turn-de-review-2','turn-de-review-4','turn-de-review-6','turn-de-review-8');
+UPDATE dialogues SET scenario='میا و مکس با یک سلام ساده شروع می‌کنند و با یک خداحافظی کوتاه مکالمه را تمام می‌کنند.' WHERE dialogue_key='dlg-de-pre-a1-hallo';
+UPDATE dialogues SET scenario='صبح است؛ لنا گفت‌وگو را با همسایه‌اش یوناس با یک سلام صبحگاهی شروع می‌کند و مکالمه با خداحافظی کوتاه تمام می‌شود.' WHERE dialogue_key='dlg-de-pre-a1-guten-morgen';
+UPDATE dialogues SET scenario='میا و مکس سلام می‌کنند و بعد یک پرسش و پاسخ کوتاه دربارهٔ دوست‌داشتن پیتزا دارند.' WHERE dialogue_key='dlg-de-pre-a1-pizza-like';
+UPDATE dialogues SET scenario='این بار مکس خودش سلام می‌کند و سؤال آشنای پیتزا را می‌پرسد؛ میا با یک پاسخ مثبت کوتاه جواب می‌دهد.' WHERE dialogue_key='dlg-de-pre-a1-ja';
+UPDATE dialogues SET scenario='یوناس و لنا سلام می‌کنند؛ بعد از یک کمک کوچک یوناس تشکر می‌کند و لنا پاسخ مؤدبانه می‌دهد.' WHERE dialogue_key='dlg-de-pre-a1-danke-bitte';
+UPDATE dialogues SET scenario='مکس برای یک اشتباه کوچک عذرخواهی می‌کند، میا پاسخ آرام می‌دهد و تعامل با تشکر و پاسخ مؤدبانه تمام می‌شود.' WHERE dialogue_key='dlg-de-pre-a1-entschuldigung';
+UPDATE dialogues SET scenario='آیریس سلام می‌کند و یوناس پس از پاسخ، نام او را می‌پرسد و پاسخ سادهٔ «Ich heiße Iris.» را می‌شنود.' WHERE dialogue_key='dlg-de-pre-a1-name-exchange';
+UPDATE dialogues SET scenario='میا و لنا سلام می‌کنند و میا یک احوال‌پرسی خیلی کوتاه می‌پرسد که لنا با یک پاسخ ساده جواب می‌دهد.' WHERE dialogue_key='dlg-de-pre-a1-wellbeing';
+UPDATE dialogues SET scenario='مکس در یک کافه با یوناس سلام می‌کند؛ یوناس می‌پرسد چه می‌خواهد و مکس گزینهٔ آشنای «Pizza.» را انتخاب می‌کند.' WHERE dialogue_key='dlg-de-pre-a1-simple-choice';
+UPDATE dialogues SET scenario='آیریس و پاول در یک آشنایی مؤدبانه دربارهٔ محل زندگی و مبدأ سؤال و جواب می‌کنند.' WHERE dialogue_key='dlg-de-pre-a1-residence-origin';
+UPDATE dialogues SET scenario='میا و مکس سن هم را می‌پرسند؛ مکس ۱۸ ساله و میا ۲۰ ساله است.' WHERE dialogue_key='dlg-de-pre-a1-age-numbers';
+UPDATE dialogues SET scenario='میا و مکس تاریخ تولد را از هم می‌پرسند؛ تاریخ‌های این صحنه به اطلاعات ثابت همین دو شخصیت تبدیل شده‌اند.' WHERE dialogue_key='dlg-de-pre-a1-birthday-date';
+UPDATE dialogues SET scenario='میا و مکس شمارهٔ تلفن تمرینی را از هم می‌پرسند و دو شمارهٔ منبع‌دار می‌گویند.' WHERE dialogue_key='dlg-de-pre-a1-phone-number';
+UPDATE dialogues SET scenario='یوناس دربارهٔ روز و ساعت فعلی سؤال می‌کند و میا با اطلاعات ساده پاسخ می‌دهد.' WHERE dialogue_key='dlg-de-pre-a1-day-time';
+UPDATE dialogues SET scenario='لنا و میا دربارهٔ دو شیء نام‌برده‌شده سؤال بسیار ساده می‌پرسند؛ حل فعالیت به تصویر وابسته نیست.' WHERE dialogue_key='dlg-de-pre-a1-basic-object';
+UPDATE dialogues SET scenario='آیریس در یک آشنایی مؤدبانه با پاول مولر چند بخش اصلی اطلاعات شخصی او را در هشت نوبت مرور می‌کند.' WHERE dialogue_key='dlg-de-pre-a1-personal-review';
+DELETE FROM characters WHERE language_id=@de AND character_key='char-de-learner';
+COMMIT;
+
+-- ===== END zz-pre-a1-character-cast.sql =====
+
+-- ===== BEGIN zz-pre-a1-persian-payloads.sql =====
+-- Persian learner-facing payload translations for German Pre-A1.
+-- This file is intentionally sorted after pre-a1.sql and is idempotent.
+-- Final lessons are reopened only for the duration of these activity updates,
+-- then restored to their exact prior status in the same transaction.
+
+START TRANSACTION;
+
+DROP TEMPORARY TABLE IF EXISTS _prea1_translation_lesson_status;
+CREATE TEMPORARY TABLE _prea1_translation_lesson_status AS
+SELECT DISTINCT l.id AS lesson_id, l.status AS original_status
+FROM lessons l
+JOIN activities a ON a.lesson_id=l.id
+WHERE a.activity_key IN (
+  'act-de-hallo-farewell-choice',
+  'act-de-gm-choice',
+  'act-de-pizza-word-order',
+  'act-de-ja-nein-choice',
+  'act-de-danke-bitte-response',
+  'act-de-entschuldigung-matching',
+  'act-de-name-word-order',
+  'act-de-wellbeing-fill',
+  'act-de-simple-choice-word-order',
+  'act-de-residence-matching',
+  'act-de-age-listen',
+  'act-de-time-listen',
+  'act-de-time-of-day',
+  'act-de-birthday-fill',
+  'act-de-phone-listen',
+  'act-de-object-word-order',
+  'act-de-personal-form',
+  'act-de-price-listen'
+);
+
+UPDATE lessons l
+JOIN _prea1_translation_lesson_status b ON b.lesson_id=l.id
+SET l.status='qa'
+WHERE b.original_status='final';
+
+UPDATE activities
+SET payload = JSON_SET(payload,
+  '$.options[0].translationFa','خداحافظ!',
+  '$.options[1].translationFa','سلام!')
+WHERE activity_key='act-de-hallo-farewell-choice';
+
+UPDATE activities
+SET payload = JSON_SET(payload,
+  '$.options[0].translationFa','صبح بخیر!',
+  '$.options[1].translationFa','سلام!')
+WHERE activity_key='act-de-gm-choice';
+
+UPDATE activities
+SET payload = JSON_SET(payload,'$.sourceTextFa','من پیتزا دوست دارم.')
+WHERE activity_key='act-de-pizza-word-order';
+
+UPDATE activities
+SET payload = JSON_SET(payload,
+  '$.promptFa','پیتزا دوست داری؟',
+  '$.options[0].translationFa','بله!',
+  '$.options[1].translationFa','نه!')
+WHERE activity_key='act-de-ja-nein-choice';
+
+UPDATE activities
+SET payload = JSON_SET(payload,
+  '$.promptFa','ممنون!',
+  '$.options[0].translationFa','خواهش می‌کنم!',
+  '$.options[1].translationFa','سلام!')
+WHERE activity_key='act-de-danke-bitte-response';
+
+UPDATE activities
+SET payload = JSON_SET(payload,
+  '$.pairs[0].leftFa','ببخشید.',
+  '$.pairs[0].rightFa','مشکلی نیست.',
+  '$.pairs[1].leftFa','ممنون!',
+  '$.pairs[1].rightFa','خواهش می‌کنم!')
+WHERE activity_key='act-de-entschuldigung-matching';
+
+UPDATE activities
+SET payload = JSON_SET(payload,'$.sourceTextFa','اسم من آیریس است.')
+WHERE activity_key='act-de-name-word-order';
+
+UPDATE activities
+SET payload = JSON_SET(payload,
+  '$.sourceTextFa','حالت چطوره؟',
+  '$.blankedTextFa','___ چطوره؟',
+  '$.choicesFa',JSON_ARRAY('حالت','خوب'))
+WHERE activity_key='act-de-wellbeing-fill';
+
+UPDATE activities
+SET payload = JSON_SET(payload,'$.sourceTextFa','چی می‌خوای؟')
+WHERE activity_key='act-de-simple-choice-word-order';
+
+UPDATE activities
+SET payload = JSON_SET(payload,
+  '$.pairs[0].leftFa','کجا زندگی می‌کنید؟',
+  '$.pairs[0].rightFa','من در اتریش زندگی می‌کنم.',
+  '$.pairs[1].leftFa','اهل کجا هستید؟',
+  '$.pairs[1].rightFa','من اهل آلمان هستم، شما چطور؟')
+WHERE activity_key='act-de-residence-matching';
+
+UPDATE activities
+SET payload = JSON_SET(payload,'$.audioTextTargetFa','هجده')
+WHERE activity_key='act-de-age-listen';
+
+UPDATE activities
+SET payload = JSON_SET(payload,'$.audioTextTargetFa','ساعت ۶:۳۰ است.')
+WHERE activity_key='act-de-time-listen';
+
+UPDATE activities
+SET payload = JSON_SET(payload,
+  '$.options[0].translationFa','صبح است.',
+  '$.options[1].translationFa','عصر است.')
+WHERE activity_key='act-de-time-of-day';
+
+UPDATE activities
+SET payload = JSON_SET(payload,
+  '$.sourceTextFa','تولد من سیزدهم نوامبر است.',
+  '$.blankedTextFa','تولد من ___ نوامبر است.',
+  '$.choicesFa',JSON_ARRAY('سیزدهم'))
+WHERE activity_key='act-de-birthday-fill';
+
+UPDATE activities
+SET payload = JSON_SET(payload,'$.audioTextTargetFa','شماره تلفن من ۷۸۹ است.')
+WHERE activity_key='act-de-phone-listen';
+
+UPDATE activities
+SET payload = JSON_SET(payload,'$.sourceTextFa','این یک کتاب است.')
+WHERE activity_key='act-de-object-word-order';
+
+UPDATE activities
+SET payload = JSON_SET(payload,
+  '$.fields[0].patternFa','اسم من ___ است.',
+  '$.fields[0].exampleSourceTextFa','اسم من پاول مولر است.',
+  '$.fields[1].patternFa','من در ___ زندگی می‌کنم.',
+  '$.fields[1].exampleSourceTextFa','من در اتریش زندگی می‌کنم.',
+  '$.fields[2].patternFa','من ___ ساله هستم.',
+  '$.fields[2].exampleSourceTextFa','من ۲۰ ساله هستم.',
+  '$.fields[3].patternFa','شماره تلفن من ___ است.',
+  '$.fields[3].exampleSourceTextFa','شماره تلفن من ۷۸۹ است.',
+  '$.fields[4].patternFa','تولد من ___ است.',
+  '$.fields[4].exampleSourceTextFa','تولد من سیزدهم نوامبر است.',
+  '$.fields[5].patternFa','نشانی: ___',
+  '$.fields[5].exampleSourceTextFa','نشانی')
+WHERE activity_key='act-de-personal-form';
+
+UPDATE activities
+SET payload = JSON_SET(payload,'$.audioTextTargetFa','قیمت مجله ۷٫۶۰ یورو است.')
+WHERE activity_key='act-de-price-listen';
+
+UPDATE lessons l
+JOIN _prea1_translation_lesson_status b ON b.lesson_id=l.id
+SET l.status=b.original_status;
+
+DROP TEMPORARY TABLE _prea1_translation_lesson_status;
+
+COMMIT;
+
+-- ===== END zz-pre-a1-persian-payloads.sql =====
+
+-- ===== BEGIN zzy-pre-a1-simple-orders-reopen.sql =====
+-- Reopen Unit 3 lessons before the idempotent Unit 3 upsert runs again.
+-- On the first import these rows do not exist, so this is intentionally a no-op.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+START TRANSACTION;
+UPDATE lessons
+SET status='qa'
+WHERE lesson_key IN (
+  'de-pre-a1-lesson-food-today',
+  'de-pre-a1-lesson-simple-order',
+  'de-pre-a1-lesson-need-and-buy'
+) AND status='final';
+COMMIT;
+
+-- ===== END zzy-pre-a1-simple-orders-reopen.sql =====
+
+-- ===== BEGIN zzz-pre-a1-simple-orders.sql =====
+-- German Pre-A1 Unit 3: simple food, ordering, needs and shopping.
+-- Idempotent extension; generated audio metadata is never overwritten on re-import.
+
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);
+SET @iris := (SELECT id FROM characters WHERE character_key='char-de-iris' LIMIT 1);
+SET @paul := (SELECT id FROM characters WHERE character_key='char-de-paul' LIMIT 1);
+
+INSERT INTO curriculum_targets(language_level_id,target_key,target_type,title,description,required_for_completion,status,metadata) VALUES
+(@level,'de.pre_a1.food_today','communicative','فهم غذای موجود و گفتن یک غذای آشنا','«Was gibt es heute?» و «Was essen Sie?» را در بافت بسیار ساده بفهمد و پاسخ کوتاه بدهد.',TRUE,'covered',JSON_OBJECT('unit3',TRUE)),
+(@level,'de.pre_a1.simple_order','communicative','سفارش بسیار کوتاه و مؤدبانه','پرسش سفارش ساده را بفهمد و با عبارت کوتاه «Eine Tasse Kaffee bitte!» پاسخ دهد.',TRUE,'covered',JSON_OBJECT('unit3',TRUE)),
+(@level,'de.pre_a1.need_and_buy','communicative','فهم نیاز و خرید بسیار ساده','پرسش‌های ساده با «brauchen» و «kaufen» را بفهمد و پاسخ کوتاه منبع‌دار بدهد.',TRUE,'covered',JSON_OBJECT('unit3',TRUE))
+ON DUPLICATE KEY UPDATE target_type=VALUES(target_type),title=VALUES(title),description=VALUES(description),required_for_completion=VALUES(required_for_completion),status=VALUES(status),metadata=VALUES(metadata);
+SET @t_food := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.food_today');
+SET @t_order := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.simple_order');
+SET @t_need := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.need_and_buy');
+
+INSERT INTO sources(source_key,title,title_fa,organization_or_author,language_code,source_type,url,locator,locator_fa,published_or_updated_at,modernity_status,currency_evidence,license_name,license_url,attribution_text,reuse_status,retrieved_at,notes) VALUES
+('src-wikibooks-de-lesson-002','Deutschkurs für Anfänger/Lektion 002','منبع غذای روز و سفارش خیلی ساده','Wikibooks contributors','de','course','https://en.wikibooks.org/wiki/Deutschkurs_f%C3%BCr_Anf%C3%A4nger/Lektion_002','Items 040–058','بخش‌های ۰۴۰ تا ۰۵۸؛ غذای موجود، خوردن و سفارش ساده.',NULL,'maintained_current','صفحهٔ زندهٔ Wikibooks در ۱۷ سپتامبر ۲۰۲۶ بررسی شد؛ عبارت‌های غذا، نوشیدنی و سفارش برای کاربرد آموزشی معاصر مناسب‌اند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wikibooks contributors — Deutschkurs für Anfänger/Lektion 002','reuse_with_attribution','2026-09-17','منبع اصلی واحد سوم برای غذای امروز و سفارش خیلی ساده.'),
+('src-wikibooks-de-lesson-004','Deutschkurs für Anfänger/Lektion 004','منبع نیاز و خرید خیلی ساده','Wikibooks contributors','de','course','https://en.wikibooks.org/wiki/Deutschkurs_f%C3%BCr_Anf%C3%A4nger/Lektion_004','Items 131 and 134','بخش‌های ۱۳۱ و ۱۳۴؛ نیاز و خرید بسیار ساده.',NULL,'maintained_current','صفحهٔ زندهٔ Wikibooks در ۱۷ سپتامبر ۲۰۲۶ بررسی شد؛ الگوهای «brauchen» و «kaufen» برای کاربرد آموزشی معاصر معتبرند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wikibooks contributors — Deutschkurs für Anfänger/Lektion 004','reuse_with_attribution','2026-09-17','منبع واحد سوم برای نیاز و خرید خیلی ساده.')
+ON DUPLICATE KEY UPDATE title=VALUES(title),title_fa=VALUES(title_fa),organization_or_author=VALUES(organization_or_author),source_type=VALUES(source_type),url=VALUES(url),locator=VALUES(locator),locator_fa=VALUES(locator_fa),modernity_status=VALUES(modernity_status),currency_evidence=VALUES(currency_evidence),license_name=VALUES(license_name),license_url=VALUES(license_url),attribution_text=VALUES(attribution_text),reuse_status=VALUES(reuse_status),retrieved_at=VALUES(retrieved_at),notes=VALUES(notes);
+SET @s2 := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-002');
+SET @s4 := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-004');
+
+INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,source_text_hash,notes) VALUES
+(@s2,'srcitem-de-u3-was-gibt-heute','046','بخش ۰۴۶','Was gibt es heute?',UNHEX(SHA2('Was gibt es heute?',256)),'پرسش غذای موجود.'),
+(@s2,'srcitem-de-u3-heute-suppe','046','بخش ۰۴۶','Heute gibt es Suppe.',UNHEX(SHA2('Heute gibt es Suppe.',256)),'پاسخ غذای موجود.'),
+(@s2,'srcitem-de-u3-was-essen','047','بخش ۰۴۷','Was essen Sie?',UNHEX(SHA2('Was essen Sie?',256)),'پرسش دربارهٔ خوردن.'),
+(@s2,'srcitem-de-u3-ich-esse-reis','042','بخش ۰۴۲','Ich esse Reis.',UNHEX(SHA2('Ich esse Reis.',256)),'پاسخ دربارهٔ خوردن.'),
+(@s2,'srcitem-de-u3-guten-tag','049/058','بخش ۰۴۹/۰۵۸','Guten Tag!',UNHEX(SHA2('Guten Tag!',256)),'سلام مؤدبانه.'),
+(@s2,'srcitem-de-u3-order-question','049','بخش ۰۴۹','Was möchten Sie bitte?',UNHEX(SHA2('Was möchten Sie bitte?',256)),'پرسش سفارش.'),
+(@s2,'srcitem-de-u3-coffee-please','057','بخش ۰۵۷','Eine Tasse Kaffee bitte!',UNHEX(SHA2('Eine Tasse Kaffee bitte!',256)),'سفارش کوتاه قهوه.'),
+(@s4,'srcitem-de-u3-need-question','131','بخش ۱۳۱','Was brauchen Sie?',UNHEX(SHA2('Was brauchen Sie?',256)),'پرسش نیاز.'),
+(@s4,'srcitem-de-u3-need-hose','134','بخش ۱۳۴','Ich brauche eine Hose.',UNHEX(SHA2('Ich brauche eine Hose.',256)),'پاسخ نیاز.'),
+(@s4,'srcitem-de-u3-buy-question','134','بخش ۱۳۴','Und was kaufen Sie?',UNHEX(SHA2('Und was kaufen Sie?',256)),'پرسش خرید.'),
+(@s4,'srcitem-de-u3-buy-answer','134','بخش ۱۳۴','Ich kaufe ein Hemd und ein Paar Schuhe.',UNHEX(SHA2('Ich kaufe ein Hemd und ein Paar Schuhe.',256)),'پاسخ خرید.')
+ON DUPLICATE KEY UPDATE locator=VALUES(locator),locator_fa=VALUES(locator_fa),source_text=VALUES(source_text),source_text_hash=VALUES(source_text_hash),notes=VALUES(notes);
+
+INSERT INTO units(unit_key,language_level_id,sequence_index,title_fa,grouping_rationale,status,metadata,notes) VALUES
+('de-pre-a1-unit-simple-orders',@level,3,'خرید و سفارش خیلی ساده','این سه درس زبان‌آموز را از دیدن و گفتن گزینهٔ موجود، به سفارش مؤدبانه و سپس بیان یک نیاز یا خرید بسیار ساده می‌برند؛ همه در موقعیت‌های روزمرهٔ کم‌فشار و با جمله‌های کوتاه و منبع‌دار باقی می‌مانند.','final',JSON_OBJECT('dynamicStructure',TRUE),'این واحد دامنهٔ کاربرد روزمرهٔ سطح پیش از A1 را گسترش می‌دهد و سهمیهٔ عددی ایجاد نمی‌کند.')
+ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),sequence_index=VALUES(sequence_index),title_fa=VALUES(title_fa),grouping_rationale=VALUES(grouping_rationale),status=VALUES(status),metadata=VALUES(metadata),notes=VALUES(notes);
+SET @unit3 := (SELECT id FROM units WHERE unit_key='de-pre-a1-unit-simple-orders');
+INSERT IGNORE INTO unit_targets(unit_id,curriculum_target_id) VALUES(@unit3,@t_food),(@unit3,@t_order),(@unit3,@t_need);
+
+INSERT INTO lessons(lesson_key,language_level_id,unit_id,sequence_index,position_in_unit,title_fa,source_title,source_title_fa,status,activity_selection_rationale,sequence_rationale,template_signature,audio_status,notes) VALUES
+('de-pre-a1-lesson-food-today',@level,@unit3,17,1,'امروز چی داریم؟','Was gibt es heute? / Was essen Sie?','امروز چی داریم؟ / شما چی می‌خورید؟','draft','مکالمه معنی دو پرسش روزمره را در بافت می‌سازد و تمرین تطبیق همان دو جفت را بازیابی می‌کند.','اول پرسش‌ها در گفت‌وگو و سپس همان ارتباط‌ها در تمرین تطبیق تثبیت می‌شوند.','conversation_speaking>matching','pending',NULL),
+('de-pre-a1-lesson-simple-order',@level,@unit3,18,2,'یک قهوه، لطفاً','Was möchten Sie bitte? / Eine Tasse Kaffee bitte!','لطفاً چی میل دارید؟ / یک فنجان قهوه لطفاً!','draft','گفت‌وگو سفارش کوتاه را در موقعیت واقعی قرار می‌دهد و مرتب‌سازی واژه‌ها همان عبارت سفارش را بازسازی می‌کند.','اول سفارش در تعامل و سپس همان عبارت با مرتب‌سازی واژه‌ها بازیابی می‌شود.','conversation_speaking>word_order','pending',NULL),
+('de-pre-a1-lesson-need-and-buy',@level,@unit3,19,3,'چی لازم داری؟ چی می‌خری؟','Was brauchen Sie? / Und was kaufen Sie?','چه چیزی لازم دارید؟ / و چه چیزی می‌خرید؟','draft','مکالمه دو فعل کاربردی را در دو سؤال معرفی می‌کند و تمرین تطبیق تفاوت نیاز و خرید را تثبیت می‌کند.','ابتدا نیاز و خرید در تعامل دیده می‌شوند و سپس به پاسخ درست وصل می‌شوند.','conversation_speaking>matching','pending',NULL)
+ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),unit_id=VALUES(unit_id),sequence_index=VALUES(sequence_index),position_in_unit=VALUES(position_in_unit),title_fa=VALUES(title_fa),source_title=VALUES(source_title),source_title_fa=VALUES(source_title_fa),activity_selection_rationale=VALUES(activity_selection_rationale),sequence_rationale=VALUES(sequence_rationale),template_signature=VALUES(template_signature),notes=VALUES(notes);
+SET @l17 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-food-today');
+SET @l18 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-simple-order');
+SET @l19 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-need-and-buy');
+INSERT IGNORE INTO lesson_targets(lesson_id,curriculum_target_id,coverage_role) VALUES(@l17,@t_food,'introduce'),(@l18,@t_order,'introduce'),(@l19,@t_need,'introduce');
+
+INSERT INTO dialogues(dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES
+('dlg-de-pre-a1-food-today',@level,'آیریس و پاول دربارهٔ غذای امروز و چیزی که می‌خورند سؤال و جواب می‌کنند.','app','چهار نوبت برای دو جفت سؤال و پاسخ کوتاه کافی است.'),
+('dlg-de-pre-a1-simple-order',@level,'آیریس سفارش بسیار کوتاه پاول را می‌گیرد و پاول قهوه سفارش می‌دهد.','app','سلام، پرسش سفارش و پاسخ مؤدبانه بدون پیچیدگی اضافه تمرین می‌شوند.'),
+('dlg-de-pre-a1-need-and-buy',@level,'آیریس از پاول می‌پرسد چه چیزی لازم دارد و چه چیزی می‌خرد.','app','دو پرسش و دو پاسخ کوتاه تفاوت کاربردی نیاز و خرید را نشان می‌دهند.')
+ON DUPLICATE KEY UPDATE language_level_id=VALUES(language_level_id),scenario=VALUES(scenario),opening_initiator=VALUES(opening_initiator),scene_quality_rationale=VALUES(scene_quality_rationale);
+SET @d17 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-food-today');
+SET @d18 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-simple-order');
+SET @d19 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-need-and-buy');
+
+INSERT INTO dialogue_turns(turn_key,dialogue_id,position_index,speaker_character_id,speaker_identity_origin,speaker_gender_evidence,text_target,translation_fa,learner_turn,audio_status) VALUES
+('turn-de-food-today-1',@d17,1,@iris,'app_assigned','unspecified','Was gibt es heute?','امروز چی داریم؟',FALSE,'pending'),
+('turn-de-food-today-2',@d17,2,@paul,'app_assigned','unspecified','Heute gibt es Suppe.','امروز سوپ داریم.',TRUE,'pending'),
+('turn-de-food-today-3',@d17,3,@iris,'app_assigned','unspecified','Was essen Sie?','شما چی می‌خورید؟',FALSE,'pending'),
+('turn-de-food-today-4',@d17,4,@paul,'app_assigned','unspecified','Ich esse Reis.','من برنج می‌خورم.',TRUE,'pending'),
+('turn-de-simple-order-1',@d18,1,@iris,'app_assigned','unspecified','Guten Tag!','سلام / روز بخیر!',FALSE,'pending'),
+('turn-de-simple-order-2',@d18,2,@paul,'app_assigned','unspecified','Guten Tag!','سلام / روز بخیر!',TRUE,'pending'),
+('turn-de-simple-order-3',@d18,3,@iris,'app_assigned','unspecified','Was möchten Sie bitte?','لطفاً چی میل دارید؟',FALSE,'pending'),
+('turn-de-simple-order-4',@d18,4,@paul,'app_assigned','unspecified','Eine Tasse Kaffee bitte!','یک فنجان قهوه لطفاً!',TRUE,'pending'),
+('turn-de-need-buy-1',@d19,1,@iris,'app_assigned','unspecified','Was brauchen Sie?','چه چیزی لازم دارید؟',FALSE,'pending'),
+('turn-de-need-buy-2',@d19,2,@paul,'app_assigned','unspecified','Ich brauche eine Hose.','من یک شلوار لازم دارم.',TRUE,'pending'),
+('turn-de-need-buy-3',@d19,3,@iris,'app_assigned','unspecified','Und was kaufen Sie?','و چه چیزی می‌خرید؟',FALSE,'pending'),
+('turn-de-need-buy-4',@d19,4,@paul,'app_assigned','unspecified','Ich kaufe ein Hemd und ein Paar Schuhe.','من یک پیراهن و یک جفت کفش می‌خرم.',TRUE,'pending')
+ON DUPLICATE KEY UPDATE dialogue_id=VALUES(dialogue_id),position_index=VALUES(position_index),speaker_character_id=VALUES(speaker_character_id),speaker_identity_origin=VALUES(speaker_identity_origin),speaker_gender_evidence=VALUES(speaker_gender_evidence),text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn);
+
+INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status) VALUES
+('act-de-food-today-conversation',@l17,1,'conversation_speaking','به سؤال‌های آیریس دربارهٔ غذای امروز و چیزی که می‌خوری جواب بده.','چهار نوبت منبع‌دار هر دو هدف ارتباطی را با کمترین بار شناختی پوشش می‌دهد.',@d17,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-food-today-matching',@l17,2,'matching','هر پرسش را به پاسخ درست وصل کن.','دو جفت دقیق منبع‌دار را بدون جملهٔ تازه دوباره بازیابی می‌کند.',NULL,JSON_OBJECT('pairs',JSON_ARRAY(JSON_OBJECT('left','Was gibt es heute?','leftFa','امروز چی داریم؟','right','Heute gibt es Suppe.','rightFa','امروز سوپ داریم.'),JSON_OBJECT('left','Was essen Sie?','leftFa','شما چی می‌خورید؟','right','Ich esse Reis.','rightFa','من برنج می‌خورم.'))),JSON_ARRAY('source_items_grouped_for_matching','persian_translation_added'),NULL,'not_required'),
+('act-de-simple-order-conversation',@l18,1,'conversation_speaking','سلام کن و وقتی آیریس سفارش را می‌پرسد، یک فنجان قهوه سفارش بده.','این تبادل کوتاه الگوی منبع را بدون دستور تازه تمرین می‌دهد.',@d18,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-simple-order-word-order',@l18,2,'word_order','سفارش کوتاه را دوباره بساز.','بازسازی همان عبارت منبع‌دار، الگوی کاربردی سفارش را تثبیت می‌کند.',NULL,JSON_OBJECT('sourceText','Eine Tasse Kaffee bitte!','sourceTextFa','یک فنجان قهوه لطفاً!','tokens',JSON_ARRAY('Eine','Tasse','Kaffee','bitte!'),'answer',JSON_ARRAY('Eine','Tasse','Kaffee','bitte!')),JSON_ARRAY('sentence_tokenized_for_word_order','persian_translation_added'),NULL,'not_required'),
+('act-de-need-buy-conversation',@l19,1,'conversation_speaking','به آیریس بگو چه چیزی لازم داری و چه چیزی می‌خری.','دو جفت سؤال و پاسخ کوتاه معنای کاربردی «brauchen» و «kaufen» را روشن می‌کنند.',@d19,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','app'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-need-buy-matching',@l19,2,'matching','هر سؤال را به پاسخ درست وصل کن.','دو کاربرد نزدیک ولی متفاوت فقط با جمله‌های دقیق منبع تثبیت می‌شوند.',NULL,JSON_OBJECT('pairs',JSON_ARRAY(JSON_OBJECT('left','Was brauchen Sie?','leftFa','چه چیزی لازم دارید؟','right','Ich brauche eine Hose.','rightFa','من یک شلوار لازم دارم.'),JSON_OBJECT('left','Und was kaufen Sie?','leftFa','و چه چیزی می‌خرید؟','right','Ich kaufe ein Hemd und ein Paar Schuhe.','rightFa','من یک پیراهن و یک جفت کفش می‌خرم.'))),JSON_ARRAY('source_items_grouped_for_matching','persian_translation_added'),NULL,'not_required')
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+UPDATE lessons SET status='final' WHERE id IN(@l17,@l18,@l19);
+
+INSERT INTO lexemes(lexeme_key,language_id,lexeme_type,surface,normalized_surface,lemma,part_of_speech,part_of_speech_fa,cefr_level,translation_fa,usage_note_fa,flashcard_eligible,audio_status) VALUES
+('lex-de-suppe',@de,'word','Suppe','Suppe','Suppe','noun','اسم','Pre-A1','سوپ','در پاسخ «Heute gibt es Suppe.» استفاده می‌شود.',TRUE,'pending'),
+('lex-de-essen',@de,'word','essen','essen','essen','verb','فعل','Pre-A1','خوردن','برای پرسیدن و گفتن چیزی که فرد می‌خورد استفاده می‌شود.',TRUE,'pending'),
+('lex-de-reis',@de,'word','Reis','Reis','Reis','noun','اسم','Pre-A1','برنج',NULL,TRUE,'pending'),
+('lex-de-tasse',@de,'word','Tasse','Tasse','Tasse','noun','اسم','Pre-A1','فنجان','در سفارش «Eine Tasse Kaffee bitte!» استفاده می‌شود.',TRUE,'pending'),
+('lex-de-kaffee',@de,'word','Kaffee','Kaffee','Kaffee','noun','اسم','Pre-A1','قهوه',NULL,TRUE,'pending'),
+('lex-de-brauchen',@de,'word','brauchen','brauchen','brauchen','verb','فعل','Pre-A1','لازم داشتن / نیاز داشتن','در این سطح فقط در الگوی خیلی سادهٔ نیاز استفاده می‌شود.',TRUE,'pending'),
+('lex-de-hose',@de,'word','Hose','Hose','Hose','noun','اسم','Pre-A1','شلوار',NULL,TRUE,'pending'),
+('lex-de-kaufen',@de,'word','kaufen','kaufen','kaufen','verb','فعل','Pre-A1','خریدن','در این سطح فقط برای بیان یک خرید ساده استفاده می‌شود.',TRUE,'pending'),
+('lex-de-hemd',@de,'word','Hemd','Hemd','Hemd','noun','اسم','Pre-A1','پیراهن',NULL,TRUE,'pending'),
+('lex-de-schuhe',@de,'word','Schuhe','Schuhe','Schuh','noun','اسم','Pre-A1','کفش‌ها / یک جفت کفش','در جملهٔ منبع به‌صورت جمع «Schuhe» آمده است.',TRUE,'pending')
+ON DUPLICATE KEY UPDATE language_id=VALUES(language_id),lexeme_type=VALUES(lexeme_type),surface=VALUES(surface),normalized_surface=VALUES(normalized_surface),lemma=VALUES(lemma),part_of_speech=VALUES(part_of_speech),part_of_speech_fa=VALUES(part_of_speech_fa),cefr_level=VALUES(cefr_level),translation_fa=VALUES(translation_fa),usage_note_fa=VALUES(usage_note_fa),flashcard_eligible=VALUES(flashcard_eligible);
+
+SET @x_suppe=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-suppe');
+SET @x_essen=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-essen');
+SET @x_reis=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-reis');
+SET @x_tasse=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-tasse');
+SET @x_kaffee=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-kaffee');
+SET @x_brauchen=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-brauchen');
+SET @x_hose=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-hose');
+SET @x_kaufen=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-kaufen');
+SET @x_hemd=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-hemd');
+SET @x_schuhe=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-schuhe');
+SET @x_heute=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-heute');
+SET @x_bitte=(SELECT id FROM lexemes WHERE lexeme_key='lex-de-bitte');
+INSERT IGNORE INTO lesson_lexemes(lesson_id,lexeme_id,is_primary,role) VALUES
+(@l17,@x_heute,FALSE,'review'),(@l17,@x_suppe,TRUE,'introduce'),(@l17,@x_essen,TRUE,'introduce'),(@l17,@x_reis,TRUE,'introduce'),
+(@l18,@x_bitte,FALSE,'review'),(@l18,@x_tasse,TRUE,'introduce'),(@l18,@x_kaffee,TRUE,'introduce'),
+(@l19,@x_brauchen,TRUE,'introduce'),(@l19,@x_hose,TRUE,'introduce'),(@l19,@x_kaufen,TRUE,'introduce'),(@l19,@x_hemd,TRUE,'introduce'),(@l19,@x_schuhe,TRUE,'introduce');
+
+SET @a17a=(SELECT id FROM activities WHERE activity_key='act-de-food-today-conversation');
+SET @a17b=(SELECT id FROM activities WHERE activity_key='act-de-food-today-matching');
+SET @a18a=(SELECT id FROM activities WHERE activity_key='act-de-simple-order-conversation');
+SET @a18b=(SELECT id FROM activities WHERE activity_key='act-de-simple-order-word-order');
+SET @a19a=(SELECT id FROM activities WHERE activity_key='act-de-need-buy-conversation');
+SET @a19b=(SELECT id FROM activities WHERE activity_key='act-de-need-buy-matching');
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id) VALUES(@a17a,@t_food),(@a17b,@t_food),(@a18a,@t_order),(@a18b,@t_order),(@a19a,@t_need),(@a19b,@t_need);
+INSERT IGNORE INTO activity_lexemes(activity_id,lexeme_id) VALUES
+(@a17a,@x_heute),(@a17a,@x_suppe),(@a17a,@x_essen),(@a17a,@x_reis),(@a17b,@x_heute),(@a17b,@x_suppe),(@a17b,@x_essen),(@a17b,@x_reis),
+(@a18a,@x_bitte),(@a18a,@x_tasse),(@a18a,@x_kaffee),(@a18b,@x_bitte),(@a18b,@x_tasse),(@a18b,@x_kaffee),
+(@a19a,@x_brauchen),(@a19a,@x_hose),(@a19a,@x_kaufen),(@a19a,@x_hemd),(@a19a,@x_schuhe),(@a19b,@x_brauchen),(@a19b,@x_hose),(@a19b,@x_kaufen),(@a19b,@x_hemd),(@a19b,@x_schuhe);
+
+SET @si_q1=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-was-gibt-heute');
+SET @si_a1=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-heute-suppe');
+SET @si_q2=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-was-essen');
+SET @si_a2=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-ich-esse-reis');
+SET @si_gt=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-guten-tag');
+SET @si_oq=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-order-question');
+SET @si_oa=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-coffee-please');
+SET @si_nq=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-need-question');
+SET @si_na=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-need-hose');
+SET @si_bq=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-buy-question');
+SET @si_ba=(SELECT id FROM source_items WHERE item_key='srcitem-de-u3-buy-answer');
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes) VALUES
+('dialogue_turn','turn-de-food-today-1',@si_q1,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-food-today-2',@si_a1,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-food-today-3',@si_q2,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-food-today-4',@si_a2,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-simple-order-1',@si_gt,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-simple-order-2',@si_gt,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-simple-order-3',@si_oq,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-simple-order-4',@si_oa,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-need-buy-1',@si_nq,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-need-buy-2',@si_na,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-need-buy-3',@si_bq,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-need-buy-4',@si_ba,'verbatim','متن هدف عین منبع است.'),
+('activity','act-de-food-today-matching',@si_q1,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-food-today-matching',@si_a1,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-food-today-matching',@si_q2,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-food-today-matching',@si_a2,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-simple-order-word-order',@si_oa,'sentence_tokenized_for_word_order','جملهٔ منبع برای مرتب‌سازی واژه‌ها بخش‌بندی شده است.'),
+('activity','act-de-need-buy-matching',@si_nq,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-need-buy-matching',@si_na,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-need-buy-matching',@si_bq,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('activity','act-de-need-buy-matching',@si_ba,'source_items_grouped_for_matching','جفت پرسش و پاسخ از منبع گروه‌بندی شده است.'),
+('lexeme','lex-de-suppe',@si_a1,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-essen',@si_q2,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-reis',@si_a2,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-tasse',@si_oa,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-kaffee',@si_oa,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-brauchen',@si_nq,'other','فعل در پرسش منبع‌دار آمده است.'),
+('lexeme','lex-de-hose',@si_na,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-kaufen',@si_bq,'other','فعل در پرسش منبع‌دار آمده است.'),
+('lexeme','lex-de-hemd',@si_ba,'other','واژه در جملهٔ منبع‌دار آمده است.'),
+('lexeme','lex-de-schuhe',@si_ba,'other','واژه در جملهٔ منبع‌دار آمده است.');
+
+UPDATE language_levels
+SET coverage=JSON_SET(
+      coverage,
+      '$.communicativeTargets',JSON_ARRAY('سلام، خداحافظی، تشکر، پاسخ مؤدبانه و عذرخواهی کوتاه','پرسیدن و گفتن نام','احوال‌پرسی بسیار ساده','پرسیدن و پاسخ‌دادن دربارهٔ علاقه/انتخاب غذای آشنا','پاسخ مثبت و منفی کوتاه','پرسیدن و گفتن محل زندگی و مبدأ','پرسیدن و گفتن سن و فهم عددهای ساده','پرسیدن و گفتن روز، ساعت و زمان روز','پرسیدن و گفتن تاریخ تولد','پرسیدن و گفتن شماره تلفن','پرسیدن سؤال اطلاعاتی بسیار ساده و فهم پاسخ کوتاه','نوشتن اطلاعات شخصی بسیار کوتاه در یک فرم متنی','تشخیص شنیداری یک قیمت ساده','پرسیدن و گفتن غذای موجود و چیزی که فرد می‌خورد','انجام یک سفارش بسیار کوتاه و مؤدبانه','فهم و بیان یک نیاز یا خرید بسیار ساده'),
+      '$.linguisticTargets',JSON_ARRAY('عبارت‌های ثابت سلام/خداحافظی و ادب','فعل‌های پایهٔ mögen، heißen، wohnen و kommen در کاربردهای منبع‌دار این سطح','عددهای ساده در سن، ساعت، تلفن و قیمت','واژه‌های پایهٔ روز، ساعت، تولد، شماره تلفن و نشانی','الگوهای منبع‌دار معرفی، محل زندگی، سن، تاریخ تولد و شماره تلفن','واژه‌های خیلی پایهٔ غذا و نوشیدنی در جمله‌های کوتاه','الگوهای خیلی سادهٔ essen، brauchen و kaufen در بافت روزمره'),
+      '$.situations',JSON_ARRAY('آشنایی اولیه','گفت‌وگوی کوتاه صبحگاهی','علاقه و انتخاب غذای آشنا','تشکر و عذرخواهی','اطلاعات شخصی در آشنایی مؤدبانه','پرسش سن','پرسش روز و ساعت','تاریخ تولد','تبادل شماره تلفن','سؤال اطلاعاتی بسیار ساده','فرم متنی اطلاعات شخصی','تشخیص قیمت ساده','پرسیدن دربارهٔ غذای امروز','سفارش خیلی سادهٔ قهوه','بیان نیاز و خرید خیلی ساده'),
+      '$.gaps',JSON_ARRAY()),
+    completion_assessment=JSON_SET(
+      completion_assessment,
+      '$.reviewedAt','2026-09-17T09:30:00Z',
+      '$.qualityReview.rationale','واحد سوم دامنهٔ کاربرد روزمره را با غذای موجود، سفارش مؤدبانه و بیان نیاز یا خرید خیلی ساده گسترش می‌دهد؛ همهٔ متن‌های هدف جدید منبع‌دار و قابل ردیابی‌اند.',
+      '$.qualityReview.remainingWeaknesses',JSON_ARRAY('۲۲ دارایی صوتی جدید واحد سوم هنوز تولید نشده‌اند.')),
+    notes='German Pre-A1 اکنون واحد سوم برای غذا، سفارش و خرید خیلی ساده دارد؛ ۱۰۴ دارایی صوتی قبلی معتبرند و ۲۲ دارایی تازه باید تولید شوند.',
+    audio_status='stale'
+WHERE id=@level;
+COMMIT;
+
+-- ===== END zzz-pre-a1-simple-orders.sql =====
+
+-- ===== BEGIN zzzz-pre-a1-simple-orders-forms.sql =====
+-- Canonical form/occurrence sync for German Pre-A1 Unit 3.
+-- Applied after zzz-pre-a1-simple-orders.sql and safe to re-run.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+START TRANSACTION;
+
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+
+UPDATE sources
+SET locator='Items 040–058',
+    locator_fa='بخش‌های ۰۴۰ تا ۰۵۸؛ جمله‌های منبع‌دار دربارهٔ غذای موجود، خوردن و سفارش ساده.'
+WHERE source_key='src-wikibooks-de-lesson-002';
+
+UPDATE source_items
+SET locator='042', locator_fa='بخش ۰۴۲'
+WHERE item_key='srcitem-de-u3-ich-esse-reis';
+
+SET @x_essen := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-essen');
+SET @x_brauchen := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-brauchen');
+SET @x_kaufen := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-kaufen');
+SET @x_moegen := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-moegen');
+SET @x_heute := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-heute');
+SET @x_suppe := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-suppe');
+SET @x_reis := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-reis');
+SET @x_bitte := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-bitte');
+SET @x_tasse := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-tasse');
+SET @x_kaffee := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-kaffee');
+SET @x_hose := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-hose');
+SET @x_hemd := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-hemd');
+SET @x_schuhe := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-schuhe');
+
+INSERT INTO lexeme_forms
+(lexeme_form_key,lexeme_id,surface,normalized_surface,form_type,features,origin,review_status,notes) VALUES
+('lexform-de-essen-esse',@x_essen,'esse','esse','inflected',JSON_OBJECT('tense','present','mood','indicative','person','1','number','singular'),'source_attested','approved','در جملهٔ منبع‌دار «Ich esse Reis.» به‌صورت اول‌شخص مفرد حال استفاده شده است.'),
+('lexform-de-brauchen-brauche',@x_brauchen,'brauche','brauche','inflected',JSON_OBJECT('tense','present','mood','indicative','person','1','number','singular'),'source_attested','approved','در جملهٔ منبع‌دار «Ich brauche eine Hose.» به‌صورت اول‌شخص مفرد حال استفاده شده است.'),
+('lexform-de-kaufen-kaufe',@x_kaufen,'kaufe','kaufe','inflected',JSON_OBJECT('tense','present','mood','indicative','person','1','number','singular'),'source_attested','approved','در جملهٔ منبع‌دار «Ich kaufe ein Hemd und ein Paar Schuhe.» به‌صورت اول‌شخص مفرد حال استفاده شده است.'),
+('lexform-de-moegen-moechten',@x_moegen,'möchten','möchten','inflected',JSON_OBJECT('mood','subjunctive_II','person','3','number','plural'),'source_attested','approved','در پرسش مؤدبانهٔ منبع‌دار «Was möchten Sie bitte?» با ضمیر رسمی «Sie» استفاده شده است؛ از نظر صرفی با سوم‌شخص جمع هم‌شکل است.')
+ON DUPLICATE KEY UPDATE
+ lexeme_id=VALUES(lexeme_id),surface=VALUES(surface),normalized_surface=VALUES(normalized_surface),form_type=VALUES(form_type),features=VALUES(features),origin=VALUES(origin),review_status=VALUES(review_status),notes=VALUES(notes);
+
+SET @f_esse := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-essen-esse');
+SET @f_brauche := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-brauchen-brauche');
+SET @f_kaufe := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-kaufen-kaufe');
+SET @f_moechten := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-moegen-moechten');
+
+INSERT INTO lexeme_occurrences
+(occurrence_key,owner_type,owner_key,surface,start_offset,end_offset,lexeme_id,lexeme_form_id,resolution_status,resolution_notes) VALUES
+('occ-turn-de-food-today-1-heute','dialogue_turn','turn-de-food-today-1','heute',NULL,NULL,@x_heute,NULL,'approved','اتصال «heute» تأیید شده است.'),
+('occ-turn-de-food-today-2-heute','dialogue_turn','turn-de-food-today-2','Heute',NULL,NULL,@x_heute,NULL,'approved','اتصال «Heute» تأیید شده است.'),
+('occ-turn-de-food-today-2-suppe','dialogue_turn','turn-de-food-today-2','Suppe',NULL,NULL,@x_suppe,NULL,'approved','اتصال «Suppe» تأیید شده است.'),
+('occ-turn-de-food-today-3-essen','dialogue_turn','turn-de-food-today-3','essen',NULL,NULL,@x_essen,NULL,'approved','صورت پایهٔ «essen» در پرسش منبع‌دار آمده است.'),
+('occ-turn-de-food-today-4-esse','dialogue_turn','turn-de-food-today-4','esse',NULL,NULL,@x_essen,@f_esse,'approved','فرم «esse» به «essen» متصل است.'),
+('occ-turn-de-food-today-4-reis','dialogue_turn','turn-de-food-today-4','Reis',NULL,NULL,@x_reis,NULL,'approved','اتصال «Reis» تأیید شده است.'),
+('occ-turn-de-simple-order-3-moechten','dialogue_turn','turn-de-simple-order-3','möchten',NULL,NULL,@x_moegen,@f_moechten,'approved','فرم رسمی «möchten» به «mögen» متصل است.'),
+('occ-turn-de-simple-order-3-bitte','dialogue_turn','turn-de-simple-order-3','bitte',NULL,NULL,@x_bitte,NULL,'approved','اتصال «bitte» تأیید شده است.'),
+('occ-turn-de-simple-order-4-tasse','dialogue_turn','turn-de-simple-order-4','Tasse',NULL,NULL,@x_tasse,NULL,'approved','اتصال «Tasse» تأیید شده است.'),
+('occ-turn-de-simple-order-4-kaffee','dialogue_turn','turn-de-simple-order-4','Kaffee',NULL,NULL,@x_kaffee,NULL,'approved','اتصال «Kaffee» تأیید شده است.'),
+('occ-turn-de-simple-order-4-bitte','dialogue_turn','turn-de-simple-order-4','bitte',NULL,NULL,@x_bitte,NULL,'approved','اتصال «bitte» تأیید شده است.'),
+('occ-turn-de-need-buy-1-brauchen','dialogue_turn','turn-de-need-buy-1','brauchen',NULL,NULL,@x_brauchen,NULL,'approved','صورت پایهٔ «brauchen» در پرسش منبع‌دار آمده است.'),
+('occ-turn-de-need-buy-2-brauche','dialogue_turn','turn-de-need-buy-2','brauche',NULL,NULL,@x_brauchen,@f_brauche,'approved','فرم «brauche» به «brauchen» متصل است.'),
+('occ-turn-de-need-buy-2-hose','dialogue_turn','turn-de-need-buy-2','Hose',NULL,NULL,@x_hose,NULL,'approved','اتصال «Hose» تأیید شده است.'),
+('occ-turn-de-need-buy-3-kaufen','dialogue_turn','turn-de-need-buy-3','kaufen',NULL,NULL,@x_kaufen,NULL,'approved','صورت پایهٔ «kaufen» در پرسش منبع‌دار آمده است.'),
+('occ-turn-de-need-buy-4-kaufe','dialogue_turn','turn-de-need-buy-4','kaufe',NULL,NULL,@x_kaufen,@f_kaufe,'approved','فرم «kaufe» به «kaufen» متصل است.'),
+('occ-turn-de-need-buy-4-hemd','dialogue_turn','turn-de-need-buy-4','Hemd',NULL,NULL,@x_hemd,NULL,'approved','اتصال «Hemd» تأیید شده است.'),
+('occ-turn-de-need-buy-4-schuhe','dialogue_turn','turn-de-need-buy-4','Schuhe',NULL,NULL,@x_schuhe,NULL,'approved','اتصال «Schuhe» تأیید شده است.')
+ON DUPLICATE KEY UPDATE owner_type=VALUES(owner_type),owner_key=VALUES(owner_key),surface=VALUES(surface),lexeme_id=VALUES(lexeme_id),lexeme_form_id=VALUES(lexeme_form_id),resolution_status=VALUES(resolution_status),resolution_notes=VALUES(resolution_notes);
+
+SET @l18 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-simple-order');
+SET @a18a := (SELECT id FROM activities WHERE activity_key='act-de-simple-order-conversation');
+INSERT INTO lesson_lexemes(lesson_id,lexeme_id,is_primary,role)
+VALUES(@l18,@x_moegen,FALSE,'review')
+ON DUPLICATE KEY UPDATE is_primary=VALUES(is_primary),role=VALUES(role);
+INSERT IGNORE INTO activity_lexemes(activity_id,lexeme_id) VALUES(@a18a,@x_moegen);
+
+SET @si_esse := (SELECT id FROM source_items WHERE item_key='srcitem-de-u3-ich-esse-reis');
+SET @si_brauche := (SELECT id FROM source_items WHERE item_key='srcitem-de-u3-need-hose');
+SET @si_kaufe := (SELECT id FROM source_items WHERE item_key='srcitem-de-u3-buy-answer');
+SET @si_moechten := (SELECT id FROM source_items WHERE item_key='srcitem-de-u3-order-question');
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes) VALUES
+('lexeme_form','lexform-de-essen-esse',@si_esse,'other','فرم صرفی از جملهٔ منبع‌دار استخراج شده است.'),
+('lexeme_form','lexform-de-brauchen-brauche',@si_brauche,'other','فرم صرفی از جملهٔ منبع‌دار استخراج شده است.'),
+('lexeme_form','lexform-de-kaufen-kaufe',@si_kaufe,'other','فرم صرفی از جملهٔ منبع‌دار استخراج شده است.'),
+('lexeme_form','lexform-de-moegen-moechten',@si_moechten,'other','فرم رسمی «möchten» از پرسش منبع‌دار استخراج شده است.')
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+
+COMMIT;
+
+-- ===== END zzzz-pre-a1-simple-orders-forms.sql =====
+
+-- ===== BEGIN zzzzz-pre-a1-activity-expansion.sql =====
+-- German Pre-A1 activity expansion: 3-6 purposeful activities per final lesson.
+-- Generated once from canonical authoring JSON; safe to reapply.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);
+UPDATE lessons SET status='qa' WHERE language_level_id=@level AND status='final';
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-hallo-role-match',l.id,3,'matching','هر عبارت را به کاربردش وصل کن.','بعد از استفاده در مکالمه و تشخیص خداحافظی، این مرحله نقش دو عبارت پایه را بدون افزودن زبان تازه از هم جدا می‌کند.',NULL,'{"pairs":[{"left":"Hallo!","leftFa":"سلام!","rightFa":"شروع گفت‌وگو"},{"left":"Tschüss!","leftFa":"خداحافظ!","rightFa":"پایان گفت‌وگو"}]}','["source_items_grouped_for_matching","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-hallo'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-hallo','lex-de-tschuess') WHERE av.activity_key='act-de-hallo-role-match';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-hallo-role-match',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-hallo','src-wikibooks-de-basic-greetings') AND si.source_text IN ('Hallo!','Tschüss!');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-gm-farewell-response',l.id,3,'choose_response','گفت‌وگوی صبحگاهی تمام شده؛ پاسخ مناسب را انتخاب کن.','پس از تمرکز روی سلام صبحگاهی، یک بازیابی کوتاه از پایان مکالمه کمک می‌کند زبان‌آموز شروع و پایان را در یک توالی کامل نگه دارد.',NULL,'{"contextFa":"صبح است و گفت‌وگو تمام شده.","options":[{"textTarget":"Tschüss!","translationFa":"خداحافظ!","correct":true},{"textTarget":"Guten Morgen!","translationFa":"صبح بخیر!","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-guten-morgen'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-guten-morgen','lex-de-tschuess') WHERE av.activity_key='act-de-gm-farewell-response';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-gm-farewell-response',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-guten-morgen','src-wiktionary-de-hallo','src-wikibooks-de-basic-greetings') AND si.source_text IN ('Guten Morgen!','Tschüss!');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-pizza-fill-mag',l.id,3,'fill_blank','جملهٔ علاقه را کامل کن.','این مرحله تفاوت «mag» و «magst» را در همان جملهٔ منبع‌دار بازیابی می‌کند و شکل اول‌شخص را تثبیت می‌کند.',NULL,'{"sourceText":"Ich mag Pizza.","sourceTextFa":"من پیتزا دوست دارم.","blankedText":"Ich ___ Pizza.","blankedTextFa":"من پیتزا ___ دارم.","choices":["mag","magst"],"answer":"mag"}','["source_sentence_blank_created","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-pizza-like'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-moegen','lex-de-pizza') WHERE av.activity_key='act-de-pizza-fill-mag';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-pizza-fill-mag',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-magst-du-pizza','src-libra-de-ich-mag-pizza','src-wiktionary-de-moegen','src-wiktionary-de-pizza','src-wiktionary-de-hallo') AND si.source_text IN ('Ich mag Pizza.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-pizza-question-vs-answer',l.id,4,'multiple_choice','کدام جمله دربارهٔ علاقهٔ خودت است؟','پس از ساخت جمله، زبان‌آموز باید پرسش و پاسخ را از هم تشخیص دهد تا نقش «mag» و «magst» فقط حفظ شکلی نباشد.',NULL,'{"options":[{"textTarget":"Ich mag Pizza.","translationFa":"من پیتزا دوست دارم.","correct":true},{"textTarget":"Magst du Pizza?","translationFa":"پیتزا دوست داری؟","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-pizza-like'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-moegen','lex-de-pizza') WHERE av.activity_key='act-de-pizza-question-vs-answer';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-pizza-question-vs-answer',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-magst-du-pizza','src-libra-de-ich-mag-pizza','src-wiktionary-de-moegen','src-wiktionary-de-pizza','src-wiktionary-de-hallo') AND si.source_text IN ('Ich mag Pizza.','Magst du Pizza?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-ja-nein-meaning-check',l.id,3,'true_false','درست یا غلط؟ «Nein!» یعنی پاسخ منفی.','پس از انتخاب پاسخ در بافت، یک بررسی معنایی بسیار کوتاه بازیابی مستقیم «nein» را تثبیت می‌کند.',NULL,'{"statementTarget":"Nein!","statementFa":"«Nein!» پاسخ منفی است.","answer":true}','["persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-ja-nein'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-nein') WHERE av.activity_key='act-de-ja-nein-meaning-check';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-ja-nein-meaning-check',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-hallo','src-wikibooks-de-magst-du-pizza','src-wiktionary-de-ja','src-wiktionary-de-nein') AND si.source_text IN ('Nein!');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-danke-bitte-role-match',l.id,3,'matching','تشکر و پاسخ به تشکر را به هم وصل کن.','بعد از انتخاب «Bitte!» در پاسخ، این مرحله نقش دو عبارت را به‌صورت دوطرفه تثبیت می‌کند.',NULL,'{"pairs":[{"left":"Danke!","leftFa":"ممنون!","rightFa":"تشکر"},{"left":"Bitte!","leftFa":"خواهش می‌کنم!","rightFa":"پاسخ به تشکر"}]}','["source_items_grouped_for_matching","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-danke-bitte'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-danke','lex-de-bitte') WHERE av.activity_key='act-de-danke-bitte-role-match';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-danke-bitte-role-match',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-hallo','src-wiktionary-de-danke','src-wiktionary-de-bitte') AND si.source_text IN ('Bitte!','Danke!');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-apology-response-choice',l.id,3,'choose_response','در پاسخ به «Entschuldigung.» کدام عبارت مناسب‌تر است؟','این فعالیت پاسخ آرام به عذرخواهی را از جفت اجتماعی تشکر جدا می‌کند و بازیابی کاربردی می‌سازد.',NULL,'{"promptTarget":"Entschuldigung.","promptFa":"ببخشید.","options":[{"textTarget":"Kein Problem.","translationFa":"مشکلی نیست.","correct":true},{"textTarget":"Danke!","translationFa":"ممنون!","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-entschuldigung'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-entschuldigung','lex-de-kein-problem','lex-de-danke') WHERE av.activity_key='act-de-apology-response-choice';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-apology-response-choice',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-entschuldigung','src-wiktionary-de-kein-problem','src-wiktionary-de-danke','src-wiktionary-de-bitte') AND si.source_text IN ('Danke!','Entschuldigung.','Kein Problem.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-apology-formula-choice',l.id,4,'multiple_choice','کدام عبارت خودِ عذرخواهی است؟','در مرحلهٔ پایانی، زبان‌آموز باید عبارت آغازگر عذرخواهی را از یک عبارت اجتماعی آشنای دیگر تشخیص دهد.',NULL,'{"options":[{"textTarget":"Entschuldigung.","translationFa":"ببخشید.","correct":true},{"textTarget":"Danke!","translationFa":"ممنون!","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-entschuldigung'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-entschuldigung','lex-de-danke') WHERE av.activity_key='act-de-apology-formula-choice';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-apology-formula-choice',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-entschuldigung','src-wiktionary-de-kein-problem','src-wiktionary-de-danke','src-wiktionary-de-bitte') AND si.source_text IN ('Danke!','Entschuldigung.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-name-fill-heisse',l.id,3,'fill_blank','پاسخ معرفی نام را کامل کن.','جای‌خالی روی فرم «heiße» تمرکز می‌کند تا زبان‌آموز آن را از «heißt» در پرسش جدا کند.',NULL,'{"sourceText":"Ich heiße Iris.","sourceTextFa":"اسم من آیریس است.","blankedText":"Ich ___ Iris.","blankedTextFa":"اسم من آیریس است.","choices":["heiße","heißt"],"answer":"heiße"}','["source_sentence_blank_created","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-name-exchange'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-heissen') WHERE av.activity_key='act-de-name-fill-heisse';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-name-fill-heisse',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-hallo','src-wikibooks-de-wie-heisst-du','src-wiktionary-de-heissen') AND si.source_text IN ('Ich heiße Iris.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-name-question-role',l.id,4,'multiple_choice','کدام عبارت سؤالِ نام است؟','بعد از بازیابی پاسخ، تشخیص سؤال از جواب نقش دو فرم «heißt» و «heiße» را در ارتباط واقعی روشن می‌کند.',NULL,'{"options":[{"textTarget":"Wie heißt du?","translationFa":"اسمت چیه؟","correct":true},{"textTarget":"Ich heiße Iris.","translationFa":"اسم من آیریس است.","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-name-exchange'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-heissen') WHERE av.activity_key='act-de-name-question-role';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-name-question-role',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-hallo','src-wikibooks-de-wie-heisst-du','src-wiktionary-de-heissen') AND si.source_text IN ('Ich heiße Iris.','Wie heißt du?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-wellbeing-response',l.id,3,'choose_response','به «Wie geht''s?» پاسخ مناسب بده.','پس از کامل‌کردن پرسش، این مرحله جفت پرسش و پاسخ را با بازیابی مستقیم و کم‌فشار می‌بندد.',NULL,'{"promptTarget":"Wie geht''s?","promptFa":"حالت چطوره؟","options":[{"textTarget":"Gut.","translationFa":"خوبم.","correct":true},{"textTarget":"Hallo!","translationFa":"سلام!","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-wellbeing'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-wie-gehts','lex-de-gut','lex-de-hallo') WHERE av.activity_key='act-de-wellbeing-response';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-wellbeing-response',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-hallo','src-wikibooks-de-basic-greetings') AND si.source_text IN ('Gut.','Hallo!','Wie geht''s?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-simple-choice-fill',l.id,3,'fill_blank','پرسش انتخاب را کامل کن.','این بازیابی روی فرم «möchtest» تمرکز می‌کند و آن را از فرم آشنای «magst» جدا نگه می‌دارد.',NULL,'{"sourceText":"Was möchtest du?","sourceTextFa":"چی می‌خوای؟","blankedText":"Was ___ du?","blankedTextFa":"چی می‌خوای؟","choices":["möchtest","magst"],"answer":"möchtest"}','["source_sentence_blank_created","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-simple-choice'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-moegen') WHERE av.activity_key='act-de-simple-choice-fill';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-simple-choice-fill',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-hallo','src-oak-de-was-moechtest-du','src-wiktionary-de-moechten','src-wiktionary-de-pizza') AND si.source_text IN ('Was möchtest du?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-simple-choice-response',l.id,4,'choose_response','برای «Was möchtest du?» یک پاسخ مناسب انتخاب کن.','در پایان، زبان‌آموز پرسش تازه را به گزینهٔ آشنای «Pizza.» وصل می‌کند تا معنی آن در کاربرد تثبیت شود.',NULL,'{"promptTarget":"Was möchtest du?","promptFa":"چی می‌خوای؟","options":[{"textTarget":"Pizza.","translationFa":"پیتزا.","correct":true},{"textTarget":"Hallo!","translationFa":"سلام!","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-simple-choice'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-moegen','lex-de-pizza','lex-de-hallo') WHERE av.activity_key='act-de-simple-choice-response';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-simple-choice-response',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wiktionary-de-hallo','src-oak-de-was-moechtest-du','src-wiktionary-de-moechten','src-wiktionary-de-pizza') AND si.source_text IN ('Hallo!','Pizza.','Was möchtest du?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-residence-question-choice',l.id,3,'multiple_choice','کدام سؤال دربارهٔ محل زندگی است؟','پس از تطبیق پرسش و پاسخ، تشخیص خود سؤال‌ها از هم مانع قاطی‌شدن «wohnen» و «kommen» می‌شود.',NULL,'{"options":[{"textTarget":"Wo wohnen Sie?","translationFa":"کجا زندگی می‌کنید؟","correct":true},{"textTarget":"Woher kommen Sie?","translationFa":"اهل کجا هستید؟","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-residence-origin'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-wohnen','lex-de-kommen') WHERE av.activity_key='act-de-residence-question-choice';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-residence-question-choice',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-residence-origin') AND si.source_text IN ('Wo wohnen Sie?','Woher kommen Sie?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-residence-word-order',l.id,4,'word_order','پاسخ محل زندگی را دوباره بساز.','بازسازی جملهٔ کامل، الگوی «Ich wohne in ...» را از تشخیص به بازیابی فعال می‌برد.',NULL,'{"sourceText":"Ich wohne in Österreich.","sourceTextFa":"من در اتریش زندگی می‌کنم.","tokens":["Ich","wohne","in","Österreich."],"answer":["Ich","wohne","in","Österreich."]}','["sentence_tokenized_for_word_order","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-residence-origin'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-wohnen','lex-de-oesterreich') WHERE av.activity_key='act-de-residence-word-order';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-residence-word-order',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-residence-origin') AND si.source_text IN ('Ich wohne in Österreich.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-age-question-choice',l.id,3,'multiple_choice','کدام پرسش دربارهٔ سن است؟','بعد از تمرین گفتاری و شنیداری عدد، تشخیص پرسش سن کمک می‌کند معنی کل الگو حفظ شود.',NULL,'{"options":[{"textTarget":"Wie alt bist du?","translationFa":"چند سالته؟","correct":true},{"textTarget":"Ich bin 20 Jahre alt.","translationFa":"من ۲۰ ساله هستم.","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-age-numbers'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-alt') WHERE av.activity_key='act-de-age-question-choice';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-age-question-choice',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-age-time') AND si.source_text IN ('Ich bin 20 Jahre alt.','Wie alt bist du?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-age-word-order',l.id,4,'word_order','پاسخ سن را دوباره بساز.','این مرحله الگوی کامل گفتن سن را از تشخیص عدد به تولید ساختاری منتقل می‌کند.',NULL,'{"sourceText":"Ich bin 20 Jahre alt.","sourceTextFa":"من ۲۰ ساله هستم.","tokens":["Ich","bin","20","Jahre","alt."],"answer":["Ich","bin","20","Jahre","alt."]}','["sentence_tokenized_for_word_order","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-age-numbers'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-alt','lex-de-jahr','lex-de-zwanzig') WHERE av.activity_key='act-de-age-word-order';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-age-word-order',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-age-time') AND si.source_text IN ('Ich bin 20 Jahre alt.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-time-question-match',l.id,4,'matching','پرسش روز و ساعت را به پاسخ مناسب وصل کن.','این مرحله دو نوع اطلاعات نزدیک را کنار هم مقایسه می‌کند تا زبان‌آموز فقط عدد ساعت را حفظ نکند.',NULL,'{"pairs":[{"left":"Welcher Tag ist heute?","leftFa":"امروز چه روزی است؟","right":"Heute ist Dienstag.","rightFa":"امروز سه‌شنبه است."},{"left":"Wie spät ist es?","leftFa":"ساعت چنده؟","right":"Es ist 6.30 Uhr.","rightFa":"ساعت ۶:۳۰ است."}]}','["source_items_grouped_for_matching","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-day-time'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-heute','lex-de-dienstag','lex-de-uhr') WHERE av.activity_key='act-de-time-question-match';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-time-question-match',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-age-time') AND si.source_text IN ('Es ist 6.30 Uhr.','Heute ist Dienstag.','Welcher Tag ist heute?','Wie spät ist es?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-time-word-order',l.id,5,'word_order','جملهٔ ساعت را دوباره بساز.','بازسازی جملهٔ شنیده‌شده، دریافت شنیداری را به بازیابی فعال همان ساختار متصل می‌کند.',NULL,'{"sourceText":"Es ist 6.30 Uhr.","sourceTextFa":"ساعت ۶:۳۰ است.","tokens":["Es","ist","6.30","Uhr."],"answer":["Es","ist","6.30","Uhr."]}','["sentence_tokenized_for_word_order","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-day-time'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-uhr') WHERE av.activity_key='act-de-time-word-order';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-time-word-order',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-age-time') AND si.source_text IN ('Es ist 6.30 Uhr.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-birthday-question-order',l.id,3,'word_order','پرسش تاریخ تولد را دوباره بساز.','پس از گفت‌وگو و تکمیل پاسخ، بازسازی خود پرسش باعث می‌شود هر دو سمت تبادل بازیابی شوند.',NULL,'{"sourceText":"Wann hast du Geburtstag?","sourceTextFa":"تولدت کیه؟","tokens":["Wann","hast","du","Geburtstag?"],"answer":["Wann","hast","du","Geburtstag?"]}','["sentence_tokenized_for_word_order","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-birthday-date'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-geburtstag') WHERE av.activity_key='act-de-birthday-question-order';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-birthday-question-order',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-birthday-question','src-wikibooks-de-birthday') AND si.source_text IN ('Wann hast du Geburtstag?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-birthday-month-check',l.id,4,'true_false','درست یا غلط؟ این جمله یک تاریخ تولد در نوامبر می‌گوید.','بررسی معنی ماه در جملهٔ کامل کمک می‌کند تمرین فقط روی شکل «dreizehnten» متوقف نماند.',NULL,'{"statementTarget":"Ich habe am dreizehnten November Geburtstag.","statementFa":"این تاریخ تولد در ماه نوامبر است.","answer":true}','["persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-birthday-date'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-geburtstag','lex-de-november') WHERE av.activity_key='act-de-birthday-month-check';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-birthday-month-check',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-birthday-question','src-wikibooks-de-birthday') AND si.source_text IN ('Ich habe am dreizehnten November Geburtstag.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-phone-word-order',l.id,3,'word_order','جملهٔ شماره تلفن را دوباره بساز.','پس از تشخیص شنیداری، بازسازی همان جمله باعث می‌شود الگوی گفتن شماره نیز فعالانه تمرین شود.',NULL,'{"sourceText":"Meine Telefonnummer lautet 789.","sourceTextFa":"شماره تلفن من ۷۸۹ است.","tokens":["Meine","Telefonnummer","lautet","789."],"answer":["Meine","Telefonnummer","lautet","789."]}','["sentence_tokenized_for_word_order","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-phone-number'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-telefonnummer') WHERE av.activity_key='act-de-phone-word-order';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-phone-word-order',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-phone','src-wikibooks-de-phone-example') AND si.source_text IN ('Meine Telefonnummer lautet 789.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-phone-question-choice',l.id,4,'multiple_choice','کدام عبارت سؤالِ شماره تلفن است؟','این مرحله پرسش را از پاسخ جدا می‌کند تا زبان‌آموز هر دو نقش را در تبادل تشخیص دهد.',NULL,'{"options":[{"textTarget":"Wie lautet deine Telefonnummer?","translationFa":"شماره تلفنت چیه؟","correct":true},{"textTarget":"Meine Telefonnummer lautet 789.","translationFa":"شماره تلفن من ۷۸۹ است.","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-phone-number'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-telefonnummer') WHERE av.activity_key='act-de-phone-question-choice';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-phone-question-choice',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-phone','src-wikibooks-de-phone-example') AND si.source_text IN ('Meine Telefonnummer lautet 789.','Wie lautet deine Telefonnummer?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-object-answer-choice',l.id,3,'multiple_choice','کدام پاسخ می‌گوید «این یک کتاب است»؟','بعد از بازسازی یک پاسخ، این مرحله دو پاسخ هم‌ساخت را از نظر معنی واژهٔ پایانی مقایسه می‌کند.',NULL,'{"options":[{"textTarget":"Das ist ein Buch.","translationFa":"این یک کتاب است.","correct":true},{"textTarget":"Das ist eine Karte.","translationFa":"این یک کارت است.","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-basic-object'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-buch','lex-de-karte') WHERE av.activity_key='act-de-object-answer-choice';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-object-answer-choice',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-basic-object') AND si.source_text IN ('Das ist ein Buch.','Das ist eine Karte.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-object-question-check',l.id,4,'true_false','درست یا غلط؟ «Was ist das?» یک پرسش است.','این بررسی کوتاه نقش عبارت را تثبیت می‌کند و از حفظ صرفِ پاسخ جلوگیری می‌کند.',NULL,'{"statementTarget":"Was ist das?","statementFa":"این یک پرسش اطلاعاتی ساده است.","answer":true}','["persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-basic-object'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-buch','lex-de-karte') WHERE av.activity_key='act-de-object-question-check';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-object-question-check',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-basic-object') AND si.source_text IN ('Was ist das?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-personal-review-match',l.id,4,'matching','هر پرسش شخصی را به پاسخ مناسب وصل کن.','مرور چندهدفه باید علاوه بر فرم آزاد، بازیابی ساختاری پرسش و پاسخ‌های مهم را هم دوباره فعال کند.',NULL,'{"pairs":[{"left":"Wo wohnen Sie?","leftFa":"کجا زندگی می‌کنید؟","right":"Ich wohne in Österreich.","rightFa":"من در اتریش زندگی می‌کنم."},{"left":"Wie alt bist du?","leftFa":"چند سالته؟","right":"Ich bin 20 Jahre alt.","rightFa":"من ۲۰ ساله هستم."}]}','["source_items_grouped_for_matching","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-personal-review'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-wohnen','lex-de-oesterreich','lex-de-alt','lex-de-jahr','lex-de-zwanzig') WHERE av.activity_key='act-de-personal-review-match';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-personal-review-match',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-residence-origin','src-wikibooks-de-age-time','src-wikibooks-de-birthday','src-wikibooks-de-phone') AND si.source_text IN ('Ich bin 20 Jahre alt.','Ich wohne in Österreich.','Wie alt bist du?','Wo wohnen Sie?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-personal-review-phone-check',l.id,5,'true_false','درست یا غلط؟ این جمله یک شماره تلفن را بیان می‌کند.','این مرحلهٔ کوتاه یک هدف اطلاعات شخصی دیگر را بعد از فرم و شنیدن دوباره بازیابی می‌کند.',NULL,'{"statementTarget":"Meine Telefonnummer lautet 789.","statementFa":"این جمله یک شماره تلفن را بیان می‌کند.","answer":true}','["persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-personal-review'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-telefonnummer') WHERE av.activity_key='act-de-personal-review-phone-check';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-personal-review-phone-check',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-residence-origin','src-wikibooks-de-age-time','src-wikibooks-de-birthday','src-wikibooks-de-phone') AND si.source_text IN ('Meine Telefonnummer lautet 789.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-food-eat-word-order',l.id,3,'word_order','پاسخ مربوط به چیزی که می‌خوری را دوباره بساز.','بعد از تطبیق دو جفت پرسش و پاسخ، بازسازی پاسخ «essen» بازیابی فعال فعل تازه را اضافه می‌کند.',NULL,'{"sourceText":"Ich esse Reis.","sourceTextFa":"من برنج می‌خورم.","tokens":["Ich","esse","Reis."],"answer":["Ich","esse","Reis."]}','["sentence_tokenized_for_word_order","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-food-today'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-essen','lex-de-reis') WHERE av.activity_key='act-de-food-eat-word-order';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-food-eat-word-order',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-lesson-002') AND si.source_text IN ('Ich esse Reis.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-food-available-choice',l.id,4,'multiple_choice','کدام جمله می‌گوید امروز چه غذایی موجود است؟','این مقایسهٔ معنایی تفاوت «غذای موجود» و «چیزی که فرد می‌خورد» را روشن نگه می‌دارد.',NULL,'{"options":[{"textTarget":"Heute gibt es Suppe.","translationFa":"امروز سوپ داریم.","correct":true},{"textTarget":"Ich esse Reis.","translationFa":"من برنج می‌خورم.","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-food-today'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-heute','lex-de-suppe','lex-de-essen','lex-de-reis') WHERE av.activity_key='act-de-food-available-choice';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-food-available-choice',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-lesson-002') AND si.source_text IN ('Heute gibt es Suppe.','Ich esse Reis.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-simple-order-response',l.id,3,'choose_response','به سؤال سفارش پاسخ مناسب بده.','بعد از بازسازی سفارش، این مرحله پرسش رسمی را دوباره به پاسخ کاربردی آن وصل می‌کند.',NULL,'{"promptTarget":"Was möchten Sie bitte?","promptFa":"لطفاً چی میل دارید؟","options":[{"textTarget":"Eine Tasse Kaffee bitte!","translationFa":"یک فنجان قهوه لطفاً!","correct":true},{"textTarget":"Guten Tag!","translationFa":"روز بخیر!","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-simple-order'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-moegen','lex-de-bitte','lex-de-tasse','lex-de-kaffee') WHERE av.activity_key='act-de-simple-order-response';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-simple-order-response',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-lesson-002') AND si.source_text IN ('Eine Tasse Kaffee bitte!','Guten Tag!','Was möchten Sie bitte?');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-simple-order-function-check',l.id,4,'true_false','درست یا غلط؟ این عبارت یک سفارش کوتاه و مؤدبانه است.','در پایان زبان‌آموز باید نقش کل عبارت را بفهمد، نه اینکه فقط ترتیب واژه‌ها را حفظ کرده باشد.',NULL,'{"statementTarget":"Eine Tasse Kaffee bitte!","statementFa":"این یک سفارش کوتاه و مؤدبانه است.","answer":true}','["persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-simple-order'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-bitte','lex-de-tasse','lex-de-kaffee') WHERE av.activity_key='act-de-simple-order-function-check';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-simple-order-function-check',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-lesson-002') AND si.source_text IN ('Eine Tasse Kaffee bitte!');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-need-word-order',l.id,3,'word_order','جملهٔ نیاز را دوباره بساز.','پس از تطبیق، بازسازی جملهٔ «brauchen» آن را از تشخیص به تولید فعال منتقل می‌کند.',NULL,'{"sourceText":"Ich brauche eine Hose.","sourceTextFa":"من یک شلوار لازم دارم.","tokens":["Ich","brauche","eine","Hose."],"answer":["Ich","brauche","eine","Hose."]}','["sentence_tokenized_for_word_order","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-need-and-buy'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-brauchen','lex-de-hose') WHERE av.activity_key='act-de-need-word-order';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-need-word-order',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-lesson-004') AND si.source_text IN ('Ich brauche eine Hose.');
+INSERT INTO activities (activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+SELECT 'act-de-buy-sentence-choice',l.id,4,'multiple_choice','کدام جمله دربارهٔ خرید است؟','مرحلهٔ پایانی تفاوت معنایی «نیاز داشتن» و «خریدن» را با دو جملهٔ کامل منبع‌دار می‌سنجد.',NULL,'{"options":[{"textTarget":"Ich kaufe ein Hemd und ein Paar Schuhe.","translationFa":"من یک پیراهن و یک جفت کفش می‌خرم.","correct":true},{"textTarget":"Ich brauche eine Hose.","translationFa":"من یک شلوار لازم دارم.","correct":false}]}','["options_selected_from_source_material","persian_translation_added"]',NULL,'not_required'
+FROM lessons l WHERE l.lesson_key='de-pre-a1-lesson-need-and-buy'
+ON DUPLICATE KEY UPDATE lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+INSERT IGNORE INTO activity_lexemes (activity_id,lexeme_id)
+SELECT av.id,lx.id FROM activities av JOIN lexemes lx ON lx.lexeme_key IN ('lex-de-brauchen','lex-de-hose','lex-de-kaufen','lex-de-hemd','lex-de-schuhe') WHERE av.activity_key='act-de-buy-sentence-choice';
+INSERT IGNORE INTO provenance_links (entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-buy-sentence-choice',si.id,'other','متن هدف این فعالیت عیناً از آیتم منبع موجود گرفته شده است.' FROM source_items si JOIN sources s ON s.id=si.source_id WHERE s.source_key IN ('src-wikibooks-de-lesson-004') AND si.source_text IN ('Ich brauche eine Hose.','Ich kaufe ein Hemd und ein Paar Schuhe.');
+UPDATE lessons SET status='final' WHERE language_level_id=@level;
+COMMIT;
+
+-- ===== END zzzzz-pre-a1-activity-expansion.sql =====
+
+-- ===== BEGIN zzzzzz-pre-a1-activity-payload-fixes.sql =====
+-- Fix incomplete learner-facing payloads in German Pre-A1 activities.
+-- Idempotent and safe for both existing databases and fresh imports.
+
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+
+DROP TEMPORARY TABLE IF EXISTS _prea1_payload_fix_lesson_status;
+CREATE TEMPORARY TABLE _prea1_payload_fix_lesson_status AS
+SELECT DISTINCT l.id AS lesson_id, l.status AS original_status
+FROM lessons l
+JOIN activities a ON a.lesson_id=l.id
+WHERE a.activity_key IN (
+  'act-de-hallo-role-match',
+  'act-de-danke-bitte-role-match',
+  'act-de-birthday-fill',
+  'act-de-pizza-fill-mag',
+  'act-de-name-fill-heisse',
+  'act-de-simple-choice-fill'
+);
+
+UPDATE lessons l
+JOIN _prea1_payload_fix_lesson_status b ON b.lesson_id=l.id
+SET l.status='qa'
+WHERE b.original_status='final';
+
+-- Matching renderer requires both left and right values. Keep Persian companion labels too.
+UPDATE activities
+SET payload = JSON_SET(
+  payload,
+  '$.pairs[0].right','شروع گفت‌وگو',
+  '$.pairs[0].rightFa','شروع گفت‌وگو',
+  '$.pairs[1].right','پایان گفت‌وگو',
+  '$.pairs[1].rightFa','پایان گفت‌وگو'
+)
+WHERE activity_key='act-de-hallo-role-match';
+
+UPDATE activities
+SET payload = JSON_SET(
+  payload,
+  '$.pairs[0].right','تشکر',
+  '$.pairs[0].rightFa','تشکر',
+  '$.pairs[1].right','پاسخ به تشکر',
+  '$.pairs[1].rightFa','پاسخ به تشکر'
+)
+WHERE activity_key='act-de-danke-bitte-role-match';
+
+-- A fill-blank must provide a real choice. Use two source-backed month options.
+UPDATE activities
+SET payload = JSON_SET(
+  payload,
+  '$.sourceText','Ich habe am dreizehnten November Geburtstag.',
+  '$.sourceTextFa','تولد من سیزدهم نوامبر است.',
+  '$.blankedText','Ich habe am dreizehnten ___ Geburtstag.',
+  '$.blankedTextFa','تولد من سیزدهم ___ است.',
+  '$.choices',JSON_ARRAY('November','Juli'),
+  '$.choicesFa',JSON_ARRAY('نوامبر','ژوئیه'),
+  '$.answer','November'
+)
+WHERE activity_key='act-de-birthday-fill';
+
+-- Keep Persian companion choice labels synchronized for the newer fill-blank activities.
+UPDATE activities
+SET payload = JSON_SET(payload,'$.choicesFa',JSON_ARRAY('برای «من»','برای «تو»'))
+WHERE activity_key='act-de-pizza-fill-mag';
+
+UPDATE activities
+SET payload = JSON_SET(payload,'$.choicesFa',JSON_ARRAY('برای «من»','برای «تو»'))
+WHERE activity_key='act-de-name-fill-heisse';
+
+UPDATE activities
+SET payload = JSON_SET(payload,'$.choicesFa',JSON_ARRAY('می‌خواهی','دوست داری'))
+WHERE activity_key='act-de-simple-choice-fill';
+
+UPDATE lessons l
+JOIN _prea1_payload_fix_lesson_status b ON b.lesson_id=l.id
+SET l.status=b.original_status;
+
+DROP TEMPORARY TABLE _prea1_payload_fix_lesson_status;
+COMMIT;
+
+-- ===== END zzzzzz-pre-a1-activity-payload-fixes.sql =====
+
+-- ===== BEGIN zzzzzzx-pre-a1-survival-reopen.sql =====
+-- Reopen the three Unit 4 lessons before the idempotent Unit 4 upsert runs.
+-- On the first import the lessons do not exist yet, so this is a no-op.
+-- On re-import it allows activity updates without violating final-lesson guards.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);
+UPDATE lessons
+SET status='qa'
+WHERE language_level_id=@level
+  AND lesson_key IN (
+    'de-pre-a1-lesson-ask-price',
+    'de-pre-a1-lesson-find-toilet',
+    'de-pre-a1-lesson-need-help'
+  )
+  AND status='final';
+
+-- ===== END zzzzzzx-pre-a1-survival-reopen.sql =====
+
+-- ===== BEGIN zzzzzzz-pre-a1-survival-basics.sql =====
+-- German Pre-A1 Unit 4: price, finding a toilet, and asking for help.
+-- Idempotent extension. Generated audio metadata is never overwritten on re-import.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);
+SET @iris := (SELECT id FROM characters WHERE character_key='char-de-iris' LIMIT 1);
+SET @paul := (SELECT id FROM characters WHERE character_key='char-de-paul' LIMIT 1);
+
+-- Curriculum targets ----------------------------------------------------------
+INSERT INTO curriculum_targets
+(language_level_id,target_key,target_type,title,description,required_for_completion,status,metadata) VALUES
+(@level,'de.pre_a1.ask_price','communicative','پرسیدن و فهم قیمت خیلی ساده','با «Wie viel kostet das?» یا «Was kostet das?» قیمت را بپرسد و یک پاسخ کوتاه با Euro و Cent را بفهمد.',TRUE,'covered',JSON_OBJECT('unit4',TRUE)),
+(@level,'de.pre_a1.find_toilet','communicative','پرسیدن محل سرویس بهداشتی','با «Wo ist die Toilette?» محل سرویس بهداشتی را بپرسد و پاسخ کوتاه «Ich weiß nicht.» را بفهمد.',TRUE,'covered',JSON_OBJECT('unit4',TRUE)),
+(@level,'de.pre_a1.need_help','communicative','درخواست کمک بسیار کوتاه','با «Ich brauche Hilfe.» نیاز به کمک را مستقیم و کوتاه بیان کند.',TRUE,'covered',JSON_OBJECT('unit4',TRUE))
+ON DUPLICATE KEY UPDATE
+ target_type=VALUES(target_type),title=VALUES(title),description=VALUES(description),
+ required_for_completion=VALUES(required_for_completion),status=VALUES(status),metadata=VALUES(metadata);
+SET @t_price := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.ask_price');
+SET @t_toilet := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.find_toilet');
+SET @t_help := (SELECT id FROM curriculum_targets WHERE language_level_id=@level AND target_key='de.pre_a1.need_help');
+
+-- Sources and exact source items ---------------------------------------------
+INSERT INTO sources
+(source_key,title,title_fa,organization_or_author,language_code,source_type,url,locator,locator_fa,published_or_updated_at,modernity_status,currency_evidence,license_name,license_url,attribution_text,reuse_status,retrieved_at,notes) VALUES
+('src-wikibooks-de-lesson-004','Deutschkurs für Anfänger/Lektion 004','منبع نیاز، خرید و قیمت ساده','Wikibooks contributors','de','course','https://en.wikibooks.org/wiki/Deutschkurs_f%C3%BCr_Anf%C3%A4nger/Lektion_004','Items 131, 134 and 148–150','بخش‌های ۱۳۱، ۱۳۴ و ۱۴۸ تا ۱۵۰؛ نیاز و خرید ساده و پرسش/پاسخ‌های منبع‌دار دربارهٔ قیمت.',NULL,'maintained_current','صفحهٔ زندهٔ Wikibooks در ۱۷ سپتامبر ۲۰۲۶ دوباره بررسی شد؛ الگوهای «brauchen»، «kaufen» و پرسیدن/گفتن قیمت برای کاربرد آموزشی معاصر معتبرند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wikibooks contributors — Deutschkurs für Anfänger/Lektion 004','reuse_with_attribution','2026-09-17','این منبع علاوه بر نیاز و خرید، برای درس پرسیدن و فهم قیمت نیز استفاده می‌شود.'),
+('src-wikibooks-de-phrasebook','German/Appendices/Phrasebook','منبع عبارت‌های ضروری روزمره','Wikibooks contributors','de','course','https://en.wikibooks.org/wiki/German/Appendices/Phrasebook','Basic survival phrases including “Ich brauche Hilfe”, “Wo ist die Toilette?” and “Ich weiß nicht.”','بخش عبارت‌های پایه؛ «کمک لازم دارم»، «سرویس بهداشتی کجاست؟» و «نمی‌دانم».',NULL,'maintained_current','صفحهٔ زندهٔ Phrasebook در Wikibooks در ۱۷ سپتامبر ۲۰۲۶ بررسی شد؛ عبارت‌های کوتاه درخواست کمک، پرسیدن محل سرویس بهداشتی و بیان «نمی‌دانم» برای موقعیت‌های روزمرهٔ امروزی طبیعی و قابل‌استفاده‌اند.','CC BY-SA 4.0','https://creativecommons.org/licenses/by-sa/4.0/','Wikibooks contributors — German/Appendices/Phrasebook','reuse_with_attribution','2026-09-17','منبع سه عبارت بسیار کوتاه و کاربردی برای بخش موقعیت‌های ضروری روزمرهٔ Pre-A1.')
+ON DUPLICATE KEY UPDATE
+ title=VALUES(title),title_fa=VALUES(title_fa),organization_or_author=VALUES(organization_or_author),source_type=VALUES(source_type),url=VALUES(url),locator=VALUES(locator),locator_fa=VALUES(locator_fa),modernity_status=VALUES(modernity_status),currency_evidence=VALUES(currency_evidence),license_name=VALUES(license_name),license_url=VALUES(license_url),attribution_text=VALUES(attribution_text),reuse_status=VALUES(reuse_status),retrieved_at=VALUES(retrieved_at),notes=VALUES(notes);
+SET @s4 := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-004');
+SET @sp := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-phrasebook');
+
+INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,source_text_hash,notes) VALUES
+(@s4,'srcitem-de-u4-price-q1','148','بخش ۱۴۸','Wie viel kostet das?',UNHEX(SHA2('Wie viel kostet das?',256)),'پرسش اصلی قیمت.'),
+(@s4,'srcitem-de-u4-price-a1','148','بخش ۱۴۸','Das kostet 70 Euro und 92 Cent.',UNHEX(SHA2('Das kostet 70 Euro und 92 Cent.',256)),'پاسخ نمونهٔ قیمت.'),
+(@s4,'srcitem-de-u4-price-q2','150','بخش ۱۵۰','Was kostet das?',UNHEX(SHA2('Was kostet das?',256)),'شکل کوتاه‌تر پرسش قیمت.'),
+(@s4,'srcitem-de-u4-price-a2','150','بخش ۱۵۰','Das kostet 35 Euro und 15 Cent.',UNHEX(SHA2('Das kostet 35 Euro und 15 Cent.',256)),'پاسخ نمونهٔ دوم قیمت.'),
+(@sp,'srcitem-de-u4-toilet','phrasebook','عبارت پایه','Wo ist die Toilette?',UNHEX(SHA2('Wo ist die Toilette?',256)),'پرسش محل سرویس بهداشتی.'),
+(@sp,'srcitem-de-u4-dont-know','phrasebook','عبارت پایه','Ich weiß nicht.',UNHEX(SHA2('Ich weiß nicht.',256)),'پاسخ کوتاه «نمی‌دانم».'),
+(@sp,'srcitem-de-u4-need-help','phrasebook','عبارت پایه','Ich brauche Hilfe.',UNHEX(SHA2('Ich brauche Hilfe.',256)),'درخواست کمک بسیار کوتاه.')
+ON DUPLICATE KEY UPDATE
+ source_id=VALUES(source_id),locator=VALUES(locator),locator_fa=VALUES(locator_fa),source_text=VALUES(source_text),source_text_hash=VALUES(source_text_hash),notes=VALUES(notes);
+SET @si_price_q1 := (SELECT id FROM source_items WHERE item_key='srcitem-de-u4-price-q1');
+SET @si_price_a1 := (SELECT id FROM source_items WHERE item_key='srcitem-de-u4-price-a1');
+SET @si_price_q2 := (SELECT id FROM source_items WHERE item_key='srcitem-de-u4-price-q2');
+SET @si_price_a2 := (SELECT id FROM source_items WHERE item_key='srcitem-de-u4-price-a2');
+SET @si_toilet := (SELECT id FROM source_items WHERE item_key='srcitem-de-u4-toilet');
+SET @si_dont_know := (SELECT id FROM source_items WHERE item_key='srcitem-de-u4-dont-know');
+SET @si_help := (SELECT id FROM source_items WHERE item_key='srcitem-de-u4-need-help');
+SET @si_hose := (SELECT id FROM source_items WHERE item_key='srcitem-de-u3-need-hose');
+
+-- Lexemes and form ------------------------------------------------------------
+INSERT INTO lexemes
+(lexeme_key,language_id,lexeme_type,surface,normalized_surface,lemma,part_of_speech,part_of_speech_fa,cefr_level,translation_fa,usage_note_fa,flashcard_eligible,audio_status) VALUES
+('lex-de-kosten',@de,'word','kosten','kosten','kosten','verb','فعل','Pre-A1','قیمت داشتن / هزینه داشتن','در این سطح فقط برای پرسیدن و گفتن قیمت یک چیز در جمله‌های خیلی کوتاه استفاده می‌شود.',TRUE,'pending'),
+('lex-de-euro',@de,'word','Euro','Euro','Euro','noun','اسم','Pre-A1','یورو','برای فهم و گفتن قیمت‌های خیلی ساده استفاده می‌شود.',TRUE,'pending'),
+('lex-de-cent',@de,'word','Cent','Cent','Cent','noun','اسم','Pre-A1','سِنت','در قیمت‌های ساده همراه «Euro» به کار می‌رود.',TRUE,'pending'),
+('lex-de-toilette',@de,'word','Toilette','Toilette','Toilette','noun','اسم','Pre-A1','سرویس بهداشتی / توالت','در پرسش خیلی سادهٔ «Wo ist die Toilette?» استفاده می‌شود.',TRUE,'pending'),
+('lex-de-hilfe',@de,'word','Hilfe','Hilfe','Hilfe','noun','اسم','Pre-A1','کمک','در عبارت کوتاه و کاربردی «Ich brauche Hilfe.» استفاده می‌شود.',TRUE,'pending'),
+('lex-de-ich-weiss-nicht',@de,'phrase','Ich weiß nicht.','Ich weiß nicht.',NULL,NULL,NULL,'Pre-A1','نمی‌دانم.','به‌صورت یک عبارت ثابت و بسیار کوتاه برای وقتی پاسخ را نمی‌دانیم استفاده می‌شود.',TRUE,'pending')
+ON DUPLICATE KEY UPDATE
+ language_id=VALUES(language_id),lexeme_type=VALUES(lexeme_type),surface=VALUES(surface),normalized_surface=VALUES(normalized_surface),lemma=VALUES(lemma),part_of_speech=VALUES(part_of_speech),part_of_speech_fa=VALUES(part_of_speech_fa),cefr_level=VALUES(cefr_level),translation_fa=VALUES(translation_fa),usage_note_fa=VALUES(usage_note_fa),flashcard_eligible=VALUES(flashcard_eligible);
+
+SET @x_kosten := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-kosten');
+SET @x_euro := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-euro');
+SET @x_cent := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-cent');
+SET @x_toilette := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-toilette');
+SET @x_hilfe := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-hilfe');
+SET @x_dont_know := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-ich-weiss-nicht');
+SET @x_brauchen := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-brauchen');
+SET @x_hose := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-hose');
+SET @x_entschuldigung := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-entschuldigung');
+SET @x_ja := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-ja');
+SET @x_kein_problem := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-kein-problem');
+
+INSERT INTO lexeme_forms
+(lexeme_form_key,lexeme_id,surface,normalized_surface,form_type,features,origin,review_status,notes) VALUES
+('lexform-de-kosten-kostet',@x_kosten,'kostet','kostet','inflected',JSON_OBJECT('tense','present','mood','indicative','person','3','number','singular'),'source_attested','approved','در پرسش‌ها و پاسخ‌های قیمت منبع، «kostet» به‌صورت سوم‌شخص مفرد حال استفاده شده است.')
+ON DUPLICATE KEY UPDATE
+ lexeme_id=VALUES(lexeme_id),surface=VALUES(surface),normalized_surface=VALUES(normalized_surface),form_type=VALUES(form_type),features=VALUES(features),origin=VALUES(origin),review_status=VALUES(review_status),notes=VALUES(notes);
+SET @f_kostet := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-kosten-kostet');
+SET @f_brauche := (SELECT id FROM lexeme_forms WHERE lexeme_form_key='lexform-de-brauchen-brauche');
+
+-- Unit and lessons ------------------------------------------------------------
+INSERT INTO units(unit_key,language_level_id,sequence_index,title_fa,grouping_rationale,status,metadata,notes) VALUES
+('de-pre-a1-unit-survival-basics',@level,4,'موقعیت‌های ضروری روزمره','این سه درس بعد از خرید و سفارش، دامنهٔ بقا در موقعیت‌های واقعی را گسترش می‌دهند: اول قیمت، بعد پیدا کردن یک مکان ضروری و در پایان درخواست کمک. همهٔ جمله‌ها کوتاه، کاربردی و منبع‌دار باقی می‌مانند.','final',JSON_OBJECT('dynamicStructure',TRUE),'واحد چهارم Pre-A1 سه موقعیت فوری و کم‌فشار را اضافه می‌کند و همچنان از ساختار بدون تصویر و تمرین‌های کوتاه استفاده می‌کند.')
+ON DUPLICATE KEY UPDATE
+ language_level_id=VALUES(language_level_id),sequence_index=VALUES(sequence_index),title_fa=VALUES(title_fa),grouping_rationale=VALUES(grouping_rationale),status=VALUES(status),metadata=VALUES(metadata),notes=VALUES(notes);
+SET @unit4 := (SELECT id FROM units WHERE unit_key='de-pre-a1-unit-survival-basics');
+INSERT IGNORE INTO unit_targets(unit_id,curriculum_target_id) VALUES
+(@unit4,@t_price),(@unit4,@t_toilet),(@unit4,@t_help);
+
+INSERT INTO lessons
+(lesson_key,language_level_id,unit_id,sequence_index,position_in_unit,title_fa,source_title,source_title_fa,status,activity_selection_rationale,sequence_rationale,template_signature,audio_status,notes) VALUES
+('de-pre-a1-lesson-ask-price',@level,@unit4,20,1,'قیمتش چقدره؟','Wie viel kostet das? / Das kostet ... Euro und ... Cent.','قیمتش چقدره؟ / این ... یورو و ... سنت قیمت دارد.','draft','چهار مرحلهٔ مکالمه، تطبیق دو پرسش با دو قیمت، بازسازی پرسش و تشخیص جملهٔ قیمت، هم فهم و هم بازیابی فعال را پوشش می‌دهد.','اول قیمت در گفت‌وگو شنیده و گفته می‌شود، سپس سؤال/جواب‌ها از هم تفکیک می‌شوند، خود پرسش ساخته می‌شود و در پایان جملهٔ قیمت از جملهٔ خرید تشخیص داده می‌شود.','conversation_speaking>matching>word_order>multiple_choice','pending',NULL),
+('de-pre-a1-lesson-find-toilet',@level,@unit4,21,2,'سرویس بهداشتی کجاست؟','Wo ist die Toilette? / Ich weiß nicht.','سرویس بهداشتی کجاست؟ / نمی‌دانم.','draft','چهار مرحله مکالمه، تطبیق دو جفت کوتاه، بازسازی پرسش مکان و تشخیص معنی «نمی‌دانم» را پوشش می‌دهد.','پرسش ابتدا در یک موقعیت واقعی دیده می‌شود، سپس ارتباط دو جفت گفت‌وگو تثبیت می‌شود، خود پرسش ساخته می‌شود و در پایان پاسخ کوتاه از پرسش تشخیص داده می‌شود.','conversation_speaking>matching>word_order>multiple_choice','pending',NULL),
+('de-pre-a1-lesson-need-help',@level,@unit4,22,3,'کمک لازم دارم','Ich brauche Hilfe.','من کمک لازم دارم.','draft','چهار مرحله مکالمه، بازسازی جمله، جای‌خالی با دو انتخاب واقعی و تشخیص درخواست کمک از نیاز به کالا را پوشش می‌دهد.','عبارت ابتدا در تعامل دیده و گفته می‌شود، سپس به‌صورت کامل ساخته می‌شود، واژهٔ کلیدی بازیابی می‌شود و در پایان معنای درخواست کمک از نیاز خرید جدا می‌شود.','conversation_speaking>word_order>fill_blank>multiple_choice','pending',NULL)
+ON DUPLICATE KEY UPDATE
+ language_level_id=VALUES(language_level_id),unit_id=VALUES(unit_id),sequence_index=VALUES(sequence_index),position_in_unit=VALUES(position_in_unit),title_fa=VALUES(title_fa),source_title=VALUES(source_title),source_title_fa=VALUES(source_title_fa),activity_selection_rationale=VALUES(activity_selection_rationale),sequence_rationale=VALUES(sequence_rationale),template_signature=VALUES(template_signature),notes=VALUES(notes);
+SET @l20 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-ask-price');
+SET @l21 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-find-toilet');
+SET @l22 := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-need-help');
+INSERT IGNORE INTO lesson_targets(lesson_id,curriculum_target_id,coverage_role) VALUES
+(@l20,@t_price,'introduce'),(@l21,@t_toilet,'introduce'),(@l22,@t_help,'introduce');
+
+-- Dialogues and turns ---------------------------------------------------------
+INSERT INTO dialogues(dialogue_key,language_level_id,scenario,opening_initiator,scene_quality_rationale) VALUES
+('dlg-de-pre-a1-ask-price',@level,'آیریس دو بار قیمت را می‌پرسد و پاول با دو قیمت دقیقِ منبع‌دار پاسخ می‌دهد.','learner','دو شکل منبع‌دارِ پرسیدن قیمت و دو پاسخ دقیق، بدون زبان اضافه یک تبادل کوتاه و کاربردی می‌سازند.'),
+('dlg-de-pre-a1-find-toilet',@level,'آیریس مودبانه شروع می‌کند، محل سرویس بهداشتی را می‌پرسد و پاول می‌گوید نمی‌داند.','learner','چهار نوبت کوتاه از عبارت‌های پایه و منبع‌دار ساخته شده‌اند و بدون آموزش جهت‌یابی، فقط توانایی ضروریِ پرسیدن محل را تمرین می‌کنند.'),
+('dlg-de-pre-a1-need-help',@level,'آیریس مودبانه شروع می‌کند و می‌گوید کمک لازم دارد؛ پاول با یک پاسخ آرام جواب می‌دهد.','learner','سه عبارت آشنا و یک عبارت جدیدِ بسیار کاربردی در چهار نوبت کوتاه ترکیب می‌شوند تا درخواست کمک بدون بار دستوری تازه تمرین شود.')
+ON DUPLICATE KEY UPDATE
+ language_level_id=VALUES(language_level_id),scenario=VALUES(scenario),opening_initiator=VALUES(opening_initiator),scene_quality_rationale=VALUES(scene_quality_rationale);
+SET @d20 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-ask-price');
+SET @d21 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-find-toilet');
+SET @d22 := (SELECT id FROM dialogues WHERE dialogue_key='dlg-de-pre-a1-need-help');
+
+INSERT INTO dialogue_turns
+(turn_key,dialogue_id,position_index,speaker_character_id,speaker_identity_origin,speaker_gender_evidence,text_target,translation_fa,learner_turn,audio_status) VALUES
+('turn-de-price-1',@d20,1,@iris,'app_assigned','unspecified','Wie viel kostet das?','این چقدر قیمت دارد؟',TRUE,'pending'),
+('turn-de-price-2',@d20,2,@paul,'app_assigned','unspecified','Das kostet 70 Euro und 92 Cent.','این ۷۰ یورو و ۹۲ سنت قیمت دارد.',FALSE,'pending'),
+('turn-de-price-3',@d20,3,@iris,'app_assigned','unspecified','Was kostet das?','قیمت این چقدره؟',TRUE,'pending'),
+('turn-de-price-4',@d20,4,@paul,'app_assigned','unspecified','Das kostet 35 Euro und 15 Cent.','این ۳۵ یورو و ۱۵ سنت قیمت دارد.',FALSE,'pending'),
+('turn-de-toilet-1',@d21,1,@iris,'app_assigned','unspecified','Entschuldigung.','ببخشید.',TRUE,'pending'),
+('turn-de-toilet-2',@d21,2,@paul,'app_assigned','unspecified','Ja.','بله.',FALSE,'pending'),
+('turn-de-toilet-3',@d21,3,@iris,'app_assigned','unspecified','Wo ist die Toilette?','سرویس بهداشتی کجاست؟',TRUE,'pending'),
+('turn-de-toilet-4',@d21,4,@paul,'app_assigned','unspecified','Ich weiß nicht.','نمی‌دانم.',FALSE,'pending'),
+('turn-de-help-1',@d22,1,@iris,'app_assigned','unspecified','Entschuldigung.','ببخشید.',TRUE,'pending'),
+('turn-de-help-2',@d22,2,@paul,'app_assigned','unspecified','Ja.','بله.',FALSE,'pending'),
+('turn-de-help-3',@d22,3,@iris,'app_assigned','unspecified','Ich brauche Hilfe.','من کمک لازم دارم.',TRUE,'pending'),
+('turn-de-help-4',@d22,4,@paul,'app_assigned','unspecified','Kein Problem.','مشکلی نیست.',FALSE,'pending')
+ON DUPLICATE KEY UPDATE
+ dialogue_id=VALUES(dialogue_id),position_index=VALUES(position_index),speaker_character_id=VALUES(speaker_character_id),speaker_identity_origin=VALUES(speaker_identity_origin),speaker_gender_evidence=VALUES(speaker_gender_evidence),text_target=VALUES(text_target),translation_fa=VALUES(translation_fa),learner_turn=VALUES(learner_turn);
+
+-- Activities -----------------------------------------------------------------
+INSERT INTO activities
+(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status) VALUES
+('act-de-price-conversation',@l20,1,'conversation_speaking','دو بار قیمت را بپرس و پاسخ قیمت را با پاول تمرین کن.','دو الگوی منبع‌دار پرسیدن قیمت با دو پاسخ واقعی منبع، کاربرد «kostet»، «Euro» و «Cent» را بدون توضیح سنگین نشان می‌دهند.',@d20,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','learner'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-price-match',@l20,2,'matching','هر سؤال قیمت را به پاسخ خودش وصل کن.','وجود دو پرسش و دو قیمت باعث می‌شود تمرین واقعاً تطبیقی باشد و فقط یک پاسخ حفظ نشود.',NULL,JSON_OBJECT('pairs',JSON_ARRAY(JSON_OBJECT('left','Wie viel kostet das?','leftFa','این چقدر قیمت دارد؟','right','Das kostet 70 Euro und 92 Cent.','rightFa','این ۷۰ یورو و ۹۲ سنت قیمت دارد.'),JSON_OBJECT('left','Was kostet das?','leftFa','قیمت این چقدره؟','right','Das kostet 35 Euro und 15 Cent.','rightFa','این ۳۵ یورو و ۱۵ سنت قیمت دارد.'))),JSON_ARRAY('source_items_grouped_for_matching','persian_translation_added'),NULL,'not_required'),
+('act-de-price-question-order',@l20,3,'word_order','پرسش قیمت را دوباره بساز.','بعد از فهم دو نمونه، بازسازی پرسش اصلی آن را از تشخیص به بازیابی فعال منتقل می‌کند.',NULL,JSON_OBJECT('sourceText','Wie viel kostet das?','sourceTextFa','این چقدر قیمت دارد؟','tokens',JSON_ARRAY('Wie','viel','kostet','das?'),'answer',JSON_ARRAY('Wie','viel','kostet','das?'),'tokenLexemeMappings',JSON_ARRAY(JSON_OBJECT('token','kostet','lexemeId','lex-de-kosten','lexemeFormId','lexform-de-kosten-kostet'))),JSON_ARRAY('sentence_tokenized_for_word_order','persian_translation_added'),NULL,'not_required'),
+('act-de-price-sentence-choice',@l20,4,'multiple_choice','کدام جمله یک قیمت را می‌گوید؟','مرحلهٔ پایانی جملهٔ قیمت را از جملهٔ نیاز قبلی جدا می‌کند تا معنی «kostet» در بافت تثبیت شود.',NULL,JSON_OBJECT('options',JSON_ARRAY(JSON_OBJECT('textTarget','Das kostet 35 Euro und 15 Cent.','translationFa','این ۳۵ یورو و ۱۵ سنت قیمت دارد.','correct',TRUE),JSON_OBJECT('textTarget','Ich brauche eine Hose.','translationFa','من یک شلوار لازم دارم.','correct',FALSE))),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+('act-de-toilet-conversation',@l21,1,'conversation_speaking','مودبانه شروع کن و بپرس سرویس بهداشتی کجاست.','چهار نوبت کوتاه یک نیاز واقعی را با عبارت‌های کاملاً پایه و منبع‌دار تمرین می‌کند.',@d21,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','learner'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-toilet-exchange-match',@l21,2,'matching','دو شروع گفت‌وگو را به پاسخ مناسب وصل کن.','دو جفت کوتاه باعث می‌شود «Entschuldigung.»، «Ja.»، پرسش مکان و «Ich weiß nicht.» به‌صورت رابطه‌ای بازیابی شوند.',NULL,JSON_OBJECT('pairs',JSON_ARRAY(JSON_OBJECT('left','Entschuldigung.','leftFa','ببخشید.','right','Ja.','rightFa','بله.'),JSON_OBJECT('left','Wo ist die Toilette?','leftFa','سرویس بهداشتی کجاست؟','right','Ich weiß nicht.','rightFa','نمی‌دانم.'))),JSON_ARRAY('source_items_grouped_for_matching','persian_translation_added'),NULL,'not_required'),
+('act-de-toilet-question-order',@l21,3,'word_order','پرسش مکان را دوباره بساز.','بازسازی پرسش باعث می‌شود زبان‌آموز عبارت کامل را فعالانه بازیابی کند، نه اینکه فقط معنی آن را تشخیص دهد.',NULL,JSON_OBJECT('sourceText','Wo ist die Toilette?','sourceTextFa','سرویس بهداشتی کجاست؟','tokens',JSON_ARRAY('Wo','ist','die','Toilette?'),'answer',JSON_ARRAY('Wo','ist','die','Toilette?')),JSON_ARRAY('sentence_tokenized_for_word_order','persian_translation_added'),NULL,'not_required'),
+('act-de-dont-know-choice',@l21,4,'multiple_choice','کدام عبارت یعنی «نمی‌دانم»؟','مرحلهٔ پایانی پاسخ کوتاه را از خود پرسش مکان جدا می‌کند و فهم مستقیم عبارت را می‌سنجد.',NULL,JSON_OBJECT('options',JSON_ARRAY(JSON_OBJECT('textTarget','Ich weiß nicht.','translationFa','نمی‌دانم.','correct',TRUE),JSON_OBJECT('textTarget','Wo ist die Toilette?','translationFa','سرویس بهداشتی کجاست؟','correct',FALSE))),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+('act-de-help-conversation',@l22,1,'conversation_speaking','مودبانه شروع کن و خیلی کوتاه بگو کمک لازم داری.','چهار نوبت ساده، عبارت جدید را به عذرخواهی، پاسخ و واکنش آرامی که قبلاً دیده شده‌اند وصل می‌کند.',@d22,JSON_OBJECT('interaction','read_aloud_exchange','openingInitiator','learner'),JSON_ARRAY('persian_translation_added','character_metadata_added'),NULL,'not_required'),
+('act-de-help-word-order',@l22,2,'word_order','جملهٔ درخواست کمک را دوباره بساز.','بازسازی همان عبارت کوتاه، «brauche» و «Hilfe» را بدون افزودن دستور تازه در یک الگوی قابل‌استفاده تثبیت می‌کند.',NULL,JSON_OBJECT('sourceText','Ich brauche Hilfe.','sourceTextFa','من کمک لازم دارم.','tokens',JSON_ARRAY('Ich','brauche','Hilfe.'),'answer',JSON_ARRAY('Ich','brauche','Hilfe.'),'tokenLexemeMappings',JSON_ARRAY(JSON_OBJECT('token','brauche','lexemeId','lex-de-brauchen','lexemeFormId','lexform-de-brauchen-brauche'),JSON_OBJECT('token','Hilfe.','lexemeId','lex-de-hilfe','lexemeFormId',NULL))),JSON_ARRAY('sentence_tokenized_for_word_order','persian_translation_added'),NULL,'not_required'),
+('act-de-help-fill',@l22,3,'fill_blank','جمله را طوری کامل کن که معنی‌اش «کمک لازم دارم» باشد.','دو انتخاب واقعی و منبع‌دار، «Hilfe» را از کالای آشنای «eine Hose» جدا می‌کند و باگ تمرین تک‌گزینه‌ای را هم تکرار نمی‌کند.',NULL,JSON_OBJECT('sourceText','Ich brauche Hilfe.','sourceTextFa','من کمک لازم دارم.','blankedText','Ich brauche ___.','blankedTextFa','من ___ لازم دارم.','choices',JSON_ARRAY('Hilfe','eine Hose'),'choicesFa',JSON_ARRAY('کمک','یک شلوار'),'answer','Hilfe'),JSON_ARRAY('source_sentence_blank_created','options_selected_from_source_material','persian_translation_added'),NULL,'not_required'),
+('act-de-help-meaning-choice',@l22,4,'multiple_choice','کدام جمله یعنی به کمک نیاز داری؟','مقایسهٔ دو جمله با فعل یکسان، توجه را روی معنی «Hilfe» می‌گذارد و تفاوت نیاز فوری با نیاز خرید را روشن می‌کند.',NULL,JSON_OBJECT('options',JSON_ARRAY(JSON_OBJECT('textTarget','Ich brauche Hilfe.','translationFa','من کمک لازم دارم.','correct',TRUE),JSON_OBJECT('textTarget','Ich brauche eine Hose.','translationFa','من یک شلوار لازم دارم.','correct',FALSE))),JSON_ARRAY('options_selected_from_source_material','persian_translation_added'),NULL,'not_required')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+
+UPDATE lessons SET status='final' WHERE id IN(@l20,@l21,@l22);
+
+-- Lexeme and target mappings --------------------------------------------------
+INSERT IGNORE INTO lesson_lexemes(lesson_id,lexeme_id,is_primary,role) VALUES
+(@l20,@x_kosten,TRUE,'introduce'),(@l20,@x_euro,TRUE,'introduce'),(@l20,@x_cent,TRUE,'introduce'),(@l20,@x_brauchen,FALSE,'review'),(@l20,@x_hose,FALSE,'review'),
+(@l21,@x_toilette,TRUE,'introduce'),(@l21,@x_dont_know,TRUE,'introduce'),(@l21,@x_entschuldigung,FALSE,'review'),(@l21,@x_ja,FALSE,'review'),
+(@l22,@x_hilfe,TRUE,'introduce'),(@l22,@x_brauchen,FALSE,'review'),(@l22,@x_hose,FALSE,'review'),(@l22,@x_entschuldigung,FALSE,'review'),(@l22,@x_ja,FALSE,'review'),(@l22,@x_kein_problem,FALSE,'review');
+
+SET @a20_1 := (SELECT id FROM activities WHERE activity_key='act-de-price-conversation');
+SET @a20_2 := (SELECT id FROM activities WHERE activity_key='act-de-price-match');
+SET @a20_3 := (SELECT id FROM activities WHERE activity_key='act-de-price-question-order');
+SET @a20_4 := (SELECT id FROM activities WHERE activity_key='act-de-price-sentence-choice');
+SET @a21_1 := (SELECT id FROM activities WHERE activity_key='act-de-toilet-conversation');
+SET @a21_2 := (SELECT id FROM activities WHERE activity_key='act-de-toilet-exchange-match');
+SET @a21_3 := (SELECT id FROM activities WHERE activity_key='act-de-toilet-question-order');
+SET @a21_4 := (SELECT id FROM activities WHERE activity_key='act-de-dont-know-choice');
+SET @a22_1 := (SELECT id FROM activities WHERE activity_key='act-de-help-conversation');
+SET @a22_2 := (SELECT id FROM activities WHERE activity_key='act-de-help-word-order');
+SET @a22_3 := (SELECT id FROM activities WHERE activity_key='act-de-help-fill');
+SET @a22_4 := (SELECT id FROM activities WHERE activity_key='act-de-help-meaning-choice');
+
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id) VALUES
+(@a20_1,@t_price),(@a20_2,@t_price),(@a20_3,@t_price),(@a20_4,@t_price),
+(@a21_1,@t_toilet),(@a21_2,@t_toilet),(@a21_3,@t_toilet),(@a21_4,@t_toilet),
+(@a22_1,@t_help),(@a22_2,@t_help),(@a22_3,@t_help),(@a22_4,@t_help);
+
+INSERT IGNORE INTO activity_lexemes(activity_id,lexeme_id) VALUES
+(@a20_1,@x_kosten),(@a20_1,@x_euro),(@a20_1,@x_cent),
+(@a20_2,@x_kosten),(@a20_2,@x_euro),(@a20_2,@x_cent),
+(@a20_3,@x_kosten),
+(@a20_4,@x_kosten),(@a20_4,@x_euro),(@a20_4,@x_cent),(@a20_4,@x_brauchen),(@a20_4,@x_hose),
+(@a21_1,@x_toilette),(@a21_1,@x_dont_know),(@a21_1,@x_entschuldigung),(@a21_1,@x_ja),
+(@a21_2,@x_toilette),(@a21_2,@x_dont_know),(@a21_2,@x_entschuldigung),(@a21_2,@x_ja),
+(@a21_3,@x_toilette),
+(@a21_4,@x_dont_know),(@a21_4,@x_toilette),
+(@a22_1,@x_brauchen),(@a22_1,@x_hilfe),(@a22_1,@x_entschuldigung),(@a22_1,@x_ja),(@a22_1,@x_kein_problem),
+(@a22_2,@x_brauchen),(@a22_2,@x_hilfe),
+(@a22_3,@x_brauchen),(@a22_3,@x_hilfe),(@a22_3,@x_hose),
+(@a22_4,@x_brauchen),(@a22_4,@x_hilfe),(@a22_4,@x_hose);
+
+-- Lexeme occurrences ----------------------------------------------------------
+INSERT INTO lexeme_occurrences
+(occurrence_key,owner_type,owner_key,surface,start_offset,end_offset,lexeme_id,lexeme_form_id,resolution_status,resolution_notes) VALUES
+('occ-turn-de-price-1-kostet','dialogue_turn','turn-de-price-1','kostet',NULL,NULL,@x_kosten,@f_kostet,'approved','فرم «kostet» به «kosten» متصل است.'),
+('occ-turn-de-price-2-kostet','dialogue_turn','turn-de-price-2','kostet',NULL,NULL,@x_kosten,@f_kostet,'approved','فرم «kostet» به «kosten» متصل است.'),
+('occ-turn-de-price-2-euro','dialogue_turn','turn-de-price-2','Euro',NULL,NULL,@x_euro,NULL,'approved','اتصال «Euro» تأیید شده است.'),
+('occ-turn-de-price-2-cent','dialogue_turn','turn-de-price-2','Cent',NULL,NULL,@x_cent,NULL,'approved','اتصال «Cent» تأیید شده است.'),
+('occ-turn-de-price-3-kostet','dialogue_turn','turn-de-price-3','kostet',NULL,NULL,@x_kosten,@f_kostet,'approved','فرم «kostet» به «kosten» متصل است.'),
+('occ-turn-de-price-4-kostet','dialogue_turn','turn-de-price-4','kostet',NULL,NULL,@x_kosten,@f_kostet,'approved','فرم «kostet» به «kosten» متصل است.'),
+('occ-turn-de-price-4-euro','dialogue_turn','turn-de-price-4','Euro',NULL,NULL,@x_euro,NULL,'approved','اتصال «Euro» تأیید شده است.'),
+('occ-turn-de-price-4-cent','dialogue_turn','turn-de-price-4','Cent',NULL,NULL,@x_cent,NULL,'approved','اتصال «Cent» تأیید شده است.'),
+('occ-turn-de-toilet-1-entschuldigung','dialogue_turn','turn-de-toilet-1','Entschuldigung',NULL,NULL,@x_entschuldigung,NULL,'approved','اتصال عبارت عذرخواهی تأیید شده است.'),
+('occ-turn-de-toilet-2-ja','dialogue_turn','turn-de-toilet-2','Ja',NULL,NULL,@x_ja,NULL,'approved','اتصال «Ja» تأیید شده است.'),
+('occ-turn-de-toilet-3-toilette','dialogue_turn','turn-de-toilet-3','Toilette',NULL,NULL,@x_toilette,NULL,'approved','اتصال «Toilette» تأیید شده است.'),
+('occ-turn-de-toilet-4-dont-know','dialogue_turn','turn-de-toilet-4','Ich weiß nicht.',NULL,NULL,@x_dont_know,NULL,'approved','عبارت ثابت «Ich weiß nicht.» به lexeme عبارت متصل است.'),
+('occ-turn-de-help-1-entschuldigung','dialogue_turn','turn-de-help-1','Entschuldigung',NULL,NULL,@x_entschuldigung,NULL,'approved','اتصال عبارت عذرخواهی تأیید شده است.'),
+('occ-turn-de-help-2-ja','dialogue_turn','turn-de-help-2','Ja',NULL,NULL,@x_ja,NULL,'approved','اتصال «Ja» تأیید شده است.'),
+('occ-turn-de-help-3-brauche','dialogue_turn','turn-de-help-3','brauche',NULL,NULL,@x_brauchen,@f_brauche,'approved','فرم «brauche» به «brauchen» متصل است.'),
+('occ-turn-de-help-3-hilfe','dialogue_turn','turn-de-help-3','Hilfe',NULL,NULL,@x_hilfe,NULL,'approved','اتصال «Hilfe» تأیید شده است.'),
+('occ-turn-de-help-4-kein-problem','dialogue_turn','turn-de-help-4','Kein Problem',NULL,NULL,@x_kein_problem,NULL,'approved','اتصال «Kein Problem» تأیید شده است.'),
+('occ-act-de-price-question-order-kostet','activity','act-de-price-question-order','kostet',NULL,NULL,@x_kosten,@f_kostet,'approved','فرم «kostet» در تمرین مرتب‌سازی به «kosten» متصل است.'),
+('occ-act-de-help-word-order-brauche','activity','act-de-help-word-order','brauche',NULL,NULL,@x_brauchen,@f_brauche,'approved','فرم «brauche» در تمرین مرتب‌سازی به «brauchen» متصل است.'),
+('occ-act-de-help-word-order-hilfe','activity','act-de-help-word-order','Hilfe.',NULL,NULL,@x_hilfe,NULL,'approved','اتصال «Hilfe» در تمرین مرتب‌سازی تأیید شده است.')
+ON DUPLICATE KEY UPDATE
+ owner_type=VALUES(owner_type),owner_key=VALUES(owner_key),surface=VALUES(surface),lexeme_id=VALUES(lexeme_id),lexeme_form_id=VALUES(lexeme_form_id),resolution_status=VALUES(resolution_status),resolution_notes=VALUES(resolution_notes);
+
+-- Provenance -----------------------------------------------------------------
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes) VALUES
+('dialogue_turn','turn-de-price-1',@si_price_q1,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-price-2',@si_price_a1,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-price-3',@si_price_q2,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-price-4',@si_price_a2,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-toilet-3',@si_toilet,'verbatim','متن هدف عین منبع است.'),
+('dialogue_turn','turn-de-toilet-4',@si_dont_know,'verbatim','متن هدف از عبارت منبع‌دار گرفته شده است.'),
+('dialogue_turn','turn-de-help-3',@si_help,'verbatim','متن هدف از عبارت منبع‌دار گرفته شده است.'),
+('activity','act-de-price-match',@si_price_q1,'source_items_grouped_for_matching','سؤال و پاسخ‌های قیمت از آیتم‌های منبع گروه‌بندی شده‌اند.'),
+('activity','act-de-price-question-order',@si_price_q1,'sentence_tokenized_for_word_order','پرسش منبع برای مرتب‌سازی واژه‌ها بخش‌بندی شده است.'),
+('activity','act-de-price-sentence-choice',@si_price_a2,'options_selected_from_source_material','گزینهٔ درست از متن منبع انتخاب شده است.'),
+('activity','act-de-toilet-question-order',@si_toilet,'sentence_tokenized_for_word_order','پرسش منبع برای مرتب‌سازی واژه‌ها بخش‌بندی شده است.'),
+('activity','act-de-dont-know-choice',@si_dont_know,'options_selected_from_source_material','گزینهٔ درست از عبارت منبع انتخاب شده است.'),
+('activity','act-de-help-word-order',@si_help,'sentence_tokenized_for_word_order','عبارت منبع برای مرتب‌سازی واژه‌ها بخش‌بندی شده است.'),
+('activity','act-de-help-fill',@si_help,'source_sentence_blank_created','از عبارت منبع جای خالی ساخته شده است.'),
+('activity','act-de-help-meaning-choice',@si_help,'options_selected_from_source_material','گزینهٔ درست از عبارت منبع انتخاب شده است.'),
+('lexeme','lex-de-kosten',@si_price_q1,'other','فعل در پرسش منبع‌دار آمده است.'),
+('lexeme','lex-de-euro',@si_price_a1,'other','واژهٔ Euro در پاسخ منبع‌دار آمده است.'),
+('lexeme','lex-de-cent',@si_price_a1,'other','واژهٔ Cent در پاسخ منبع‌دار آمده است.'),
+('lexeme','lex-de-toilette',@si_toilet,'other','واژهٔ Toilette در پرسش منبع‌دار آمده است.'),
+('lexeme','lex-de-ich-weiss-nicht',@si_dont_know,'other','عبارت عیناً از Phrasebook گرفته شده است.'),
+('lexeme','lex-de-hilfe',@si_help,'other','واژهٔ Hilfe در عبارت منبع‌دار آمده است.'),
+('lexeme_form','lexform-de-kosten-kostet',@si_price_q1,'other','فرم صرفی «kostet» از پرسش منبع‌دار استخراج شده است.')
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'dialogue_turn','turn-de-toilet-1',si.id,'verbatim','عبارت عذرخواهی از منبع موجود گرفته شده است.'
+FROM source_items si JOIN sources s ON s.id=si.source_id
+WHERE s.source_key='src-wiktionary-de-entschuldigung' AND si.source_text IN ('Entschuldigung.','Entschuldigung');
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'dialogue_turn','turn-de-toilet-2',si.id,'verbatim','پاسخ «Ja» از منبع موجود گرفته شده است.'
+FROM source_items si JOIN sources s ON s.id=si.source_id
+WHERE s.source_key='src-wiktionary-de-ja' AND si.source_text IN ('Ja.','Ja!','ja','Ja');
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'dialogue_turn','turn-de-help-1',si.id,'verbatim','عبارت عذرخواهی از منبع موجود گرفته شده است.'
+FROM source_items si JOIN sources s ON s.id=si.source_id
+WHERE s.source_key='src-wiktionary-de-entschuldigung' AND si.source_text IN ('Entschuldigung.','Entschuldigung');
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'dialogue_turn','turn-de-help-2',si.id,'verbatim','پاسخ «Ja» از منبع موجود گرفته شده است.'
+FROM source_items si JOIN sources s ON s.id=si.source_id
+WHERE s.source_key='src-wiktionary-de-ja' AND si.source_text IN ('Ja.','Ja!','ja','Ja');
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'dialogue_turn','turn-de-help-4',si.id,'verbatim','پاسخ «Kein Problem» از منبع موجود گرفته شده است.'
+FROM source_items si JOIN sources s ON s.id=si.source_id
+WHERE s.source_key='src-wiktionary-de-kein-problem' AND si.source_text IN ('Kein Problem.','Kein Problem');
+
+-- Level metadata --------------------------------------------------------------
+UPDATE language_levels
+SET coverage=JSON_SET(
+      coverage,
+      '$.communicativeTargets',JSON_ARRAY(
+        'سلام، خداحافظی، تشکر، پاسخ مؤدبانه و عذرخواهی کوتاه','پرسیدن و گفتن نام','احوال‌پرسی بسیار ساده','پرسیدن و پاسخ‌دادن دربارهٔ علاقه/انتخاب غذای آشنا','پاسخ مثبت و منفی کوتاه','پرسیدن و گفتن محل زندگی و مبدأ','پرسیدن و گفتن سن و فهم عددهای ساده','پرسیدن و گفتن روز، ساعت و زمان روز','پرسیدن و گفتن تاریخ تولد','پرسیدن و گفتن شماره تلفن','پرسیدن سؤال اطلاعاتی بسیار ساده و فهم پاسخ کوتاه','نوشتن اطلاعات شخصی بسیار کوتاه در یک فرم متنی','تشخیص شنیداری یک قیمت ساده','پرسیدن و گفتن غذای موجود و چیزی که فرد می‌خورد','انجام یک سفارش بسیار کوتاه و مؤدبانه','فهم و بیان یک نیاز یا خرید بسیار ساده','پرسیدن و فهم قیمت بسیار ساده','پرسیدن محل سرویس بهداشتی و فهم پاسخ «نمی‌دانم»','درخواست کمک بسیار کوتاه'),
+      '$.linguisticTargets',JSON_ARRAY(
+        'عبارت‌های ثابت سلام/خداحافظی و ادب','فعل‌های پایهٔ mögen، heißen، wohnen و kommen در کاربردهای منبع‌دار این سطح','عددهای ساده در سن، ساعت، تلفن و قیمت','واژه‌های پایهٔ روز، ساعت، تولد، شماره تلفن و نشانی','الگوهای منبع‌دار معرفی، محل زندگی، سن، تاریخ تولد و شماره تلفن','واژه‌های خیلی پایهٔ غذا و نوشیدنی در جمله‌های کوتاه','الگوهای خیلی سادهٔ essen، brauchen و kaufen در بافت روزمره','فعل kosten و واژه‌های Euro و Cent در قیمت ساده','واژه‌های Toilette و Hilfe و عبارت ثابت Ich weiß nicht در موقعیت‌های ضروری'),
+      '$.situations',JSON_ARRAY(
+        'آشنایی اولیه','گفت‌وگوی کوتاه صبحگاهی','علاقه و انتخاب غذای آشنا','تشکر و عذرخواهی','اطلاعات شخصی در آشنایی مؤدبانه','پرسش سن','پرسش روز و ساعت','تاریخ تولد','تبادل شماره تلفن','سؤال اطلاعاتی بسیار ساده','فرم متنی اطلاعات شخصی','تشخیص قیمت ساده','پرسیدن دربارهٔ غذای امروز','سفارش خیلی سادهٔ قهوه','بیان نیاز و خرید خیلی ساده','پرسیدن قیمت در خرید','پرسیدن محل سرویس بهداشتی','درخواست کمک کوتاه'),
+      '$.gaps',JSON_ARRAY()),
+    completion_assessment=JSON_SET(
+      completion_assessment,
+      '$.reviewedAt','2026-09-17T12:25:00Z',
+      '$.practiceAndRetrievalComplete',TRUE,
+      '$.skillModeCoverageComplete',TRUE,
+      '$.qualityReview.rationale','سه درس جدید، قیمت، پرسیدن محل سرویس بهداشتی و درخواست کمک را با ۱۲ فعالیت کامل و منبع‌دار اضافه می‌کنند؛ همهٔ تمرین‌ها در بازهٔ ۳ تا ۶ هستند و payloadهای تعاملی کامل‌اند.',
+      '$.qualityReview.remainingWeaknesses',JSON_ARRAY('دارایی‌های صوتی درس‌های ۲۰ تا ۲۲ هنوز تولید نشده‌اند.')),
+    notes='German Pre-A1 اکنون ۲۲ درس در ۴ واحد دارد؛ سه درس جدید دربارهٔ قیمت، محل سرویس بهداشتی و درخواست کمک اضافه شده‌اند و صوت تازه هنوز تولید نشده است.',
+    audio_status='stale'
+WHERE id=@level;
+
+COMMIT;
+
+-- ===== END zzzzzzz-pre-a1-survival-basics.sql =====
+
+-- ===== BEGIN zzzzzzzz-pre-a1-quality-fixes.sql =====
+-- German Pre-A1 targeted quality fixes.
+-- Keeps source-backed German, improves progression/listening, and marks changed audio stale.
+-- Idempotent for fresh imports and re-imports.
+
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);
+
+SET @l_wellbeing := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-wellbeing');
+SET @l_choice := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-simple-choice');
+SET @l_residence := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-residence-origin');
+SET @l_age := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-age-numbers');
+SET @l_day := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-day-time');
+SET @l_phone := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-phone-number');
+SET @l_review := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-personal-review');
+SET @l_order := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-simple-order');
+SET @l_price := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-ask-price');
+SET @l_toilet := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-find-toilet');
+
+-- Reopen only affected final lessons while their activities are changed.
+DROP TEMPORARY TABLE IF EXISTS _prea1_quality_fix_lesson_status;
+CREATE TEMPORARY TABLE _prea1_quality_fix_lesson_status AS
+SELECT id AS lesson_id,status AS original_status
+FROM lessons
+WHERE id IN (@l_wellbeing,@l_choice,@l_residence,@l_age,@l_day,@l_phone,@l_review,@l_order,@l_price,@l_toilet);
+
+UPDATE lessons l
+JOIN _prea1_quality_fix_lesson_status s ON s.lesson_id=l.id
+SET l.status='qa'
+WHERE s.original_status='final';
+
+-- Source metadata and exact reusable source items -----------------------------
+UPDATE sources
+SET locator='Basic survival phrases including “Entschuldigung!”, “Bitte?”, “Ich brauche Hilfe”, “Wo ist die Toilette?” and “Ich weiß nicht.”',
+    locator_fa='بخش عبارت‌های پایه؛ «ببخشید»، «بفرمایید؟»، «کمک لازم دارم»، «سرویس بهداشتی کجاست؟» و «نمی‌دانم».',
+    currency_evidence='صفحهٔ زندهٔ عبارت‌نامه در ویکی‌بوکس در ۱۷ سپتامبر ۲۰۲۶ بررسی شد؛ عبارت‌های کوتاه ادب، درخواست کمک، پرسیدن محل سرویس بهداشتی و بیان «نمی‌دانم» برای موقعیت‌های روزمرهٔ امروزی قابل‌استفاده‌اند.',
+    notes='منبع عبارت‌های کوتاه و منبع‌دار برای ادب، درخواست کمک، پرسیدن محل سرویس بهداشتی و گفتن «نمی‌دانم».'
+WHERE source_key='src-wikibooks-de-phrasebook';
+
+SET @s_phrase := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-phrasebook');
+SET @s_age_time := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-age-time');
+SET @s_phone := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-phone');
+SET @s_phone_example := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-phone-example');
+SET @s_choice := (SELECT id FROM sources WHERE source_key='src-oak-de-was-moechtest-du');
+SET @s_order := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-002');
+SET @s_price := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-004');
+
+INSERT IGNORE INTO source_items(source_id,item_key,locator,locator_fa,source_text,source_text_hash,notes) VALUES
+(@s_phrase,'srcitem-de-phrase-ent-schuldigung','phrasebook','عبارت پایه','Entschuldigung!',UNHEX(SHA2('Entschuldigung!',256)),'شروع مؤدبانهٔ منبع‌دار.'),
+(@s_phrase,'srcitem-de-phrase-bitte-question','phrasebook','عبارت پایه','Bitte?',UNHEX(SHA2('Bitte?',256)),'پاسخ پرسشی مؤدبانهٔ منبع‌دار.'),
+(@s_age_time,'srcitem-de-time-morgen','time of day','زمان روز','Es ist Morgen.',UNHEX(SHA2('Es ist Morgen.',256)),'نمونهٔ منبع‌دار زمان روز.'),
+(@s_age_time,'srcitem-de-time-abend','time of day','زمان روز','Es ist Abend.',UNHEX(SHA2('Es ist Abend.',256)),'نمونهٔ منبع‌دار زمان روز.');
+
+SET @si_ent := (SELECT id FROM source_items WHERE source_id=@s_phrase AND source_text='Entschuldigung!' LIMIT 1);
+SET @si_bitte_q := (SELECT id FROM source_items WHERE source_id=@s_phrase AND source_text='Bitte?' LIMIT 1);
+SET @si_toilet := (SELECT id FROM source_items WHERE source_id=@s_phrase AND source_text='Wo ist die Toilette?' LIMIT 1);
+SET @si_dont_know := (SELECT id FROM source_items WHERE source_id=@s_phrase AND source_text='Ich weiß nicht.' LIMIT 1);
+SET @si_morgen := (SELECT id FROM source_items WHERE source_id=@s_age_time AND source_text='Es ist Morgen.' LIMIT 1);
+SET @si_abend := (SELECT id FROM source_items WHERE source_id=@s_age_time AND source_text='Es ist Abend.' LIMIT 1);
+SET @si_phone_q := (SELECT id FROM source_items WHERE source_id=@s_phone AND source_text='Wie lautet deine Telefonnummer?' LIMIT 1);
+SET @si_phone_full := (SELECT id FROM source_items WHERE source_id=@s_phone_example AND source_text='Meine Telefonnummer ist: 692-267-752.' LIMIT 1);
+SET @si_choice_q := (SELECT id FROM source_items WHERE source_id=@s_choice AND source_text='Was möchtest du?' LIMIT 1);
+SET @si_order_a := (SELECT id FROM source_items WHERE source_id=@s_order AND source_text='Eine Tasse Kaffee bitte!' LIMIT 1);
+SET @si_price_a2 := (SELECT id FROM source_items WHERE source_id=@s_price AND source_text='Das kostet 35 Euro und 15 Cent.' LIMIT 1);
+
+-- Newly explicit source-backed time-of-day lexemes ----------------------------
+INSERT INTO lexemes
+(lexeme_key,language_id,lexeme_type,surface,normalized_surface,lemma,part_of_speech,part_of_speech_fa,cefr_level,translation_fa,usage_note_fa,flashcard_eligible,audio_status) VALUES
+('lex-de-morgen',@de,'word','Morgen','Morgen','Morgen','noun','اسم','Pre-A1','صبح','در منبع زمان روز، «Morgen» برای بازهٔ صبح آمده است.',TRUE,'pending'),
+('lex-de-abend',@de,'word','Abend','Abend','Abend','noun','اسم','Pre-A1','عصر / شب','در منبع زمان روز، «Abend» برای بازهٔ عصر تا شب آمده است.',TRUE,'pending')
+ON DUPLICATE KEY UPDATE
+ language_id=VALUES(language_id),lexeme_type=VALUES(lexeme_type),surface=VALUES(surface),normalized_surface=VALUES(normalized_surface),lemma=VALUES(lemma),part_of_speech=VALUES(part_of_speech),part_of_speech_fa=VALUES(part_of_speech_fa),cefr_level=VALUES(cefr_level),translation_fa=VALUES(translation_fa),usage_note_fa=VALUES(usage_note_fa),flashcard_eligible=VALUES(flashcard_eligible);
+
+SET @x_morgen := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-morgen');
+SET @x_abend := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-abend');
+SET @x_bitte := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-bitte');
+SET @x_ja := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-ja');
+SET @x_entschuldigung := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-entschuldigung');
+SET @x_toilette := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-toilette');
+SET @x_dont_know := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-ich-weiss-nicht');
+SET @x_moegen := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-moegen');
+SET @x_phone := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-telefonnummer');
+SET @x_kosten := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-kosten');
+SET @x_euro := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-euro');
+SET @x_cent := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-cent');
+SET @x_tasse := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-tasse');
+SET @x_kaffee := (SELECT id FROM lexemes WHERE lexeme_key='lex-de-kaffee');
+
+INSERT IGNORE INTO lesson_lexemes(lesson_id,lexeme_id,is_primary,role) VALUES
+(@l_day,@x_morgen,FALSE,'introduce'),
+(@l_day,@x_abend,FALSE,'introduce');
+
+DELETE FROM lesson_lexemes WHERE lesson_id=@l_toilet AND lexeme_id=@x_ja;
+INSERT IGNORE INTO lesson_lexemes(lesson_id,lexeme_id,is_primary,role)
+VALUES(@l_toilet,@x_bitte,FALSE,'review');
+
+-- Lesson editorial/runtime metadata -------------------------------------------
+UPDATE lessons SET
+ activity_selection_rationale='پنج مرحله فهم انتخاب، بازسازی پرسش، تمایز معنایی «möchtest» و «magst»، پاسخ‌دادن و تشخیص شنیداری پرسش خواستن را پوشش می‌دهد.',
+ sequence_rationale='تعامل به ساخت پرسش، تمرکز روی تفاوت معنی، پاسخ کاربردی و در پایان تشخیص شنیداری همان پرسش می‌رسد.',
+ template_signature='conversation_speaking>word_order>fill_blank>choose_response>listen_choose',
+ audio_status='stale'
+WHERE id=@l_choice;
+
+UPDATE lessons SET
+ activity_selection_rationale='پنج مرحلهٔ مکالمه، تطبیق دو پرسش با دو قیمت، بازسازی پرسش، تشخیص دقیق قیمت و دریافت شنیداری را پوشش می‌دهد.',
+ sequence_rationale='اول قیمت در گفت‌وگو شنیده و گفته می‌شود، سپس سؤال/جواب‌ها از هم تفکیک می‌شوند، خود پرسش ساخته می‌شود، دو قیمت منبع‌دار مقایسه می‌شوند و در پایان همان مهارت به شنیدن منتقل می‌شود.',
+ template_signature='conversation_speaking>matching>word_order>multiple_choice>listen_choose',
+ audio_status='stale'
+WHERE id=@l_price;
+
+UPDATE lessons SET
+ activity_selection_rationale='پنج مرحله مکالمه، تطبیق دو جفت کوتاه، بازسازی پرسش مکان، تشخیص معنی «نمی‌دانم» و دریافت شنیداری پرسش را پوشش می‌دهد.',
+ sequence_rationale='پرسش ابتدا در یک تبادل مؤدبانه و کاملاً منبع‌دار دیده می‌شود، سپس ارتباط دو جفت گفت‌وگو تثبیت می‌شود، خود پرسش ساخته می‌شود، پاسخ کوتاه تشخیص داده می‌شود و در پایان پرسش از راه شنیدن بازیابی می‌شود.',
+ template_signature='conversation_speaking>matching>word_order>multiple_choice>listen_choose',
+ audio_status='stale'
+WHERE id=@l_toilet;
+
+UPDATE lessons SET
+ activity_selection_rationale='پنج مرحله مکالمهٔ سفارش، ساخت عبارت، پاسخ به سؤال رسمی، تشخیص نقش کل سفارش و دریافت شنیداری را پوشش می‌دهد.',
+ sequence_rationale='تعامل به ساخت سفارش، بازیابی پاسخ، فهم کاربرد عبارت و در پایان تشخیص شنیداری همان سفارش می‌رسد.',
+ template_signature='conversation_speaking>word_order>choose_response>true_false>listen_choose',
+ audio_status='stale'
+WHERE id=@l_order;
+
+UPDATE lessons SET
+ activity_selection_rationale='چهار مرحله مرور گفتاری، فرم متنی، تطبیق پرسش‌های شخصی و تشخیص الگوی تلفن را ترکیب می‌کند؛ تمرین قیمت به درس قیمت منتقل شده تا پیش از آموزش «kosten» و «Euro» سنجیده نشود.',
+ sequence_rationale='بازیابی گفتاری و نوشتاری با دو مرور کوتاه ساختاری تکمیل می‌شود و هیچ مفهوم آموزش‌نداده‌ای وارد مرور نمی‌شود.',
+ template_signature='conversation_speaking>review>matching>true_false'
+WHERE id=@l_review;
+
+UPDATE lessons SET
+ activity_selection_rationale='چهار مرحله تبادل شماره، دریافت شنیداری، ساخت پاسخ و تشخیص پرسش را با نمونهٔ کامل منبع‌دار پوشش می‌دهد.',
+ sequence_rationale='تعامل و شنیدن به تولید ساختاری و سپس تشخیص نقش پرسش می‌رسد.',
+ audio_status='stale'
+WHERE id=@l_phone;
+
+UPDATE lessons SET audio_status='stale' WHERE id=@l_day;
+UPDATE language_levels SET audio_status='stale' WHERE id=@level;
+
+-- Clarify du/Sie at the exact points where the source-backed forms appear.
+UPDATE activities SET
+ instruction_fa='در این گفت‌وگوی مؤدبانه طرف مقابل با «Sie» خطاب می‌شود؛ دربارهٔ محل زندگی و مبدأ جواب بده و یک سؤال هم بپرس.',
+ selection_reason='دو توصیفگر نزدیکِ اطلاعات شخصی در یک تبادل چهار نوبت طبیعی کنار هم تمرین می‌شوند و فرم رسمی موجود در منبع صریحاً برای زبان‌آموز مشخص می‌شود.'
+WHERE activity_key='act-de-residence-conversation';
+
+UPDATE activities SET
+ instruction_fa='اینجا خطاب دوستانه است: سن میا را با «du» بپرس و وقتی او از سن تو می‌پرسد، پاسخ نمونه را بگو.',
+ selection_reason='سن و عدد باید اول در تعامل واقعی دیده شوند و توضیح فارسی مشخص می‌کند چرا این درس از «du» استفاده می‌کند.'
+WHERE activity_key='act-de-age-conversation';
+
+UPDATE activities SET
+ instruction_fa='این گفت‌وگو رسمی است و آیریس با «Sie» خطاب می‌کند؛ سلام کن و وقتی سفارش را می‌پرسد، یک فنجان قهوه سفارش بده.'
+WHERE activity_key='act-de-simple-order-conversation';
+
+-- Fix misleading literal mapping in wellbeing fill ---------------------------
+UPDATE activities SET
+ instruction_fa='خودِ عبارت آلمانی احوال‌پرسی را کامل کن؛ گزینه‌ها ترجمهٔ کلمه‌به‌کلمه نیستند.',
+ selection_reason='جای‌خالی از همان عبارت منبع‌دار ساخته شده و بدون نسبت‌دادن ترجمهٔ کلمه‌به‌کلمهٔ نادرست به «geht''s»، یک بازیابی سبک ایجاد می‌کند.',
+ payload=JSON_OBJECT(
+   'sourceText','Wie geht''s?',
+   'sourceTextFa','حالت چطوره؟',
+   'blankedText','Wie ___?',
+   'choices',JSON_ARRAY('geht''s','gut'),
+   'answer','geht''s'
+ )
+WHERE activity_key='act-de-wellbeing-fill';
+
+-- Make mögen / möchten meaning distinction explicit and add listening --------
+UPDATE activities SET
+ instruction_fa='با توجه به معنی انتخاب کن: «möchtest» برای «می‌خواهی» و «magst» برای «دوست داری».',
+ selection_reason='دو فرم منبع‌دار کنار هم قرار می‌گیرند تا زبان‌آموز فقط شکل را حفظ نکند و تفاوت «خواستن» و «دوست داشتن» را تشخیص دهد.',
+ payload=JSON_SET(payload,'$.choicesFa',JSON_ARRAY('می‌خواهی','دوست داری'))
+WHERE activity_key='act-de-simple-choice-fill';
+
+INSERT INTO activities
+(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES
+('act-de-simple-choice-listen',@l_choice,5,'listen_choose','پرسش را گوش کن و معنی درستش را انتخاب کن.','همان پرسش دقیق منبع به‌صورت شنیداری ارائه می‌شود تا تفاوت «خواستن» و «دوست داشتن» فقط به خواندن محدود نماند.',NULL,
+ JSON_OBJECT('audioTextTargetFa','چی می‌خوای؟','options',JSON_ARRAY(JSON_OBJECT('text','چی می‌خوای؟','correct',TRUE),JSON_OBJECT('text','پیتزا دوست داری؟','correct',FALSE))),
+ JSON_ARRAY('other','persian_translation_added'),'Was möchtest du?','pending')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+
+-- Move the price listening activity to the lesson where price is actually taught.
+UPDATE activities SET
+ lesson_id=@l_price,
+ position_index=5,
+ activity_type='listen_choose',
+ instruction_fa='قیمت را گوش کن و عدد درست را انتخاب کن.',
+ selection_reason='تمرین شنیداری حالا بعد از آموزش «kosten»، «Euro» و «Cent» قرار دارد و از همان پاسخ دقیق منبع استفاده می‌کند.',
+ payload=JSON_OBJECT('audioTextTargetFa','این ۳۵ یورو و ۱۵ سنت قیمت دارد.','options',JSON_ARRAY(JSON_OBJECT('text','35,15 €','correct',TRUE),JSON_OBJECT('text','70,92 €','correct',FALSE))),
+ transformations=JSON_ARRAY('other','persian_translation_added'),
+ audio_text_target='Das kostet 35 Euro und 15 Cent.',
+ audio_status='stale'
+WHERE activity_key='act-de-price-listen';
+
+UPDATE activities SET
+ instruction_fa='کدام جمله قیمت ۳۵ یورو و ۱۵ سنت را می‌گوید؟',
+ selection_reason='دو پاسخ قیمتِ بسیار شبیه و هر دو منبع‌دار جای distractor نامرتبط را می‌گیرند تا پاسخ بدون خواندن دقیق عددها قابل حدس نباشد.',
+ payload=JSON_OBJECT('options',JSON_ARRAY(
+   JSON_OBJECT('textTarget','Das kostet 35 Euro und 15 Cent.','translationFa','این ۳۵ یورو و ۱۵ سنت قیمت دارد.','correct',TRUE),
+   JSON_OBJECT('textTarget','Das kostet 70 Euro und 92 Cent.','translationFa','این ۷۰ یورو و ۹۲ سنت قیمت دارد.','correct',FALSE)
+ ))
+WHERE activity_key='act-de-price-sentence-choice';
+
+-- Personal review now contains only material already taught before it.
+UPDATE activities SET position_index=3 WHERE activity_key='act-de-personal-review-match';
+UPDATE activities SET
+ position_index=4,
+ selection_reason='نمونهٔ کامل و منبع‌دار شماره تلفن جای نمونهٔ سه‌رقمی مصنوعی را می‌گیرد.',
+ payload=JSON_OBJECT('statementTarget','Meine Telefonnummer ist: 692-267-752.','statementFa','این جمله یک شماره تلفن را بیان می‌کند.','answer',TRUE)
+WHERE activity_key='act-de-personal-review-phone-check';
+
+-- Replace the artificial 3-digit phone example with the full sourced sample.
+UPDATE dialogue_turns SET
+ text_target='Meine Telefonnummer ist: 692-267-752.',
+ translation_fa='شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.',
+ audio_status='stale'
+WHERE turn_key='turn-de-phone-2';
+
+UPDATE activities SET
+ instruction_fa='شماره تلفن را بپرس و پاسخ کامل منبع‌دار را بگو.',
+ selection_reason='پرسش و پاسخ مستقیم شماره تلفن توصیفگر صریح پیش از A1 است و نمونهٔ پاسخ کامل از خود منبع بازاستفاده می‌شود.'
+WHERE activity_key='act-de-phone-conversation';
+
+UPDATE activities SET
+ instruction_fa='شماره را گوش کن و نمونهٔ درست را انتخاب کن.',
+ selection_reason='شماره تلفن باید در دریافت شنیداری هم قابل تشخیص باشد و هر دو گزینهٔ عددی از نمونه‌های موجود در منابع پروژه می‌آیند.',
+ payload=JSON_OBJECT('audioTextTargetFa','شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.','options',JSON_ARRAY(JSON_OBJECT('text','692-267-752','correct',TRUE),JSON_OBJECT('text','789','correct',FALSE))),
+ audio_text_target='Meine Telefonnummer ist: 692-267-752.',
+ audio_status='stale'
+WHERE activity_key='act-de-phone-listen';
+
+UPDATE activities SET
+ payload=JSON_OBJECT('sourceText','Meine Telefonnummer ist: 692-267-752.','sourceTextFa','شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.','tokens',JSON_ARRAY('Meine','Telefonnummer','ist:','692-267-752.'),'answer',JSON_ARRAY('Meine','Telefonnummer','ist:','692-267-752.'))
+WHERE activity_key='act-de-phone-word-order';
+
+UPDATE activities SET
+ payload=JSON_OBJECT('options',JSON_ARRAY(
+   JSON_OBJECT('textTarget','Wie lautet deine Telefonnummer?','translationFa','شماره تلفنت چیه؟','correct',TRUE),
+   JSON_OBJECT('textTarget','Meine Telefonnummer ist: 692-267-752.','translationFa','شماره تلفن من ۶۹۲-۲۶۷-۷۵۲ است.','correct',FALSE)
+ ))
+WHERE activity_key='act-de-phone-question-choice';
+
+-- Source-backed natural toilet exchange and listening -------------------------
+UPDATE dialogues SET
+ scenario='آیریس با عذرخواهی شروع می‌کند، پاول با عبارت پرسشی مؤدبانه پاسخ می‌دهد، سپس آیریس محل سرویس بهداشتی را می‌پرسد و پاول می‌گوید نمی‌داند.',
+ scene_quality_rationale='چهار نوبت از یک عبارت‌نامهٔ قابل‌بازاستفاده آمده‌اند و شروع گفت‌وگو از «Ja.» مصنوعی به «Bitte?» منبع‌دار تغییر کرده است، بدون ساختن جملهٔ آلمانی تازه.'
+WHERE dialogue_key='dlg-de-pre-a1-find-toilet';
+
+UPDATE dialogue_turns SET
+ text_target='Entschuldigung!',translation_fa='ببخشید!',audio_status='stale'
+WHERE turn_key='turn-de-toilet-1';
+UPDATE dialogue_turns SET
+ text_target='Bitte?',translation_fa='بفرمایید؟',audio_status='stale'
+WHERE turn_key='turn-de-toilet-2';
+
+UPDATE activities SET
+ instruction_fa='با «Entschuldigung!» شروع کن و بعد بپرس سرویس بهداشتی کجاست.',
+ selection_reason='چهار نوبت دقیقاً از عبارت‌های منبع تشکیل شده‌اند و شروع مؤدبانه را بدون جملهٔ ساختگی تمرین می‌کنند.',
+ transformations=JSON_ARRAY('verbatim_dialogue','persian_translation_added','character_metadata_added')
+WHERE activity_key='act-de-toilet-conversation';
+
+UPDATE activities SET
+ instruction_fa='دو شروع گفت‌وگو را به پاسخ مناسب وصل کن.',
+ selection_reason='دو جفت کوتاه منبع‌دار، شروع مؤدبانه و پرسش مکان را به پاسخ درستشان وصل می‌کنند.',
+ payload=JSON_OBJECT('pairs',JSON_ARRAY(
+   JSON_OBJECT('left','Entschuldigung!','leftFa','ببخشید!','right','Bitte?','rightFa','بفرمایید؟'),
+   JSON_OBJECT('left','Wo ist die Toilette?','leftFa','سرویس بهداشتی کجاست؟','right','Ich weiß nicht.','rightFa','نمی‌دانم.')
+ ))
+WHERE activity_key='act-de-toilet-exchange-match';
+
+INSERT INTO activities
+(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES
+('act-de-toilet-listen',@l_toilet,5,'listen_choose','پرسش را گوش کن و معنی درستش را انتخاب کن.','پرسش دقیق عبارت‌نامه به‌صورت شنیداری تمرین می‌شود تا توانایی فقط به متن محدود نماند.',NULL,
+ JSON_OBJECT('audioTextTargetFa','سرویس بهداشتی کجاست؟','options',JSON_ARRAY(JSON_OBJECT('text','سرویس بهداشتی کجاست؟','correct',TRUE),JSON_OBJECT('text','نمی‌دانم.','correct',FALSE))),
+ JSON_ARRAY('other','persian_translation_added'),'Wo ist die Toilette?','pending')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+
+-- Add sourced listening to the simple order lesson ----------------------------
+INSERT INTO activities
+(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES
+('act-de-simple-order-listen',@l_order,5,'listen_choose','عبارت را گوش کن و معنی درستش را انتخاب کن.','عبارت دقیق سفارش از همان منبع به‌صورت شنیداری تمرین می‌شود تا زبان‌آموز فقط شکل نوشته‌شده را نشناسد.',NULL,
+ JSON_OBJECT('audioTextTargetFa','یک فنجان قهوه لطفاً!','options',JSON_ARRAY(JSON_OBJECT('text','یک فنجان قهوه لطفاً!','correct',TRUE),JSON_OBJECT('text','لطفاً چی میل دارید؟','correct',FALSE))),
+ JSON_ARRAY('other','persian_translation_added'),'Eine Tasse Kaffee bitte!','pending')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target);
+
+-- Activity/lesson lexeme and target mapping sync ------------------------------
+SET @a_choice_listen := (SELECT id FROM activities WHERE activity_key='act-de-simple-choice-listen');
+SET @a_price_listen := (SELECT id FROM activities WHERE activity_key='act-de-price-listen');
+SET @a_price_choice := (SELECT id FROM activities WHERE activity_key='act-de-price-sentence-choice');
+SET @a_phone_listen := (SELECT id FROM activities WHERE activity_key='act-de-phone-listen');
+SET @a_phone_word := (SELECT id FROM activities WHERE activity_key='act-de-phone-word-order');
+SET @a_phone_choice := (SELECT id FROM activities WHERE activity_key='act-de-phone-question-choice');
+SET @a_review_phone := (SELECT id FROM activities WHERE activity_key='act-de-personal-review-phone-check');
+SET @a_toilet_conv := (SELECT id FROM activities WHERE activity_key='act-de-toilet-conversation');
+SET @a_toilet_match := (SELECT id FROM activities WHERE activity_key='act-de-toilet-exchange-match');
+SET @a_toilet_listen := (SELECT id FROM activities WHERE activity_key='act-de-toilet-listen');
+SET @a_order_listen := (SELECT id FROM activities WHERE activity_key='act-de-simple-order-listen');
+SET @a_day_tod := (SELECT id FROM activities WHERE activity_key='act-de-time-of-day');
+
+DELETE FROM activity_lexemes WHERE activity_id IN (@a_choice_listen,@a_price_listen,@a_price_choice,@a_phone_listen,@a_phone_word,@a_phone_choice,@a_review_phone,@a_toilet_conv,@a_toilet_match,@a_toilet_listen,@a_order_listen,@a_day_tod);
+
+INSERT IGNORE INTO activity_lexemes(activity_id,lexeme_id) VALUES
+(@a_choice_listen,@x_moegen),
+(@a_price_listen,@x_kosten),(@a_price_listen,@x_euro),(@a_price_listen,@x_cent),
+(@a_price_choice,@x_kosten),(@a_price_choice,@x_euro),(@a_price_choice,@x_cent),
+(@a_phone_listen,@x_phone),(@a_phone_word,@x_phone),(@a_phone_choice,@x_phone),(@a_review_phone,@x_phone),
+(@a_toilet_conv,@x_toilette),(@a_toilet_conv,@x_dont_know),(@a_toilet_conv,@x_entschuldigung),(@a_toilet_conv,@x_bitte),
+(@a_toilet_match,@x_toilette),(@a_toilet_match,@x_dont_know),(@a_toilet_match,@x_entschuldigung),(@a_toilet_match,@x_bitte),
+(@a_toilet_listen,@x_toilette),
+(@a_order_listen,@x_bitte),(@a_order_listen,@x_tasse),(@a_order_listen,@x_kaffee),
+(@a_day_tod,@x_morgen),(@a_day_tod,@x_abend);
+
+-- Reuse the same target mappings as each lesson's conversation activity.
+DELETE FROM activity_targets WHERE activity_id IN (@a_choice_listen,@a_price_listen,@a_toilet_listen,@a_order_listen);
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT @a_choice_listen,at.curriculum_target_id FROM activity_targets at JOIN activities a ON a.id=at.activity_id WHERE a.activity_key='act-de-simple-choice-conversation';
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT @a_price_listen,at.curriculum_target_id FROM activity_targets at JOIN activities a ON a.id=at.activity_id WHERE a.activity_key='act-de-price-conversation';
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT @a_toilet_listen,at.curriculum_target_id FROM activity_targets at JOIN activities a ON a.id=at.activity_id WHERE a.activity_key='act-de-toilet-conversation';
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT @a_order_listen,at.curriculum_target_id FROM activity_targets at JOIN activities a ON a.id=at.activity_id WHERE a.activity_key='act-de-simple-order-conversation';
+
+-- Occurrences changed by the toilet dialogue.
+DELETE FROM lexeme_occurrences WHERE occurrence_key='occ-turn-de-toilet-2-ja';
+INSERT INTO lexeme_occurrences
+(occurrence_key,owner_type,owner_key,surface,start_offset,end_offset,lexeme_id,lexeme_form_id,resolution_status,resolution_notes) VALUES
+('occ-turn-de-toilet-2-bitte','dialogue_turn','turn-de-toilet-2','Bitte',NULL,NULL,@x_bitte,NULL,'approved','اتصال «Bitte» در پاسخ پرسشی مؤدبانه تأیید شده است.')
+ON DUPLICATE KEY UPDATE owner_type=VALUES(owner_type),owner_key=VALUES(owner_key),surface=VALUES(surface),lexeme_id=VALUES(lexeme_id),lexeme_form_id=VALUES(lexeme_form_id),resolution_status=VALUES(resolution_status),resolution_notes=VALUES(resolution_notes);
+
+-- Provenance: replace obsolete source links and add the new exact links.
+DELETE FROM provenance_links WHERE entity_type='dialogue_turn' AND entity_key IN ('turn-de-toilet-1','turn-de-toilet-2','turn-de-phone-2');
+DELETE FROM provenance_links WHERE entity_type='activity' AND entity_key IN (
+ 'act-de-simple-choice-listen','act-de-price-listen','act-de-phone-listen','act-de-phone-word-order','act-de-phone-question-choice','act-de-personal-review-phone-check','act-de-toilet-conversation','act-de-toilet-exchange-match','act-de-toilet-listen','act-de-simple-order-listen','act-de-time-of-day'
+);
+
+INSERT IGNORE INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes) VALUES
+('dialogue_turn','turn-de-toilet-1',@si_ent,'verbatim','متن هدف عین عبارت Phrasebook است.'),
+('dialogue_turn','turn-de-toilet-2',@si_bitte_q,'verbatim','متن هدف عین عبارت Phrasebook است.'),
+('dialogue_turn','turn-de-phone-2',@si_phone_full,'verbatim','نمونهٔ کامل شماره تلفن عین منبع است.'),
+('activity','act-de-simple-choice-listen',@si_choice_q,'other','متن شنیداری عین پرسش منبع‌دار است.'),
+('activity','act-de-price-listen',@si_price_a2,'other','متن شنیداری عین پاسخ قیمت منبع‌دار است.'),
+('activity','act-de-phone-listen',@si_phone_full,'other','متن شنیداری عین نمونهٔ کامل منبع است.'),
+('activity','act-de-phone-word-order',@si_phone_full,'sentence_tokenized_for_word_order','نمونهٔ کامل منبع برای مرتب‌سازی واژه‌ها بخش‌بندی شده است.'),
+('activity','act-de-phone-question-choice',@si_phone_q,'options_selected_from_source_material','گزینهٔ پرسش از منبع انتخاب شده است.'),
+('activity','act-de-phone-question-choice',@si_phone_full,'options_selected_from_source_material','گزینهٔ پاسخ کامل از منبع انتخاب شده است.'),
+('activity','act-de-personal-review-phone-check',@si_phone_full,'other','نمونهٔ کامل شماره تلفن عین منبع است.'),
+('activity','act-de-toilet-conversation',@si_ent,'verbatim','شروع مؤدبانه از Phrasebook است.'),
+('activity','act-de-toilet-conversation',@si_bitte_q,'verbatim','پاسخ پرسشی مؤدبانه از Phrasebook است.'),
+('activity','act-de-toilet-conversation',@si_toilet,'verbatim','پرسش محل عین Phrasebook است.'),
+('activity','act-de-toilet-conversation',@si_dont_know,'verbatim','پاسخ کوتاه عین Phrasebook است.'),
+('activity','act-de-toilet-exchange-match',@si_ent,'source_items_grouped_for_matching','عبارت‌های Phrasebook برای تطبیق گروه‌بندی شده‌اند.'),
+('activity','act-de-toilet-exchange-match',@si_bitte_q,'source_items_grouped_for_matching','عبارت‌های Phrasebook برای تطبیق گروه‌بندی شده‌اند.'),
+('activity','act-de-toilet-exchange-match',@si_toilet,'source_items_grouped_for_matching','عبارت‌های Phrasebook برای تطبیق گروه‌بندی شده‌اند.'),
+('activity','act-de-toilet-exchange-match',@si_dont_know,'source_items_grouped_for_matching','عبارت‌های Phrasebook برای تطبیق گروه‌بندی شده‌اند.'),
+('activity','act-de-toilet-listen',@si_toilet,'other','متن شنیداری عین Phrasebook است.'),
+('activity','act-de-simple-order-listen',@si_order_a,'other','متن شنیداری عین عبارت سفارش منبع‌دار است.'),
+('activity','act-de-time-of-day',@si_morgen,'options_selected_from_source_material','گزینهٔ صبح عین منبع است.'),
+('activity','act-de-time-of-day',@si_abend,'options_selected_from_source_material','گزینهٔ عصر عین منبع است.'),
+('lexeme','lex-de-morgen',@si_morgen,'other','واژه از نمونهٔ زمان روز منبع استخراج شده است.'),
+('lexeme','lex-de-abend',@si_abend,'other','واژه از نمونهٔ زمان روز منبع استخراج شده است.')
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+
+-- Restore lesson final/previous states after all activity mutations.
+UPDATE lessons l
+JOIN _prea1_quality_fix_lesson_status s ON s.lesson_id=l.id
+SET l.status=s.original_status;
+
+DROP TEMPORARY TABLE _prea1_quality_fix_lesson_status;
+COMMIT;
+
+-- ===== END zzzzzzzz-pre-a1-quality-fixes.sql =====
+
+-- ===== BEGIN zzzzzzzzx-pre-a1-quality-audio-status.sql =====
+-- Normalize audio state after source-backed quality fixes change existing German text.
+-- Audio invalidation triggers intentionally set changed targets to blocked_until_level_final.
+-- Once the content change is complete, mark those exact assets stale while lessons are open.
+
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);
+SET @l_phone := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-phone-number' LIMIT 1);
+SET @l_price := (SELECT id FROM lessons WHERE lesson_key='de-pre-a1-lesson-ask-price' LIMIT 1);
+
+DROP TEMPORARY TABLE IF EXISTS _prea1_quality_audio_lesson_status;
+CREATE TEMPORARY TABLE _prea1_quality_audio_lesson_status AS
+SELECT id AS lesson_id,status AS original_status
+FROM lessons
+WHERE id IN (@l_phone,@l_price);
+
+UPDATE lessons l
+JOIN _prea1_quality_audio_lesson_status s ON s.lesson_id=l.id
+SET l.status='qa'
+WHERE s.original_status='final';
+
+UPDATE activities
+SET audio_status='stale'
+WHERE activity_key IN ('act-de-phone-listen','act-de-price-listen')
+  AND audio_text_target IS NOT NULL;
+
+UPDATE dialogue_turns
+SET audio_status='stale'
+WHERE turn_key IN ('turn-de-phone-2','turn-de-toilet-1','turn-de-toilet-2');
+
+UPDATE lessons l
+JOIN _prea1_quality_audio_lesson_status s ON s.lesson_id=l.id
+SET l.status=s.original_status;
+
+DROP TEMPORARY TABLE _prea1_quality_audio_lesson_status;
+COMMIT;
+
+-- ===== END zzzzzzzzx-pre-a1-quality-audio-status.sql =====
+
+-- ===== BEGIN zzzzzzzzz-pre-a1-quality-localization.sql =====
+-- Final Persian companion cleanup for the targeted Pre-A1 quality fixes.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+
+DROP TEMPORARY TABLE IF EXISTS _prea1_quality_localization_status;
+CREATE TEMPORARY TABLE _prea1_quality_localization_status AS
+SELECT DISTINCT l.id AS lesson_id,l.status AS original_status
+FROM lessons l
+JOIN activities a ON a.lesson_id=l.id
+WHERE a.activity_key IN ('act-de-wellbeing-fill','act-de-price-sentence-choice','act-de-time-of-day');
+
+UPDATE lessons l
+JOIN _prea1_quality_localization_status s ON s.lesson_id=l.id
+SET l.status='qa'
+WHERE s.original_status='final';
+
+UPDATE activities
+SET payload=JSON_SET(
+  payload,
+  '$.blankedTextFa','حالت ___؟',
+  '$.choicesFa',JSON_ARRAY('جزء ثابت عبارت «حالت چطوره؟»','خوب')
+)
+WHERE activity_key='act-de-wellbeing-fill';
+
+UPDATE activities
+SET selection_reason='دو پاسخ قیمتِ بسیار شبیه و هر دو منبع‌دار جای گزینهٔ غلطِ نامرتبط را می‌گیرند تا پاسخ بدون خواندن دقیق عددها قابل حدس نباشد.'
+WHERE activity_key='act-de-price-sentence-choice';
+
+UPDATE activities
+SET selection_reason='دو عبارت زمان روز مستقیماً از منبع آمده‌اند و واژه‌های «Morgen» و «Abend» نیز به‌عنوان مدخل‌های واژگانی منبع‌دار ثبت شده‌اند.'
+WHERE activity_key='act-de-time-of-day';
+
+UPDATE lessons l
+JOIN _prea1_quality_localization_status s ON s.lesson_id=l.id
+SET l.status=s.original_status;
+
+DROP TEMPORARY TABLE _prea1_quality_localization_status;
+COMMIT;
+
+-- ===== END zzzzzzzzz-pre-a1-quality-localization.sql =====
+
+-- ===== BEGIN zzzzzzzzzz-pre-a1-matching-bounds.sql =====
+-- German Pre-A1 matching activities: global matching bound is 4–8 pairs; Pre-A1 uses exactly 4.
+-- This migration changes only non-audio matching payloads and learner-facing Persian guidance.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+START TRANSACTION;
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @prea1 := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='Pre-A1' LIMIT 1);
+UPDATE lessons SET status='qa' WHERE language_level_id=@prea1 AND lesson_key IN ('de-pre-a1-lesson-hallo','de-pre-a1-lesson-danke-bitte','de-pre-a1-lesson-entschuldigung','de-pre-a1-lesson-residence-origin','de-pre-a1-lesson-personal-review','de-pre-a1-lesson-day-time','de-pre-a1-lesson-food-today','de-pre-a1-lesson-need-and-buy','de-pre-a1-lesson-ask-price','de-pre-a1-lesson-find-toilet') AND status='final';
+UPDATE activities SET instruction_fa='هر عبارت را به کاربردش وصل کن.', selection_reason='چهار عبارت اجتماعی پایهٔ منبع‌دارِ واحد اول را در یک تطبیق کوتاه از هم جدا می‌کند تا مرحلهٔ وصل‌کردن چهار گزینهٔ معنادار داشته باشد.', payload=JSON_SET(payload,'$.pairMode','target_to_persian','$.pairs',JSON_ARRAY(JSON_OBJECT('left','Hallo!','leftFa','سلام!','right','سلام / شروع گفت‌وگو','rightFa','سلام / شروع گفت‌وگو'),JSON_OBJECT('left','Tschüss!','leftFa','خداحافظ!','right','خداحافظی / پایان گفت‌وگو','rightFa','خداحافظی / پایان گفت‌وگو'),JSON_OBJECT('left','Danke!','leftFa','ممنون!','right','تشکر','rightFa','تشکر'),JSON_OBJECT('left','Bitte!','leftFa','خواهش می‌کنم!','right','پاسخ به تشکر','rightFa','پاسخ به تشکر'))) WHERE activity_key='act-de-hallo-role-match';
+UPDATE activities SET instruction_fa='هر عبارت را به کاربردش وصل کن.', selection_reason='چهار عبارت اجتماعی آشنای منبع‌دار را کنار هم می‌گذارد تا تشکر و پاسخ به آن در میان سلام و خداحافظی هم درست تشخیص داده شوند.', payload=JSON_SET(payload,'$.pairMode','target_to_persian','$.pairs',JSON_ARRAY(JSON_OBJECT('left','Hallo!','leftFa','سلام!','right','سلام / شروع گفت‌وگو','rightFa','سلام / شروع گفت‌وگو'),JSON_OBJECT('left','Tschüss!','leftFa','خداحافظ!','right','خداحافظی / پایان گفت‌وگو','rightFa','خداحافظی / پایان گفت‌وگو'),JSON_OBJECT('left','Danke!','leftFa','ممنون!','right','تشکر','rightFa','تشکر'),JSON_OBJECT('left','Bitte!','leftFa','خواهش می‌کنم!','right','پاسخ به تشکر','rightFa','پاسخ به تشکر'))) WHERE activity_key='act-de-danke-bitte-role-match';
+UPDATE activities SET instruction_fa='هر عبارت را به کاربردش وصل کن.', selection_reason='چهار عبارت منبع‌دارِ همین درس را جداگانه تطبیق می‌دهد تا عذرخواهی، پاسخ به عذرخواهی، تشکر و پاسخ به تشکر با چهار گزینهٔ روشن از هم تفکیک شوند.', payload=JSON_SET(payload,'$.pairMode','target_to_persian','$.pairs',JSON_ARRAY(JSON_OBJECT('left','Entschuldigung.','leftFa','ببخشید.','right','عذرخواهی','rightFa','عذرخواهی'),JSON_OBJECT('left','Kein Problem.','leftFa','مشکلی نیست.','right','پاسخ به عذرخواهی','rightFa','پاسخ به عذرخواهی'),JSON_OBJECT('left','Danke!','leftFa','ممنون!','right','تشکر','rightFa','تشکر'),JSON_OBJECT('left','Bitte!','leftFa','خواهش می‌کنم!','right','پاسخ به تشکر','rightFa','پاسخ به تشکر'))) WHERE activity_key='act-de-entschuldigung-matching';
+UPDATE activities SET instruction_fa='هر عبارت را به نقش درستش وصل کن.', selection_reason='چهار عبارت دقیق منبع را جداگانه تطبیق می‌دهد تا پرسش و پاسخِ محل زندگی و مبدأ با چهار گزینهٔ مستقل از هم تشخیص داده شوند.', payload=JSON_SET(payload,'$.pairMode','target_to_persian','$.pairs',JSON_ARRAY(JSON_OBJECT('left','Wo wohnen Sie?','leftFa','کجا زندگی می‌کنید؟','right','پرسش دربارهٔ محل زندگی','rightFa','پرسش دربارهٔ محل زندگی'),JSON_OBJECT('left','Ich wohne in Österreich.','leftFa','من در اتریش زندگی می‌کنم.','right','پاسخ دربارهٔ محل زندگی','rightFa','پاسخ دربارهٔ محل زندگی'),JSON_OBJECT('left','Woher kommen Sie?','leftFa','اهل کجا هستید؟','right','پرسش دربارهٔ مبدأ','rightFa','پرسش دربارهٔ مبدأ'),JSON_OBJECT('left','Ich komme aus Deutschland, und Sie?','leftFa','من اهل آلمان هستم، شما چطور؟','right','پاسخ دربارهٔ مبدأ','rightFa','پاسخ دربارهٔ مبدأ'))) WHERE activity_key='act-de-residence-matching';
+UPDATE activities SET instruction_fa='هر عبارت را به نقش درستش وصل کن.', selection_reason='چهار عبارت منبع‌دارِ مرور را جداگانه تطبیق می‌دهد تا پرسش و پاسخ سن و محل زندگی با چهار گزینهٔ مستقل بازیابی شوند.', payload=JSON_SET(payload,'$.pairMode','target_to_persian','$.pairs',JSON_ARRAY(JSON_OBJECT('left','Wo wohnen Sie?','leftFa','کجا زندگی می‌کنید؟','right','پرسش دربارهٔ محل زندگی','rightFa','پرسش دربارهٔ محل زندگی'),JSON_OBJECT('left','Ich wohne in Österreich.','leftFa','من در اتریش زندگی می‌کنم.','right','پاسخ دربارهٔ محل زندگی','rightFa','پاسخ دربارهٔ محل زندگی'),JSON_OBJECT('left','Wie alt bist du?','leftFa','چند سالته؟','right','پرسش دربارهٔ سن','rightFa','پرسش دربارهٔ سن'),JSON_OBJECT('left','Ich bin 20 Jahre alt.','leftFa','من ۲۰ ساله هستم.','right','پاسخ دربارهٔ سن','rightFa','پاسخ دربارهٔ سن'))) WHERE activity_key='act-de-personal-review-match';
+UPDATE activities SET instruction_fa='هر عبارت را به نقش درستش وصل کن.', selection_reason='چهار عبارت منبع‌دار روز و ساعت را جداگانه تطبیق می‌دهد تا پرسش و پاسخ هر دسته با چهار گزینهٔ مستقل از هم تشخیص داده شوند.', payload=JSON_SET(payload,'$.pairMode','target_to_persian','$.pairs',JSON_ARRAY(JSON_OBJECT('left','Welcher Tag ist heute?','leftFa','امروز چه روزی است؟','right','پرسش دربارهٔ روز','rightFa','پرسش دربارهٔ روز'),JSON_OBJECT('left','Heute ist Dienstag.','leftFa','امروز سه‌شنبه است.','right','پاسخ دربارهٔ روز','rightFa','پاسخ دربارهٔ روز'),JSON_OBJECT('left','Wie spät ist es?','leftFa','ساعت چنده؟','right','پرسش دربارهٔ ساعت','rightFa','پرسش دربارهٔ ساعت'),JSON_OBJECT('left','Es ist 6.30 Uhr.','leftFa','ساعت ۶:۳۰ است.','right','پاسخ دربارهٔ ساعت','rightFa','پاسخ دربارهٔ ساعت'))) WHERE activity_key='act-de-time-question-match';
+UPDATE activities SET instruction_fa='هر عبارت را به نقش درستش وصل کن.', selection_reason='چهار عبارت دقیق منبع را جداگانه تطبیق می‌دهد تا پرسش و پاسخ دربارهٔ غذای موجود و چیزی که فرد می‌خورد با چهار گزینهٔ مستقل تمرین شوند.', payload=JSON_SET(payload,'$.pairMode','target_to_persian','$.pairs',JSON_ARRAY(JSON_OBJECT('left','Was gibt es heute?','leftFa','امروز چی داریم؟','right','پرسش دربارهٔ غذای امروز','rightFa','پرسش دربارهٔ غذای امروز'),JSON_OBJECT('left','Heute gibt es Suppe.','leftFa','امروز سوپ داریم.','right','پاسخ دربارهٔ غذای موجود','rightFa','پاسخ دربارهٔ غذای موجود'),JSON_OBJECT('left','Was essen Sie?','leftFa','شما چی می‌خورید؟','right','پرسش دربارهٔ چیزی که می‌خورید','rightFa','پرسش دربارهٔ چیزی که می‌خورید'),JSON_OBJECT('left','Ich esse Reis.','leftFa','من برنج می‌خورم.','right','پاسخ دربارهٔ خوردن','rightFa','پاسخ دربارهٔ خوردن'))) WHERE activity_key='act-de-food-today-matching';
+UPDATE activities SET instruction_fa='هر عبارت را به نقش درستش وصل کن.', selection_reason='چهار عبارت دقیق منبع را جداگانه تطبیق می‌دهد تا پرسش و پاسخِ نیاز و خرید با چهار گزینهٔ مستقل از هم متمایز شوند.', payload=JSON_SET(payload,'$.pairMode','target_to_persian','$.pairs',JSON_ARRAY(JSON_OBJECT('left','Was brauchen Sie?','leftFa','چه چیزی لازم دارید؟','right','پرسش دربارهٔ نیاز','rightFa','پرسش دربارهٔ نیاز'),JSON_OBJECT('left','Ich brauche eine Hose.','leftFa','من یک شلوار لازم دارم.','right','پاسخ دربارهٔ نیاز','rightFa','پاسخ دربارهٔ نیاز'),JSON_OBJECT('left','Und was kaufen Sie?','leftFa','و چه چیزی می‌خرید؟','right','پرسش دربارهٔ خرید','rightFa','پرسش دربارهٔ خرید'),JSON_OBJECT('left','Ich kaufe ein Hemd und ein Paar Schuhe.','leftFa','من یک پیراهن و یک جفت کفش می‌خرم.','right','پاسخ دربارهٔ خرید','rightFa','پاسخ دربارهٔ خرید'))) WHERE activity_key='act-de-need-buy-matching';
+UPDATE activities SET instruction_fa='هر عبارت را به نقش درستش وصل کن.', selection_reason='چهار عبارت منبع‌دار قیمت را جداگانه تطبیق می‌دهد تا دو شکل پرسش و دو پاسخ عددی با چهار گزینهٔ مستقل خوانده و تشخیص داده شوند.', payload=JSON_SET(payload,'$.pairMode','target_to_persian','$.pairs',JSON_ARRAY(JSON_OBJECT('left','Wie viel kostet das?','leftFa','این چقدر قیمت دارد؟','right','پرسش قیمت','rightFa','پرسش قیمت'),JSON_OBJECT('left','Das kostet 70 Euro und 92 Cent.','leftFa','این ۷۰ یورو و ۹۲ سنت قیمت دارد.','right','پاسخ قیمت ۷۰ یورو و ۹۲ سنت','rightFa','پاسخ قیمت ۷۰ یورو و ۹۲ سنت'),JSON_OBJECT('left','Was kostet das?','leftFa','قیمت این چقدره؟','right','شکل کوتاه‌تر پرسش قیمت','rightFa','شکل کوتاه‌تر پرسش قیمت'),JSON_OBJECT('left','Das kostet 35 Euro und 15 Cent.','leftFa','این ۳۵ یورو و ۱۵ سنت قیمت دارد.','right','پاسخ قیمت ۳۵ یورو و ۱۵ سنت','rightFa','پاسخ قیمت ۳۵ یورو و ۱۵ سنت'))) WHERE activity_key='act-de-price-match';
+UPDATE activities SET instruction_fa='هر عبارت را به نقش درستش وصل کن.', selection_reason='چهار عبارت منبع‌دار گفت‌وگو را جداگانه تطبیق می‌دهد تا شروع مؤدبانه، پاسخ آن، پرسش مکان و پاسخ «نمی‌دانم» با چهار گزینهٔ مستقل تمرین شوند.', payload=JSON_SET(payload,'$.pairMode','target_to_persian','$.pairs',JSON_ARRAY(JSON_OBJECT('left','Entschuldigung!','leftFa','ببخشید!','right','شروع مؤدبانه','rightFa','شروع مؤدبانه'),JSON_OBJECT('left','Bitte?','leftFa','بفرمایید؟','right','پاسخ به شروع مؤدبانه','rightFa','پاسخ به شروع مؤدبانه'),JSON_OBJECT('left','Wo ist die Toilette?','leftFa','سرویس بهداشتی کجاست؟','right','پرسش دربارهٔ مکان','rightFa','پرسش دربارهٔ مکان'),JSON_OBJECT('left','Ich weiß nicht.','leftFa','نمی‌دانم.','right','پاسخ «نمی‌دانم»','rightFa','پاسخ «نمی‌دانم»'))) WHERE activity_key='act-de-toilet-exchange-match';
+UPDATE lessons SET status='final' WHERE language_level_id=@prea1 AND lesson_key IN ('de-pre-a1-lesson-hallo','de-pre-a1-lesson-danke-bitte','de-pre-a1-lesson-entschuldigung','de-pre-a1-lesson-residence-origin','de-pre-a1-lesson-personal-review','de-pre-a1-lesson-day-time','de-pre-a1-lesson-food-today','de-pre-a1-lesson-need-and-buy','de-pre-a1-lesson-ask-price','de-pre-a1-lesson-find-toilet');
+COMMIT;
+
+-- ===== END zzzzzzzzzz-pre-a1-matching-bounds.sql =====
+
+-- ===== CONSOLIDATED FROM lesson-target-titles (Pre-A1 only) =====
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+UPDATE lessons SET source_title='Wie heißen Sie? / Wo wohnen Sie? / Wie alt sind Sie?', source_title_fa='اسمتان چیست؟ / کجا زندگی می‌کنید؟ / چند سالتان است؟' WHERE lesson_key='de-pre-a1-lesson-personal-review';
+COMMIT;
