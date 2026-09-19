@@ -10883,3 +10883,60 @@ WHERE language_level_id=@level AND lesson_key='de-a1-lesson-weather-temperature'
 COMMIT;
 -- ===== END a1-persian-editorial-cleanup-2026-09-19.sql =====
 
+-- ===== BEGIN a1-new-audio-unblock-2026-09-19.sql =====
+-- Audio text changes are trigger-reset to blocked_until_level_final.
+-- Reopen only the affected lessons, transition the new audio rows to stale, then finalize again.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='A1' LIMIT 1);
+
+UPDATE lessons
+SET status='qa'
+WHERE language_level_id=@level
+  AND lesson_key IN (
+    'de-a1-lesson-profession-profile',
+    'de-a1-lesson-family-brother-profile',
+    'de-a1-lesson-family-profile-review',
+    'de-a1-lesson-daily-routine-day-review',
+    'de-a1-lesson-shopping-price-review',
+    'de-a1-lesson-transport-ticket',
+    'de-a1-lesson-health-symptoms',
+    'de-a1-lesson-weather-rain-plan'
+  )
+  AND status='final';
+
+UPDATE activities a
+JOIN lessons l ON l.id=a.lesson_id
+SET a.audio_status='stale'
+WHERE l.language_level_id=@level
+  AND a.activity_key IN (
+    'act-de-a1-profession-word-order',
+    'act-de-a1-family-name-order',
+    'act-de-a1-family-review-matching',
+    'act-de-a1-daily-review-matching',
+    'act-de-a1-shopping-price-review-question-choice',
+    'act-de-a1-transport-ticket-order',
+    'act-de-a1-health-symptoms-choice',
+    'act-de-a1-weather-rain-response',
+    'act-de-a1-weather-rain-order'
+  )
+  AND a.audio_text_target IS NOT NULL;
+
+UPDATE lessons
+SET status='final'
+WHERE language_level_id=@level
+  AND lesson_key IN (
+    'de-a1-lesson-profession-profile',
+    'de-a1-lesson-family-brother-profile',
+    'de-a1-lesson-family-profile-review',
+    'de-a1-lesson-daily-routine-day-review',
+    'de-a1-lesson-shopping-price-review',
+    'de-a1-lesson-transport-ticket',
+    'de-a1-lesson-health-symptoms',
+    'de-a1-lesson-weather-rain-plan'
+  );
+COMMIT;
+-- ===== END a1-new-audio-unblock-2026-09-19.sql =====
+
