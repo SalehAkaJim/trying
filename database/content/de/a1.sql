@@ -10250,3 +10250,231 @@ WHERE language_level_id=@level
     'de-a1-lesson-weather-current'
   );
 COMMIT;
+
+-- ===== NEED-DRIVEN A1 ACTIVITY EXPANSION — 2026-09-19 =====
+-- Adds activities only where a specific post-opening practice gap was identified.
+-- German learner-facing strings are copied from existing source-backed content or mechanically blanked; no new German is authored.
+SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET time_zone = '+00:00';
+START TRANSACTION;
+SET @de := (SELECT id FROM languages WHERE code='de' LIMIT 1);
+SET @level := (SELECT id FROM language_levels WHERE language_id=@de AND cefr_level='A1' LIMIT 1);
+
+UPDATE language_levels
+SET notes='A1 شامل ۹ واحد و ۳۹ درس است. قانون ثابتِ Activity اول به‌صورت conversation_speaking حفظ شده و Activityهای بعدی همچنان نیازمحور هستند. در بازبینی جدید فقط به ۶ درس که شکاف تمرینی مشخص داشتند Activity اضافه شد؛ تعداد کل Activityها از ۱۳۴ به ۱۴۰ رسید. هیچ متن آلمانی ساخته یا بازنویسی نشد.',
+    completion_assessment='{"reviewedAt":"2026-09-19T07:23:00Z","cefrCoverageComplete":true,"progressionComplete":true,"practiceAndRetrievalComplete":false,"skillModeCoverageComplete":false,"requiredGaps":["تمرین مستقل شنیداری و تلفظ نسبت به قبل بهتر شده، اما در مقیاس ۳۹ درس هنوز پوشش کافی و توزیع گسترده‌ای ندارد.","بازیابی تجمعی اکنون سه ایستگاه مرور بین‌واحدی دارد، اما هنوز به اندازهٔ کافی گسترده و نظام‌مند نیست."],"qualityReview":{"overallScore":8.4,"dimensionScores":{"cefrCoverage":8.8,"pedagogicalProgression":8.6,"practiceAndRetrieval":7.2,"activityQualityAndVariety":8.3,"linguisticAccuracyAndNaturalness":9.2,"sourceQualityAndCurrency":8.2,"learnerSupportAndClarity":8.7,"qaIntegrity":9.4},"rationale":"بازبینی جدید قانون «گفت‌وگوی ثابت در جایگاه اول، طراحی داینامیک از Activity دوم به بعد» را حفظ می‌کند و فقط در ۶ درس با شکاف مشخص تمرین تازه اضافه می‌کند: تمایز نیاز/خرید، تحصیل/زندگی، Ihr/Ihre در پاسخ جمع، تأیید هویت، پاسخ محل دارو و پاسخ کوتاه توقف قطار. تعداد کل Activityهای A1 اکنون ۱۴۰ است. Activityهای جدید یا از گزینه‌های عین منبع استفاده می‌کنند یا تبدیل مکانیکی مجاز روی جملهٔ منبع‌دار هستند؛ هیچ متن آلمانی تازه‌ای تولید نشده است. ضعف‌های اصلی باقی‌مانده همچنان پوشش محدود شنیدن مستقل، تلفظ و بازیابی تجمعی‌اند.","strengths":["هر ۳۹ درس با یک گفت‌وگوی منبع‌دار آغاز می‌شود و تنها این جایگاه ساختاری ثابت است.","از Activity دوم به بعد، تعداد و نوع تمرین بر اساس نیاز آموزشی همان درس انتخاب می‌شود؛ در این بازبینی فقط ۶ درس با شکاف روشن گسترش یافتند.","Activityهای تازه از متن‌های منبع‌دار موجود یا تبدیل‌های مکانیکی مجاز ساخته شده‌اند و هیچ متن آلمانی تازه‌ای تولید نشده است.","۹ واحد و ۳۹ درس با اندازه‌های متفاوت، موقعیت‌های ارتباطی اصلی A1 را با گروه‌بندی نیازمحور پوشش می‌دهند.","فعالیت تطبیق حالت صریح دارد و زبان هر دو سمت توسط قرارداد محتوایی کنترل می‌شود.","تمرین مستقل شنیداری در چند حوزهٔ متفاوت وجود دارد و تمرین تلفظ از الفبا فراتر رفته است.","سه ایستگاه مرور و بازیابی بین‌واحدی در نیمهٔ دوم سطح A1 وجود دارد."],"remainingWeaknesses":["مرتب‌سازی کلمات هنوز در ۲۷ درس دیده می‌شود، اما دیگر پایان یا الگوی اجباری همهٔ درس‌ها نیست و باید در توسعه‌های بعدی فقط وقتی نیاز آموزشی روشن دارد حفظ شود.","تمرین مستقل شنیداری با ۱۰ فعالیت و تلفظ با ۳ فعالیت برای ۳۹ درس هنوز کم است.","بازیابی تجمعی فقط سه ایستگاه مرور بین‌واحدی دارد و هنوز پوشش نظام‌مند کل مسیر نیست.","نوشتن آزاد در انواع فعالیت فعلی پشتیبانی نمی‌شود و فقط تمرین نوشتاری هدایت‌شده قابل ادعاست.","پوشش واژگان با فهرست رسمی واژگان سطح A1 مؤسسهٔ گوته هنوز به‌صورت موردبه‌مورد ممیزی نشده است."]},"scopeExclusions":["ورودی آزاد تایپی در ساختار فعلی فعالیت‌ها پشتیبانی نمی‌شود؛ تولید نوشتاری سطح A1 در این نسخه هدایت‌شده است.","برابری کامل فهرست واژگان با همهٔ مدخل‌های فهرست رسمی واژگان سطح A1 مؤسسهٔ گوته در این بازبینی ادعا نمی‌شود؛ منبع رسمی برای ممیزی آینده ثبت شده است."]}'
+WHERE id=@level;
+
+SET @lesson := (SELECT id FROM lessons WHERE language_level_id=@level AND lesson_key='de-a1-lesson-home-description-review' LIMIT 1);
+SET @unit := (SELECT unit_id FROM lessons WHERE id=@lesson LIMIT 1);
+UPDATE lessons SET status='qa' WHERE id=@lesson AND status='final';
+INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES('act-de-a1-home-review-possessive-fill',@lesson,4,'fill_blank','برای عبارت جمعِ «کتاب‌ها» شکل درست Ihr/Ihre را انتخاب کن.','هدف این درس تمایز مفرد و جمع در پاسخ دربارهٔ وسایل است؛ این تکمیل هدایت‌شده همان تمایز را با یک جملهٔ منبع‌دار و بدون ساخت متن آلمانی تازه تمرین می‌کند.',NULL,CAST('{"sourceText":"Ihre Bücher sind hier.","sourceTextFa":"کتاب‌های شما اینجاست.","blankedText":"___ Bücher sind hier.","blankedTextFa":"___ کتاب‌های شما اینجاست.","choices":["Ihr","Ihre"],"choicesFa":["شکل «Ihr»","شکل «Ihre»"],"answer":"Ihre"}' AS JSON),CAST('["source_sentence_blank_created","options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
+ instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-home-review-possessive-fill' LIMIT 1);
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگوی آغازین پرسش و پاسخ محل وسایل را در بافت واقعی تمرین می‌کند. پس از آن تشخیص مفرد/جمع، وصل‌کردن چند پرسش و پاسخ، و در پایان تکمیل هدایت‌شدهٔ شکل مناسب Ihr/Ihre سه نیاز متفاوت را پوشش می‌دهند.',
+    sequence_rationale='پس از گفت‌وگو، ابتدا تفاوت مفرد و جمع تشخیص داده می‌شود، سپس چند نمونهٔ پرسش/پاسخ به هم وصل می‌شوند و در پایان همان تمایز در یک تکمیل هدایت‌شده بازیابی می‌شود. فعالیت چهارم به‌خاطر نیاز مشخصِ فرم مالکیت جمع اضافه شده است، نه برای رسیدن به عدد ثابت.',
+    template_signature='conversation_speaking>multiple_choice>matching>fill_blank'
+WHERE id=@lesson;
+
+SET @src := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-007-room-objects' LIMIT 1);
+INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,source_text_hash,notes)
+VALUES(@src,'srcitem-a1-dynamic-act-de-a1-home-review-possessive-fill','act-de-a1-home-review-possessive-fill','پیوند منبع Activity افزوده‌شده در بازبینی داینامیک',NULL,NULL,'Activity فقط از متن‌های منبع‌دار موجود یا تبدیل مکانیکی مجاز ساخته شده است.')
+ON DUPLICATE KEY UPDATE locator=VALUES(locator),locator_fa=VALUES(locator_fa),notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-home-review-possessive-fill',id,'source_sentence_blank_created','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-home-review-possessive-fill'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-home-review-possessive-fill',id,'options_selected_from_source_material','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-home-review-possessive-fill'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-home-review-possessive-fill',id,'persian_translation_added','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-home-review-possessive-fill'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+UPDATE lessons SET status='final' WHERE id=@lesson;
+
+SET @lesson := (SELECT id FROM lessons WHERE language_level_id=@level AND lesson_key='de-a1-lesson-shopping-price-review' LIMIT 1);
+SET @unit := (SELECT unit_id FROM lessons WHERE id=@lesson LIMIT 1);
+UPDATE lessons SET status='qa' WHERE id=@lesson AND status='final';
+UPDATE activities SET position_index=104 WHERE lesson_id=@lesson AND activity_key='act-de-a1-shopping-price-review-order';
+INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES('act-de-a1-shopping-price-review-question-choice',@lesson,3,'multiple_choice','کدام پرسش دربارهٔ چیزی است که می‌خری، نه چیزی که لازم داری؟','درس باید تفاوت نیاز و تصمیم خرید را نه فقط در جملهٔ خبری، بلکه در خود پرسش‌های فروشگاهی هم بسنجد. هر سه گزینه عین منبع هستند.',NULL,CAST('{"options":[{"textTarget":"Was kaufen Sie?","translationFa":"چه چیزی می‌خرید؟","correct":true},{"textTarget":"Was brauchen Sie?","translationFa":"چه چیزی لازم دارید؟","correct":false},{"textTarget":"Wie viel kostet das?","translationFa":"این چقدر قیمت دارد؟","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
+ instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-shopping-price-review-question-choice' LIMIT 1);
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
+UPDATE activities SET position_index=4 WHERE lesson_id=@lesson AND activity_key='act-de-a1-shopping-price-review-order';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگو تفاوت «نیاز» و «خرید» را در یک موقعیت واقعی وارد می‌کند؛ سپس تطبیق چند جمله دامنه را گسترش می‌دهد، یک تمرین مستقل تفاوت خودِ پرسش‌های brauchen/kaufen را می‌سنجد و در پایان پرسش نیاز بازسازی می‌شود.',
+    sequence_rationale='پس از گفت‌وگو، زبان‌آموز ابتدا جمله‌های نیاز/خرید را دسته‌بندی می‌کند، بعد پرسش خرید را از نیاز و قیمت تشخیص می‌دهد و در پایان یک پرسش پایه را تولید هدایت‌شده می‌کند. این تمرین اضافه شکاف «تشخیص نوع پرسش» را پوشش می‌دهد.',
+    template_signature='conversation_speaking>matching>multiple_choice>word_order'
+WHERE id=@lesson;
+
+SET @src := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-004' LIMIT 1);
+INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,source_text_hash,notes)
+VALUES(@src,'srcitem-a1-dynamic-act-de-a1-shopping-price-review-question-choice','act-de-a1-shopping-price-review-question-choice','پیوند منبع Activity افزوده‌شده در بازبینی داینامیک',NULL,NULL,'Activity فقط از متن‌های منبع‌دار موجود یا تبدیل مکانیکی مجاز ساخته شده است.')
+ON DUPLICATE KEY UPDATE locator=VALUES(locator),locator_fa=VALUES(locator_fa),notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-shopping-price-review-question-choice',id,'options_selected_from_source_material','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-shopping-price-review-question-choice'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-shopping-price-review-question-choice',id,'persian_translation_added','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-shopping-price-review-question-choice'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+UPDATE lessons SET status='final' WHERE id=@lesson;
+
+SET @lesson := (SELECT id FROM lessons WHERE language_level_id=@level AND lesson_key='de-a1-lesson-family-profile-review' LIMIT 1);
+SET @unit := (SELECT unit_id FROM lessons WHERE id=@lesson LIMIT 1);
+UPDATE lessons SET status='qa' WHERE id=@lesson AND status='final';
+UPDATE activities SET position_index=104 WHERE lesson_id=@lesson AND activity_key='act-de-a1-family-review-order';
+INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES('act-de-a1-family-review-verb-fill',@lesson,3,'fill_blank','برای برادری که در برلین درس می‌خواند، فعل درست را انتخاب کن.','هدف درس تمایز تحصیل و زندگی است؛ این cloze با جملهٔ منبع‌دار، تشخیص معنایی را به بازیابی هدایت‌شدهٔ خودِ فعل منتقل می‌کند.',NULL,CAST('{"sourceText":"Unser Bruder studiert in Berlin.","sourceTextFa":"برادر ما در برلین درس می‌خواند.","blankedText":"Unser Bruder ___ in Berlin.","blankedTextFa":"برادر ما در برلین ___.","choices":["studiert","wohnt"],"choicesFa":["درس می‌خواند","زندگی می‌کند"],"answer":"studiert"}' AS JSON),CAST('["source_sentence_blank_created","options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
+ instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-family-review-verb-fill' LIMIT 1);
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
+UPDATE activities SET position_index=4 WHERE lesson_id=@lesson AND activity_key='act-de-a1-family-review-order';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگو دو کاربرد مکان را در خانواده معرفی می‌کند؛ سپس تشخیص جملهٔ تحصیل، تکمیل هدایت‌شدهٔ فعل studieren/wohnen و در پایان بازسازی پرسش محل زندگی، سه سطح متفاوت از فهم تا تولید هدایت‌شده را پوشش می‌دهند.',
+    sequence_rationale='پس از گفت‌وگو ابتدا معنی جمله تشخیص داده می‌شود، سپس فعل مناسب در یک جملهٔ منبع‌دار بازیابی می‌شود و در پایان پرسش محل زندگی بازسازی می‌شود. Activity جدید برای انتقال از تشخیص به بازیابی فعل اضافه شده است.',
+    template_signature='conversation_speaking>multiple_choice>fill_blank>word_order'
+WHERE id=@lesson;
+
+SET @src := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-007-family' LIMIT 1);
+INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,source_text_hash,notes)
+VALUES(@src,'srcitem-a1-dynamic-act-de-a1-family-review-verb-fill','act-de-a1-family-review-verb-fill','پیوند منبع Activity افزوده‌شده در بازبینی داینامیک',NULL,NULL,'Activity فقط از متن‌های منبع‌دار موجود یا تبدیل مکانیکی مجاز ساخته شده است.')
+ON DUPLICATE KEY UPDATE locator=VALUES(locator),locator_fa=VALUES(locator_fa),notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-family-review-verb-fill',id,'source_sentence_blank_created','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-family-review-verb-fill'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-family-review-verb-fill',id,'options_selected_from_source_material','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-family-review-verb-fill'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-family-review-verb-fill',id,'persian_translation_added','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-family-review-verb-fill'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+UPDATE lessons SET status='final' WHERE id=@lesson;
+
+SET @lesson := (SELECT id FROM lessons WHERE language_level_id=@level AND lesson_key='de-a1-lesson-integrated-introduction-review' LIMIT 1);
+SET @unit := (SELECT unit_id FROM lessons WHERE id=@lesson LIMIT 1);
+UPDATE lessons SET status='qa' WHERE id=@lesson AND status='final';
+UPDATE activities SET position_index=104 WHERE lesson_id=@lesson AND activity_key='act-de-a1-intro-review-order';
+UPDATE activities SET position_index=103 WHERE lesson_id=@lesson AND activity_key='act-de-a1-intro-review-choice';
+INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES('act-de-a1-intro-review-identity-response',@lesson,2,'choose_response','برای تأیید هویت در شروع گفت‌وگو، پاسخ مناسب را انتخاب کن.','هدف درس فقط تشخیص اطلاعات مبدأ نیست؛ زبان‌آموز باید بتواند پاسخ مناسب به سؤال تأیید هویت را هم تشخیص دهد. همهٔ گزینه‌ها عین گفت‌وگوی منبع‌دار هستند.',NULL,CAST('{"promptTarget":"Guten Tag! Ich suche Lisa Müller. Sind Sie Lisa Müller?","promptFa":"روز بخیر! دنبال لیزا مولر می‌گردم. شما لیزا مولر هستید؟","options":[{"textTarget":"Ja, und Sie? Wie heißen Sie?","translationFa":"بله، و شما؟ اسمتان چیست؟","correct":true},{"textTarget":"Ich heiße Lutz Schmidt.","translationFa":"اسم من لوتس اشمیت است.","correct":false},{"textTarget":"Nein, ich komme aus Deutschland und ich wohne hier in Bern.","translationFa":"نه، من از آلمان می‌آیم و اینجا در برن زندگی می‌کنم.","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
+ instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-intro-review-identity-response' LIMIT 1);
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
+UPDATE activities SET position_index=4 WHERE lesson_id=@lesson AND activity_key='act-de-a1-intro-review-order';
+UPDATE activities SET position_index=3 WHERE lesson_id=@lesson AND activity_key='act-de-a1-intro-review-choice';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگو برخورد رسمی را در بافت کامل می‌آورد؛ پس از آن یک انتخاب پاسخ، مهارت تأیید هویت را جداگانه می‌سنجد، سپس مبدأ/محل زندگی تشخیص داده می‌شود و در پایان پرسش مبدأ بازسازی می‌شود.',
+    sequence_rationale='پس از گفت‌وگو ابتدا پاسخ مناسب به سؤال هویت انتخاب می‌شود، بعد اطلاعات مبدأ و محل زندگی از هم تفکیک می‌شوند و در پایان پرسش «اهل کجا هستید؟» به تولید هدایت‌شده می‌رسد.',
+    template_signature='conversation_speaking>choose_response>multiple_choice>word_order'
+WHERE id=@lesson;
+
+SET @src := (SELECT id FROM sources WHERE source_key='src-wikibooks-bll-a1-lesson-2' LIMIT 1);
+INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,source_text_hash,notes)
+VALUES(@src,'srcitem-a1-dynamic-act-de-a1-intro-review-identity-response','act-de-a1-intro-review-identity-response','پیوند منبع Activity افزوده‌شده در بازبینی داینامیک',NULL,NULL,'Activity فقط از متن‌های منبع‌دار موجود یا تبدیل مکانیکی مجاز ساخته شده است.')
+ON DUPLICATE KEY UPDATE locator=VALUES(locator),locator_fa=VALUES(locator_fa),notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-intro-review-identity-response',id,'options_selected_from_source_material','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-intro-review-identity-response'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-intro-review-identity-response',id,'persian_translation_added','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-intro-review-identity-response'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+UPDATE lessons SET status='final' WHERE id=@lesson;
+
+SET @lesson := (SELECT id FROM lessons WHERE language_level_id=@level AND lesson_key='de-a1-lesson-health-medicine-pharmacy' LIMIT 1);
+SET @unit := (SELECT unit_id FROM lessons WHERE id=@lesson LIMIT 1);
+UPDATE lessons SET status='qa' WHERE id=@lesson AND status='final';
+UPDATE activities SET position_index=104 WHERE lesson_id=@lesson AND activity_key='act-de-a1-health-medicine-order';
+INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES('act-de-a1-health-medicine-location-response',@lesson,3,'choose_response','به پرسش «داروها را کجا می‌گیرد؟» پاسخ مناسب را انتخاب کن.','واژگان دارو و داروخانه به‌تنهایی کافی نیستند؛ این تمرین ارتباط مستقیم پرسش مکان با پاسخ داروخانه را خارج از گفت‌وگوی آغازین می‌سنجد. گزینه‌ها عین منبع هستند.',NULL,CAST('{"promptTarget":"Wo bekommt er sie?","promptFa":"آن‌ها را کجا می‌گیرد؟","options":[{"textTarget":"Er bekommt die Medikamente in der Apotheke.","translationFa":"داروها را از داروخانه می‌گیرد.","correct":true},{"textTarget":"Er bekommt Tabletten und Tropfen.","translationFa":"قرص و قطره می‌گیرد.","correct":false},{"textTarget":"Welche Medikamente bekommt Herr Berger?","translationFa":"آقای برگر چه داروهایی می‌گیرد؟","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
+ instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-health-medicine-location-response' LIMIT 1);
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
+UPDATE activities SET position_index=4 WHERE lesson_id=@lesson AND activity_key='act-de-a1-health-medicine-order';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگو دارو و محل دریافت آن را در بافت معرفی می‌کند؛ پس از آن واژگان اصلی تثبیت می‌شوند، پاسخ مناسب به پرسش مکان به‌طور مستقل انتخاب می‌شود و در پایان خودِ پرسش مکان بازسازی می‌شود.',
+    sequence_rationale='پس از گفت‌وگو، ابتدا واژگان پایه تثبیت می‌شوند، سپس ارتباط پرسش «کجا؟» با پاسخ داروخانه سنجیده می‌شود و در پایان پرسش به تولید هدایت‌شده منتقل می‌شود. Activity جدید شکاف ارتباط سؤال/جواب را پوشش می‌دهد.',
+    template_signature='conversation_speaking>matching>choose_response>word_order'
+WHERE id=@lesson;
+
+SET @src := (SELECT id FROM sources WHERE source_key='src-wikibooks-de-lesson-018-health' LIMIT 1);
+INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,source_text_hash,notes)
+VALUES(@src,'srcitem-a1-dynamic-act-de-a1-health-medicine-location-response','act-de-a1-health-medicine-location-response','پیوند منبع Activity افزوده‌شده در بازبینی داینامیک',NULL,NULL,'Activity فقط از متن‌های منبع‌دار موجود یا تبدیل مکانیکی مجاز ساخته شده است.')
+ON DUPLICATE KEY UPDATE locator=VALUES(locator),locator_fa=VALUES(locator_fa),notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-health-medicine-location-response',id,'options_selected_from_source_material','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-health-medicine-location-response'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-health-medicine-location-response',id,'persian_translation_added','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-health-medicine-location-response'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+UPDATE lessons SET status='final' WHERE id=@lesson;
+
+SET @lesson := (SELECT id FROM lessons WHERE language_level_id=@level AND lesson_key='de-a1-lesson-transport-train-bus' LIMIT 1);
+SET @unit := (SELECT unit_id FROM lessons WHERE id=@lesson LIMIT 1);
+UPDATE lessons SET status='qa' WHERE id=@lesson AND status='final';
+UPDATE activities SET position_index=104 WHERE lesson_id=@lesson AND activity_key='act-de-a1-transport-stop-order';
+INSERT INTO activities(activity_key,lesson_id,position_index,activity_type,instruction_fa,selection_reason,dialogue_id,payload,transformations,audio_text_target,audio_status)
+VALUES('act-de-a1-transport-stop-response',@lesson,3,'choose_response','برای پرسش توقف قطار، پاسخ کوتاه مناسب را انتخاب کن.','یکی از هدف‌های صریح درس فهم پاسخ کوتاه مثبت یا منفی به پرسش توقف است؛ دو Activity قبلی این هدف را مستقل از گفت‌وگو نمی‌سنجیدند. گزینه‌ها عین همان منبع حمل‌ونقل هستند.',NULL,CAST('{"promptTarget":"Hält dieser Zug in Berlin?","promptFa":"این قطار در برلین توقف می‌کند؟","options":[{"textTarget":"Ja.","translationFa":"بله.","correct":true},{"textTarget":"Danke.","translationFa":"ممنون.","correct":false},{"textTarget":"Bitte schön!","translationFa":"بفرمایید.","correct":false}]}' AS JSON),CAST('["options_selected_from_source_material","persian_translation_added"]' AS JSON),NULL,'not_required')
+ON DUPLICATE KEY UPDATE
+ lesson_id=VALUES(lesson_id),position_index=VALUES(position_index),activity_type=VALUES(activity_type),
+ instruction_fa=VALUES(instruction_fa),selection_reason=VALUES(selection_reason),dialogue_id=VALUES(dialogue_id),
+ payload=VALUES(payload),transformations=VALUES(transformations),audio_text_target=VALUES(audio_text_target),audio_status=VALUES(audio_status);
+SET @act := (SELECT id FROM activities WHERE activity_key='act-de-a1-transport-stop-response' LIMIT 1);
+INSERT IGNORE INTO activity_targets(activity_id,curriculum_target_id)
+SELECT @act,curriculum_target_id FROM unit_targets WHERE unit_id=@unit;
+UPDATE activities SET position_index=4 WHERE lesson_id=@lesson AND activity_key='act-de-a1-transport-stop-order';
+UPDATE lessons
+SET activity_selection_rationale='گفت‌وگو پرسش توقف را در بافت واقعی معرفی می‌کند؛ سپس واژگان وسیله و ایستگاه تثبیت می‌شوند، پاسخ کوتاه مناسب به پرسش توقف جداگانه سنجیده می‌شود و در پایان خود پرسش بازسازی می‌شود.',
+    sequence_rationale='بعد از گفت‌وگو ابتدا شبکهٔ واژگان حمل‌ونقل مرور می‌شود، سپس پاسخ بله/خیر به پرسش توقف سنجیده می‌شود و در پایان پرسش توقف به تولید هدایت‌شده منتقل می‌شود. Activity جدید مستقیماً یک learning target قبلاً کم‌سنجیده‌شده را پوشش می‌دهد.',
+    template_signature='conversation_speaking>matching>choose_response>word_order'
+WHERE id=@lesson;
+
+SET @src := (SELECT id FROM sources WHERE source_key='src-wikivoyage-german-phrasebook-transport' LIMIT 1);
+INSERT INTO source_items(source_id,item_key,locator,locator_fa,source_text,source_text_hash,notes)
+VALUES(@src,'srcitem-a1-dynamic-act-de-a1-transport-stop-response','act-de-a1-transport-stop-response','پیوند منبع Activity افزوده‌شده در بازبینی داینامیک',NULL,NULL,'Activity فقط از متن‌های منبع‌دار موجود یا تبدیل مکانیکی مجاز ساخته شده است.')
+ON DUPLICATE KEY UPDATE locator=VALUES(locator),locator_fa=VALUES(locator_fa),notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-transport-stop-response',id,'options_selected_from_source_material','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-transport-stop-response'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+INSERT INTO provenance_links(entity_type,entity_key,source_item_id,transformation,notes)
+SELECT 'activity','act-de-a1-transport-stop-response',id,'persian_translation_added','پیوند منشأ Activity افزوده‌شده در بازبینی داینامیک.'
+FROM source_items WHERE source_id=@src AND item_key='srcitem-a1-dynamic-act-de-a1-transport-stop-response'
+ON DUPLICATE KEY UPDATE notes=VALUES(notes);
+UPDATE lessons SET status='final' WHERE id=@lesson;
+
+COMMIT;

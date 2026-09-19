@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "درس دوم بعد از گرفتن بلیت روی انتخاب وسیلهٔ درست و اطمینان از توقف در مقصد تمرکز می‌کند.",
-    "sequenceRationale": "مکالمه پرسش توقف را معرفی می‌کند، واژگان وسیله و ایستگاه را تفکیک می‌کند و در پایان پرسش بازسازی می‌شود.",
-    "templateSignature": "conversation_speaking>matching>word_order"
+    "activitySelectionRationale": "گفت‌وگو پرسش توقف را در بافت واقعی معرفی می‌کند؛ سپس واژگان وسیله و ایستگاه تثبیت می‌شوند، پاسخ کوتاه مناسب به پرسش توقف جداگانه سنجیده می‌شود و در پایان خود پرسش بازسازی می‌شود.",
+    "sequenceRationale": "بعد از گفت‌وگو ابتدا شبکهٔ واژگان حمل‌ونقل مرور می‌شود، سپس پاسخ بله/خیر به پرسش توقف سنجیده می‌شود و در پایان پرسش توقف به تولید هدایت‌شده منتقل می‌شود. Activity جدید مستقیماً یک learning target قبلاً کم‌سنجیده‌شده را پوشش می‌دهد.",
+    "templateSignature": "conversation_speaking>matching>choose_response>word_order"
   },
   "activities": [
     {
@@ -89,6 +89,46 @@
       },
       "transformations": [
         "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-transport-stop-response",
+      "type": "choose_response",
+      "instructionFa": "برای پرسش توقف قطار، پاسخ کوتاه مناسب را انتخاب کن.",
+      "selectionReason": "یکی از هدف‌های صریح درس فهم پاسخ کوتاه مثبت یا منفی به پرسش توقف است؛ دو Activity قبلی این هدف را مستقل از گفت‌وگو نمی‌سنجیدند. گزینه‌ها عین همان منبع حمل‌ونقل هستند.",
+      "sourceRefs": [
+        "src-wikivoyage-german-phrasebook-transport"
+      ],
+      "learningTargets": [
+        "پاسخ کوتاه مناسب به پرسش توقف قطار را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Hält dieser Zug in Berlin?",
+        "promptFa": "این قطار در برلین توقف می‌کند؟",
+        "options": [
+          {
+            "textTarget": "Ja.",
+            "translationFa": "بله.",
+            "correct": true
+          },
+          {
+            "textTarget": "Danke.",
+            "translationFa": "ممنون.",
+            "correct": false
+          },
+          {
+            "textTarget": "Bitte schön!",
+            "translationFa": "بفرمایید.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"

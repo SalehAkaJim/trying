@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس محور تازهٔ مکان را به واحد خانواده اضافه می‌کند؛ دو درس قبلی بیشتر روی نام، سن و شغل متمرکز بودند.",
-    "sequenceRationale": "مکالمه دو کاربرد مکان را معرفی می‌کند، تمرین تشخیص فعل‌ها را جدا می‌کند و بازسازی پرسشِ محل زندگی تولید هدایت‌شده می‌دهد.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "گفت‌وگو دو کاربرد مکان را در خانواده معرفی می‌کند؛ سپس تشخیص جملهٔ تحصیل، تکمیل هدایت‌شدهٔ فعل studieren/wohnen و در پایان بازسازی پرسش محل زندگی، سه سطح متفاوت از فهم تا تولید هدایت‌شده را پوشش می‌دهند.",
+    "sequenceRationale": "پس از گفت‌وگو ابتدا معنی جمله تشخیص داده می‌شود، سپس فعل مناسب در یک جملهٔ منبع‌دار بازیابی می‌شود و در پایان پرسش محل زندگی بازسازی می‌شود. Activity جدید برای انتقال از تشخیص به بازیابی فعل اضافه شده است.",
+    "templateSignature": "conversation_speaking>multiple_choice>fill_blank>word_order"
   },
   "activities": [
     {
@@ -78,6 +78,41 @@
         ]
       },
       "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-family-review-verb-fill",
+      "type": "fill_blank",
+      "instructionFa": "برای برادری که در برلین درس می‌خواند، فعل درست را انتخاب کن.",
+      "selectionReason": "هدف درس تمایز تحصیل و زندگی است؛ این cloze با جملهٔ منبع‌دار، تشخیص معنایی را به بازیابی هدایت‌شدهٔ خودِ فعل منتقل می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-family"
+      ],
+      "learningTargets": [
+        "فعل مربوط به تحصیل را در جملهٔ خانوادگی به‌صورت هدایت‌شده کامل کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Unser Bruder studiert in Berlin.",
+        "sourceTextFa": "برادر ما در برلین درس می‌خواند.",
+        "blankedText": "Unser Bruder ___ in Berlin.",
+        "blankedTextFa": "برادر ما در برلین ___.",
+        "choices": [
+          "studiert",
+          "wohnt"
+        ],
+        "choicesFa": [
+          "درس می‌خواند",
+          "زندگی می‌کند"
+        ],
+        "answer": "studiert"
+      },
+      "transformations": [
+        "source_sentence_blank_created",
         "options_selected_from_source_material",
         "persian_translation_added"
       ],

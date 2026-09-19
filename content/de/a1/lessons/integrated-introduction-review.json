@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "این درس به‌جای مرور شغل و زبان، مهارت تازهٔ شروع گفت‌وگوی رسمی با فرد ناآشنا و جداکردن مبدأ از محل زندگی را اضافه می‌کند.",
-    "sequenceRationale": "از تشخیص هویت در مکالمه به فهم پاسخ مبدأ/محل زندگی و سپس ساخت پرسش مبدأ حرکت می‌کند.",
-    "templateSignature": "conversation_speaking>multiple_choice>word_order"
+    "activitySelectionRationale": "گفت‌وگو برخورد رسمی را در بافت کامل می‌آورد؛ پس از آن یک انتخاب پاسخ، مهارت تأیید هویت را جداگانه می‌سنجد، سپس مبدأ/محل زندگی تشخیص داده می‌شود و در پایان پرسش مبدأ بازسازی می‌شود.",
+    "sequenceRationale": "پس از گفت‌وگو ابتدا پاسخ مناسب به سؤال هویت انتخاب می‌شود، بعد اطلاعات مبدأ و محل زندگی از هم تفکیک می‌شوند و در پایان پرسش «اهل کجا هستید؟» به تولید هدایت‌شده می‌رسد.",
+    "templateSignature": "conversation_speaking>choose_response>multiple_choice>word_order"
   },
   "activities": [
     {
@@ -42,6 +42,46 @@
         "verbatim_dialogue",
         "persian_translation_added",
         "character_metadata_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-intro-review-identity-response",
+      "type": "choose_response",
+      "instructionFa": "برای تأیید هویت در شروع گفت‌وگو، پاسخ مناسب را انتخاب کن.",
+      "selectionReason": "هدف درس فقط تشخیص اطلاعات مبدأ نیست؛ زبان‌آموز باید بتواند پاسخ مناسب به سؤال تأیید هویت را هم تشخیص دهد. همهٔ گزینه‌ها عین گفت‌وگوی منبع‌دار هستند.",
+      "sourceRefs": [
+        "src-wikibooks-bll-a1-lesson-2"
+      ],
+      "learningTargets": [
+        "پاسخ مناسب به سؤال تأیید هویت را تشخیص دهد."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "promptTarget": "Guten Tag! Ich suche Lisa Müller. Sind Sie Lisa Müller?",
+        "promptFa": "روز بخیر! دنبال لیزا مولر می‌گردم. شما لیزا مولر هستید؟",
+        "options": [
+          {
+            "textTarget": "Ja, und Sie? Wie heißen Sie?",
+            "translationFa": "بله، و شما؟ اسمتان چیست؟",
+            "correct": true
+          },
+          {
+            "textTarget": "Ich heiße Lutz Schmidt.",
+            "translationFa": "اسم من لوتس اشمیت است.",
+            "correct": false
+          },
+          {
+            "textTarget": "Nein, ich komme aus Deutschland und ich wohne hier in Bern.",
+            "translationFa": "نه، من از آلمان می‌آیم و اینجا در برن زندگی می‌کنم.",
+            "correct": false
+          }
+        ]
+      },
+      "transformations": [
+        "options_selected_from_source_material",
+        "persian_translation_added"
       ],
       "audioStatus": "not_required"
     },

@@ -16,9 +16,9 @@
   "lexemeRefs": [],
   "grammarNoteRefs": [],
   "activityDesign": {
-    "activitySelectionRationale": "به‌جای مرور جهت‌های اتاق، این درس یک نیاز واقعی تازه را پوشش می‌دهد: پیدا کردن وسایل شخصی و پاسخ‌دادن با شکل مؤدبانهٔ مالکیت.",
-    "sequenceRationale": "مکالمه مفرد را معرفی می‌کند، تمرین تشخیص مفرد/جمع را گسترش می‌دهد و تطبیق چند وسیله دامنه را وسیع‌تر می‌کند.",
-    "templateSignature": "conversation_speaking>multiple_choice>matching"
+    "activitySelectionRationale": "گفت‌وگوی آغازین پرسش و پاسخ محل وسایل را در بافت واقعی تمرین می‌کند. پس از آن تشخیص مفرد/جمع، وصل‌کردن چند پرسش و پاسخ، و در پایان تکمیل هدایت‌شدهٔ شکل مناسب Ihr/Ihre سه نیاز متفاوت را پوشش می‌دهند.",
+    "sequenceRationale": "پس از گفت‌وگو، ابتدا تفاوت مفرد و جمع تشخیص داده می‌شود، سپس چند نمونهٔ پرسش/پاسخ به هم وصل می‌شوند و در پایان همان تمایز در یک تکمیل هدایت‌شده بازیابی می‌شود. فعالیت چهارم به‌خاطر نیاز مشخصِ فرم مالکیت جمع اضافه شده است، نه برای رسیدن به عدد ثابت.",
+    "templateSignature": "conversation_speaking>multiple_choice>matching>fill_blank"
   },
   "activities": [
     {
@@ -127,6 +127,41 @@
       },
       "transformations": [
         "source_items_grouped_for_matching",
+        "persian_translation_added"
+      ],
+      "audioStatus": "not_required"
+    },
+    {
+      "id": "act-de-a1-home-review-possessive-fill",
+      "type": "fill_blank",
+      "instructionFa": "برای عبارت جمعِ «کتاب‌ها» شکل درست Ihr/Ihre را انتخاب کن.",
+      "selectionReason": "هدف این درس تمایز مفرد و جمع در پاسخ دربارهٔ وسایل است؛ این تکمیل هدایت‌شده همان تمایز را با یک جملهٔ منبع‌دار و بدون ساخت متن آلمانی تازه تمرین می‌کند.",
+      "sourceRefs": [
+        "src-wikibooks-de-lesson-007-room-objects"
+      ],
+      "learningTargets": [
+        "شکل مناسب مالکیت رسمی را در پاسخ جمع به‌صورت هدایت‌شده کامل کند."
+      ],
+      "lexemeRefs": [],
+      "dialogueRef": null,
+      "data": {
+        "sourceText": "Ihre Bücher sind hier.",
+        "sourceTextFa": "کتاب‌های شما اینجاست.",
+        "blankedText": "___ Bücher sind hier.",
+        "blankedTextFa": "___ کتاب‌های شما اینجاست.",
+        "choices": [
+          "Ihr",
+          "Ihre"
+        ],
+        "choicesFa": [
+          "شکل «Ihr»",
+          "شکل «Ihre»"
+        ],
+        "answer": "Ihre"
+      },
+      "transformations": [
+        "source_sentence_blank_created",
+        "options_selected_from_source_material",
         "persian_translation_added"
       ],
       "audioStatus": "not_required"
