@@ -66,10 +66,15 @@ mapfile -t content_files < /tmp/content_files.txt
 test "${#content_files[@]}" -gt 0
 printf 'Canonical content SQL files:\n%s\n' "${content_files[@]}"
 
+mapfile -t view_sql_files < <(find database/views -type f -name '*.sql' 2>/dev/null | sort || true)
 mapfile -t audio_sql_files < <(find database/audio -type f -name '*.sql' 2>/dev/null | sort || true)
 
 for file in "${content_files[@]}"; do
   echo "Applying $file"
+  mysql_file "$file"
+done
+for file in "${view_sql_files[@]}"; do
+  echo "Applying runtime view $file"
   mysql_file "$file"
 done
 
